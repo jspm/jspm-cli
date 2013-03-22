@@ -37,7 +37,7 @@ define(['http-amd/json'], function(http) {
     publishAll: function(name, endpoint) {
       http.post(baseUrl + '/publish_all', {
         name: name,
-        endpoint
+        endpoint: endpoint
       }, function(res) {
         console.log(res);
       }, function(err) {
