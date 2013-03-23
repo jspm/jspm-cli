@@ -1,4 +1,5 @@
 {
+  "name": "jscom",
   "dependencies": {
     "http-amd": "~0.0.1"
   }
