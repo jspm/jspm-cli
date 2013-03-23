@@ -2,6 +2,6 @@
   "name": "jscom",
   "version": "0.0.1",
   "dependencies": {
-    "http-amd": "~0.0.1"
+    "http-amd": "guybedford/http-amd#~0.0.1"
   }
 }
