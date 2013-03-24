@@ -7,6 +7,7 @@ define(['http-amd/json'], function(http) {
         username: username,
         password: password
       }, function(res) {
+        this.key = res.key;
         console.log(res);
       }, function(err) {
         console.log(err);
@@ -16,7 +17,8 @@ define(['http-amd/json'], function(http) {
       http.post(baseUrl + '/register', {
         username: username,
         password: password,
-        email: email
+        email: email,
+        key: this.key
       }, function(res) {
         console.log(res);
       }, function(err) {
@@ -27,7 +29,8 @@ define(['http-amd/json'], function(http) {
       http.post(baseUrl + '/publish', {
         name: name,
         endpoint: endpoint,
-        version: version
+        version: version,
+        key: this.key
       }, function(res) {
         console.log(res);
       }, function(err) {
@@ -37,7 +40,8 @@ define(['http-amd/json'], function(http) {
     publishAll: function(name, endpoint) {
       http.post(baseUrl + '/publish_all', {
         name: name,
-        endpoint: endpoint
+        endpoint: endpoint,
+        key: this.key
       }, function(res) {
         console.log(res);
       }, function(err) {
