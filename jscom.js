@@ -7,7 +7,7 @@ define(['http-amd/json'], function(http) {
         username: username,
         password: password
       }, function(res) {
-        this.key = res.key;
+        jscom.key = res.key;
         console.log(res);
       }, function(err) {
         console.log(err);
