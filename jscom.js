@@ -4,8 +4,8 @@ define(['http-amd/json'], function(http) {
   var jscom = {
     login: function(username, password) {
       http.post(baseUrl + '/login', {
-        username: username,
-        password: password
+        username: username || prompt('Enter your username:'),
+        password: password || prompt('Enter your password:')
       }, function(res) {
         jscom.key = res.key;
         console.log(res);
@@ -15,9 +15,9 @@ define(['http-amd/json'], function(http) {
     },
     register: function(username, password, email) {
       http.post(baseUrl + '/register', {
-        username: username,
-        password: password,
-        email: email,
+        username: username || prompt('Enter your username:'),
+        password: password || prompt('Enter your password:'),
+        email: email
       }, function(res) {
         jscom.key = res.key;
         console.log(res);
