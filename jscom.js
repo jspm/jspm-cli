@@ -15,7 +15,7 @@ define(['http-amd/json'], function(http) {
         if (res.result == 'ok')
           console.log('Login successful.');
       }, function(err) {
-        console.log(err.response ? (err.response.message || err.response) : err);
+        console.log(err.message || err);
       });
     },
     register: function(username, password, email) {
@@ -33,7 +33,7 @@ define(['http-amd/json'], function(http) {
         if (res.result == 'ok')
           console.log('Registration complete.');
       }, function(err) {
-        console.log(err.response ? err.response.message : err);
+        console.log(err.message || err);
       });
     },
     publish: function(name, endpoint, version) {
@@ -47,7 +47,7 @@ define(['http-amd/json'], function(http) {
         if (res.result == 'ok')
           console.log(name + '#' + version + ' successfully published.');
       }, function(err) {
-        console.log(err.response ? err.response.message : err);
+        console.log(err.message || err);
       });
     },
     publishAll: function(name, endpoint) {
@@ -64,7 +64,7 @@ define(['http-amd/json'], function(http) {
             console.log('No new versions of ' + name + ' to publish.');
         }
       }, function(err) {
-        console.log(err.response ? err.response.message : err);
+        console.log(err.message || err);
       });
     } 
   };
