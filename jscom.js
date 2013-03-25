@@ -14,6 +14,8 @@ define(['http-amd/json'], function(http) {
         delete res.key;
         if (res.result == 'ok')
           console.log('Login successful.');
+        else if (res.result == 'error')
+          console.log(res.message);
       }, function(err) {
         console.log(err.message || err);
       });
@@ -32,6 +34,8 @@ define(['http-amd/json'], function(http) {
         delete res.key;
         if (res.result == 'ok')
           console.log('Registration complete.');
+        else if (res.result == 'error')
+          console.log(res.message);
       }, function(err) {
         console.log(err.message || err);
       });
@@ -46,6 +50,8 @@ define(['http-amd/json'], function(http) {
       }, function(res) {
         if (res.result == 'ok')
           console.log(name + '#' + version + ' successfully published.');
+        else if (res.result == 'error')
+          console.log(res.message);
       }, function(err) {
         console.log(err.message || err);
       });
@@ -63,6 +69,8 @@ define(['http-amd/json'], function(http) {
           else
             console.log('No new versions of ' + name + ' to publish.');
         }
+        else if (res.result == 'error')
+          console.log(res.message);
       }, function(err) {
         console.log(err.message || err);
       });
