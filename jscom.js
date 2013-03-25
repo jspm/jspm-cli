@@ -15,7 +15,7 @@ define(['http-amd/json'], function(http) {
         if (res.result == 'ok')
           console.log('Login successful.');
       }, function(err) {
-        console.log(err.response ? err.response.message : err);
+        console.log(err.response ? (err.response.message || err.response) : err);
       });
     },
     register: function(username, password, email) {
