@@ -10,7 +10,7 @@ define(['http-amd/json'], function(http) {
         username: username,
         password: password
       }, function(res) {
-        jscom.key = res.key;
+        jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
           console.log('Login successful.');
@@ -30,7 +30,7 @@ define(['http-amd/json'], function(http) {
         password: password,
         email: email
       }, function(res) {
-        jscom.key = res.key;
+        jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
           console.log('Registration complete.');
