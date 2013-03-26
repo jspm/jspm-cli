@@ -1,5 +1,5 @@
 define(['http-amd/json'], function(http) {
-  var baseUrl = 'http://api.jspm.co';
+  var baseUrl = 'https://api.jspm.io';
   
   var jspm = {
     login: function(username, password) {
