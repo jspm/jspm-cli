@@ -40,14 +40,14 @@ define(['http-amd/json'], function(http) {
         console.log(err.message || err);
       });
     },
-    publish: function(name, endpoint, version) {
+    publish: function(name, endpoint, version, options) {
       console.log('Publishing ' + name + '...');
-      http.post(baseUrl + '/publish', {
-        name: name,
-        endpoint: endpoint,
-        version: version,
-        key: this.key
-      }, function(res) {
+      options = options || {};
+      options.name = name;
+      options.endpoint = endpoint;
+      options.version = version;
+      options.key = this.key;
+      http.post(baseUrl + '/publish', options, function(res) {
         if (res.result == 'ok')
           console.log(name + '#' + version + ' successfully published.');
         else if (res.result == 'error')
@@ -55,6 +55,7 @@ define(['http-amd/json'], function(http) {
       }, function(err) {
         console.log(err.message || err);
       });
+      delete options.key;
     },
     publishAll: function(name, endpoint) {
       console.log('Publishing all versions of ' + name + '...');
