@@ -1,7 +1,7 @@
 define(['http-amd/json'], function(http) {
   var baseUrl = 'http://api.jspm.co';
   
-  var jscom = {
+  var jspm = {
     login: function(username, password) {
       http.post(baseUrl + '/login', {
         username: username || prompt('Enter your username:'),
@@ -49,6 +49,6 @@ define(['http-amd/json'], function(http) {
       });
     } 
   };
-  window.jscom = jscom;
-  return jscom;
+  window.jspm = jspm;
+  return jspm;
 });
