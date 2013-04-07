@@ -3,7 +3,7 @@ define(['http-amd/json'], function(http) {
   
   var logStyle = {
     msg: 'color: #333;',
-    ok: 'color: #6D5;'
+    ok: 'color: #6D5;',
     warn: 'color: #EB3;',
     error: 'color: #B01;'
   };
