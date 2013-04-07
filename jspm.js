@@ -15,7 +15,7 @@ define(['http-amd/json'], function(http) {
     login: function(username, password) {
       username = username || prompt('Enter your username:');
       password = password || prompt('Enter your password:');
-      console.log('Logging in...');
+      log('Logging in...');
       http.post(baseUrl + '/login', {
         username: username,
         password: password
@@ -23,18 +23,18 @@ define(['http-amd/json'], function(http) {
         jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
-          console.log('Login successful.', 'ok');
+          log('Login successful.', 'ok');
         else if (res.result == 'error')
-          console.log(res.message, 'warn');
+          log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err, 'error');
+        log(err.message || err, 'error');
       });
     },
     register: function(username, password, email) {
       username = username || prompt('Enter a username:');
       password = password || prompt('Enter your password:');
       email = email || prompt('Enter your email:');
-      console.log('Registering...');
+      log('Registering...');
       http.post(baseUrl + '/register', {
         username: username,
         password: password,
@@ -43,15 +43,15 @@ define(['http-amd/json'], function(http) {
         jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
-          console.log('Registration complete.', 'ok');
+          log('Registration complete.', 'ok');
         else if (res.result == 'error')
-          console.log(res.message, 'warn');
+          log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err, 'error');
+        log(err.message || err, 'error');
       });
     },
     publish: function(name, endpoint, version, options) {
-      console.log('Publishing ' + name + '...');
+      log('Publishing ' + name + '...');
       options = options || {};
       options.name = name;
       options.endpoint = endpoint;
@@ -59,16 +59,16 @@ define(['http-amd/json'], function(http) {
       options.key = this.key;
       http.post(baseUrl + '/publish', options, function(res) {
         if (res.result == 'ok')
-          console.log(name + '#' + version + ' successfully published.', 'ok');
+          log(name + '#' + version + ' successfully published.', 'ok');
         else if (res.result == 'error')
-          console.log(res.message, 'warn');
+          log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err, 'error');
+        log(err.message || err, 'error');
       });
       delete options.key;
     },
     publishAll: function(name, endpoint) {
-      console.log('Publishing all versions of ' + name + '...');
+      log('Publishing all versions of ' + name + '...');
       http.post(baseUrl + '/publish_all', {
         name: name,
         endpoint: endpoint,
@@ -76,14 +76,14 @@ define(['http-amd/json'], function(http) {
       }, function(res) {
         if (res.status == 'ok') {
           if (res.created.length)
-            console.log('Successfully published versions ' + res.created.join(', ') + ' of ' + name + '.', 'ok');
+            log('Successfully published versions ' + res.created.join(', ') + ' of ' + name + '.', 'ok');
           else
-            console.log('No new versions of ' + name + ' to publish.', 'ok');
+            log('No new versions of ' + name + ' to publish.', 'ok');
         }
         else if (res.result == 'error')
-          console.log(res.message, 'warn');
+          log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err, 'error');
+        log(err.message || err, 'error');
       });
     } 
   };
