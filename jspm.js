@@ -1,6 +1,16 @@
 define(['http-amd/json'], function(http) {
   var baseUrl = 'https://api.jspm.io';
   
+  var logStyle = {
+    msg: 'color: #333;',
+    ok: 'color: #6D5;'
+    warn: 'color: #EB3;',
+    error: 'color: #B01;'
+  };
+  var log = function(msg, type) {
+    console.log('%c' + msg, 'font-size: 12px; font-family: monospace; padding-left: 20px;' + logStyle[type || 'msg']);
+  }
+  
   var jspm = {
     login: function(username, password) {
       username = username || prompt('Enter your username:');
@@ -13,11 +23,11 @@ define(['http-amd/json'], function(http) {
         jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
-          console.log('Login successful.');
+          console.log('Login successful.', 'ok');
         else if (res.result == 'error')
-          console.log(res.message);
+          console.log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err);
+        console.log(err.message || err, 'error');
       });
     },
     register: function(username, password, email) {
@@ -33,11 +43,11 @@ define(['http-amd/json'], function(http) {
         jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
-          console.log('Registration complete.');
+          console.log('Registration complete.', 'ok');
         else if (res.result == 'error')
-          console.log(res.message);
+          console.log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err);
+        console.log(err.message || err, 'error');
       });
     },
     publish: function(name, endpoint, version, options) {
@@ -49,11 +59,11 @@ define(['http-amd/json'], function(http) {
       options.key = this.key;
       http.post(baseUrl + '/publish', options, function(res) {
         if (res.result == 'ok')
-          console.log(name + '#' + version + ' successfully published.');
+          console.log(name + '#' + version + ' successfully published.', 'ok');
         else if (res.result == 'error')
-          console.log(res.message);
+          console.log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err);
+        console.log(err.message || err, 'error');
       });
       delete options.key;
     },
@@ -66,14 +76,14 @@ define(['http-amd/json'], function(http) {
       }, function(res) {
         if (res.status == 'ok') {
           if (res.created.length)
-            console.log('Successfully published versions ' + res.created.join(', ') + ' of ' + name + '.');
+            console.log('Successfully published versions ' + res.created.join(', ') + ' of ' + name + '.', 'ok');
           else
-            console.log('No new versions of ' + name + ' to publish.');
+            console.log('No new versions of ' + name + ' to publish.', 'ok');
         }
         else if (res.result == 'error')
-          console.log(res.message);
+          console.log(res.message, 'warn');
       }, function(err) {
-        console.log(err.message || err);
+        console.log(err.message || err, 'error');
       });
     } 
   };
