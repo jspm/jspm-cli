@@ -30,12 +30,14 @@ define(['http-amd/json'], function(http) {
         log(err.message || err, 'error');
       });
     },
-    register: function(username, password, email) {
+    register: function(username, password, email, code) {
+      code = code || prompt('Enter your beta registration code:');
       username = username || prompt('Enter a username:');
       password = password || prompt('Enter your password:');
       email = email || prompt('Enter your email:');
       log('Registering...');
       http.post(baseUrl + '/register', {
+        code: code,
         username: username,
         password: password,
         email: email
