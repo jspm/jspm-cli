@@ -20,6 +20,18 @@ define(['http-amd/json', '@'], function(http, v) {
     createApp: function(name) {
       name = name || prompt('Provide an application name:');
       log('Creating application...');
+
+      // gather up modules
+      var modules = {};
+      for (var m in requirejs.s.contexts._.defined) {
+        var versionMatch = m.match(/(.*)-(\d+\.\d+\.\d+(-[a-z][0-9a-z-]*)?)\//);
+        if (!versionMatch)
+          continue;
+        var moduleName = versionMatch[1];
+        var version = versionMatch[2];
+        modules[moduleName] = version;
+      }
+
       http.post(baseUrl + '/createApp', {
         name: name,
         modules: modules
