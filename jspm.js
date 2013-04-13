@@ -1,4 +1,4 @@
-define(['http-amd/json', '@'], function(http, @) {
+define(['http-amd/json', '@'], function(http, v) {
   var baseUrl = 'https://api.jspm.io';
   
   var logStyle = {
@@ -12,7 +12,7 @@ define(['http-amd/json', '@'], function(http, @) {
   }
 
   var modules = [];
-  @.onLoad = function(moduleName, version, master) {
+  v.onLoad = function(moduleName, version, master) {
     modules.push(moduleName + '#' + version);
   }
   
