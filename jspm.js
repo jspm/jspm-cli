@@ -24,7 +24,7 @@ define(['http-amd/json', '@'], function(http, v) {
       // gather up modules
       var modules = {};
       for (var m in requirejs.s.contexts._.defined) {
-        var versionMatch = m.match(/(.*)-(\d+\.\d+\.\d+(-[a-z][0-9a-z-]*)?)\//);
+        var versionMatch = m.match(/([^!]*)-(\d+\.\d+\.\d+(-[a-z][0-9a-z-]*)?)\//);
         if (!versionMatch)
           continue;
         var moduleName = versionMatch[1];
@@ -37,7 +37,7 @@ define(['http-amd/json', '@'], function(http, v) {
         modules: modules
       }, function(res) {
         if (res.result == 'ok')
-          log('Application created.', 'ok');
+          log('Application "' + name + '" created successfully.', 'ok');
         else if (res.result == 'error')
           log(res.message, 'warn');
       }, function(err) {
