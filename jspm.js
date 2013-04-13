@@ -20,6 +20,7 @@ define(['http-amd/json'], function(http) {
         username: username,
         password: password
       }, function(res) {
+        if (!res) log('No response.', 'error');
         jspm.key = res.key;
         delete res.key;
         if (res.result == 'ok')
