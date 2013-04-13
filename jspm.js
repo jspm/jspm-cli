@@ -1,4 +1,4 @@
-define(['http-amd/json'], function(http) {
+define(['http-amd/json', '@'], function(http, @) {
   var baseUrl = 'https://api.jspm.io';
   
   var logStyle = {
@@ -10,8 +10,28 @@ define(['http-amd/json'], function(http) {
   var log = function(msg, type) {
     console.log('%c' + msg, 'font-size: 12px; font-family: monospace; padding-left: 20px;' + logStyle[type || 'msg']);
   }
+
+  var modules = [];
+  @.onLoad = function(moduleName, version, master) {
+    modules.push(moduleName + '#' + version);
+  }
   
   var jspm = {
+    createApp: function(name) {
+      name = name || prompt('Provide an application name:');
+      log('Creating application...');
+      http.post(baseUrl + '/createApp', {
+        name: name,
+        modules: modules
+      }, function(res) {
+        if (res.result == 'ok')
+          log('Application created.', 'ok');
+        else if (res.result == 'error')
+          log(res.message, 'warn');
+      }, function(err) {
+        log(err.message || err, 'error');
+      });
+    },
     login: function(username, password) {
       username = username || prompt('Enter your username:');
       password = password || prompt('Enter your password:');
