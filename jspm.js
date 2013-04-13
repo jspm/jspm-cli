@@ -33,6 +33,7 @@ define(['http-amd/json', '@'], function(http, v) {
       }
 
       http.post(baseUrl + '/createApp', {
+        key: this.key,
         name: name,
         modules: modules
       }, function(res) {
