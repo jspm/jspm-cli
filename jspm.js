@@ -24,7 +24,10 @@ define(['http-amd/json'], function(http) {
           continue;
         var moduleName = versionMatch[1];
         var version = versionMatch[2];
-        modules[moduleName] = version;
+        if (modules[moduleName])
+          modules[moduleName].push(version);
+        else
+          modules[moduleName] = [version];
       }
 
       http.post(baseUrl + '/createApp', {
