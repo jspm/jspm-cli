@@ -82,6 +82,10 @@ define(['http-amd/json'], function(http) {
       });
     },
     publish: function(name, endpoint, version, options) {
+      if (typeof version == 'object') {
+        options = version;
+        version = '';
+      }
       log('Publishing ' + name + '...');
       options = options || {};
       options.name = name;
