@@ -24,7 +24,7 @@ define(['http-amd/json'], function(http) {
           continue;
         var moduleName = versionMatch[1];
         var version = versionMatch[2];
-        if (modules[moduleName])
+        if (modules[moduleName] && modules[moduleName].indexOf(version) != -1)
           modules[moduleName].push(version);
         else
           modules[moduleName] = [version];
