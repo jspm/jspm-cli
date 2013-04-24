@@ -1,0 +1,7 @@
+{
+  "jspm": {
+    "dependencies": {
+      "http-amd": "0.0.1"
+    }
+  } 
+}
