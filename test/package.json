@@ -1,0 +1,6 @@
+{
+  "jspmConfigFile": "www/config.js",
+  "directories": {
+    "jspmLib": "www/lib"
+  }
+}

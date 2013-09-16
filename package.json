@@ -1,0 +1,15 @@
+{
+  "name": "jspm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "jspm.js",
+  "author": "",
+  "dependencies": {
+    "mkdirp": "~0.3.5",
+    "semver": "~2.1.0",
+    "glob": "~3.2.6",
+    "jspm-loader": "~0.1.2",
+    "rimraf": "~2.2.2",
+    "uglify-js": "~2.4.0"
+  }
+}
