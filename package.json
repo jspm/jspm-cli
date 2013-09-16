@@ -13,6 +13,6 @@
     "uglify-js": "~2.4.0"
   },
   "bin": {
-    "jspm": "./jspm.js"
+    "jspm": "node ./jspm.js"
   }
 }
