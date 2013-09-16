@@ -2,7 +2,7 @@
   "name": "jspm",
   "version": "0.1.0",
   "description": "",
-  "main": "jspm-util",
+  "main": "./jspm-util.js",
   "author": "",
   "dependencies": {
     "mkdirp": "~0.3.5",
