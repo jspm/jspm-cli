@@ -99,6 +99,19 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
           source.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), mapped);
         }
 
+        // apply dependency shim
+        for (var name in packageOptions.dependencyShim) {
+          var shimDeps = packageOptions.dependencyShim[name];
+          if (typeof shimDeps == 'string')
+            shimDeps = [shimDeps];
+          
+          var depStrs = '';
+          for (var i = 0; i < shimDeps.length; i++)
+            depStrs += '"import ' + shimDeps[i] + '";\n';
+          
+          source = depStrs + source;
+        }
+
         // parse out external dependencies
         var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
         for (var j = 0; j < imports.length; j++)
@@ -118,7 +131,6 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
   });
 }
 jspmUtil.compile = function(repoPath, buildOptions, callback, errback) {
-  // NB add source map support at file.map
   glob(repoPath + '/**/*.js', function(err, files) {
     if (err)
       return errback(err);
@@ -142,7 +154,7 @@ jspmUtil.compile = function(repoPath, buildOptions, callback, errback) {
           process.chdir(repoPath);
           var result = uglifyJS.minify(path.relative(repoPath, file) + '.original', {
             outSourceMap: path.relative(repoPath, file) + '.map',
-            compress: buildOptions && buildOptions.uglifyjs
+            compress: buildOptions && buildOptions.uglify
           });
           process.chdir(cwd);
         }
@@ -174,7 +186,7 @@ jspmUtil.compile = function(repoPath, buildOptions, callback, errback) {
 }
 
 jspmUtil.getMain = function(repoPath, packageOptions) {
-  var main = packageOptions.browserMain || packageOptions.main;
+  var main = packageOptions.main;
 
   if (main) {
     if (main.substr(0, 2) == './')
