@@ -10,7 +10,7 @@
     "glob": "~3.2.6",
     "jspm-loader": "~0.1.2",
     "rimraf": "~2.2.2",
-    "uglify-js": "~2.4.0"
+    "uglify-js": "git://github.com/guybedford/UglifyJS2.git"
   },
   "bin": {
     "jspm": "./jspm.js"

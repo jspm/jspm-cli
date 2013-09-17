@@ -259,7 +259,7 @@ var Installer = {
       if (!appConfig.map[initialTarget])
         appConfig.map[initialTarget] = exactName;
 
-      if (appConfig.map[initialTarget] != exactName )
+      if (appConfig.map[initialTarget].split('#')[0] != exactName )
         getYesNo('Update latest ' + initialTarget + ' from ' + appConfig.map[initialTarget] + ' to ' + lookup.version + '?', function(confirm) {
           if (!confirm)
             return callback(true);
@@ -277,7 +277,7 @@ var Installer = {
       var exactName = baseName + '@' + lookup.version + Installer.getMain(baseName + '@' + lookup.version, location, packageOptions);
       if (!appConfig.map[initialTarget])
         appConfig.map[initialTarget] = exactName;
-      if (appConfig.map[initialTarget] != exactName) {
+      if (appConfig.map[initialTarget].split('#')[0] != exactName) {
         getYesNo('Update latest ' + initialTarget + ' from ' + appConfig.map[initialTarget] + ' to ' + lookup.version + '?', function(confirm) {
           if (!confirm)
             return callback(true);
@@ -329,14 +329,19 @@ var Installer = {
     else
       return '';
   },
+  getBasePath: function() {
+    return path.resolve(path.dirname(cmdSettings.configFile));
+  },
+
   // also does processing
   // returns dependencies
-  installRepo: function(repo, lookup, initialVersion, location, initialTarget, packageOptions, callback, errback) {
+  installRepo: function(repo, lookup, location, initialTarget, packageOptions, callback, errback) {
 
     var repoPath = path.resolve(location.baseDir + '/' + repo + '@' + lookup.version);
     var fullName = location.name + ':' + repo + '@' + lookup.version;
 
     rimraf(repoPath, function(err) {
+
       location.download(repo, lookup.version, lookup.hash, repoPath, function() {
 
         // read the package options
@@ -359,15 +364,15 @@ var Installer = {
             for (var i = 0; i < dependencies.length; i++) {
               if (dependencies[i].indexOf(':') == -1) {
                 // NB ask how to deal with unresolved dependency
-                console.log('Ignoring unresolved dependency ' + dependencies[i]);
+                console.log('Ignoring unresolved external dependency ' + dependencies[i]);
                 dependencies.splice(i--, 1);
               }
             }
 
             // run compilation (including minify) if necessary
-            (!isBuilt && jspmUtil.compile || function(repoPath, buildOptions, callback) { 
+            (!isBuilt && jspmUtil.compile || function(repoPath, basePath, buildOptions, callback) { 
               callback();
-            })(repoPath, packageOptions.config, function() {
+            })(repoPath, Installer.getBasePath(), packageOptions.config, function() {
 
               // get the main file
               var main = Installer.getMain(repoPath, packageOptions);
@@ -376,8 +381,10 @@ var Installer = {
               appConfig.map[initialTarget] = fullName + Installer.getMain(fullName, location, packageOptions);
 
               // write to the .jspm-hash file in the folder
+              // also save the package.json
               try {
                 fs.writeFileSync(repoPath + '/.jspm-hash', lookup.hash);
+                fs.writeFileSync(repoPath + '/package.json', JSON.stringify(packageOptions, null, 2));
               }
               catch(e) {}
 
@@ -393,6 +400,40 @@ var Installer = {
       }, errback);
 
     }, errback);
+  },
+  checkPackageOverride: function(location, fullName, callback) {
+    https.get({
+      hostname: 'github.jspm.io',
+      path: '/jspm/registry@master/package-overrides/' + fullName.replace(':', '/') + '.json',
+      rejectUnauthorized: false
+    }, function(res) {
+      if (res.statusCode == 404) {
+        res.socket.destroy();
+        return callback(null, null);
+      }
+
+      if (res.statusCode != 200) {
+        res.socket.destroy();
+        return callback('Error checking for package.json override.');
+      }
+
+      var pjsonData = [];
+      res.on('data', function(chunk) {
+        pjsonData.push(chunk);
+      });
+      res.on('end', function() {
+        try {
+          var pjson = JSON.parse(pjsonData.join(''));
+        }
+        catch(e) {
+          return callback('Unable to parse override package.json');
+        }
+        callback(null, pjson);
+      });
+      res.on('error', function(err) {
+        callback('Error checking for package.json override.');
+      });
+    });
   },
   install: function(target, initialTarget, packageOptions, callback) {
     if (arguments.length == 2) {
@@ -443,49 +484,60 @@ var Installer = {
         return installing[fullName].push(callback);
       installing[fullName] = [callback];
 
-      // check that what is in the file system matches the lookup
-      Installer.checkRepo(repo, lookup, initialTarget, location, packageOptions, function(isFresh) {
+      // check for a package override
+      (!packageOptions ? Installer.checkPackageOverride : function(location, fullName, callback) {
+        callback(null, packageOptions);
+      })(location, fullName, function(err, packageOptions) {
+        if (err)
+          return callback(err);
 
-        if (isFresh) {
-          console.log(fullName + ' already up to date.');
-          return callback();
-        }
+        // check that what is in the file system matches the lookup
+        Installer.checkRepo(repo, lookup, initialTarget, location, packageOptions, function(isFresh) {
 
-        console.log('Downloading ' + fullName);
-        Installer.installRepo(repo, lookup, version, location, initialTarget, packageOptions, function(dependencies) {
-
-          if (dependencies.length == 0)
-            for (var i = 0; i < installing[fullName].length; i++)
-              installing[fullName][i](0);
-
-          var error = false;
-          var installed = 0;
-
-          var checkComplete = function(err) {
-            if (installed != dependencies.length)
-              return;
-
-            for (var i = 0; i < installing[fullName].length; i++)
-              installing[fullName][i](err);
-
-            delete installing[fullName];
+          if (isFresh) {
+            console.log(fullName + ' already up to date.');
+            return callback();
           }
 
-          for (var i = 0; i < dependencies.length; i++) (function(i) {
-            Installer.install(dependencies[i], function(err) {
-              console.log('Error installing ' + dependencies[i] + '\n' + err);
-              installed++;
-              checkComplete(err);
-            });
-          })(i);
-          
+          console.log('Downloading ' + fullName);
+          Installer.installRepo(repo, lookup, location, initialTarget, packageOptions, function(dependencies) {
+
+            if (dependencies.length == 0)
+              for (var i = 0; i < installing[fullName].length; i++)
+                installing[fullName][i]();
+
+            var error = false;
+            var installed = 0;
+
+            var checkComplete = function(err) {
+              if (installed != dependencies.length)
+                return;
+
+              for (var i = 0; i < installing[fullName].length; i++)
+                installing[fullName][i](err);
+
+              delete installing[fullName];
+            }
+
+            for (var i = 0; i < dependencies.length; i++) (function(i) {
+              Installer.install(dependencies[i], function(err) {
+                if (err)
+                  console.log('Error installing ' + dependencies[i] + '\n' + err);
+                installed++;
+                checkComplete(err);
+              });
+            })(i);
+            
+          }, function(err) {
+            callback('Error downloading repo ' + fullName + '\n' + err);
+          });
+
         }, function(err) {
-          callback('Error downloading repo ' + fullName + '\n' + err);
+          callback('Error checking current repo ' + repo + '@' + lookup.version + '\n' + err);
         });
 
-      }, function(err) {
-        callback('Error checking current repo ' + repo + '@' + lookup.version + '\n' + err);
       });
+
     }, function(err) {
       callback('Error looking up version for ' + repo + '\n' + err);
     });

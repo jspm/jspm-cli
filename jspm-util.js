@@ -9,7 +9,30 @@ var https = require('https');
 
 var jspmUtil = {};
 
+var curOpenFiles = 0;
+var maxOpenFiles = 10;
+
+var readQueue = [];
+
 jspmUtil.exactVersionRegEx = /^(\d+)(\.\d+)(\.\d+)?$/;
+
+
+var readFile = function(file, callback) {
+  if (curOpenFiles >= maxOpenFiles)
+    return readQueue.push({ file: file, callback: callback });
+
+  curOpenFiles++;
+  fs.readFile(file, function(err, source) {
+    curOpenFiles--;
+
+    var next = readQueue.pop();
+    if (next)
+      readFile(next.file, next.callback);
+
+    callback(err, source);
+  });
+}
+
 
 jspmUtil.registryLookup = function(name, callback) {
   var resData = [];
@@ -86,97 +109,143 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
     var processed = 0;
     var dependencies = [];
-    for (var i = 0; i < files.length; i++) {
-      fs.readFile(files[i], function(err, source) {
+    for (var i = 0; i < files.length; i++) (function(fileName) {
+      readFile(fileName, function(err, source) {
         if (err)
           return errback(err);
 
         source += '';
 
+        // apply dependency shim
+        var localPath = path.relative(repoPath, fileName);
+        for (var name in packageOptions.dependencyShim) {
+          var relName = name.substr(0, 2) == './' ? name.substr(2) : name;
+          if (relName.substr(relName.length - 3, 3) != '.js')
+            relName += '.js';
+          if (relName == localPath) {
+            // do dep shim
+            var shimDeps = packageOptions.dependencyShim[name];
+            if (typeof shimDeps == 'string')
+              shimDeps = [shimDeps];
+
+            var depStrs = '';
+            for (var i = 0; i < shimDeps.length; i++)
+              depStrs += '"import ' + shimDeps[i] + '";\n';
+            
+            source = depStrs + source;            
+          }
+        }
+
         // apply dependency map
         for (var name in packageOptions.dependencyMap) {
           var mapped = packageOptions.dependencyMap[name];
-          source.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), mapped);
-        }
-
-        // apply dependency shim
-        for (var name in packageOptions.dependencyShim) {
-          var shimDeps = packageOptions.dependencyShim[name];
-          if (typeof shimDeps == 'string')
-            shimDeps = [shimDeps];
-          
-          var depStrs = '';
-          for (var i = 0; i < shimDeps.length; i++)
-            depStrs += '"import ' + shimDeps[i] + '";\n';
-          
-          source = depStrs + source;
+          name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+          source = source.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + mapped + '\'');
         }
 
         // parse out external dependencies
-        var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
-        for (var j = 0; j < imports.length; j++)
-          if (imports[j].substr(0, 1) != '.')
-            if (dependencies.indexOf(imports[j]) == -1)
-              dependencies.push(imports[j]);
+        if (packageOptions.config && packageOptions.config.traceDependencies)
+          var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
+          for (var j = 0; j < imports.length; j++)
+            if (imports[j].substr(0, 1) != '.')
+              if (dependencies.indexOf(imports[j]) == -1)
+                dependencies.push(imports[j]);
 
-        processed++;
+        // save back source
+        fs.writeFile(fileName, source, function(err) {
+          if (err)
+            return errback(err);
 
-        if (processed == files.length)
-          callback(dependencies);
+          processed++;
+
+          if (processed == files.length)
+            callback(dependencies);
+
+        });
+
       });
-    }
+    })(files[i]);
 
     if (!files.length)
       callback(dependencies);
   });
 }
-jspmUtil.compile = function(repoPath, buildOptions, callback, errback) {
+jspmUtil.compile = function(repoPath, basePath, buildOptions, callback, errback) {
+
+  if (buildOptions.uglify === false)
+    return callback();
+
   glob(repoPath + '/**/*.js', function(err, files) {
     if (err)
       return errback(err);
+
+    // NB auto-convert ES6 into ES5 here, with source maps
+
     
     var completed = 0;
     var error = false;
     for (var i = 0; i < files.length; i++) (function(file) {
+
+      var originalFile = file.replace(/\.js$/, '.src.js');
+
       // avoid symlink loops
-      var exists = fs.existsSync(file + '.original');
+      var exists = fs.existsSync(originalFile);
       if (exists) {
         completed ++;
         if (completed == files.length)
           callback();
         return;
       }
-      fs.renameSync(file, file + '.original');
+      fs.renameSync(file, originalFile);
 
-      process.nextTick(function() {
-        try {
-          var cwd = process.cwd();
-          process.chdir(repoPath);
-          var result = uglifyJS.minify(path.relative(repoPath, file) + '.original', {
-            outSourceMap: path.relative(repoPath, file) + '.map',
-            compress: buildOptions && buildOptions.uglify
-          });
-          process.chdir(cwd);
-        }
-        catch(e) {
-          error || errback(e);
-          return error = true;
-        }
-        result.code += '//@sourceMappingURL=' + path.relative(repoPath, file) + '.map';
-        fs.writeFile(file, result.code, function(err) {
-          if (err) {
-            error || errback(err);
+      readFile(originalFile, function(err, source) {
+        if (err)
+          return errback(err);
+
+        source += '';
+
+        process.nextTick(function() {
+          try {
+            var firstComment = true;
+            var result = uglifyJS.minify(source, {
+              fileName: originalFile,
+              inSourceMap: fs.existsSync(file + '.map') ? file + '.map' : null,
+              outSourceMap: path.relative(basePath, file) + '.map',
+              compress: buildOptions && buildOptions.uglify,
+              output: {
+                comments: function(node, comment) {
+                  if (!firstComment)
+                    return false;
+                  firstComment = false;
+                  return true;
+                }
+              },
+              fromString: true
+            });
+          }
+          catch(e) {
+            error || errback(e);
             return error = true;
           }
-          fs.writeFile(file + '.map', result.map, function(err) {
-            if (err)
-              return errback(err);
-            completed++;
 
-            if (completed == files.length)
-              callback();
+          fs.writeFile(file, result.code + '//#sourceMappingURL=' + path.relative(basePath, file) + '.map', function(err) {
+            if (err) {
+              error || errback(err);
+              return error = true;
+            }
+            fs.writeFile(file + '.map', result.map, function(err) {
+              if (err)
+                return errback(err);
+              completed++;
+
+              if (completed == files.length)
+                callback();
+            });
           });
+
+
         });
+
       });
     })(files[i]);
 
@@ -193,7 +262,7 @@ jspmUtil.getMain = function(repoPath, packageOptions) {
       main = main.substr(2);
     if (main.substr(main.length - 3, 3) == '.js')
       main = main.substr(0, main.length - 3);
-    if (fs.existsSync(repoPath + main + '.js'))
+    if (fs.existsSync(repoPath + '/' + main + '.js'))
       return main;
   }
 

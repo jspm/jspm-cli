@@ -5,8 +5,15 @@
     <title>Test page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <script src='lib/loader.js'></script>
+    <script src='../../../es6-module-loader/lib/es6-module-loader.js'></script>
+    <script src='../../../jspm-loader/loader.js'></script>
     <script src='config.js'></script>
+
+    <script>
+      jspm.import('npm:lodash-amd', function(lodash) {
+        console.log(lodash);
+      });
+    </script>
   </head>
   <body>
     
