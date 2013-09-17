@@ -381,7 +381,7 @@ var Installer = {
               appConfig.map[initialTarget] = fullName + Installer.getMain(fullName, location, packageOptions);
 
               // write to the .jspm-hash file in the folder
-              // also save the package.json
+              // also save the overridden package.json
               try {
                 fs.writeFileSync(repoPath + '/.jspm-hash', lookup.hash);
                 fs.writeFileSync(repoPath + '/package.json', JSON.stringify(packageOptions, null, 2));

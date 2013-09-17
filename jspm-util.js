@@ -59,9 +59,9 @@ jspmUtil.registryLookup = function(name, callback) {
   });
 }
 
-jspmUtil.extend = function(objA, objB) {
+jspmUtil.extend = function(objA, objB, deep) {
   for (var p in objB)
-    if (typeof objA[p] == 'object')
+    if (deep && typeof objA[p] == 'object')
       jspmUtil.extend(objA[p], objB[p]);
     else
       objA[p] = objB[p];
@@ -171,6 +171,8 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
   });
 }
 jspmUtil.compile = function(repoPath, basePath, buildOptions, callback, errback) {
+
+  buildOptions = buildOptions || {};
 
   if (buildOptions.uglify === false)
     return callback();
