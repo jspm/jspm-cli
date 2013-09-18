@@ -173,7 +173,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
       callback(dependencies);
   });
 }
-jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback, errback) {
+jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback) {
 
   buildOptions = buildOptions || {};
 
@@ -182,13 +182,13 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback,
 
   glob(repoPath + '/**/*.js', function(err, files) {
     if (err)
-      return errback(err);
+      return callback(err);
 
     // NB auto-convert ES6 into ES5 here, with source maps
 
     
     var completed = 0;
-    var error = false;
+    var errors = '';
     for (var i = 0; i < files.length; i++) (function(file) {
 
       var originalFile = file.replace(/\.js$/, '.src.js');
@@ -204,8 +204,11 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback,
       fs.renameSync(file, originalFile);
 
       readFile(originalFile, function(err, source) {
-        if (err)
-          return errback(err);
+        if (err) {
+          errors += err + '\n';
+          completed++;
+          return;
+        }
 
         source += '';
 
@@ -213,9 +216,9 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback,
           try {
             var firstComment = true;
             var result = uglifyJS.minify(source, {
-              fileName: originalFile,
+              fileName: path.relative(path.dirname(originalFile), originalFile),
               inSourceMap: fs.existsSync(file + '.map') ? file + '.map' : null,
-              outSourceMap: path.relative(basePath, file) + '.map',
+              outSourceMap: path.relative(path.dirname(file), file) + '.map',
               compress: buildOptions && buildOptions.uglify,
               output: {
                 comments: function(node, comment) {
@@ -229,25 +232,39 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback,
             });
           }
           catch(e) {
-            error || errback(e);
-            return error = true;
+            // revert to the orginal file
+            fs.renameSync(originalFile, file);
+            errors += e + '\n';
+            completed++;
+            return;
           }
 
-          fs.writeFile(file, result.code + '//#sourceMappingURL=' + (baseURL || '') + path.relative(basePath, file) + '.map', function(err) {
+          fs.writeFile(file, result.code
+            + '\n//# sourceMappingURL=' + (baseURL || '') + path.relative(basePath, file) + '.map', function(err) {
             if (err) {
-              error || errback(err);
-              return error = true;
+              errors += err + '\n';
+              completed++;
+              return;
             }
             fs.writeFile(file + '.map', result.map, function(err) {
-              if (err)
-                return errback(err);
+              if (err) {
+                errors += err + '\n';
+                completed++;
+                return;
+              }
               completed++;
 
-              if (completed == files.length)
-                callback();
+              if (completed == files.length) {
+                if (errors) {
+                  fs.writeFile(repoPath + '/jspm-build.log', file + '\n' + errors, function(err) {
+                    callback(file + '\n' + errors);
+                  });
+                }
+                else
+                  callback();
+              }
             });
           });
-
 
         });
 
