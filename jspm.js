@@ -372,7 +372,7 @@ var Installer = {
             // run compilation (including minify) if necessary
             (!isBuilt && jspmUtil.compile || function(repoPath, basePath, buildOptions, callback) { 
               callback();
-            })(repoPath, Installer.getBasePath(), packageOptions.config, function() {
+            })(repoPath, Installer.getBasePath(), null, packageOptions.config, function() {
 
               // get the main file
               var main = Installer.getMain(repoPath, packageOptions);

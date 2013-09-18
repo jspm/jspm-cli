@@ -144,12 +144,15 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         }
 
         // parse out external dependencies
-        if (packageOptions.config && packageOptions.config.traceDependencies)
+        if (packageOptions.config && packageOptions.config.traceDependencies) {
           var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
-          for (var j = 0; j < imports.length; j++)
-            if (imports[j].substr(0, 1) != '.')
-              if (dependencies.indexOf(imports[j]) == -1)
-                dependencies.push(imports[j]);
+          if (imports) {
+            for (var j = 0; j < imports.length; j++)
+              if (imports[j].substr(0, 1) != '.')
+                if (dependencies.indexOf(imports[j]) == -1)
+                  dependencies.push(imports[j]);
+          }
+        }
 
         // save back source
         fs.writeFile(fileName, source, function(err) {
@@ -170,7 +173,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
       callback(dependencies);
   });
 }
-jspmUtil.compile = function(repoPath, basePath, buildOptions, callback, errback) {
+jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback, errback) {
 
   buildOptions = buildOptions || {};
 
@@ -230,7 +233,7 @@ jspmUtil.compile = function(repoPath, basePath, buildOptions, callback, errback)
             return error = true;
           }
 
-          fs.writeFile(file, result.code + '//#sourceMappingURL=' + path.relative(basePath, file) + '.map', function(err) {
+          fs.writeFile(file, result.code + '//#sourceMappingURL=' + (baseURL || '') + path.relative(basePath, file) + '.map', function(err) {
             if (err) {
               error || errback(err);
               return error = true;
