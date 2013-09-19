@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 var traceur = require('traceur');
-process.stdin.resume();
-process.stdin.on('data', function(inData) {
+var inData = [];
+process.stdin.on('data', function(data) {
+  inData.push(data);
+});
+process.stdin.on('end', function(data) {
+  inData.push(data || '');
   try {
-    var o = JSON.parse(inData);
+    var o = JSON.parse(inData.join(''));
   }
   catch(e) {
+    process.stderr.write(inData.join(''));
     process.stderr.write('Invalid options data.');
     return process.exit(1);
   }
@@ -44,3 +49,4 @@ process.stdin.on('data', function(inData) {
   }));
   process.exit(0);
 });
+process.stdin.resume();

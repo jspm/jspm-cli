@@ -193,19 +193,27 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
     cwd: __dirname,
     timeout: 120
   });
-  child.stderr.on('data', function(stderr) {
-    callback(stderr + '');
+  var stderr = '';
+  var stdout = '';
+  child.stderr.on('data', function(data) {
+    stderr += data;
   });
-  child.stdout.on('data', function(stdout) {
+  child.stdout.on('data', function(data) {
+    stdout += data;
+  });
+  child.on('exit', function(code) {
+    if (code != 0)
+      return callback(stderr);
     try {
-      var output = JSON.parse(stdout)
+      var output = JSON.parse(stdout);
     }
     catch(e) {
       return callback('Invalid output.');
     }
-
     callback(null, output.source, output.sourceMap);
   });
+  child.stdin.on('error', function() {});
+  child.stdout.on('error', function() {});
   child.stdin.write(JSON.stringify({
     source: source,
     sourceMap: sourceMap,
@@ -243,6 +251,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
       completed++;
       if (completed == files.length) {
         if (errors) {
+          console.log(errors);
           fs.writeFile(repoPath + '/jspm-build.log', file + '\n' + errors, function() {
             callback(errors);
           });
