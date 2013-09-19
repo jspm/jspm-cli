@@ -350,6 +350,7 @@ var Installer = {
           pjson = JSON.parse(fs.readFileSync(repoPath + '/package.json'));
         }
         catch(e) {}
+
         pjson = pjson || {};
 
         packageOptions = jspmUtil.extend(pjson, packageOptions);
