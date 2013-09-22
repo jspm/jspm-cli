@@ -28,8 +28,7 @@ process.stdin.on('end', function(data) {
     var o = JSON.parse(inData.join(''));
   }
   catch(e) {
-    process.stderr.write(inData.join(''));
-    process.stderr.write('Invalid options data.');
+    process.stdout.write(JSON.stringify({ err: 'Bad input.' }));
     return process.exit(1);
   }
 
@@ -48,8 +47,8 @@ process.stdin.on('end', function(data) {
 
   var reporter = new traceur.util.ErrorReporter();
   reporter.reportMessageInternal = function(location, kind, format, args) {
-    process.stderr.write(kind + '\n' + o.file + location);
-    process.exit(1);
+    process.stdout.write(JSON.stringify({ err: kind + '\n' + o.file + location }));
+    process.exit(0);
   }
 
   var sourceFile = new traceur.syntax.SourceFile(o.file, o.source);

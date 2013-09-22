@@ -299,39 +299,37 @@ jspmUtil.transpile = function(source, sourceMap, file, originalFile, callback) {
 }
 
 var curSpawns = 0;
-var maxSpawns = 50;
+var maxSpawns = 10;
 var spawnQueue = [];
 jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, originalFile, callback) {
-  if (curSpawns == 50) {
+  if (curSpawns == maxSpawns) {
     spawnQueue.push([name, source, sourceMap, options, file, originalFile, callback]);
     return;
   }
+  curSpawns++;
   var child = spawn('node', [path.resolve(__dirname, name + '-compiler.js')], {
-    cwd: __dirname,
-    timeout: 120
+    cwd: __dirname
+    // timeout: 120
   });
-  var stderr = '';
-  var stdout = '';
-  child.stderr.on('data', function(data) {
-    stderr += data;
-  });
+  var stdout = [];
   child.stdout.on('data', function(data) {
-    stdout += data;
+    stdout.push(data);
   });
   child.on('exit', function(code) {
     if (code != 0)
-      return callback(stderr);
+      return callback('Process error.');
+    
     try {
-      var output = JSON.parse(stdout);
+      var output = JSON.parse(stdout.join(''));
     }
     catch(e) {
-      return callback('Invalid output.');
+      return callback(stdout + '');
     }
     curSpawns--;
     if (curSpawns < maxSpawns) {
       var next = spawnQueue.pop();
       if (next)
-        jspmUtil.spawnCompiler.call(null, next);
+        jspmUtil.spawnCompiler.apply(null, next);
     }
     callback(output.err, output.source, output.sourceMap);
   });
