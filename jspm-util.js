@@ -325,7 +325,6 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       var output = JSON.parse(stdout);
     }
     catch(e) {
-      console.log(stdout);
       return callback('Invalid output.');
     }
     curSpawns--;
