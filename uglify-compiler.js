@@ -28,8 +28,7 @@ process.stdin.on('end', function(data) {
     var o = JSON.parse(inData.join(''));
   }
   catch(e) {
-    process.stderr.write(inData.join(''));
-    process.stderr.write('Invalid options data.');
+    process.stdout.write(JSON.stringify({ err: 'Bad input.' }));
     return process.exit(1);
   }
 
@@ -62,8 +61,8 @@ process.stdin.on('end', function(data) {
     }));
   }
   catch(e) {
-    process.stderr.write(e + '');
-    process.exit(1);
+    process.stdout.write(JSON.stringify({ err: e + '' }));
+    process.exit(0);
   }
 });
 process.stdin.resume();

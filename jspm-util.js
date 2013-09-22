@@ -325,6 +325,7 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       var output = JSON.parse(stdout);
     }
     catch(e) {
+      console.log(stdout);
       return callback('Invalid output.');
     }
     curSpawns--;
@@ -333,7 +334,7 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       if (next)
         jspmUtil.spawnCompiler.call(null, next);
     }
-    callback(null, output.source, output.sourceMap);
+    callback(output.err, output.source, output.sourceMap);
   });
   child.stdin.on('error', function() {});
   child.stdout.on('error', function() {});
@@ -374,7 +375,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
       completed++;
       if (completed == files.length) {
         if (errors) {
-          fs.writeFile(repoPath + path.sep + 'jspm-build.log', file + '\n' + errors, function() {
+          fs.writeFile(repoPath + path.sep + 'jspm-build.log', errors, function() {
             callback(errors);
           });
         }
