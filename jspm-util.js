@@ -1,3 +1,20 @@
+/*
+ *   Copyright 2013 Guy Bedford
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ *
+ */
+
 var semver = require('semver');
 var fs = require('fs');
 var path = require('path');
@@ -7,6 +24,8 @@ var jspmLoader = require('jspm-loader');
 var https = require('https');
 var Transpiler = require('es6-module-transpiler').Compiler;
 var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
+var tar = require('tar');
 
 var jspmUtil = {};
 
@@ -34,6 +53,97 @@ var readFile = function(file, callback) {
   });
 }
 
+jspmUtil.dirContains = function(dirName, fileName) {
+  dirName = path.resolve(dirName);
+  fileName = path.resolve(fileName);
+  if (path.relative(dirName, fileName).substr(0, 3) == '..' + path.sep)
+    return false;
+  return true;
+}
+
+jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
+  // take all files
+  glob(dir + path.sep + '**' + path.sep + '*', function(err, allFiles) {
+    
+    // create an array of files to remove
+    var removeFiles = [];
+
+    if (files) {
+      // remove all files not listed by a files directory
+      removeFiles = allFiles;
+      var fileFiles = [];
+      for (var i = 0; i < files.length; i++) {
+        var fileName = path.resolve(dir, files[i]);
+
+        if (fs.statSync(fileName).isDirectory()) {
+          for (var j = 0; j < allFiles.length; j++) {
+            if (!jspmUtil.dirContains(fileName, allFiles[j]))
+              removeFiles.push(files[j])
+          }
+        }
+        else
+          fileFiles.push(fileName);
+      }
+      // if files are specifically included, add them back
+      for (var i = 0; i < fileFiles.length; i++) {
+        if (removeFiles.indexOf(fileFiles[i]) != -1)
+          removeFiles.splice(removeFiles.indexOf(fileFiles[i], 1));
+      }
+    }
+
+    if (ignore) {
+      // remove all files and folders in the ignore list
+      for (var i = 0; i < ignore.length; i++) {
+        var fileName = path.resolve(dir, ignore[i]);
+        if (fs.statSync(fileName).isDirectory()) {
+          for (var j = 0; j < allFiles.length; j++)
+            if (jspmUtil.dirContains(fileName, allFiles[j]))
+              removeFiles.push(files[j]);
+        }
+        else {
+          if (removeFiles.indexOf(fileName) == -1)
+            removeFiles.push(fileName);
+        }
+      }
+    }
+
+    // do the removal
+    var removed = 0;
+    var err;
+
+    var checkComplete = function(_err) {
+      err = err || _err;
+      removed++;
+      if (removed == removeFiles.length)
+        callback(err);
+    }
+
+    for (var i = 0; i < removeFiles.length; i++)
+      fs.unlink(removeFiles[i], checkComplete);
+    
+    if (!removeFiles.length)
+      callback();
+  });
+}
+
+
+jspmUtil.getPackageJSON = function(dir, callback) {
+  fs.readFile(path.resolve(dir, 'package.json'), function(err, pjson) {
+    if (err) {
+      if (err.code == 'ENOENT')
+        return callback(null, null);
+      else
+        return callback(err);
+    }
+    try {
+      pjson = JSON.parse(pjson);
+    }
+    catch(e) {
+      return callback('Unable to parse package.json');
+    }
+    callback(null, pjson);
+  });
+}
 
 jspmUtil.registryLookup = function(name, callback) {
   var resData = [];
@@ -52,7 +162,7 @@ jspmUtil.registryLookup = function(name, callback) {
         result = JSON.parse(resData.join(''));
       }
       catch(e) {
-        return callback(resData.join('') || 'Invalid registry response.');
+        return callback(!resData.join('') ? 'Not found' : 'Invalid registry response.');
       }
       callback(null, result);
     });
@@ -83,8 +193,8 @@ jspmUtil.collapseLibDir = function(repoPath, packageOptions, callback, errback) 
     return callback(isBuilt);
 
   // move lib dir into temporary path
-  var tmpPath = path.resolve(repoPath, '../.tmp-' + repoPath.split('/').pop());
-  fs.rename(repoPath + '/' + collapseDir, tmpPath, function(err) {
+  var tmpPath = path.resolve(repoPath, '..' + path.sep + '.tmp-' + repoPath.split(path.sep).pop());
+  fs.rename(repoPath + path.sep + collapseDir, tmpPath, function(err) {
     if (err)
       return errback(err);
 
@@ -104,7 +214,7 @@ jspmUtil.collapseLibDir = function(repoPath, packageOptions, callback, errback) 
 }
 jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback) {
   // glob. replace map dependency strings (basic string replacement). at the same time, extract external dependencies.
-  glob(repoPath + '/**/*.js', function(err, files) {
+  glob(repoPath + path.sep + '**' + path.sep + '*.js', function(err, files) {
     if (err)
       return errback(err);
 
@@ -179,7 +289,7 @@ jspmUtil.transpile = function(source, sourceMap, file, originalFile, callback) {
   process.nextTick(function() {
     try {
       var transpiler = new Transpiler(source);
-      var output = transpiler.toAMD();
+      var output = '"es6-transpile";\n' + transpiler.toAMD().replace(/\.__default__/g, '\.default');
     }
     catch(e) {
       return callback(e);
@@ -188,7 +298,14 @@ jspmUtil.transpile = function(source, sourceMap, file, originalFile, callback) {
   });
 }
 
+var curSpawns = 0;
+var maxSpawns = 50;
+var spawnQueue = [];
 jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, originalFile, callback) {
+  if (curSpawns == 50) {
+    spawnQueue.push([name, source, sourceMap, options, file, originalFile, callback]);
+    return;
+  }
   var child = spawn('node', [path.resolve(__dirname, name + '-compiler.js')], {
     cwd: __dirname,
     timeout: 120
@@ -210,6 +327,12 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
     catch(e) {
       return callback('Invalid output.');
     }
+    curSpawns--;
+    if (curSpawns < maxSpawns) {
+      var next = spawnQueue.pop();
+      if (next)
+        jspmUtil.spawnCompiler.call(null, next);
+    }
     callback(null, output.source, output.sourceMap);
   });
   child.stdin.on('error', function() {});
@@ -228,7 +351,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
 
   buildOptions = buildOptions || {};
 
-  if (buildOptions.uglify === false)
+  if (!buildOptions.traceur && !buildOptions.transpile && !buildOptions.uglify)
     return callback();
 
   glob(repoPath + '/**/*.js', function(err, files) {
@@ -251,8 +374,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
       completed++;
       if (completed == files.length) {
         if (errors) {
-          console.log(errors);
-          fs.writeFile(repoPath + '/jspm-build.log', file + '\n' + errors, function() {
+          fs.writeFile(repoPath + path.sep + 'jspm-build.log', file + '\n' + errors, function() {
             callback(errors);
           });
         }
@@ -299,7 +421,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
               return fileComplete(err, file, originalFile);
 
             // 5. uglify
-            (buildOptions.uglify !== false ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
+            (buildOptions.uglify ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
               callback(null, source, sourceMap);
             })('uglify', source, sourceMap, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
               if (err)

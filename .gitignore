@@ -1,2 +1,4 @@
 node_modules
-test/www/lib
+test/lib
+test/config.js
+test/app-build

@@ -1,6 +1,17 @@
 {
-  "jspmConfigFile": "www/config.js",
+  "configFile": "config.js",
   "directories": {
-    "jspmLib": "www/lib"
+    "vendor": "lib",
+    "build": "app-build",
+    "lib": "app"
+  },
+  "dependencyMap": {
+    "jquery": "github:components/jquery@2.0.3#jquery",
+    "jquery@1.2": "github:components/jquery@1.2.6#jquery"
+  },
+  "buildConfig": {
+    "uglify": true,
+    "traceur": false,
+    "transpile": true
   }
 }

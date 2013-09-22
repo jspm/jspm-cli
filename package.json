@@ -1,6 +1,7 @@
 {
   "name": "jspm",
-  "version": "0.1.1",
+  "description": "jspm command-line utility",
+  "version": "0.2.0",
   "description": "",
   "main": "./jspm-util.js",
   "author": "",
@@ -10,9 +11,13 @@
     "glob": "~3.2.6",
     "jspm-loader": "~0.1.2",
     "rimraf": "~2.2.2",
-    "uglify-js": "git://github.com/guybedford/UglifyJS2.git",
+    "uglify-js": "~2.4.0",
     "traceur": "0.0.4",
-    "es6-module-transpiler": "git://github.com/square/es6-module-transpiler.git#master"
+    "es6-module-transpiler": "git://github.com/square/es6-module-transpiler.git#bc178ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jspm/jspm.git"
   },
   "bin": {
     "jspm": "./jspm.js"

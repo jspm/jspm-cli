@@ -1,4 +1,22 @@
 #!/usr/bin/env node
+
+/*
+ *   Copyright 2013 Guy Bedford
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ *
+ */
+
 var uglifyJS = require('uglify-js');
 var inData = [];
 process.stdin.on('data', function(data) {
@@ -10,8 +28,8 @@ process.stdin.on('end', function(data) {
     var o = JSON.parse(inData.join(''));
   }
   catch(e) {
-    process.stderr.write(inData);
-    process.stderr.write('Invalid options j data.');
+    process.stderr.write(inData.join(''));
+    process.stderr.write('Invalid options data.');
     return process.exit(1);
   }
 
@@ -42,10 +60,9 @@ process.stdin.on('end', function(data) {
       source: result.code,
       sourceMap: result.map
     }));
-    process.exit(0);
   }
   catch(e) {
-    process.stderr.write(e);
+    process.stderr.write(e + '');
     process.exit(1);
   }
 });
