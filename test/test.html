@@ -5,10 +5,10 @@
     <title>test</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <script src='lib/loader.js'></script>
+    <script src="https://jspm.io/loader.js"></script>
     <script src='config.js'></script>
     <script>
-      jspm.import('./main');
+      jspm.import(['./main', './main-traceur', './main-transpile']);
     </script>
   </head>
   <body>

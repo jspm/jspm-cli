@@ -11,7 +11,7 @@
   },
   "buildConfig": {
     "uglify": true,
-    "traceur": false,
+    "traceur": true,
     "transpile": true
   }
 }

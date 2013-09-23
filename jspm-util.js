@@ -356,6 +356,7 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
 
 var amdCJSRegEx = /^\s*define\s*\(\s*function.+\{\s*$/m;
 var cjsRequireRegEx = /(?:^\s*|[}{\(\);,\n=:]\s*)require\s*\(\s*("([^"]+)"|'([^']+)')\s*\)/g;
+var firstLineCommentRegEx = /^( *\/\/.*| *\/\*[^\*]*)\n/;
 
 jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback) {
 
@@ -450,9 +451,18 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
               // 5. uglify
               (buildOptions.uglify ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
                 callback(null, source, sourceMap);
-              })('uglify', source, sourceMap, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
+              })('uglify', source, null, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
                 if (err)
                   return fileComplete(err, file, originalFile);
+
+                // if the first line is not a comment
+                // add one extra line at the top, and include this in the source map
+                if (!source.match(firstLineCommentRegEx)) {
+                  source = '\n' + source;
+                  var m = JSON.parse(sourceMap);
+                  m.mappings = ';' + m.mappings;
+                  sourceMap = JSON.stringify(m);
+                }
 
                 // 6. save the file and final source map
                 fs.writeFile(file, source
