@@ -13,7 +13,7 @@ https://jspm.io
 
 * Installs flat version-managed dependencies into version-suffixed folders with a folder structure like:
   ```
-    - vendor
+    - jspm_packages
       - github
         - jquery
           - jquery@2.0.0
