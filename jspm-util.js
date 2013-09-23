@@ -289,12 +289,20 @@ jspmUtil.transpile = function(source, sourceMap, file, originalFile, callback) {
   process.nextTick(function() {
     try {
       var transpiler = new Transpiler(source);
-      var output = '"es6-transpile";\n' + transpiler.toAMD().replace(/\.__default__/g, '\.default');
+      var output = transpiler.toAMD();
+
+      // replace __default__ with default
+      output = output.replace(/\.__default__/g, '\.default');
+
+      // add a transpile flag to esnure correct default behaviour
+      output = '"es6-transpile";\n' + output;
+
+      callback(null, output);
+
     }
     catch(e) {
       return callback(e);
     }
-    callback(null, output);
   });
 }
 
@@ -344,6 +352,10 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
   }));
   child.stdin.end();
 }
+
+
+var amdCJSRegEx = /^\s*define\s*\(\s*function.+\{\s*$/m;
+var cjsRequireRegEx = /(?:^\s*|[}{\(\);,\n=:]\s*)require\s*\(\s*("([^"]+)"|'([^']+)')\s*\)/g;
 
 jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback) {
 
@@ -418,26 +430,45 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
             if (err)
               return fileComplete(err, file, originalFile);
 
-            // 5. uglify
-            (buildOptions.uglify ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
-              callback(null, source, sourceMap);
-            })('uglify', source, sourceMap, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
+            // explicitly write in CJS requires before minification
+            var cjsStatement;
+            if (cjsStatement = source.match(amdCJSRegEx)) {
+              var requires = ['require', 'exports', 'module'];
+              var match;
+              while (match = cjsRequireRegEx.exec(source))
+                requires.push(match[2] || match[3]);
+
+              source = source.replace(cjsStatement[0], cjsStatement[0].replace(/define\s*\(/, 'define(' + JSON.stringify(requires) + ', '));
+            }
+
+            // save the source as the original source at this point
+            // this makes source map support 'sort of' work
+            fs.writeFile(originalFile, source, function(err) {
               if (err)
                 return fileComplete(err, file, originalFile);
 
-              // 6. save the file and final source map
-              fs.writeFile(file, source
-                + (sourceMap ? '\n//# sourceMappingURL=' + (baseURL || '') + path.relative(basePath, file) + '.map' : ''), function(err) {
+              // 5. uglify
+              (buildOptions.uglify ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
+                callback(null, source, sourceMap);
+              })('uglify', source, sourceMap, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
                 if (err)
                   return fileComplete(err, file, originalFile);
 
-                fs.writeFile(file + '.map', sourceMap, function(err) {
+                // 6. save the file and final source map
+                fs.writeFile(file, source
+                  + (sourceMap ? '\n//# sourceMappingURL=' + (baseURL || '') + path.relative(basePath, file) + '.map' : ''), function(err) {
                   if (err)
                     return fileComplete(err, file, originalFile);
 
-                  fileComplete(null, file);
+                  fs.writeFile(file + '.map', sourceMap, function(err) {
+                    if (err)
+                      return fileComplete(err, file, originalFile);
+
+                    fileComplete(null, file);
+                  });
                 });
               });
+
             });
 
           });

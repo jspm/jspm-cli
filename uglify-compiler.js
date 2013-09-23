@@ -62,7 +62,7 @@ process.stdin.on('end', function(data) {
   }
   catch(e) {
     process.stdout.write(JSON.stringify({ err: e + '' }));
-    process.stdout.end();
+    process.exit(0);
   }
 });
 process.stdin.resume();
