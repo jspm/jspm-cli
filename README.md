@@ -13,13 +13,13 @@ https://jspm.io
 
 * Installs flat version-managed dependencies into version-suffixed folders with a folder structure like:
   ```
-  - vendor
-    - github
-      - jquery
-        - jquery@2.0.0
-        - jquery@2.0.3
-    - npm
-      - underscore@1.2.3
+    - vendor
+      - github
+        - jquery
+          - jquery@2.0.0
+          - jquery@2.0.3
+      - npm
+        - underscore@1.2.3
   ```
   In contrast to NPM, which uses hierarchical version management, flat version management is a must for browser development,
   as dependencies need to be shared to keep bandwidth down. Careful exact version management allows for this to happen.
@@ -27,29 +27,27 @@ https://jspm.io
 * Automatically creates the [JSPM loader](https://github.com/jspm/loader) configuration file as dependencies are installed:
   config.js
   ```javascript
-  jspm.config({
-    map: {
-      jquery: 'github:jquery/jquery@2.0.3',
-      underscore: 'npm:underscore@1.2.3'
-    }
-  });
+    jspm.config({
+      map: {
+        jquery: 'github:jquery/jquery@2.0.3',
+        underscore: 'npm:underscore@1.2.3'
+      }
+    });
   ```
 * Minifies with source maps, translates ES6 into AMD and compiles ES6 syntax into ES5 with Traceur, all with one build command.
   package.json:
   ```javascript
-  {
-    "buildConfig": {
-      "uglify": true,
-      "traceur": true, // optionally provide build settings
-      "transpile": true
+    {
+      "buildConfig": {
+        "uglify": true,
+        "traceur": true, // optionally provide build settings
+        "transpile": true
+      }
     }
-  }
   ```
 
   ```
     jspm build
-    
-    jspm setmode build
   ```
 
 ### Installing
@@ -116,10 +114,11 @@ Registry can be updated here - http://github.com/jspm/registry.
 Edit lib/main.js (ES6 modules as an example, AMD, globals and CJS also supported):
 
 ```javascript
-import $ from 'jquery';
-export function test() {
-  $(document.body).html('hello world');
-}
+  import $ from 'jquery';
+  export function test() {
+    $(document.body).html('hello world');
+  }
+```
 
 ### Create a sample page
 
@@ -153,7 +152,7 @@ This sample template can also be create simply by running:
   jspm create basic-page test.html
 ```
 
-Open `test.html` to see the application run. This sample can also be found here - .
+Open `test.html` to see the application run. This sample can also be found here - https://github.com/jspm/jspm-demo.
 
 ### Run a build
 
