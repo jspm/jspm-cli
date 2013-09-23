@@ -62,7 +62,7 @@ var Installer = {
 
     // ensure the download dir and tmp dir exist
     var tmpDir = process.env.HOME + path.sep + '.jspm' + path.sep + 'tmp-' + locationName;
-    var baseDir = Config.pjson.directories.vendor + path.sep + locationName;
+    var baseDir = Config.pjson.directories.jspm_packages + path.sep + locationName;
 
     mkdirp.sync(tmpDir);
     mkdirp.sync(baseDir);
@@ -539,13 +539,20 @@ var Config = {
       });
       return;
     }
-    else if (!Config.pjson.directories || !Config.pjson.directories.vendor) {
-      Input.get('Enter external library install location', 'lib', function(input) {
+    else if (!Config.pjson.directories || !Config.pjson.directories.jspm_packages) {
+      Input.get('Enter external library install location', 'jspm_packages', function(input) {
         Config.pjson.directories = Config.pjson.directories || {};
-        Config.pjson.directories.vendor = input || 'lib';
+        Config.pjson.directories.jspm_packages = input || 'jspm_packages';
         return Config.verifyConfig(callback);
       });
       return;
+    }
+    else if (!Config.pjson.directories || !Config.pjson.directories.lib) {
+      Input.get('Enter local application code location / baseURL', 'lib', function(input) {
+        Config.pjson.directories = Config.pjson.directories || {};
+        Config.pjson.directories.lib = input || 'lib';
+        return Config.verifyConfig(callback);
+      });
     }
     else {
       Config.pjson.dependencyMap = Config.pjson.dependencyMap || {};
@@ -599,13 +606,13 @@ var Config = {
       config.baseURL = Config.pjson.directories.lib;
 
     if (typeof isLocal == 'boolean') {
-      if (isLocal && config.localLibs != Config.pjson.directories.vendor) {
+      if (isLocal && config.jspmPackages != Config.pjson.directories.jspm_packages) {
         log(Msg.ok('Loader set to local library sources'));
-        config.localLibs = Config.pjson.directories.vendor;
+        config.jspmPackages = Config.pjson.directories.jspm_packages;
       }
-      else if (!isLocal && config.localLibs !== false) {
+      else if (!isLocal && config.jspmPackages !== false) {
         log(Msg.ok('Loader set to CDN library sources'));
-        config.localLibs = false;
+        config.jspmPackages = false;
       }
     }
 
@@ -712,8 +719,8 @@ var AppBuild = {
   },
   checkBuildConfig: function(outDir, callback, save) {
     if (!outDir && !Config.pjson.directories.build) {
-      Input.get('No package.json *directories.build*. Please enter the build path', 'app-build', function(buildDir) {
-        Config.pjson.directories.build = buildDir || 'app-build';
+      Input.get('No package.json *directories.build*. Please enter the build path', 'dist', function(buildDir) {
+        Config.pjson.directories.build = buildDir || 'dist';
         AppBuild.checkBuildConfig(outDir, callback, true);
       });
       return;
@@ -781,8 +788,8 @@ var JSPM = {
   },
   downloadLoader: function() {
     Config.getConfig(function(pjson, dir) {
-      log(Msg.info('Downloading loader files to _' + pjson.directories.vendor + '_.'));
-      dir = path.resolve(dir, pjson.directories.vendor);
+      log(Msg.info('Downloading loader files to _' + pjson.directories.jspm_packages + '_.'));
+      dir = path.resolve(dir, pjson.directories.jspm_packages);
       mkdirp(dir, function(err) {
         if (err)
           return log(Msg.err('Unable to create directory _' + dir + '_.'));
@@ -825,8 +832,8 @@ var JSPM = {
   setbuild: function(build) {
     Config.getConfig(function() {
       if (build && !Config.pjson.directories.build) {
-        Input.get('No package.json *directories.build*. Please enter the build path', 'app-build', function(buildDir) {
-          Config.pjson.directories.build = buildDir || 'app-build';
+        Input.get('No package.json *directories.build*. Please enter the build path', 'dist', function(buildDir) {
+          Config.pjson.directories.build = buildDir || 'dist';
           Config.saveConfig(null, build);
         });
         return;
@@ -848,7 +855,7 @@ var JSPM = {
           fs.writeFileSync(outFile, 
             basicPageTpl
             .replace('{{title}}', title)
-            .replace('{{loaderPath}}', path.relative(path.dirname(outFile), Config.pjson.directories.vendor) + '/loader.js')
+            .replace('{{loaderPath}}', path.relative(path.dirname(outFile), Config.pjson.directories.jspm_packages) + '/loader.js')
             .replace('{{configPath}}', path.relative(path.dirname(outFile), Config.pjson.configFile))
           );
         });
