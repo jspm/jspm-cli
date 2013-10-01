@@ -13,7 +13,7 @@ https://jspm.io
 
 * Installs flat version-managed dependencies into version-suffixed folders with a folder structure like:
   ```
-    - vendor
+    - jspm_packages
       - github
         - jquery
           - jquery@2.0.0
@@ -78,9 +78,9 @@ Sets up the package.json and configuration file.
   jspm install npm:underscore
 ```
 
-All installs are saved into the package.json, so that the lib folder and configuration file 
+All installs are saved into the package.json, so that the jspm_packages folder and configuration file 
 can be entirely recreated with a single `jspm install` call with no arguments. This is ideal 
-for version-controlled projects where third party librarys aren't saved in the repo itself.
+for version-controlled projects where third party libraries aren't saved in the repo itself.
 
 ### Installing from the registry
 
@@ -90,7 +90,7 @@ for version-controlled projects where third party librarys aren't saved in the r
 
 Automatically downloads and sets the configuration map for the loader.
 
-Registry can be updated here - http://github.com/jspm/registry.
+The registry is located here - http://github.com/jspm/registry.
 
 ### Installing into a custom name
 
@@ -131,7 +131,7 @@ test.html
       <title>JSPM</title>
       <meta name='viewport' content='width=device-width, initial-scale=1'>
   
-      <script src='lib/loader.js'></script>
+      <script src='jspm_packages/loader.js'></script>
       <script src='config.js'></script>
       
       <script>
