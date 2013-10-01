@@ -73,7 +73,9 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
       removeFiles = allFiles;
       var fileFiles = [];
       for (var i = 0; i < files.length; i++) {
-        var fileName = path.resolve(dir, files[i]);
+        if (files[i].substr(0, 2) == './')
+          files[i] = files[i].substr(2);
+        var fileName = dir + path.sep + files[i];
 
         if (fs.statSync(fileName).isDirectory()) {
           for (var j = 0; j < allFiles.length; j++) {
