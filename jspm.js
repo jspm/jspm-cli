@@ -258,12 +258,12 @@ var Installer = {
                     log(Msg.err(err + ''));
 
                   // ignore unresolved dependencies
-                  for (var i = 0; i < dependencies.length; i++) {
+                  /* for (var i = 0; i < dependencies.length; i++) {
                     if (dependencies[i].indexOf(':') == -1) {
                       log(Msg.warn('Ignoring unresolved external dependency *' + dependencies[i] + '*'));
                       dependencies.splice(i--, 1);
                     }
-                  }
+                  } */
 
                   // set up the version map
                   if (updateMap)

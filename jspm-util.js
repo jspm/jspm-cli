@@ -79,8 +79,8 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
 
         if (fs.statSync(fileName).isDirectory()) {
           for (var j = 0; j < allFiles.length; j++) {
-            if (!jspmUtil.dirContains(fileName, allFiles[j]))
-              removeFiles.push(files[j])
+            if (jspmUtil.dirContains(fileName, allFiles[j]))
+              fileFiles.push(fileName);
           }
         }
         else
@@ -89,7 +89,7 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
       // if files are specifically included, add them back
       for (var i = 0; i < fileFiles.length; i++) {
         if (removeFiles.indexOf(fileFiles[i]) != -1)
-          removeFiles.splice(removeFiles.indexOf(fileFiles[i], 1));
+          removeFiles.splice(removeFiles.indexOf(fileFiles[i]), 1);
       }
     }
 
@@ -120,8 +120,17 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
         callback(err);
     }
 
-    for (var i = 0; i < removeFiles.length; i++)
-      fs.unlink(removeFiles[i], checkComplete);
+    for (var i = 0; i < removeFiles.length; i++) (function(i) {
+      fs.unlink(removeFiles[i], function(err) {
+        if (err && err.code != 'EPERM') {
+          callback(err);
+          callback = function() {}
+          return;
+        }
+
+        checkComplete();
+      });
+    })(i);
     
     if (!removeFiles.length)
       callback();
@@ -130,7 +139,7 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
 
 
 jspmUtil.getPackageJSON = function(dir, callback) {
-  fs.readFile(path.resolve(dir, 'package.json'), function(err, pjson) {
+  readFile(path.resolve(dir, 'package.json'), function(err, pjson) {
     if (err) {
       if (err.code == 'ENOENT')
         return callback(null, null);
@@ -224,6 +233,11 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
     var dependencies = [];
     for (var i = 0; i < files.length; i++) (function(fileName) {
       readFile(fileName, function(err, source) {
+        if (err && err.code == 'EISDIR') {
+          processed++;
+          return;
+        }
+
         if (err)
           return errback(err);
 
@@ -257,13 +271,32 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         }
 
         // parse out external dependencies
-        if (packageOptions.config && packageOptions.config.traceDependencies) {
-          var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
-          if (imports) {
-            for (var j = 0; j < imports.length; j++)
-              if (imports[j].substr(0, 1) != '.')
-                if (dependencies.indexOf(imports[j]) == -1)
-                  dependencies.push(imports[j]);
+        var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
+        if (imports) {
+          for (var j = 0; j < imports.length; j++) {
+            if (imports[j].indexOf('!') != -1) {
+              // plugins get installed
+              var pluginName = imports[j].substr(imports[j].indexOf('!') + 1);
+              pluginName = pluginName || imports[j].substr(imports[j].lastIndexOf('.') + 1, imports[j].length - imports[j].lastIndexOf('.') - 2);
+              if (dependencies.indexOf(pluginName) == -1)
+                dependencies.push('plugin:' + pluginName);
+              imports[j] = imports[j].substr(0, imports[j].indexOf('!'));
+            }
+            if (imports[j].substr(0, 1) != '.') {
+              var importName;
+              var location;
+              if (imports[j].indexOf(':') != -1)
+                location = imports[j].split(':')[0];
+              if (!location)
+                importName = imports[j];
+              else if (location == 'github')
+                importName = imports[j].split('/').splice(0, 2).join('/');
+              else
+                importName = imports[j];
+
+              if (dependencies.indexOf(importName) == -1)
+                dependencies.push(importName);
+            }
           }
         }
 
