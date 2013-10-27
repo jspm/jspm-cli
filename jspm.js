@@ -69,7 +69,8 @@ var Installer = {
 
     locations[locationName] = new locationDownloader({
       tmpDir: tmpDir,
-      log: false
+      log: false,
+      https: https
     });
 
     locations[locationName].name = locationName;
@@ -1011,14 +1012,18 @@ var showInstructions = function(arg) {
     + 'jspm create <template> <outfile>  Create a file from a template\n'
   );
 }
-
+var https = false;
 if (args[0] == 'install') {
   var packages = [];
   var names = [];
   var force = false;
+  
   for (var i = 1; i < args.length; i++) {
     if (args[i] == '--force' || args[i] == '-f') {
       force = true;
+    }
+    if (args[i] == '--https' || args[i] == '-h') {
+      https = true;
     }
     else if (args[i].substr(0, 1) == '-') {
       log('Unknown argument ' + args[i]);
