@@ -198,6 +198,12 @@ Revert back to the local files with:
   jspm setmode local
 ```
 
+### Command Options
+
+Use `-f` or `--force` with the install command to overwrite and redownload all dependencies.
+
+Use `-h` or `--https` to download with https instead of alternative protocols.
+
 ### Further Reading
 
 * [Read more on the package.json specs at the registry wiki](https://github.com/jspm/registry/wiki/Package.json-Specification).
