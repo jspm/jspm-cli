@@ -1022,7 +1022,11 @@ if (args[0] == 'install') {
     if (args[i] == '--force' || args[i] == '-f') {
       force = true;
     }
-    if (args[i] == '--https' || args[i] == '-h') {
+    else if (args[i] == '--https' || args[i] == '-h') {
+      https = true;
+    }
+    else if (args[i] == '-fh') {
+      force = true;
       https = true;
     }
     else if (args[i].substr(0, 1) == '-') {
