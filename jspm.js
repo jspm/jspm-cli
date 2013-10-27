@@ -70,7 +70,7 @@ var Installer = {
     locations[locationName] = new locationDownloader({
       tmpDir: tmpDir,
       log: false,
-      https: https
+      https: useHttps
     });
 
     locations[locationName].name = locationName;
@@ -1012,7 +1012,7 @@ var showInstructions = function(arg) {
     + 'jspm create <template> <outfile>  Create a file from a template\n'
   );
 }
-var https = false;
+var useHttps = false;
 if (args[0] == 'install') {
   var packages = [];
   var names = [];
@@ -1023,11 +1023,11 @@ if (args[0] == 'install') {
       force = true;
     }
     else if (args[i] == '--https' || args[i] == '-h') {
-      https = true;
+      useHttps = true;
     }
     else if (args[i] == '-fh') {
       force = true;
-      https = true;
+      useHttps = true;
     }
     else if (args[i].substr(0, 1) == '-') {
       log('Unknown argument ' + args[i]);
