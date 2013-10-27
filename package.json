@@ -10,9 +10,9 @@
     "glob": "~3.2.6",
     "jspm-loader": "~0.2.0",
     "rimraf": "~2.2.2",
-    "uglify-js": "git://github.com/guybedford/UglifyJS2.git#fix",
+    "uglify-js": "git+https://github.com/guybedford/UglifyJS2.git#fix",
     "traceur": "0.0.4",
-    "es6-module-transpiler": "git://github.com/square/es6-module-transpiler.git#bc178ca",
+    "es6-module-transpiler": "git+https://github.com/square/es6-module-transpiler.git#bc178ca",
     "tar": "~0.1.18"
   },
   "repository": {
