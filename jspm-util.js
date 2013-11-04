@@ -232,6 +232,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
     var processed = 0;
     var dependencies = [];
     for (var i = 0; i < files.length; i++) (function(fileName) {
+      var changed = false;
       readFile(fileName, function(err, source) {
         if (err && err.code == 'EISDIR') {
           processed++;
@@ -250,6 +251,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
           if (relName.substr(relName.length - 3, 3) != '.js')
             relName += '.js';
           if (relName == localPath) {
+            changed = true;
             // do dep shim
             var shimDeps = packageOptions.dependencyShim[name];
             if (typeof shimDeps == 'string')
@@ -266,8 +268,11 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         // apply dependency map
         for (var name in packageOptions.dependencyMap) {
           var mapped = packageOptions.dependencyMap[name];
-          name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-          source = source.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + mapped + '\'');
+          if (mapped != name) {
+            changed = true;
+            name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+            source = source.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + mapped + '\'');
+          }
         }
 
         // parse out external dependencies
@@ -301,7 +306,9 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         }
 
         // save back source
-        fs.writeFile(fileName, source, function(err) {
+        (changed ? fs.writeFile : function(fileName, source, callback) {
+          callback();
+        })(fileName, source, function(err) {
           if (err)
             return errback(err);
 
@@ -529,9 +536,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
   });
 }
 
-jspmUtil.getMain = function(repoPath, packageOptions) {
-  var main = packageOptions.main;
-
+jspmUtil.getMain = function(repoPath, main) {
   if (main) {
     if (main.substr(0, 2) == './')
       main = main.substr(2);

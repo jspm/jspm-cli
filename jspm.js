@@ -35,6 +35,14 @@ var locations = {};
 var versionCache = {};
 var downloadQueue = {};
 
+// identity callback function, based on last argument being a callback
+var ic = function() {
+  arguments[arguments.length - 1]();
+}
+var ice = function() {
+  arguments[arguments.length - 2]();
+}
+
 var Installer = {
   // get location downloader instance
   getLocation: function(target) {
@@ -119,7 +127,7 @@ var Installer = {
     var updateMap = false;
 
     // check map config
-    var curName = Config.pjson.dependencyMap[initialTarget] && Config.pjson.dependencyMap[initialTarget].split('#')[0];
+    var curName = Config.pjson.dependencyMap[initialTarget];
 
     (curName && curName != exactName ? Input.confirm : function(q, callback) {
       callback(curName ? false : true);
@@ -143,23 +151,6 @@ var Installer = {
       });
     });
 
-  },
-  getMain: function(exactName, location, packageOptions) {
-    var repoPath = location.baseDir + path.sep + exactName.split(':')[1];
-    if (!packageOptions) {
-      try {
-        packageOptions = JSON.parse(fs.readFileSync(repoPath));
-      }
-      catch(e) {
-        packageOptions = {};
-      }
-    }
-
-    var mainName = jspmUtil.getMain(repoPath, packageOptions);
-    if (mainName)
-      return '#' + mainName;
-    else
-      return '';
   },
 
   // implements a download with some basic queueing
@@ -239,47 +230,54 @@ var Installer = {
           if (err)
             return errback(err);
           
-          jspmUtil.applyIgnoreFiles(repoPath, packageOptions.files, packageOptions.ignore, function(err) {
+          (location.build ? jspmUtil.applyIgnoreFiles : ic)(repoPath, packageOptions.files, packageOptions.ignore, function(err) {
 
             if (err)
               log(Msg.err('Error applying files and ignore. \n' + err));
 
             // collapse the lib directory if present
-            jspmUtil.collapseLibDir(repoPath, packageOptions, function(isBuilt) {
+            (location.build ? jspmUtil.collapseLibDir : ice)(repoPath, packageOptions, function(isBuilt) {
 
-              // process dependencies
+              // process dependencies (apply dependency map, and return external dependencies)
               jspmUtil.processDependencies(repoPath, packageOptions, function(dependencies) {
 
                 // run compilation (including minify) if necessary
-                (!isBuilt ? jspmUtil.compile : function(outDir, basePath, baseURL, buildOptions, callback) { 
-                  callback();
-                })(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions.buildConfig, function(err) {
+                (!isBuilt && location.build ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions.buildConfig, function(err) {
 
                   if (err)
                     log(Msg.err(err + ''));
 
-                  // ignore unresolved dependencies
-                  /* for (var i = 0; i < dependencies.length; i++) {
-                    if (dependencies[i].indexOf(':') == -1) {
-                      log(Msg.warn('Ignoring unresolved external dependency *' + dependencies[i] + '*'));
-                      dependencies.splice(i--, 1);
+                  // create the main entry point shortcut
+                  Installer.createMain(repoPath, packageOptions.main, function(created) {
+
+                    if (!created)
+                      console.log(Msg.warn('No main entry point provided for *' + fullName + '*'));
+
+                    // ignore unresolved dependencies
+                    /* for (var i = 0; i < dependencies.length; i++) {
+                      if (dependencies[i].indexOf(':') == -1) {
+                        log(Msg.warn('Ignoring unresolved external dependency *' + dependencies[i] + '*'));
+                        dependencies.splice(i--, 1);
+                      }
+                    } */
+
+                    // set up the version ma
+                    if (updateMap) {
+                      Config.pjson.dependencyMap[initialTarget] = fullName;
                     }
-                  } */
 
-                  // set up the version map
-                  if (updateMap)
-                    Config.pjson.dependencyMap[initialTarget] = fullName + Installer.getMain(fullName, location, packageOptions);
+                    // write to the .jspm-hash file in the folder
+                    // also save the overridden package.json
+                    try {
+                      fs.writeFileSync(path.resolve(repoPath, '.jspm-hash'), lookup.hash);
+                      fs.writeFileSync(path.resolve(repoPath, 'package.json'), JSON.stringify(packageOptions, null, 2));
+                    }
+                    catch(e) {}
 
-                  // write to the .jspm-hash file in the folder
-                  // also save the overridden package.json
-                  try {
-                    fs.writeFileSync(path.resolve(repoPath, '.jspm-hash'), lookup.hash);
-                    fs.writeFileSync(path.resolve(repoPath, 'package.json'), JSON.stringify(packageOptions, null, 2));
-                  }
-                  catch(e) {}
+                    // return the external dependency array
+                    callback(dependencies);
 
-                  // return the external dependency array
-                  callback(dependencies);
+                  });
 
                 }, errback);
 
@@ -294,6 +292,16 @@ var Installer = {
       });
 
     }, errback);
+  },
+
+  // given a location, repo name and optional main, create the shortcut js file
+  createMain: function(repoPath, main, callback) {
+    main = jspmUtil.getMain(repoPath, main);
+
+    if (!main)
+      return callback(false);
+
+    fs.writeFile(repoPath + '.js', 'export * from "./' + repoPath.split('/').pop() + '/' + main + '";"', callback);
   },
 
   checkPackageOverride: function(location, fullName, callback) {
@@ -424,7 +432,7 @@ var Installer = {
 
       // check that what is in the file system matches the lookup
       (!force ? Installer.checkRepo : function(repo, lookup, initialTarget, location, callback) {
-        callback(false);
+        callback(false, true);
       })(repo, lookup, initialTarget, location, function(isFresh, updateMap) {
 
         if (isFresh) {
@@ -434,7 +442,7 @@ var Installer = {
           Installer.getPackageOptions(location, repo, lookup.version, function(err, packageOptions) {
             if (err)
               return callback(err);
-            Config.pjson.dependencyMap[initialTarget] = fullName + Installer.getMain(fullName, location, packageOptions);
+            Config.pjson.dependencyMap[initialTarget] = fullName;
             callback(null, fullName);
           });
           return;
