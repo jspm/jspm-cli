@@ -29,7 +29,7 @@ process.stdin.on('end', function(data) {
   }
   catch(e) {
     process.stdout.write(JSON.stringify({ err: 'Bad input.' }));
-    return process.exit(1);
+    return process.exit(0);
   }
 
   /*

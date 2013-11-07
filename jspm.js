@@ -241,7 +241,7 @@ var Installer = {
                   Installer.createMain(repoPath, packageOptions.main, function(err) {
 
                     if (err)
-                      console.log(Msg.warn('No main entry point created for *' + fullName + '*'));
+                      log(Msg.warn('No main entry point created for *' + fullName + '*'));
 
                     // ignore unresolved dependencies
                     /* for (var i = 0; i < dependencies.length; i++) {

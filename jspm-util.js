@@ -368,10 +368,7 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
   child.stdout.on('data', function(data) {
     stdout.push(data);
   });
-  child.on('exit', function(code) {
-    if (code != 0)
-      return callback('Process error.');
-    
+  child.stdout.on('end', function() {
     try {
       var output = JSON.parse(stdout.join(''));
     }
@@ -419,8 +416,8 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
 
     var fileComplete = function(err, file, originalFile) {
       if (err) {
-        if (!errors)
-          errors += file;
+        if (errors.indexOf(file) == -1)
+          errors += file + ':\n';
         errors += err + '\n';
         // revert to original
         return fs.rename(originalFile, file, function() {
@@ -464,7 +461,6 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
         (buildOptions.traceur ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
           callback(null, source, null);
         })('traceur', source, null, buildOptions.traceur === true ? {} : buildOptions.traceur, fileName, originalFileName, function(err, source, sourceMap) {
-
           if (err)
             return fileComplete(err, file, originalFile);
 

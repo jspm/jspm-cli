@@ -4,7 +4,8 @@
     "vendor": "lib",
     "build": "app-build",
     "lib": "app",
-    "jspm_packages": "jspm_packages"
+    "jspm_packages": "jspm_packages",
+    "dist": "app-build"
   },
   "dependencyMap": {
     "jquery": "github:components/jquery@2.0.3",

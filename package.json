@@ -12,8 +12,8 @@
     "rimraf": "~2.2.2",
     "uglify-js": "git+https://github.com/guybedford/UglifyJS2.git#fix",
     "traceur": "0.0.4",
-    "es6-module-transpiler": "git+https://github.com/square/es6-module-transpiler.git#bc178ca",
-    "tar": "~0.1.18"
+    "tar": "~0.1.18",
+    "es6-module-transpiler": "~0.3.3"
   },
   "repository": {
     "type": "git",
