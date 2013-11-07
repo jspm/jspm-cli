@@ -5,8 +5,6 @@ Browser package management.
 
 Designed to work with the [JSPM Loader](https://github.com/jspm/loader) and [JSPM Registry](https://github.com/jspm/registry).
 
-Command-line package manager and build tool.
-
 https://jspm.io
 
 ### What it does
@@ -49,6 +47,8 @@ https://jspm.io
   ```
     jspm build
   ```
+
+  Creates the deployment folder `my-app-built` containing the minified and transpiled modules for the working project.
 
 ### Installing
 

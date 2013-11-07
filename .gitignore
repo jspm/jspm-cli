@@ -1,4 +1,4 @@
 node_modules
-test/lib
+test/jspm_packages
 test/config.js
 test/app-build

@@ -26,10 +26,6 @@ var exec = require('child_process').exec;
 
 var jspmUtil = require('./jspm-util');
 
-var registryDownloader = require('./jspm-registry');
-var pluginDownloader = require('./jspm-plugin');
-
-
 var installing = {};
 var locations = {};
 var versionCache = {};
@@ -53,19 +49,11 @@ var Installer = {
 
     var locationDownloader;
 
-    if (locationName == 'lib') {
-      locationDownloader = registryDownloader;
+    try {
+      locationDownloader = require('jspm-' + locationName);
     }
-    else if (locationName == 'plugin') {
-      locationDownloader = pluginDownloader;
-    }
-    else {
-      try {
-        locationDownloader = require('jspm-' + locationName);
-      }
-      catch (e) {
-        return;
-      }
+    catch (e) {
+      return;
     }
 
     // ensure the download dir and tmp dir exist
@@ -78,7 +66,8 @@ var Installer = {
     locations[locationName] = new locationDownloader({
       tmpDir: tmpDir,
       log: false,
-      https: useHttps
+      https: useHttps,
+      cdn: false
     });
 
     locations[locationName].name = locationName;
@@ -119,21 +108,17 @@ var Installer = {
   // 2. does the map config needing updating
   // callback(isFresh, updateMap)
   checkRepo: function(repo, lookup, initialTarget, location, callback, errback) {
+
     var baseName = location.name + ':' + repo;
-
     var exactName = baseName + '@' + lookup.version;
-
-    var isFresh = false;
-    var updateMap = false;
 
     // check map config
     var curName = Config.pjson.dependencyMap[initialTarget];
 
+    // if it doesnt match, ask
     (curName && curName != exactName ? Input.confirm : function(q, callback) {
-      callback(curName ? false : true);
-    })('Update latest *' + initialTarget + '* from *' + curName + '* to ' + lookup.version + '?', function(confirm) {
-      
-      updateMap = confirm;
+      callback(curName ? false : true, false);
+    })('Update latest *' + initialTarget + '* from *' + curName + '* to ' + lookup.version + '?', function(updateMap) {
 
       // check freshness
       try {
@@ -163,15 +148,15 @@ var Installer = {
     else
       downloadQueue[repoName] = [[version, hash, path, callback]];
 
-    var doNext = function(err) {
+    var doNext = function() {
       var next = downloadQueue[repoName].shift();
       if (next)
-        location.download(repo, next[0], next[1], next[2], function(err) {
-          next[3](err);
-          doNext(err);
+        location.download(repo, next[0], next[1], next[2], function(packageOptions) {
+          next[3](null, packageOptions);
+          doNext();
         }, function(err) {
           next[3](err);
-          doNext(err);
+          doNext();
         });
       else
         delete downloadQueue[repoName];
@@ -220,38 +205,43 @@ var Installer = {
 
     rimraf(repoPath, function(err) {
 
-      Installer.downloadRepo(location, repo, lookup.version, lookup.hash, repoPath, function(err) {
+      Installer.downloadRepo(location, repo, lookup.version, lookup.hash, repoPath, function(err, packageOptions) {
 
         if (err)
           return errback(err);
 
-        Installer.getPackageOptions(location, repo, lookup.version, function(err, packageOptions) {
+        if (packageOptions === false)
+          packageOptions = {};
+
+        (!packageOptions ? Installer.getPackageOptions : function(location, repo, version, callback) {
+          callback(null, packageOptions);
+        })(location, repo, lookup.version, function(err, packageOptions) {
 
           if (err)
             return errback(err);
           
-          (location.build ? jspmUtil.applyIgnoreFiles : ic)(repoPath, packageOptions.files, packageOptions.ignore, function(err) {
+          jspmUtil.applyIgnoreFiles(repoPath, packageOptions.files, packageOptions.ignore, function(err) {
 
             if (err)
               log(Msg.err('Error applying files and ignore. \n' + err));
 
             // collapse the lib directory if present
-            (location.build ? jspmUtil.collapseLibDir : ice)(repoPath, packageOptions, function(isBuilt) {
+            jspmUtil.collapseLibDir(repoPath, packageOptions, function(isBuilt) {
 
               // process dependencies (apply dependency map, and return external dependencies)
               jspmUtil.processDependencies(repoPath, packageOptions, function(dependencies) {
 
                 // run compilation (including minify) if necessary
-                (!isBuilt && location.build ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions.buildConfig, function(err) {
+                (!isBuilt ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions.buildConfig, function(err) {
 
                   if (err)
                     log(Msg.err(err + ''));
 
                   // create the main entry point shortcut
-                  Installer.createMain(repoPath, packageOptions.main, function(created) {
+                  Installer.createMain(repoPath, packageOptions.main, function(err) {
 
-                    if (!created)
-                      console.log(Msg.warn('No main entry point provided for *' + fullName + '*'));
+                    if (err)
+                      console.log(Msg.warn('No main entry point created for *' + fullName + '*'));
 
                     // ignore unresolved dependencies
                     /* for (var i = 0; i < dependencies.length; i++) {
@@ -261,8 +251,8 @@ var Installer = {
                       }
                     } */
 
-                    // set up the version ma
-                    if (updateMap) {
+                    // set up the version map
+                    if (updateMap && initialTarget != fullName) {
                       Config.pjson.dependencyMap[initialTarget] = fullName;
                     }
 
@@ -301,7 +291,7 @@ var Installer = {
     if (!main)
       return callback(false);
 
-    fs.writeFile(repoPath + '.js', 'export * from "./' + repoPath.split('/').pop() + '/' + main + '";"', callback);
+    fs.writeFile(repoPath + '.js', 'export * from "./' + repoPath.split('/').pop() + '/' + main + '";', callback);
   },
 
   checkPackageOverride: function(location, fullName, callback) {
@@ -341,15 +331,6 @@ var Installer = {
     });
   },
   install: function(target, initialTarget, force, callback) {
-
-    if (arguments.length == 2) {
-      callback = initialTarget;
-      initialTarget = undefined;
-    }
-    else if (arguments.length == 3) {
-      callback = force;
-      force = undefined;
-    }
 
     if (target instanceof Array) {
       var installed = 0;
@@ -439,19 +420,15 @@ var Installer = {
           log(Msg.info('*' + fullName + '* already up to date.'));
           if (!updateMap)
             return callback(null, fullName);
-          Installer.getPackageOptions(location, repo, lookup.version, function(err, packageOptions) {
-            if (err)
-              return callback(err);
-            Config.pjson.dependencyMap[initialTarget] = fullName;
-            callback(null, fullName);
-          });
+          Config.pjson.dependencyMap[initialTarget] = fullName;
+          callback(null, fullName);
           return;
         }
 
         log(Msg.info('Downloading *' + fullName + '*'));
         Installer.installRepo(repo, lookup, location, initialTarget, updateMap, function(dependencies) {
           // install dependencies if any
-          Installer.install(dependencies || [], function(err) {
+          Installer.install(dependencies || [], dependencies || [], false, function(err) {
 
             callback(err, fullName);
           });
@@ -630,9 +607,9 @@ var Config = {
         log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.lib + '_.'));
         config.baseURL = Config.pjson.directories.lib;
       }
-      else if (isBuild && config.baseURL != Config.pjson.directories.build) {
-        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.build + '_.'));
-        config.baseURL = Config.pjson.directories.build;
+      else if (isBuild && config.baseURL != Config.pjson.directories.dist) {
+        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.dist + '_.'));
+        config.baseURL = Config.pjson.directories.dist;
       }
     }
 
@@ -641,12 +618,6 @@ var Config = {
     if (Config.pjson.dependencyMap)
       for (var m in Config.pjson.dependencyMap)
         config.map[m] = Config.pjson.dependencyMap[m];
-
-    if (Config.pjson.dependencyShim) {
-      config.deps = config.deps || [];
-      for (var m in Config.pjson.dependencyShim)
-        config.deps[m] = Config.pjson.dependencyShim[m];
-    }
 
     // and then save it back
     var configContent = JSON.stringify(config, null, 2);
@@ -673,7 +644,7 @@ var AppBuild = {
     AppBuild.getBuildConfig(outDir, function() {
 
       var inDir = path.resolve(Config.pjsonDir, Config.pjson.directories.lib);
-      outDir = outDir || path.resolve(Config.pjsonDir, Config.pjson.directories.build);
+      outDir = outDir || path.resolve(Config.pjsonDir, Config.pjson.directories.dist);
 
       jspmUtil.applyIgnoreFiles(inDir, Config.pjson.files, Config.pjson.ignore, function(err) {
 
@@ -682,7 +653,7 @@ var AppBuild = {
 
         AppBuild.prepBuildDir(inDir, outDir, function(err) {
           if (err)
-            return log(Msg.err('Unable to create build directory. \n' + err));
+            return log(Msg.err('Unable to create production directory. \n' + err));
 
           // run compilation (including minify) if necessary
           jspmUtil.compile(outDir, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, Config.pjson.buildConfig, function(err) {
@@ -727,9 +698,9 @@ var AppBuild = {
     });
   },
   checkBuildConfig: function(outDir, callback, save) {
-    if (!outDir && !Config.pjson.directories.build) {
-      Input.get('No package.json *directories.build*. Please enter the build path', 'dist', function(buildDir) {
-        Config.pjson.directories.build = buildDir || 'dist';
+    if (!outDir && !Config.pjson.directories.dist) {
+      Input.get('No package.json *directories.dist*. Please enter the build path', 'dist', function(buildDir) {
+        Config.pjson.directories.dist = buildDir || 'dist';
         AppBuild.checkBuildConfig(outDir, callback, true);
       });
       return;
@@ -776,7 +747,7 @@ var JSPM = {
         names = [];
         for (var m in Config.pjson.dependencyMap) {
           names.push(m);
-          packages.push(Config.pjson.dependencyMap[m].split('#')[0]);
+          packages.push(Config.pjson.dependencyMap[m]);
         }
         JSPM.install(packages, names, force);
         return;
@@ -784,9 +755,40 @@ var JSPM = {
       Installer.install(packages, names, force, function(err) {
         Config.saveConfig(true);
         if (err)
-          log(Msg.warn('Install finished, with errors.'))
+          log(Msg.warn('Install finished, with errors.'));
         else
           log(Msg.info('Install complete.'));
+      });
+    });
+  },
+  update: function(force) {
+    // get list of all installed dependencyMap
+    Config.getConfig(function(config) {
+      var packages = [];
+      var names = [];
+      for (var m in Config.pjson.dependencyMap) {
+        names.push(m);
+        var version = m.split('@')[1];
+        var package = Config.pjson.dependencyMap[m];
+        if (!version) {
+          // latest version
+          packages.push(package.split('@')[0]);
+        }
+        else if (version.split('.').length == 2) {
+          // minor version
+          packages.push(package.split('@')[0] + '@' + version);
+        }
+        else {
+          // exact version / tag
+          packages.push(package.split('@')[0] + '@' + version);
+        }
+      }
+      Installer.install(packages, names, force, function(err) {
+        Config.saveConfig(true);
+        if (err)
+          log(Msg.warn('Update finished, with errors.'));
+        else
+          log(Msg.info('Update complete.'));
       });
     });
   },
@@ -838,16 +840,16 @@ var JSPM = {
         Config.saveConfig(false);
     });
   },
-  setbuild: function(build) {
+  setproduction: function(production) {
     Config.getConfig(function() {
-      if (build && !Config.pjson.directories.build) {
-        Input.get('No package.json *directories.build*. Please enter the build path', 'dist', function(buildDir) {
-          Config.pjson.directories.build = buildDir || 'dist';
-          Config.saveConfig(null, build);
+      if (production && !Config.pjson.directories.dist) {
+        Input.get('No package.json *directories.dist*. Please enter the build path', 'dist', function(buildDir) {
+          Config.pjson.directories.bist = buildDir || 'dist';
+          Config.saveConfig(null, production);
         });
         return;
       }
-      Config.saveConfig(null, build);
+      Config.saveConfig(null, production);
     });
   },
   build: function(outDir) {
@@ -1005,6 +1007,8 @@ var showInstructions = function(arg) {
     + '  install jquery npm:underscore   Install multiple packages\n'
     + '  install myjquery=jquery@1.1.1   Install a package with a mapped name\n'
     + '\n'
+    + 'jspm update [-f -force]           Check and update existing modules\n'
+    + '\n'
     + 'jspm init                         Verify / create the configuration files\n'
     + '\n'
     + 'jspm dl-loader                    Download the jspm browser loader\n'
@@ -1013,45 +1017,62 @@ var showInstructions = function(arg) {
     + '  setmode local                   Switch to locally downloaded libraries\n'
     + '  setmode remote                  Switch to CDN external package sources\n'
     + '  setmode dev                     Switch to the development baseURL\n'
-    + '  setmode build                   Switch to the build baseURL\n'
+    + '  setmode production              Switch to the production baseURL\n'
     + '\n'
-    + 'jspm build [<outDir>]             Compile all resources\n'
+    + 'jspm build [<outDir>]            Compile all resources\n'
     + '\n'
     + 'jspm create <template> <outfile>  Create a file from a template\n'
   );
 }
+
+var readOptions = function(args, options) {
+  var argOptions = { args: [] };
+  for (var i = 0; i < args.length; i++) {
+    if (args[i].substr(0, 2) == '--') {
+      for (var j = 0; j < options.length; j++)
+        if (options[j] == args[i])
+          argOptions[options[j].substr(2)] = true;
+    }
+    else if (args[i].substr(0, 1) == '-') {
+      var opts = args[i].substr(1);
+      for (var j = 0; j < opts.length; j++) {
+        for (var k = 0; k < options.length; k++) {
+          if (options[k].substr(2, 1) == opts[j])
+            argOptions[options[k].substr(2)] = true;
+        }
+      }
+    }
+    else
+      argOptions.args.push(args[i]);
+  }
+  return argOptions;
+}
+
 var useHttps = false;
 if (args[0] == 'install') {
   var packages = [];
   var names = [];
-  var force = false;
+
+  var options = readOptions(args, ['--force', '--https']);
+
+  args = options.args;
   
   for (var i = 1; i < args.length; i++) {
-    if (args[i] == '--force' || args[i] == '-f') {
-      force = true;
-    }
-    else if (args[i] == '--https' || args[i] == '-h') {
-      useHttps = true;
-    }
-    else if (args[i] == '-fh') {
-      force = true;
-      useHttps = true;
-    }
-    else if (args[i].substr(0, 1) == '-') {
-      log('Unknown argument ' + args[i]);
-      showInstructions();
-      return;
-    }
+    if (args[i].indexOf('=') == -1)
+      packages.push(args[i]);
     else {
-      if (args[i].indexOf('=') == -1)
-        packages.push(args[i]);
-      else {
-        packages.push(args[i].split('=')[1]);
-        names.push(args[i].split('=')[0]);
-      }
+      packages.push(args[i].split('=')[1]);
+      names.push(args[i].split('=')[0]);
     }
   }
-  JSPM.install(packages, names, force);
+  useHttps = options.https;
+  JSPM.install(packages, names, options.force);
+}
+else if (args[0] == 'update') {
+  var options = readOptions(args, ['--force', '--https']);
+
+  useHttps = options.https;
+  JSPM.update(options.force);
 }
 else if (args[0] == 'init') {
   JSPM.init();
@@ -1067,10 +1088,10 @@ else if (args[0] == 'setmode') {
     JSPM.setlocal(true);
   else if (args[1] == 'remote')
     JSPM.setlocal(false);
-  else if (args[1] == 'build')
-    JSPM.setbuild(true);
+  else if (args[1] == 'production')
+    JSPM.setproduction(true);
   else if (args[1] == 'dev')
-    JSPM.setbuild(false);
+    JSPM.setproduction(false);
   else
     log('Invalid mode.');
 }

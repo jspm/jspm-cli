@@ -3,11 +3,14 @@
   "directories": {
     "vendor": "lib",
     "build": "app-build",
-    "lib": "app"
+    "lib": "app",
+    "jspm_packages": "jspm_packages"
   },
   "dependencyMap": {
-    "jquery": "github:components/jquery@2.0.3#jquery",
-    "jquery@1.2": "github:components/jquery@1.2.6#jquery"
+    "jquery": "github:components/jquery@2.0.3",
+    "jquery@1.2": "github:components/jquery@1.2.6",
+    "css": "github:jspm/plugin-css@master",
+    "font": "github:jspm/plugin-font@master"
   },
   "buildConfig": {
     "uglify": true,

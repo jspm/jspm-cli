@@ -194,9 +194,9 @@ jspmUtil.collapseLibDir = function(repoPath, packageOptions, callback, errback) 
   var collapseDir;
   var isBuilt = false;
   if (packageOptions.directories) {
-    collapseDir = packageOptions.directories.build || packageOptions.directories.lib;
+    collapseDir = packageOptions.directories.dist || packageOptions.directories.lib;
 
-    if (packageOptions.directories.build)
+    if (packageOptions.directories.dist)
       isBuilt = true;
   }
 
@@ -205,7 +205,7 @@ jspmUtil.collapseLibDir = function(repoPath, packageOptions, callback, errback) 
 
   // move lib dir into temporary path
   var tmpPath = path.resolve(repoPath, '..' + path.sep + '.tmp-' + repoPath.split(path.sep).pop());
-  fs.rename(repoPath + path.sep + collapseDir, tmpPath, function(err) {
+  fs.rename(path.resolve(repoPath, collapseDir), tmpPath, function(err) {
     if (err)
       return errback(err);
 
@@ -246,22 +246,25 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
         // apply dependency shim
         var localPath = path.relative(repoPath, fileName);
-        for (var name in packageOptions.dependencyShim) {
+        for (var name in packageOptions.shim) {
           var relName = name.substr(0, 2) == './' ? name.substr(2) : name;
           if (relName.substr(relName.length - 3, 3) != '.js')
             relName += '.js';
           if (relName == localPath) {
             changed = true;
+
             // do dep shim
-            var shimDeps = packageOptions.dependencyShim[name];
+            var shimDeps = packageOptions.shim[name];
             if (typeof shimDeps == 'string')
               shimDeps = [shimDeps];
+            else if (typeof shimDeps == 'boolean')
+              shimDeps = [];
 
             var depStrs = '';
             for (var i = 0; i < shimDeps.length; i++)
               depStrs += '"import ' + shimDeps[i] + '";\n';
             
-            source = depStrs + source;            
+            source = '"shim";\n' + depStrs + source;
           }
         }
 
@@ -284,7 +287,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
               var pluginName = imports[j].substr(imports[j].indexOf('!') + 1);
               pluginName = pluginName || imports[j].substr(imports[j].lastIndexOf('.') + 1, imports[j].length - imports[j].lastIndexOf('.') - 2);
               if (dependencies.indexOf(pluginName) == -1)
-                dependencies.push('plugin:' + pluginName);
+                dependencies.push(pluginName);
               imports[j] = imports[j].substr(0, imports[j].indexOf('!'));
             }
             if (imports[j].substr(0, 1) != '.') {
@@ -293,7 +296,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
               if (imports[j].indexOf(':') != -1)
                 location = imports[j].split(':')[0];
               if (!location)
-                importName = imports[j];
+                importName = imports[j].split('/')[0];
               else if (location == 'github')
                 importName = imports[j].split('/').splice(0, 2).join('/');
               else
