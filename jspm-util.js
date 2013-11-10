@@ -258,13 +258,18 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
             if (typeof shimDeps == 'string')
               shimDeps = [shimDeps];
             else if (typeof shimDeps == 'boolean')
-              shimDeps = [];
+              shimDeps = { imports: [] };
+            else if (shimDeps instanceof Array)
+              shimDeps = { imports: shimDeps };
 
             var depStrs = '';
-            for (var i = 0; i < shimDeps.length; i++)
-              depStrs += '"import ' + shimDeps[i] + '";\n';
+            for (var i = 0; i < shimDeps.imports.length; i++)
+              depStrs += '"import ' + shimDeps.imports[i] + '";\n';
+
+            for (var i = 0; i < shimDeps.exports.length; i++)
+              depStrs += '"export ' + shimDeps.exports[i] + '";\n';
             
-            source = '"shim";\n' + depStrs + source;
+            source = (depStrs ? depStrs : '"global";\n') + source;
           }
         }
 
