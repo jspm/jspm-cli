@@ -266,10 +266,10 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
             for (var i = 0; i < shimDeps.imports.length; i++)
               depStrs += '"import ' + shimDeps.imports[i] + '";\n';
 
-            for (var i = 0; i < shimDeps.exports.length; i++)
-              depStrs += '"export ' + shimDeps.exports[i] + '";\n';
+            if (shimDeps.exports)
+              depStrs += '"export ' + shimDeps.exports + '";\n';
             
-            source = (depStrs ? depStrs : '"global";\n') + source;
+            source = '"global";\n' + depStrs + source;
           }
         }
 

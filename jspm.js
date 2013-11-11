@@ -118,7 +118,7 @@ var Installer = {
     // if it doesnt match, ask
     (curName && curName != exactName ? Input.confirm : function(q, callback) {
       callback(curName ? false : true, false);
-    })('Update latest *' + initialTarget + '* from *' + curName + '* to ' + lookup.version + '?', function(updateMap) {
+    })('Update latest ^' + initialTarget + '^ from ^' + curName + '^ to ' + lookup.version + '?', function(updateMap) {
 
       // check freshness
       try {
@@ -131,7 +131,7 @@ var Installer = {
       if (hash == lookup.hash)
         return callback(true, updateMap);
 
-      Input.confirm('*' + baseName + '@' + lookup.version + '* is already installed, but has an update. Do you want to apply it?', function(confirm) {
+      Input.confirm('^' + baseName + '@' + lookup.version + '^ is already installed, but has an update. Do you want to apply it?', function(confirm) {
         callback(!confirm, updateMap);
       });
     });
@@ -241,12 +241,12 @@ var Installer = {
                   Installer.createMain(repoPath, packageOptions.main, function(err) {
 
                     if (err)
-                      log(Msg.warn('No main entry point created for *' + fullName + '*'));
+                      log(Msg.warn('No main entry point created for ^' + fullName + '^'));
 
                     // ignore unresolved dependencies
                     /* for (var i = 0; i < dependencies.length; i++) {
                       if (dependencies[i].indexOf(':') == -1) {
-                        log(Msg.warn('Ignoring unresolved external dependency *' + dependencies[i] + '*'));
+                        log(Msg.warn('Ignoring unresolved external dependency ^' + dependencies[i] + '^'));
                         dependencies.splice(i--, 1);
                       }
                     } */
@@ -295,7 +295,7 @@ var Installer = {
   },
 
   checkPackageOverride: function(location, fullName, callback) {
-    log(Msg.info('Checking *' + fullName + '* for package.json override'));
+    log(Msg.info('Checking ^' + fullName + '^ for package.json override'));
     https.get({
       hostname: 'github.jspm.io',
       path: '/jspm/registry@master/package-overrides/' + fullName.replace(':', '/') + '.json',
@@ -353,10 +353,10 @@ var Installer = {
     
     // registry install
     if (target.indexOf(':') == -1) {
-      log(Msg.info('Looking up *' + target + '* in registry'));
+      log(Msg.info('Looking up ^' + target + '^ in registry'));
       jspmUtil.registryLookup(target, function(err, entry) {
         if (err) {
-          log(Msg.err('Error performing registry lookup for *' + target + '*. \n' + err));
+          log(Msg.err('Error performing registry lookup for ^' + target + '^. \n' + err));
           return callback(err);
         }
         Installer.install(entry.name, initialTarget || target, force, callback);
@@ -368,8 +368,8 @@ var Installer = {
     var location = Installer.getLocation(target);
 
     if (!location) {
-      log(Msg.warn('Install of *' + target + '* failed, location downloader not present. \n'
-        + 'Try running _npm install -g jspm-' + target.substr(0, target.indexOf(':')) + '_.'));
+      log(Msg.warn('Install of ^' + target + '^ failed, location downloader not present. \n'
+        + 'Try running _npm install -g jspm-' + target.substr(0, target.indexOf(':')) + '%.'));
       return callback(true);
     }
 
@@ -379,12 +379,12 @@ var Installer = {
     if (version)
       repo = repo.substr(0, repo.length - version.length - 1);
 
-    log(Msg.info('Getting version list for *' + target + '*'));
+    log(Msg.info('Getting version list for ^' + target + '^'));
     Installer.versionLookup(repo, version, location, function(lookup) {
       // lookup: isLatest, isLatestMinor, hash, exactVersion
 
       if (lookup.notfound) {
-        log(Msg.warn('*' + repo + (version ? '@' + version : '') + '* not found!'))
+        log(Msg.warn('^' + repo + (version ? '@' + version : '') + '^ not found!'))
         return callback(true);
       }
 
@@ -403,7 +403,7 @@ var Installer = {
             if (Config.pjson.dependencyMap[m].substr(0, fullName.length) == fullName)
               names.push(m);
 
-          log(Msg.ok('*' + fullName + '* installed as _' + names.join('_, _') + '_'));
+          log(Msg.ok('^' + fullName + '^ installed as %' + names.join('%, %') + '%'));
         }
         for (var i = 0; i < installing[fullName].length; i++)
           installing[fullName][i](err);
@@ -417,7 +417,7 @@ var Installer = {
       })(repo, lookup, initialTarget, location, function(isFresh, updateMap) {
 
         if (isFresh) {
-          log(Msg.info('*' + fullName + '* already up to date.'));
+          log(Msg.info('^' + fullName + '^ already up to date.'));
           if (!updateMap)
             return callback(null, fullName);
           Config.pjson.dependencyMap[initialTarget] = fullName;
@@ -425,7 +425,7 @@ var Installer = {
           return;
         }
 
-        log(Msg.info('Downloading *' + fullName + '*'));
+        log(Msg.info('Downloading ^' + fullName + '^'));
         Installer.installRepo(repo, lookup, location, initialTarget, updateMap, function(dependencies) {
           // install dependencies if any
           Installer.install(dependencies || [], dependencies || [], false, function(err) {
@@ -434,12 +434,12 @@ var Installer = {
           });
 
         }, function(err) {
-          log(Msg.err('Error downloading repo *' + fullName + '*\n' + err));
+          log(Msg.err('Error downloading repo ^' + fullName + '^\n' + err));
           callback(err);
         });
 
       }, function(err) {
-        log(Msg.err('Error checking current repo *' + repo + '@' + lookup.version + '*\n' + err));
+        log(Msg.err('Error checking current repo ^' + repo + '@' + lookup.version + '^\n' + err));
         callback(err);
       });
 
@@ -604,11 +604,11 @@ var Config = {
 
     if (typeof isBuild == 'boolean') {
       if (!isBuild && config.baseURL != Config.pjson.directories.lib) {
-        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.lib + '_.'));
+        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.lib + '%.'));
         config.baseURL = Config.pjson.directories.lib;
       }
       else if (isBuild && config.baseURL != Config.pjson.directories.dist) {
-        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.dist + '_.'));
+        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.dist + '%.'));
         config.baseURL = Config.pjson.directories.dist;
       }
     }
@@ -799,11 +799,11 @@ var JSPM = {
   },
   downloadLoader: function() {
     Config.getConfig(function(pjson, dir) {
-      log(Msg.info('Downloading loader files to _' + pjson.directories.jspm_packages + '_.'));
+      log(Msg.info('Downloading loader files to %' + pjson.directories.jspm_packages + '%.'));
       dir = path.resolve(dir, pjson.directories.jspm_packages);
       mkdirp(dir, function(err) {
         if (err)
-          return log(Msg.err('Unable to create directory _' + dir + '_.'));
+          return log(Msg.err('Unable to create directory _' + dir + '%.'));
 
         var files = ['loader.js', 'es6-module-loader.js', 'esprima-es6.min.js'];
         var done = 0;
@@ -815,7 +815,7 @@ var JSPM = {
           }, function(res) {
             res.pipe(fs.createWriteStream(path.resolve(dir, files[i]))
               .on('finish', function() {
-                log(Msg.info('  *' + files[i] + '*'));
+                log(Msg.info('  ^' + files[i] + '^'));
                 done++;
                 if (done == files.length)
                   log(Msg.ok('Loader files downloaded successfully.'));
@@ -885,8 +885,8 @@ var Msg = {
   moduleMsg: function(msg, color) {
     return (color || '\033[0m')
       + msg
-        .replace(/(\s|^)_([^_\n]+)_/g, '$1\033[1m$2\033[0m' + color || '')
-        .replace(/(\s|^)\*([^\*\n]+)\*/g, '$1\033[36m$2\033[0m' + color || '')
+        .replace(/(\s|^)%([^%\n]+)%/g, '$1\033[1m$2\033[0m' + color || '')
+        .replace(/(\s|^)\^([^\^\n]+)\^/g, '$1\033[36m$2\033[0m' + color || '')
         .replace(/\n\r?( {0,4}\w)/g, '\n     $1')
       + '\033[0m';
   },
