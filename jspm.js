@@ -405,8 +405,10 @@ var Installer = {
 
           log(Msg.ok('^' + fullName + '^ installed as %' + names.join('%, %') + '%'));
         }
-        for (var i = 0; i < installing[fullName].length; i++)
-          installing[fullName][i](err);
+        var callbacks = installing[fullName];
+        delete installing[fullName];
+        for (var i = 0; i < callbacks.length; i++)
+          callbacks[i](err);
       };
 
       initialTarget = initialTarget || target;
@@ -763,13 +765,13 @@ var JSPM = {
   },
   update: function(force) {
     // get list of all installed dependencyMap
-    Config.getConfig(function(config) {
+    Config.getConfig(function(pjson, dir) {
       var packages = [];
       var names = [];
-      for (var m in Config.pjson.dependencyMap) {
+      for (var m in pjson.dependencyMap) {
         names.push(m);
         var version = m.split('@')[1];
-        var package = Config.pjson.dependencyMap[m];
+        var package = pjson.dependencyMap[m];
         if (!version) {
           // latest version
           packages.push(package.split('@')[0]);
@@ -784,6 +786,7 @@ var JSPM = {
         }
       }
       Installer.install(packages, names, force, function(err) {
+        JSPM.downloadLoader(pjson, dir);
         Config.saveConfig(true);
         if (err)
           log(Msg.warn('Update finished, with errors.'));
@@ -793,12 +796,15 @@ var JSPM = {
     });
   },
   init: function() {
-    Config.getConfig(function() {
+    Config.getConfig(function(pjson, dir) {
       Config.saveConfig();
+      JSPM.downloadLoader(pjson, dir);
     });
   },
-  downloadLoader: function() {
-    Config.getConfig(function(pjson, dir) {
+  downloadLoader: function(pjson, dir) {
+    (!pjson ? Config.getConfig : function(callback) {
+      callback(pjson, dir);
+    })(function(pjson, dir) {
       log(Msg.info('Downloading loader files to %' + pjson.directories.jspm_packages + '%.'));
       dir = path.resolve(dir, pjson.directories.jspm_packages);
       mkdirp(dir, function(err) {
