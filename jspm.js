@@ -606,11 +606,11 @@ var Config = {
 
     if (typeof isBuild == 'boolean') {
       if (!isBuild && config.baseURL != Config.pjson.directories.lib) {
-        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.lib + '%.'));
+        log(Msg.ok('Loader baseURL set to %' + Config.pjson.directories.lib + '%.'));
         config.baseURL = Config.pjson.directories.lib;
       }
       else if (isBuild && config.baseURL != Config.pjson.directories.dist) {
-        log(Msg.ok('Loader baseURL set to _' + Config.pjson.directories.dist + '%.'));
+        log(Msg.ok('Loader baseURL set to %' + Config.pjson.directories.dist + '%.'));
         config.baseURL = Config.pjson.directories.dist;
       }
     }
@@ -809,7 +809,7 @@ var JSPM = {
       dir = path.resolve(dir, pjson.directories.jspm_packages);
       mkdirp(dir, function(err) {
         if (err)
-          return log(Msg.err('Unable to create directory _' + dir + '%.'));
+          return log(Msg.err('Unable to create directory %' + dir + '%.'));
 
         var files = ['loader.js', 'es6-module-loader.js', 'esprima-es6.min.js'];
         var done = 0;
