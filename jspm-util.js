@@ -76,15 +76,17 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
         if (files[i].substr(0, 2) == './')
           files[i] = files[i].substr(2);
         var fileName = dir + path.sep + files[i];
-
-        if (fs.statSync(fileName).isDirectory()) {
-          for (var j = 0; j < allFiles.length; j++) {
-            if (jspmUtil.dirContains(fileName, allFiles[j]))
-              fileFiles.push(fileName);
+        try {
+          if (fs.statSync(fileName).isDirectory()) {
+            for (var j = 0; j < allFiles.length; j++) {
+              if (jspmUtil.dirContains(fileName, allFiles[j]))
+                fileFiles.push(fileName);
+            }
           }
+          else
+            fileFiles.push(fileName);
         }
-        else
-          fileFiles.push(fileName);
+        catch(e) {}
       }
       // if files are specifically included, add them back
       for (var i = 0; i < fileFiles.length; i++) {
@@ -97,15 +99,18 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
       // remove all files and folders in the ignore list
       for (var i = 0; i < ignore.length; i++) {
         var fileName = path.resolve(dir, ignore[i]);
-        if (fs.statSync(fileName).isDirectory()) {
-          for (var j = 0; j < allFiles.length; j++)
-            if (jspmUtil.dirContains(fileName, allFiles[j]))
-              removeFiles.push(files[j]);
+        try {
+          if (fs.statSync(fileName).isDirectory()) {
+            for (var j = 0; j < allFiles.length; j++)
+              if (jspmUtil.dirContains(fileName, allFiles[j]))
+                removeFiles.push(files[j]);
+          }
+          else {
+            if (removeFiles.indexOf(fileName) == -1)
+              removeFiles.push(fileName);
+          }
         }
-        else {
-          if (removeFiles.indexOf(fileName) == -1)
-            removeFiles.push(fileName);
-        }
+        catch(e) {}
       }
     }
 
@@ -152,7 +157,7 @@ jspmUtil.getPackageJSON = function(dir, callback) {
     catch(e) {
       return callback('Unable to parse package.json');
     }
-    callback(null, pjson);
+    callback(null, pjson.jspm || pjson);
   });
 }
 
@@ -378,6 +383,7 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       var output = JSON.parse(stdout.join(''));
     }
     catch(e) {
+      console.log('invalid json');
       return callback(stdout + '');
     }
     curSpawns--;
@@ -386,6 +392,7 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       if (next)
         jspmUtil.spawnCompiler.apply(null, next);
     }
+    console.log(output);
     callback(output.err, output.source, output.sourceMap);
   });
   child.stdin.on('error', function() {});

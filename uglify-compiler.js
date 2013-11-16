@@ -44,7 +44,7 @@ process.stdin.on('end', function(data) {
       fileName: o.originalFile,
       inSourceMap: o.sourceMap,
       outSourceMap: o.file + '.map',
-      compress: o.options,
+      compress: o.options == 'true' ? true : o.options,
       output: {
         comments: function(node, comment) {
           if (comment.line == 1 && comment.col == 0)
@@ -61,7 +61,7 @@ process.stdin.on('end', function(data) {
     }));
   }
   catch(e) {
-    process.stdout.write(JSON.stringify({ err: e + '' }));
+    process.stdout.write(JSON.stringify({ err: e }));
     process.exit(0);
   }
 });
