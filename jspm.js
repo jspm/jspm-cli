@@ -504,7 +504,7 @@ var Config = {
         dirList.push(path.dirname(_pjson.main));
 
       for (var i = 0; i < dirList.length; i++) {
-        if (jspmUtil.dirContains(path.resolve(checkDir, dirList[i]), process.cwd())) {
+        if (jspmUtil.dirContains(process.cwd(), path.resolve(checkDir, dirList[i]))) {
           Config.pjson = _pjson;
           Config.pjsonDir = checkDir;
           return Config.verifyConfig(function() {
@@ -549,13 +549,10 @@ var Config = {
   },
   savePackageJSON: function(callback) {
     if (!Config.pjsonDir) {
-      Input.confirm('No package.json found, would you like to create one?', function(create) {
+      Config.pjsonDir = process.cwd();
+      Input.confirm('No package.json found, would you like to create one?', 'y', function(create) {
         if (!create)
-          return;
-
-        Config.pjsonDir = process.cwd();
-
-        // NB prompt for standard fields here
+          return callback();
 
         Config.savePackageJSON(callback);
       });
@@ -786,22 +783,25 @@ var JSPM = {
         }
       }
       Installer.install(packages, names, force, function(err) {
-        JSPM.downloadLoader(pjson, dir);
-        Config.saveConfig(true);
-        if (err)
-          log(Msg.warn('Update finished, with errors.'));
-        else
-          log(Msg.info('Update complete.'));
+        Config.saveConfig(true, null, function() {
+          JSPM.downloadLoader(pjson, dir);
+          if (err)
+            log(Msg.warn('Update finished, with errors.'));
+          else
+            log(Msg.info('Update complete.'));          
+        });
       });
     });
   },
   init: function() {
     Config.getConfig(function(pjson, dir) {
-      Config.saveConfig();
-      JSPM.downloadLoader(pjson, dir);
+      Config.saveConfig(null, null, function() {
+        JSPM.downloadLoader(pjson, dir);
+      });
     });
   },
   downloadLoader: function(pjson, dir) {
+    dir = dir || process.cwd();
     (!pjson ? Config.getConfig : function(callback) {
       callback(pjson, dir);
     })(function(pjson, dir) {

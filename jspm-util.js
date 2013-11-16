@@ -56,7 +56,7 @@ var readFile = function(file, callback) {
 jspmUtil.dirContains = function(dirName, fileName) {
   dirName = path.resolve(dirName);
   fileName = path.resolve(fileName);
-  if (path.relative(dirName, fileName).substr(0, 3) == '..' + path.sep)
+  if (path.relative(dirName, fileName).substr(0, 2) == '..')
     return false;
   return true;
 }
