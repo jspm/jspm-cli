@@ -383,7 +383,6 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       var output = JSON.parse(stdout.join(''));
     }
     catch(e) {
-      console.log('invalid json');
       return callback(stdout + '');
     }
     curSpawns--;
@@ -392,7 +391,6 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
       if (next)
         jspmUtil.spawnCompiler.apply(null, next);
     }
-    console.log(output);
     callback(output.err, output.source, output.sourceMap);
   });
   child.stdin.on('error', function() {});
