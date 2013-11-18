@@ -216,7 +216,7 @@ Use `-h` or `--https` to download with https instead of alternative protocols.
 ### Further Reading
 
 * Type `jspm --help` for command list.
-* [Read the jspm Loader documentation here](https://github.com/jspm/loader).
+* [Read the jspm Loader documentation here](https://github.com/jspm/jspm-loader).
 * Add new items to the [jspm registry](https://github.com/jspm/registry) repo by providing a pull request.
 * Read more on [configuring libraries for jspm](https://github.com/jspm/registry/wiki/Package.json-Specification).
 
