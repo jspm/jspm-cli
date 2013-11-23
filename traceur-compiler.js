@@ -38,10 +38,8 @@ process.stdin.on('end', function(data) {
     o.file
     o.originalFile
   */
-  var project = new traceur.semantics.symbols.Project(o.file);
-    
-  traceur.options = o.options;
 
+  traceur.options = o.options;
   traceur.options.sourceMaps = true;
   traceur.options.modules = 'parse';
 
@@ -51,14 +49,18 @@ process.stdin.on('end', function(data) {
     process.exit(0);
   }
 
-  var sourceFile = new traceur.syntax.SourceFile(o.file, o.source);
-  project.addFile(sourceFile);
-  var res = traceur.codegeneration.Compiler.compile(reporter, project, false);
+  var parser = new traceur.syntax.Parser(reporter, new traceur.syntax.SourceFile(o.file, o.source));
+  var tree = parser.parseModule();
 
+  var project = new traceur.semantics.symbols.Project(o.file);
+  var transformer = new traceur.codegeneration.ProgramTransformer(reporter, project);
+  tree = transformer.transform(tree);
+
+  // generate source
   var sourceMapGenerator = new traceur.outputgeneration.SourceMapGenerator({ file: o.originalFile });
   var opt = { sourceMapGenerator: sourceMapGenerator };
 
-  source = traceur.outputgeneration.ProjectWriter.write(res, opt);
+  source = traceur.outputgeneration.TreeWriter.write(tree, opt);
 
   process.stdout.write(JSON.stringify({
     source: source,

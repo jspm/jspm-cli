@@ -508,7 +508,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
 
                 // if the first line is not a comment
                 // add one extra line at the top, and include this in the source map
-                if (source && !source.match(firstLineCommentRegEx)) {
+                if (buildOptions.uglify && source && !source.match(firstLineCommentRegEx)) {
                   source = '\n' + source;
                   var m = JSON.parse(sourceMap);
                   m.mappings = ';' + m.mappings;
