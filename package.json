@@ -11,7 +11,7 @@
     "jspm-loader": "~0.2.0",
     "rimraf": "~2.2.2",
     "uglify-js": "git+https://github.com/guybedford/UglifyJS2.git#fix",
-    "traceur": "git+https://github.com/google/traceur-compiler#master",
+    "traceur": "git+https://github.com/guybedford/traceur-tmp#master",
     "tar": "~0.1.18",
     "es6-module-transpiler": "~0.3.3"
   },
