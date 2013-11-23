@@ -571,41 +571,40 @@ jspmUtil.createVersionMap = function(versions) {
 
   // build up the version map
   for (var v in versions) {
-    var exactVersion = semver.valid(v);
+    var version = semver.valid(v);
+    var exactVersion = version && version.match(jspmUtil.exactVersionRegEx);
+    version = version || v;
 
-    if (exactVersion && !exactVersion.match(jspmUtil.exactVersionRegEx))
-      exactVersion = false;
-
-    var curMap = { version: exactVersion || v, hash: versions[v] };
+    var curMap = { version: version, hash: versions[v] };
 
     if (exactVersion) {
       // add the exact version to the version map
-      versionMap[exactVersion] = curMap;
+      versionMap[version] = curMap;
       
       // set latest version if it is
       if (!versionMap.latest)
         versionMap.latest = curMap;
-      if (semver.gt(exactVersion, versionMap.latest.version))
+      if (semver.gt(version, versionMap.latest.version))
         versionMap.latest = curMap;
 
       // set minor version if it is
-      var minorVersion = exactVersion.split('.').splice(0, 2).join('.');
+      var minorVersion = version.split('.').splice(0, 2).join('.');
       if (!versionMap[minorVersion]) {
         versionMap[minorVersion] = curMap;
-        latestMinorVersions.push(exactVersion);
+        latestMinorVersions.push(version);
       }
-      if (!semver.valid(versionMap[minorVersion].version) || semver.gt(exactVersion, versionMap[minorVersion].version)) {
+      if (!semver.valid(versionMap[minorVersion].version) || semver.gt(version, versionMap[minorVersion].version)) {
         // bump off the last latest minor listed and replace with this
         var oldMinorIndex = latestMinorVersions.indexOf(versionMap[minorVersion].version);
         latestMinorVersions.splice(oldMinorIndex, 1);
-        latestMinorVersions.push(exactVersion);
+        latestMinorVersions.push(version);
 
         versionMap[minorVersion] = curMap;                
       }
     }
     else {
       // add the tag version to the version map
-      versionMap[v] = curMap;
+      versionMap[version] = curMap;
     }
   }
 
@@ -614,7 +613,8 @@ jspmUtil.createVersionMap = function(versions) {
     versionMap.latest = { version: 'master', hash: versionMap.master.hash };
 
   // set the latest meta
-  versionMap[versionMap.latest.version].isLatest = true;
+  if (versionMap.latest)
+    versionMap[versionMap.latest.version].isLatest = true;
 
   // set the latest minor meta
   for (var i = 0; i < latestMinorVersions.length; i++)
@@ -622,5 +622,4 @@ jspmUtil.createVersionMap = function(versions) {
 
   return versionMap;
 }
-
 module.exports = jspmUtil;

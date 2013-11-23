@@ -205,7 +205,7 @@ To run the application from the built sources, use the command:
 
 The `baseURL` in the configuration file will be updated to the build directory, and the app will load its resources from there.
 
-To try out a demonstration of this, [clone the demo repo here](https://github.com/jspm/demo).
+To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
 
 ### Command Options
 

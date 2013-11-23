@@ -811,7 +811,7 @@ var JSPM = {
         if (err)
           return log(Msg.err('Unable to create directory %' + dir + '%.'));
 
-        var files = ['loader.js', 'es6-module-loader.js', 'esprima-es6.min.js'];
+        var files = ['loader.js', 'es6-module-loader.js', 'traceur.js'];
         var done = 0;
         for (var i = 0; i < files.length; i++) (function(i) {
           https.get({
