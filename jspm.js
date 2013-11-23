@@ -1025,9 +1025,7 @@ var showInstructions = function(arg) {
     + '  setmode dev                     Switch to the development baseURL\n'
     + '  setmode production              Switch to the production baseURL\n'
     + '\n'
-    + 'jspm build [<outDir>]            Compile all resources\n'
-    + '\n'
-    + 'jspm create <template> <outfile>  Create a file from a template\n'
+    + 'jspm build [<outDir>]             Compile all resources\n'
   );
 }
 

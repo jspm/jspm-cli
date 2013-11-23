@@ -484,7 +484,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
 
             // explicitly write in CJS requires before minification
             var cjsStatement;
-            if (cjsStatement = source.match(amdCJSRegEx)) {
+            if (buildOptions.transpile && (cjsStatement = source.match(amdCJSRegEx))) {
               var requires = ['require', 'exports', 'module'];
               var match;
               while (match = cjsRequireRegEx.exec(source))
