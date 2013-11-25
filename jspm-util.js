@@ -228,6 +228,51 @@ jspmUtil.collapseLibDir = function(repoPath, packageOptions, callback, errback) 
     });
   });  
 }
+
+var cjsRequireRegEx = /require\s*\(\s*("([^"]+)"|'([^']+)')\s*\)/g;
+jspmUtil.mapCJSDependencies = function(source, replaceMap) {
+  return source.replace(cjsRequireRegEx, function(reqName, str, singleString, doubleString) {
+    var name = singleString || doubleString;
+    if (replaceMap[name])
+      return reqName.replace(name, replaceMap[name].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"));
+    else
+      return reqName;
+  });
+}
+
+var amdDefineRegEx = /(?:^\s*|[}{\(\);,\n\?\&]\s*)define\s*\(\s*("[^"]+"\s*,|'[^']+'\s*,\s*)?(\[.+\])/;
+jspmUtil.mapAMDDependencies = function(source, replaceMap) {
+  var match = amdDefineRegEx.exec(source);
+  
+  if (match) {
+    var innerDefine = match[2];
+    var newInnerDefine = innerDefine;
+
+    for (var name in replaceMap) {
+      var mapped = replaceMap[name];
+      if (mapped != name) {
+        changed = true;
+        name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+        newInnerDefine = newInnerDefine.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + mapped + '\'');
+      }
+    }
+    return source.replace(innerDefine, newInnerDefine);
+  }
+  else
+    return source;
+}
+
+var es6DepRegEx = /(^|\}|\s)(from|import)\s*("([^"]+)"|'([^']+)')/g;
+jspmUtil.mapES6Dependencies = function(source, replaceMap) {
+  return source.replace(es6DepRegEx, function(match, start, type, str, singleString, doubleString) {
+    var name = singleString || doubleString;
+    if (replaceMap[name])
+      return match.replace(name, replaceMap[name].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"));
+    else
+      return match;
+  });
+}
+
 jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback) {
   // glob. replace map dependency strings (basic string replacement). at the same time, extract external dependencies.
   glob(repoPath + path.sep + '**' + path.sep + '*.js', function(err, files) {
@@ -268,8 +313,9 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
               shimDeps = { imports: shimDeps };
 
             var depStrs = '';
-            for (var i = 0; i < shimDeps.imports.length; i++)
-              depStrs += '"import ' + shimDeps.imports[i] + '";\n';
+            if (shimDeps.imports)
+              for (var i = 0; i < shimDeps.imports.length; i++)
+                depStrs += '"import ' + shimDeps.imports[i] + '";\n';
 
             if (shimDeps.exports)
               depStrs += '"export ' + shimDeps.exports + '";\n';
@@ -279,14 +325,19 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         }
 
         // apply dependency map
-        for (var name in packageOptions.dependencyMap) {
-          var mapped = packageOptions.dependencyMap[name];
-          if (mapped != name) {
-            changed = true;
-            name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-            source = source.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + mapped + '\'');
-          }
-        }
+
+        // CJS
+        // require('name') -> require('new-name');
+        source = jspmUtil.mapCJSDependencies(source, packageOptions.dependencyMap);
+
+        // ES6
+        // from 'name' -> from 'new-name'
+        // import 'name' -> import 'new-name'
+        source = jspmUtil.mapES6Dependencies(source, packageOptions.dependencyMap);
+
+        // AMD
+        // require(['names', 'are', 'here']) -> require(['new', 'names', 'here'])
+        source = jspmUtil.mapAMDDependencies(source, packageOptions.dependencyMap);
 
         // parse out external dependencies
         var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
@@ -428,7 +479,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
       if (err) {
         if (errors.indexOf(file) == -1)
           errors += file + ':\n';
-        errors += err + '\n';
+        errors += JSON.stringify(err) + '\n';
         // revert to original
         return fs.rename(originalFile, file, function() {
           fileComplete(null, file);
@@ -503,8 +554,9 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
               (buildOptions.uglify ? jspmUtil.spawnCompiler : function(name, source, sourceMap, options, fileName, originalFileName, callback) {
                 callback(null, source, sourceMap);
               })('uglify', source, null, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
-                if (err)
+                if (err) {
                   return fileComplete(err, file, originalFile);
+                }
 
                 // if the first line is not a comment
                 // add one extra line at the top, and include this in the source map
