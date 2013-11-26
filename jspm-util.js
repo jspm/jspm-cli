@@ -365,7 +365,10 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
             var mapTarget = target.replace('*', wildcard);
 
             total++;
-            fs.writeFile(path.resolve(repoPath, mapName) + '.js', "export * from '" + mapTarget + "';", function(err) {
+            var relPath = path.relative(path.resolve(repoPath, mapName, '..'), path.resolve(repoPath, mapTarget));
+            if (relPath.substr(0, 1) != '.')
+              relPath = './' + relPath;
+            fs.writeFile(path.resolve(repoPath, mapName) + '.js', "export * from '" + relPath + "';", function(err) {
               if (err)
                 return errback(err);
 
