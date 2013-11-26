@@ -273,6 +273,32 @@ jspmUtil.mapES6Dependencies = function(source, replaceMap) {
   });
 }
 
+
+var wildcardMatch = function(wildcard, match) {
+  var wParts = wildcard.split('/');
+  var mParts = match.split('/');
+
+  if (wParts.length != mParts.length)
+    return false;
+
+  var wValue;
+
+  for (var i = 0; i < mParts.length; i++) {
+    if (wParts[i].indexOf('*') != -1 && !wValue) {
+      var starParts = wParts[i].split('*');
+      if (mParts[i].substr(0, starParts[0].length) != starParts[0])
+        return false;
+      if (mParts[i].substr(mParts[i].length - starParts[1].length) != starParts[1])
+        return false;
+      wValue = mParts[i].substr(starParts[0].length, mParts[i].length - starParts[1].length - starParts[0].length);
+    }
+    else if (wParts[i] != mParts[i])
+      return false;
+  }
+
+  return wValue;
+}
+
 jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback) {
 
   // glob. replace map dependency strings (basic string replacement). at the same time, extract external dependencies.
@@ -281,6 +307,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
       return errback(err);
 
     var processed = 0;
+    var total = files.length;
     var dependencies = [];
     for (var i = 0; i < files.length; i++) (function(fileName) {
       var changed = false;
@@ -295,25 +322,27 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
         source += '';
 
-        // apply dependency shim
+        // apply shim (with wildcards)
         var localPath = path.relative(repoPath, fileName);
+        localPath = localPath.substr(0, localPath.length - 3);
         for (var name in packageOptions.shim) {
           var relName = name.substr(0, 2) == './' ? name.substr(2) : name;
-          if (relName.substr(relName.length - 3, 3) != '.js')
-            relName += '.js';
-          if (relName == localPath) {
+
+          if (wildcardMatch(relName, localPath)) {
             changed = true;
 
             // do dep shim
             var shimDeps = packageOptions.shim[name];
             if (typeof shimDeps == 'string')
-              shimDeps = [shimDeps];
+              shimDeps = { imports: [shimDeps] };
             else if (typeof shimDeps == 'boolean')
               shimDeps = { imports: [] };
             else if (shimDeps instanceof Array)
               shimDeps = { imports: shimDeps };
 
             var depStrs = '';
+            if (typeof shimDeps.imports == 'string')
+              shimDeps.imports = [shimDeps.imports];
             if (shimDeps.imports)
               for (var i = 0; i < shimDeps.imports.length; i++)
                 depStrs += '"import ' + shimDeps.imports[i] + '";\n';
@@ -325,32 +354,57 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
           }
         }
 
+
+        // apply map
+        for (var name in packageOptions.map) {
+          var target = packageOptions.map[name];
+          var wildcard;
+          if ((wildcard = wildcardMatch(target, localPath))) {
+            // need to create a map from name to target
+            var mapName = name.replace('*', wildcard);
+            var mapTarget = target.replace('*', wildcard);
+
+            total++;
+            fs.writeFile(path.resolve(repoPath, mapName) + '.js', "export * from '" + mapTarget + "';", function(err) {
+              if (err)
+                return errback(err);
+
+              processed++;
+              if (total == processed)
+                callback(dependencies);
+            });
+          }
+        }
+
         // apply dependency map
+        if (packageOptions.dependencyMap) {
+          var newSource;
+          // CJS
+          // require('name') -> require('new-name');
+          newSource = jspmUtil.mapCJSDependencies(source, packageOptions.dependencyMap);
+          if (newSource) {
+            source = newSource;
+            changed = true;
+          }
+          // ES6
+          // from 'name' -> from 'new-name'
+          // import 'name' -> import 'new-name'
+          newSource = jspmUtil.mapES6Dependencies(source, packageOptions.dependencyMap);
+          if (newSource) {
+            source = newSource;
+            changed = true;
+          }
 
-        // CJS
-        // require('name') -> require('new-name');
-        var newSource = jspmUtil.mapCJSDependencies(source, packageOptions.dependencyMap);
-        if (newSource) {
-          source = newSource;
-          changed = true;
+          // AMD
+          // require(['names', 'are', 'here']) -> require(['new', 'names', 'here'])
+          newSource = jspmUtil.mapAMDDependencies(source, packageOptions.dependencyMap);
+          if (newSource) {
+            source = newSource;
+            changed = true;
+          }
         }
 
-        // ES6
-        // from 'name' -> from 'new-name'
-        // import 'name' -> import 'new-name'
-        newSource = jspmUtil.mapES6Dependencies(source, packageOptions.dependencyMap);
-        if (newSource) {
-          source = newSource;
-          changed = true;
-        }
 
-        // AMD
-        // require(['names', 'are', 'here']) -> require(['new', 'names', 'here'])
-        newSource = jspmUtil.mapAMDDependencies(source, packageOptions.dependencyMap);
-        if (newSource) {
-          source = newSource;
-          changed = true;
-        }
 
         // parse out external dependencies
         var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
@@ -391,9 +445,8 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
           processed++;
 
-          if (processed == files.length)
+          if (processed == total)
             callback(dependencies);
-
         });
 
       });
