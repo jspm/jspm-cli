@@ -527,9 +527,9 @@ var amdCJSRegEx = /^\s*define\s*\(\s*function.+\{\s*$/m;
 var cjsRequireRegEx = /(?:^\s*|[}{\(\);,\n=:]\s*)require\s*\(\s*("([^"]+)"|'([^']+)')\s*\)/g;
 var firstLineCommentRegEx = /^( *\/\/.*| *\/\*[^\*]*)\n/;
 
-jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback) {
+jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callback) {
 
-  buildOptions = buildOptions || {};
+  buildOptions = packageOptions && packageOptions.buildConfig || {};
 
   if (!buildOptions.traceur && !buildOptions.transpile && !buildOptions.uglify)
     return callback();
@@ -569,6 +569,13 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
       var exists = fs.existsSync(file.replace(/\.js$/, '.js.map'));
       if (exists)
         return fileComplete(null, file);
+
+      // if it is a custom map, skip it
+      var relName = path.relative(repoPath, file);
+      for (var m in packageOptions.map) {
+        if (wildcardMatch(m, relName))
+          return fileComplete(null, file);
+      }
 
       // 1. rename to new original name
       var originalFile = file.replace(/\.js$/, '.src.js');
@@ -621,7 +628,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, buildOptions, callback)
                 callback(null, source, sourceMap);
               })('uglify', source, null, buildOptions.uglify || {}, fileName, originalFileName, function(err, source, sourceMap) {
                 if (err) {
-                  return fileComplete(err, file, originalFile);
+                  return fileComplete(err.message || err, file, originalFile);
                 }
 
                 // if the first line is not a comment

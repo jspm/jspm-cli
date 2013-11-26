@@ -232,7 +232,7 @@ var Installer = {
               jspmUtil.processDependencies(repoPath, packageOptions, function(dependencies) {
 
                 // run compilation (including minify) if necessary
-                (!isBuilt ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions.buildConfig, function(err) {
+                (!isBuilt ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions, function(err) {
 
                   if (err)
                     log(Msg.err(err + ''));
