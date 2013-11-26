@@ -274,6 +274,7 @@ jspmUtil.mapES6Dependencies = function(source, replaceMap) {
 }
 
 jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback) {
+
   // glob. replace map dependency strings (basic string replacement). at the same time, extract external dependencies.
   glob(repoPath + path.sep + '**' + path.sep + '*.js', function(err, files) {
     if (err)
@@ -328,16 +329,28 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
         // CJS
         // require('name') -> require('new-name');
-        source = jspmUtil.mapCJSDependencies(source, packageOptions.dependencyMap);
+        var newSource = jspmUtil.mapCJSDependencies(source, packageOptions.dependencyMap);
+        if (newSource) {
+          source = newSource;
+          changed = true;
+        }
 
         // ES6
         // from 'name' -> from 'new-name'
         // import 'name' -> import 'new-name'
-        source = jspmUtil.mapES6Dependencies(source, packageOptions.dependencyMap);
+        newSource = jspmUtil.mapES6Dependencies(source, packageOptions.dependencyMap);
+        if (newSource) {
+          source = newSource;
+          changed = true;
+        }
 
         // AMD
         // require(['names', 'are', 'here']) -> require(['new', 'names', 'here'])
-        source = jspmUtil.mapAMDDependencies(source, packageOptions.dependencyMap);
+        newSource = jspmUtil.mapAMDDependencies(source, packageOptions.dependencyMap);
+        if (newSource) {
+          source = newSource;
+          changed = true;
+        }
 
         // parse out external dependencies
         var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
