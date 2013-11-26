@@ -296,7 +296,7 @@ var wildcardMatch = function(wildcard, match) {
       return false;
   }
 
-  return wValue;
+  return wValue || true;
 }
 
 jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback) {
