@@ -90,8 +90,10 @@ jspmUtil.applyIgnoreFiles = function(dir, files, ignore, callback) {
       }
       // if files are specifically included, add them back
       for (var i = 0; i < fileFiles.length; i++) {
-        if (removeFiles.indexOf(fileFiles[i]) != -1)
-          removeFiles.splice(removeFiles.indexOf(fileFiles[i]), 1);
+        for (var j = 0; j < removeFiles.length; j++) {
+          if (removeFiles[j].substr(0, fileFiles[i].length) == fileFiles[i])
+            removeFiles.splice(j--, 1);
+        }
       }
     }
 
@@ -381,6 +383,21 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
         // apply dependency map
         if (packageOptions.dependencyMap) {
+
+          // if there are any relative maps in the dependencyMap, these are "package-relative"
+          // ensure that this is configured
+          var oldMaps = {};
+          for (var p in packageOptions.dependencyMap) {
+            var v = packageOptions.dependencyMap[p];
+            if (v.substr(0, 2) == './') {
+              oldMaps[p] = v;
+              v = path.relative(path.dirname(fileName), path.resolve(repoPath, v));
+              if (v.substr(0, 1) != '.')
+                v = './' + v;
+              packageOptions.dependencyMap[p] = v;
+            }
+          }
+
           var newSource;
           // CJS
           // require('name') -> require('new-name');
@@ -404,6 +421,11 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
           if (newSource) {
             source = newSource;
             changed = true;
+          }
+
+          // revert relative mapping
+          for (var p in oldMaps) {
+            packageOptions.dependencyMap[p] = oldMaps[p];
           }
         }
 
