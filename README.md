@@ -11,6 +11,13 @@ https://jspm.io
 * Allows installing directly from the [jspm Registry](https://github.com/jspm/registry) shortcut names (`jspm install jquery`).
 * Provides a single build operation to uglify with source maps and transpile ES6 modules into AMD with [Traceur](https://github.com/google/traceur-compiler) and the [ES6 Module Transpiler](https://github.com/square/es6-module-transpiler).
 
+
+Note:
+* Most NPM modules should install without any configuration with `jspm install npm:modulename`.
+* Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
+
+_If you are having any trouble configuring a package for jspm, please just post an issue and we'll help get it configured._
+
 ### Getting Started
 
 ```
