@@ -655,7 +655,7 @@ var AppBuild = {
             return log(Msg.err('Unable to create production directory. \n' + err));
 
           // run compilation (including minify) if necessary
-          jspmUtil.compile(outDir, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, Config.pjson.buildConfig, function(err) {
+          jspmUtil.compile(outDir, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, Config.pjson, function(err) {
             if (err)
               log(Msg.err(err + ''));
             else
