@@ -356,52 +356,31 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
           }
         }
 
-
-        // apply map
-        for (var name in packageOptions.map) {
-          var target = packageOptions.map[name];
-          var wildcard;
-          if ((wildcard = wildcardMatch(target, localPath))) {
-            // need to create a map from name to target
-            var mapName = name.replace('*', wildcard);
-            var mapTarget = target.replace('*', wildcard);
-
-            total++;
-            var relPath = path.relative(path.resolve(repoPath, mapName, '..'), path.resolve(repoPath, mapTarget));
-            if (relPath.substr(0, 1) != '.')
-              relPath = './' + relPath;
-            fs.writeFile(path.resolve(repoPath, mapName) + '.js', "export * from '" + relPath + "';", function(err) {
-              if (err)
-                return errback(err);
-
-              processed++;
-              if (total == processed)
-                callback(dependencies);
-            });
-          }
-        }
-
         // apply dependency map
-        if (packageOptions.dependencyMap) {
+        // NB can remove:
+        if (packageOptions.dependencyMap)
+          packageOptions.map = packageOptions.dependencyMap;
+
+        if (packageOptions.map) {
 
           // if there are any relative maps in the dependencyMap, these are "package-relative"
           // ensure that this is configured
           var oldMaps = {};
-          for (var p in packageOptions.dependencyMap) {
-            var v = packageOptions.dependencyMap[p];
+          for (var p in packageOptions.map) {
+            var v = packageOptions.map[p];
             if (v.substr(0, 2) == './') {
               oldMaps[p] = v;
               v = path.relative(path.dirname(fileName), path.resolve(repoPath, v));
               if (v.substr(0, 1) != '.')
                 v = './' + v;
-              packageOptions.dependencyMap[p] = v;
+              packageOptions.map[p] = v;
             }
           }
 
           var newSource;
           // CJS
           // require('name') -> require('new-name');
-          newSource = jspmUtil.mapCJSDependencies(source, packageOptions.dependencyMap);
+          newSource = jspmUtil.mapCJSDependencies(source, packageOptions.map);
           if (newSource) {
             source = newSource;
             changed = true;
@@ -409,7 +388,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
           // ES6
           // from 'name' -> from 'new-name'
           // import 'name' -> import 'new-name'
-          newSource = jspmUtil.mapES6Dependencies(source, packageOptions.dependencyMap);
+          newSource = jspmUtil.mapES6Dependencies(source, packageOptions.map);
           if (newSource) {
             source = newSource;
             changed = true;
@@ -417,7 +396,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
           // AMD
           // require(['names', 'are', 'here']) -> require(['new', 'names', 'here'])
-          newSource = jspmUtil.mapAMDDependencies(source, packageOptions.dependencyMap);
+          newSource = jspmUtil.mapAMDDependencies(source, packageOptions.map);
           if (newSource) {
             source = newSource;
             changed = true;
@@ -425,7 +404,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
           // revert relative mapping
           for (var p in oldMaps) {
-            packageOptions.dependencyMap[p] = oldMaps[p];
+            packageOptions.map[p] = oldMaps[p];
           }
         }
 
