@@ -63,9 +63,9 @@ jspm init
     No package.json found, would you like to create one? (y/n): y
     package.json updated.
     Downloading loader files to jspm_packages.
-      loader.js
-      es6-module-loader.js
-      esprima-es6.min.js
+       es6-module-loader.js
+       loader.js
+       traceur.js
 ok  Loader files downloaded successfully.
 ```
 
@@ -251,7 +251,7 @@ Use `-o` or `--override` to force-set the package override for a package that ne
 * Type `jspm --help` for command list.
 * [Read the jspm Loader documentation here](https://github.com/jspm/jspm-loader).
 * Add new items to the [jspm registry](https://github.com/jspm/registry) repo by providing a pull request.
-* Read more on [configuring libraries for jspm](https://github.com/jspm/registry/wiki/Package.json-Specification).
+* Read more on [configuring libraries for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
 ### License
 
