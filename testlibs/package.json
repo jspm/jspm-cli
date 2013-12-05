@@ -1,0 +1,19 @@
+{
+  "configFile": "config.js",
+  "directories": {
+    "jspm_packages": "jspm_packages",
+    "lib": "lib"
+  },
+  "map": {
+    "backbone": "npm:backbone@1.1.0",
+    "npm:underscore": "npm:underscore@1.5.2",
+    "underscore": "npm:underscore@1.5.2",
+    "bootstrap": "github:twbs/bootstrap@3.0.2",
+    "jquery": "github:components/jquery@2.0.3",
+    "chosen": "github:harvesthq/chosen@1.0.0",
+    "css": "github:jspm/plugin-css@master",
+    "d3": "npm:d3@3.3.11",
+    "foundation": "github:zurb/bower-foundation@5.0.2",
+    "modernizr": "github:Modernizr/Modernizr@2.7.1"
+  }
+}

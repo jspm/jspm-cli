@@ -113,7 +113,7 @@ var Installer = {
     var exactName = baseName + '@' + lookup.version;
 
     // check map config
-    var curName = Config.pjson.dependencyMap[initialTarget];
+    var curName = Config.pjson.map[initialTarget];
 
     // if it doesnt match, ask
     (curName && curName != exactName ? Input.confirm : function(q, callback) {
@@ -139,21 +139,56 @@ var Installer = {
   },
 
   // implements a download with some basic queueing
-  downloadRepo: function(location, repo, version, hash, path, callback) {
+  // also does the package.json override check in parallel
+  downloadRepo: function(location, repo, version, hash, repoPath, override, callback) {
+    var fullName = location.name + ':' + repo + '@' + version;
     var repoName = location.name + ':' + repo;
+
+    var packageOptions;
+
+    if (!override)
+      Installer.checkPackageOverride(location, fullName, function(err, override) {
+        complete(err, null, override || {});
+      });
+
+    var complete = function(err, _packageOptions, _override) {
+      if (err)
+        return callback(err);
+
+      packageOptions = _packageOptions || packageOptions;
+      override = _override || override;
+
+      // complete when have both packageOptions and override
+      if (packageOptions && override) {
+        packageOptions = jspmUtil.extend(packageOptions, override);
+        try {
+          fs.writeFileSync(path.resolve(repoPath, 'package.json'), JSON.stringify(packageOptions));
+        }
+        catch(e) {
+          return callback('Unable to write package.json');
+        }
+
+        callback(null, packageOptions);
+      }
+    }
+    
     if (downloadQueue[repoName]) {
-      downloadQueue[repoName].push([version, hash, path, callback]);
+      downloadQueue[repoName].push([version, hash, repoPath, complete]);
       return;
     }
     else
-      downloadQueue[repoName] = [[version, hash, path, callback]];
+      downloadQueue[repoName] = [[version, hash, repoPath, complete]];
 
     var doNext = function() {
       var next = downloadQueue[repoName].shift();
       if (next)
         location.download(repo, next[0], next[1], next[2], function(packageOptions) {
-          next[3](null, packageOptions);
-          doNext();
+          (!packageOptions ? jspmUtil.getPackageJSON : function(repoPath, callback) {
+            callback(null, packageOptions);
+          })(repoPath, function(err, packageOptions) {
+            next[3](err, packageOptions || {});
+            doNext();
+          });
         }, function(err) {
           next[3](err);
           doNext();
@@ -164,118 +199,106 @@ var Installer = {
     doNext();
   },
 
-  getPackageOptions: function(location, repo, version, callback) {
-
-    var repoPath = path.resolve(location.baseDir + path.sep + repo + '@' + version);
-    var fullName = location.name + ':' + repo + '@' + version;
-
-    jspmUtil.getPackageJSON(repoPath, function(err, pjson) {
-
-      if (err)
-        return callback(err);
-
-      // check for a package override
-      Installer.checkPackageOverride(location, fullName, function(err, packageOptions) {
-        if (err)
-          return callback(err);
-
-        pjson = pjson || {};
-        packageOptions = jspmUtil.extend(pjson, packageOptions);
-        try {
-          fs.writeFileSync(path.resolve(repoPath, 'package.json'), JSON.stringify(pjson));
-        }
-        catch(e) {
-          return callback('Unable to write package.json');
-        }
-
-        callback(null, packageOptions);
-
-      });
-
-    });
-
-  },
-
   // also does processing
   // returns dependencies
-  installRepo: function(repo, lookup, location, initialTarget, updateMap, callback, errback) {
-
+  installRepo: function(repo, lookup, location, initialTarget, override, updateMap, callback, errback) {
     var repoPath = path.resolve(location.baseDir + path.sep + repo + '@' + lookup.version);
     var fullName = location.name + ':' + repo + '@' + lookup.version;
 
     rimraf(repoPath, function(err) {
 
-      Installer.downloadRepo(location, repo, lookup.version, lookup.hash, repoPath, function(err, packageOptions) {
+      Installer.downloadRepo(location, repo, lookup.version, lookup.hash, repoPath, override, function(err, packageOptions) {
 
         if (err)
           return errback(err);
 
-        if (packageOptions === false)
+        if (packageOptions === false) {
           packageOptions = {};
-
-        (!packageOptions ? Installer.getPackageOptions : function(location, repo, version, callback) {
-          callback(null, packageOptions);
-        })(location, repo, lookup.version, function(err, packageOptions) {
+          override = override || {};
+        }
+          
+        jspmUtil.applyIgnoreFiles(repoPath, packageOptions.files, packageOptions.ignore, function(err) {
 
           if (err)
-            return errback(err);
-          
-          jspmUtil.applyIgnoreFiles(repoPath, packageOptions.files, packageOptions.ignore, function(err) {
+            log(Msg.err('Error applying files and ignore. \n' + err));
 
-            if (err)
-              log(Msg.err('Error applying files and ignore. \n' + err));
+          // collapse the lib directory if present
+          jspmUtil.collapseLibDir(repoPath, packageOptions, function(isBuilt) {
 
-            // collapse the lib directory if present
-            jspmUtil.collapseLibDir(repoPath, packageOptions, function(isBuilt) {
+            // run compilation (including minify) if necessary
+            (!isBuilt ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions, function(err) {
+
+              if (err)
+                log(Msg.warn(err + ''));
 
               // process dependencies (apply dependency map, and return external dependencies)
               jspmUtil.processDependencies(repoPath, packageOptions, function(dependencies) {
 
-                // run compilation (including minify) if necessary
-                (!isBuilt ? jspmUtil.compile : ice)(repoPath, path.dirname(path.resolve(Config.pjsonDir, Config.pjson.configFile)), null, packageOptions, function(err) {
+                // create the main entry point shortcut
+                //Installer.createMain(repoPath, packageOptions.main, function(err) {
 
                   if (err)
-                    log(Msg.err(err + ''));
+                    log(Msg.warn('No main entry point created for ^' + fullName + '^'));
 
-                  // create the main entry point shortcut
-                  Installer.createMain(repoPath, packageOptions.main, function(err) {
+                  // ignore unresolved dependencies
+                  /* for (var i = 0; i < dependencies.length; i++) {
+                    if (dependencies[i].indexOf(':') == -1) {
+                      log(Msg.warn('Ignoring unresolved external dependency ^' + dependencies[i] + '^'));
+                      dependencies.splice(i--, 1);
+                    }
+                  } */
 
-                    if (err)
-                      log(Msg.warn('No main entry point created for ^' + fullName + '^'));
+                  // set up the version map
+                  if (updateMap && initialTarget != fullName) {
+                    Config.pjson.map[initialTarget] = fullName;
+                  }
 
-                    // ignore unresolved dependencies
-                    /* for (var i = 0; i < dependencies.length; i++) {
-                      if (dependencies[i].indexOf(':') == -1) {
-                        log(Msg.warn('Ignoring unresolved external dependency ^' + dependencies[i] + '^'));
-                        dependencies.splice(i--, 1);
+                  // set up the configuration
+                  var pkg = {};
+                  Config.packages = Config.packages || {};
+                  Config.packages[fullName] = pkg;
+                  if (packageOptions.map) {
+                    pkg.map = packageOptions.map;
+
+                    // restrict map config to external dependencies that were traced only
+                    mapcheck: for (var m in pkg.map) {
+                      if (m.substr(0, 1) == '.')
+                        continue;
+                      if (m.indexOf('*') != -1)
+                        continue;
+                      for (var i = 0; i < dependencies.length; i++) {
+                        if (m.substr(0, dependencies[i].length) == dependencies[i])
+                          continue mapcheck;
                       }
-                    } */
-
-                    // set up the version map
-                    if (updateMap && initialTarget != fullName) {
-                      Config.pjson.dependencyMap[initialTarget] = fullName;
+                      delete pkg.map[m];
                     }
+                  }
+                  if (packageOptions.main)
+                    pkg.main = packageOptions.main;
+                  if (packageOptions.format)
+                    pkg.format = packageOptions.format;
+                  if (packageOptions.shim)
+                    pkg.shim = packageOptions.shim;
 
-                    // write to the .jspm-hash file in the folder
-                    // also save the overridden package.json
-                    try {
-                      fs.writeFileSync(path.resolve(repoPath, '.jspm-hash'), lookup.hash);
-                      fs.writeFileSync(path.resolve(repoPath, 'package.json'), JSON.stringify(packageOptions, null, 2));
-                    }
-                    catch(e) {}
+                  // write to the .jspm-hash file in the folder
+                  // also save the overridden package.json
+                  try {
+                    fs.writeFileSync(path.resolve(repoPath, '.jspm-hash'), lookup.hash);
+                    fs.writeFileSync(path.resolve(repoPath, 'package.json'), JSON.stringify(packageOptions, null, 2));
+                  }
+                  catch(e) {}
 
-                    // return the external dependency array
-                    callback(dependencies);
+                  // return the external dependency array
+                  callback(dependencies);
 
-                  });
+                //});
 
-                }, errback);
-
-              }, errback);
+              // NB tmp flag to skip static optimizations
+              }, errback, true);
 
             }, errback);
 
-          });
+          }, errback);
 
         });
 
@@ -330,7 +353,12 @@ var Installer = {
       });
     });
   },
-  install: function(target, initialTarget, force, callback) {
+  install: function(target, initialTarget, override, force, callback) {
+    if (arguments.length == 4) {
+      callback = force;
+      force = override;
+      override = null;
+    }
 
     if (target instanceof Array) {
       var installed = 0;
@@ -344,7 +372,7 @@ var Installer = {
       }
 
       for (var i = 0; i < target.length; i++)
-        Installer.install(target[i], initialTarget && initialTarget[i], force, checkComplete);
+        Installer.install(target[i], initialTarget && initialTarget[i], override, force, checkComplete);
 
       if (target.length == 0)
         checkComplete();
@@ -359,7 +387,7 @@ var Installer = {
           log(Msg.err('Error performing registry lookup for ^' + target + '^. \n' + err));
           return callback(err);
         }
-        Installer.install(entry.name, initialTarget || target, force, callback);
+        Installer.install(entry.name, initialTarget || target, override, force, callback);
       });
       return;
     }
@@ -399,8 +427,8 @@ var Installer = {
         if (!err && fullName) {
           // find all references in the config
           var names = [];
-          for (var m in Config.pjson.dependencyMap)
-            if (Config.pjson.dependencyMap[m].substr(0, fullName.length) == fullName)
+          for (var m in Config.pjson.map)
+            if (Config.pjson.map[m].substr(0, fullName.length) == fullName)
               names.push(m);
 
           log(Msg.ok('^' + fullName + '^ installed as %' + names.join('%, %') + '%'));
@@ -422,13 +450,13 @@ var Installer = {
           log(Msg.info('^' + fullName + '^ already up to date.'));
           if (!updateMap)
             return callback(null, fullName);
-          Config.pjson.dependencyMap[initialTarget] = fullName;
+          Config.pjson.map[initialTarget] = fullName;
           callback(null, fullName);
           return;
         }
 
         log(Msg.info('Downloading ^' + fullName + '^'));
-        Installer.installRepo(repo, lookup, location, initialTarget, updateMap, function(dependencies) {
+        Installer.installRepo(repo, lookup, location, initialTarget, override, updateMap, function(dependencies) {
           // install dependencies if any
           Installer.install(dependencies || [], dependencies || [], false, function(err) {
 
@@ -543,7 +571,7 @@ var Config = {
       });
     }
     else {
-      Config.pjson.dependencyMap = Config.pjson.dependencyMap || {};
+      Config.pjson.map = Config.pjson.map || {};
       callback();
     }
   },
@@ -558,6 +586,11 @@ var Config = {
       });
       return;
     }
+
+    // ensure packages always last in config
+    var packages = Config.pjson.packages;
+    delete Config.pjson.packages;
+    Config.pjson.packages = packages;
 
     try {
       fs.writeFileSync(path.resolve(Config.pjsonDir, 'package.json'), JSON.stringify(Config.pjson, null, 2));
@@ -612,11 +645,21 @@ var Config = {
       }
     }
 
-    // dependencyMap
+    // map
     config.map = config.map || {};
-    if (Config.pjson.dependencyMap)
-      for (var m in Config.pjson.dependencyMap)
-        config.map[m] = Config.pjson.dependencyMap[m];
+    if (Config.pjson.map)
+      for (var m in Config.pjson.map)
+        config.map[m] = Config.pjson.map[m];
+
+    // packages
+    if (Config.packages) {
+      var pkgs = config.packages || {};
+      delete config.packages;
+      for (var p in Config.packages)
+        pkgs[p] = Config.packages[p];
+
+      config.packages = pkgs;
+    }
 
     // and then save it back
     var configContent = JSON.stringify(config, null, 2);
@@ -739,19 +782,19 @@ var AppBuild = {
 
 
 var JSPM = {
-  install: function(packages, names, force) {
+  install: function(packages, names, overrides, force) {
     Config.getConfig(function(config) {
       if (packages.length == 0) {
         packages = [];
         names = [];
-        for (var m in Config.pjson.dependencyMap) {
+        for (var m in Config.pjson.map) {
           names.push(m);
-          packages.push(Config.pjson.dependencyMap[m]);
+          packages.push(Config.pjson.map[m]);
         }
-        JSPM.install(packages, names, force);
+        JSPM.install(packages, names, overrides, force);
         return;
       }
-      Installer.install(packages, names, force, function(err) {
+      Installer.install(packages, names, overrides, force, function(err) {
         Config.saveConfig(true);
         if (err)
           log(Msg.warn('Install finished, with errors.'));
@@ -761,14 +804,14 @@ var JSPM = {
     });
   },
   update: function(force) {
-    // get list of all installed dependencyMap
+    // get list of all installed map
     Config.getConfig(function(pjson, dir) {
       var packages = [];
       var names = [];
-      for (var m in pjson.dependencyMap) {
+      for (var m in pjson.map) {
         names.push(m);
         var version = m.split('@')[1];
-        var package = pjson.dependencyMap[m];
+        var package = pjson.map[m];
         if (!version) {
           // latest version
           packages.push(package.split('@')[0]);
@@ -1004,7 +1047,7 @@ var showInstructions = function(arg) {
     + ' \033[0m\n'
     + '  \033[47m\033[1m      \033[0m\n'
     + '\n'
-    + 'jspm install <name=package> [-f --force] \n'
+    + 'jspm install <name[=target]> [-o {package override}] [-f --force] \n'
     + '  install                         Install / update from package.json\n'
     + '  install jquery                  Install a package from the registry\n'
     + '  install npm:underscore          Install latest version from NPM\n'
@@ -1035,14 +1078,14 @@ var readOptions = function(args, options) {
     if (args[i].substr(0, 2) == '--') {
       for (var j = 0; j < options.length; j++)
         if (options[j] == args[i])
-          argOptions[options[j].substr(2)] = true;
+          argOptions[options[j].substr(2)] = i;
     }
     else if (args[i].substr(0, 1) == '-') {
       var opts = args[i].substr(1);
       for (var j = 0; j < opts.length; j++) {
         for (var k = 0; k < options.length; k++) {
           if (options[k].substr(2, 1) == opts[j])
-            argOptions[options[k].substr(2)] = true;
+            argOptions[options[k].substr(2)] = argOptions.args.length;
         }
       }
     }
@@ -1056,12 +1099,13 @@ var useHttps = false;
 if (args[0] == 'install') {
   var packages = [];
   var names = [];
+  var override;
 
-  var options = readOptions(args, ['--force', '--https']);
+  var options = readOptions(args, ['--force', '--https', '--override']);
 
   args = options.args;
   
-  for (var i = 1; i < args.length; i++) {
+  for (var i = 1; i < (options.override || args.length); i++) {
     if (args[i].indexOf('=') == -1)
       packages.push(args[i]);
     else {
@@ -1069,8 +1113,13 @@ if (args[0] == 'install') {
       names.push(args[i].split('=')[0]);
     }
   }
+
+  if (options.override) {
+    override = eval('(' + args.splice(options.override).join(' ') + ')');
+  }
+
   useHttps = options.https;
-  JSPM.install(packages, names, options.force);
+  JSPM.install(packages, names, override, options.force);
 }
 else if (args[0] == 'update') {
   var options = readOptions(args, ['--force', '--https']);

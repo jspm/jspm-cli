@@ -180,7 +180,7 @@ jspmUtil.registryLookup = function(name, callback) {
         result = JSON.parse(resData.join(''));
       }
       catch(e) {
-        return callback(!resData.join('') ? 'Not found' : 'Invalid registry response.');
+        return callback(!resData.join('') ? 'Not found' : resData.join(''));
       }
       callback(null, result);
     });
@@ -233,75 +233,111 @@ jspmUtil.collapseLibDir = function(repoPath, packageOptions, callback, errback) 
 
 var cjsRequireRegEx = /require\s*\(\s*("([^"]+)"|'([^']+)')\s*\)/g;
 jspmUtil.mapCJSDependencies = function(source, replaceMap) {
-  return source.replace(cjsRequireRegEx, function(reqName, str, singleString, doubleString) {
+  var change = false;
+  var newSource = source.replace(cjsRequireRegEx, function(statement, str, singleString, doubleString) {
     var name = singleString || doubleString;
-    if (replaceMap[name])
-      return reqName.replace(name, replaceMap[name].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"));
+    var match;
+    if ((match = jspmUtil.wildcardMatch(name, replaceMap, true, true))) {
+      change = true;
+      return statement.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + jspmUtil.replaceWildcards(replaceMap[match.match], match.wildcards) + match.suffix + '\'');
+    }
     else
-      return reqName;
+      return statement;
   });
+  return change && newSource;
 }
 
-var amdDefineRegEx = /(?:^\s*|[}{\(\);,\n\?\&]\s*)define\s*\(\s*("[^"]+"\s*,|'[^']+'\s*,\s*)?(\[.+\])/;
+var amdDefineRegEx = /(?:^\s*|[}{\(\);,\n\?\&]\s*)define\s*\(\s*("[^"]+"\s*,|'[^']+'\s*,\s*)?(\[(\s*("[^"]+"|'[^']+')\s*,)*(\s*("[^"]+"|'[^']+')\s*)?\])/;
 jspmUtil.mapAMDDependencies = function(source, replaceMap) {
-  var match = amdDefineRegEx.exec(source);
+  var statement = amdDefineRegEx.exec(source);
   
-  if (match) {
-    var innerDefine = match[2];
-    var newInnerDefine = innerDefine;
+  if (statement) {
+    var depArray = eval(statement[2]);
+    var match;
+    var change = false;
 
-    for (var name in replaceMap) {
-      var mapped = replaceMap[name];
-      if (mapped != name) {
-        changed = true;
-        name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-        newInnerDefine = newInnerDefine.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + mapped + '\'');
+    for (var i = 0; i < depArray.length; i++) {
+      var name = depArray[i];
+      if ((match = jspmUtil.wildcardMatch(name, replaceMap, true, true))) {
+        if (replaceMap[match.match] != name) {
+          change = true;
+          name = name.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+          depArray[i] = jspmUtil.replaceWildcards(replaceMap[match.match], match.wildcards) + match.suffix;
+        }
       }
     }
-    return source.replace(innerDefine, newInnerDefine);
+    return change && source.replace(statement[2], JSON.stringify(depArray));
   }
   else
-    return source;
+    return;
 }
 
 var es6DepRegEx = /(^|\}|\s)(from|import)\s*("([^"]+)"|'([^']+)')/g;
 jspmUtil.mapES6Dependencies = function(source, replaceMap) {
-  return source.replace(es6DepRegEx, function(match, start, type, str, singleString, doubleString) {
+  var change = false;
+  var newSource = source.replace(es6DepRegEx, function(statement, start, type, str, singleString, doubleString) {
     var name = singleString || doubleString;
-    if (replaceMap[name])
-      return match.replace(name, replaceMap[name].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"));
+    var match;
+    if ((match = jspmUtil.wildcardMatch(name, replaceMap, true, true))) {
+      change = true;
+      return statement.replace(new RegExp('"' + name + '"|\'' + name + '\'', 'g'), '\'' + jspmUtil.replaceWildcards(replaceMap[match.match], match.wildcards) + match.suffix + '\'');
+    }
     else
-      return match;
+      return statement;
+  });
+  return change && newSource;
+}
+
+var separatorRegEx = /[\/:]/;
+jspmUtil.wildcardMatch = function(name, matches, prefix, wildcards) {
+  if (name.substr(0, 1) == '.')
+    return;
+  var curMatch = '';
+  var curMatchSuffix = '';
+  wildcards = wildcards && [];
+  
+  main:
+  for (var p in matches) {
+    var matchParts = p.split(separatorRegEx);
+    var nameParts = name.split(separatorRegEx);
+    if (matchParts.length > nameParts.length)
+      continue;
+    if (!prefix && nameParts.length > matchParts.length)
+      continue;
+
+    for (var i = 0; i < matchParts.length; i++) {
+      // do wildcard matching on individual parts if necessary
+      if (wildcards && matchParts[i].indexOf('*') != -1) {
+        // check against the equivalent regex from the wildcard statement
+        var match = nameParts[i].match(new RegExp(matchParts[i].replace(/([^*\w])/g, '\\$1').replace(/(\*)/g, '(.*)')));
+        if (!match)
+          continue main;
+        // store the wildcard matches
+        match.shift();
+        wildcards = wildcards.concat(match);
+      }
+      else if (nameParts[i] != matchParts[i])
+        continue main;
+    }
+  
+    if (p.length <= curMatch.length)
+      continue;
+
+    curMatch = p;
+    curMatchSuffix = name.substr(nameParts.splice(0, matchParts.length).join('/').length);
+  }
+  return wildcards ? curMatch && { match: curMatch, suffix: curMatchSuffix, wildcards: wildcards } : curMatch;
+}
+jspmUtil.replaceWildcards = function(target, wildcards) {
+  return target.replace(/\*/g, function() {
+    return wildcards.shift();
   });
 }
 
+jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback, skipStatic) {
+  // NB packageOptions.shim, packageOptions.map, packageOptions.main, packageOptions.format config etc
+  //    will need to be applied to the loader before linking instead of static operations in the current changes
 
-var wildcardMatch = function(wildcard, match) {
-  var wParts = wildcard.split('/');
-  var mParts = match.split('/');
-
-  if (wParts.length != mParts.length)
-    return false;
-
-  var wValue;
-
-  for (var i = 0; i < mParts.length; i++) {
-    if (wParts[i].indexOf('*') != -1 && !wValue) {
-      var starParts = wParts[i].split('*');
-      if (mParts[i].substr(0, starParts[0].length) != starParts[0])
-        return false;
-      if (mParts[i].substr(mParts[i].length - starParts[1].length) != starParts[1])
-        return false;
-      wValue = mParts[i].substr(starParts[0].length, mParts[i].length - starParts[1].length - starParts[0].length);
-    }
-    else if (wParts[i] != mParts[i])
-      return false;
-  }
-
-  return wValue || true;
-}
-
-jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errback) {
 
   // glob. replace map dependency strings (basic string replacement). at the same time, extract external dependencies.
   glob(repoPath + path.sep + '**' + path.sep + '*.js', function(err, files) {
@@ -326,44 +362,37 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
 
         // apply shim (with wildcards)
         var localPath = path.relative(repoPath, fileName);
+        var match;
         localPath = localPath.substr(0, localPath.length - 3);
-        for (var name in packageOptions.shim) {
-          var relName = name.substr(0, 2) == './' ? name.substr(2) : name;
+        if ((match = jspmUtil.wildcardMatch(localPath, packageOptions.shim, false, true))) {
+          changed = true;
 
-          if (wildcardMatch(relName, localPath)) {
-            changed = true;
+          // do dep shim
+          var shimDeps = packageOptions.shim[match.match];
+          if (typeof shimDeps == 'string')
+            shimDeps = { imports: [shimDeps] };
+          else if (typeof shimDeps == 'boolean')
+            shimDeps = { imports: [] };
+          else if (shimDeps instanceof Array)
+            shimDeps = { imports: shimDeps };
 
-            // do dep shim
-            var shimDeps = packageOptions.shim[name];
-            if (typeof shimDeps == 'string')
-              shimDeps = { imports: [shimDeps] };
-            else if (typeof shimDeps == 'boolean')
-              shimDeps = { imports: [] };
-            else if (shimDeps instanceof Array)
-              shimDeps = { imports: shimDeps };
+          var depStrs = '';
+          if (typeof shimDeps.imports == 'string')
+            shimDeps.imports = [shimDeps.imports];
+          if (shimDeps.imports)
+            for (var i = 0; i < shimDeps.imports.length; i++)
+              depStrs += '"import ' + shimDeps.imports[i] + '";\n';
 
-            var depStrs = '';
-            if (typeof shimDeps.imports == 'string')
-              shimDeps.imports = [shimDeps.imports];
-            if (shimDeps.imports)
-              for (var i = 0; i < shimDeps.imports.length; i++)
-                depStrs += '"import ' + shimDeps.imports[i] + '";\n';
-
-            if (shimDeps.exports)
-              depStrs += '"export ' + shimDeps.exports + '";\n';
-            
-            source = '"global";\n' + depStrs + source;
-          }
+          if (shimDeps.exports)
+            depStrs += '"export ' + shimDeps.exports + '";\n';
+          
+          source = '"global";\n' + depStrs + source;
         }
 
         // apply dependency map
-        // NB can remove:
-        if (packageOptions.dependencyMap)
-          packageOptions.map = packageOptions.dependencyMap;
-
         if (packageOptions.map) {
 
-          // if there are any relative maps in the dependencyMap, these are "package-relative"
+          // if there are any relative maps in the map, these are "package-relative"
           // ensure that this is configured
           var oldMaps = {};
           for (var p in packageOptions.map) {
@@ -414,7 +443,16 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         var imports = (jspmLoader.link(source, {}) || jspmLoader._link(source, {})).imports;
         if (imports) {
           for (var j = 0; j < imports.length; j++) {
-            if (imports[j].indexOf('!') != -1) {
+
+            // map the import name now
+            var importName = imports[j];
+            if (packageOptions.map) {
+              var match = jspmUtil.wildcardMatch(importName, packageOptions.map, true, true);
+              if (match)
+                importName = jspmUtil.replaceWildcards(packageOptions.map[match.match], match.wildcards) + match.suffix;
+            }
+
+            if (importName.indexOf('!') != -1) {
               // plugins get installed
               var pluginName = imports[j].substr(imports[j].indexOf('!') + 1);
               pluginName = pluginName || imports[j].substr(imports[j].lastIndexOf('.') + 1, imports[j].length - imports[j].lastIndexOf('.') - 2);
@@ -422,17 +460,16 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
                 dependencies.push(pluginName);
               imports[j] = imports[j].substr(0, imports[j].indexOf('!'));
             }
-            if (imports[j].substr(0, 1) != '.') {
-              var importName;
+            if (importName.substr(0, 1) != '.') {
               var location;
-              if (imports[j].indexOf(':') != -1)
-                location = imports[j].split(':')[0];
+              if (importName.indexOf(':') != -1)
+                location = importName.split(':')[0];
               if (!location)
-                importName = imports[j].split('/')[0];
+                importName = importName.split('/')[0];
               else if (location == 'github')
-                importName = imports[j].split('/').splice(0, 2).join('/');
+                importName = importName.split('/').splice(0, 2).join('/');
               else
-                importName = imports[j];
+                importName = importName;
 
               if (dependencies.indexOf(importName) == -1)
                 dependencies.push(importName);
@@ -441,7 +478,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         }
 
         // save back source
-        (changed ? fs.writeFile : function(fileName, source, callback) {
+        (changed && !skipStatic ? fs.writeFile : function(fileName, source, callback) {
           callback();
         })(fileName, source, function(err) {
           if (err)
@@ -573,13 +610,6 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
       var exists = fs.existsSync(file.replace(/\.js$/, '.js.map'));
       if (exists)
         return fileComplete(null, file);
-
-      // if it is a custom map, skip it
-      var relName = path.relative(repoPath, file);
-      for (var m in packageOptions.map) {
-        if (wildcardMatch(m, relName))
-          return fileComplete(null, file);
-      }
 
       // 1. rename to new original name
       var originalFile = file.replace(/\.js$/, '.src.js');

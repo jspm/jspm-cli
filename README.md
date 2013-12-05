@@ -1,20 +1,44 @@
 jspm CLI
 ===
 
-Browser package management.
+Browser package management with modular dependency and version management.
 https://jspm.io
 
-* Installs packages and their dependencies from an endpoint such as `npm:underscore` or `github:component/jquery`.
-* Stores packages in version-suffixed folders `jspm_packages/npm/underscore@1.2.0/`
-* Updates the map configuration for the jspm loader (`map: { underscore: 'npm:underscore@1.2.0' }`)
-* Anyone can create a custom endpoint with its own download implementation.
-* Allows installing directly from the [jspm Registry](https://github.com/jspm/registry) shortcut names (`jspm install jquery`).
-* Provides a single build operation to uglify with source maps and transpile ES6 modules into AMD with [Traceur](https://github.com/google/traceur-compiler) and the [ES6 Module Transpiler](https://github.com/square/es6-module-transpiler).
+* Installs version-managed modular packages along with their dependencies from any jspm endpoint, currently supporting GitHub, npm and the [jspm Registry](https://github.com/jspm/registry).
+* Injects the [jspm Loader](https://github.com/jspm/jspm-loader) configuration for the package including the map, shim, main entry point and module format.
+* Builds ES6 into AMD and ES5 for working with ES6 modules.
 
+### Basic Use
 
-Note:
-* Most NPM modules should install without any configuration with `jspm install npm:modulename`.
+Install any package from GitHub or npm:
+
+```
+jspm install npm:lodash-node
+jspm install github:components/jquery
+jspm install jquery
+```
+
+In an HTML page, include the [jspm Loader](https://github.com/jspm/jspm-loader) (`loader.js`), along with the automatically generated configuration file (`config.js`), then load the modules:
+
+```html
+<script src="loader.js"></script>
+<script src="config.js"></script>
+<script>
+  jspm.import('npm:lodash-node/modern/objects/isEqual', function(isEqual) {
+  });
+  
+  jspm.import('github:components/jquery', function($) {
+  });
+
+  jspm.import('jquery', function($) {
+  });
+</script>
+```
+
+* Most npm modules should install without any additional configuration.
 * Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
+
+[Read the guide on configuring packages for jspm here](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
 _If you are having any trouble configuring a package for jspm, please just post an issue and we'll help get it configured._
 
@@ -219,6 +243,8 @@ To try out a demonstration of this, [clone the ES6 demo repo here](https://githu
 Use `-f` or `--force` with the install command to overwrite and redownload all dependencies.
 
 Use `-h` or `--https` to download with https instead of alternative protocols.
+
+Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm#testing-package-overrides.
 
 ### Further Reading
 
