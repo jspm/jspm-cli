@@ -29,6 +29,7 @@ var jspmUtil = require('./jspm-util');
 var installing = {};
 var locations = {};
 var versionCache = {};
+var registryCache = {};
 var downloadQueue = {};
 
 // identity callback function, based on last argument being a callback
@@ -38,6 +39,8 @@ var ic = function() {
 var ice = function() {
   arguments[arguments.length - 2]();
 }
+
+var GLOBAL_CONFIG_FILE = process.env.HOME + path.sep + '.jspm' + path.sep + 'config';
 
 var Installer = {
   // get location downloader instance
@@ -60,6 +63,11 @@ var Installer = {
     var tmpDir = process.env.HOME + path.sep + '.jspm' + path.sep + 'tmp-' + locationName;
     var baseDir = Config.pjson.directories.jspm_packages + path.sep + locationName;
 
+    try {
+      var globalConfig = JSON.parse(fs.readFileSync(GLOBAL_CONFIG_FILE));
+    }
+    catch(e) {}
+
     mkdirp.sync(tmpDir);
     mkdirp.sync(baseDir);
 
@@ -67,7 +75,9 @@ var Installer = {
       tmpDir: tmpDir,
       log: false,
       https: useHttps,
-      cdn: false
+      cdn: false,
+      username: globalConfig && globalConfig[locationName] && globalConfig[locationName].username,
+      password: globalConfig && globalConfig[locationName] && globalConfig[locationName].password
     });
 
     locations[locationName].name = locationName;
@@ -87,6 +97,7 @@ var Installer = {
         return callback({ notfound: true });
     }
 
+    log(Msg.info('Getting version list for ^' + repo + '^'));
     location.getVersions(repo, function(versions, alias) {
 
       if (!versions)
@@ -288,8 +299,12 @@ var Installer = {
                   }
                   catch(e) {}
 
-                  // return the external dependency array
-                  callback(dependencies);
+                  Config.saveConfig(null, null, function() {
+
+                    // return the external dependency array
+                    callback(dependencies);
+
+                  });
 
                 //});
 
@@ -381,12 +396,18 @@ var Installer = {
     
     // registry install
     if (target.indexOf(':') == -1) {
-      log(Msg.info('Looking up ^' + target + '^ in registry'));
-      jspmUtil.registryLookup(target, function(err, entry) {
+      var cached = registryCache[target];
+      if (!cached)
+        log(Msg.info('Looking up ^' + target + '^ in registry'));
+      
+      (cached ? function(target, callback) {
+        callback(null, cached);
+      } : jspmUtil.registryLookup)(target, function(err, entry) {
         if (err) {
           log(Msg.err('Error performing registry lookup for ^' + target + '^. \n' + err));
           return callback(err);
         }
+        registryCache[target] = entry;
         Installer.install(entry.name, initialTarget || target, override, force, callback);
       });
       return;
@@ -407,7 +428,6 @@ var Installer = {
     if (version)
       repo = repo.substr(0, repo.length - version.length - 1);
 
-    log(Msg.info('Getting version list for ^' + target + '^'));
     Installer.versionLookup(repo, version, location, function(lookup) {
       // lookup: isLatest, isLatestMinor, hash, exactVersion
 
@@ -423,7 +443,7 @@ var Installer = {
         return installing[fullName].push(callback);
       installing[fullName] = [callback];
 
-      callback = function(err, fullName) {
+      callback = function(err, cached, fullName) {
         if (!err && fullName) {
           // find all references in the config
           var names = [];
@@ -431,12 +451,14 @@ var Installer = {
             if (Config.pjson.map[m].substr(0, fullName.length) == fullName)
               names.push(m);
 
-          log(Msg.ok('^' + fullName + '^ installed as %' + names.join('%, %') + '%'));
+          if (!cached)
+            log(Msg.ok('^' + fullName + '^ installed as %' + names.join('%, %') + '%'));
         }
         var callbacks = installing[fullName];
         delete installing[fullName];
-        for (var i = 0; i < callbacks.length; i++)
-          callbacks[i](err);
+        if (callbacks)
+          for (var i = 0; i < callbacks.length; i++)
+            callbacks[i](err);
       };
 
       initialTarget = initialTarget || target;
@@ -449,7 +471,7 @@ var Installer = {
         if (isFresh) {
           log(Msg.info('^' + fullName + '^ already up to date.'));
           if (!updateMap)
-            return callback(null, fullName);
+            return callback(null, true, fullName);
           Config.pjson.map[initialTarget] = fullName;
           callback(null, fullName);
           return;
@@ -458,9 +480,8 @@ var Installer = {
         log(Msg.info('Downloading ^' + fullName + '^'));
         Installer.installRepo(repo, lookup, location, initialTarget, override, updateMap, function(dependencies) {
           // install dependencies if any
-          Installer.install(dependencies || [], dependencies || [], false, function(err) {
-
-            callback(err, fullName);
+          Installer.install(dependencies || [], dependencies || [], false, function(err, cached) {
+            callback(err, cached, fullName);
           });
 
         }, function(err) {
@@ -921,6 +942,19 @@ var JSPM = {
         });
       });
     }
+  },
+  setConfig: function(property, value) {
+    try {
+      var config = JSON.parse(fs.readFileSync(GLOBAL_CONFIG_FILE));
+    }
+    catch(e) {
+      config = {};
+    }
+    var propertyParts = property.split('.');
+    if (!config[propertyParts[0]])
+      config[propertyParts[0]] = {};
+    config[propertyParts[0]][propertyParts[1]] = value;
+    fs.writeFileSync(GLOBAL_CONFIG_FILE, JSON.stringify(config, null, 2));
   }
 };
 
@@ -1069,6 +1103,10 @@ var showInstructions = function(arg) {
     + '  setmode production              Switch to the production baseURL\n'
     + '\n'
     + 'jspm build [<outDir>]             Compile all resources\n'
+    + '\n'
+    + 'jspm config <property> <value>    Set global configuration\n'
+    + '  config github.username githubusername \n'
+    + '  config github.password githubpassword \n'
   );
 }
 
@@ -1150,6 +1188,11 @@ else if (args[0] == 'setmode') {
 }
 else if (args[0] == 'build') {
   JSPM.build(args[1]);
+}
+else if (args[0] == 'config') {
+  var property = args[1];
+  var value = args.splice(2).join(' ');
+  JSPM.setConfig(property, value);
 }
 else {
   if (args[0] && args[0] != '--help' && args[0] != '-h')

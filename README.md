@@ -246,6 +246,15 @@ Use `-h` or `--https` to download with https instead of alternative protocols.
 
 Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm#testing-package-overrides.
 
+### Rate Limits
+
+To set GitHub authentication to avoid rate limits, enter your GitHub credentials with:
+
+```
+  jspm config github.username myusername
+  jspm config github.password mypassword
+```
+
 ### Further Reading
 
 * Type `jspm --help` for command list.

@@ -30,26 +30,55 @@ var tar = require('tar');
 var jspmUtil = {};
 
 var curOpenFiles = 0;
-var maxOpenFiles = 10;
+var maxOpenFiles = 50;
 
 var readQueue = [];
+var spawnQueue = [];
+var writeQueue = [];
 
 jspmUtil.exactVersionRegEx = /^(\d+)(\.\d+)(\.\d+)?$/;
+
+var nextFileQueue = function() {
+  if (curOpenFiles >= maxOpenFiles)
+    return;
+
+  var next;
+  if (readQueue.length) {
+    next = readQueue.pop();
+    if (next)
+      readFile(next.file, next.callback);
+  }
+  else if (spawnQueue.length) {
+    next = spawnQueue.pop();
+    if (next)
+      jspmUtil.spawnCompiler.apply(null, next);
+  }
+  else if (writeQueue.length) {
+    next = writeQueue.pop();
+    if (next)
+      writeFile(next.file, next.data, next.callback);
+  }
+}
 
 
 var readFile = function(file, callback) {
   if (curOpenFiles >= maxOpenFiles)
     return readQueue.push({ file: file, callback: callback });
-
   curOpenFiles++;
   fs.readFile(file, function(err, source) {
     curOpenFiles--;
-
-    var next = readQueue.pop();
-    if (next)
-      readFile(next.file, next.callback);
-
+    nextFileQueue();
     callback(err, source);
+  });
+}
+var writeFile = function(file, data, callback) {
+  if (curOpenFiles >= maxOpenFiles)
+    return writeQueue.push({ file: file, data: data, callback: callback });
+  curOpenFiles++;
+  fs.writeFile(file, data, function(err) {
+    curOpenFiles--;
+    nextFileQueue();
+    callback(err);
   });
 }
 
@@ -478,7 +507,7 @@ jspmUtil.processDependencies = function(repoPath, packageOptions, callback, errb
         }
 
         // save back source
-        (changed && !skipStatic ? fs.writeFile : function(fileName, source, callback) {
+        (changed && !skipStatic ? writeFile : function(fileName, source, callback) {
           callback();
         })(fileName, source, function(err) {
           if (err)
@@ -519,15 +548,12 @@ jspmUtil.transpile = function(source, sourceMap, file, originalFile, callback) {
   });
 }
 
-var curSpawns = 0;
-var maxSpawns = 10;
-var spawnQueue = [];
 jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, originalFile, callback) {
-  if (curSpawns == maxSpawns) {
+  if (curOpenFiles == maxOpenFiles) {
     spawnQueue.push([name, source, sourceMap, options, file, originalFile, callback]);
     return;
   }
-  curSpawns++;
+  curOpenFiles++;
   var child = spawn('node', [path.resolve(__dirname, name + '-compiler.js')], {
     cwd: __dirname
     // timeout: 120
@@ -543,12 +569,8 @@ jspmUtil.spawnCompiler = function(name, source, sourceMap, options, file, origin
     catch(e) {
       return callback(stdout + '');
     }
-    curSpawns--;
-    if (curSpawns < maxSpawns) {
-      var next = spawnQueue.pop();
-      if (next)
-        jspmUtil.spawnCompiler.apply(null, next);
-    }
+    curOpenFiles--;
+    nextFileQueue;
     callback(output.err, output.source, output.sourceMap);
   });
   child.stdin.on('error', function() {});
@@ -595,7 +617,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
       completed++;
       if (completed == files.length) {
         if (errors) {
-          fs.writeFile(repoPath + path.sep + 'jspm-build.log', errors, function() {
+          writeFile(repoPath + path.sep + 'jspm-build.log', errors, function() {
             callback(errors);
           });
         }
@@ -653,7 +675,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
 
             // save the source as the original source at this point
             // this makes source map support 'sort of' work
-            fs.writeFile(originalFile, source, function(err) {
+            writeFile(originalFile, source, function(err) {
               if (err)
                 return fileComplete(err, file, originalFile);
 
@@ -675,12 +697,12 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
                 }
 
                 // 6. save the file and final source map
-                fs.writeFile(file, source
+                writeFile(file, source
                   + (sourceMap ? '\n//# sourceMappingURL=' + (baseURL || '') + path.relative(basePath, file) + '.map' : ''), function(err) {
                   if (err)
                     return fileComplete(err, file, originalFile);
 
-                  fs.writeFile(file + '.map', sourceMap, function(err) {
+                  writeFile(file + '.map', sourceMap, function(err) {
                     if (err)
                       return fileComplete(err, file, originalFile);
 
