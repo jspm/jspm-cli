@@ -173,6 +173,28 @@ Revert back to the local files with:
   jspm setmode local
 ```
 
+### jspm Inject - using the jspm CDN in production
+
+The CDN can be used for production as sources are provided minified with optimal cache headers.
+
+When moving to production with an app using CDN sources, the jspm CLI can inject package configuration and lock down versions minimising the production requests.
+
+To inject the configuration locking down an exact version of a module, use `jspm inject`.
+
+A specific package can have its configuration injected and version locked down with:
+
+```
+  jspm inject jquery 
+```
+
+All the packages in the package.json can be injected (like the install command) with:
+
+```
+  jspm inject
+```
+
+This provides an alternative workflow to installation when using the CDN.
+
 ### Update Installed Packages
 
 ```
