@@ -238,8 +238,7 @@ package.json:
   },
   "buildConfig": {
     "uglify": true, // or set to options object
-    "traceur": true, // or set to options object
-    "transpile": true
+    "traceur": true // or set to options object
   }
 }
 ```
