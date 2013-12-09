@@ -914,7 +914,7 @@ var JSPM = {
           packages.push(package.split('@')[0] + '@' + version);
         }
       }
-      Installer.install(packages, names, force, function(err) {
+      Installer.install(packages, names, force, !(Config.pjson.directories && Config.pjson.directories['jspm_packages']), function(err) {
         Config.saveConfig(true, null, function() {
           JSPM.downloadLoader(pjson, dir);
           if (err)
