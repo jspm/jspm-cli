@@ -188,7 +188,9 @@ jspmUtil.getPackageJSON = function(dir, callback) {
     catch(e) {
       return callback('Unable to parse package.json');
     }
-    callback(null, pjson.jspm || pjson);
+    if (pjson.jspm)
+      jspmUtil.extend(pjson, pjson.jspm);
+    callback(null, pjson);
   });
 }
 
@@ -594,7 +596,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
 
   buildOptions = packageOptions && packageOptions.buildConfig || {};
 
-  if (!buildOptions.traceur && !buildOptions.transpile && !buildOptions.uglify)
+  if (!buildOptions.traceur && !buildOptions.uglify)
     return callback();
 
   glob(repoPath + '/**/*.js', function(err, files) {
@@ -655,7 +657,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
             return fileComplete(err, file, originalFile);
 
           // 4. transpile
-          (buildOptions.transpile ? jspmUtil.transpile : function(source, sourceMap, fileName, originalFileName, callback) {
+          (buildOptions.traceur ? jspmUtil.transpile : function(source, sourceMap, fileName, originalFileName, callback) {
             callback(null, source, sourceMap);
           })(source, sourceMap, fileName, originalFileName, function(err, source, sourceMap) {
 
@@ -664,7 +666,7 @@ jspmUtil.compile = function(repoPath, basePath, baseURL, packageOptions, callbac
 
             // explicitly write in CJS requires before minification
             var cjsStatement;
-            if (buildOptions.transpile && (cjsStatement = source.match(amdCJSRegEx))) {
+            if (buildOptions.traceur && (cjsStatement = source.match(amdCJSRegEx))) {
               var requires = ['require', 'exports', 'module'];
               var match;
               while (match = cjsRequireRegEx.exec(source))

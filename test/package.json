@@ -1,25 +1,15 @@
 {
   "configFile": "config.js",
   "directories": {
-    "vendor": "lib",
-    "build": "app-build",
     "lib": "app",
     "jspm_packages": "jspm_packages",
     "dist": "app-build"
   },
-  "dependencyMap": {
-    "jquery": "github:components/jquery@2.0.3",
-    "jquery@1.2": "github:components/jquery@1.2.6",
-    "css": "github:jspm/plugin-css@master",
-    "font": "github:jspm/plugin-font@master",
-    "webfont@1.3.0": "cdnjs:webfont@1.3.0",
-    "backbone": "github:jashkenas/backbone@1.1.0",
-    "underscore": "npm:underscore@1.5.2",
-    "npm:underscore@1.5": "npm:underscore@1.5.2"
+  "map": {
+    "jquery": "github:components/jquery@2.0.3"
   },
   "buildConfig": {
     "uglify": true,
-    "traceur": true,
-    "transpile": true
+    "traceur": true
   }
 }

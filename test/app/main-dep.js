@@ -1,7 +1,7 @@
 
 import $ from 'jquery';
 
-class veryLongClassName {
+export class veryLongClassName {
   constructor() {
     $(document.body).css('background-color', 'grey');
   }

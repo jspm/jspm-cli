@@ -57,7 +57,7 @@ cd my-project
 jspm init
   
     Enter config file location (config.js): 
-    Enter external library install location (jspm_packages): 
+    Enter external package install location (jspm_packages): 
     Enter local application code location / baseURL (lib): 
     Config file updated.
     No package.json found, would you like to create one? (y/n): y
@@ -87,7 +87,7 @@ Any npm or Github package can be installed in this way.
 
 Most npm packages will install without any configuration necessary. Github packages may need to be configured for jspm first. [Read the guide here on configuring packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
-All installs are saved into the package.json, so that the jspm_packages folder and configuration file can be entirely recreated with a single `jspm install` call with no arguments. This is ideal for version-controlled projects where third party libraries aren't saved in the repo itself.
+All installs are saved into the package.json, so that the jspm_packages folder and configuration file can be entirely recreated with a single `jspm install` call with no arguments. This is ideal for version-controlled projects where third party packages aren't saved in the repo itself.
 
 If you check `config.js`, you will see its contents have been updated to:
 
@@ -260,7 +260,7 @@ To set GitHub authentication to avoid rate limits, enter your GitHub credentials
 * Type `jspm --help` for command list.
 * [Read the jspm Loader documentation here](https://github.com/jspm/jspm-loader).
 * Add new items to the [jspm registry](https://github.com/jspm/registry) repo by providing a pull request.
-* Read more on [configuring libraries for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
+* Read more on [configuring packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
 ### License
 

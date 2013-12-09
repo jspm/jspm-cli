@@ -5,10 +5,11 @@
     <title>test</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <script src="jspm_packages/loader.js"></script>
+    <script src="../../es6-module-loader/lib/es6-module-loader.js"></script>
+    <script src="../../jspm-loader/loader.js"></script>
     <script src='config.js'></script>
     <script>
-      jspm.import(['./main', './main-traceur', 'backbone']);
+      jspm.import('~/main');
     </script>
   </head>
   <body>
