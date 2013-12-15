@@ -123,7 +123,7 @@ test.html:
   </html>
 ```
 
-Open `test.html` to see the application run. This sample can also be found here - https://github.com/jspm/jspm-demo.
+Open `test.html` to see the application run.
 
 ### Installing into a Custom Name
 
