@@ -635,7 +635,7 @@ var Config = {
     });
   },
   verifyJSPMPackages: function(callback) {
-    if (Config.pjson.directories || Config.pjson.directories.jspm_packages)
+    if (Config.pjson.directories && Config.pjson.directories.jspm_packages)
       return callback();
 
     Input.get('Enter external library install location', 'jspm_packages', function(input) {
