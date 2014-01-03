@@ -484,7 +484,7 @@ var Installer = {
 
     if (!location) {
       log(Msg.warn('Install of ^' + target + '^ failed, location downloader not present. \n'
-        + 'Try running _npm install -g jspm-' + target.substr(0, target.indexOf(':')) + '%.'));
+        + 'Try running %npm install -g jspm-' + target.substr(0, target.indexOf(':')) + '%.'));
       return callback(true);
     }
 
