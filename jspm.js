@@ -641,7 +641,7 @@ var Config = {
     Input.get('Enter external library install location', 'jspm_packages', function(input) {
       Config.pjson.directories = Config.pjson.directories || {};
       Config.pjson.directories.jspm_packages = input || 'jspm_packages';
-      callback();
+      Config.savePackageJSON(callback);
     });
   },
   verifyConfig: function(callback) {
@@ -944,7 +944,7 @@ var JSPM = {
           if (err)
             return log(Msg.err('Unable to create directory %' + dir + '%.'));
 
-          var files = ['loader.js', 'es6-module-loader.js', 'traceur.js'];
+          var files = ['loader.js', 'es6-module-loader@0.3.js', 'traceur@0.0.9.js'];
           var done = 0;
           for (var i = 0; i < files.length; i++) (function(i) {
             https.get({
