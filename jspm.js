@@ -118,6 +118,9 @@ if (require.main !== module)
       // no install package -> install from package.json dependencies
       (depMap ? core.install(depMap, options) : core.install(true, options))
       .then(function() {
+        return core.setMode(inject ? 'remote' : 'local')
+      })
+      .then(function() {
         cli.log('');
         cli.log('ok', 'Install complete');
       }, function(err) {

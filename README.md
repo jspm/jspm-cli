@@ -5,23 +5,30 @@ Browser package management with modular dependency and version management.
 https://jspm.io
 
 * Installs version-managed modular packages along with their dependencies from any jspm endpoint, currently supporting GitHub, npm and the [jspm Registry](https://github.com/jspm/registry).
-* Injects the [jspm Loader](https://github.com/jspm/jspm-loader) configuration for the package including the map, shim, main entry point and module format.
-* Builds ES6 into AMD and ES5 for working with ES6 modules.
+* Carefully resolves version ranges within semver compatibility clearly verifying any version forks.
+* Creates the [SystemJS](https://github.com/systemjs/systemjs) version configuration file for the package.
+* Builds ES6 into AMD and ES5 for using ES6 modules in production.
 
 ### Basic Use
 
-Install any package from GitHub or npm:
+1. Install any package from GitHub or npm:
 
 ```
-jspm install npm:lodash-node
-jspm install github:components/jquery
-jspm install jquery
+  jspm install npm:lodash-node
+  jspm install github:components/jquery
+  jspm install jquery
 ```
 
-In an HTML page, include the [jspm Loader](https://github.com/jspm/jspm-loader) (`loader.js`), along with the automatically generated configuration file (`config.js`), then load the modules:
+2. Download the jspm-compatible [SystemJS module loader](https://github.com/systemjs/systemjs):
+
+```
+  jspm dl-loader
+```
+
+In an HTML page, include [SystemJS](https://github.com/systemjs/systemjs), along with the automatically generated configuration file (`config.js`), then load the modules:
 
 ```html
-<script src="loader.js"></script>
+<script src="jspm_packages/system.js"></script>
 <script src="config.js"></script>
 <script>
   jspm.import('npm:lodash-node/modern/objects/isEqual', function(isEqual) {
@@ -45,7 +52,7 @@ _If you are having any trouble configuring a package for jspm, please just post 
 ### Getting Started
 
 ```
-  npm install jspm jspm-github jspm-npm -g
+  npm install jspm -g
 ```
 
 This installs the jspm CLI along with the Github and npm endpoint modules.
@@ -56,26 +63,23 @@ This installs the jspm CLI along with the Github and npm endpoint modules.
 cd my-project
 jspm init
   
-    Enter config file location (config.js): 
-    Enter external package install location (jspm_packages): 
-    Enter local application code location / baseURL (lib): 
-    Config file updated.
-    No package.json found, would you like to create one? (y/n): y
-    package.json updated.
-    Downloading loader files to jspm_packages.
-       es6-module-loader.js
-       loader.js
-       traceur.js
-ok  Loader files downloaded successfully.
+No package.json found, would you like to create one? [yes]: 
+Enter package name [app]: 
+Enter application folder [lib]: 
+Enter packages folder [jspm_packages]: 
+Enter config file path [config.js]: 
+Configuration file config.js not found, create it? [y]: 
+
+     Downloading loader files to jspm_packages
+       system@0.4.0.js
+       es6-module-loader@0.4.1.js
+       traceur@0.0.10.js
+ok   Loader files downloaded successfully
+ok   Verified package.json at package.json
+     Verified config file at config.js
 ```
 
-Sets up the package.json and configuration file, and downloads the jspm loader files.
-
-* The jspm loader configuration file to use (it can even be an HTML file that has a `jspm.config` call in it)
-* The install location for packages (defaults to `jspm_packages`)
-* The baseURL directory where the main application code will be (defaults to `lib`)
-
-Note that unlike RequireJS, the baseURL is different from the external package location.
+Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
 
 ### Installing a Package
 
@@ -89,18 +93,7 @@ Most npm packages will install without any configuration necessary. Github packa
 
 All installs are saved into the package.json, so that the jspm_packages folder and configuration file can be entirely recreated with a single `jspm install` call with no arguments. This is ideal for version-controlled projects where third party packages aren't saved in the repo itself.
 
-If you check `config.js`, you will see its contents have been updated to:
-
-config.js:
-```javascript
-jspm.config({
-  baseURL: 'lib',
-  jspmPackages: 'jspm_packages',
-  map: {
-    'npm:underscore': 'npm:underscore@1.5.2'
-  }
-});
-```
+The config.js file is updated with the version information and the version is locked down.
 
 ### Create a Sample Page
 
@@ -109,11 +102,11 @@ test.html:
   <!doctype html>
   <html>
     <head>
-      <script src='jspm_packages/loader.js'></script>
+      <script src='jspm_packages/system@0.4.0.js'></script>
       <script src='config.js'></script>
       
       <script>
-        jspm.import('npm:underscore', function(_) {
+        System.import('npm:underscore').then(function(_) {
           _.map([1, 2, 3], function(num) { return num + 1; });
         });
       </script>
@@ -136,7 +129,7 @@ This will write the jspm loader map configuration for `myjquery` instead of `jqu
 Allowing requires of the form:
 
 ```javascript
-  jspm.import('myjquery')
+  System.import('myjquery')
 ```
 
 ### Installing from the Registry
@@ -201,7 +194,7 @@ This provides an alternative workflow to installation when using the CDN.
   jspm update
 ```
 
-All packages will be checked, and versions bumped for latest and minor version package installs.
+All packages will be checked, and versions upgraded where necessary.
 
 ### Building Application Code
 
@@ -214,7 +207,7 @@ The only operations jspm provides as a helper are:
 
 Minification is provided for convenience only, while transpiling is provided as a fundamental use case for modules of the future.
 
-Application code is stored in the `baseURL` directory (`lib` in the original example), which is also stored in the package.json as:
+Application code is stored in the `lib` directory, which is also stored in the package.json as:
 
 package.json:
 ```javascript
@@ -237,8 +230,8 @@ package.json:
     "dist": "lib-built"
   },
   "buildConfig": {
-    "uglify": true, // or set to options object
-    "traceur": true // or set to options object
+    "minify": true,
+    "transpile": true
   }
 }
 ```
