@@ -31,13 +31,13 @@ In an HTML page, include [SystemJS](https://github.com/systemjs/systemjs), along
 <script src="jspm_packages/system.js"></script>
 <script src="config.js"></script>
 <script>
-  jspm.import('npm:lodash-node/modern/objects/isEqual', function(isEqual) {
+  System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
   });
   
-  jspm.import('github:components/jquery', function($) {
+  System.import('github:components/jquery').then(function($) {
   });
 
-  jspm.import('jquery', function($) {
+  System.import('jquery').then(function($) {
   });
 </script>
 ```
