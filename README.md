@@ -9,55 +9,15 @@ https://jspm.io
 * Creates the [SystemJS](https://github.com/systemjs/systemjs) version configuration file for the package.
 * Builds ES6 into AMD and ES5 for using ES6 modules in production.
 
-### Basic Use
-
-1. Install any package from GitHub or npm:
-
-```
-  jspm install npm:lodash-node
-  jspm install github:components/jquery
-  jspm install jquery
-```
-
-2. Download the jspm-compatible [SystemJS module loader](https://github.com/systemjs/systemjs):
-
-```
-  jspm dl-loader
-```
-
-In an HTML page, include [SystemJS](https://github.com/systemjs/systemjs), along with the automatically generated configuration file (`config.js`), then load the modules:
-
-```html
-<script src="jspm_packages/system.js"></script>
-<script src="config.js"></script>
-<script>
-  System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
-  });
-  
-  System.import('github:components/jquery').then(function($) {
-  });
-
-  System.import('jquery').then(function($) {
-  });
-</script>
-```
-
-* Most npm modules should install without any additional configuration.
-* Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
-
-[Read the guide on configuring packages for jspm here](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
-
-_If you are having any trouble configuring a package for jspm, please just post an issue and we'll help get it configured._
-
 ### Getting Started
+
+1. Install jspm CLI:
 
 ```
   npm install jspm -g
 ```
 
-This installs the jspm CLI along with the Github and npm endpoint modules.
-
-### Creating a Project
+2. Create a project:
 
 ```
 cd my-project
@@ -81,10 +41,12 @@ ok   Verified package.json at package.json
 
 Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
 
-### Installing a Package
+3. Install any packages from the jspm Registry, GitHub or npm:
 
 ```
-  jspm install npm:underscore
+  jspm install npm:lodash-node
+  jspm install github:components/jquery
+  jspm install jquery
 ```
 
 Any npm or Github package can be installed in this way.
@@ -95,44 +57,31 @@ All installs are saved into the package.json, so that the jspm_packages folder a
 
 The config.js file is updated with the version information and the version is locked down.
 
-### Create a Sample Page
+4. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
 
-test.html:
 ```html
-  <!doctype html>
-  <html>
-    <head>
-      <script src='jspm_packages/system@0.4.0.js'></script>
-      <script src='config.js'></script>
-      
-      <script>
-        System.import('npm:underscore').then(function(_) {
-          _.map([1, 2, 3], function(num) { return num + 1; });
-        });
-      </script>
-    </head>
-    <body>
-    </body>
-  </html>
+<script src="jspm_packages/system@0.4.0.js"></script>
+<script src="config.js"></script>
+<script>
+  System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
+  });
+  
+  System.import('github:components/jquery').then(function($) {
+  });
+
+  System.import('jquery').then(function($) {
+  });
+</script>
 ```
 
-Open `test.html` to see the application run.
+* Most npm modules should install without any additional configuration.
+* Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
 
-### Installing into a Custom Name
+[Read the guide on configuring packages for jspm here](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
-```
-  jspm install myjquery=jquery@1.8
-```
+_If you are having any trouble configuring a package for jspm, please just post an issue and we'll help get it configured._
 
-This will write the jspm loader map configuration for `myjquery` instead of `jquery@1.8`.
-
-Allowing requires of the form:
-
-```javascript
-  System.import('myjquery')
-```
-
-### Installing from the Registry
+### Installing from the jspm Registry
 
 ```
   jspm install jquery
@@ -146,9 +95,9 @@ This is equivalent to writing:
   jspm install jquery=github:components/jquery
 ```
 
-The [jspm registry](https://github.com/jspm/registry) just provides a mapping from a name into an endpoint package name. It is purely a name shortening service and nothing more.
+The [jspm registry](https://github.com/jspm/registry) just provides a mapping from a name into an endpoint package name.
 
-### Using the jspm CDN instead of jspm_packages
+### Switching to CDN package sources
 
 The npm and Github endpoints are both served by CDN, which is automatically configured in jspm.
 
@@ -158,7 +107,7 @@ We can switch the CDN version with a single command:
   jspm setmode remote
 ```
 
-This updates the configuration to now load all the packages from the CDN directly instead of the `jspm_packages` folder. The app will still behave identically.
+This updates the configuration to now load all the packages from the CDN directly instead of the `jspm_packages` folder. The app will still behave identically, but we retain the version-lock configuration.
 
 Revert back to the local files with:
 
@@ -168,7 +117,7 @@ Revert back to the local files with:
 
 ### jspm Inject - using the jspm CDN in production
 
-The CDN can be used for production as sources are provided minified with optimal cache headers.
+The CDN can be used for production as sources are provided minified with SPDY and optimal cache headers.
 
 When moving to production with an app using CDN sources, the jspm CLI can inject package configuration and lock down versions minimising the production requests.
 
@@ -198,15 +147,13 @@ All packages will be checked, and versions upgraded where necessary.
 
 ### Building Application Code
 
-jspm is not a build tool, and never will be a build tool. Use grunt and other tools for automating project tasks.
-
-The only operations jspm provides are:
+jspm provides some operations for convenience:
 
 * Minification
 * Module Transpiling from ES6 to ES5
 * SystemJS Plugin builds (under development)
 
-Minification is provided for convenience only, while transpiling is provided as a fundamental use case for modules of the future.
+Minification is provided for convenience only, while transpiling is provided as a fundamental use case for ES6 module usage.
 
 Application code is stored in the `lib` directory, which is also stored in the package.json as:
 
@@ -259,7 +206,7 @@ Use `-f` or `--force` with the install command to overwrite and redownload all d
 
 Use `-h` or `--https` to download with https instead of alternative protocols.
 
-Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm#testing-package-overrides.
+Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.
 
 ### Rate Limits
 
