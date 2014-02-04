@@ -273,7 +273,7 @@ To set GitHub authentication to avoid rate limits, enter your GitHub credentials
 ### Further Reading
 
 * Type `jspm --help` for command list.
-* [Read the jspm Loader documentation here](https://github.com/jspm/jspm-loader).
+* [Read the SystemJS documentation here](https://github.com/systemjs/systemjs).
 * Add new items to the [jspm registry](https://github.com/jspm/registry) repo by providing a pull request.
 * Read more on [configuring packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
