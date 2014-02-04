@@ -38,6 +38,10 @@ https://jspm.io
   ok   Verified package.json at package.json
        Verified config file at config.js
   ```
+  
+  The application name is used to require anything from the application code folder `lib`, instead of from the jspm registry.
+  
+  A require to `app/main` will load `lib/main.js` in this example.
 
   Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
 
