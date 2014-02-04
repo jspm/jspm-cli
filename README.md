@@ -13,66 +13,66 @@ https://jspm.io
 
 1. Install jspm CLI:
 
-```
-  npm install jspm -g
-```
+  ```
+    npm install jspm -g
+  ```
 
 2. Create a project:
 
-```
-cd my-project
-jspm init
+  ```
+  cd my-project
+  jspm init
+    
+  No package.json found, would you like to create one? [yes]: 
+  Enter package name [app]: 
+  Enter application folder [lib]: 
+  Enter packages folder [jspm_packages]: 
+  Enter config file path [config.js]: 
+  Configuration file config.js not found, create it? [y]: 
   
-No package.json found, would you like to create one? [yes]: 
-Enter package name [app]: 
-Enter application folder [lib]: 
-Enter packages folder [jspm_packages]: 
-Enter config file path [config.js]: 
-Configuration file config.js not found, create it? [y]: 
+       Downloading loader files to jspm_packages
+         system@0.4.0.js
+         es6-module-loader@0.4.1.js
+         traceur@0.0.10.js
+  ok   Loader files downloaded successfully
+  ok   Verified package.json at package.json
+       Verified config file at config.js
+  ```
 
-     Downloading loader files to jspm_packages
-       system@0.4.0.js
-       es6-module-loader@0.4.1.js
-       traceur@0.0.10.js
-ok   Loader files downloaded successfully
-ok   Verified package.json at package.json
-     Verified config file at config.js
-```
-
-Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
+  Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
 
 3. Install any packages from the jspm Registry, GitHub or npm:
 
-```
-  jspm install npm:lodash-node
-  jspm install github:components/jquery
-  jspm install jquery
-```
-
-Any npm or Github package can be installed in this way.
-
-Most npm packages will install without any configuration necessary. Github packages may need to be configured for jspm first. [Read the guide here on configuring packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
-
-All installs are saved into the package.json, so that the jspm_packages folder and configuration file can be entirely recreated with a single `jspm install` call with no arguments. This is ideal for version-controlled projects where third party packages aren't saved in the repo itself.
-
-The config.js file is updated with the version information and the version is locked down.
+  ```
+    jspm install npm:lodash-node
+    jspm install github:components/jquery
+    jspm install jquery
+  ```
+  
+  Any npm or Github package can be installed in this way.
+  
+  Most npm packages will install without any configuration necessary. Github packages may need to be configured for jspm first. [Read the guide here on configuring packages for jspm](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
+  
+  All installs are saved into the package.json, so that the jspm_packages folder and configuration file can be entirely recreated with a single `jspm install` call with no arguments. This is ideal for version-controlled projects where third party packages aren't saved in the repo itself.
+  
+  The config.js file is updated with the version information and the version is locked down.
 
 4. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
 
-```html
-<script src="jspm_packages/system@0.4.0.js"></script>
-<script src="config.js"></script>
-<script>
-  System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
-  });
+  ```html
+  <script src="jspm_packages/system@0.4.0.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
+    });
+    
+    System.import('github:components/jquery').then(function($) {
+    });
   
-  System.import('github:components/jquery').then(function($) {
-  });
-
-  System.import('jquery').then(function($) {
-  });
-</script>
-```
+    System.import('jquery').then(function($) {
+    });
+  </script>
+  ```
 
 * Most npm modules should install without any additional configuration.
 * Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
