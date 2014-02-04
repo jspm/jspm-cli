@@ -200,10 +200,11 @@ All packages will be checked, and versions upgraded where necessary.
 
 jspm is not a build tool, and never will be a build tool. Use grunt and other tools for automating project tasks.
 
-The only operations jspm provides as a helper are:
+The only operations jspm provides are:
 
 * Minification
 * Module Transpiling from ES6 to ES5
+* SystemJS Plugin builds (under development)
 
 Minification is provided for convenience only, while transpiling is provided as a fundamental use case for modules of the future.
 
