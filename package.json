@@ -12,7 +12,7 @@
     "rsvp": "~3.0.3",
     "graceful-fs": "~2.0.1",
     "ncp": "~0.5.0",
-    "traceur": "0.0.11",
+    "traceur": "0.0.20",
     "uglify-js": "~2.4.10",
     "jspm-github": "~0.2.0",
     "jspm-npm": "~0.2.0"

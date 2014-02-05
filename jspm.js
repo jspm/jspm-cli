@@ -68,9 +68,6 @@ if (require.main !== module)
       + '\n'
       + 'jspm build                        Build a project from package.json config\n'
       + '\n'
-      + 'jspm compile <dir> [flags]        Build a single directory\n'
-      + '  --transpile --map jquery=npm:jquery --format cjs --minify\n'
-      + '\n'
       + 'jspm config <property> <value>    Set global configuration\n'
       + '  config github.username githubusername \n'
       + '  config github.password githubpassword \n'
@@ -117,6 +114,10 @@ if (require.main !== module)
 
       // no install package -> install from package.json dependencies
       (depMap ? core.install(depMap, options) : core.install(true, options))
+      .then(function() {
+        if (!depMap)
+          return core.dlLoader();
+      })
       .then(function() {
         return core.setMode(inject ? 'remote' : 'local')
       })
@@ -182,7 +183,7 @@ if (require.main !== module)
     break;
 
     case 'build':
-      core.build();
+      core.build()
     break;
 
     case 'compile':
