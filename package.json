@@ -15,7 +15,8 @@
     "traceur": "0.0.20",
     "uglify-js": "~2.4.10",
     "jspm-github": "~0.2.0",
-    "jspm-npm": "~0.2.0"
+    "jspm-npm": "~0.2.0",
+    "jspm-bower": "~0.0.4"
   },
   "devDependencies": {
     "mocha": "~1.17.1"
