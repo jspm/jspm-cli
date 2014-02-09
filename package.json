@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "./jspm.js",
   "author": "",
   "dependencies": {
@@ -15,7 +15,8 @@
     "traceur": "0.0.20",
     "uglify-js": "~2.4.10",
     "jspm-github": "~0.2.0",
-    "jspm-npm": "~0.2.0"
+    "jspm-npm": "~0.2.0",
+    "jspm-bower": "~0.0.3"
   },
   "devDependencies": {
     "mocha": "~1.17.1"
