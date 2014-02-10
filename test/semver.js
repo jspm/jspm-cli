@@ -54,8 +54,18 @@ suite('Semver Major and Minor Ranges', function() {
 suite('Semver Compare', function() {
 
   test('Compare 1', function() {
-    assert.equal(semver.compare('1', '2'), false);
-    assert.equal(semver.compare('1.4.0', '1'), false);
+    assert.equal(semver.compare('1', '2'), -1);
+    assert.equal(semver.compare('1.4.0', '1'), -1);
+    assert.equal(semver.compare('1.0.1', '1.0.11'), -1);
+    assert.equal(semver.compare('1.0.3', '1.2.11'), -1);
+    assert.equal(semver.compare('1.2.11', '1.2.1'), 1);
+    assert.equal(semver.compare('1.2.10', '1.2.1'), 1);
+  });
+
+  test('Semver sort', function() {
+    var versions = ['1.0.3', '1.0.4', '1.0.5', '1.0.6', '1.0.7', '1.0.8', '1.2.0', '1.2.1', '1.2.10', '1.2.11', '1.2.12', '1.2.2', '1.2.3', '1.2.4', '1.2.5', '1.2.6', '1.2.7', '1.2.8', '1.2.9'];
+    versions.sort(semver.compare);
+    assert.equal(versions.pop(), '1.2.12');
   });
 
 });
