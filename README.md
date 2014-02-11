@@ -31,7 +31,7 @@ https://jspm.io
   Configuration file config.js not found, create it? [y]: 
   
        Downloading loader files to jspm_packages
-         system@0.4.0.js
+         system@0.4.js
          es6-module-loader@0.4.1.js
          traceur@0.0.10.js
   ok   Loader files downloaded successfully
@@ -64,7 +64,7 @@ https://jspm.io
 4. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
 
   ```html
-  <script src="jspm_packages/system@0.4.0.js"></script>
+  <script src="jspm_packages/system@0.4.js"></script>
   <script src="config.js"></script>
   <script>
     System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
