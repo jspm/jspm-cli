@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "",
-  "version": "0.5.15",
+  "version": "0.5.16",
   "main": "./jspm.js",
   "author": "",
   "dependencies": {
