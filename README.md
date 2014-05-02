@@ -38,7 +38,7 @@ https://jspm.io
   
   A require to `app/main` will load `lib/main.js` in this example.
 
-  Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
+  Sets up the package.json and configuration file.
   
 3. Download the SystemJS loader files
 
