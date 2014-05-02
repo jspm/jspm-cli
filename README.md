@@ -29,11 +29,6 @@ https://jspm.io
   Enter packages folder [jspm_packages]: 
   Enter config file path [config.js]: 
   Configuration file config.js not found, create it? [y]: 
-  
-       Downloading loader files to jspm_packages
-         system@0.4.js
-         es6-module-loader@0.4.1.js
-         traceur@0.0.10.js
   ok   Loader files downloaded successfully
   ok   Verified package.json at package.json
        Verified config file at config.js
@@ -44,8 +39,19 @@ https://jspm.io
   A require to `app/main` will load `lib/main.js` in this example.
 
   Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
+  
+3. Download the loader files
 
-3. Install any packages from the jspm Registry, GitHub or npm:
+  ```
+    jspm dl-loader
+    
+     Downloading loader files to jspm_packages
+       system@0.4.js
+       es6-module-loader@0.4.1.js
+       traceur@0.0.10.js
+  ```
+
+4. Install any packages from the jspm Registry, GitHub or npm:
 
   ```
     jspm install npm:lodash-node
@@ -61,7 +67,7 @@ https://jspm.io
   
   The config.js file is updated with the version information and the version is locked down.
 
-4. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
+5. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
 
   ```html
   <script src="jspm_packages/system@0.4.js"></script>
