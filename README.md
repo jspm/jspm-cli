@@ -40,7 +40,7 @@ https://jspm.io
 
   Sets up the package.json and configuration file, and downloads the jspm SystemJS loader files.
   
-3. Download the loader files
+3. Download the SystemJS loader files
 
   ```
     jspm dl-loader
