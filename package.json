@@ -5,18 +5,19 @@
   "main": "./jspm.js",
   "author": "",
   "dependencies": {
-    "mkdirp": "~0.3.5",
-    "semver": "~2.1.0",
     "glob": "~3.2.6",
-    "rimraf": "~2.2.2",
-    "rsvp": "~3.0.3",
     "graceful-fs": "~2.0.1",
-    "ncp": "~0.5.0",
-    "traceur": "0.0.32",
-    "uglify-js": "~2.4.10",
     "jspm-github": "~0.2.4",
     "jspm-npm": "~0.2.5",
-    "minimatch": "^0.2.14"
+    "minimatch": "^0.2.14",
+    "mkdirp": "~0.3.5",
+    "ncp": "~0.5.0",
+    "rimraf": "~2.2.2",
+    "rsvp": "~3.0.3",
+    "semver": "~2.1.0",
+    "systemjs-builder": "0.0.0",
+    "traceur": "0.0.32",
+    "uglify-js": "~2.4.10"
   },
   "devDependencies": {
     "mocha": "~1.17.1"

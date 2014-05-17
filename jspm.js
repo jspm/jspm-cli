@@ -66,7 +66,9 @@ if (require.main !== module)
       + '  setmode dev                     Switch to the development baseURL\n'
       + '  setmode production              Switch to the production baseURL\n'
       + '\n'
-      + 'jspm build                        Build a project from package.json config\n'
+      + ''
+      + 'jspm depcache [moduleName]        Stores dep cache in config for flat pipelining\n'
+      + 'jspm bundle [moduleName]          Creates a single-file bundle\n'
       + '\n'
       + 'jspm config <property> <value>    Set global configuration\n'
       + '  config github.username githubusername \n'
@@ -182,9 +184,19 @@ if (require.main !== module)
       core.setMode(args[1]);
     break;
 
+    case 'depcache':
+      core.depCache(args[1]);
+    break;
+
+    case 'bundle':
+      core.bundle(args[1]);
+    break;
+
     case 'build':
       core.build()
     break;
+
+
 
     case 'compile':
       var options = cli.readOptions(args, ['--transpile', '--minify', '--removeJSExtensions'], ['--map', '--format']);
