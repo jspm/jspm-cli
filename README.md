@@ -7,9 +7,68 @@ https://jspm.io
 * Installs version-managed modular packages along with their dependencies from any jspm endpoint, currently supporting GitHub, npm and the [jspm Registry](https://github.com/jspm/registry).
 * Carefully resolves version ranges within semver compatibility clearly verifying any version forks.
 * Creates the [SystemJS](https://github.com/systemjs/systemjs) version configuration file for the package.
-* Builds ES6 into AMD and ES5 for using ES6 modules in production.
+* Supports [working with ES6 modules](#compiling-application-code).
 
-### Getting Started
+[Build into a bundle](#1-creating--bundle) or [inject a flat dependency tree for flat multiplexing](#2-creating--dependency-cache) in production.
+
+### Example
+
+```
+  jspm install npm:voxel-demo
+
+No package.json found, would you like to create one? [yes]: 
+Enter package name [app]: 
+Enter application folder [lib]: 
+Enter packages folder [jspm_packages]: 
+Enter config file path [config.js]: 
+Configuration file config.js not found, create it? [y]: 
+
+     Checking versions for npm:voxel-demo
+     Downloading npm:voxel-demo@0.0.1
+     Checking versions for npm:gl-now
+     Checking versions for npm:gl-tile-map
+     Checking versions for npm:gl-vao
+     Checking versions for npm:gl-buffer
+     Checking versions for npm:gl-matrix
+     Checking versions for npm:ndarray
+     Checking versions for npm:ndarray-fill
+     Checking versions for npm:ndarray-ops
+     Checking versions for npm:ao-mesher
+     Checking versions for npm:ao-shader
+     Checking versions for npm:gl-shader
+     Checking versions for github:jspm/nodelibs
+     Downloading npm:gl-now@0.0.4
+     Downloading npm:gl-tile-map@0.3.0
+     Downloading npm:gl-buffer@0.1.2
+     Downloading npm:gl-matrix@2.0.0
+     Downloading npm:gl-vao@0.0.3
+     Downloading github:jspm/nodelibs@0.0.2
+     Downloading npm:ndarray-fill@0.1.0
+     Downloading npm:ao-shader@0.2.3
+     Downloading npm:ndarray-ops@1.1.1
+     ...
+```
+
+The above populates a `jspm_packages` folder in the current directory, and generates a `config.js` file containing the SystemJS loader configuration.
+
+We can load this demo with:
+
+```html
+<!doctype html>
+  <script src="jspm_packages/system@0.6.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import('npm:voxel-demo')
+    .catch(function(e) {
+      setTimeout(function() {
+        throw e;
+      });
+    });
+  </script>
+```
+
+
+## Getting Started
 
 1. Install jspm CLI:
 
@@ -91,6 +150,8 @@ https://jspm.io
 
 _If you are having any trouble configuring a package for jspm, please just post an issue and we'll help get it configured._
 
+## Installing
+
 ### Installing from the jspm Registry
 
 ```
@@ -125,27 +186,24 @@ Revert back to the local files with:
   jspm setmode local
 ```
 
-### jspm Inject - using the jspm CDN in production
+### jspm inject
 
-The CDN can be used for production as sources are provided minified with SPDY and optimal cache headers.
-
-When moving to production with an app using CDN sources, the jspm CLI can inject package configuration and lock down versions minimising the production requests.
-
-To inject the configuration locking down an exact version of a module, use `jspm inject`.
-
-A specific package can have its configuration injected and version locked down with:
+If using the CDN version, use `jspm inject` instead of `jspm install`. This will inject the configuration into `config.js` without
+downloading the repo to `jspm_packages`, making it a quicker install.
 
 ```
-  jspm inject jquery 
+  jspm inject jquery
+
+     Looking up jquery in registry
+     Checking versions for npm:jquery
+ok   github:jspm/nodelibs@0.0.2 (0.0.2)
+ok   Injected jquery as npm:jquery@^2.1.1 (2.1.1)
+ok   Loader set to CDN library sources
+
+ok   Install complete
 ```
 
-All the packages in the package.json can be injected (like the install command) with:
-
-```
-  jspm inject
-```
-
-This provides an alternative workflow to installation when using the CDN.
+Inject locks down exact versions allowing for a stable development environment.
 
 ### Update Installed Packages
 
@@ -155,7 +213,63 @@ This provides an alternative workflow to installation when using the CDN.
 
 All packages will be checked, and versions upgraded where necessary.
 
-### Building Application Code
+### Command Options
+
+Use `-f` or `--force` with the install command to overwrite and redownload all dependencies.
+
+Use `-h` or `--https` to download with https instead of alternative protocols.
+
+Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.
+
+## Production Workflows
+
+There are two main workflows for production:
+1. Compile into a bundle.
+2. Cache the dependency tree for flat multiplexing via SPDY / HTTP2.
+
+### 1. Creating a Bundle
+
+```
+  jspm bundle app/main
+```
+
+Creates a file `build.js` containing `app/main` and all its dependencies.
+
+We can then load this with a script tag in the page:
+
+```html
+<!doctype html>
+  <script src="jspm_packages/system@0.6.js"></script>
+  <script src="build.js"></script>
+  <script>
+    System.import('app/main')
+    .catch(function(e) {
+      setTimeout(function() {
+        throw e;
+      });
+    });
+  </script>
+```
+
+### 2. Creating a Dependency Cache
+
+The jspm CDN uses SPDY, optimal cache headers, and minified files, making this workflow suitable for production use.
+
+The remaining performance issue is the round trip latency required to load deep dependencies, as we only find out
+the dependencies of a module once we have fetched that module, before fetching its dependencies in turn.
+
+We can get around this by injecting the full dependency tree upfront into a dependency cache, so that all dependencies
+can be fetched in parallel.
+
+```
+  jspm depcache app/main
+```
+
+The above will trace the full tree for `app/main` and inject it into the `config.js` **depCache**.
+
+Now any imports will load the full tree in parallel, reducing the latency delay to one round trip.
+
+## Compiling Application Code
 
 jspm provides some operations for convenience:
 
@@ -209,14 +323,6 @@ To run the application from the built sources, use the command:
 The `baseURL` in the configuration file will be updated to the build directory, and the app will load its resources from there.
 
 To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
-
-### Command Options
-
-Use `-f` or `--force` with the install command to overwrite and redownload all dependencies.
-
-Use `-h` or `--https` to download with https instead of alternative protocols.
-
-Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.
 
 ### Rate Limits
 

@@ -68,7 +68,7 @@ if (require.main !== module)
       + '\n'
       + ''
       + 'jspm depcache [moduleName]        Stores dep cache in config for flat pipelining\n'
-      + 'jspm bundle [moduleName]          Creates a single-file bundle\n'
+      + 'jspm bundle [moduleName] [file]   Creates a single-file bundle for a module\n'
       + '\n'
       + 'jspm config <property> <value>    Set global configuration\n'
       + '  config github.username githubusername \n'
@@ -117,8 +117,7 @@ if (require.main !== module)
       // no install package -> install from package.json dependencies
       (depMap ? core.install(depMap, options) : core.install(true, options))
       .then(function() {
-        if (!depMap)
-          return core.dlLoader();
+        return core.checkDlLoader()
       })
       .then(function() {
         return core.setMode(inject ? 'remote' : 'local')
@@ -172,8 +171,11 @@ if (require.main !== module)
 
     case 'init':
       core.init();
-
     break; 
+
+    case 'prune':
+      core.prune();
+    break;
 
 
     case 'dl-loader':
