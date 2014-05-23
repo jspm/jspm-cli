@@ -17,8 +17,6 @@ https://jspm.io
   jspm install npm:voxel-demo
 
 No package.json found, would you like to create one? [yes]: 
-Enter package name [app]: 
-Enter application folder [lib]: 
 Enter packages folder [jspm_packages]: 
 Enter config file path [config.js]: 
 Configuration file config.js not found, create it? [y]: 
@@ -83,8 +81,6 @@ We can load this demo with:
   jspm init
     
   No package.json found, would you like to create one? [yes]: 
-  Enter package name [app]: 
-  Enter application folder [lib]: 
   Enter packages folder [jspm_packages]: 
   Enter config file path [config.js]: 
   Configuration file config.js not found, create it? [y]: 
@@ -251,6 +247,8 @@ We can then load this with a script tag in the page:
   </script>
 ```
 
+Note that bundles also support compiling ES6 code. To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
+
 ### 2. Creating a Dependency Cache
 
 The jspm CDN uses SPDY, optimal cache headers, and minified files, making this workflow suitable for production use.
@@ -268,61 +266,6 @@ can be fetched in parallel.
 The above will trace the full tree for `app/main` and inject it into the `config.js` **depCache**.
 
 Now any imports will load the full tree in parallel, reducing the latency delay to one round trip.
-
-## Compiling Application Code
-
-jspm provides some operations for convenience:
-
-* Minification
-* Module Transpiling from ES6 to ES5
-* SystemJS Plugin builds (under development)
-
-Minification is provided for convenience only, while transpiling is provided as a fundamental use case for ES6 module usage.
-
-Application code is stored in the `lib` directory, which is also stored in the package.json as:
-
-package.json:
-```javascript
-{
-  "directories": {
-    "lib": "lib"
-  }
-}
-```
-
-When building, this is the directory that we build.
-
-To set build options, add a `directories.dist` and a `buildConfig` object to the package.json:
-
-package.json:
-```javascript
-{
-  "directories": {
-    "lib": "lib",
-    "dist": "lib-built"
-  },
-  "buildConfig": {
-    "minify": true,
-    "transpile": true
-  }
-}
-```
-
-To run the build, use the command:
-
-```
-  jspm build
-```
-
-To run the application from the built sources, use the command:
-
-```
-  jspm setmode production
-```
-
-The `baseURL` in the configuration file will be updated to the build directory, and the app will load its resources from there.
-
-To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
 
 ### Rate Limits
 
