@@ -191,7 +191,7 @@ if (require.main !== module)
     break;
 
     case 'bundle':
-      core.bundle(args[1]);
+      core.bundle(args[1], args[2]);
     break;
 
     case 'build':
