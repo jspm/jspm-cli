@@ -16,7 +16,7 @@
     "rsvp": "~3.0.3",
     "semver": "~2.1.0",
     "systemjs-builder": "0.0.5",
-    "traceur": "git+ssh://git@github.com/google/traceur-compiler.git",
+    "traceur": "google/traceur-compiler#0.0.43",
     "uglify-js": "~2.4.10"
   },
   "devDependencies": {
