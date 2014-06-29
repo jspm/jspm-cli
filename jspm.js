@@ -15,7 +15,7 @@
  *   limitations under the License.
  */
 
-var cli = require('./lib/cli');
+var ui = require('./lib/ui');
 var config = require('./lib/config');
 var pkg = require('./lib/package');
 var core = require('./lib/core');
@@ -23,7 +23,11 @@ var semver = require('./lib/semver');
 
 var build = require('./lib/build');
 
-// expose API for non-cli
+process.on('uncaughtException', function(err) {
+  ui.log('err', err.stack || err);
+});
+
+// expose API for non-ui
 module.exports = core;
 
 if (require.main !== module)
@@ -31,7 +35,7 @@ if (require.main !== module)
 
 (function() {
   function showInstructions() {
-    cli.log('\n'
+    ui.log('\n'
       + '  \033[47m\033[1m      \033[0m\n'
       + '  \033[47m\033[93m\033[1m jspm \033[0m\033[90m  '
       + 'Browser Package Management'
@@ -82,7 +86,7 @@ if (require.main !== module)
       var inject = true;
 
     case 'install':
-      var options = cli.readOptions(args, ['--force', '--https', '--override']);
+      var options = readOptions(args, ['--force', '--https', '--override']);
       options.inject = inject;
 
       var args = options.args;
@@ -123,26 +127,26 @@ if (require.main !== module)
         return core.setMode(inject ? 'remote' : 'local')
       })
       .then(function() {
-        cli.log('');
-        cli.log('ok', 'Install complete');
+        ui.log('');
+        ui.log('ok', 'Install complete');
       }, function(err) {
         // something happened (cancel / err)
-        cli.log('err', err.stack || err);
-        cli.log('warn', 'Installation changes not saved');
+        ui.log('err', err.stack || err);
+        ui.log('warn', 'Installation changes not saved');
         process.exit();
       });
 
     break;
     case 'update':
-      var options = cli.readOptions(args, ['--force', '--https']);
+      var options = readOptions(args, ['--force', '--https']);
 
       core.install(true, options)
       .then(function() {
-        cli.log('');
-        cli.log('ok', 'Update complete');
+        ui.log('');
+        ui.log('ok', 'Update complete');
       }, function(err) {
-        cli.log('err', err.stack || err);
-        cli.log('warn', 'Update changes not saved');
+        ui.log('err', err.stack || err);
+        ui.log('warn', 'Update changes not saved');
         process.exit();
       });
 
@@ -152,14 +156,14 @@ if (require.main !== module)
       core.uninstall(args.splice(1))
       .then(function(removed) {
         if (removed) {
-          cli.log('');
-          cli.log('ok', 'Uninstall complete');
+          ui.log('');
+          ui.log('ok', 'Uninstall complete');
         }
         else
-          cli.log('info', 'Nothing to remove');
+          ui.log('info', 'Nothing to remove');
       }, function(err) {
-        cli.log('err', err.stack || err);
-        cli.log('warn', 'Uninstall changes not saved');
+        ui.log('err', err.stack || err);
+        ui.log('warn', 'Uninstall changes not saved');
         process.exit();
       });
     break;
@@ -201,7 +205,7 @@ if (require.main !== module)
 
 
     case 'compile':
-      var options = cli.readOptions(args, ['--transpile', '--minify', '--removeJSExtensions'], ['--map', '--format']);
+      var options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions'], ['--map', '--format']);
       if (options.map) {
         var mapParts = options.map.split('=');
         options.map = {};
@@ -210,9 +214,9 @@ if (require.main !== module)
 
       build.compileDir(args[1], options)
       .then(function() {
-        cli.log('ok', 'Compilation complete');
+        ui.log('ok', 'Compilation complete');
       }, function(e) {
-        cli.log('err', e.stack || e);
+        ui.log('err', e.stack || e);
       });
 
     break;
@@ -229,8 +233,35 @@ if (require.main !== module)
     break;
     default:
       if (args[0])
-        cli.log('Invalid argument ' + args[0]);
+        ui.log('Invalid argument ' + args[0]);
       showInstructions();
   }
 })();
+
+function readOptions(args, flags, settings) {
+  settings = settings || [];
+  var argOptions = { args: [] };
+  for (var i = 0; i < args.length; i++) {
+    if (args[i].substr(0, 2) == '--') {
+      for (var j = 0; j < flags.length; j++)
+        if (flags[j] == args[i])
+          argOptions[flags[j].substr(2)] = i;
+      for (var j = 0; j < settings.length; j++)
+        if (settings[j] == args[i])
+          argOptions[settings[j].substr(2)] = args[++i];
+    }
+    else if (args[i].substr(0, 1) == '-') {
+      var opts = args[i].substr(1);
+      for (var j = 0; j < opts.length; j++) {
+        for (var k = 0; k < flags.length; k++) {
+          if (flags[k].substr(2, 1) == opts[j])
+            argOptions[flags[k].substr(2)] = argOptions.args.length;
+        }
+      }
+    }
+    else
+      argOptions.args.push(args[i]);
+  }
+  return argOptions;
+}
 

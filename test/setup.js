@@ -9,7 +9,7 @@ var pkg = require('../lib/package');
 var Package = pkg.Package;
 
 global.jspm = require('../jspm');
-global.cli = require('../lib/cli');
+global.ui = require('../lib/ui');
 var config = require('../lib/config');
 
 var tmpDir = path.resolve('test-tmp');
@@ -83,11 +83,11 @@ function inputHandler(msg, def) {
   });
 }
 
-cli.input = inputHandler;
-cli.confirm = inputHandler;
+ui.input = inputHandler;
+ui.confirm = inputHandler;
 
-var oldLog = cli.log;
-cli.log = function(type, msg) {
+var oldLog = ui.log;
+ui.log = function(type, msg) {
   if (type == 'err' && !logHandlers.err.length) {
     oldLog.apply(this, arguments);
     throw 'Uncaught error!';
