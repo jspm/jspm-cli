@@ -133,7 +133,7 @@ if (require.main !== module)
         // something happened (cancel / err)
         ui.log('err', err.stack || err);
         ui.log('warn', 'Installation changes not saved');
-        process.exit();
+        process.exit(1);
       });
 
     break;
@@ -147,7 +147,7 @@ if (require.main !== module)
       }, function(err) {
         ui.log('err', err.stack || err);
         ui.log('warn', 'Update changes not saved');
-        process.exit();
+        process.exit(1);
       });
 
     break;
@@ -164,7 +164,7 @@ if (require.main !== module)
       }, function(err) {
         ui.log('err', err.stack || err);
         ui.log('warn', 'Uninstall changes not saved');
-        process.exit();
+        process.exit(1);
       });
     break;
 
