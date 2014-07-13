@@ -129,6 +129,7 @@ if (require.main !== module)
       .then(function() {
         ui.log('');
         ui.log('ok', 'Install complete');
+        process.exit();
       }, function(err) {
         // something happened (cancel / err)
         ui.log('err', err.stack || err);
