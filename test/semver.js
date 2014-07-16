@@ -85,6 +85,8 @@ suite('Semver Compatibility Ranges', function() {
     assert.equal(semver.match('^1.1.12', '1.1.345'), true);
     assert.equal(semver.match('^1.1.12', '1.10.345'), true);
     assert.equal(semver.match('^1.1.12', '2.10.345'), false);
+
+    assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-alpha.1'), true);
   });
 
 });
