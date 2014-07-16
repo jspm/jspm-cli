@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-suite('Basic Core Tests', function() {
+suite('Bundle Tests', function() {
 
   var actualPath = "build.js";
 
