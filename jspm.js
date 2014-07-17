@@ -195,7 +195,17 @@ if (require.main !== module)
     break;
 
     case 'bundle':
-      core.bundle(args);
+      if (args.length < 2) {
+        ui.log('warn', 'No main entry point is provided, please specify the module to build');
+      }else{
+          var secondLastArg = args[args.length - 2].trim();
+          var signChar = secondLastArg.substr(secondLastArg.length - 1, 1);
+          if (["+", "-"].indexOf(signChar) != -1) {
+              ui.log('warn', 'No filename provided, please specify the filename for the output file');
+          } else {
+              core.bundle(args.splice(0, args.length - 1).join(' '), args[args.length - 1]);
+          }
+      }
     break;
 
     case 'build':
