@@ -1,4 +1,5 @@
 var core = require('./lib/core');
+var bundle = require('./lib/bundle');
 var ui = require('./lib/ui');
 var EventEmitter = require('events').EventEmitter;
 
@@ -41,3 +42,8 @@ API.install = function(name, target, options) {
  */
 // API.installed = function() {
 // }
+
+
+API.bundle = function(expression, fileName) {
+  return bundle.bundle(expression, fileName);
+}
