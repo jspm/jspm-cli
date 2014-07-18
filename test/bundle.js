@@ -13,6 +13,7 @@ suite('Bundle Tests', function() {
           project.versions['github:components/jquery'] = { '1.0.0': 'asdf' };
           project.versions['npm:react'] = { '0.10.0': 'asdz' };
           jspm.bundle(exampleArgs, 'build.js').then(function() {
+            console.log('here');
               assert(fs.existsSync(actualPath));
               assert(fs.existsSync(expectedPath));
               var actualBuildFile = fs.readFileSync(actualPath);
