@@ -193,21 +193,29 @@ if (require.main !== module)
     break;
 
     case 'bundle':
-      if (args.length < 2) {
+      var options = readOptions(args, ['--inject']);
+      var inject = !!options.inject;
+      var bArgs = options.args;
+
+      if (bArgs.length < 2) {
         ui.log('warn', 'No main entry point is provided, please specify the module to build');
       }
       else {
-        var secondLastArg = args[args.length - 2].trim();
+        var secondLastArg = bArgs[bArgs.length - 2].trim();
         var signChar = secondLastArg.substr(secondLastArg.length - 1, 1);
+        var expression = "";
+        var fileName = undefined;
 
         // we can write: jspm bundle app + other
         if (["+", "-"].indexOf(signChar) != -1) {
-          bundle.bundle(args.splice(1, args.length - 1).join(' '));
+          expression = bArgs.splice(1, bArgs.length - 1).join(' ');
         }
         // or we can write: jspm bundle app + other out.js
         else {
-          bundle.bundle(args.splice(1, args.length - 2).join(' '), args[args.length - 1]);
+          expression = bArgs.splice(1, bArgs.length - 2).join(' ');
+          fileName = bArgs[bArgs.length - 1];
         }
+        bundle.bundle(expression, fileName, inject);
       }
     break;
 
