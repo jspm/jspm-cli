@@ -19,6 +19,7 @@ var ui = require('./lib/ui');
 var config = require('./lib/config');
 var pkg = require('./lib/package');
 var core = require('./lib/core');
+var bundle = require('./lib/bundle');
 var semver = require('./lib/semver');
 
 var build = require('./lib/build');
@@ -26,9 +27,6 @@ var build = require('./lib/build');
 process.on('uncaughtException', function(err) {
   ui.log('err', err.stack || err);
 });
-
-// expose API for non-ui
-module.exports = core;
 
 if (require.main !== module)
   return;
@@ -192,11 +190,26 @@ if (require.main !== module)
     break;
 
     case 'depcache':
-      core.depCache(args[1]);
+      bundle.depCache(args[1]);
     break;
 
     case 'bundle':
-      core.bundle(args[1], args[2]);
+      if (args.length < 2) {
+        ui.log('warn', 'No main entry point is provided, please specify the module to build');
+      }
+      else {
+        var secondLastArg = args[args.length - 2].trim();
+        var signChar = secondLastArg.substr(secondLastArg.length - 1, 1);
+
+        // we can write: jspm bundle app + other
+        if (["+", "-"].indexOf(signChar) != -1) {
+          bundle.bundle(args.splice(1, args.length - 1).join(' '));
+        }
+        // or we can write: jspm bundle app + other out.js
+        else {
+          bundle.bundle(args.splice(1, args.length - 2).join(' '), args[args.length - 1]);
+        }
+      }
     break;
 
     case 'build':

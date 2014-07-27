@@ -8,7 +8,7 @@ var path = require('path');
 var pkg = require('../lib/package');
 var Package = pkg.Package;
 
-global.jspm = require('../jspm');
+global.jspm = require('../api');
 global.ui = require('../lib/ui');
 var config = require('../lib/config');
 
@@ -90,7 +90,7 @@ var oldLog = ui.log;
 ui.log = function(type, msg) {
   if (type == 'err' && !logHandlers.err.length) {
     oldLog.apply(this, arguments);
-    throw 'Uncaught error!';
+    throw new Error(msg);
   }
 
   if (logHandlers[type].length)

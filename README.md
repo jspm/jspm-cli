@@ -226,7 +226,7 @@ There are two main workflows for production:
 ### 1. Creating a Bundle
 
 ```
-  jspm bundle app/main
+  jspm bundle app/main build.js
 ```
 
 Creates a file `build.js` containing `app/main` and all its dependencies.
@@ -249,7 +249,31 @@ We can then load this with a script tag in the page:
 
 Note that bundles also support compiling ES6 code. To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
 
-### 2. Creating a Dependency Cache
+### 2. Creating a Bundle excluding a dependency
+
+```
+  jspm bundle app/main - react build.js
+```
+
+Creates a file `build.js` containing `app/main` and all its dependencies (excluding react)
+
+### 3. Creating a Bundle adding another dependency
+
+```
+  jspm bundle app/main + moment build.js
+```
+
+Creates a file `build.js` containing `app/main` and all its dependencies (adding moment)
+
+### 4. Creating a Bundle both adding a dependency and excluding a dependency
+
+```
+  jspm bundle app/main - react + moment build.js
+```
+
+Creates a file `build.js` containing `app/main` and all its dependencies (excluding react / adding moment)
+
+### 5. Creating a Dependency Cache
 
 The jspm CDN uses SPDY, optimal cache headers, and minified files, making this workflow suitable for production use.
 
