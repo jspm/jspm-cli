@@ -272,7 +272,7 @@ function readOptions(args, flags, settings) {
         if (settings[j] == args[i])
           argOptions[settings[j].substr(2)] = args[++i];
     }
-    else if (args[i].substr(0, 1) == '-') {
+    else if (args[i].substr(0, 1) == '-' && args[i].length > 1) {
       var opts = args[i].substr(1);
       for (var j = 0; j < opts.length; j++) {
         for (var k = 0; k < flags.length; k++) {
