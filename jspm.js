@@ -196,10 +196,10 @@ if (require.main !== module)
     case 'bundle':
       var options = readOptions(args, ['--inject']);
       var inject = !!options.inject;
-      var bArgs = options.args;
+      var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
-        ui.log('warn', 'No main entry point is provided, please specify the module to build');
+        bundle.bundle(bArgs[0], undefined, inject);
       }
       else {
         var secondLastArg = bArgs[bArgs.length - 2].trim();
@@ -220,11 +220,13 @@ if (require.main !== module)
       }
     break;
 
+    case 'bundle-sfx':
+      bundle.bundleSFX(args[1], args[2]);
+    break;
+
     case 'build':
       core.build()
     break;
-
-
 
     case 'compile':
       var options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions'], ['--map', '--format']);
