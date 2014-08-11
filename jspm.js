@@ -40,7 +40,7 @@ if (require.main !== module)
       + ' \033[0m\n'
       + '  \033[47m\033[1m      \033[0m\n'
       + '\n'
-      + 'jspm install <name[=version]> [-o {package override}] [-f --force] \n'
+      + 'jspm install <name[=version]> [-o "{package override}" --force] \n'
       + '  install                         Install / update from package.json\n'
       + '  install jquery                  Install a package from the registry\n'
       + '  install npm:underscore          Install latest version from NPM\n'
@@ -50,17 +50,17 @@ if (require.main !== module)
       + '  install jquery=1.1.1            Install a package to a specific version\n'
       + '  install jquery@1.2=1.2.3        Install a version range to a specific version\n'
       + '\n'
-      + 'jspm inject <name[=version]> [-o {package override}] [-f --force] \n'
+      + 'jspm inject <name[=version]> [-o "{package override}" --force] \n'
       + '  inject jquery                   Identical to install, but injects config\n'
       + '                                  only instead of downloading the package\n'
       + '\n'
       + 'jspm uninstall name               Uninstall a package and any orphaned deps\n'
       + '\n'
-      + 'jspm update [-f -force]           Check and update existing modules\n'
+      + 'jspm update [--force]             Check and update existing modules\n'
       + '\n'
       + 'jspm init                         Create / recreate the configuration file\n'
       + '\n'
-      + 'jspm dl-loader                    Download the jspm browser loader\n'
+      + 'jspm dl-loader [--edge --source]  Download the jspm browser loader\n'
       + '\n'
       + 'jspm setmode <mode>\n'
       + '  setmode local                   Switch to locally downloaded libraries\n'
@@ -70,7 +70,7 @@ if (require.main !== module)
       + '\n'
       + ''
       + 'jspm depcache [moduleName]        Stores dep cache in config for flat pipelining\n'
-      + 'jspm bundle [moduleName] [file]   Creates a single-file bundle for a module\n'
+      + 'jspm bundle A + B - C [file] [-i] Bundle an input module or module arithmetic\n'
       + '\n'
       + 'jspm config <property> <value>    Set global configuration\n'
       + '  config github.username githubusername \n'
@@ -182,7 +182,8 @@ if (require.main !== module)
 
 
     case 'dl-loader':
-      core.dlLoader();
+      var options = readOptions(args, ['--source', '--edge']);
+      core.dlLoader(options.source, options.edge);
     break;
 
     case 'setmode':
