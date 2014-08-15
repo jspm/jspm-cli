@@ -210,11 +210,11 @@ if (require.main !== module)
 
         // we can write: jspm bundle app + other
         if (["+", "-"].indexOf(signChar) != -1) {
-          expression = bArgs.splice(1, bArgs.length - 1).join(' ');
+          expression = bArgs.join(' ');
         }
         // or we can write: jspm bundle app + other out.js
         else {
-          expression = bArgs.splice(1, bArgs.length - 2).join(' ');
+          expression = bArgs.splice(0, bArgs.length - 1).join(' ');
           fileName = bArgs[bArgs.length - 1];
         }
         bundle.bundle(expression, fileName, inject);
