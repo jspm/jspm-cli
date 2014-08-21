@@ -5,4 +5,5 @@ test/config.js
 test/app-build
 testlibs/jspm_packages
 testlibs/config.js
+testlibs/build.js
 test-tmp
