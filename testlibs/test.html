@@ -1,0 +1,28 @@
+<!doctype html>
+<script src="jspm_packages/system@0.8.js"></script>
+<script src="config.js"></script>
+
+<body>
+  <div id="mocha"></div>
+  <div id="sandbox"></div>
+</body>
+
+<script>
+  System.import('mocha').then(function(mocha) {
+    return System.import('tests/tests').then(function(suites) {
+      mocha.setup('tdd');
+      for (var s in suites) {
+        suite(s, function() {
+          this.timeout(10000);
+          setup(function() {
+            document.querySelector("#sandbox").innerHTML = '';
+          });
+          for (var t in suites[s])
+            test(t, suites[s][t]);
+        });
+      }
+      mocha.run();
+    });
+  }).catch(console.error.bind(console));
+</script>
+
