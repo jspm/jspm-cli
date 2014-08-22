@@ -14,6 +14,11 @@ suite('Configuration Dependency Parsing', function() {
     assert.equal(deps['three'], 'npm:three@0.0');
 
     deps = config.parseDependencies({
+      react: '>=0.9'
+    }, 'npm');
+    assert.equal(deps['react'], 'npm:react@0')
+
+    deps = config.parseDependencies({
       inherits: '^2.0.1'
     }, 'npm');
     assert.equal(deps['inherits'], 'npm:inherits@^2.0.1');
@@ -21,7 +26,7 @@ suite('Configuration Dependency Parsing', function() {
     deps = config.parseDependencies({
       'base-64': '^0.0.4'
     }, 'npm');
-    assert.equal(deps['base-64'], 'npm:base-64@^0.0.4');
+    assert.equal(deps['base-64'], 'npm:base-64@0.0');
   });
   
 });
