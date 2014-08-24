@@ -84,7 +84,7 @@ if (require.main !== module)
       var inject = true;
 
     case 'install':
-      var options = readOptions(args, ['--force', '--https', '--override']);
+      var options = readOptions(args, ['--force', '--override']);
       options.inject = inject;
 
       var args = options.args;
@@ -113,9 +113,6 @@ if (require.main !== module)
       if (options.override)
         options.override = eval('(' + args.splice(options.override).join(' ') + ')');
 
-      if (options.https)
-        pkg.https = true;
-
       // no install package -> install from package.json dependencies
       (depMap ? core.install(depMap, options) : core.install(true, options))
       .then(function() {
@@ -137,7 +134,7 @@ if (require.main !== module)
 
     break;
     case 'update':
-      var options = readOptions(args, ['--force', '--https']);
+      var options = readOptions(args, ['--force']);
 
       core.install(true, options)
       .then(function() {
