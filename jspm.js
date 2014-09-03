@@ -32,14 +32,19 @@ if (require.main !== module)
   return;
 
 (function() {
-  function showInstructions() {
+  function showHeader() {
     ui.log('\n'
       + '  \033[47m\033[1m      \033[0m\n'
       + '  \033[47m\033[93m\033[1m jspm \033[0m\033[90m  '
       + 'Browser Package Management'
       + ' \033[0m\n'
       + '  \033[47m\033[1m      \033[0m\n'
-      + '\n'
+    );
+  }
+
+  function showInstructions() {
+    showHeader();
+    ui.log('\n'
       + 'jspm install <name[=version]> [-o "{package override}" --force] \n'
       + '  install                         Install / update from package.json\n'
       + '  install jquery                  Install a package from the registry\n'
@@ -75,6 +80,13 @@ if (require.main !== module)
       + 'jspm config <property> <value>    Set global configuration\n'
       + '  config github.username githubusername \n'
       + '  config github.password githubpassword \n'
+    );
+  }
+
+  function showVersion() {
+    showHeader();
+    ui.log('\n'
+      + 'Version: '+require('./package.json').version+'\n'
     );
   }
 
@@ -251,6 +263,11 @@ if (require.main !== module)
     case '--help':
     case '-h':
       showInstructions();
+
+    break;
+    case '--version':
+    case '-v':
+      showVersion();
     
     break;
     default:
