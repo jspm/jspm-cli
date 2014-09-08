@@ -21,6 +21,9 @@ var pkg = require('./lib/package');
 var core = require('./lib/core');
 var bundle = require('./lib/bundle');
 var semver = require('./lib/semver');
+var endpoint = require('./lib/endpoint');
+
+var link = require('./lib/link');
 
 var build = require('./lib/build');
 
@@ -59,6 +62,9 @@ if (require.main !== module)
       + '  inject jquery                   Identical to install, but injects config\n'
       + '                                  only instead of downloading the package\n'
       + '\n'
+      + 'jspm link [endpoint:name@version] Link a local folder as an installable package\n'
+      + 'jspm install --link name          Install a linked package\n'
+      + '\n'
       + 'jspm uninstall name               Uninstall a package and any orphaned deps\n'
       + '\n'
       + 'jspm update [--force]             Check and update existing modules\n'
@@ -76,10 +82,6 @@ if (require.main !== module)
       + ''
       + 'jspm depcache [moduleName]        Stores dep cache in config for flat pipelining\n'
       + 'jspm bundle A + B - C [file] [-i] Bundle an input module or module arithmetic\n'
-      + '\n'
-      + 'jspm config <property> <value>    Set global configuration\n'
-      + '  config github.username githubusername \n'
-      + '  config github.password githubpassword \n'
     );
   }
 
@@ -96,7 +98,7 @@ if (require.main !== module)
       var inject = true;
 
     case 'install':
-      var options = readOptions(args, ['--force', '--override']);
+      var options = readOptions(args, ['--force', '--override', '--link']);
       options.inject = inject;
 
       var args = options.args;
@@ -252,6 +254,35 @@ if (require.main !== module)
       }, function(e) {
         ui.log('err', e.stack || e);
       });
+
+    case 'link':
+      var options = readOptions(args, ['--force']);
+
+      args = options.args;
+
+      var name = args[2] || args[1] || '';
+      var path = args[2] || '.';
+
+      link.link(name, path, options.force);
+    break;
+
+    case 'endpoint':
+      var action = args[1];
+
+      if (action == 'configure') {
+        if (!args[2])
+          ui.log('warn', 'You must provide an endpoint name to configure.');
+        return Promise.resolve(endpoint.configure(args[2]))
+        .then(function() {
+          ui.log('ok', 'Endpoint %' + args[2] + '% configured successfully.');
+        }, function(err) {
+          ui.log('err', err.stack || err);
+        })
+      }
+      else if (action == 'create') {
+        // NB todo
+      }
+    break;
 
     break;
     case 'config':
