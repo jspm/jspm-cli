@@ -81,18 +81,14 @@ We can load this demo with:
   jspm init
     
   No package.json found, would you like to create one? [yes]: 
+  Would you like jspm to prefix its package.json properties under jspm? [yes]:
   Enter packages folder [jspm_packages]: 
   Enter config file path [config.js]: 
   Configuration file config.js not found, create it? [y]: 
-  ok   Loader files downloaded successfully
   ok   Verified package.json at package.json
        Verified config file at config.js
   ```
   
-  The application name is used to require anything from the application code folder `lib`, instead of from the jspm registry.
-  
-  A require to `app/main` will load `lib/main.js` in this example.
-
   Sets up the package.json and configuration file.
   
 3. Download the SystemJS loader files
@@ -101,9 +97,14 @@ We can load this demo with:
     jspm dl-loader
     
      Downloading loader files to jspm_packages
-       system@0.4.js
-       es6-module-loader@0.4.1.js
-       traceur@0.0.10.js
+     Looking up github:ModuleLoader/es6-module-loader
+     Looking up github:systemjs/systemjs
+     Looking up github:jmcriffey/bower-traceur
+       es6-module-loader@0.8.js
+       system@0.8.js
+       traceur-runtime@0.0.58.js
+       traceur@0.0.58.js
+ok   Loader files downloaded successfully
   ```
 
 4. Install any packages from the jspm Registry, GitHub or npm:
@@ -213,9 +214,53 @@ All packages will be checked, and versions upgraded where necessary.
 
 Use `-f` or `--force` with the install command to overwrite and redownload all dependencies.
 
-Use `-h` or `--https` to download with https instead of alternative protocols.
-
 Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.
+
+## Development Workflows
+
+### Linking
+
+Local linking allows linking local folders to be installed instead of using the remote versions of packages.
+
+Linked packages still need to be linked into a full endpoint, package and version.
+
+```
+  cd my-local-package
+  jspm link npm:pkg@1.2.3
+ok   Package linked.
+
+  cd ../my-jspm-app
+  jspm install --link npm:pkg@1.2.3
+```
+
+`my-jspm-app` gets a symlink to a globally linked version of `my-local-package`. But changes to `my-local-package` do require
+running `jspm link npm:pkg@1.2.3` again to update the link cache, as jspm runs build operations on the package when adding npm compatibility.
+
+### Creating Custom Endpoints
+
+You may wish to create your own custom endpoints, such as a private `npm` repo.
+
+This can be done with:
+
+```
+  jspm endpoint create myendpoint jspm-npm
+  npm registry to use [https://registry.npmjs.org]: 
+  Would you like to configure authentication? [no]: y
+  Enter your npm username: mynpmusername
+  Enter your npm password: 
+```
+
+We now have an `npm` endpoint based on a custom registry and authentication which can be used as expected:
+
+```
+  jspm install myendpoint:package
+```
+
+You can also configure these same options for the existing `npm` endpoint if using a local npm mirror:
+
+```
+  jspm endpoint config npm
+```
 
 ## Production Workflows
 
@@ -249,7 +294,7 @@ We can then load this with a script tag in the page:
 
 Note that bundles also support compiling ES6 code. To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
 
-### 2. Creating a Bundle excluding a dependency
+#### Creating a Bundle excluding a dependency
 
 ```
   jspm bundle app/main - react build.js
@@ -257,7 +302,7 @@ Note that bundles also support compiling ES6 code. To try out a demonstration of
 
 Creates a file `build.js` containing `app/main` and all its dependencies (excluding react)
 
-### 3. Creating a Bundle adding another dependency
+#### Creating a Bundle adding another dependency
 
 ```
   jspm bundle app/main + moment build.js
@@ -265,13 +310,25 @@ Creates a file `build.js` containing `app/main` and all its dependencies (exclud
 
 Creates a file `build.js` containing `app/main` and all its dependencies (adding moment)
 
-### 4. Creating a Bundle both adding a dependency and excluding a dependency
+#### Creating a Bundle both adding a dependency and excluding a dependency
 
 ```
   jspm bundle app/main - react + moment build.js
 ```
 
 Creates a file `build.js` containing `app/main` and all its dependencies (excluding react / adding moment)
+
+#### Loading a bundle automatically (inject)
+
+If you don't want to include the bundle with a script tag, but rather load it only when it is needed, we can do:
+
+```
+  jspm bundle app/main - app/core main-bundle.js --inject
+```
+
+The above will create the bundle, then inject configuration to tell the SystemJS loader what modules should be loaded from the `main-bundle.js` file.
+
+As soon as one of these modules is requested, the bundle is loaded dynamically.
 
 ### 5. Creating a Dependency Cache
 
@@ -290,15 +347,6 @@ can be fetched in parallel.
 The above will trace the full tree for `app/main` and inject it into the `config.js` **depCache**.
 
 Now any imports will load the full tree in parallel, reducing the latency delay to one round trip.
-
-### Rate Limits
-
-To set GitHub authentication to avoid rate limits, enter your GitHub credentials with:
-
-```
-  jspm config github.username myusername
-  jspm config github.password mypassword
-```
 
 ### Further Reading
 
