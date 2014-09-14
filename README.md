@@ -293,29 +293,15 @@ We can then load this with a script tag in the page:
 
 Note that bundles also support compiling ES6 code. To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
 
-#### Creating a Bundle excluding a dependency
-
-```
-  jspm bundle app/main - react build.js
-```
-
-Creates a file `build.js` containing `app/main` and all its dependencies (excluding react)
-
-#### Creating a Bundle adding another dependency
-
-```
-  jspm bundle app/main + moment build.js
-```
-
-Creates a file `build.js` containing `app/main` and all its dependencies (adding moment)
-
-#### Creating a Bundle both adding a dependency and excluding a dependency
+#### Creating a bundle with arithmetic
 
 ```
   jspm bundle app/main - react + moment build.js
 ```
 
-Creates a file `build.js` containing `app/main` and all its dependencies (excluding react / adding moment)
+Creates a file `build.js` containing `app/main` and `moment` and all their dependencies, excluding `react` and all its dependencies.
+
+Bundle commonality is currently in development here - https://github.com/jspm/jspm-cli/issues/133.
 
 #### Loading a bundle automatically (inject)
 
@@ -329,7 +315,7 @@ The above will create the bundle, then inject configuration to tell the SystemJS
 
 As soon as one of these modules is requested, the bundle is loaded dynamically.
 
-### 5. Creating a Dependency Cache
+### 3. Creating a Dependency Cache
 
 The jspm CDN uses SPDY, optimal cache headers, and minified files, making this workflow suitable for production use.
 
@@ -346,6 +332,17 @@ can be fetched in parallel.
 The above will trace the full tree for `app/main` and inject it into the `config.js` **depCache**.
 
 Now any imports will load the full tree in parallel, reducing the latency delay to one round trip.
+
+### 4. Creating a self-executing bundle
+
+To create an output distributable script file that can be used entirely on its own independent of SystemJS and jspm, we can use `bundle-sfx`.
+
+```
+  jspm bundle-sfx app/main app.js
+```
+
+`app.js` contains a micro-loader implementation (1.4KB gzipped), converts all module formats into ES5 (including compiling ES6), and
+maintaining bindings and circular references as with normal bundles.
 
 ### Further Reading
 
