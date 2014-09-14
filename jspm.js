@@ -269,18 +269,32 @@ if (require.main !== module)
     case 'endpoint':
       var action = args[1];
 
-      if (action == 'configure') {
+      if (action == 'config') {
         if (!args[2])
-          ui.log('warn', 'You must provide an endpoint name to configure.');
+          return ui.log('warn', 'You must provide an endpoint name to configure.');
         return Promise.resolve(endpoint.configure(args[2]))
         .then(function() {
           ui.log('ok', 'Endpoint %' + args[2] + '% configured successfully.');
         }, function(err) {
           ui.log('err', err.stack || err);
-        })
+        });
       }
       else if (action == 'create') {
-        // NB todo
+        if (!args[2])
+          return ui.log('warn', 'You must provide an endpoint name to create.');
+        if (!args[3])
+          return ui.log('warn', 'You must provide the endpoint module name to generate from.');
+        return Promise.resolve(endpoint.create(args[2], args[3]))
+        .then(function(created) {
+          if (created)
+            ui.log('ok', 'Enpoint %' + args[2] + '% created successfully.');
+        }, function(err) {
+          ui.log('err', err.stack || err);
+        });
+      }
+      else {
+        showInstructions();
+        ui.log('Invalid endpoint argument ' + args[1]);
       }
     break;
 
@@ -302,9 +316,9 @@ if (require.main !== module)
     
     break;
     default:
+      showInstructions();
       if (args[0])
         ui.log('Invalid argument ' + args[0]);
-      showInstructions();
   }
 })();
 
