@@ -1,9 +1,5 @@
 node_modules
 sandbox
-test/jspm_packages
-test/config.js
-test/app-build
 testlibs/jspm_packages
 testlibs/config.js
 testlibs/build.js
-test-tmp
