@@ -20,6 +20,7 @@ var core = require('./lib/core');
 var bundle = require('./lib/bundle');
 var semver = require('./lib/semver');
 var endpoint = require('./lib/endpoint');
+var fs = require('graceful-fs');
 
 var link = require('./lib/link');
 
@@ -120,8 +121,26 @@ process.on('uncaughtException', function(err) {
         depMap[name] = target;
       }
 
-      if (options.override)
-        options.override = eval('(' + args.splice(options.override).join(' ') + ')');
+      var override = options.override && args.splice(options.override).join(' ');
+      if (override) {
+        if (override.substr(0, 1) != '{') {
+          try {
+            options.override = fs.readFileSync(override);
+          }
+          catch(e) {
+            return ui.log('err', 'Unable to read override file %' + override + '%.');
+          }
+          try {
+            options.override = JSON.parse(options.override)
+          }
+          catch(e) {
+            return ui.log('err', 'Invalid JSON in override file %' + override + '%.');
+          }
+        }
+        else {
+          options.override = eval('(' + override + ')');
+        }
+      }
 
       // no install package -> install from package.json dependencies
       (depMap ? core.install(depMap, options) : core.install(true, options))
