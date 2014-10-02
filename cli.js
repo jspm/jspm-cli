@@ -194,7 +194,12 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'setmode':
-      core.setMode(args[1]);
+      core.setMode(args.splice(1))
+      .then(function(msg) {
+        ui.log('ok', msg);
+      }, function(err) {
+        ui.log('err', err.stack || err);
+      });
     break;
 
     case 'depcache':
