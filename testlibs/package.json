@@ -1,8 +1,5 @@
 {
   "name": "tests",
-  "directories": {
-    "lib": "tests"
-  },
   "registry": "jspm",
   "dependencies": {
     "npm:voxel-demo": "^0.0.1",
