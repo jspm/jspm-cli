@@ -49,6 +49,16 @@ suite('Semver Major and Minor Ranges', function() {
     assert.equal(semver.match('ksdufh8234-', 'asdfa'), false);
     assert.equal(semver.match('ksdufh8234-', 'ksdufh8234-'), true);
   });
+  test('Range test 9', function() {
+    assert.equal(semver.compare('0.2.0', 'master'), 1);
+    assert.equal(semver.compare('wip/here/some-thing', '0.3.0-alpha'), -1);
+    assert.equal(semver.compare('1.2.a', '0.0.1'), -1);
+    assert.equal(semver.compare('1.2.3-beta', '1.2.3-alpha'), 1);
+    assert.equal(semver.compare('1.2.3-beta.1', '1.2.3-beta.11'), -1);
+    assert.equal(semver.compare('1.2.3-beta.1', '1.2.3-beta.11'), -1);
+    assert.equal(semver.compare('1.2.3-beta.2', '1.2.3-beta.1'), 1);
+    assert.equal(semver.compare('1.2.3', '1.2.3-beta.1'), 1);
+  });
 });
 
 suite('Semver Compare', function() {
