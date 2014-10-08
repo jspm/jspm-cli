@@ -6,12 +6,12 @@ suite('Semver Major and Minor Ranges', function() {
     assert.equal(semver.match('0.0.1', '0.0.1'), true);
     assert.equal(semver.match('0.0.1', '0.0.0'), false);
     assert.equal(semver.match('0.0.1', '0.0.2'), false);
-    assert.equal(semver.match('0.0.1', '0.0.1-betaasdf-asdf'), true);
+    assert.equal(semver.match('0.0.1', '0.0.1-betaasdf-asdf'), false);
   });
   test('Range test 2', function() {
     assert.equal(semver.match('0.1', '0.1.1'), true);
     assert.equal(semver.match('0.1', '0.1.4'), true);
-    assert.equal(semver.match('0.1', '0.1.23423-sdf'), true);
+    assert.equal(semver.match('0.1', '0.1.23423-sdf'), false);
     assert.equal(semver.match('0.1', '0.1'), true);
     assert.equal(semver.match('0.1', '1.1.1'), false);
     assert.equal(semver.match('0.1', '0.0.1'), false);
@@ -19,24 +19,24 @@ suite('Semver Major and Minor Ranges', function() {
   test('Range test 3', function() {
     assert.equal(semver.match('0', '0.0.1'), true);
     assert.equal(semver.match('0', '0.1.1'), true);
-    assert.equal(semver.match('0', '0.1.1-beta'), true);
+    assert.equal(semver.match('0', '0.1.1-beta'), false);
     assert.equal(semver.match('0', '1.1.1-beta'), false);
   });
   test('Range test 4', function() {
-    assert.equal(semver.match('1', '1.5'), true);
+    assert.equal(semver.match('1', '1.5'), false);
     assert.equal(semver.match('1', '1.5.2'), true);
     assert.equal(semver.match('1', '1.0.0'), true);
-    assert.equal(semver.match('1', '1.5.3-beta1'), true);
+    assert.equal(semver.match('1', '1.5.3-beta1'), false);
     assert.equal(semver.match('1', '2.0.0-beta1'), false);
     assert.equal(semver.match('1', '0.1.1'), false);
   });
   test('Range test 5', function() {
     assert.equal(semver.match('1.2', '1.2.0'), true);
     assert.equal(semver.match('1.2', '1.2.1'), true);
-    assert.equal(semver.match('1.2', '1.2.1-beta'), true);
+    assert.equal(semver.match('1.2', '1.2.1-beta'), false);
   });
   test('Range test 6', function() {
-    assert.equal(semver.match('4.3.2', '4.3.2-beta'), true);
+    assert.equal(semver.match('4.3.2', '4.3.2-beta'), false);
     assert.equal(semver.match('4.3.2', '4.3.2'), true);
     assert.equal(semver.match('4.3.2', '4.3.3'), false);
   });
@@ -59,13 +59,22 @@ suite('Semver Major and Minor Ranges', function() {
     assert.equal(semver.compare('1.2.3-beta.2', '1.2.3-beta.1'), 1);
     assert.equal(semver.compare('1.2.3', '1.2.3-beta.1'), 1);
   });
+  test('Range test 10', function() {
+    assert.equal(semver.compare('1.0.0-alpha', '1.0.0-alpha.1'), -1);
+    assert.equal(semver.compare('1.0.0-alpha.1', '1.0.0-alpha.beta'), -1);
+    assert.equal(semver.compare('1.0.0-alpha.beta', '1.0.0-beta'), -1);
+    assert.equal(semver.compare('1.0.0-beta', '1.0.0-beta.2'), -1);
+    assert.equal(semver.compare('1.0.0-beta.2', '1.0.0-beta.11'), -1);
+    assert.equal(semver.compare('1.0.0-beta.11', '1.0.0-rc.1'), -1);
+    assert.equal(semver.compare('1.0.0-rc.1', '1.0.0'), -1);
+  });
 });
 
 suite('Semver Compare', function() {
 
   test('Compare 1', function() {
     assert.equal(semver.compare('1', '2'), -1);
-    assert.equal(semver.compare('1.4.0', '1'), -1);
+    assert.equal(semver.compare('1.4.0', '1'), 1);
     assert.equal(semver.compare('1.0.1', '1.0.11'), -1);
     assert.equal(semver.compare('1.0.3', '1.2.11'), -1);
     assert.equal(semver.compare('1.2.11', '1.2.1'), 1);
@@ -95,8 +104,14 @@ suite('Semver Compatibility Ranges', function() {
     assert.equal(semver.match('^1.1.12', '1.1.345'), true);
     assert.equal(semver.match('^1.1.12', '1.10.345'), true);
     assert.equal(semver.match('^1.1.12', '2.10.345'), false);
+  });
 
+  test('Prerelease ranges', function() {
     assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-alpha.1'), true);
+    assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-alpha.2'), true);
+    assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-beta'), true);
+    assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-beta.10'), true);
+    assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4'), true);
   });
 
 });
