@@ -34,6 +34,7 @@ suite('Semver Major and Minor Ranges', function() {
     assert.equal(semver.match('1.2', '1.2.0'), true);
     assert.equal(semver.match('1.2', '1.2.1'), true);
     assert.equal(semver.match('1.2', '1.2.1-beta'), false);
+    assert.equal(semver.match('2.0', '2.1.0'), false);
   });
   test('Range test 6', function() {
     assert.equal(semver.match('4.3.2', '4.3.2-beta'), false);
@@ -79,6 +80,10 @@ suite('Semver Compare', function() {
     assert.equal(semver.compare('1.0.3', '1.2.11'), -1);
     assert.equal(semver.compare('1.2.11', '1.2.1'), 1);
     assert.equal(semver.compare('1.2.10', '1.2.1'), 1);
+  });
+
+  test('Compare 2', function() {
+    assert.equal(semver.compare('2.0', '2.1.0'), -1);
   });
 
   test('Semver sort', function() {
