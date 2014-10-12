@@ -92,6 +92,10 @@ suite('Semver Compare', function() {
     assert.equal(versions.pop(), '1.2.12');
   });
 
+  test('Compare with build numbers', function() {
+    assert.equal(semver.compare('0.2.0-build.2+sha.c4e21ef', '0.2.0-build.1+sha.9db70d3'), 1);
+  });
+
 });
 
 
