@@ -30,7 +30,17 @@ jspmCLI.launch({}, function(env) {
   process.env.jspmConfigPath = env.configPath || '';
   if (env.modulePath) {
     process.env.localJspm = true;
-    require(path.resolve(env.modulePath, '../cli'));
+    try {
+      require(path.resolve(env.modulePath, '../cli'));
+    }
+    catch(e) {
+      // if an older version of jspm, revert to the global install
+      // this can be removed in time
+      if (e.code === 'MODULE_NOT_FOUND')
+        require('./cli');
+      else
+        throw e;
+    }
   }
   else {
     require('./cli');
