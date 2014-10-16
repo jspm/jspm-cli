@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "",
-  "version": "0.8.0-beta.5",
+  "version": "0.8.0-beta.6",
   "main": "./api.js",
   "author": "",
   "dependencies": {
@@ -9,7 +9,7 @@
     "graceful-fs": "~2.0.1",
     "jspm-github": "~0.7.0",
     "jspm-npm": "~0.8.0",
-    "jspm-registry": "~0.1.0",
+    "jspm-registry": "~0.2.0",
     "liftoff": "^0.13.2",
     "minimatch": "^0.2.14",
     "mkdirp": "~0.3.5",
