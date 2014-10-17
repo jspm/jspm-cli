@@ -1,14 +1,14 @@
 {
   "name": "jspm",
   "description": "",
-  "version": "0.8.0-beta.7",
+  "version": "0.8.0-beta.8",
   "main": "./api.js",
   "author": "",
   "dependencies": {
     "glob": "~3.2.6",
     "graceful-fs": "~2.0.1",
-    "jspm-github": "~0.7.0",
-    "jspm-npm": "~0.8.0",
+    "jspm-github": "~0.7.1",
+    "jspm-npm": "~0.8.1",
     "jspm-registry": "~0.2.0",
     "liftoff": "^0.13.2",
     "minimatch": "^0.2.14",
@@ -19,7 +19,7 @@
     "rsvp": "~3.0.3",
     "semver": "~4.0.3",
     "systemjs-builder": "~0.2.1",
-    "traceur": "0.0.66",
+    "traceur": "0.0.72",
     "uglify-js": "~2.4.10"
   },
   "devDependencies": {
