@@ -90,7 +90,7 @@ process.on('uncaughtException', function(err) {
     showHeader();
     ui.log('\n'
       + 'Version: ' + require('./package.json').version + '\n'
-      + (process.env.localJspm ? 'Running against local jspm install' : 'Running against global jspm install') + '\n'
+      + (process.env.localJspm == 'true' ? 'Running against local jspm install' : 'Running against global jspm install') + '\n'
     );
   }
 
