@@ -8,7 +8,7 @@
     "glob": "~3.2.6",
     "graceful-fs": "~2.0.1",
     "jspm-github": "~0.8.0",
-    "jspm-npm": "~0.8.1",
+    "jspm-npm": "~0.8.2",
     "jspm-registry": "~0.3.0",
     "liftoff": "^0.13.2",
     "minimatch": "^0.2.14",
