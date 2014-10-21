@@ -83,6 +83,8 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'jspm config <option> <setting>     Configure jspm options\n'
       + '                                   Options are stored in ~/.jspm/config\n'
+      + '\n'
+      + 'All options work with the -y flag to skip prompts\n'
     );
   }
 
@@ -100,7 +102,7 @@ process.on('uncaughtException', function(err) {
       var inject = true;
 
     case 'install':
-      var options = readOptions(args, ['--force', '--override', '--link']);
+      var options = readOptions(args, ['--force', '--override', '--link', '--yes']);
       options.inject = inject;
 
       var args = options.args;
@@ -147,6 +149,9 @@ process.on('uncaughtException', function(err) {
         }
       }
 
+      if (options.yes)
+        ui.useDefaults();
+
       // no install package -> install from package.json dependencies
       (depMap ? core.install(depMap, options) : core.install(true, options))
       .then(function() {
@@ -168,7 +173,10 @@ process.on('uncaughtException', function(err) {
 
     break;
     case 'update':
-      var options = readOptions(args, ['--force']);
+      var options = readOptions(args, ['--force', '--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
 
       core.install(true, options)
       .then(function() {
@@ -183,6 +191,11 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'uninstall':
+      var options = readOptions(args, ['--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
+
       core.uninstall(args.splice(1))
       .then(function(removed) {
         if (removed) {
@@ -199,25 +212,45 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'clean':
+      var options = readOptions(args, ['--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
+
       core.clean();
 
     break;
 
     case 'init':
+      var options = readOptions(args, ['--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
+
       core.init();
     break; 
 
     case 'prune':
+      var options = readOptions(args, ['--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
+
       core.prune();
     break;
 
 
     case 'dl-loader':
-      var options = readOptions(args, ['--source', '--edge']);
+      var options = readOptions(args, ['--source', '--edge', '--yes']);
+      if (options.yes)
+        ui.useDefaults();
       core.dlLoader(options.source, options.edge);
     break;
 
     case 'setmode':
+      var options = readOptions(args, ['--yes']);
+      if (options.yes)
+        ui.useDefaults();
       core.setMode(args.splice(1))
       .then(function(msg) {
         ui.log('ok', msg);
@@ -227,11 +260,16 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'depcache':
+      var options = readOptions(args, ['--yes']);
+      if (options.yes)
+        ui.useDefaults();
       bundle.depCache(args[1]);
     break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject']);
+      var options = readOptions(args, ['--inject', '--yes']);
+      if (options.yes)
+        ui.useDefaults();
       var inject = !!options.inject;
       var bArgs = options.args.splice(1);
 
@@ -258,15 +296,23 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle-sfx':
+      var options = readOptions(args, ['--yes']);
+      if (options.yes)
+        ui.useDefaults();
       bundle.bundleSFX(args[1], args[2]);
     break;
 
     case 'build':
+      var options = readOptions(args, ['--yes']);
+      if (options.yes)
+        ui.useDefaults();
       core.build()
     break;
 
     case 'compile':
-      var options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions'], ['--map', '--format']);
+      var options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions', '--yes'], ['--map', '--format']);
+      if (options.yes)
+        ui.useDefaults();
       if (options.map) {
         var mapParts = options.map.split('=');
         options.map = {};
@@ -281,7 +327,10 @@ process.on('uncaughtException', function(err) {
       });
 
     case 'link':
-      var options = readOptions(args, ['--force']);
+      var options = readOptions(args, ['--force', '--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
 
       args = options.args;
 
@@ -292,6 +341,11 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'endpoint':
+      var options = readOptions(args, ['--yes']);
+
+      if (options.yes)
+        ui.useDefaults();
+
       var action = args[1];
 
       if (action == 'config') {
