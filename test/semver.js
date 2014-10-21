@@ -12,7 +12,7 @@ suite('Semver Major and Minor Ranges', function() {
     assert.equal(semver.match('0.1', '0.1.1'), true);
     assert.equal(semver.match('0.1', '0.1.4'), true);
     assert.equal(semver.match('0.1', '0.1.23423-sdf'), false);
-    assert.equal(semver.match('0.1', '0.1'), true);
+    assert.equal(semver.match('0.1', '0.1'), false);
     assert.equal(semver.match('0.1', '1.1.1'), false);
     assert.equal(semver.match('0.1', '0.0.1'), false);
   });

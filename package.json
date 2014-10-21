@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "",
-  "version": "0.8.0-beta.10",
+  "version": "0.8.0",
   "main": "./api.js",
   "author": "",
   "dependencies": {
@@ -18,7 +18,7 @@
     "rimraf": "~2.2.2",
     "rsvp": "~3.0.3",
     "semver": "~4.0.3",
-    "systemjs-builder": "~0.2.6",
+    "systemjs-builder": "~0.2.7",
     "traceur": "0.0.72",
     "uglify-js": "~2.4.10"
   },
