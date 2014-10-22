@@ -15,34 +15,30 @@ https://jspm.io
 ```
   jspm install npm:voxel-demo
 
-No package.json found, would you like to create one? [yes]: 
-Enter packages folder [jspm_packages]: 
-Enter config file path [config.js]: 
-Configuration file config.js not found, create it? [y]: 
+Package.json file does not exist, create it? [yes]: 
+Would you like jspm to prefix the jspm package.json properties under jspm? [yes]: 
+Enter a name for the project (optional): 
+Enter baseURL path [.]: 
+Enter project source folder [./lib]: 
+Enter project built folder (optional): 
+Enter packages folder [./jspm_packages]: 
+Enter config file path [./config.js]: 
+Configuration file config.js doesn't exist, create it? [yes]: 
 
-     Checking versions for npm:voxel-demo
-     Downloading npm:voxel-demo@0.0.1
-     Checking versions for npm:gl-now
-     Checking versions for npm:gl-tile-map
-     Checking versions for npm:gl-vao
-     Checking versions for npm:gl-buffer
-     Checking versions for npm:gl-matrix
-     Checking versions for npm:ndarray
-     Checking versions for npm:ndarray-fill
-     Checking versions for npm:ndarray-ops
-     Checking versions for npm:ao-mesher
-     Checking versions for npm:ao-shader
-     Checking versions for npm:gl-shader
-     Checking versions for github:jspm/nodelibs
-     Downloading npm:gl-now@0.0.4
-     Downloading npm:gl-tile-map@0.3.0
-     Downloading npm:gl-buffer@0.1.2
-     Downloading npm:gl-matrix@2.0.0
-     Downloading npm:gl-vao@0.0.3
-     Downloading github:jspm/nodelibs@0.0.2
-     Downloading npm:ndarray-fill@0.1.0
-     Downloading npm:ao-shader@0.2.3
-     Downloading npm:ndarray-ops@1.1.1
+     Looking up npm:voxel-demo
+     Updating registry cache...
+     Looking up npm:gl-now
+     Looking up npm:gl-tile-map
+     Looking up npm:gl-vao
+     Looking up npm:gl-buffer
+     Looking up npm:gl-matrix
+     Looking up npm:ndarray
+     Looking up npm:ndarray-fill
+     Looking up npm:ndarray-ops
+     Looking up npm:ao-mesher
+     Looking up npm:ao-shader
+     Looking up npm:gl-shader
+     Looking up npm:game-shell
      ...
 ```
 
@@ -52,15 +48,11 @@ We can load this demo with:
 
 ```html
 <!doctype html>
-  <script src="jspm_packages/system@0.6.js"></script>
+  <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
     System.import('npm:voxel-demo')
-    .catch(function(e) {
-      setTimeout(function() {
-        throw e;
-      });
-    });
+    .catch(console.error.bind(console));
   </script>
 ```
 
@@ -78,33 +70,34 @@ We can load this demo with:
   ```
   cd my-project
   jspm init
-    
-  No package.json found, would you like to create one? [yes]: 
-  Would you like jspm to prefix its package.json properties under jspm? [yes]:
-  Enter packages folder [jspm_packages]: 
-  Enter config file path [config.js]: 
-  Configuration file config.js not found, create it? [y]: 
+
+  Package.json file does not exist, create it? [yes]: 
+  Would you like jspm to prefix the jspm package.json properties under jspm? [yes]: 
+  Enter a name for the project (optional): 
+  Enter baseURL path [.]: 
+  Enter project source folder [./lib]: 
+  Enter project built folder (optional): 
+  Enter packages folder [./jspm_packages]: 
+  Enter config file path [./config.js]: 
+  Configuration file config.js doesn't exist, create it? [yes]: 
+
   ok   Verified package.json at package.json
        Verified config file at config.js
   ```
   
   Sets up the package.json and configuration file.
-  
-3. Download the SystemJS loader files
 
+3. Create the local application folder:
   ```
-    jspm dl-loader
-    
-     Downloading loader files to jspm_packages
-     Looking up github:ModuleLoader/es6-module-loader
-     Looking up github:systemjs/systemjs
-     Looking up github:jmcriffey/bower-traceur
-       es6-module-loader@0.8.js
-       system@0.8.js
-       traceur-runtime@0.0.58.js
-       traceur@0.0.58.js
-ok   Loader files downloaded successfully
+  mkdir lib
+  jspm setmode dev
+
+  ok   Local package URL set to lib.
   ```
+
+  This tells jspm that if we try to load `app`, or any custom name you set for your app, it will look in this folder.
+
+  If you set a custom source folder or application name, these will be used instead.
 
 4. Install any packages from the jspm Registry, GitHub or npm:
 
@@ -112,7 +105,10 @@ ok   Loader files downloaded successfully
     jspm install npm:lodash-node
     jspm install github:components/jquery
     jspm install jquery
+    jspm install myname=npm:underscore
   ```
+
+  Multiple nstalls can also be combined into a single line separated by spaces.
   
   Any npm or Github package can be installed in this way.
   
@@ -122,25 +118,36 @@ ok   Loader files downloaded successfully
   
   The config.js file is updated with the version information and the version is locked down.
 
-5. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
+5. Write application code using the packages, in any module format you feel like (including ES6):
+  
+  lib/app.js
+  ```javascript
+    var _ = require('npm:lodash-node/modern/objects/isEqual');
+    var $ = require('jquery');
+    var underscore = require('myname');
+  
+    module.exports = 'app';
+  ```
+
+6. In an HTML page include the downloaded SystemJS loader along with the automatically generated configuration file (`config.js`), then load the modules:
 
   ```html
-  <script src="jspm_packages/system@0.4.js"></script>
+  <!doctype html>
+  <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
-    System.import('npm:lodash-node/modern/objects/isEqual').then(function(isEqual) {
-    });
-    
-    System.import('github:components/jquery').then(function($) {
-    });
-  
-    System.import('jquery').then(function($) {
-    });
+    System.import('app/app')
+    .then(console.log.bind(console))
+    .catch(console.error.bind(console));
   </script>
   ```
 
+  The above should display `app` in the browser console
+
 * Most npm modules should install without any additional configuration.
 * Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
+
+[Read about the production workflows to build a single bundle for production](#production-workflows)
 
 [Read the guide on configuring packages for jspm here](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
@@ -190,11 +197,9 @@ downloading the repo to `jspm_packages`, making it a quicker install.
 ```
   jspm inject jquery
 
-     Looking up jquery in registry
-     Checking versions for npm:jquery
-ok   github:jspm/nodelibs@0.0.2 (0.0.2)
-ok   Injected jquery as npm:jquery@^2.1.1 (2.1.1)
-ok   Loader set to CDN library sources
+     Updating registry cache...
+     Looking up github:components/jquery
+ok   Injected jquery as github:components/jquery@^2.1.1 (2.1.1)
 
 ok   Install complete
 ```
@@ -210,6 +215,8 @@ Inject locks down exact versions allowing for a stable development environment.
 All packages will be checked, and versions upgraded where necessary.
 
 ### Command Options
+
+Use `-y` or `--yes` with any command to use the defaults for all prompts.
 
 Use `-f` or `--force` with the install command to overwrite and redownload all dependencies.
 
@@ -279,7 +286,7 @@ We can then load this with a script tag in the page:
 
 ```html
 <!doctype html>
-  <script src="jspm_packages/system@0.6.js"></script>
+  <script src="jspm_packages/system.js"></script>
   <script src="build.js"></script>
   <script>
     System.import('app/main')
