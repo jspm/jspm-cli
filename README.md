@@ -108,7 +108,7 @@ We can load this demo with:
     jspm install myname=npm:underscore
   ```
 
-  Multiple nstalls can also be combined into a single line separated by spaces.
+  Multiple installs can also be combined into a single line separated by spaces.
   
   Any npm or Github package can be installed in this way.
   
