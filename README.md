@@ -340,7 +340,7 @@ The above will trace the full tree for `app/main` and inject it into the `config
 
 Now any imports will load the full tree in parallel, reducing the latency delay to one round trip.
 
-### 4. Creating a self-executing bundle
+### 3. Creating a self-executing bundle
 
 To create an output distributable script file that can be used entirely on its own independent of SystemJS and jspm, we can use `bundle-sfx`.
 
