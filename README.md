@@ -8,7 +8,7 @@ https://jspm.io
 * Carefully resolves version ranges within semver compatibility clearly verifying any version forks.
 * Creates the [SystemJS](https://github.com/systemjs/systemjs) version configuration file for the package.
 
-[Build into a bundle](#1-creating--bundle) or [inject a flat dependency tree for flat multiplexing](#2-creating--dependency-cache) in production.
+[Build into a bundle](#1-creating-a-bundle) or [inject a flat dependency tree for flat multiplexing](#2-creating-a-dependency-cache) in production.
 
 ### Example
 
@@ -322,7 +322,7 @@ The above will create the bundle, then inject configuration to tell the SystemJS
 
 As soon as one of these modules is requested, the bundle is loaded dynamically.
 
-### 3. Creating a Dependency Cache
+### 2. Creating a Dependency Cache
 
 The jspm CDN uses SPDY, optimal cache headers, and minified files, making this workflow suitable for production use.
 
@@ -340,7 +340,7 @@ The above will trace the full tree for `app/main` and inject it into the `config
 
 Now any imports will load the full tree in parallel, reducing the latency delay to one round trip.
 
-### 4. Creating a self-executing bundle
+### 3. Creating a self-executing bundle
 
 To create an output distributable script file that can be used entirely on its own independent of SystemJS and jspm, we can use `bundle-sfx`.
 
