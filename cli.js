@@ -15,6 +15,7 @@
  */
 var ui = require('./lib/ui');
 var config = require('./lib/config');
+var globalConfig = require('./lib/global-config');
 var pkg = require('./lib/package');
 var core = require('./lib/core');
 var bundle = require('./lib/bundle');
@@ -381,7 +382,7 @@ process.on('uncaughtException', function(err) {
     case 'config':
       var property = args[1];
       var value = args.splice(2).join(' ');
-      config.set(property, value);
+      globalConfig.set(property, value);
 
     break;
     case '--help':
