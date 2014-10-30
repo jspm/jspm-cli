@@ -51,8 +51,15 @@ We can load this demo with:
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
-    System.import('npm:voxel-demo')
-    .catch(console.error.bind(console));
+    System.import('npm:voxel-demo').catch(scriptErrors => {
+      if (scriptError.stack)
+        setTimeout(function() { throw scriptError; });
+      else console.error(scriptError);
+    }).then(module => {}, importError => {
+      if (importError.stack)
+        setTimeout(function() { throw importError; });
+      else console.error(importError);
+    });
   </script>
 ```
 
@@ -136,13 +143,21 @@ We can load this demo with:
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
-    System.import('app/app')
-    .then(console.log.bind(console))
-    .catch(console.error.bind(console));
+    System.import('app/app').catch(scriptErrors => {
+      if (scriptError.stack)
+        setTimeout(function() { throw scriptError; });
+      else console.error(scriptError);
+    }).then(module => { // do something with the export of app.js
+      console.log(exports);
+    }, importError => {
+      if (importError.stack)
+        setTimeout(function() { throw importError; });
+      else console.error(importError);
+    });
   </script>
   ```
 
-  The above should display `app` in the browser console
+  The above should display `app` in the browser console.
 
 * Most npm modules should install without any additional configuration.
 * Most Github modules that are not already in the [registry](https://github.com/jspm/registry), will need some package configuration in order to work correctly with `jspm install github:my/module`.
@@ -289,14 +304,19 @@ We can then load this with a script tag in the page:
   <script src="jspm_packages/system.js"></script>
   <script src="build.js"></script>
   <script>
-    System.import('app/main')
-    .catch(function(e) {
-      setTimeout(function() {
-        throw e;
-      });
+    System.import('app/main').catch(scriptErrors => {
+      if (scriptError.stack)
+        setTimeout(function() { throw scriptError; });
+      else console.error(scriptError);
+    }).then(module => {/*no exports from main.js*/}, importError => {
+      if (importError.stack)
+        setTimeout(function() { throw importError; });
+      else console.error(importError);
     });
   </script>
 ```
+
+In this example, we assume that `main.js` does not have any exports, so we leave that callback empty.
 
 Note that bundles also support compiling ES6 code. To try out a demonstration of this, [clone the ES6 demo repo here](https://github.com/jspm/demo-es6).
 
