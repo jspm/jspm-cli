@@ -136,7 +136,7 @@ We can load this demo with:
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
-    System.import('app/app')
+    System.import('lib/app')
     .then(console.log.bind(console))
     .catch(console.error.bind(console));
   </script>
