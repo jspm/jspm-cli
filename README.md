@@ -273,6 +273,7 @@ You can also configure these same options for the existing `npm` endpoint if usi
 There are two main workflows for production:
 1. Compile into a bundle.
 2. Cache the dependency tree for flat multiplexing via SPDY / HTTP2.
+3. Create a self-executing bundle
 
 ### 1. Creating a Bundle
 
