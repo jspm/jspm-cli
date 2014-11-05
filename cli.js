@@ -275,7 +275,10 @@ process.on('uncaughtException', function(err) {
       var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
-        bundle.bundle(bArgs[0], undefined, inject);
+        bundle.bundle(bArgs[0], undefined, inject)
+        .catch(function(e) {
+          process.exit(1);
+        });
       }
       else {
         var secondLastArg = bArgs[bArgs.length - 2].trim();
@@ -292,7 +295,10 @@ process.on('uncaughtException', function(err) {
           expression = bArgs.splice(0, bArgs.length - 1).join(' ');
           fileName = bArgs[bArgs.length - 1];
         }
-        bundle.bundle(expression, fileName, inject);
+        bundle.bundle(expression, fileName, inject)
+        .catch(function(e) {
+          process.exit(1);
+        });
       }
     break;
 
@@ -300,7 +306,10 @@ process.on('uncaughtException', function(err) {
       var options = readOptions(args, ['--yes']);
       if (options.yes)
         ui.useDefaults();
-      bundle.bundleSFX(args[1], args[2]);
+      bundle.bundleSFX(args[1], args[2])
+      .catch(function(e) {
+        process.exit(1);
+      });
     break;
 
     case 'build':
