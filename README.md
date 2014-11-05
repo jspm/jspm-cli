@@ -316,12 +316,31 @@ Bundle commonality is currently in development here - https://github.com/jspm/js
 If you don't want to include the bundle with a script tag, but rather load it only when it is needed, we can do:
 
 ```
+  jspm bundle app/main main-bundle.js --inject
+```
+
+The above will create the bundle, then inject configuration into config.js to tell the SystemJS loader what modules should be loaded from the `main-bundle.js` file.
+
+bundles section in modified config.js
+```javascript
+...
+  "bundles": {
+    "main-bundle": [
+      "app/my-class",
+      "app/main"
+    ]
+  }
+...
+```
+As soon as one of these modules is requested, the bundle is loaded dynamically.
+
+You can also use arithmetic bundle:
+
+```
   jspm bundle app/main - app/core main-bundle.js --inject
 ```
 
-The above will create the bundle, then inject configuration to tell the SystemJS loader what modules should be loaded from the `main-bundle.js` file.
-
-As soon as one of these modules is requested, the bundle is loaded dynamically.
+This command will make main-bundle.js file with app/main and app/core module excluded.
 
 ### 2. Creating a Dependency Cache
 
