@@ -45,7 +45,7 @@ ui.setResolver(API);
  * jspm.install('jquery', 'github:components/jquery')
  * jspm.install('jquery', { force: true });
  * jspm.install({ jquery: '1.2.3' }, { force: true })
- * jspm.install('jquery', { primary: false }); // not saved to packge.json
+ * jspm.install(true, options) // install from package.json
  *
  */
 API.install = function(name, target, options) {
