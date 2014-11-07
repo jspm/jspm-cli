@@ -8,11 +8,11 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.3.1",
+    "angular": "github:angular/bower-angular@1.3.2",
     "bootstrap": "github:twbs/bootstrap@3.3.0",
     "css": "github:systemjs/plugin-css@0.1.0",
     "d3": "github:mbostock/d3@3.4.13",
-    "github:angular/bower-angular": "github:angular/bower-angular@1.3.1",
+    "github:angular/bower-angular": "github:angular/bower-angular@1.3.2",
     "jquery": "github:components/jquery@2.1.1",
     "mocha": "npm:mocha@1.21.5",
     "npm:voxel-demo": "npm:voxel-demo@0.0.1",
@@ -35,7 +35,7 @@ System.config({
       "cwise-compiler": "npm:cwise-compiler@0.1.0",
       "greedy-mesher": "npm:greedy-mesher@1.0.2",
       "ndarray": "npm:ndarray@1.0.15",
-      "typedarray-pool": "npm:typedarray-pool@1.1.0"
+      "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
     "npm:ao-shader@0.2.3": {
       "brfs": "npm:brfs@0.0.9",
@@ -78,7 +78,7 @@ System.config({
     "npm:game-shell@0.1.4": {
       "domready": "npm:domready@0.2.13",
       "invert-hash": "npm:invert-hash@0.0.0",
-      "iota-array": "npm:iota-array@1.0.0",
+      "iota-array": "npm:iota-array@0.0.1",
       "lower-bound": "npm:lower-bound@0.0.3",
       "uniq": "npm:uniq@0.0.2",
       "vkey": "npm:vkey@0.0.3"
@@ -102,7 +102,7 @@ System.config({
       "ndarray": "npm:ndarray@1.0.15",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
       "typedarray-pool": "npm:typedarray-pool@1.1.0",
-      "webglew": "npm:webglew@1.0.0"
+      "webglew": "npm:webglew@0.0.0"
     },
     "npm:gl-tile-map@0.3.0": {
       "gl-texture2d": "npm:gl-texture2d@0.1.12",
@@ -129,7 +129,7 @@ System.config({
       "through": "npm:through@1.1.2"
     },
     "npm:glsl-tokenizer@0.0.9": {
-      "through": "npm:through@2.3.6"
+      "through": "npm:through@2.2.7"
     },
     "npm:greedy-mesher@1.0.2": {
       "iota-array": "npm:iota-array@1.0.0",
@@ -213,10 +213,7 @@ System.config({
       "gl-vao": "npm:gl-vao@0.0.3",
       "ndarray": "npm:ndarray@1.0.15",
       "ndarray-fill": "npm:ndarray-fill@0.1.0",
-      "ndarray-ops": "npm:ndarray-ops@1.2.2"
-    },
-    "npm:webglew@1.0.0": {
-      "weakmap": "npm:weakmap@0.0.6"
+      "ndarray-ops": "npm:ndarray-ops@1.1.1"
     }
   }
 });

@@ -21,6 +21,7 @@ var core = require('./lib/core');
 var bundle = require('./lib/bundle');
 var semver = require('./lib/semver');
 var endpoint = require('./lib/endpoint');
+var install = require('./lib/install');
 var fs = require('graceful-fs');
 
 var link = require('./lib/link');
@@ -220,6 +221,20 @@ process.on('uncaughtException', function(err) {
 
       core.clean();
 
+    break;
+
+    case 'inspect':
+      config.load()
+      .then(function() {
+        if (!args[1])
+          return install.showVersions();
+        if (args[1].indexOf(':') == -1)
+          return ui.log('warn', 'Enter a full package name of the format `endpoint:repo`.');
+        return install.showInstallGraph(args[1]);
+      })
+      .catch(function(e) {
+        ui.log('err', e.stack || e);
+      });
     break;
 
     case 'init':
