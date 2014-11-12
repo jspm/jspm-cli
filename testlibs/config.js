@@ -53,9 +53,6 @@ System.config({
     "npm:cwise-compiler@0.1.0": {
       "uniq": "npm:uniq@0.0.2"
     },
-    "npm:cwise-compiler@1.0.0": {
-      "uniq": "npm:uniq@1.0.1"
-    },
     "npm:cwise-parser@0.0.1": {
       "esprima": "npm:esprima@1.0.4",
       "uniq": "npm:uniq@0.0.2"
@@ -175,9 +172,6 @@ System.config({
     },
     "npm:ndarray-ops@1.1.1": {
       "cwise-compiler": "npm:cwise-compiler@0.0.0"
-    },
-    "npm:ndarray-ops@1.2.2": {
-      "cwise-compiler": "npm:cwise-compiler@1.0.0"
     },
     "npm:ndarray-scratch@0.0.1": {
       "ndarray": "npm:ndarray@1.0.15",

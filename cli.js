@@ -46,45 +46,49 @@ process.on('uncaughtException', function(err) {
   function showInstructions() {
     showHeader();
     ui.log('\n'
-      + 'jspm install <name[=version]> [-o "{package override}" --force] \n'
-      + '  install                          Install / update from package.json\n'
-      + '  install jquery                   Install a package from the registry\n'
-      + '  install npm:underscore           Install latest version from NPM\n'
-      + '  install jquery@1.1               Install latest minor version\n'
-      + '  install jquery@1.1.1             Install an exact version\n'
-      + '  install jquery npm:underscore    Install multiple packages\n'
-      + '  install jquery=1.1.1             Install a package to a specific version\n'
-      + '  install jquery@1.2=1.2.3         Install a version range to a specific version\n'
+      + 'jspm init                          Create / validate project configuration file\n'
       + '\n'
-      + 'jspm inject <name[=version]> [-o "{package override}" --force] \n'
+      + 'jspm install <name[=target]>+\n [--force skip cache] [--latest]\n'
+      + '  install jquery                   Install a package from the registry to latest\n'
+      + '  install react=npm:react          Install a package from an endpoint to latest\n'
+      + '  install jquery=2                 Install a package to a version or range\n'
+      + '\n'
+      + '  install                          Install / update dependencies in package.json\n'
+      + '  install --lock                   Reproducible / shrinkwrap install\n'
+      + '  install react --lock             Stable install, locking existing dependencies\n'
+      + '\n'
+      + '  install dep -o override.json     Install with the given custom override\n'
+      + '  install dep -o "{override json}"   useful for testing package overrides\n'
+      + '\n'
+      + 'jspm uninstall name                Uninstall a package and clean dependencies\n'
+      + 'jspm clean                         Clear unused and orphaned dependencies\n'
+      + '\n'
+      + 'jspm inspect                       View all installed package versions\n'
+      + 'jspm inspect npm:source-map        View the versions and ranges of a package\n'
+      + '\n'
+      + 'jspm inject <name[=target]> [--force] [--latest] [--lock] [-o]\n'
       + '  inject jquery                    Identical to install, but injects config\n'
       + '                                   only instead of downloading the package\n'
       + '\n'
       + 'jspm link [endpoint:name@version]  Link a local folder as an installable package\n'
       + 'jspm install --link name           Install a linked package\n'
       + '\n'
-      + 'jspm uninstall name                Uninstall a package and any orphaned deps\n'
-      + '\n'
-      + 'jspm update [--force]              Check and update existing modules\n'
-      + '\n'
-      + 'jspm init                          Create / recreate the configuration file\n'
-      + '\n'
       + 'jspm dl-loader [--edge --source]   Download the jspm browser loader\n'
       + '\n'
       + 'jspm setmode <mode>\n'
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
-      + '  setmode dev                      Switch to the development baseURL\n'
-      + '  setmode production               Switch to the production baseURL\n'
+      + '  setmode dev                      Switch to the app development folder\n'
+      + '  setmode production               Switch to the app production folder\n'
       + '\n'
-      + 'jspm depcache [moduleName]         Stores dep cache in config for flat pipelining\n'
       + 'jspm bundle A + B - C [file] [-i]  Bundle an input module or module arithmetic\n'
+      + 'jspm depcache [moduleName]         Stores dep cache in config for flat pipelining\n'
       + '\n'
       + 'jspm endpoint <command>            Manage endpoints\n'
       + '  endpoint config <endpoint-name>  Configure an endpoint\n'
       + '\n'
-      + 'jspm config <option> <setting>     Configure jspm options\n'
-      + '                                   Options are stored in ~/.jspm/config\n'
+      + 'jspm config <option> <setting>     Configure jspm global options\n'
+      + '                                   Stored in ~/.jspm/config\n'
       + '\n'
       + 'All options work with the -y flag to skip prompts\n'
     );
@@ -94,7 +98,7 @@ process.on('uncaughtException', function(err) {
     showHeader();
     ui.log('\n'
       + 'Version: ' + require('./package.json').version + '\n'
-      + (process.env.localJspm == 'true' ? 'Running against local jspm install' : 'Running against global jspm install') + '\n'
+      + (process.env.localJspm == 'true' ? 'Running against local jspm install.' : 'Running against global jspm install.') + '\n'
     );
   }
 
@@ -104,7 +108,7 @@ process.on('uncaughtException', function(err) {
       var inject = true;
 
     case 'install':
-      var options = readOptions(args, ['--force', '--override', '--link', '--yes']);
+      var options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest']);
       options.inject = inject;
 
       var args = options.args;
@@ -114,19 +118,8 @@ process.on('uncaughtException', function(err) {
         depMap = depMap || {};
         var name, target;
         var arg = args[i];
-        if (arg.indexOf('=') == -1) {
-          // install jquery@1.2.3 -> install jquery=^1.2.3
-          name = arg.split('@')[0];
-          target = arg.split('@')[1] || '';
-
-          // valid semver -> make semver compatibility default
-          if (target && target.match(semver.semverRegEx))
-            target = '^' + target;
-        }
-        else {
-          name = arg.split('=')[0];
-          target = arg.split('=')[1];
-        }
+        name = arg.split('=')[0];
+        target = arg.split('=')[1];
         depMap[name] = target;
       }
 
@@ -155,7 +148,7 @@ process.on('uncaughtException', function(err) {
         ui.useDefaults();
 
       // no install package -> install from package.json dependencies
-      (depMap ? core.install(depMap, options) : core.install(true, options))
+      (depMap ? install.install(depMap, options) : install.install(true, options))
       .then(function() {
         return core.checkDlLoader()
       })
@@ -164,29 +157,12 @@ process.on('uncaughtException', function(err) {
       })
       .then(function() {
         ui.log('');
-        ui.log('ok', 'Install complete');
+        ui.log('ok', 'Install complete.');
         process.exit();
       }, function(err) {
         // something happened (cancel / err)
         ui.log('err', err.stack || err);
-        ui.log('warn', 'Installation changes not saved');
-        process.exit(1);
-      });
-
-    break;
-    case 'update':
-      var options = readOptions(args, ['--force', '--yes']);
-
-      if (options.yes)
-        ui.useDefaults();
-
-      core.install(true, options)
-      .then(function() {
-        ui.log('');
-        ui.log('ok', 'Update complete');
-      }, function(err) {
-        ui.log('err', err.stack || err);
-        ui.log('warn', 'Update changes not saved');
+        ui.log('warn', 'Installation changes not saved.');
         process.exit(1);
       });
 
@@ -198,17 +174,13 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
 
-      core.uninstall(args.splice(1))
-      .then(function(removed) {
-        if (removed) {
-          ui.log('');
-          ui.log('ok', 'Uninstall complete');
-        }
-        else
-          ui.log('info', 'Nothing to remove');
+      install.uninstall(args.splice(1))
+      .then(function() {
+        ui.log('');
+        ui.log('ok', 'Uninstall complete.');
       }, function(err) {
         ui.log('err', err.stack || err);
-        ui.log('warn', 'Uninstall changes not saved');
+        ui.log('warn', 'Uninstall changes not saved.');
         process.exit(1);
       });
     break;
@@ -219,7 +191,14 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
 
-      core.clean();
+      install.clean()
+      .then(function() {
+        ui.log('');
+        ui.log('ok', 'Project cleaned successfully.');
+      }, function(err) {
+        ui.log('err', err.stack || err);
+        process.exit(1);
+      });
 
     break;
 
@@ -245,15 +224,6 @@ process.on('uncaughtException', function(err) {
 
       core.init();
     break; 
-
-    case 'prune':
-      var options = readOptions(args, ['--yes']);
-
-      if (options.yes)
-        ui.useDefaults();
-
-      core.prune();
-    break;
 
 
     case 'dl-loader':
