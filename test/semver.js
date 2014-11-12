@@ -105,6 +105,14 @@ suite('Semver Compatibility Ranges', function() {
     // project.showLogs = true;
     // assert.equal(semver.match('^1.5.2', '1.4.0'), false);
     assert.equal(semver.match('^1', '1.4.0'), true);
+    assert.equal(semver.match('^0.0.2', '1.0.2'), false);
+    assert.equal(semver.match('^0.0.1', '0.0.1'), true);
+    assert.equal(semver.match('^0.0.1', '0.0.2'), false);
+    assert.equal(semver.match('^0.0.1', '1.0.2'), false);
+    assert.equal(semver.match('^0.0.1', '1.0.1'), false);
+    assert.equal(semver.match('^0.1.0', '0.1.0'), true);
+    assert.equal(semver.match('^0.1.0', '0.2.0'), false);
+    assert.equal(semver.match('^0.1.0', '1.1.0'), false);
   });
 
   test('Semver compatibility', function() {
