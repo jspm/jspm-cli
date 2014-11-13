@@ -274,17 +274,12 @@ You may wish to run your own registry instead of using the publicly maintained d
 
 A private registry can be created simply by forking the [public registry](https://github.com/jspm/registry). This is for convenience only - so long as the same folder and file structure is used the registry should work.
 
-A private registry can be configured with:
+If you want to make changes and have them take effect without the need to push to your github account each time, clone the forked repo to your local machine (or clone the registry repo directly if you aren't sharing the private registry).
 
 ```
-  jspm endpoint create my-registry jspm-registry
-  Enter the registry repo path [https://github.com/jspm/registry.git]:
-```
-
-You can then set it as the default registry with:
-
-```
-  jspm config registry my-registry
+  git clone git@github.com:jspm/registry jspm-registry
+  jspm endpoint config jspm
+  Enter the registry repo path [git@github.com:jspm/registry]: path/to/jspm-registry/.git
 ```
 
 Now when you install or update a module your private registry will be used instead of the public registry.
