@@ -268,6 +268,22 @@ You can also configure these same options for the existing `npm` endpoint if usi
   jspm endpoint config npm
 ```
 
+### Creating a Private Registry
+
+You may wish to run your own registry instead of using the publicly maintained default. Running your own registry is particularly useful if you are also running other custom endpoints such as a private npm registry as you can use custom endpoint references and include private modules.
+
+A private registry can be created simply by forking the [public registry](https://github.com/jspm/registry). This is for convenience only - so long as the same folder and file structure is used the registry should work.
+
+If you want to make changes and have them take effect without the need to push to your github account each time, clone the forked repo to your local machine (or clone the registry repo directly if you aren't sharing the private registry).
+
+```
+  git clone git@github.com:jspm/registry jspm-registry
+  jspm endpoint config jspm
+  Enter the registry repo path [git@github.com:jspm/registry]: path/to/jspm-registry/.git
+```
+
+Now when you install or update a module your private registry will be used instead of the public registry.
+
 ## Production Workflows
 
 There are two main workflows for production:
