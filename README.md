@@ -51,8 +51,7 @@ We can load this demo with:
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
-    System.import('npm:voxel-demo')
-    .catch(console.error.bind(console));
+    System.import('npm:voxel-demo');
   </script>
 ```
 
@@ -137,8 +136,7 @@ We can load this demo with:
   <script src="config.js"></script>
   <script>
     System.import('lib/app')
-    .then(console.log.bind(console))
-    .catch(console.error.bind(console));
+    .then(console.log.bind(console));
   </script>
   ```
 
@@ -306,12 +304,7 @@ We can then load this with a script tag in the page:
   <script src="jspm_packages/system.js"></script>
   <script src="build.js"></script>
   <script>
-    System.import('app/main')
-    .catch(function(e) {
-      setTimeout(function() {
-        throw e;
-      });
-    });
+    System.import('app/main');
   </script>
 ```
 
