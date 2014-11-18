@@ -78,6 +78,7 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'jspm depcache [moduleName]         Stores dep cache in config for flat pipelining\n'
       + 'jspm bundle A + B - C [file] [-i]  Bundle an input module or module arithmetic\n'
+      + 'jspm unbundle                      Remove injected bundle configuration\n'
       + '\n'
       + 'jspm endpoint <command>            Manage endpoints\n'
       + '  endpoint config <endpoint-name>  Configure an endpoint\n'
@@ -301,6 +302,14 @@ process.on('uncaughtException', function(err) {
           process.exit(1);
         });
       }
+    break;
+
+    case 'unbundle':
+      bundle.unbundle()
+      .catch(function(e) {
+        ui.log('err', e.stack || e);
+        process.exit(1);
+      });
     break;
 
     case 'bundle-sfx':
