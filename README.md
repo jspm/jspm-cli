@@ -295,13 +295,14 @@ There are two main workflows for production:
   jspm bundle app/main build.js
 ```
 
-Creates a file `build.js` containing `app/main` and all its dependencies.
+Creates a file `build.js` containing `app/main` and all its dependencies referenced in config.js.
 
 We can then load this with a script tag in the page:
 
 ```html
 <!doctype html>
   <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
   <script src="build.js"></script>
   <script>
     System.import('app/main');
