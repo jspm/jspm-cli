@@ -48,7 +48,7 @@ process.on('uncaughtException', function(err) {
     ui.log('\n'
       + 'jspm init                          Create / validate project configuration file\n'
       + '\n'
-      + 'jspm install <name[=target]>+\n [--force skip cache] [--latest]\n'
+      + 'jspm install <name[=target]>+ [--force skips cache] [--latest]\n'
       + '  install jquery                   Install a package from the registry to latest\n'
       + '  install react=npm:react          Install a package from an endpoint to latest\n'
       + '  install jquery=2                 Install a package to a version or range\n'
