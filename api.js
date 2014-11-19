@@ -18,8 +18,27 @@ var core = require('./lib/core');
 var bundle = require('./lib/bundle');
 var ui = require('./lib/ui');
 var EventEmitter = require('events').EventEmitter;
+var System = require('systemjs');
+var config = require('./lib/config');
+var path = require('path');
 
 var API = module.exports = new EventEmitter();
+
+API.setPackagePath = function(packagePath) {
+  process.env.jspmConfigPath = path.resolve(packagePath, 'package.json');
+}
+
+API.setPackagePath('.');
+
+API.normalize = function(name, parentName) {
+  return config.load()
+  .then(function() {
+    System.config(config.loader.getConfig());
+  })
+  .then(function() {
+    return System.normalize(name, parentName);
+  });
+}
 
 /*
  * jspm.on('log', function(type, msg) { console.log(msg); });

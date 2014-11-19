@@ -113,6 +113,7 @@ suite('Semver Compatibility Ranges', function() {
     assert.equal(semver.match('^0.1.0', '0.1.0'), true);
     assert.equal(semver.match('^0.1.0', '0.2.0'), false);
     assert.equal(semver.match('^0.1.0', '1.1.0'), false);
+    assert.equal(semver.match('1.0.0-beta.13', '1.0.0-beta.5b'), false);
   });
 
   test('Semver compatibility', function() {

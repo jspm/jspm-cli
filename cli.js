@@ -82,10 +82,12 @@ process.on('uncaughtException', function(err) {
       + '  setmode production               Switch to the app production folder\n'
       + '\n'
       + 'jspm bundle A + B - C [file] [-i]  Bundle an input module or module arithmetic\n'
+      + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache [moduleName]         Stores dep cache in config for flat pipelining\n'
       + '\n'
       + 'jspm endpoint <command>            Manage endpoints\n'
       + '  endpoint config <endpoint-name>  Configure an endpoint\n'
+      // + '  endpoint export <endpoint-name>  Export an endpoint programatically\n'
       + '\n'
       + 'jspm config <option> <setting>     Configure jspm global options\n'
       + '                                   Stored in ~/.jspm/config\n'
@@ -287,6 +289,14 @@ process.on('uncaughtException', function(err) {
       }
     break;
 
+    case 'unbundle':
+      bundle.unbundle()
+      .catch(function(e) {
+        ui.log('err', e.stack || e);
+        process.exit(1);
+      });
+    break;
+
     case 'bundle-sfx':
       var options = readOptions(args, ['--yes']);
       if (options.yes)
@@ -364,6 +374,29 @@ process.on('uncaughtException', function(err) {
             ui.log('ok', 'Enpoint %' + args[2] + '% created successfully.');
         }, function(err) {
           ui.log('err', err.stack || err);
+        });
+      }
+      else if (action == 'export') {
+        if (!args[2])
+          return ui.log('warn', 'You must provide an endpoint name to export.');
+        if (!globalConfig.config.endpoints[args[2]])
+          return ui.log('warn', 'Endpoint %' + args[2] + '% does not exist.');
+        
+        var endpointConfig = globalConfig.config.endpoints[args[2]];
+
+        function dwalk(obj, visitor, pname) {
+          for (var p in obj) {
+            if (!obj.hasOwnProperty(p))
+              continue;
+            if (typeof obj[p] == 'object')
+              dwalk(obj[p], visitor, (pname ? pname + '.' : '') + p);
+            else
+              visitor((pname ? pname + '.' : '') + p, obj[p]);
+          }
+        }
+
+        dwalk(endpointConfig, function(p, value) {
+          process.stdout.write('jspm config endpoints.' + args[2] + '.' + p + ' ' + value + '\n');
         });
       }
       else {
