@@ -270,14 +270,15 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject', '--yes']);
+      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps']);
       if (options.yes)
         ui.useDefaults();
       var inject = !!options.inject;
+      var sourceMaps = !options['skip-source-maps'];
       var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
-        bundle.bundle(bArgs[0], undefined, inject)
+        bundle.bundle(bArgs[0], undefined, inject, sourceMaps)
         .catch(function(e) {
           process.exit(1);
         });
@@ -297,7 +298,7 @@ process.on('uncaughtException', function(err) {
           expression = bArgs.splice(0, bArgs.length - 1).join(' ');
           fileName = bArgs[bArgs.length - 1];
         }
-        bundle.bundle(expression, fileName, inject)
+        bundle.bundle(expression, fileName, inject, sourceMaps)
         .catch(function(e) {
           process.exit(1);
         });
