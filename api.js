@@ -26,7 +26,7 @@ var API = module.exports = new EventEmitter();
 
 API.setPackagePath = function(packagePath) {
   process.env.jspmConfigPath = path.resolve(packagePath, 'package.json');
-}
+};
 
 API.setPackagePath('.');
 
@@ -38,7 +38,7 @@ API.normalize = function(name, parentName) {
   .then(function() {
     return System.normalize(name, parentName);
   });
-}
+};
 
 /*
  * jspm.on('log', function(type, msg) { console.log(msg); });
@@ -54,10 +54,10 @@ API.normalize = function(name, parentName) {
  */
 ui.setResolver(API);
 
-/* 
+/*
  * Installs a library in the current folder
  * returns a promise
- * 
+ *
  * jspm.install('jquery')
  * jspm.install('jquery', 'github:components/jquery@^2.0.0')
  * jspm.install('jquery', '2')
