@@ -231,7 +231,7 @@ process.on('uncaughtException', function(err) {
         ui.useDefaults();
 
       core.init();
-    break; 
+    break;
 
     case 'prune':
       var options = readOptions(args, ['--yes']);
@@ -396,7 +396,7 @@ process.on('uncaughtException', function(err) {
           return ui.log('warn', 'You must provide an endpoint name to export.');
         if (!globalConfig.config.endpoints[args[2]])
           return ui.log('warn', 'Endpoint %' + args[2] + '% does not exist.');
-        
+
         var endpointConfig = globalConfig.config.endpoints[args[2]];
 
         function dwalk(obj, visitor, pname) {
@@ -435,7 +435,7 @@ process.on('uncaughtException', function(err) {
     case '--version':
     case '-v':
       showVersion();
-    
+
     break;
     default:
       showInstructions();
