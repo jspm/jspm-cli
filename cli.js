@@ -299,10 +299,16 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes']);
+      var options = readOptions(args, ['--yes', '--skip-source-maps']);
+      var sourceMaps = !options['skip-source-maps'];
+      var moduleName = args[1];
+      var fileName;
       if (options.yes)
         ui.useDefaults();
-      bundle.bundleSFX(args[1], args[2])
+      if (args[2] && !args[2].match(/^--/))
+        fileName = args[2];
+
+      bundle.bundleSFX(moduleName, fileName, sourceMaps)
       .catch(function(e) {
         process.exit(1);
       });
@@ -456,4 +462,3 @@ function readOptions(args, flags, settings) {
   }
   return argOptions;
 }
-
