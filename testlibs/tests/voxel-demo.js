@@ -1,5 +1,5 @@
 exports['voxel demo'] = function(done) {
-  System.import('npm:voxel-demo').then(function() {
+  System.import('voxel-demo').then(function() {
     done();
   }).
   catch(function(e) {

@@ -1,2 +1,2 @@
-jspm bundle main + npm:voxel-demo --inject
+jspm bundle main + voxel-demo -mi
 open test.html
