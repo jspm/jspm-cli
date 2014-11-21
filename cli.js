@@ -53,13 +53,14 @@ process.on('uncaughtException', function(err) {
       + '  install react=npm:react          Install a package from an endpoint to latest\n'
       + '  install jquery=2                 Install a package to a version or range\n'
       + '\n'
-      + '  install                          Install / update dependencies in package.json\n'
-      + '  install --lock                   Reproducible / shrinkwrap install\n'
       + '  install react --lock             Stable install, locking existing dependencies\n'
+      + '\n'
+      + '  install                          Reproducible / shrinkwrap install package.json\n'
       + '\n'
       + '  install dep -o override.json     Install with the given custom override\n'
       + '  install dep -o "{override json}"   useful for testing package overrides\n'
       + '\n'
+      + 'jspm update                        Update all packages from package.json\n'
       + 'jspm uninstall name                Uninstall a package and clean dependencies\n'
       + 'jspm clean                         Clear unused and orphaned dependencies\n'
       + '\n'
@@ -81,7 +82,7 @@ process.on('uncaughtException', function(err) {
       + '  setmode dev                      Switch to the app development folder\n'
       + '  setmode production               Switch to the app production folder\n'
       + '\n'
-      + 'jspm bundle A + B - C [file] [-i]  Bundle an input module or module arithmetic\n'
+      + 'jspm bundle moduleA + module/b [file] [--inject] [--skip-source-maps]\n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache [moduleName]         Stores dep cache in config for flat pipelining\n'
       + '\n'
@@ -299,10 +300,12 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes']);
+      var options = readOptions(args, ['--yes', '--skip-source-maps']);
       if (options.yes)
         ui.useDefaults();
-      bundle.bundleSFX(args[1], args[2])
+      var sourceMaps = !options['skip-source-maps'];
+      var bArgs = options.args.splice(1);
+      bundle.bundleSFX(bArgs[0], bArgs[1], sourceMaps)
       .catch(function(e) {
         process.exit(1);
       });
