@@ -268,15 +268,14 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps']);
+      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify']);
       if (options.yes)
         ui.useDefaults();
-      var inject = !!options.inject;
-      var sourceMaps = !options['skip-source-maps'];
+      options.sourceMaps = !options['skip-source-maps'];
       var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
-        bundle.bundle(bArgs[0], undefined, inject, sourceMaps)
+        bundle.bundle(bArgs[0], undefined, options)
         .catch(function(e) {
           process.exit(1);
         });
@@ -296,7 +295,7 @@ process.on('uncaughtException', function(err) {
           expression = bArgs.splice(0, bArgs.length - 1).join(' ');
           fileName = bArgs[bArgs.length - 1];
         }
-        bundle.bundle(expression, fileName, inject, sourceMaps)
+        bundle.bundle(expression, fileName, options)
         .catch(function(e) {
           process.exit(1);
         });
@@ -312,12 +311,12 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes', '--skip-source-maps']);
+      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify']);
       if (options.yes)
         ui.useDefaults();
       var sourceMaps = !options['skip-source-maps'];
       var bArgs = options.args.splice(1);
-      bundle.bundleSFX(bArgs[0], bArgs[1], sourceMaps)
+      bundle.bundleSFX(bArgs[0], bArgs[1], sourceMaps, options.minify)
       .catch(function(e) {
         process.exit(1);
       });

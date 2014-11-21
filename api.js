@@ -78,7 +78,9 @@ API.install = function(name, target, options) {
 // API.installed = function() {
 // }
 
-
-API.bundle = function(expression, fileName) {
-  return bundle.bundle(expression, fileName);
+// options.inject
+// options.sourceMaps
+// options.minify
+API.bundle = function(expression, fileName, options) {
+  return bundle.bundle(expression, fileName, options);
 }
