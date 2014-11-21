@@ -8,15 +8,14 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.3.2",
-    "bootstrap": "github:twbs/bootstrap@3.3.0",
+    "angular": "github:angular/bower-angular@1.3.3",
+    "bootstrap": "github:twbs/bootstrap@3.3.1",
     "css": "github:systemjs/plugin-css@0.1.0",
     "d3": "github:mbostock/d3@3.4.13",
-    "github:angular/bower-angular": "github:angular/bower-angular@1.3.2",
     "jquery": "github:components/jquery@2.1.1",
     "mocha": "npm:mocha@1.21.5",
-    "npm:voxel-demo": "npm:voxel-demo@0.0.1",
     "text": "github:systemjs/plugin-text@0.0.2",
+    "voxel-demo": "npm:voxel-demo@0.0.1",
     "github:jspm/nodelibs@0.0.5": {
       "Base64": "npm:Base64@0.2.1",
       "base64-js": "npm:base64-js@0.0.4",
@@ -25,9 +24,9 @@ System.config({
       "json": "github:systemjs/plugin-json@0.1.0",
       "pbkdf2-compat": "npm:pbkdf2-compat@2.0.1",
       "ripemd160": "npm:ripemd160@0.2.0",
-      "sha.js": "npm:sha.js@2.2.7"
+      "sha.js": "npm:sha.js@2.3.0"
     },
-    "github:twbs/bootstrap@3.3.0": {
+    "github:twbs/bootstrap@3.3.1": {
       "css": "github:systemjs/plugin-css@0.1.0",
       "jquery": "github:components/jquery@2.1.1"
     },
@@ -126,7 +125,7 @@ System.config({
       "through": "npm:through@1.1.2"
     },
     "npm:glsl-tokenizer@0.0.9": {
-      "through": "npm:through@2.2.7"
+      "through": "npm:through@2.3.6"
     },
     "npm:greedy-mesher@1.0.2": {
       "iota-array": "npm:iota-array@1.0.0",

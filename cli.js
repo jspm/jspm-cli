@@ -53,9 +53,9 @@ process.on('uncaughtException', function(err) {
       + '  install react=npm:react          Install a package from an endpoint to latest\n'
       + '  install jquery=2                 Install a package to a version or range\n'
       + '\n'
-      + '  install react --lock             Stable install, locking existing dependencies\n'
-      + '\n'
       + '  install                          Reproducible / shrinkwrap install package.json\n'
+      + '\n'
+      + '  install react --lock             Stable install, locking existing dependencies\n'
       + '\n'
       + '  install dep -o override.json     Install with the given custom override\n'
       + '  install dep -o "{override json}"   useful for testing package overrides\n'
@@ -64,15 +64,15 @@ process.on('uncaughtException', function(err) {
       + 'jspm uninstall name                Uninstall a package and clean dependencies\n'
       + 'jspm clean                         Clear unused and orphaned dependencies\n'
       + '\n'
-      + 'jspm inspect                       View all installed package versions\n'
+      + 'jspm inspect [--forks]             View all installed package versions\n'
       + 'jspm inspect npm:source-map        View the versions and ranges of a package\n'
       + '\n'
       + 'jspm inject <name[=target]> [--force] [--latest] [--lock] [-o]\n'
       + '  inject jquery                    Identical to install, but injects config\n'
       + '                                   only instead of downloading the package\n'
       + '\n'
-      + 'jspm link [endpoint:name@version]  Link a local folder as an installable package\n'
-      + 'jspm install --link name           Install a linked package\n'
+      + 'jspm link endpoint:name@version    Link a local folder as an installable package\n'
+      + 'jspm install --link endpoint:name  Install a linked package\n'
       + '\n'
       + 'jspm dl-loader [--edge --source]   Download the jspm browser loader\n'
       + '\n'
@@ -82,12 +82,13 @@ process.on('uncaughtException', function(err) {
       + '  setmode dev                      Switch to the app development folder\n'
       + '  setmode production               Switch to the app production folder\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b [file] [--inject] [--skip-source-maps]\n'
+      + 'jspm bundle moduleA + module/b [outfile] [--inject] [--skip-source-maps]\n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
-      + 'jspm depcache [moduleName]         Stores dep cache in config for flat pipelining\n'
+      + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
       + '\n'
       + 'jspm endpoint <command>            Manage endpoints\n'
-      + '  endpoint config <endpoint-name>  Configure an endpoint\n'
+      + '  endpoint config <name>           Configure an existing endpoint\n'
+      + '  endpoint create <name> <pkg>     Create a new custom endpoint instance\n'
       // + '  endpoint export <endpoint-name>  Export an endpoint programatically\n'
       + '\n'
       + 'jspm config <option> <setting>     Configure jspm global options\n'
@@ -110,11 +111,14 @@ process.on('uncaughtException', function(err) {
     case 'inject':
       var inject = true;
 
+    case 'update':
+      var doUpdate = true;
+
     case 'install':
       var options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest']);
       options.inject = inject;
 
-      var args = options.args;
+      args = options.args;
 
       var depMap;
       for (var i = 1; i < (options.override || args.length); i++) {
@@ -149,6 +153,10 @@ process.on('uncaughtException', function(err) {
 
       if (options.yes)
         ui.useDefaults();
+
+      // jspm install with no arguments is locked
+      if (!depMap && !doUpdate)
+        options.lock = true;
 
       // no install package -> install from package.json dependencies
       (depMap ? install.install(depMap, options) : install.install(true, options))
@@ -190,6 +198,7 @@ process.on('uncaughtException', function(err) {
 
     case 'clean':
       var options = readOptions(args, ['--yes']);
+      args = options.args;
 
       if (options.yes)
         ui.useDefaults();
@@ -206,10 +215,13 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'inspect':
+      var options = readOptions(args, ['--forks']);
+      args = options.args;
+
       config.load()
       .then(function() {
         if (!args[1])
-          return install.showVersions();
+          return install.showVersions(options.forks);
         if (args[1].indexOf(':') == -1)
           return ui.log('warn', 'Enter a full package name of the format `endpoint:repo`.');
         return install.showInstallGraph(args[1]);
@@ -405,7 +417,7 @@ process.on('uncaughtException', function(err) {
       }
       else {
         showInstructions();
-        ui.log('Invalid endpoint argument ' + args[1]);
+        ui.log('warn', 'Invalid endpoint argument %' + args[1] + '%.');
       }
     break;
 
@@ -429,7 +441,7 @@ process.on('uncaughtException', function(err) {
     default:
       showInstructions();
       if (args[0])
-        ui.log('Invalid argument ' + args[0]);
+        ui.log('warn', 'Invalid argument %' + args[0] + '%.');
   }
 })();
 
@@ -447,10 +459,12 @@ function readOptions(args, flags, settings) {
     }
     else if (args[i].substr(0, 1) == '-' && args[i].length > 1) {
       var opts = args[i].substr(1);
-      for (var j = 0; j < opts.length; j++) {
+      opl: for (var j = 0; j < opts.length; j++) {
         for (var k = 0; k < flags.length; k++) {
-          if (flags[k].substr(2, 1) == opts[j])
+          if (flags[k].substr(2, 1) == opts[j]) {
             argOptions[flags[k].substr(2)] = argOptions.args.length;
+            continue opl;
+          }
         }
       }
     }
