@@ -46,6 +46,8 @@ process.on('uncaughtException', function(err) {
   function showInstructions() {
     showHeader();
     ui.log('\n'
+      + 'jspm run main                      Run a jspm module in Node\n'
+      + '\n'
       + 'jspm init                          Create / validate project configuration file\n'
       + '\n'
       + 'jspm install <name[=target]>+ [--force skips cache] [--latest]\n'
@@ -108,6 +110,10 @@ process.on('uncaughtException', function(err) {
 
   var args = process.argv.splice(2);
   switch(args[0]) {
+    case 'run':
+      core.run(args[1]);
+    break;
+
     case 'inject':
       var inject = true;
 
