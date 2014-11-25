@@ -1,4 +1,4 @@
-jspm CLI
+jspm CLI [![Build Status][travis-image]][travis-url]
 ===
 
 Browser package management with modular dependency and version management.
@@ -391,3 +391,6 @@ maintaining bindings and circular references as with normal bundles.
 ### License
 
 Apache 2.0
+
+[travis-url]: https://travis-ci.org/jspm/jspm-cli
+[travis-image]: https://travis-ci.org/jspm/jspm-cli.svg?branch=master
