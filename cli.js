@@ -318,11 +318,11 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle-sfx':
       var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify']);
+      options.sourceMaps = !options['skip-source-maps'];
       if (options.yes)
         ui.useDefaults();
-      var sourceMaps = !options['skip-source-maps'];
       var bArgs = options.args.splice(1);
-      bundle.bundleSFX(bArgs[0], bArgs[1], sourceMaps, options.minify)
+      bundle.bundleSFX(bArgs[0], bArgs[1], options)
       .catch(function(e) {
         process.exit(1);
       });
