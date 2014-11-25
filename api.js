@@ -82,3 +82,7 @@ API.install = function(name, target, options) {
 API.bundle = function(expression, fileName) {
   return bundle.bundle(expression, fileName);
 }
+
+API.unbundle = function() {
+  return bundle.unbundle();
+}
