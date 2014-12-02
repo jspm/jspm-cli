@@ -10,12 +10,13 @@ https://jspm.io
 
 [Build into a bundle](#1-creating-a-bundle) or [inject a flat dependency tree for flat multiplexing](#2-creating-a-dependency-cache) in production.
 
+Use `jspm --help` to see the full up-to-date list of commands.
+
 ### Example
 
 ```
   jspm install npm:voxel-demo
 
-Package.json file does not exist, create it? [yes]: 
 Would you like jspm to prefix the jspm package.json properties under jspm? [yes]: 
 Enter a name for the project (optional): 
 Enter baseURL path [.]: 
@@ -23,7 +24,7 @@ Enter project source folder [./lib]:
 Enter project built folder (optional): 
 Enter packages folder [./jspm_packages]: 
 Enter config file path [./config.js]: 
-Configuration file config.js doesn't exist, create it? [yes]: 
+Configuration file config.js doesn't exist, create it? [yes]:
 
      Looking up npm:voxel-demo
      Updating registry cache...
@@ -51,7 +52,7 @@ We can load this demo with:
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
-    System.import('npm:voxel-demo');
+    System.import('voxel-demo');
   </script>
 ```
 
@@ -70,7 +71,6 @@ We can load this demo with:
   cd my-project
   jspm init
 
-  Package.json file does not exist, create it? [yes]: 
   Would you like jspm to prefix the jspm package.json properties under jspm? [yes]: 
   Enter a name for the project (optional): 
   Enter baseURL path [.]: 
@@ -78,7 +78,7 @@ We can load this demo with:
   Enter project built folder (optional): 
   Enter packages folder [./jspm_packages]: 
   Enter config file path [./config.js]: 
-  Configuration file config.js doesn't exist, create it? [yes]: 
+  Configuration file config.js doesn't exist, create it? [yes]:
 
   ok   Verified package.json at package.json
        Verified config file at config.js
@@ -121,7 +121,7 @@ We can load this demo with:
   
   lib/app.js
   ```javascript
-    var _ = require('npm:lodash-node/modern/objects/isEqual');
+    var _ = require('lodash-node/modern/objects/isEqual');
     var $ = require('jquery');
     var underscore = require('myname');
   
@@ -164,7 +164,7 @@ Automatically downloads and sets the configuration map for the loader.
 This is equivalent to writing:
 
 ```
-  jspm install jquery=github:components/jquery
+  jspm install github:components/jquery
 ```
 
 The [jspm registry](https://github.com/jspm/registry) just provides a mapping from a name into an endpoint package name.
@@ -239,6 +239,8 @@ ok   Package linked.
 
 `my-jspm-app` gets a symlink to a globally linked version of `my-local-package`. But changes to `my-local-package` do require
 running `jspm link npm:pkg@1.2.3` again to update the link cache, as jspm runs build operations on the package when adding npm compatibility.
+
+To reinstall from origin a linked package, use `jspm install --unlink`.
 
 ### Creating Custom Endpoints
 
