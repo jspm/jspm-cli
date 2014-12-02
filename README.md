@@ -4,6 +4,8 @@ jspm CLI [![Build Status][travis-image]][travis-url]
 Browser package management with modular dependency and version management.
 https://jspm.io
 
+[Read the current release notes here including upgrade information](https://github.com/jspm/jspm-cli/releases).
+
 * Installs version-managed modular packages along with their dependencies from any jspm endpoint, currently supporting GitHub, npm and the [jspm Registry](https://github.com/jspm/registry).
 * Carefully resolves version ranges within semver compatibility clearly verifying any version forks.
 * Creates the [SystemJS](https://github.com/systemjs/systemjs) version configuration file for the package.
