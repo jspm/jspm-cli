@@ -8,7 +8,7 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.3.3",
+    "angular": "github:angular/bower-angular@1.3.5",
     "bootstrap": "github:twbs/bootstrap@3.3.1",
     "css": "github:systemjs/plugin-css@0.1.0",
     "d3": "github:mbostock/d3@3.4.13",
@@ -16,15 +16,12 @@ System.config({
     "mocha": "npm:mocha@1.21.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "voxel-demo": "npm:voxel-demo@0.0.1",
-    "github:jspm/nodelibs@0.0.5": {
+    "github:jspm/nodelibs@0.0.7": {
       "Base64": "npm:Base64@0.2.1",
-      "base64-js": "npm:base64-js@0.0.4",
+      "base64-js": "npm:base64-js@0.0.7",
       "ieee754": "npm:ieee754@1.1.4",
       "inherits": "npm:inherits@2.0.1",
-      "json": "github:systemjs/plugin-json@0.1.0",
-      "pbkdf2-compat": "npm:pbkdf2-compat@2.0.1",
-      "ripemd160": "npm:ripemd160@0.2.0",
-      "sha.js": "npm:sha.js@2.3.0"
+      "json": "github:systemjs/plugin-json@0.1.0"
     },
     "github:twbs/bootstrap@3.3.1": {
       "css": "github:systemjs/plugin-css@0.1.0",
@@ -43,7 +40,6 @@ System.config({
     "npm:brfs@0.0.9": {
       "escodegen": "npm:escodegen@0.0.17",
       "falafel": "npm:falafel@0.1.6",
-      "json": "npm:json@9.0.2",
       "through": "npm:through@2.2.7"
     },
     "npm:cwise-compiler@0.0.0": {
@@ -112,7 +108,6 @@ System.config({
     "npm:glob@3.2.3": {
       "graceful-fs": "npm:graceful-fs@2.0.3",
       "inherits": "npm:inherits@2.0.1",
-      "json": "npm:json@9.0.2",
       "minimatch": "npm:minimatch@0.2.14"
     },
     "npm:glsl-exports@0.0.0": {
