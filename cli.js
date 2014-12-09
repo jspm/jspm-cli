@@ -101,10 +101,8 @@ process.on('uncaughtException', function(err) {
   }
 
   function showVersion() {
-    showHeader();
-    ui.log('\n'
-      + 'Version: ' + require('./package.json').version + '\n'
-      + (process.env.localJspm == 'true' ? 'Running against local jspm install.' : 'Running against global jspm install.') + '\n'
+    ui.log(require('./package.json').version + '\n'
+      + (process.env.localJspm == 'true' ? 'Running against local jspm install.' : 'Running against global jspm install.')
     );
   }
 
