@@ -85,6 +85,7 @@ process.on('uncaughtException', function(err) {
       + '  setmode production               Switch to the app production folder\n'
       + '\n'
       + 'jspm bundle moduleA + module/b [outfile] [--inject] [--skip-source-maps]\n'
+      + 'jspm bundle-sfx app/main [outfile] Export bundle as a single self-executing script\n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
       + '\n'
