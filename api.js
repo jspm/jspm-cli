@@ -15,6 +15,7 @@
  */
 
 var core = require('./lib/core');
+var install = require('./lib/install');
 var bundle = require('./lib/bundle');
 var ui = require('./lib/ui');
 var EventEmitter = require('events').EventEmitter;
@@ -68,7 +69,7 @@ ui.setResolver(API);
  *
  */
 API.install = function(name, target, options) {
-  return core.install.apply(core, arguments);
+  return install.install.apply(install, arguments);
 }
 
 
