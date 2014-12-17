@@ -32,11 +32,8 @@ API.setPackagePath = function(packagePath) {
 API.setPackagePath('.');
 
 API.normalize = function(name, parentName) {
-  return config.load()
-  .then(function() {
-    System.config(config.loader.getConfig());
-  })
-  .then(function() {
+  return API.configureLoader()
+  .then(function(System) {
     return System.normalize(name, parentName);
   });
 };
@@ -70,6 +67,36 @@ ui.setResolver(API);
  */
 API.install = function(name, target, options) {
   return install.install.apply(install, arguments);
+}
+
+
+API.import = function(moduleName, parentName) {
+  return API.configureLoader()
+  .then(function() {
+    return System.import(moduleName, { name: parentName });
+  });
+}
+
+// takes an optional config argument to configure
+// returns the loader instance
+var loaderConfigured = false;
+API.configureLoader = function(cfg) {
+  return Promise.resolve()
+  .then(function() {
+    if (loaderConfigured)
+      return Promise.resolve(System);
+
+    return config.load()
+    .then(function() {
+      System.config(config.loader.getConfig());
+      loaderConfigured = true;
+    });
+  })
+  .then(function() {
+    if (cfg)
+      System.config(cfg);
+    return System;
+  });
 }
 
 
