@@ -69,6 +69,16 @@ API.install = function(name, target, options) {
   return install.install.apply(install, arguments);
 }
 
+/* Uninstalls a library in the current folder.
+ * returns a promise
+ *
+ * jspm.uninstall('jquery')
+ * jspm.uninstall(['jquery', 'handlebars'])
+ *
+ */
+API.uninstall = function(names) {
+  return install.uninstall.apply(install, arguments); 
+}
 
 API.import = function(moduleName, parentName) {
   return API.configureLoader()
