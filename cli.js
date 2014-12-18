@@ -191,9 +191,11 @@ process.on('uncaughtException', function(err) {
         ui.useDefaults();
 
       install.uninstall(args.splice(1))
-      .then(function() {
-        ui.log('');
-        ui.log('ok', 'Uninstall complete.');
+      .then(function(success) {
+        if (success) {
+          ui.log('');
+          ui.log('ok', 'Uninstall complete.');
+        }
       }, function(err) {
         ui.log('err', err.stack || err);
         ui.log('warn', 'Uninstall changes not saved.');
