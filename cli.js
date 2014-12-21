@@ -48,12 +48,12 @@ process.on('uncaughtException', function(err) {
     ui.log('\n'
       + 'jspm run main                      Run a jspm module in Node\n'
       + '\n'
-      + 'jspm init                          Create / validate project configuration file\n'
+      + 'jspm init [--prompts]              Create / validate project configuration file\n'
       + '\n'
-      + 'jspm install <name[=target]>+ [--force skips cache] [--latest]\n'
+      + 'jspm install <name[=target]+> [--force skips cache] [--latest]\n'
       + '  install jquery                   Install a package from the registry to latest\n'
       + '  install react=npm:react          Install a package from an endpoint to latest\n'
-      + '  install jquery=2                 Install a package to a version or range\n'
+      + '  install jquery=2 react           Install a package to a version or range\n'
       + '\n'
       + '  install                          Reproducible / shrinkwrap install package.json\n'
       + '\n'
@@ -237,12 +237,12 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'init':
-      var options = readOptions(args, ['--yes']);
+      var options = readOptions(args, ['--yes', '--prompts']);
 
       if (options.yes)
         ui.useDefaults();
 
-      core.init();
+      core.init(options.prompts);
     break;
 
 
