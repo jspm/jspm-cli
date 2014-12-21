@@ -23,6 +23,7 @@
     "traceur": "0.0.74",
     "uglify-js": "~2.4.10"
   },
+  "registry": "npm",
   "devDependencies": {
     "mocha": "~1.17.1"
   },
