@@ -2,7 +2,8 @@ System.config({
   "paths": {
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
-    "npm:*": "jspm_packages/npm/*.js"
+    "npm:*": "jspm_packages/npm/*.js",
+    "tests/*": "tests/*.js"
   }
 });
 
@@ -16,7 +17,7 @@ System.config({
     "mocha": "npm:mocha@1.21.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "voxel-demo": "npm:voxel-demo@0.0.1",
-    "github:jspm/nodelibs@0.0.7": {
+    "github:jspm/nodelibs@0.0.8": {
       "Base64": "npm:Base64@0.2.1",
       "base64-js": "npm:base64-js@0.0.7",
       "ieee754": "npm:ieee754@1.1.4",
