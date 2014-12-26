@@ -1,4 +1,4 @@
-jspm CLI [![Build Status][travis-image]][travis-url]
+jspm CLI [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ===
 
 Registry and format agnostic JavaScript package manager.
