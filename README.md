@@ -9,13 +9,24 @@ Registry and format agnostic JavaScript package manager.
 * Provides tiered bundling of multi-format module trees using [SystemJS builder](https://github.com/systemjs/builder).
 * Loads and builds assets through [SystemJS plugins](https://github.com/systemjs/systemjs#plugins).
 
-See https://jspm.io for a full introduction and documentation.
+See https://jspm.io for a project overview.
 
 For support, [join the Gitter room](https://gitter.im/jspm/jspm) or [Google Group](http://groups.google.com/group/jspm-io).
 
 [See the current release notes here including upgrade information](https://github.com/jspm/jspm-cli/releases).
 
 Use `jspm --help` to see the full up-to-date list of commands.
+
+### Documentation
+
+* [Getting Started](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
+* [Production Workflows](https://github.com/jspm/jspm-cli/wiki/Production-Workflows) - Bundles, depCache and self-executing bundles.
+* [Development Workflows](https://github.com/jspm/jspm-cli/wiki/Development-Workflows) - Linking and creating custom endpoints and registries.
+* [Installation Options](https://github.com/jspm/jspm-cli/wiki/Installing)
+
+Read the loader documentation at the [SystemJS project page](https://github.com/systemjs/systemjs).
+
+There is also a great introduction, [JavaScript Modules and Dependencies with jspm at JavaScriptPlayground](http://javascriptplayground.com/blog/2014/11/js-modules-jspm-systemjs/) by Jack Franklin.
 
 ### Example
 
