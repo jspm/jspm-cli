@@ -48,7 +48,7 @@ process.on('uncaughtException', function(err) {
     ui.log('\n'
       + 'jspm run main                      Run a jspm module in Node\n'
       + '\n'
-      + 'jspm init [--prompts]              Create / validate project configuration file\n'
+      + 'jspm init [basepath] [--prompts]   Create / validate project configuration file\n'
       + '\n'
       + 'jspm install <name[=target]+> [--force skips cache] [--latest]\n'
       + '  install jquery                   Install a package from the registry to latest\n'
@@ -242,7 +242,7 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
 
-      core.init(options.prompts);
+      core.init(options.args[1], options.prompts);
     break;
 
 
