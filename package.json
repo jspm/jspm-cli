@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "Registry and format agnostic JavaScript package manager",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "main": "./api.js",
   "author": "",
   "dependencies": {
