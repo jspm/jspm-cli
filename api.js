@@ -23,6 +23,14 @@ var System = require('systemjs');
 var config = require('./lib/config');
 var path = require('path');
 
+var RSVP = require('rsvp');
+var Promise = RSVP.Promise;
+
+// Report unhandled rejected promises
+RSVP.on('error', function(reason) {
+  console.assert(false, reason);
+});
+
 var API = module.exports = new EventEmitter();
 
 API.setPackagePath = function(packagePath) {
