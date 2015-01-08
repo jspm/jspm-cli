@@ -24,8 +24,7 @@ System.config({
       "buffer": "npm:buffer@3.0.1"
     },
     "github:jspm/nodelibs-constants@0.1.0": {
-      "constants-browserify": "npm:constants-browserify@0.0.1",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+      "constants-browserify": "npm:constants-browserify@0.0.1"
     },
     "github:jspm/nodelibs-events@0.1.0": {
       "events-browserify": "npm:events-browserify@0.0.1"
