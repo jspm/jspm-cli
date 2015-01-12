@@ -13,7 +13,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.1",
     "css": "github:systemjs/plugin-css@0.1.0",
     "d3": "github:mbostock/d3@3.4.13",
-    "jquery": "github:components/jquery@2.1.1",
+    "jquery": "github:components/jquery@2.1.3",
     "mocha": "npm:mocha@1.21.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "voxel-demo": "npm:voxel-demo@0.0.1",
@@ -67,7 +67,7 @@ System.config({
     },
     "github:twbs/bootstrap@3.3.1": {
       "css": "github:systemjs/plugin-css@0.1.0",
-      "jquery": "github:components/jquery@2.1.1"
+      "jquery": "github:components/jquery@2.1.3"
     },
     "npm:amdefine@0.0.8": {
       "path": "github:jspm/nodelibs-path@0.1.0",
