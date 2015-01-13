@@ -195,7 +195,7 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
 
-      install.uninstall(args.splice(1))
+      install.uninstall(options.args.splice(1))
       .then(function() {
         ui.log('');
         ui.log('ok', 'Uninstall complete.');
@@ -205,6 +205,18 @@ process.on('uncaughtException', function(err) {
         process.exit(1);
       });
     break;
+
+    case 'resolve':
+      var options = readOptions(args, ['--only']);
+
+      if (!options.only)
+        return ui.log('warn', 'Use %jspm resolve --only endpoint:pkg@version%');
+
+      install.resolveOnly(options.args[1])
+      .catch(function(err) {
+        ui.log('err', err.stack || err);
+        process.exit(1);
+      });
 
     case 'clean':
       var options = readOptions(args, ['--yes']);
