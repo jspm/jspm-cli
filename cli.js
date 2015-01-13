@@ -23,10 +23,15 @@ var semver = require('./lib/semver');
 var endpoint = require('./lib/endpoint');
 var install = require('./lib/install');
 var fs = require('graceful-fs');
+var Promise = require('rsvp').Promise;
 
 var link = require('./lib/link');
 
 var build = require('./lib/build');
+
+require('rsvp').on('error', function(reason) {
+  ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
+});
 
 process.on('uncaughtException', function(err) {
   ui.log('err', err.stack || err);

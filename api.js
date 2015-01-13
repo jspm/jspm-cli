@@ -23,6 +23,10 @@ var System = require('systemjs');
 var config = require('./lib/config');
 var path = require('path');
 
+require('rsvp').on('error', function(reason) {
+  ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
+});
+
 var API = module.exports = new EventEmitter();
 
 API.setPackagePath = function(packagePath) {
