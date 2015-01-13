@@ -217,7 +217,10 @@ process.on('uncaughtException', function(err) {
 
       install.resolveOnly(options.args[1])
       .catch(function(err) {
-        ui.log('err', err.stack || err);
+        if (!err)
+          ui.log('err', 'Resolve operation not performed.');
+        else 
+          ui.log('err', err.stack || err);
         process.exit(1);
       });
 

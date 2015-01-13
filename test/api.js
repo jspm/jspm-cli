@@ -11,7 +11,7 @@ suite('API Calls', function() {
   });
 
   test('Import', function(done) {
-    api.install(true)
+    api.install('mocha', '^1.21.5')
     .then(function() {
       api.import('mocha').then(function(mocha) {
         assert(mocha.setup);
