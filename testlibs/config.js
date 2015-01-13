@@ -9,10 +9,10 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.3.5",
+    "angular": "github:angular/bower-angular@1.3.8",
     "bootstrap": "github:twbs/bootstrap@3.3.1",
     "css": "github:systemjs/plugin-css@0.1.0",
-    "d3": "github:mbostock/d3@3.4.13",
+    "d3": "github:mbostock/d3@3.5.3",
     "jquery": "github:components/jquery@2.1.3",
     "mocha": "npm:mocha@1.21.5",
     "text": "github:systemjs/plugin-text@0.0.2",
@@ -46,14 +46,15 @@ System.config({
       "css": "github:systemjs/plugin-css@0.1.0",
       "jquery": "github:components/jquery@2.1.3"
     },
-    "npm:amdefine@0.0.8": {
+    "npm:amdefine@0.1.0": {
+      "fs": "github:jspm/nodelibs-fs@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.0"
     },
     "npm:ao-mesher@0.2.10": {
       "cwise-compiler": "npm:cwise-compiler@0.1.0",
       "greedy-mesher": "npm:greedy-mesher@1.0.2",
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
     "npm:ao-shader@0.2.3": {
@@ -71,7 +72,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.0",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0",
-      "through": "npm:through@1.1.2"
+      "through": "npm:through@2.2.7"
     },
     "npm:buffer@3.0.1": {
       "base64-js": "npm:base64-js@0.0.8",
@@ -103,7 +104,7 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.0",
-      "source-map": "npm:source-map@0.1.40"
+      "source-map": "npm:source-map@0.1.43"
     },
     "npm:esprima@1.0.4": {
       "fs": "github:jspm/nodelibs-fs@0.1.0",
@@ -126,7 +127,7 @@ System.config({
       "vkey": "npm:vkey@0.0.3"
     },
     "npm:gl-buffer@0.1.2": {
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
       "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
@@ -141,14 +142,14 @@ System.config({
     "npm:gl-texture2d@0.1.12": {
       "bit-twiddle": "npm:bit-twiddle@0.0.2",
       "cwise-compiler": "npm:cwise-compiler@0.1.0",
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
       "typedarray-pool": "npm:typedarray-pool@1.1.0",
       "webglew": "npm:webglew@0.0.0"
     },
     "npm:gl-tile-map@0.3.0": {
       "gl-texture2d": "npm:gl-texture2d@0.1.12",
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "tile-mip-map": "npm:tile-mip-map@0.2.1",
       "webglew": "npm:webglew@0.0.0"
     },
@@ -158,7 +159,7 @@ System.config({
     "npm:glsl-exports@0.0.0": {
       "glsl-parser": "npm:glsl-parser@0.0.9",
       "glsl-tokenizer": "npm:glsl-tokenizer@0.0.9",
-      "through": "npm:through@1.1.2"
+      "through": "npm:through@2.3.6"
     },
     "npm:glsl-parser@0.0.9": {
       "glsl-tokenizer": "npm:glsl-tokenizer@0.0.9",
@@ -166,7 +167,7 @@ System.config({
     },
     "npm:glsl-tokenizer@0.0.9": {
       "process": "github:jspm/nodelibs-process@0.1.0",
-      "through": "npm:through@1.1.2"
+      "through": "npm:through@2.3.6"
     },
     "npm:greedy-mesher@1.0.2": {
       "iota-array": "npm:iota-array@1.0.0",
@@ -193,7 +194,7 @@ System.config({
     "npm:ndarray-fft@0.1.0": {
       "bit-twiddle": "npm:bit-twiddle@0.0.2",
       "cwise": "npm:cwise@0.3.4",
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
       "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
@@ -204,10 +205,10 @@ System.config({
       "cwise-compiler": "npm:cwise-compiler@0.0.0"
     },
     "npm:ndarray-scratch@0.0.1": {
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
-    "npm:ndarray@1.0.15": {
+    "npm:ndarray@1.0.16": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "iota-array": "npm:iota-array@1.0.0"
     },
@@ -225,8 +226,8 @@ System.config({
       "string_decoder": "npm:string_decoder@0.10.31",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:source-map@0.1.40": {
-      "amdefine": "npm:amdefine@0.0.8",
+    "npm:source-map@0.1.43": {
+      "amdefine": "npm:amdefine@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.0"
@@ -243,8 +244,16 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.0",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
     },
+    "npm:through@2.2.7": {
+      "process": "github:jspm/nodelibs-process@0.1.0",
+      "stream": "github:jspm/nodelibs-stream@0.1.0"
+    },
+    "npm:through@2.3.6": {
+      "process": "github:jspm/nodelibs-process@0.1.0",
+      "stream": "github:jspm/nodelibs-stream@0.1.0"
+    },
     "npm:tile-mip-map@0.2.1": {
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "ndarray-downsample2x": "npm:ndarray-downsample2x@0.1.1",
       "ndarray-ops": "npm:ndarray-ops@1.1.1"
     },
@@ -273,7 +282,7 @@ System.config({
       "gl-shader": "npm:gl-shader@0.0.6",
       "gl-tile-map": "npm:gl-tile-map@0.3.0",
       "gl-vao": "npm:gl-vao@0.0.3",
-      "ndarray": "npm:ndarray@1.0.15",
+      "ndarray": "npm:ndarray@1.0.16",
       "ndarray-fill": "npm:ndarray-fill@0.1.0",
       "ndarray-ops": "npm:ndarray-ops@1.1.1"
     }

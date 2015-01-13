@@ -11,9 +11,12 @@ suite('API Calls', function() {
   });
 
   test('Import', function(done) {
-    api.import('mocha').then(function(mocha) {
-      assert(mocha.setup);
-      done();
+    api.install(true)
+    .then(function() {
+      api.import('mocha').then(function(mocha) {
+        assert(mocha.setup);
+        done();
+      }, done);
     }, done);
   });
 });

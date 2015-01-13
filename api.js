@@ -22,6 +22,7 @@ var EventEmitter = require('events').EventEmitter;
 var System = require('systemjs');
 var config = require('./lib/config');
 var path = require('path');
+var Promise = require('rsvp').Promise;
 
 require('rsvp').on('error', function(reason) {
   ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
@@ -55,6 +56,11 @@ API.normalize = function(name, parentName) {
  * Callback answer defined in https://github.com/SBoudrias/Inquirer.js/tree/master#answers
  */
 ui.setResolver(API);
+ui.useDefaults();
+
+API.promptDefaults = function(_useDefaults) {
+  ui.useDefaults(_useDefaults);
+}
 
 /*
  * Installs a library in the current folder
