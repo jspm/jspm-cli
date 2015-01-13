@@ -28,6 +28,14 @@ var link = require('./lib/link');
 
 var build = require('./lib/build');
 
+var RSVP = require('rsvp');
+var Promise = RSVP.Promise;
+
+// Report unhandled rejected promises
+RSVP.on('error', function(reason) {
+  console.assert(false, reason);
+});
+
 process.on('uncaughtException', function(err) {
   ui.log('err', err.stack || err);
 });
