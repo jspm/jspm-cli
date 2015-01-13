@@ -323,6 +323,7 @@ process.on('uncaughtException', function(err) {
       });
     break;
 
+    case 'b':
     case 'bundle-sfx':
       var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify']);
       options.sourceMaps = !options['skip-source-maps'];
@@ -335,7 +336,6 @@ process.on('uncaughtException', function(err) {
       });
     break;
 
-    case 'b':
     case 'build':
       var options = readOptions(args, ['--yes']);
       if (options.yes)
