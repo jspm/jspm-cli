@@ -11,10 +11,10 @@ suite('API Calls', function() {
   });
 
   test('Import', function(done) {
-    api.install('mocha', '^1.21.5')
+    api.install('text', '^0.0.2')
     .then(function() {
-      api.import('mocha').then(function(mocha) {
-        assert(mocha.setup);
+      api.import('text').then(function(text) {
+        assert(text.translate);
         done();
       }, done);
     }, done);
