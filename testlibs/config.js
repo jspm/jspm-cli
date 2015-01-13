@@ -270,16 +270,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.0"
     },
     "npm:mocha@1.21.5": {
-      "commander": "npm:commander@2.3.0",
-      "debug": "npm:debug@2.0.0",
-      "diff": "npm:diff@1.0.8",
-      "escape-string-regexp": "npm:escape-string-regexp@1.0.2",
+      "css": "github:systemjs/plugin-css@0.1.0",
       "events": "github:jspm/nodelibs-events@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.0",
-      "glob": "npm:glob@3.2.3",
-      "growl": "npm:growl@1.8.1",
-      "jade": "npm:jade@0.26.3",
-      "mkdirp": "npm:mkdirp@0.5.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.0",
       "tty": "github:jspm/nodelibs-tty@0.1.0"
