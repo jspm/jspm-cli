@@ -9,6 +9,13 @@ suite('API Calls', function() {
       done();
     }, done);
   });
+
+  test('Import', function(done) {
+    api.import('mocha').then(function(mocha) {
+      assert(mocha.setup);
+      done();
+    }, done);
+  });
 });
 
 

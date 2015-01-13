@@ -102,7 +102,9 @@ API.configureLoader = function(cfg) {
 
     return config.load()
     .then(function() {
-      System.config(config.loader.getConfig());
+      var cfg = config.loader.getConfig();
+      cfg.baseURL = 'file:' + config.pjson.baseURL;
+      System.config(cfg);
       loaderConfigured = true;
     });
   })
