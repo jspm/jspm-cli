@@ -124,6 +124,7 @@ process.on('uncaughtException', function(err) {
     case 'update':
       var doUpdate = true;
 
+    case 'i':
     case 'install':
       var options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink']);
       options.inject = inject;
@@ -189,6 +190,8 @@ process.on('uncaughtException', function(err) {
 
     break;
 
+    case 'r':
+    case 'remove':
     case 'uninstall':
       var options = readOptions(args, ['--yes']);
 
@@ -332,6 +335,7 @@ process.on('uncaughtException', function(err) {
       });
     break;
 
+    case 'b':
     case 'build':
       var options = readOptions(args, ['--yes']);
       if (options.yes)
@@ -430,7 +434,7 @@ process.on('uncaughtException', function(err) {
       }
     break;
 
-    break;
+    case 'c':
     case 'config':
       var property = args[1];
       var value = args.splice(2).join(' ');
@@ -482,4 +486,3 @@ function readOptions(args, flags, settings) {
   }
   return argOptions;
 }
-
