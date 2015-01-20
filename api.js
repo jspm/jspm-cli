@@ -111,6 +111,8 @@ API.configureLoader = function(cfg) {
       var cfg = config.loader.getConfig();
       cfg.baseURL = 'file:' + config.pjson.baseURL;
       System.config(cfg);
+      System.bundles = {};
+      System.depCache = {};
       loaderConfigured = true;
     });
   })
