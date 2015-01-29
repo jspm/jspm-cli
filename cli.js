@@ -297,10 +297,11 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify']);
+      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify', '--hires-source-maps']);
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
+      options.lowResSourceMaps = !options['hires-source-maps'];
       var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
@@ -341,8 +342,9 @@ process.on('uncaughtException', function(err) {
 
     case 'b':
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify']);
+      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify', '--hires-source-maps']);
       options.sourceMaps = !options['skip-source-maps'];
+      options.lowResSourceMaps = !options['hires-source-maps'];
       if (options.yes)
         ui.useDefaults();
       var bArgs = options.args.splice(1);
