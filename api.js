@@ -134,3 +134,12 @@ API.configureLoader = function(cfg) {
 API.bundle = function(expression, fileName, options) {
   return bundle.bundle(expression, fileName, options);
 }
+
+/* 
+ * Creates a distributable script file that can be used entirely on its own independent of SystemJS and jspm.
+ * returns a promise
+ * options.minify, options.sourceMaps
+ */
+API.bundleSFX = function(moduleName, fileName, options) {
+  return bundle.bundleSFX(moduleName, fileName, options)
+}
