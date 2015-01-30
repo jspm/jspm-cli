@@ -81,7 +81,8 @@ process.on('uncaughtException', function(err) {
       + 'jspm link endpoint:name@version    Link a local folder as an installable package\n'
       + 'jspm install --link endpoint:name  Install a linked package\n'
       + '\n'
-      + 'jspm dl-loader [--edge --source]   Download the jspm browser loader\n'
+      + 'jspm dl-loader [--edge --source]   Download the browser loader files\n'
+      + 'jspm dl-loader [--6to5|--traceur]  Choose which ES6 transpiler to use\n'
       + '\n'
       + 'jspm setmode <mode>\n'
       + '  setmode local                    Switch to locally downloaded libraries\n'
@@ -270,10 +271,10 @@ process.on('uncaughtException', function(err) {
 
 
     case 'dl-loader':
-      var options = readOptions(args, ['--source', '--edge', '--yes']);
+      var options = readOptions(args, ['--source', '--edge', '--yes', '--6to5', '--traceur']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.source, options.edge);
+      core.dlLoader(options['6to5'] && '6to5' || options['traceur'] && 'traceur', options.source, options.edge);
     break;
 
     case 'setmode':
@@ -296,10 +297,11 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify']);
+      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify', '--hires-source-maps']);
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
+      options.lowResSourceMaps = !options['hires-source-maps'];
       var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
@@ -340,8 +342,9 @@ process.on('uncaughtException', function(err) {
 
     case 'b':
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify']);
+      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify', '--hires-source-maps']);
       options.sourceMaps = !options['skip-source-maps'];
+      options.lowResSourceMaps = !options['hires-source-maps'];
       if (options.yes)
         ui.useDefaults();
       var bArgs = options.args.splice(1);
