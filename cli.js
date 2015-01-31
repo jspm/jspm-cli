@@ -90,7 +90,7 @@ process.on('uncaughtException', function(err) {
       + '  setmode dev                      Switch to the app development folder\n'
       + '  setmode production               Switch to the app production folder\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b [outfile] [--inject] [--skip-source-maps]\n'
+      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps]\n'
       + 'jspm bundle-sfx app/main [outfile] Export bundle as a single self-executing script\n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
@@ -297,11 +297,12 @@ process.on('uncaughtException', function(err) {
     break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify', '--hires-source-maps']);
+      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
+      options.mangle = !options['no-mangle'];
       var bArgs = options.args.splice(1);
 
       if (bArgs.length < 2) {
@@ -342,9 +343,10 @@ process.on('uncaughtException', function(err) {
 
     case 'b':
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify', '--hires-source-maps']);
+      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
+      options.mangle = !options['no-mangle'];
       if (options.yes)
         ui.useDefaults();
       var bArgs = options.args.splice(1);
