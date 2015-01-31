@@ -139,7 +139,7 @@ process.on('uncaughtException', function(err) {
         var arg = args[i];
         name = arg.split('=')[0];
         target = arg.split('=')[1];
-        depMap[name] = target;
+        depMap[name] = target || '';
       }
 
       var override = options.override && args.splice(options.override).join(' ');
