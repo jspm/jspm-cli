@@ -15,6 +15,18 @@ suite('Process Dependencies', function() {
     assert.deepEqual(processDeps({ 'jquery': '1' }), {});
   });
 
+  test('No target', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery': '' }, 'custom')), { jquery: 'custom:jquery' });
+  });
+
+  test('True target', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery': true }, 'custom')), { jquery: 'custom:jquery' });
+  });
+
+  test('Wildcard version gets removed', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery': '*' }, 'custom')), { jquery: 'custom:jquery' });
+  });
+
   test('Target without endpoint and version is a version', function() {
     assert.deepEqual(serialize(processDeps({ 'jquery': '1' }, 'custom')), { jquery: 'custom:jquery@1' });
   });
@@ -35,12 +47,36 @@ suite('Process Dependencies', function() {
     assert.deepEqual(serialize(processDeps({ 'github:components/jquery': '1' }, 'custom')), { 'github:components/jquery': 'github:components/jquery@1' });
   });
 
+  test('Exact name target with just a version empty target', function() {
+    assert.deepEqual(serialize(processDeps({ 'github:components/jquery': '' }, 'custom')), { 'github:components/jquery': 'github:components/jquery' });
+  });
+
   test('Exact name target with a version', function() {
     assert.deepEqual(serialize(processDeps({ 'github:components/jquery@0': '1@1' }, 'custom')), { 'github:components/jquery@0': 'custom:1@1' });
   });
 
+  test('Exact name with a version empty target', function() {
+    assert.deepEqual(serialize(processDeps({ 'github:components/jquery@0': '' }, 'custom')), { 'github:components/jquery@0': 'github:components/jquery@0' });
+  });
+
+  test('Exact name with a true target', function() {
+    assert.deepEqual(serialize(processDeps({ 'github:components/jquery@0': true }, 'custom')), { 'github:components/jquery@0': 'github:components/jquery@0' });
+  });
+
   test('Exact name target with an endpoint', function() {
     assert.deepEqual(serialize(processDeps({ 'github:components/jquery': '1:1' }, 'custom')), { 'github:components/jquery': '1:1' });
+  });
+
+  test('Versioned name no target', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery@5': true }, 'custom')), { 'jquery@5': 'custom:jquery@5' });
+  });
+
+  test('Versioned name wildcard target', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery@5': '*' }, 'custom')), { 'jquery@5': 'custom:jquery@5' });
+  });
+
+  test('Wildcard versioned name', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery@*': '*' }, 'custom')), { 'jquery@*': 'custom:jquery' });
   });
 
   test('Scoped package', function() {
