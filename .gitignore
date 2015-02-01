@@ -3,3 +3,5 @@ sandbox
 testlibs/jspm_packages
 testlibs/build.js
 testlibs/build.js.map
+.DS_Store
+testlibs/.DS_Store
