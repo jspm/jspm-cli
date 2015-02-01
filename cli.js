@@ -139,6 +139,18 @@ process.on('uncaughtException', function(err) {
         var arg = args[i];
         name = arg.split('=')[0];
         target = arg.split('=')[1];
+
+        // if it is a full name then it is the target
+        // the name is taken to be the shortname from the target
+        if (name.indexOf(':') != -1) {
+          target = name + (target ? '@' + target : '');
+          name = target.split(':')[1].split('/').pop();
+        }
+        else if (name.indexOf('@') > 0) {
+          target = name.split('@')[1];
+          name = name.split('@')[0];
+        }
+
         depMap[name] = target || '';
       }
 
