@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- *   Copyright 2014 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2015 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
