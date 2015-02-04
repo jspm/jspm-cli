@@ -94,6 +94,10 @@ suite('Process Dependencies', function() {
   test('Scoped package with endpoint', function() {
     assert.deepEqual(serialize(processDeps({ 'test': 'npm:@scoped/package@1.2.3' }, 'custom')), { 'test': 'npm:@scoped/package@1.2.3' });
   });
+
+  test('processDeps convergence', function() {
+    assert.deepEqual(serialize(processDeps(processDeps({ 'test': '1.2.3' }, 'npm'), 'npm')), { 'test': 'npm:test@1.2.3' });
+  })
 });
 
 
