@@ -1,14 +1,14 @@
 {
   "name": "jspm",
   "description": "Registry and format agnostic JavaScript package manager",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "main": "./api.js",
   "author": "",
   "dependencies": {
     "glob": "~4.3.2",
     "graceful-fs": "^3.0.5",
     "jspm-github": "~0.10.0",
-    "jspm-npm": "~0.18.0",
+    "jspm-npm": "~0.18.1",
     "jspm-registry": "~0.3.2",
     "liftoff": "^0.13.2",
     "minimatch": "^0.2.14",
