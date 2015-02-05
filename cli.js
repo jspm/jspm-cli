@@ -144,7 +144,10 @@ process.on('uncaughtException', function(err) {
         // the name is taken to be the shortname from the target
         if (name.indexOf(':') != -1) {
           target = name + (target ? '@' + target : '');
-          name = target.split(':')[1].split('/').pop();
+          var nameParts = target.split(':')[1].split('/');
+          name = nameParts.pop();
+          if (nameParts.length == 0)
+            name = name.substr(0, name.lastIndexOf('@'));
         }
         else if (name.indexOf('@') > 0) {
           target = name.split('@')[1];
