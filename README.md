@@ -9,7 +9,7 @@ Registry and format agnostic JavaScript package manager.
 * Provides tiered bundling of multi-format module trees using [SystemJS builder](https://github.com/systemjs/builder).
 * Loads and builds assets through [SystemJS plugins](https://github.com/systemjs/systemjs#plugins).
 
-See https://jspm.io for a project overview.
+See [https://jspm.io](https://jspm.io) for a project overview.
 
 For support, [join the Gitter room](https://gitter.im/jspm/jspm) or [Google Group](http://groups.google.com/group/jspm-io).
 
@@ -19,36 +19,9 @@ Use `jspm --help` to see the full up-to-date list of commands.
 
 ### Documentation
 
-* [Getting Started](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
-* [Production Workflows](https://github.com/jspm/jspm-cli/wiki/Production-Workflows) - Bundles, depCache and self-executing bundles.
-* [Development Workflows](https://github.com/jspm/jspm-cli/wiki/Development-Workflows) - Linking and creating custom endpoints and registries.
-* [Installation Options](https://github.com/jspm/jspm-cli/wiki/Installing)
-
-Read the loader documentation at the [SystemJS project page](https://github.com/systemjs/systemjs).
-
-There is also a great introduction, [JavaScript Modules and Dependencies with jspm at JavaScriptPlayground](http://javascriptplayground.com/blog/2014/11/js-modules-jspm-systemjs/) by Jack Franklin.
-
-### Example
-
-```
-  jspm install npm:voxel-demo -y
-  jspm bundle voxel-demo -i
-```
-
-The above populates a `jspm_packages` folder in the current directory, and generates a `config.js` file containing the SystemJS loader configuration.
-
-It then creates a bundle file for the full tree, and ensures it is loaded on demand.
-
-We can then run this demo with:
-
-```html
-<!doctype html>
-  <script src="jspm_packages/system.js"></script>
-  <script src="config.js"></script>
-  <script>
-    System.import('voxel-demo');
-  </script>
-```
+* [Getting Started with jspm](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
+* [jspm documentation wiki](https://github.com/jspm/jspm-cli/wiki).
+* [SystemJS project page](https://github.com/systemjs/systemjs).
 
 ### License
 
