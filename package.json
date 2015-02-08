@@ -10,7 +10,7 @@
     "jspm-github": "~0.10.0",
     "jspm-npm": "~0.18.1",
     "jspm-registry": "~0.3.2",
-    "liftoff": "^0.13.2",
+    "liftoff": "^2.0.0",
     "minimatch": "^0.2.14",
     "mkdirp": "~0.5.0",
     "ncp": "~0.6.0",
