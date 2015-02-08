@@ -146,8 +146,7 @@ process.on('uncaughtException', function(err) {
           target = name + (target ? '@' + target : '');
           var nameParts = target.split(':')[1].split('/');
           name = nameParts.pop();
-          if (nameParts.length == 0)
-            name = name.substr(0, name.lastIndexOf('@')) || name;
+          name = name.substr(0, name.lastIndexOf('@')) || name;
         }
         else if (name.indexOf('@') > 0) {
           target = name.split('@')[1];
