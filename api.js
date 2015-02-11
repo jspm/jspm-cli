@@ -43,6 +43,16 @@ API.normalize = function(name, parentName) {
   });
 };
 
+API.locate = function(name, parentName) {
+  return API.normalize(name, parentName)
+  .then(function(normalized) {
+    return System.locate({ name: normalized, metadata: {} });
+  })
+  .then(function(address) {
+    return address.substr(5);
+  });
+}
+
 /*
  * jspm.on('log', function(type, msg) { console.log(msg); });
  * jspm.on('prompt', function(prompt, callback) {
