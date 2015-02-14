@@ -1,6 +1,6 @@
-var angular = require('angular');
+import angular from 'angular';
 
-exports['load test'] = function(done) {
+export function load_test(done) {
   if (angular)
     done();
 }
