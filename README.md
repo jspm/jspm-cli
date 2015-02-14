@@ -17,7 +17,7 @@ For support, [join the Gitter room](https://gitter.im/jspm/jspm) or [Google Grou
 
 Use `jspm --help` to see the full up-to-date list of commands.
 
-Note io.js support is currently pending [issue #410](https://github.com/jspm/jspm-cli/issues/410).
+**Note jspm hangs in io.js, this is being tracked at [issue #410](https://github.com/jspm/jspm-cli/issues/410).**
 
 ### Documentation
 
