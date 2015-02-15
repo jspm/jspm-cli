@@ -1,8 +1,8 @@
-var $ = require('bootstrap');
-require('bootstrap/css/bootstrap.css!');
-var template = require('./bootstrap.html!text');
+import $ from 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
+import template from './bootstrap.html!text';
 
-exports['modal test'] = function(done) {
+export function modal_test(done) {
   $("#sandbox").html(template);
   $('#myModal').on('shown.bs.modal', function() {
     done();

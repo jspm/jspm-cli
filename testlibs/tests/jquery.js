@@ -1,6 +1,6 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
-exports['simple test'] = function(done) {
+export function simple_test(done) {
   $('#sandbox').html('jquery');
   done();
 }

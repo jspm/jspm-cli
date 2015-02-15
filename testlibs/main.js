@@ -1,6 +1,5 @@
-var mocha = require('mocha');
-
-var suites = require('tests/tests');
+import mocha from 'mocha';
+import * as suites from 'tests/tests';
 
 mocha.setup('tdd');
 for (var s in suites) {

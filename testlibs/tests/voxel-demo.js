@@ -1,4 +1,4 @@
-exports['voxel demo'] = function(done) {
+export function voxel_demo(done) {
   System.import('voxel-demo').then(function() {
     done();
   }).
