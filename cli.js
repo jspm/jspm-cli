@@ -87,8 +87,6 @@ process.on('uncaughtException', function(err) {
       + 'jspm setmode <mode>\n'
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
-      + '  setmode dev                      Switch to the app development folder\n'
-      + '  setmode production               Switch to the app production folder\n'
       + '\n'
       + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps]\n'
       + 'jspm bundle-sfx app/main [outfile] Export bundle as a single self-executing script\n'
