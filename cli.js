@@ -143,7 +143,7 @@ process.on('uncaughtException', function(err) {
         if (name.indexOf(':') != -1) {
           target = name + (target ? '@' + target : '');
           var nameParts = target.split(':')[1].split('/');
-          name = nameParts.pop();
+          name = nameParts.join('/');
           name = name.substr(0, name.lastIndexOf('@')) || name;
         }
         else if (name.indexOf('@') > 0) {
