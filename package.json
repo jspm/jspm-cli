@@ -7,8 +7,8 @@
   "dependencies": {
     "glob": "~4.3.5",
     "graceful-fs": "^3.0.5",
-    "jspm-github": "~0.10.2",
-    "jspm-npm": "~0.19.0",
+    "jspm-github": "~0.10.3",
+    "jspm-npm": "~0.20.0",
     "jspm-registry": "~0.3.2",
     "liftoff": "^2.0.0",
     "minimatch": "^2.0.1",
@@ -18,8 +18,8 @@
     "rimraf": "~2.2.2",
     "rsvp": "~3.0.16",
     "semver": "~4.3.0",
-    "systemjs-builder": "~0.8.0",
-    "systemjs": "^0.13.2",
+    "systemjs-builder": "~0.9.0",
+    "systemjs": "^0.14.1",
     "traceur": "0.0.82",
     "uglify-js": "~2.4.16"
   },
