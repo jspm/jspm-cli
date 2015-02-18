@@ -297,6 +297,11 @@ System.config({
       "ndarray-downsample2x": "npm:ndarray-downsample2x@0.1.1",
       "ndarray-ops": "npm:ndarray-ops@1.1.1"
     },
+    "npm:typedarray-pool@1.1.0": {
+      "bit-twiddle": "npm:bit-twiddle@1.0.2",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "dup": "npm:dup@1.0.0"
+    },
     "npm:url@0.10.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "punycode": "npm:punycode@1.3.2",
