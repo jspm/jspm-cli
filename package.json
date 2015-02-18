@@ -13,7 +13,7 @@
     "liftoff": "^2.0.0",
     "minimatch": "^2.0.1",
     "mkdirp": "~0.5.0",
-    "ncp": "stefanpenner/ncp#iojs-fix",
+    "ember-cli-ncp": "^1.0.2",
     "request": "^2.53.0",
     "rimraf": "~2.2.2",
     "rsvp": "~3.0.16",
