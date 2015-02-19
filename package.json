@@ -7,8 +7,8 @@
   "dependencies": {
     "glob": "~4.3.5",
     "graceful-fs": "^3.0.5",
-    "jspm-github": "~0.10.3",
-    "jspm-npm": "~0.20.0",
+    "jspm-github": "~0.10.4",
+    "jspm-npm": "~0.20.1",
     "jspm-registry": "~0.3.2",
     "liftoff": "^2.0.0",
     "minimatch": "^2.0.1",
