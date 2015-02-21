@@ -23,6 +23,7 @@ var System = require('systemjs');
 var config = require('./lib/config');
 var path = require('path');
 var Promise = require('rsvp').Promise;
+var Builder = require('systemjs-builder');
 
 require('rsvp').on('error', function(reason) {
   ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
@@ -153,3 +154,18 @@ API.bundle = function(expression, fileName, options) {
 API.bundleSFX = function(moduleName, fileName, options) {
   return bundle.bundleSFX(moduleName, fileName, options)
 }
+
+/*
+ * Returns a jspm-configured SystemJS Builder class
+ */
+API.newBuilder = function() {
+  return config.load()
+  .then(function() {
+    var cfg = config.loader.getConfig();
+    cfg.baseURL = 'file:' + config.pjson.baseURL;
+    var systemBuilder = new Builder();
+    systemBuilder.config(cfg);
+    return systemBuilder;
+  });
+}
+

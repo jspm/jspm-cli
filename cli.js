@@ -82,13 +82,11 @@ process.on('uncaughtException', function(err) {
       + 'jspm install --link endpoint:name  Install a linked package\n'
       + '\n'
       + 'jspm dl-loader [--edge --source]   Download the browser loader files\n'
-      + 'jspm dl-loader [--6to5|--traceur]  Choose which ES6 transpiler to use\n'
+      + 'jspm dl-loader [--babel|--traceur]  Choose which ES6 transpiler to use\n'
       + '\n'
       + 'jspm setmode <mode>\n'
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
-      + '  setmode dev                      Switch to the app development folder\n'
-      + '  setmode production               Switch to the app production folder\n'
       + '\n'
       + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps]\n'
       + 'jspm bundle-sfx app/main [outfile] Export bundle as a single self-executing script\n'
@@ -145,7 +143,7 @@ process.on('uncaughtException', function(err) {
         if (name.indexOf(':') != -1) {
           target = name + (target ? '@' + target : '');
           var nameParts = target.split(':')[1].split('/');
-          name = nameParts.pop();
+          name = nameParts.join('/');
           name = name.substr(0, name.lastIndexOf('@')) || name;
         }
         else if (name.indexOf('@') > 0) {
@@ -285,10 +283,10 @@ process.on('uncaughtException', function(err) {
 
 
     case 'dl-loader':
-      var options = readOptions(args, ['--source', '--edge', '--yes', '--6to5', '--traceur']);
+      var options = readOptions(args, ['--source', '--edge', '--yes', '--babel', '--traceur']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options['6to5'] && '6to5' || options['traceur'] && 'traceur', options.source, options.edge);
+      core.dlLoader(options['babel'] && 'babel' || options['traceur'] && 'traceur', options.source, options.edge);
     break;
 
     case 'setmode':
