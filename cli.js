@@ -317,6 +317,10 @@ process.on('uncaughtException', function(err) {
       options.mangle = !options['no-mangle'];
       var bArgs = options.args.splice(1);
 
+      if (bArgs.length === 0) {
+        return ui.log('warn', 'You must provide at least one module as the starting point for bundling');
+      }
+
       if (bArgs.length < 2) {
         bundle.bundle(bArgs[0], undefined, options)
         .catch(function(e) {
