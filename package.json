@@ -25,6 +25,7 @@
   },
   "registry": "npm",
   "devDependencies": {
+    "jshint": "~2.6.1",
     "mocha": "~1.17.1"
   },
   "repository": {
@@ -35,7 +36,9 @@
     "jspm": "./jspm.js"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "npm run jshint && npm run mocha",
+    "mocha": "mocha",
+    "jshint": "jshint api.js cli.js jspm.js lib test"
   },
   "bugs": {
     "url": "https://github.com/jspm/jspm/issues"
