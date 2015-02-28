@@ -7,10 +7,10 @@ suite('Loader util', function() {
     test('copy strings and arrays as is', function() {
       assert.deepEqual(extractObj({
         str:'yes',
-        arr: [{wow_:true}]
+        arr: [{__wow:true}]
       }), {
         str:'yes',
-        arr: [{wow_:true}]
+        arr: [{__wow:true}]
       });
     });
 
@@ -26,17 +26,17 @@ suite('Loader util', function() {
     });
 
     test('filters private fields', function() {
-      assert.deepEqual(extractObj({read_:'yes'}), {});
+      assert.deepEqual(extractObj({__read:'yes'}), {});
     });
 
     test('copy fields from host object', function() {
       assert.deepEqual(extractObj({}, {host:'yes'}), {host:'yes'});
-      assert.deepEqual(extractObj({}, {host_:'yes'}), {host_:'yes'});
+      assert.deepEqual(extractObj({}, {__host:'yes'}), {__host:'yes'});
     });
 
     test('traverse object', function() {
       assert.deepEqual(extractObj({field:{obj:'yes'}}), {field:{obj:'yes'}});
-      assert.deepEqual(extractObj({field:{obj_:'yes'}}), {field:{}});
+      assert.deepEqual(extractObj({field:{__obj:'yes'}}), {field:{}});
     });
   });
 });
