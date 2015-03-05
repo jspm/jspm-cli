@@ -97,7 +97,5 @@ suite('Process Dependencies', function() {
 
   test('processDeps convergence', function() {
     assert.deepEqual(serialize(processDeps(processDeps({ 'test': '1.2.3' }, 'npm'), 'npm')), { 'test': 'npm:test@1.2.3' });
-  })
+  });
 });
-
-

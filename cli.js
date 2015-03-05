@@ -16,10 +16,8 @@
 var ui = require('./lib/ui');
 var config = require('./lib/config');
 var globalConfig = require('./lib/global-config');
-var pkg = require('./lib/package');
 var core = require('./lib/core');
 var bundle = require('./lib/bundle');
-var semver = require('./lib/semver');
 var endpoint = require('./lib/endpoint');
 var install = require('./lib/install');
 var fs = require('graceful-fs');
@@ -36,6 +34,8 @@ require('rsvp').on('error', function(reason) {
 process.on('uncaughtException', function(err) {
   ui.log('err', err.stack || err);
 });
+
+/* jshint laxbreak: true */
 
 (function() {
   function showHeader() {
@@ -107,25 +107,69 @@ process.on('uncaughtException', function(err) {
 
   function showVersion() {
     ui.log(require('./package.json').version + '\n'
-      + (process.env.localJspm == 'true' ? 'Running against local jspm install.' : 'Running against global jspm install.')
+      + (process.env.localJspm === 'true' ? 'Running against local jspm install.' : 'Running against global jspm install.')
     );
   }
 
-  var args = process.argv.splice(2);
+  function dwalk(obj, visitor, pname) {
+    for (var p in obj) {
+      if (!obj.hasOwnProperty(p))
+        continue;
+      if (typeof obj[p] === 'object')
+        dwalk(obj[p], visitor, (pname ? pname + '.' : '') + p);
+      else
+        visitor((pname ? pname + '.' : '') + p, obj[p]);
+    }
+  }
+
+  function readOptions(args, flags, settings) {
+    settings = settings || [];
+    var argOptions = { args: [] }, i, j, k;
+    for (i = 0; i < args.length; i++) {
+      if (args[i].substr(0, 2) === '--') {
+        for (j = 0; j < flags.length; j++)
+          if (flags[j] === args[i])
+            argOptions[flags[j].substr(2)] = i;
+        for (j = 0; j < settings.length; j++)
+          if (settings[j] === args[i])
+            argOptions[settings[j].substr(2)] = args[++i];
+      }
+      else if (args[i].substr(0, 1) === '-' && args[i].length > 1) {
+        var opts = args[i].substr(1);
+        opl: for (j = 0; j < opts.length; j++) {
+          for (k = 0; k < flags.length; k++) {
+            if (flags[k].substr(2, 1) === opts[j]) {
+              argOptions[flags[k].substr(2)] = argOptions.args.length;
+              continue opl;
+            }
+          }
+        }
+      }
+      else
+        argOptions.args.push(args[i]);
+    }
+    return argOptions;
+  }
+
+  var args = process.argv.splice(2),
+      options;
+
   switch(args[0]) {
     case 'run':
       core.run(args[1]);
-    break;
+      break;
 
     case 'inject':
       var inject = true;
+      break;
 
     case 'update':
       var doUpdate = true;
+      break;
 
     case 'i':
     case 'install':
-      var options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink']);
+      options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink']);
       options.inject = inject;
 
       args = options.args;
@@ -140,7 +184,7 @@ process.on('uncaughtException', function(err) {
 
         // if it is a full name then it is the target
         // the name is taken to be the shortname from the target
-        if (name.indexOf(':') != -1) {
+        if (name.indexOf(':') !== -1) {
           target = name + (target ? '@' + target : '');
           var nameParts = target.split(':')[1].split('/');
           name = nameParts.join('/');
@@ -156,7 +200,7 @@ process.on('uncaughtException', function(err) {
 
       var override = options.override && args.splice(options.override).join(' ');
       if (override) {
-        if (override.substr(0, 1) != '{') {
+        if (override.substr(0, 1) !== '{') {
           try {
             options.override = fs.readFileSync(override);
           }
@@ -164,7 +208,7 @@ process.on('uncaughtException', function(err) {
             return ui.log('err', 'Unable to read override file %' + override + '%.');
           }
           try {
-            options.override = JSON.parse(options.override)
+            options.override = JSON.parse(options.override);
           }
           catch(e) {
             return ui.log('err', 'Invalid JSON in override file %' + override + '%.');
@@ -185,10 +229,10 @@ process.on('uncaughtException', function(err) {
       // no install package -> install from package.json dependencies
       (depMap ? install.install(depMap, options) : install.install(true, options))
       .then(function() {
-        return core.checkDlLoader()
+        return core.checkDlLoader();
       })
       .then(function() {
-        return core.setMode(inject ? 'remote' : 'local')
+        return core.setMode(inject ? 'remote' : 'local');
       })
       .then(function() {
         ui.log('');
@@ -201,12 +245,12 @@ process.on('uncaughtException', function(err) {
         process.exit(1);
       });
 
-    break;
+      break;
 
     case 'r':
     case 'remove':
     case 'uninstall':
-      var options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['--yes']);
 
       if (options.yes)
         ui.useDefaults();
@@ -220,10 +264,10 @@ process.on('uncaughtException', function(err) {
         ui.log('warn', 'Uninstall changes not saved.');
         process.exit(1);
       });
-    break;
+      break;
 
     case 'resolve':
-      var options = readOptions(args, ['--only']);
+      options = readOptions(args, ['--only']);
 
       if (!options.only)
         return ui.log('warn', 'Use %jspm resolve --only endpoint:pkg@version%');
@@ -232,13 +276,14 @@ process.on('uncaughtException', function(err) {
       .catch(function(err) {
         if (!err)
           ui.log('err', 'Resolve operation not performed.');
-        else 
+        else
           ui.log('err', err.stack || err);
         process.exit(1);
       });
+      break;
 
     case 'clean':
-      var options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['--yes']);
       args = options.args;
 
       if (options.yes)
@@ -252,45 +297,41 @@ process.on('uncaughtException', function(err) {
         ui.log('err', err.stack || err);
         process.exit(1);
       });
-
-    break;
+      break;
 
     case 'inspect':
-      var options = readOptions(args, ['--forks']);
+      options = readOptions(args, ['--forks']);
       args = options.args;
 
       config.load()
       .then(function() {
         if (!args[1])
           return install.showVersions(options.forks);
-        if (args[1].indexOf(':') == -1)
+        if (args[1].indexOf(':') === -1)
           return ui.log('warn', 'Enter a full package name of the format `endpoint:repo`.');
         return install.showInstallGraph(args[1]);
       })
       .catch(function(e) {
         ui.log('err', e.stack || e);
       });
-    break;
+      break;
 
     case 'init':
-      var options = readOptions(args, ['--yes', '--prompts']);
-
+      options = readOptions(args, ['--yes', '--prompts']);
       if (options.yes)
         ui.useDefaults();
-
       core.init(options.args[1], options.prompts);
-    break;
-
+      break;
 
     case 'dl-loader':
-      var options = readOptions(args, ['--source', '--edge', '--yes', '--babel', '--traceur']);
+      options = readOptions(args, ['--source', '--edge', '--yes', '--babel', '--traceur']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options['babel'] && 'babel' || options['traceur'] && 'traceur', options.source, options.edge);
-    break;
+      core.dlLoader(options.babel && 'babel' || options.traceur && 'traceur', options.source, options.edge);
+      break;
 
     case 'setmode':
-      var options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['--yes']);
       if (options.yes)
         ui.useDefaults();
       core.setMode(args.splice(1))
@@ -299,17 +340,17 @@ process.on('uncaughtException', function(err) {
       }, function(err) {
         ui.log('err', err.stack || err);
       });
-    break;
+      break;
 
     case 'depcache':
-      var options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['--yes']);
       if (options.yes)
         ui.useDefaults();
       bundle.depCache(args[1]);
-    break;
+      break;
 
     case 'bundle':
-      var options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
+      options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
@@ -323,18 +364,18 @@ process.on('uncaughtException', function(err) {
 
       if (bArgs.length < 2) {
         bundle.bundle(bArgs[0], undefined, options)
-        .catch(function(e) {
+        .catch(function() {
           process.exit(1);
         });
       }
       else {
         var secondLastArg = bArgs[bArgs.length - 2].trim();
         var signChar = secondLastArg.substr(secondLastArg.length - 1, 1);
-        var expression = "";
-        var fileName = undefined;
+        var expression = '';
+        var fileName;
 
         // we can write: jspm bundle app + other
-        if (["+", "-"].indexOf(signChar) != -1) {
+        if (['+', '-'].indexOf(signChar) !== -1) {
           expression = bArgs.join(' ');
         }
         // or we can write: jspm bundle app + other out.js
@@ -343,11 +384,11 @@ process.on('uncaughtException', function(err) {
           fileName = bArgs[bArgs.length - 1];
         }
         bundle.bundle(expression, fileName, options)
-        .catch(function(e) {
+        .catch(function() {
           process.exit(1);
         });
       }
-    break;
+      break;
 
     case 'unbundle':
       bundle.unbundle()
@@ -355,32 +396,32 @@ process.on('uncaughtException', function(err) {
         ui.log('err', e.stack || e);
         process.exit(1);
       });
-    break;
+      break;
 
     case 'b':
     case 'bundle-sfx':
-      var options = readOptions(args, ['--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
+      options = readOptions(args, ['--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
       options.mangle = !options['no-mangle'];
       if (options.yes)
         ui.useDefaults();
-      var bArgs = options.args.splice(1);
-      bundle.bundleSFX(bArgs[0], bArgs[1], options)
-      .catch(function(e) {
+      var bsfxArgs = options.args.splice(1);
+      bundle.bundleSFX(bsfxArgs[0], bsfxArgs[1], options)
+      .catch(function() {
         process.exit(1);
       });
-    break;
+      break;
 
     case 'build':
-      var options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['--yes']);
       if (options.yes)
         ui.useDefaults();
-      core.build()
-    break;
+      core.build();
+      break;
 
     case 'compile':
-      var options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions', '--yes'], ['--map', '--format']);
+      options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions', '--yes'], ['--map', '--format']);
       if (options.yes)
         ui.useDefaults();
       if (options.map) {
@@ -395,30 +436,31 @@ process.on('uncaughtException', function(err) {
       }, function(e) {
         ui.log('err', e.stack || e);
       });
+      break;
 
     case 'link':
-      var options = readOptions(args, ['--force', '--yes']);
+      options = readOptions(args, ['--force', '--yes']);
 
       if (options.yes)
         ui.useDefaults();
 
       args = options.args;
 
-      var name = args[2] || args[1] || '';
-      var path = args[2] || '.';
+      var linkname = args[2] || args[1] || '';
+      var linkpath = args[2] || '.';
 
-      link.link(name, path, options.force);
-    break;
+      link.link(linkname, linkpath, options.force);
+      break;
 
     case 'endpoint':
-      var options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['--yes']);
 
       if (options.yes)
         ui.useDefaults();
 
       var action = args[1];
 
-      if (action == 'config') {
+      if (action === 'config') {
         if (!args[2])
           return ui.log('warn', 'You must provide an endpoint name to configure.');
         return Promise.resolve(endpoint.configure(args[2]))
@@ -428,7 +470,7 @@ process.on('uncaughtException', function(err) {
           ui.log('err', err.stack || err);
         });
       }
-      else if (action == 'create') {
+      else if (action === 'create') {
         if (!args[2])
           return ui.log('warn', 'You must provide an endpoint name to create.');
         if (!args[3])
@@ -441,24 +483,13 @@ process.on('uncaughtException', function(err) {
           ui.log('err', err.stack || err);
         });
       }
-      else if (action == 'export') {
+      else if (action === 'export') {
         if (!args[2])
           return ui.log('warn', 'You must provide an endpoint name to export.');
         if (!globalConfig.config.endpoints[args[2]])
           return ui.log('warn', 'Endpoint %' + args[2] + '% does not exist.');
 
         var endpointConfig = globalConfig.config.endpoints[args[2]];
-
-        function dwalk(obj, visitor, pname) {
-          for (var p in obj) {
-            if (!obj.hasOwnProperty(p))
-              continue;
-            if (typeof obj[p] == 'object')
-              dwalk(obj[p], visitor, (pname ? pname + '.' : '') + p);
-            else
-              visitor((pname ? pname + '.' : '') + p, obj[p]);
-          }
-        }
 
         dwalk(endpointConfig, function(p, value) {
           process.stdout.write('jspm config endpoints.' + args[2] + '.' + p + ' ' + value + '\n');
@@ -468,57 +499,28 @@ process.on('uncaughtException', function(err) {
         showInstructions();
         ui.log('warn', 'Invalid endpoint argument %' + args[1] + '%.');
       }
-    break;
+      break;
 
     case 'c':
     case 'config':
       var property = args[1];
       var value = args.splice(2).join(' ');
       globalConfig.set(property, value);
+      break;
 
-    break;
     case '--help':
     case '-h':
       showInstructions();
+      break;
 
-    break;
     case '--version':
     case '-v':
       showVersion();
+      break;
 
-    break;
     default:
       showInstructions();
       if (args[0])
         ui.log('warn', 'Invalid argument %' + args[0] + '%.');
   }
 })();
-
-function readOptions(args, flags, settings) {
-  settings = settings || [];
-  var argOptions = { args: [] };
-  for (var i = 0; i < args.length; i++) {
-    if (args[i].substr(0, 2) == '--') {
-      for (var j = 0; j < flags.length; j++)
-        if (flags[j] == args[i])
-          argOptions[flags[j].substr(2)] = i;
-      for (var j = 0; j < settings.length; j++)
-        if (settings[j] == args[i])
-          argOptions[settings[j].substr(2)] = args[++i];
-    }
-    else if (args[i].substr(0, 1) == '-' && args[i].length > 1) {
-      var opts = args[i].substr(1);
-      opl: for (var j = 0; j < opts.length; j++) {
-        for (var k = 0; k < flags.length; k++) {
-          if (flags[k].substr(2, 1) == opts[j]) {
-            argOptions[flags[k].substr(2)] = argOptions.args.length;
-            continue opl;
-          }
-        }
-      }
-    }
-    else
-      argOptions.args.push(args[i]);
-  }
-  return argOptions;
-}

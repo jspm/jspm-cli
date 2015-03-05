@@ -14,7 +14,6 @@
  *   limitations under the License.
  */
 
-var core = require('./lib/core');
 var install = require('./lib/install');
 var bundle = require('./lib/bundle');
 var ui = require('./lib/ui');
@@ -52,7 +51,7 @@ API.locate = function(name, parentName) {
   .then(function(address) {
     return address.substr(5);
   });
-}
+};
 
 /*
  * jspm.on('log', function(type, msg) { console.log(msg); });
@@ -71,7 +70,7 @@ ui.useDefaults();
 
 API.promptDefaults = function(_useDefaults) {
   ui.useDefaults(_useDefaults);
-}
+};
 
 /*
  * Installs a library in the current folder
@@ -87,8 +86,8 @@ API.promptDefaults = function(_useDefaults) {
  *
  */
 API.install = function(name, target, options) {
-  return install.install.apply(install, arguments);
-}
+  return install.install.apply(install, [name, target, options]);
+};
 
 /* Uninstalls a library in the current folder.
  * returns a promise
@@ -98,15 +97,15 @@ API.install = function(name, target, options) {
  *
  */
 API.uninstall = function(names) {
-  return install.uninstall.apply(install, arguments); 
-}
+  return install.uninstall.apply(install, [names]);
+};
 
 API.import = function(moduleName, parentName) {
   return API.configureLoader()
   .then(function() {
     return System.import(moduleName, { name: parentName });
   });
-}
+};
 
 // takes an optional config argument to configure
 // returns the loader instance
@@ -130,7 +129,7 @@ API.configureLoader = function(cfg) {
       System.config(cfg);
     return System;
   });
-}
+};
 
 
 /*
@@ -144,16 +143,16 @@ API.configureLoader = function(cfg) {
 // options.minify
 API.bundle = function(expression, fileName, options) {
   return bundle.bundle(expression, fileName, options);
-}
+};
 
-/* 
+/*
  * Creates a distributable script file that can be used entirely on its own independent of SystemJS and jspm.
  * returns a promise
  * options.minify, options.sourceMaps
  */
 API.bundleSFX = function(moduleName, fileName, options) {
-  return bundle.bundleSFX(moduleName, fileName, options)
-}
+  return bundle.bundleSFX(moduleName, fileName, options);
+};
 
 /*
  * Returns a jspm-configured SystemJS Builder class
@@ -167,5 +166,4 @@ API.newBuilder = function() {
     systemBuilder.config(cfg);
     return systemBuilder;
   });
-}
-
+};
