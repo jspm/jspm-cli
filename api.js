@@ -86,7 +86,7 @@ API.promptDefaults = function(_useDefaults) {
  *
  */
 API.install = function(name, target, options) {
-  return install.install.apply(install, [name, target, options]);
+  return install.install(name, target, options);
 };
 
 /* Uninstalls a library in the current folder.
@@ -97,7 +97,7 @@ API.install = function(name, target, options) {
  *
  */
 API.uninstall = function(names) {
-  return install.uninstall.apply(install, [names]);
+  return install.uninstall(names);
 };
 
 API.import = function(moduleName, parentName) {
