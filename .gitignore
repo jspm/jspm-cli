@@ -6,3 +6,4 @@ testlibs/build.js.map
 .DS_Store
 testlibs/.DS_Store
 .idea/
+npm-debug.log
