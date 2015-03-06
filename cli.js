@@ -14,6 +14,7 @@
  *   limitations under the License.
  */
 var ui = require('./lib/ui');
+var chalk = require('chalk');
 var config = require('./lib/config');
 var globalConfig = require('./lib/global-config');
 var core = require('./lib/core');
@@ -40,11 +41,9 @@ process.on('uncaughtException', function(err) {
 (function() {
   function showHeader() {
     ui.log('\n'
-      + '  \033[47m\033[1m      \033[0m\n'
-      + '  \033[47m\033[93m\033[1m jspm \033[0m\033[90m  '
-      + 'Browser Package Management'
-      + ' \033[0m\n'
-      + '  \033[47m\033[1m      \033[0m\n'
+      + '  ' + chalk.bgWhite('      ') + '\n'
+      + '  ' + chalk.bgWhite.yellow(' jspm ') + '  ' + chalk.grey('Browser Package Management') + '\n'
+      + '  ' + chalk.bgWhite('      ') + '\n'
     );
   }
 
