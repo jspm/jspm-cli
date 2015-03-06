@@ -13,6 +13,8 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
+ require('core-js/es6/string');
+ 
 var ui = require('./lib/ui');
 var chalk = require('chalk');
 var config = require('./lib/config');
@@ -125,7 +127,7 @@ process.on('uncaughtException', function(err) {
     settings = settings || [];
     var argOptions = { args: [] }, i, j, k;
     for (i = 0; i < args.length; i++) {
-      if (args[i].substr(0, 2) === '--') {
+      if (args[i].startsWith('--')) {
         for (j = 0; j < flags.length; j++)
           if (flags[j] === args[i])
             argOptions[flags[j].substr(2)] = i;
@@ -133,7 +135,7 @@ process.on('uncaughtException', function(err) {
           if (settings[j] === args[i])
             argOptions[settings[j].substr(2)] = args[++i];
       }
-      else if (args[i].substr(0, 1) === '-' && args[i].length > 1) {
+      else if (args[i].startsWith('-') && args[i].length > 1) {
         var opts = args[i].substr(1);
         opl: for (j = 0; j < opts.length; j++) {
           for (k = 0; k < flags.length; k++) {
@@ -183,7 +185,7 @@ process.on('uncaughtException', function(err) {
 
         // if it is a full name then it is the target
         // the name is taken to be the shortname from the target
-        if (name.indexOf(':') !== -1) {
+        if (name.includes(':')) {
           target = name + (target ? '@' + target : '');
           var nameParts = target.split(':')[1].split('/');
           name = nameParts.join('/');
@@ -199,7 +201,7 @@ process.on('uncaughtException', function(err) {
 
       var override = options.override && args.splice(options.override).join(' ');
       if (override) {
-        if (override.substr(0, 1) !== '{') {
+        if (!override.startsWith('{')) {
           try {
             options.override = fs.readFileSync(override);
           }
@@ -306,7 +308,7 @@ process.on('uncaughtException', function(err) {
       .then(function() {
         if (!args[1])
           return install.showVersions(options.forks);
-        if (args[1].indexOf(':') === -1)
+        if (!args[1].includes(':'))
           return ui.log('warn', 'Enter a full package name of the format `endpoint:repo`.');
         return install.showInstallGraph(args[1]);
       })
