@@ -1,5 +1,7 @@
-jspm CLI [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+jspm CLI
 ===
+
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Registry and format agnostic JavaScript package manager.
 
@@ -29,3 +31,6 @@ Apache 2.0
 
 [travis-url]: https://travis-ci.org/jspm/jspm-cli
 [travis-image]: https://travis-ci.org/jspm/jspm-cli.svg?branch=master
+[downloads-image]: http://img.shields.io/npm/dm/jspm.svg
+[npm-url]: https://npmjs.org/package/jspm
+[npm-image]: http://img.shields.io/npm/v/jspm.svg
