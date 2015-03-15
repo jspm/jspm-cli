@@ -11,8 +11,8 @@ suite('Process Dependencies', function() {
     return out;
   }
 
-  test('Dependencies need a registry', function() {
-    assert.deepEqual(processDeps({ 'jquery': '1' }), {});
+  test('Dependencies dont need a registry', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery': '1' })), { 'jquery': 'jspm:jquery@1' });
   });
 
   test('No target', function() {
