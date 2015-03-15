@@ -166,7 +166,6 @@ process.on('uncaughtException', function(err) {
 
     case 'update':
       var doUpdate = true;
-      break;
 
     case 'i':
     case 'install':
