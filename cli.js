@@ -170,7 +170,7 @@ process.on('uncaughtException', function(err) {
 
     case 'i':
     case 'install':
-      options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink']);
+      options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink', '--quick']);
       options.inject = inject;
 
       args = options.args;
