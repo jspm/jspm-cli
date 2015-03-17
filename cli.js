@@ -399,7 +399,7 @@ process.on('uncaughtException', function(err) {
 
     case 'b':
     case 'bundle-sfx':
-      options = readOptions(args, ['--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
+      options = readOptions(args, ['--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps', '--runtime']);
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
       options.mangle = !options['no-mangle'];
