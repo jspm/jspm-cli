@@ -157,13 +157,15 @@ API.bundleSFX = function(moduleName, fileName, options) {
 /*
  * Returns a jspm-configured SystemJS Builder class
  */
-API.newBuilder = function() {
+API.createBuilder = function(config) {
   return config.load()
   .then(function() {
     var cfg = config.loader.getConfig();
     cfg.baseURL = 'file:' + config.pjson.baseURL;
     var systemBuilder = new Builder();
     systemBuilder.config(cfg);
+    if (config)
+      systemBuilder.config(config);
     return systemBuilder;
   });
 };
