@@ -1,0 +1,15 @@
+{
+  "format": "es6",
+  "base": "prop",
+  "directories": {
+    "custom": true,
+    "properties": "here"
+  },
+  "jspm": {
+    "format": "cjs",
+    "directories": {
+      "custom": "asdf",
+      "packages": "test"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "format": "es6",
+  "base": "prop",
+  "directories": {
+    "custom": true,
+    "properties": "here"
+  },
+  "jspm": {
+    "base": "override",
+    "directories": {
+      "baseURL": ".",
+      "packages": "test",
+      "custom": "asdf"
+    },
+    "format": "cjs"
+  }
+}

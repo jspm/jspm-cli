@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "jquery": "*"
+  },
+  "jspm": {
+    "dependencies": {}
+  }
+}
