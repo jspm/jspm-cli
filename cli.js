@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
  require('core-js/es6/string');
- 
+
 var ui = require('./lib/ui');
 var chalk = require('chalk');
 var config = require('./lib/config');
@@ -23,6 +23,7 @@ var core = require('./lib/core');
 var bundle = require('./lib/bundle');
 var endpoint = require('./lib/endpoint');
 var install = require('./lib/install');
+var cache = require('./lib/cache');
 var fs = require('graceful-fs');
 var Promise = require('rsvp').Promise;
 
@@ -101,6 +102,8 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'jspm config <option> <setting>     Configure jspm global options\n'
       + '                                   Stored in ~/.jspm/config\n'
+      + '\n'
+      + 'jspm cache clean                   Clean the jspm cache\n'
       + '\n'
       + 'All options work with the -y flag to skip prompts\n'
     );
@@ -505,6 +508,11 @@ process.on('uncaughtException', function(err) {
       var property = args[1];
       var value = args.splice(2).join(' ');
       globalConfig.set(property, value);
+      break;
+
+    case 'cache':
+      if (args[1] === 'clean')
+        cache.clean();
       break;
 
     case '--help':
