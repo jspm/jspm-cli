@@ -8,24 +8,26 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.3.13",
-    "bootstrap": "github:twbs/bootstrap@3.3.2",
+    "angular": "github:angular/bower-angular@1.3.15",
+    "bootstrap": "github:twbs/bootstrap@3.3.4",
     "css": "github:systemjs/plugin-css@0.1.6",
     "d3": "github:mbostock/d3@3.5.5",
     "jquery": "github:components/jquery@2.1.3",
     "mocha": "npm:mocha@1.21.5",
     "text": "github:systemjs/plugin-text@0.0.2",
+    "traceur": "github:jmcriffey/bower-traceur@0.0.87",
+    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
     "voxel-demo": "npm:voxel-demo@0.0.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.0.2"
+      "buffer": "npm:buffer@3.1.1"
     },
     "github:jspm/nodelibs-events@0.1.0": {
       "events-browserify": "npm:events-browserify@0.0.1"
     },
-    "github:jspm/nodelibs-http@1.7.0": {
+    "github:jspm/nodelibs-http@1.7.1": {
       "Base64": "npm:Base64@0.2.1",
       "events": "github:jspm/nodelibs-events@0.1.0",
       "inherits": "npm:inherits@2.0.1",
@@ -43,10 +45,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.1": {
-      "process": "npm:process@0.10.0"
-    },
-    "github:jspm/nodelibs-querystring@0.1.0": {
-      "querystring": "npm:querystring@0.2.0"
+      "process": "npm:process@0.10.1"
     },
     "github:jspm/nodelibs-stream@0.1.0": {
       "stream-browserify": "npm:stream-browserify@1.0.0"
@@ -55,22 +54,18 @@ System.config({
       "tty-browserify": "npm:tty-browserify@0.0.0"
     },
     "github:jspm/nodelibs-url@0.1.0": {
-      "url": "npm:url@0.10.2"
+      "url": "npm:url@0.10.3"
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
     "github:systemjs/plugin-css@0.1.6": {
       "clean-css": "npm:clean-css@3.0.10",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
-    "github:twbs/bootstrap@3.3.2": {
-      "css": "github:systemjs/plugin-css@0.1.6",
-      "jquery": "github:components/jquery@2.1.3"
-    },
     "npm:amdefine@0.1.0": {
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "module": "github:jspm/nodelibs-module@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -79,11 +74,11 @@ System.config({
       "cwise-compiler": "npm:cwise-compiler@0.1.0",
       "greedy-mesher": "npm:greedy-mesher@1.0.2",
       "ndarray": "npm:ndarray@1.0.16",
-      "typedarray-pool": "npm:typedarray-pool@1.1.0"
+      "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
     "npm:ao-shader@0.2.3": {
       "brfs": "npm:brfs@0.0.9",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "gl-shader": "npm:gl-shader@0.0.6"
     },
     "npm:assert@1.3.0": {
@@ -92,13 +87,13 @@ System.config({
     "npm:brfs@0.0.9": {
       "escodegen": "npm:escodegen@0.0.17",
       "falafel": "npm:falafel@0.1.6",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0",
-      "through": "npm:through@2.3.6"
+      "through": "npm:through@2.2.7"
     },
-    "npm:buffer@3.0.2": {
+    "npm:buffer@3.1.1": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.4",
       "is-array": "npm:is-array@1.0.1"
@@ -106,8 +101,8 @@ System.config({
     "npm:clean-css@3.0.10": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.5.1",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "http": "github:jspm/nodelibs-http@1.7.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "http": "github:jspm/nodelibs-http@1.7.1",
       "https": "github:jspm/nodelibs-https@0.1.0",
       "os": "github:jspm/nodelibs-os@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -125,28 +120,32 @@ System.config({
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
+    "npm:cwise-compiler@0.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "uniq": "npm:uniq@0.0.2"
+    },
     "npm:cwise-compiler@0.1.0": {
       "process": "github:jspm/nodelibs-process@0.1.1",
-      "uniq": "npm:uniq@1.0.1"
+      "uniq": "npm:uniq@0.0.2"
     },
     "npm:cwise-parser@0.0.1": {
       "esprima": "npm:esprima@1.0.4",
-      "uniq": "npm:uniq@1.0.1"
+      "uniq": "npm:uniq@0.0.2"
     },
     "npm:cwise@0.3.4": {
-      "cwise-compiler": "npm:cwise-compiler@0.1.0",
+      "cwise-compiler": "npm:cwise-compiler@0.0.0",
       "cwise-parser": "npm:cwise-parser@0.0.1"
     },
     "npm:escodegen@0.0.17": {
       "esprima": "npm:esprima@1.0.4",
       "estraverse": "npm:estraverse@0.0.4",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "source-map": "npm:source-map@0.1.43"
     },
     "npm:esprima@1.0.4": {
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:events-browserify@0.0.1": {
@@ -159,16 +158,16 @@ System.config({
       "domready": "npm:domready@0.2.13",
       "events": "github:jspm/nodelibs-events@0.1.0",
       "invert-hash": "npm:invert-hash@0.0.0",
-      "iota-array": "npm:iota-array@1.0.0",
+      "iota-array": "npm:iota-array@0.0.1",
       "lower-bound": "npm:lower-bound@0.0.3",
-      "uniq": "npm:uniq@1.0.1",
+      "uniq": "npm:uniq@0.0.2",
       "util": "github:jspm/nodelibs-util@0.1.0",
       "vkey": "npm:vkey@0.0.3"
     },
     "npm:gl-buffer@0.1.2": {
       "ndarray": "npm:ndarray@1.0.16",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
-      "typedarray-pool": "npm:typedarray-pool@1.1.0"
+      "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
     "npm:gl-now@0.0.4": {
       "game-shell": "npm:game-shell@0.1.4",
@@ -176,10 +175,10 @@ System.config({
     },
     "npm:gl-shader@0.0.6": {
       "glsl-exports": "npm:glsl-exports@0.0.0",
-      "uniq": "npm:uniq@1.0.1"
+      "uniq": "npm:uniq@0.0.2"
     },
     "npm:gl-texture2d@0.1.12": {
-      "bit-twiddle": "npm:bit-twiddle@1.0.2",
+      "bit-twiddle": "npm:bit-twiddle@0.0.2",
       "cwise-compiler": "npm:cwise-compiler@0.1.0",
       "ndarray": "npm:ndarray@1.0.16",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
@@ -202,7 +201,7 @@ System.config({
     },
     "npm:glsl-parser@0.0.9": {
       "glsl-tokenizer": "npm:glsl-tokenizer@0.0.9",
-      "through": "npm:through@2.3.6"
+      "through": "npm:through@1.1.2"
     },
     "npm:glsl-tokenizer@0.0.9": {
       "process": "github:jspm/nodelibs-process@0.1.1",
@@ -214,7 +213,7 @@ System.config({
       "uniq": "npm:uniq@1.0.1"
     },
     "npm:https-browserify@0.0.0": {
-      "http": "github:jspm/nodelibs-http@1.7.0"
+      "http": "github:jspm/nodelibs-http@1.7.1"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
@@ -222,7 +221,7 @@ System.config({
     "npm:mocha@1.21.5": {
       "css": "github:systemjs/plugin-css@0.1.6",
       "events": "github:jspm/nodelibs-events@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "tty": "github:jspm/nodelibs-tty@0.1.0"
@@ -234,21 +233,21 @@ System.config({
       "ndarray-scratch": "npm:ndarray-scratch@0.0.1"
     },
     "npm:ndarray-fft@0.1.0": {
-      "bit-twiddle": "npm:bit-twiddle@1.0.2",
+      "bit-twiddle": "npm:bit-twiddle@0.0.2",
       "cwise": "npm:cwise@0.3.4",
       "ndarray": "npm:ndarray@1.0.16",
       "ndarray-ops": "npm:ndarray-ops@1.1.1",
-      "typedarray-pool": "npm:typedarray-pool@1.1.0"
+      "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
     "npm:ndarray-fill@0.1.0": {
       "cwise": "npm:cwise@0.3.4"
     },
     "npm:ndarray-ops@1.1.1": {
-      "cwise-compiler": "npm:cwise-compiler@0.1.0"
+      "cwise-compiler": "npm:cwise-compiler@0.0.0"
     },
     "npm:ndarray-scratch@0.0.1": {
       "ndarray": "npm:ndarray@1.0.16",
-      "typedarray-pool": "npm:typedarray-pool@1.1.0"
+      "typedarray-pool": "npm:typedarray-pool@0.1.2"
     },
     "npm:ndarray@1.0.16": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -270,13 +269,14 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1",
-      "stream": "npm:stream-browserify@1.0.0",
+      "stream": "github:jspm/nodelibs-stream@0.1.0",
+      "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:source-map@0.1.43": {
       "amdefine": "npm:amdefine@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -288,6 +288,14 @@ System.config({
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
+    "npm:through@1.1.2": {
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "stream": "github:jspm/nodelibs-stream@0.1.0"
+    },
+    "npm:through@2.2.7": {
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "stream": "github:jspm/nodelibs-stream@0.1.0"
+    },
     "npm:through@2.3.6": {
       "process": "github:jspm/nodelibs-process@0.1.1",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
@@ -297,15 +305,19 @@ System.config({
       "ndarray-downsample2x": "npm:ndarray-downsample2x@0.1.1",
       "ndarray-ops": "npm:ndarray-ops@1.1.1"
     },
+    "npm:typedarray-pool@0.1.2": {
+      "bit-twiddle": "npm:bit-twiddle@0.0.2",
+      "dup": "npm:dup@0.0.0"
+    },
     "npm:typedarray-pool@1.1.0": {
       "bit-twiddle": "npm:bit-twiddle@1.0.2",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "dup": "npm:dup@1.0.0"
     },
-    "npm:url@0.10.2": {
+    "npm:url@0.10.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "punycode": "npm:punycode@1.3.2",
-      "querystring": "github:jspm/nodelibs-querystring@0.1.0",
+      "querystring": "npm:querystring@0.2.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:util@0.10.3": {
