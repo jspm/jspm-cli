@@ -348,8 +348,12 @@ process.on('uncaughtException', function(err) {
       bundle.depCache(args[1]);
       break;
 
+    case 'b':
+    case 'bundle-sfx':
+      var sfxBundle = true;
+
     case 'bundle':
-      options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps']);
+      options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps', '--no-runtime']);
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
@@ -382,7 +386,7 @@ process.on('uncaughtException', function(err) {
           expression = bArgs.splice(0, bArgs.length - 1).join(' ');
           fileName = bArgs[bArgs.length - 1];
         }
-        bundle.bundle(expression, fileName, options)
+        (sfxBundle ? bundle.bundleSFX : bundle.bundle)(expression, fileName, options)
         .catch(function() {
           process.exit(1);
         });
@@ -393,21 +397,6 @@ process.on('uncaughtException', function(err) {
       bundle.unbundle()
       .catch(function(e) {
         ui.log('err', e.stack || e);
-        process.exit(1);
-      });
-      break;
-
-    case 'b':
-    case 'bundle-sfx':
-      options = readOptions(args, ['--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps', '--runtime']);
-      options.sourceMaps = !options['skip-source-maps'];
-      options.lowResSourceMaps = !options['hires-source-maps'];
-      options.mangle = !options['no-mangle'];
-      if (options.yes)
-        ui.useDefaults();
-      var bsfxArgs = options.args.splice(1);
-      bundle.bundleSFX(bsfxArgs[0], bsfxArgs[1], options)
-      .catch(function() {
         process.exit(1);
       });
       break;
