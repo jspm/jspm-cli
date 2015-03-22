@@ -23,7 +23,6 @@ var core = require('./lib/core');
 var bundle = require('./lib/bundle');
 var endpoint = require('./lib/endpoint');
 var install = require('./lib/install');
-var cache = require('./lib/cache');
 var fs = require('graceful-fs');
 var Promise = require('rsvp').Promise;
 
@@ -510,9 +509,9 @@ process.on('uncaughtException', function(err) {
       globalConfig.set(property, value);
       break;
 
-    case 'cache':
-      if (args[1] === 'clean')
-        cache.clean();
+    case 'cc':
+    case 'cache-clear':
+      core.cacheClear();
       break;
 
     case '--help':
