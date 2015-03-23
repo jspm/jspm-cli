@@ -102,7 +102,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm config <option> <setting>     Configure jspm global options\n'
       + '                                   Stored in ~/.jspm/config\n'
       + '\n'
-      + 'jspm cache-clear                   Clear the jspm cache\n'
+      + 'jspm cache-clear                   Clear global caches, not recommended\n'
       + '\n'
       + 'All options work with the -y flag to skip prompts\n'
     );
