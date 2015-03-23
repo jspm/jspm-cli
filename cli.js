@@ -21,7 +21,7 @@ var config = require('./lib/config');
 var globalConfig = require('./lib/global-config');
 var core = require('./lib/core');
 var bundle = require('./lib/bundle');
-var endpoint = require('./lib/endpoint');
+var registry = require('./lib/registry');
 var install = require('./lib/install');
 var fs = require('graceful-fs');
 var Promise = require('rsvp').Promise;
@@ -57,8 +57,8 @@ process.on('uncaughtException', function(err) {
       + 'jspm init [basepath] [--prompts]   Create / validate project configuration file\n'
       + '\n'
       + 'jspm install <name[=target]+> [--force skips cache] [--latest]\n'
-      + '  install jquery                   Install a package from the registry to latest\n'
-      + '  install react=npm:react          Install a package from an endpoint to latest\n'
+      + '  install jquery                   Install a package looked up in the jspm registry\n'
+      + '  install react=npm:react          Install a package from a registry to latest\n'
       + '  install jquery=2 react           Install a package to a version or range\n'
       + '\n'
       + '  install                          Reproducible / shrinkwrap install package.json\n'
@@ -79,8 +79,8 @@ process.on('uncaughtException', function(err) {
       + '  inject jquery                    Identical to install, but injects config\n'
       + '                                   only instead of downloading the package\n'
       + '\n'
-      + 'jspm link endpoint:name@version    Link a local folder as an installable package\n'
-      + 'jspm install --link endpoint:name  Install a linked package\n'
+      + 'jspm link registry:pkg@version     Link a local folder as an installable package\n'
+      + 'jspm install --link registry:name  Install a linked package\n'
       + '\n'
       + 'jspm dl-loader [--edge --source]   Download the browser loader files\n'
       + 'jspm dl-loader [--babel|--traceur]  Choose which ES6 transpiler to use\n'
@@ -94,10 +94,10 @@ process.on('uncaughtException', function(err) {
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
       + '\n'
-      + 'jspm endpoint <command>            Manage endpoints\n'
-      + '  endpoint config <name>           Configure an existing endpoint\n'
-      + '  endpoint create <name> <pkg>     Create a new custom endpoint instance\n'
-      // + '  endpoint export <endpoint-name>  Export an endpoint programatically\n'
+      + 'jspm registry <command>            Manage registries\n'
+      + '  registry config <name>           Configure an existing registry\n'
+      + '  registry create <name> <pkg>     Create a new custom registry instance\n'
+      // + '  registry export <registry-name>  Export an registry programatically\n'
       + '\n'
       + 'jspm config <option> <setting>     Configure jspm global options\n'
       + '                                   Stored in ~/.jspm/config\n'
@@ -271,7 +271,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['--only']);
 
       if (!options.only)
-        return ui.log('warn', 'Use %jspm resolve --only endpoint:pkg@version%');
+        return ui.log('warn', 'Use %jspm resolve --only registry:pkg@version%');
 
       install.resolveOnly(options.args[1])
       .catch(function(err) {
@@ -309,7 +309,7 @@ process.on('uncaughtException', function(err) {
         if (!args[1])
           return install.showVersions(options.forks);
         if (!args[1].includes(':'))
-          return ui.log('warn', 'Enter a full package name of the format `endpoint:repo`.');
+          return ui.log('warn', 'Enter a full package name of the format `registry:repo`.');
         return install.showInstallGraph(args[1]);
       })
       .catch(function(e) {
@@ -442,7 +442,7 @@ process.on('uncaughtException', function(err) {
       link.link(linkname, linkpath, options.force);
       break;
 
-    case 'endpoint':
+    case 'registry':
       options = readOptions(args, ['--yes']);
 
       if (options.yes)
@@ -452,20 +452,20 @@ process.on('uncaughtException', function(err) {
 
       if (action === 'config') {
         if (!args[2])
-          return ui.log('warn', 'You must provide an endpoint name to configure.');
-        return Promise.resolve(endpoint.configure(args[2]))
+          return ui.log('warn', 'You must provide an registry name to configure.');
+        return Promise.resolve(registry.configure(args[2]))
         .then(function() {
-          ui.log('ok', 'Endpoint %' + args[2] + '% configured successfully.');
+          ui.log('ok', 'Registry %' + args[2] + '% configured successfully.');
         }, function(err) {
           ui.log('err', err.stack || err);
         });
       }
       else if (action === 'create') {
         if (!args[2])
-          return ui.log('warn', 'You must provide an endpoint name to create.');
+          return ui.log('warn', 'You must provide an registry name to create.');
         if (!args[3])
-          return ui.log('warn', 'You must provide the endpoint module name to generate from.');
-        return Promise.resolve(endpoint.create(args[2], args[3]))
+          return ui.log('warn', 'You must provide the registry module name to generate from.');
+        return Promise.resolve(registry.create(args[2], args[3]))
         .then(function(created) {
           if (created)
             ui.log('ok', 'Enpoint %' + args[2] + '% created successfully.');
@@ -475,19 +475,19 @@ process.on('uncaughtException', function(err) {
       }
       else if (action === 'export') {
         if (!args[2])
-          return ui.log('warn', 'You must provide an endpoint name to export.');
-        if (!globalConfig.config.endpoints[args[2]])
-          return ui.log('warn', 'Endpoint %' + args[2] + '% does not exist.');
+          return ui.log('warn', 'You must provide an registry name to export.');
+        if (!globalConfig.config.registrys[args[2]])
+          return ui.log('warn', 'Registry %' + args[2] + '% does not exist.');
 
-        var endpointConfig = globalConfig.config.endpoints[args[2]];
+        var registryConfig = globalConfig.config.registries[args[2]];
 
-        dwalk(endpointConfig, function(p, value) {
-          process.stdout.write('jspm config endpoints.' + args[2] + '.' + p + ' ' + value + '\n');
+        dwalk(registryConfig, function(p, value) {
+          process.stdout.write('jspm config registries.' + args[2] + '.' + p + ' ' + value + '\n');
         });
       }
       else {
         showInstructions();
-        ui.log('warn', 'Invalid endpoint argument %' + args[1] + '%.');
+        ui.log('warn', 'Invalid registry argument %' + args[1] + '%.');
       }
       break;
 
