@@ -12,7 +12,7 @@ suite('package.json', function() {
   inputs.forEach(function(input) {
     test(input.replace(/\.json$/, ''), function(done) {
       var test = new PackageJSON(path.resolve('./test/fixtures/pjson/initial/' + input));
-      test.read()
+      return Promise.resolve(test.read())
       .then(function() {
         test.fileName = './test/outputs/pjson/' + input;
         return test.write();

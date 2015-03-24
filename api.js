@@ -157,7 +157,7 @@ API.bundleSFX = function(expression, fileName, options) {
 /*
  * Returns a jspm-configured SystemJS Builder class
  */
-API.Builder = function(config) {
+API.Builder = function(_config) {
   config.loadSync();
 
   var cfg = config.loader.getConfig();
@@ -165,8 +165,8 @@ API.Builder = function(config) {
 
   var systemBuilder = new Builder(cfg);
 
-  if (config)
-    systemBuilder.config(config);
+  if (_config)
+    systemBuilder.config(_config);
 
   return systemBuilder;
 };

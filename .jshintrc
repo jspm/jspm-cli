@@ -6,7 +6,7 @@
     "camelcase"     : false,    // true: Identifiers must be in camelCase
     "curly"         : false,    // true: Require {} for every new block or scope
     "eqeqeq"        : true,    // true: Require triple equals (===) for comparison
-    "forin"         : true,     // true: Require filtering for..in loops with obj.hasOwnProperty()
+    "forin"         : false,     // false: Disable filtering for..in loops with obj.hasOwnProperty()
     "freeze"        : true,     // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
     "immed"         : true,    // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
     "indent"        : 2,        // {int} Number of spaces to use for indentation
