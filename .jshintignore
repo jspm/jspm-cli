@@ -1,3 +1,5 @@
 sandbox/**/*
 testlibs/**/*
 node_modules/**/*
+test/fixtures/**/*
+test/outputs/**/*

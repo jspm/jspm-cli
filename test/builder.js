@@ -1,13 +1,12 @@
 var api = require('../api');
-
-api.setPackagePath('test/fixtures/builder');
-
 var builder = new api.Builder();
+
+api.setPackagePath('testlibs');
 
 suite('Build API', function() {
 
   test('Simple build API call', function(done) {
-    builder.build('test')
+    builder.build('[tests/*]')
     .then(function(output) {
       assert(output.source.match(/\s*"format register";\s*/));
     })
