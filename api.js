@@ -150,22 +150,24 @@ API.bundle = function(expression, fileName, options) {
  * returns a promise
  * options.minify, options.sourceMaps
  */
-API.bundleSFX = function(moduleName, fileName, options) {
-  return bundle.bundleSFX(moduleName, fileName, options);
+API.bundleSFX = function(expression, fileName, options) {
+  return bundle.bundleSFX(expression, fileName, options);
 };
 
 /*
  * Returns a jspm-configured SystemJS Builder class
  */
-API.createBuilder = function(config) {
-  return config.load()
-  .then(function() {
-    var cfg = config.loader.getConfig();
-    cfg.baseURL = 'file:' + config.pjson.baseURL;
-    var systemBuilder = new Builder();
-    systemBuilder.config(cfg);
-    if (config)
-      systemBuilder.config(config);
-    return systemBuilder;
-  });
+API.Builder = function(config) {
+  config.loadSync();
+
+  var cfg = config.loader.getConfig();
+  cfg.baseURL = 'file:' + config.pjson.baseURL;
+
+  var systemBuilder = new Builder(cfg);
+
+  if (config)
+    systemBuilder.config(config);
+
+  return systemBuilder;
 };
+API.Builder.prototype = Object.create(Builder.prototype);
