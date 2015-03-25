@@ -97,6 +97,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm registry <command>            Manage registries\n'
       + '  registry config <name>           Configure an existing registry\n'
       + '  registry create <name> <pkg>     Create a new custom registry instance\n'
+      + '  registry default <name>          Set the default registry\n'
       // + '  registry export <registry-name>  Export an registry programatically\n'
       + '\n'
       + 'jspm config <option> <setting>     Configure jspm global options\n'
@@ -484,6 +485,15 @@ process.on('uncaughtException', function(err) {
         dwalk(registryConfig, function(p, value) {
           process.stdout.write('jspm config registries.' + args[2] + '.' + p + ' ' + value + '\n');
         });
+      }
+      else if (action === 'default') {
+        if (!args[2])
+          return ui.log('warn', 'You must provide an registry name to set as default.');
+        if (!globalConfig.config.registries[args[2]])
+          return ui.log('warn', 'Registry %' + args[2] + '% does not exist.');
+        globalConfig.config.defaultRegistry = args[2];
+        globalConfig.save();
+        ui.log('ok', 'Set default registry to %' + args[2] + '%');
       }
       else {
         showInstructions();
