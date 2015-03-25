@@ -11,7 +11,10 @@ suite('API Calls', function() {
   });
 
   test('Import', function(done) {
-    api.install('text', '^0.0.2')
+    api.dlLoader()
+    .then(function() {
+      return api.install('text', '^0.0.2');
+    })
     .then(function() {
       api.import('text').then(function(text) {
         assert(text.translate);

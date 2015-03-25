@@ -16,6 +16,7 @@
 
 var install = require('./lib/install');
 var bundle = require('./lib/bundle');
+var core = require('./lib/core');
 var ui = require('./lib/ui');
 var EventEmitter = require('events').EventEmitter;
 var System = require('systemjs');
@@ -152,6 +153,10 @@ API.bundle = function(expression, fileName, options) {
  */
 API.bundleSFX = function(expression, fileName, options) {
   return bundle.bundleSFX(expression, fileName, options);
+};
+
+API.dlLoader = function(transpiler) {
+  return core.checkDlLoader(transpiler);
 };
 
 /*
