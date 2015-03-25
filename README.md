@@ -3,7 +3,7 @@ jspm CLI
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-_`[jspm@0.15.0-beta is available for testing](https://github.com/jspm/jspm-cli/releases/tag/0.15.0-beta)._
+_[jspm@0.15.0-beta is available for testing](https://github.com/jspm/jspm-cli/releases/tag/0.15.0-beta)._
 
 Registry and format agnostic JavaScript package manager.
 
