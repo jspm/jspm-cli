@@ -3,6 +3,8 @@ jspm CLI
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+_`npm install -g jspm@0.15.0-beta` is available for testing. [Read the release notes](https://github.com/jspm/jspm-cli/releases/tag/0.15.0-beta)._
+
 Registry and format agnostic JavaScript package manager.
 
 * Supports installing any module format from any registry, with GitHub and npm currently provided, via [the endpoint API](https://github.com/jspm/jspm-cli/wiki/Endpoint-API).
