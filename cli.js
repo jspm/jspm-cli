@@ -368,7 +368,7 @@ process.on('uncaughtException', function(err) {
       }
 
       if (bArgs.length < 2) {
-        bundle.bundle(bArgs[0], undefined, options)
+        (sfxBundle ? bundle.bundleSFX : bundle.bundle)(bArgs[0], undefined, options)
         .catch(function() {
           process.exit(1);
         });
