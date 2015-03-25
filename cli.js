@@ -476,7 +476,7 @@ process.on('uncaughtException', function(err) {
       else if (action === 'export') {
         if (!args[2])
           return ui.log('warn', 'You must provide an registry name to export.');
-        if (!globalConfig.config.registrys[args[2]])
+        if (!globalConfig.config.registries[args[2]])
           return ui.log('warn', 'Registry %' + args[2] + '% does not exist.');
 
         var registryConfig = globalConfig.config.registries[args[2]];
