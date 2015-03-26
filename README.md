@@ -3,11 +3,11 @@ jspm CLI
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-_[jspm@0.15.0-beta is available for testing](https://github.com/jspm/jspm-cli/releases/tag/0.15.0-beta)._
+_[Read the release notes for breaking changes upgrading to jspm 0.15.0](https://github.com/jspm/jspm-cli/releases/tag/0.15.0)._
 
 Registry and format agnostic JavaScript package manager.
 
-* Supports installing any module format from any registry, with GitHub and npm currently provided, via [the endpoint API](https://github.com/jspm/jspm-cli/wiki/Endpoint-API).
+* Supports installing any module format from any registry, with GitHub and npm currently provided, via [the registry API](https://github.com/jspm/jspm-cli/wiki/Registry-API).
 * Couples to the [SystemJS module loader](https://github.com/systemjs/systemjs), which is built on the current draft of the [browser ES6 module loader](https://github.com/ModuleLoader/es6-module-loader) specfication.
 * Carefully resolves version ranges using greedy fork minimization into flat multi-version package folders.
 * Provides tiered bundling of multi-format module trees using [SystemJS builder](https://github.com/systemjs/builder).
@@ -16,8 +16,6 @@ Registry and format agnostic JavaScript package manager.
 See [https://jspm.io](https://jspm.io) for a project overview.
 
 For support, [join the Gitter room](https://gitter.im/jspm/jspm) or [Google Group](http://groups.google.com/group/jspm-io).
-
-[See the current release notes here including upgrade information](https://github.com/jspm/jspm-cli/releases).
 
 Use `jspm --help` to see the full up-to-date list of commands.
 
