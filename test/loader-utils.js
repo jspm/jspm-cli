@@ -14,8 +14,8 @@ suite('Loader util', function() {
       });
     });
 
-    test('skip booleans', function() {
-      assert.deepEqual(extractObj({read:true}), {});
+    test('include booleans', function() {
+      assert.deepEqual(extractObj({read:true}), {read:true});
     });
 
     test('call write method on objects', function() {
