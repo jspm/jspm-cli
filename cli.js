@@ -241,7 +241,8 @@ process.on('uncaughtException', function(err) {
         process.exit();
       }, function(err) {
         // something happened (cancel / err)
-        ui.log('err', err.stack || err);
+        if (err)
+          ui.log('err', err.stack || err);
         ui.log('warn', 'Installation changes not saved.');
         process.exit(1);
       });
