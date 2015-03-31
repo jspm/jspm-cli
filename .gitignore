@@ -7,3 +7,4 @@ testlibs/build.js.map
 testlibs/.DS_Store
 npm-debug.log
 test/outputs
+!test/fixtures/**/node_modules
