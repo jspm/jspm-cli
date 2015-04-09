@@ -143,7 +143,10 @@ suite('Fuzzy Compatibility Ranges', function() {
   test('Basic compatibility', function() {
     // project.showLogs = true;
     // assert.equal(semver.match('^1.5.2', '1.4.0'), false);
-    assert.equal(semver.match('~1', '1.4.0'), true);
+    assert.equal(semver.match('~0', '0.1.0'), true);
+    assert.equal(semver.match('~0', '1.2.0'), false);
+    assert.equal(semver.match('~1', '1.2.0'), true);
+    assert.equal(semver.match('~1', '2.4.0'), false);
     assert.equal(semver.match('~0.1', '0.1.0'), true);
     assert.equal(semver.match('~0.1', '0.2.0'), false);
     assert.equal(semver.match('~1.1', '1.2.0'), false);
