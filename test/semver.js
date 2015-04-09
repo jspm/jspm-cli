@@ -100,11 +100,15 @@ suite('Semver Compare', function() {
 
 
 suite('Semver Compatibility Ranges', function() {
-  
+
   test('Basic compatibility', function() {
     // project.showLogs = true;
     // assert.equal(semver.match('^1.5.2', '1.4.0'), false);
     assert.equal(semver.match('^1', '1.4.0'), true);
+    assert.equal(semver.match('^0.1', '0.1.0'), true);
+    assert.equal(semver.match('^0.1', '0.2.0'), false);
+    assert.equal(semver.match('^1.1', '1.2.0'), true);
+    assert.equal(semver.match('^1.1', '1.1.0'), true);
     assert.equal(semver.match('^0.0.2', '1.0.2'), false);
     assert.equal(semver.match('^0.0.1', '0.0.1'), true);
     assert.equal(semver.match('^0.0.1', '0.0.2'), false);
@@ -130,6 +134,47 @@ suite('Semver Compatibility Ranges', function() {
     assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-beta'), true);
     assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4-beta.10'), true);
     assert.equal(semver.match('^1.0.4-alpha.1', '1.0.4'), true);
+  });
+
+});
+
+suite('Fuzzy Compatibility Ranges', function() {
+
+  test('Basic compatibility', function() {
+    // project.showLogs = true;
+    // assert.equal(semver.match('^1.5.2', '1.4.0'), false);
+    assert.equal(semver.match('~0', '0.1.0'), true);
+    assert.equal(semver.match('~0', '1.2.0'), false);
+    assert.equal(semver.match('~1', '1.2.0'), true);
+    assert.equal(semver.match('~1', '2.4.0'), false);
+    assert.equal(semver.match('~0.1', '0.1.0'), true);
+    assert.equal(semver.match('~0.1', '0.2.0'), false);
+    assert.equal(semver.match('~1.1', '1.2.0'), false);
+    assert.equal(semver.match('~1.1', '1.1.0'), true);
+    assert.equal(semver.match('~0.0.2', '1.0.2'), false);
+    assert.equal(semver.match('~0.0.1', '0.0.1'), true);
+    assert.equal(semver.match('~0.0.1', '0.0.2'), true);
+    assert.equal(semver.match('~0.0.1', '1.0.2'), false);
+    assert.equal(semver.match('~0.0.1', '1.0.1'), false);
+    assert.equal(semver.match('~0.1.0', '0.1.0'), true);
+    assert.equal(semver.match('~0.1.0', '0.2.0'), false);
+    assert.equal(semver.match('~0.1.0', '1.1.0'), false);
+  });
+
+  test('Semver compatibility', function() {
+    assert.equal(semver.match('~1.1.12', '1.1.12'), true);
+    assert.equal(semver.match('~1.1.12', '1.1.11'), false);
+    assert.equal(semver.match('~1.1.12', '1.1.345'), true);
+    assert.equal(semver.match('~1.1.12', '1.10.345'), false);
+    assert.equal(semver.match('~1.1.12', '2.10.345'), false);
+  });
+
+  test('Prerelease ranges', function() {
+    assert.equal(semver.match('~1.0.4-alpha.1', '1.0.4-alpha.1'), true);
+    assert.equal(semver.match('~1.0.4-alpha.1', '1.0.4-alpha.2'), true);
+    assert.equal(semver.match('~1.0.4-alpha.1', '1.0.4-beta'), true);
+    assert.equal(semver.match('~1.0.4-alpha.1', '1.0.4-beta.10'), true);
+    assert.equal(semver.match('~1.0.4-alpha.1', '1.0.4'), true);
   });
 
 });
