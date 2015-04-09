@@ -329,7 +329,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['--source', '--edge', '--yes', '--babel', '--traceur']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.babel && 'babel' || options.traceur && 'traceur', options.source, options.edge);
+      core.dlLoader(options.babel && 'babel' || options.traceur && 'traceur', options.source, options.edge, true);
       break;
 
     case 'setmode':
