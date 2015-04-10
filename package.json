@@ -27,6 +27,7 @@
   },
   "registry": "npm",
   "devDependencies": {
+    "istanbul": "^0.3.13",
     "jshint": "~2.6.1",
     "mocha": "~1.17.1"
   },
@@ -39,6 +40,8 @@
   },
   "scripts": {
     "test": "npm run jshint && npm run mocha",
+    "istanbul": "istanbul cover ./node_modules/.bin/_mocha -i='lib/**/*.js'",
+    "coverage": "npm run istanbul -- --report html",
     "mocha": "mocha",
     "jshint": "jshint api.js cli.js jspm.js lib test"
   },
