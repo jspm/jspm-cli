@@ -6,3 +6,4 @@ npm-debug.log
 testlibs/jspm_packages
 testlibs/build.js*
 test/outputs
+coverage
