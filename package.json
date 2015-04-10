@@ -28,7 +28,7 @@
   "registry": "npm",
   "devDependencies": {
     "jshint": "~2.6.1",
-    "mocha": "~1.17.1"
+    "mocha": "~2.2.4"
   },
   "repository": {
     "type": "git",
