@@ -12,6 +12,16 @@ suite('getVersionMatch', function() {
       };
       assert.equal('2.0.0', package.getVersionMatch('', versions).version);
     });
+    test('Resolves to prereleases if explictly marked stable', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {stable: true},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      assert.equal('2.0.1-alpha.1', package.getVersionMatch('', versions).version);
+    });
     test('Favours prerelease over master', function() {
       var versions = {
         'master': {},
