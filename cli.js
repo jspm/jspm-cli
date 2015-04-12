@@ -172,6 +172,7 @@ process.on('uncaughtException', function(err) {
     case 'install':
       options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink', '--quick', '--dev']);
       options.inject = inject;
+      options.doUpdate = doUpdate;
 
       args = options.args;
 
@@ -329,7 +330,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['--source', '--edge', '--yes', '--babel', '--traceur']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.babel && 'babel' || options.traceur && 'traceur', options.source, options.edge);
+      core.dlLoader(options.babel && 'babel' || options.traceur && 'traceur', options.source, options.edge, true);
       break;
 
     case 'setmode':

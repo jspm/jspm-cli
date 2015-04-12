@@ -1,5 +1,46 @@
 var package = require('../lib/package');
 
+suite('getVersionMatch', function() {
+  suite('resolving latest', function() {
+    test('Favours release over prerelease', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      assert.equal('2.0.0', package.getVersionMatch('', versions).version);
+    });
+    test('Resolves to prereleases if explictly marked stable', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {stable: true},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      assert.equal('2.0.1-alpha.1', package.getVersionMatch('', versions).version);
+    });
+    test('Favours prerelease over master', function() {
+      var versions = {
+        'master': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      assert.equal('2.0.1-alpha.2', package.getVersionMatch('', versions).version);
+    });
+    test('Favours master over regular tags', function() {
+      var versions = {
+        'master': {},
+        'experimental': {}
+      };
+      assert.equal('master', package.getVersionMatch('', versions).version);
+    });
+  });
+});
+
 suite('Process Dependencies', function() {
   var processDeps = package.processDeps;
 

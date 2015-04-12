@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "Registry and format agnostic JavaScript package manager",
-  "version": "0.15.1",
+  "version": "0.15.3",
   "main": "./api.js",
   "author": "",
   "dependencies": {
@@ -19,16 +19,17 @@
     "request": "^2.53.0",
     "rimraf": "^2.3.2",
     "rsvp": "^3.0.17",
-    "semver": "^4.3.1",
-    "systemjs": "^0.16.6",
-    "systemjs-builder": "^0.10.3",
+    "semver": "^4.3.2",
+    "systemjs": "^0.16.7",
+    "systemjs-builder": "^0.10.4",
     "traceur": "0.0.87",
     "uglify-js": "~2.4.17"
   },
   "registry": "npm",
   "devDependencies": {
+    "istanbul": "^0.3.13",
     "jshint": "~2.6.1",
-    "mocha": "~1.17.1"
+    "mocha": "~2.2.4"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,8 @@
   },
   "scripts": {
     "test": "npm run jshint && npm run mocha",
+    "istanbul": "istanbul cover ./node_modules/.bin/_mocha -i='lib/**/*.js'",
+    "coverage": "npm run istanbul -- --report html",
     "mocha": "mocha",
     "jshint": "jshint api.js cli.js jspm.js lib test"
   },
