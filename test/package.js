@@ -52,6 +52,10 @@ suite('Process Dependencies', function() {
     return out;
   }
 
+  test('Escaping versions', function() {
+    assert.deepEqual(serialize(processDeps({ 'jquery': 'some/version' })), { 'jquery': 'jspm:jquery@some%2Fversion' });
+  });
+
   test('Dependencies dont need a registry', function() {
     assert.deepEqual(serialize(processDeps({ 'jquery': '1' })), { 'jquery': 'jspm:jquery@1' });
   });
@@ -116,12 +120,8 @@ suite('Process Dependencies', function() {
     assert.deepEqual(serialize(processDeps({ 'jquery@5': '*' }, 'custom')), { 'jquery@5': 'custom:jquery@5' });
   });
 
-  test('Wildcard versioned name', function() {
-    assert.deepEqual(serialize(processDeps({ 'jquery@*': '*' }, 'custom')), { 'jquery@*': 'custom:jquery' });
-  });
-
   test('Scoped package', function() {
-    assert.deepEqual(serialize(processDeps({ 'test': '@scoped/package' }, 'npm')), { 'test': 'npm:@scoped/package' });
+    assert.deepEqual(serialize(processDeps({ 'test': 'npm:@scoped/package' }, 'custom')), { 'test': 'npm:@scoped/package' });
   });
 
   test('Scoped package to version', function() {
