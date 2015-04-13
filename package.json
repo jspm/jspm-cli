@@ -11,7 +11,7 @@
     "graceful-fs": "^3.0.6",
     "jspm-github": "^0.11.3",
     "jspm-npm": "^0.21.0",
-    "jspm-registry": "git+https://github.com/ListnPlay/registry.git",
+    "jspm-registry": "^0.3.2",
     "liftoff": "^2.0.2",
     "minimatch": "^2.0.4",
     "mkdirp": "~0.5.0",
