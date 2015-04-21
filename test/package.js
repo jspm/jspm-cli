@@ -53,11 +53,7 @@ suite('Process Dependencies', function() {
   }
 
   test('Escaping versions', function() {
-    assert.deepEqual(serialize(processDeps({ 'jquery': 'some/version' })), { 'jquery': 'jspm:jquery@some%2Fversion' });
-  });
-
-  test('Dependencies dont need a registry', function() {
-    assert.deepEqual(serialize(processDeps({ 'jquery': '1' })), { 'jquery': 'jspm:jquery@1' });
+    assert.deepEqual(serialize(processDeps({ 'jquery': 'some/version' }, 'jspm')), { 'jquery': 'jspm:jquery@some%2Fversion' });
   });
 
   test('No target', function() {
@@ -84,20 +80,8 @@ suite('Process Dependencies', function() {
     assert.deepEqual(serialize(processDeps({ 'jquery': 'github:components/jquery@1' }, 'custom')), { jquery: 'github:components/jquery@1' });
   });
 
-  test('Exact name target with just a version', function() {
-    assert.deepEqual(serialize(processDeps({ 'github:components/jquery': '1' }, 'custom')), { 'github:components/jquery': 'github:components/jquery@1' });
-  });
-
-  test('Exact name target with just a version empty target', function() {
-    assert.deepEqual(serialize(processDeps({ 'github:components/jquery': '' }, 'custom')), { 'github:components/jquery': 'github:components/jquery' });
-  });
-
   test('Exact name target with a version', function() {
     assert.deepEqual(serialize(processDeps({ 'github:components/jquery@0': '1@1' }, 'custom')), { 'github:components/jquery@0': 'custom:1@1' });
-  });
-
-  test('Exact name with a version empty target', function() {
-    assert.deepEqual(serialize(processDeps({ 'github:components/jquery@0': '' }, 'custom')), { 'github:components/jquery@0': 'github:components/jquery@0' });
   });
 
   test('Exact name target with an endpoint', function() {
