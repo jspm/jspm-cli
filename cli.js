@@ -184,18 +184,11 @@ process.on('uncaughtException', function(err) {
         name = arg.split('=')[0];
         target = arg.split('=')[1];
 
-        // if it is a full name then it is the target
-        // the name is taken to be the shortname from the target
-        if (name.includes(':')) {
-          target = name + (target ? '@' + target : '');
-          var nameParts = target.split(':')[1].split('/');
-          name = nameParts.join('/');
-          name = name.substr(0, name.lastIndexOf('@')) || name;
-        }
-        else if (name.indexOf('@') > 0) {
-          target = name.split('@')[1];
-          name = name.split('@')[0];
-        }
+        if (!target)
+          target = name;
+
+        if (target.indexOf(':') == '-1')
+          target = globalConfig.config.defaultRegistry + ':' + target;
 
         depMap[name] = target || '';
       }
