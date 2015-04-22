@@ -184,10 +184,15 @@ process.on('uncaughtException', function(err) {
         name = arg.split('=')[0];
         target = arg.split('=')[1];
 
-        if (!target)
+        if (!target) {
           target = name;
+          if (name.indexOf(':') !== -1)
+            name = name.substr(name.indexOf(':') + 1);
+          if (name.indexOf('@') > 0)
+            name = name.substr(0, name.lastIndexOf('@'));
+        }
 
-        if (target.indexOf(':') == '-1')
+        if (target.indexOf(':') === '-1')
           target = globalConfig.config.defaultRegistry + ':' + target;
 
         depMap[name] = target || '';
