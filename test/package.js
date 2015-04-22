@@ -34,9 +34,13 @@ suite('getVersionMatch', function() {
     test('Favours master over regular tags', function() {
       var versions = {
         'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
         'experimental': {}
       };
-      assert.equal('master', package.getVersionMatch('', versions).version);
+      var opts = {latestVersion: 'master'};
+      assert.equal('master', package.getVersionMatch('', versions, opts).version);
     });
   });
 });
