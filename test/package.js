@@ -42,6 +42,28 @@ suite('getVersionMatch', function() {
       var opts = {latestVersion: 'master'};
       assert.equal('master', package.getVersionMatch('', versions, opts).version);
     });
+    test('Satisfies range', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      var opts = {latestVersion: 'master'};
+      assert.equal('2.0.1-alpha.2', package.getVersionMatch('^2.0.1-0', versions, opts).version);
+    });
+    test('Satisfies range', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      var opts = {latestVersion: 'master'};
+      assert.equal(undefined, package.getVersionMatch('^2.0.1', versions, opts));
+    });
   });
 });
 
