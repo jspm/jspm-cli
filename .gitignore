@@ -4,6 +4,6 @@ sandbox
 .DS_Store
 npm-debug.log
 testlibs/jspm_packages
-testlibs/build.js*
+testlibs/build.*
 test/outputs
 coverage
