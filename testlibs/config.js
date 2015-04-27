@@ -15,10 +15,10 @@ System.config({
 System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.15",
-    "babel": "npm:babel-core@5.1.11",
-    "babel-runtime": "npm:babel-runtime@5.1.11",
+    "babel": "npm:babel-core@5.1.13",
+    "babel-runtime": "npm:babel-runtime@5.1.13",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
-    "core-js": "npm:core-js@0.8.4",
+    "core-js": "npm:core-js@0.9.4",
     "css": "github:systemjs/plugin-css@0.1.10",
     "d3": "github:mbostock/d3@3.5.5",
     "jquery": "github:components/jquery@2.1.3",
@@ -130,6 +130,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-js@0.8.4": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:core-js@0.9.4": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-util-is@1.0.1": {
