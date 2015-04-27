@@ -192,7 +192,7 @@ process.on('uncaughtException', function(err) {
             name = name.substr(0, name.lastIndexOf('@'));
         }
 
-        if (target.indexOf(':') === '-1')
+        if (target.indexOf(':') === -1)
           target = globalConfig.config.defaultRegistry + ':' + target;
 
         depMap[name] = target || '';
