@@ -19,6 +19,8 @@ For support, [join the Gitter room](https://gitter.im/jspm/jspm) or [Google Grou
 
 Use `jspm --help` to see the full up-to-date list of commands.
 
+If you are interested in contributing to the project, [please read the contributors' guide](https://github.com/jspm/jspm-cli/wiki/Contributors%27-Guide).
+
 ### Documentation
 
 * [Getting Started with jspm](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
