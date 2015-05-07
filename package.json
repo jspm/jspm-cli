@@ -52,5 +52,6 @@
   "directories": {
     "test": "test"
   },
+  "ignore": ["sandbox", "testlibs", "test"],
   "license": "Apache 2.0"
 }
