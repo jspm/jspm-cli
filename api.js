@@ -147,6 +147,16 @@ API.bundle = function(expression, fileName, options) {
 };
 
 /*
+ * Remove the bundle configuration.
+ * This will allow you to move back to separate file mode
+ * returns a promise
+ */
+API.unbundle = function() {
+  return bundle.unbundle();
+};
+
+
+/*
  * Creates a distributable script file that can be used entirely on its own independent of SystemJS and jspm.
  * returns a promise
  * options.minify, options.sourceMaps
