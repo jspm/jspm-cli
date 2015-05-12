@@ -31,12 +31,76 @@ suite('getVersionMatch', function() {
       };
       assert.equal('2.0.1-alpha.2', package.getVersionMatch('', versions).version);
     });
+    test('Favours prerelease over tags', function() {
+      var versions = {
+        '2.0.1-alpha.1': {},
+        'super-cool': {stable: true},
+        'sketchy': {}
+      };
+      assert.equal('2.0.1-alpha.1', package.getVersionMatch('', versions).version);
+    });
     test('Favours master over regular tags', function() {
       var versions = {
         'master': {},
         'experimental': {}
       };
       assert.equal('master', package.getVersionMatch('', versions).version);
+    });
+    test('Favours stable tags over master', function() {
+      var versions = {
+        'master': {},
+        'experimental': {stable: true},
+        'alpha': {}
+      };
+      assert.equal('experimental', package.getVersionMatch('', versions).version);
+    });
+    test('Favours stable tags alphabetically', function() {
+      var versions = {
+        'a': {},
+        'c': {stable: true},
+        'b': {stable: true}
+      };
+      assert.equal('b', package.getVersionMatch('', versions).version);
+    });
+    test('Favours unstable tags alphabetically', function() {
+      var versions = {
+        'b': {},
+        'a': {},
+        'c': {}
+      };
+      assert.equal('a', package.getVersionMatch('', versions).version);
+    });
+    test('Satisfies range A', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      var opts = {latestVersion: 'master'};
+      assert.equal('2.0.1-alpha.2', package.getVersionMatch('^2.0.1-0', versions, opts).version);
+    });
+    test('Satisfies range B', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        '2.0.1-alpha.2': {},
+        'experimental': {}
+      };
+      var opts = {latestVersion: 'master'};
+      assert.equal(undefined, package.getVersionMatch('^2.0.1', versions, opts));
+    });
+    test('Favours latestVersion always if no range provided', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        'schwarzwälder-kirschtorte': {stable: false}
+      };
+      var opts = {latestVersion: 'schwarzwälder-kirschtorte'};
+      assert.equal('schwarzwälder-kirschtorte', package.getVersionMatch('', versions, opts).version);
     });
   });
 });
