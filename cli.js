@@ -65,6 +65,8 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + '  install react --lock             Stable install, locking existing dependencies\n'
       + '\n'
+      + '  install react --edge             Untable install\n'
+      + '\n'
       + '  install dep -o override.json     Install with the given custom override\n'
       + '  install dep -o "{override json}"   useful for testing package overrides\n'
       + '\n'
@@ -170,7 +172,8 @@ process.on('uncaughtException', function(err) {
 
     case 'i':
     case 'install':
-      options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest', '--unlink', '--quick', '--dev']);
+      options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest',
+                                   '--unlink', '--quick', '--dev', '--edge']);
       options.inject = inject;
       options.doUpdate = doUpdate;
 
