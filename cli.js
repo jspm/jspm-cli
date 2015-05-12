@@ -65,7 +65,7 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + '  install react --lock             Stable install, locking existing dependencies\n'
       + '\n'
-      + '  install react --edge             Untable install\n'
+      + '  install react=npm:react --edge   Install a package from a registry to latest unstable\n'
       + '\n'
       + '  install dep -o override.json     Install with the given custom override\n'
       + '  install dep -o "{override json}"   useful for testing package overrides\n'
