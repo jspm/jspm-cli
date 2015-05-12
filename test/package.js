@@ -92,6 +92,16 @@ suite('getVersionMatch', function() {
       var opts = {latestVersion: 'master'};
       assert.equal(undefined, package.getVersionMatch('^2.0.1', versions, opts));
     });
+    test('Favours latestVersion always if no range provided', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1-alpha.1': {},
+        'schwarzwälder-kirschtorte': {stable: false}
+      };
+      var opts = {latestVersion: 'schwarzwälder-kirschtorte'};
+      assert.equal('schwarzwälder-kirschtorte', package.getVersionMatch('', versions, opts).version);
+    });
   });
 });
 
