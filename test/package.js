@@ -201,7 +201,29 @@ suite('getVersionMatch', function() {
         'experimental': {}
       };
       var opts = {edge: true, latestVersion: 'master'};
-      assert.equal(undefined, package.getVersionMatch('^2.0.1', versions, opts));
+      assert.equal('2.0.1-alpha.2', package.getVersionMatch('^2.0.1', versions, opts).version);
+    });
+    test('Satisfies range C', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1': {},
+        '2.0.2-alpha.1': {},
+        'experimental': {}
+      };
+      var opts = {edge: true, latestVersion: 'master'};
+      assert.equal('2.0.2-alpha.1', package.getVersionMatch('^2.0.1', versions, opts).version);
+    });
+    test('Satisfies range D', function() {
+      var versions = {
+        'master': {},
+        '2.0.0': {},
+        '2.0.1': {},
+        '2.0.2-alpha.1': {},
+        'experimental': {}
+      };
+      var opts = {edge: true, latestVersion: 'master'};
+      assert.equal(undefined, package.getVersionMatch('^2.0.3', versions, opts));
     });
     test('Favours latestVersion always if no range provided', function() {
       var versions = {
