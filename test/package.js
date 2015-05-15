@@ -225,11 +225,19 @@ suite('getVersionMatch', function() {
       var opts = {edge: true, latestVersion: 'master'};
       assert.equal(undefined, package.getVersionMatch('^2.0.3', versions, opts));
     });
-    test('Favours latestVersion always if no range provided', function() {
+    test('Favours semver over latestVersion if no range provided', function() {
       var versions = {
         'master': {},
         '2.0.0': {},
         '2.0.1-alpha.1': {},
+        'schwarzwälder-kirschtorte': {stable: false}
+      };
+      var opts = {edge: true, latestVersion: 'schwarzwälder-kirschtorte'};
+      assert.equal('2.0.1-alpha.1', package.getVersionMatch('', versions, opts).version);
+    });
+    test('Favours latestVersion over exact if no range provided', function() {
+      var versions = {
+        'master': {},
         'schwarzwälder-kirschtorte': {stable: false}
       };
       var opts = {edge: true, latestVersion: 'schwarzwälder-kirschtorte'};
