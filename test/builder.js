@@ -8,7 +8,7 @@ suite('Build API', function() {
   test('Simple build API call', function(done) {
     builder.build('[unit/build/*]')
     .then(function(output) {
-      assert(output.source.match(/\s*"format register";\s*/));
+      assert(output.source.match(/\s*System\.register/));
     })
     .then(done, done);
   });
