@@ -168,7 +168,7 @@ process.on('uncaughtException', function(err) {
       var inject = true;
 
     case 'update':
-      var doUpdate = true;
+      var doUpdate = !inject;
 
     case 'i':
     case 'install':
