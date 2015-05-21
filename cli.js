@@ -364,9 +364,9 @@ process.on('uncaughtException', function(err) {
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
       options.mangle = !options['no-mangle'];
-      
+
       if (options['inline-source-maps']){
-        options.sourceMaps = "inline";
+        options.sourceMaps = 'inline';
       }
 
       var bArgs = options.args.splice(1);
