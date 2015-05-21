@@ -366,7 +366,7 @@ process.on('uncaughtException', function(err) {
       options.mangle = !options['no-mangle'];
       
       if (options['inline-source-maps']){
-        options.sourceMapContents = 'inline';
+        options.sourceMapContents = true;
       }
 
       var bArgs = options.args.splice(1);
