@@ -175,7 +175,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest',
                                    '--unlink', '--quick', '--dev', '--edge']);
       options.inject = inject;
-      options.doUpdate = doUpdate;
+      options.update = doUpdate;
 
       args = options.args;
 
