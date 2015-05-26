@@ -85,7 +85,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm install --link registry:name  Install a linked package\n'
       + '\n'
       + 'jspm dl-loader [--edge --source]   Download the browser loader files\n'
-      + 'jspm dl-loader [--babel|--traceur|--typescript]\n'
+      + 'jspm dl-loader [babel|traceur|typescript]\n'
       + '\n'
       + 'jspm setmode <mode>\n'
       + '  setmode local                    Switch to locally downloaded libraries\n'
@@ -328,11 +328,10 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'dl-loader':
-      options = readOptions(args, ['--source', '--edge', '--yes', '--babel', '--traceur', '--typescript']);
+      options = readOptions(args, ['--source', '--edge', '--yes', '--traceur', '--babel', '--typescript']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.babel && 'babel' || options.traceur && 'traceur' || options.typescript && 'typescript',
-          options.source, options.edge, true);
+      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, true);
       break;
 
     case 'setmode':
