@@ -3,11 +3,11 @@ jspm CLI
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-_[Read the release notes for breaking changes upgrading to jspm 0.15.0](https://github.com/jspm/jspm-cli/releases/tag/0.15.0)._
+_[Try jspm 0.16.0-beta](https://github.com/jspm/jspm-cli/releases/tag/0.16.0-beta)_
 
 Registry and format agnostic JavaScript package manager.
 
-* Supports installing any module format from any registry, with GitHub and npm currently provided, via [the registry API](https://github.com/jspm/jspm-cli/wiki/Registry-API).
+* Supports installing any module format from any registry, with GitHub and npm currently provided, via [the registry API](docs/registry-api.md).
 * Couples to the [SystemJS module loader](https://github.com/systemjs/systemjs), which is built on the current draft of the [browser ES6 module loader](https://github.com/ModuleLoader/es6-module-loader) specfication.
 * Carefully resolves version ranges using greedy fork minimization into flat multi-version package folders.
 * Provides tiered bundling of multi-format module trees using [SystemJS builder](https://github.com/systemjs/builder).
@@ -21,11 +21,23 @@ Use `jspm --help` to see the full up-to-date list of commands.
 
 If you are interested in contributing to the project, [please read the contributors' guide](https://github.com/jspm/jspm-cli/wiki/Contributors%27-Guide).
 
+For a list of community projects and tools, see the [Third-Party Resources Wiki](https://github.com/jspm/jspm-cli/wiki/Third-Party-Resources).
+
 ### Documentation
 
-* [Getting Started with jspm](https://github.com/jspm/jspm-cli/wiki/Getting-Started)
-* [jspm documentation wiki](https://github.com/jspm/jspm-cli/wiki).
-* [SystemJS project page](https://github.com/systemjs/systemjs).
+See the [SystemJS](https://github.com/systemjs/systemjs) project page for SystemJS usage documentation.
+
+* [Getting Started with jspm](docs/getting-started.md)
+* [Installing Packages](docs/installing-packages.md)
+* [Plugins](docs/plugins.md)
+* [Production Workflows](docs/production-workflows.md)
+* [Publishing Packages](docs/publishing-packages.md)
+* [Registries](docs/registries.md)
+* [Linking](docs/linking.md)
+* [NodeJS Usage](docs/nodejs-usage.md)
+* [The Registry Property](docs/registry-property.md)
+* [jspm API](docs/api.md)
+* [Registry API](docs/registry-api.md)
 
 ### License
 
