@@ -24,7 +24,7 @@ var config = require('./lib/config');
 var path = require('path');
 var Promise = require('rsvp').Promise;
 var Builder = require('systemjs-builder');
-var toFileURL = require('./common').toFileURL;
+var toFileURL = require('./lib/common').toFileURL;
 
 require('rsvp').on('error', function(reason) {
   ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
