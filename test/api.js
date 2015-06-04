@@ -5,9 +5,10 @@ api.setPackagePath('testlibs');
 suite('API Calls', function() {
   test('Normalize', function(done) {
     api.normalize('jquery').then(function(normalized) {
-      assert(normalized === 'github:components/jquery@2.1.3');
+      assert(normalized === System.baseURL + 'jspm_packages/github/components/jquery@2.1.3.js');
       done();
-    }, done);
+    })
+    .catch(done);
   });
 
   test('Import', function(done) {
@@ -16,10 +17,11 @@ suite('API Calls', function() {
       return api.install('text', '^0.0.2');
     })
     .then(function() {
-      api.import('text').then(function(text) {
+      return api.import('text').then(function(text) {
         assert(text.translate);
         done();
-      }, done);
-    }, done);
+      });
+    })
+    .catch(done);
   });
 });
