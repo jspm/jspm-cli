@@ -123,7 +123,7 @@ Alternatively, use `jspm bundle-sfx lib/main` to create a bundle script that can
 
 ### Next Steps
 
-[Read more about the production workflows](docs/production-workflows.md)
+[Read more about the production workflows](production-workflows.md)
 
 [Read the guide on configuring packages for jspm here](https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm).
 
