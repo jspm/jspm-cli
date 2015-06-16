@@ -3,7 +3,7 @@ jspm CLI
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-_[Try jspm 0.16.0-beta](https://github.com/jspm/jspm-cli/releases/tag/0.16.0-beta) with `npm install -g jspm@beta`_
+_[Try jspm 0.16 beta](https://github.com/jspm/jspm-cli/releases/tag/0.16.0-beta) with `npm install -g jspm@beta`_
 
 Registry and format agnostic JavaScript package manager.
 
