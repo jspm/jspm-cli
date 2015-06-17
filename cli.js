@@ -358,7 +358,7 @@ process.on('uncaughtException', function(err) {
       var sfxBundle = true;
 
     case 'bundle':
-      options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps', '--no-runtime', '--inline-source-maps']);
+      options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps', '--no-runtime', '--inline-source-maps', '--amd', '--cjs', '--es6']);
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
