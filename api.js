@@ -102,6 +102,8 @@ API.uninstall = function(names) {
   return install.uninstall(names);
 };
 
+API.System = System;
+
 API.import = function(moduleName, parentName) {
   return API.configureLoader()
   .then(function() {
