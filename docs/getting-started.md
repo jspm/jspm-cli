@@ -92,6 +92,8 @@ We can now write into our `lib` folder code that loads our dependencies, in any 
     import {bootstrap} from './bootstrap.js';
     bootstrap();
   ```
+  
+> Note modules are only detected as ES6 when module syntax is present. This is because the module loader transpilation is linked to the ES module format currently, althought this transpilation layer will be separated in future. Read more about SystemJS module formats at https://github.com/systemjs/systemjs/blob/master/docs/module-formats.md.
 
 ### 5. Run the code
 
