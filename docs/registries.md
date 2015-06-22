@@ -124,7 +124,7 @@ Which will just respond with defaults to all questions asked during registry ins
 To configure registries through TravisCI, use the [Travis CLI tool](https://github.com/travis-ci/travis.rb#installation) to encrypt the **[JSPM_GITHUB_AUTH_TOKEN](#auto-configuring-registries)** from the `jspm registry export`.
 
 ```
-travis encrypt 'JSPM_GITHUB_TOKEN=[JSPM_GITHUB_AUTH_TOKEN]'
+travis encrypt 'JSPM_GITHUB_AUTH_TOKEN=[JSPM_GITHUB_AUTH_TOKEN]'
 ```
 
 Then include it in Travis.yml:
