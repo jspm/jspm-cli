@@ -6,7 +6,7 @@ Custom registries can be easily created by exporting a new package following thi
 
 Please do ask questions or create suggestions to help make this documentation better.
 
-# Registry API Version 1.6
+# Registry API Version 1.7
 
 ### Constructor
 
@@ -72,7 +72,7 @@ Errors that are due to authentication and server configuration can be indicated 
 ```
 * Allows for downloads not to block dependency tree discovery
 
-#### processPackageConfig (pjson), optional
+#### processPackageConfig (pjson, packageName), optional
 ```
   -> Promise pjson
 ```
