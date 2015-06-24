@@ -11,23 +11,77 @@ jspm can be installed and used as an API dependency in a Node project:
 
 The API is currently unstable and subject to change. The API is also lacking most jspm functions. New API suggestions or adjustments are always welcome, and PRs would be taken gladly.
 
-### jspm API version 0.1
+## jspm API version 0.2
 
 #### setPackagePath(packagePath)
 
 Sets the directory where the jspm `package.json` file for the package being acted on is to be found.
 
-#### configureLoader(config) -> Promise()
+Must be run before instantiating other classes.
 
-Call this function to set custom configuration above and beyond that already in the `config.js` file for the project.
+### Loader API
+
+#### class Loader
+
+Create a new SystemJS loader based on the current jspm environment:
+
+```javascript
+var jspm = require('jspm');
+jspm.setPackagePath('.'); // optional
+
+var mySystem = new jspm.Loader();
+
+// can be used as any other System instance
+mySystem.normalize('moduleName').then(function(normalized) {
+  
+});
+mySystem.import('moduleName').then(function(module) {
+  
+});
+```
+
+jspm supports all Node libraries on the server and uses their Browserify equivalents in the browser.
+
+[Read more about NodeJS usage of jspm](docs/nodejs-usage.md).
+
+[Read more on the SystemJS API](https://github.com/systemjs/systemjs/blob/master/docs/system-api.md)
+
+### Bundle API
+
+#### class Builder
+
+Create a new SystemJS Builder instance for the current jspm environment:
+
+```javascript
+var jspm = require('jspm');
+jspm.setPackagePath('.'); // optional
+
+var builder = new jspm.Builder();
+
+// or builder.buildSFX
+builder.build('app/main.js', 'bundle.js', {
+  minify: true,
+  
+  // inject the bundle config into the configuration file
+  inject: true
+})
+```
+
+The builder will be automatically configured to have the correct jspm configuration and baseURL for the environment.
+
+Additional configuration options can be set via `builder.config({...})`
+
+[Read more on the builder API at the SystemJS builder project page](https://github.com/systemjs/builder)
+
+### unbundle() -> Promise()
+
+Removes any existing `depCache` or `bundle` configuration from the configuration file.
+
+### Package Manager API
 
 #### dlLoader -> Promise()
 
 Downloads the loader files if needed.
-
-#### normalize(name, parentName) -> Promise(normalized)
-
-Perform normalization of a module name within the jspm project.
 
 #### install(name [,target] [, options]) -> Promise()
 #### install(targets [, options]) -> Promise()
@@ -61,51 +115,4 @@ jspm.install(true, { lock: true })
 #### uninstall(names) -> Promise()
 
 Can take a single module or array of modules to uninstall.
-
-#### import(name, parentName) -> Promise(module)
-
-Loads a module in the jspm project on the server and returns the defined module:
-
-```javascript
-var jspm = require('jspm');
-jspm.setPackagePath('.');
-
-jspm.import('fs').then(function(fs) {
-  console.log(fs.readFileSync('./package.json'));
-});
-```
-
-jspm supports all Node libraries on the server and uses their Browserify equivalents in the browser.
-
-[Read more about NodeJS usage of jspm](docs/nodejs-usage.md).
-
-#### bundle(expression, fileName, options) -> Promise()
-
-```javascript
-// jspm bundle app/main build.js --no-mangle
-var jspm = require('jspm');
-jspm.setPackagePath('.');
-jspm.bundle('app/main', 'build.js', { mangle: false }).then(function() {
-});
-```
-
-Set the `inject` option to inject the bundle tree into the configuration file.
-
-### unbundle() -> Promise()
-
-Removes any existing `depCache` or `bundle` configuration from the configuration file.
-
-#### bundleSFX(moduleName, fileName, options) -> Promise()
-
-Creates a single self-executing bundle for a module.
-
-##### Bundle Options
-
-Both `bundle` and `bundleSFX` support the following options:
-
-* `minify`: Use minification, defaults to true.
-* `mangle`: Use mangling with minification, defaults to true.
-* `lowResSourceMaps`: Use faster low-resolution source maps, defaults to true.
-* `sourceMaps`: Use source maps, defaults to true.
-
 
