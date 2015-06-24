@@ -19,10 +19,9 @@ var bundle = require('./lib/bundle');
 var core = require('./lib/core');
 var ui = require('./lib/ui');
 var EventEmitter = require('events').EventEmitter;
-var System = require('systemjs');
+var SystemJSLoader = require('systemjs').constructor;
 var config = require('./lib/config');
 var path = require('path');
-var Promise = require('rsvp').Promise;
 var Builder = require('systemjs-builder');
 var toFileURL = require('./lib/common').toFileURL;
 
@@ -33,27 +32,11 @@ require('rsvp').on('error', function(reason) {
 var API = module.exports = new EventEmitter();
 
 API.setPackagePath = function(packagePath) {
+  if (config.loaded)
+    throw new Error('Configuration has already been loaded. Call setPackagePath before using other APIs.');
   process.env.jspmConfigPath = path.resolve(packagePath, 'package.json');
 };
-
 API.setPackagePath('.');
-
-API.normalize = function(name, parentName) {
-  return API.configureLoader()
-  .then(function(System) {
-    return System.normalize(name, parentName);
-  });
-};
-
-API.locate = function(name, parentName) {
-  return API.normalize(name, parentName)
-  .then(function(normalized) {
-    return System.locate({ name: normalized, metadata: {} });
-  })
-  .then(function(address) {
-    return address.substr(5);
-  });
-};
 
 /*
  * jspm.on('log', function(type, msg) { console.log(msg); });
@@ -73,6 +56,85 @@ ui.useDefaults();
 API.promptDefaults = function(_useDefaults) {
   ui.useDefaults(_useDefaults);
 };
+
+
+/*
+ * Loader API
+ */
+
+var apiLoader;
+API.normalize = function(name, parentName) {
+  apiLoader = apiLoader || new API.Loader();
+  return apiLoader.normalize(name, parentName);
+};
+
+API.import = function(name, parentName) {
+  apiLoader = apiLoader || new API.Loader();
+  return apiLoader.import(name, parentName);
+};
+
+API.Loader = function() {
+  var cfg = config.loader.getConfig();
+  cfg.baseURL = toFileURL(config.pjson.baseURL);
+
+  var loader = new SystemJSLoader();
+  loader.config(cfg);
+
+  return loader;
+};
+
+/*
+ * Builder API
+ */
+
+/*
+ * Returns a jspm-configured SystemJS Builder class
+ */
+API.Builder = function(_config) {
+  config.loadSync();
+
+  var cfg = config.loader.getConfig();
+  cfg.baseURL = toFileURL(config.pjson.baseURL);
+
+  var systemBuilder = new Builder(cfg);
+
+  if (_config)
+    systemBuilder.config(_config);
+
+  return systemBuilder;
+};
+API.Builder.prototype = Object.create(Builder.prototype);
+
+// options.inject
+// options.sourceMaps
+// options.minify
+API.bundle = function(expression, fileName, options) {
+  return bundle.bundle(expression, fileName, options);
+};
+
+/*
+ * Remove the bundle configuration.
+ * This will allow you to move back to separate file mode
+ * returns a promise
+ */
+API.unbundle = function() {
+  return bundle.unbundle();
+};
+
+
+/*
+ * Creates a distributable script file that can be used entirely on its own independent of SystemJS and jspm.
+ * returns a promise
+ * options.minify, options.sourceMaps
+ */
+API.bundleSFX = function(expression, fileName, options) {
+  return bundle.bundleSFX(expression, fileName, options);
+};
+
+
+/*
+ * Package Management API
+ *
 
 /*
  * Installs a library in the current folder
@@ -102,90 +164,6 @@ API.uninstall = function(names) {
   return install.uninstall(names);
 };
 
-API.System = System;
-
-API.import = function(moduleName, parentName) {
-  return API.configureLoader()
-  .then(function() {
-    return System.import(moduleName, parentName);
-  });
-};
-
-// takes an optional config argument to configure
-// returns the loader instance
-var loaderConfigured = false;
-API.configureLoader = function(cfg) {
-  return Promise.resolve()
-  .then(function() {
-    if (loaderConfigured)
-      return Promise.resolve(System);
-
-    return config.load()
-    .then(function() {
-      var cfg = config.loader.getConfig();
-      cfg.baseURL = toFileURL(config.pjson.baseURL);
-      System.config(cfg);
-      loaderConfigured = true;
-    });
-  })
-  .then(function() {
-    if (cfg)
-      System.config(cfg);
-    return System;
-  });
-};
-
-
-/*
- * Returns a promise for the full install tree of some form?
- */
-// API.installed = function() {
-// }
-
-// options.inject
-// options.sourceMaps
-// options.minify
-API.bundle = function(expression, fileName, options) {
-  return bundle.bundle(expression, fileName, options);
-};
-
-/*
- * Remove the bundle configuration.
- * This will allow you to move back to separate file mode
- * returns a promise
- */
-API.unbundle = function() {
-  return bundle.unbundle();
-};
-
-
-/*
- * Creates a distributable script file that can be used entirely on its own independent of SystemJS and jspm.
- * returns a promise
- * options.minify, options.sourceMaps
- */
-API.bundleSFX = function(expression, fileName, options) {
-  return bundle.bundleSFX(expression, fileName, options);
-};
-
 API.dlLoader = function(transpiler) {
   return core.checkDlLoader(transpiler);
 };
-
-/*
- * Returns a jspm-configured SystemJS Builder class
- */
-API.Builder = function(_config) {
-  config.loadSync();
-
-  var cfg = config.loader.getConfig();
-  cfg.baseURL = toFileURL(config.pjson.baseURL);
-
-  var systemBuilder = new Builder(cfg);
-
-  if (_config)
-    systemBuilder.config(_config);
-
-  return systemBuilder;
-};
-API.Builder.prototype = Object.create(Builder.prototype);

@@ -1,7 +1,7 @@
 var api = require('../api');
-var builder = new api.Builder();
 
 api.setPackagePath('testlibs');
+var builder = new api.Builder();
 
 suite('Build API', function() {
 

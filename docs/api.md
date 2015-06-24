@@ -17,13 +17,35 @@ The API is currently unstable and subject to change. The API is also lacking mos
 
 Sets the directory where the jspm `package.json` file for the package being acted on is to be found.
 
-Must be run before instantiating other classes.
+Must be run before any other API calls.
 
 ### Loader API
 
+#### import
+
+Loads a module in the jspm project in Node:
+
+```javascript
+var jspm = require('jspm');
+jspm.setPackagePath('.');
+
+jspm.import('fs').then(function(fs) {
+  console.log(fs.readFileSync('./package.json'));
+});
+```
+
+jspm supports all Node libraries on the server and uses their Browserify equivalents in the browser.
+
+[Read more about NodeJS usage of jspm](nodejs-usage.md).
+
+#### normalize(name, parentName) -> Promise(normalized)
+
+Normalize a module name within the current jspm project.
+
 #### class Loader
 
-Create a new SystemJS loader based on the current jspm environment:
+For more loader flexibility within the API, a new custom SystemJS loader instance can be created
+based on the current jspm environment:
 
 ```javascript
 var jspm = require('jspm');
@@ -40,17 +62,42 @@ mySystem.import('moduleName').then(function(module) {
 });
 ```
 
-jspm supports all Node libraries on the server and uses their Browserify equivalents in the browser.
-
-[Read more about NodeJS usage of jspm](docs/nodejs-usage.md).
-
 [Read more on the SystemJS API](https://github.com/systemjs/systemjs/blob/master/docs/system-api.md)
 
 ### Bundle API
 
+#### bundle(expression, fileName, options) -> Promise()
+
+```javascript
+// jspm bundle app/main build.js --no-mangle
+var jspm = require('jspm');
+jspm.setPackagePath('.');
+jspm.bundle('app/main', 'build.js', { mangle: false }).then(function() {
+});
+```
+
+Set the `inject` option to inject the bundle tree into the configuration file.
+
+### unbundle() -> Promise()
+
+Removes any existing `depCache` or `bundle` configuration from the configuration file.
+
+#### bundleSFX(moduleName, fileName, options) -> Promise()
+
+Creates a single self-executing bundle for a module.
+
+##### Bundle Options
+
+Both `bundle` and `bundleSFX` support the following options:
+
+* `minify`: Use minification, defaults to true.
+* `mangle`: Use mangling with minification, defaults to true.
+* `lowResSourceMaps`: Use faster low-resolution source maps, defaults to true.
+* `sourceMaps`: Use source maps, defaults to true.
+
 #### class Builder
 
-Create a new SystemJS Builder instance for the current jspm environment:
+When more build flexibility is needed, create a custom SystemJS Builder instance for the current jspm environment via:
 
 ```javascript
 var jspm = require('jspm');
@@ -58,24 +105,23 @@ jspm.setPackagePath('.'); // optional
 
 var builder = new jspm.Builder();
 
+builder.config({ custom: 'options' });
+
 // or builder.buildSFX
-builder.build('app/main.js', 'bundle.js', {
+builder.build('app/main.js', {
   minify: true,
   
   // inject the bundle config into the configuration file
   inject: true
 })
+.then(function(output) {
+  // output is now an in-memory build
+})
 ```
 
 The builder will be automatically configured to have the correct jspm configuration and baseURL for the environment.
 
-Additional configuration options can be set via `builder.config({...})`
-
 [Read more on the builder API at the SystemJS builder project page](https://github.com/systemjs/builder)
-
-### unbundle() -> Promise()
-
-Removes any existing `depCache` or `bundle` configuration from the configuration file.
 
 ### Package Manager API
 
