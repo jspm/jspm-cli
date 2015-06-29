@@ -74,6 +74,8 @@ API.import = function(name, parentName) {
 };
 
 API.Loader = function() {
+  config.loadSync();
+
   var cfg = config.loader.getConfig();
   cfg.baseURL = toFileURL(config.pjson.baseURL);
 
