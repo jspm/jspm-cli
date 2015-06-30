@@ -22,12 +22,17 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@master",
     "d3": "github:mbostock/d3@3.5.5",
-    "jquery": "github:components/jquery@2.1.3",
+    "ember": "github:components/ember@1.13.2",
+    "jquery": "github:components/jquery@2.1.4",
     "mocha": "npm:mocha@1.21.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "traceur": "github:jmcriffey/bower-traceur@0.0.87",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
     "voxel-demo": "npm:voxel-demo@0.0.1",
+    "github:components/ember@1.13.2": {
+      "handlebars.js": "github:components/handlebars.js@1.3.0",
+      "jquery": "github:components/jquery@2.1.4"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -67,7 +72,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:twbs/bootstrap@3.3.4": {
-      "jquery": "github:components/jquery@2.1.3"
+      "jquery": "github:components/jquery@2.1.4"
     },
     "npm:amdefine@0.1.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
