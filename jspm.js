@@ -28,7 +28,7 @@ var jspmCLI = new Liftoff({
 });
 jspmCLI.launch({}, function(env) {
   process.env.jspmConfigPath = env.configPath || '';
-  process.env.localJspm = !!env.modulePath;
+  process.env.globalJspm = !env.modulePath;
   if (env.modulePath)
     require(path.resolve(env.modulePath, '../cli'));
   else

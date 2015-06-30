@@ -111,9 +111,9 @@ process.on('uncaughtException', function(err) {
   }
 
   function showVersion() {
+    // deprecate localJspm
     ui.log(require('./package.json').version + '\n'
-      + (process.env.localJspm === 'true' ? 'Running against local jspm install.' : 'Running against global jspm install.')
-    );
+      + (process.env.globalJspm === 'true' || process.env.localJspm === 'false' ? 'Running against global jspm install.' : 'Running against local jspm install.'));
   }
 
   function dwalk(obj, visitor, pname) {
