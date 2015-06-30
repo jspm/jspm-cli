@@ -1,5 +1,6 @@
 var api = require('../api');
 var fs = require('fs');
+var common = require('../lib/common');
 
 api.setPackagePath('testlibs');
 
@@ -33,7 +34,7 @@ suite('API Calls', function() {
       })
       .then(function() {
         return api.normalize('ember').then(function(normalized) {
-          var content = fs.readFileSync(normalized.replace('file://', ''), 'utf-8');
+          var content = fs.readFileSync(common.fromFileURL(normalized), 'utf-8');
           assert(content.indexOf('ember.prod') !== -1);
           done();
         });
