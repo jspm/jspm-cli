@@ -49,4 +49,4 @@ Apache 2.0
 [npm-url]: https://npmjs.org/package/jspm
 [npm-image]: http://img.shields.io/npm/v/jspm.svg
 [gratipay-url]: https://gratipay.com/~guybedford/
-[gratipay-image]: //img.shields.io/gratipay/guybedford.svg
+[gratipay-image]: http://img.shields.io/gratipay/guybedford.svg
