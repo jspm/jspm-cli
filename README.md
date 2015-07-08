@@ -1,7 +1,7 @@
 jspm CLI
 ===
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Gratipay][gratipay-image]][gratipay-url]
 
 _[Try jspm 0.16 beta](https://github.com/jspm/jspm-cli/releases/tag/0.16.0-beta) with `npm install -g jspm@beta`_
 
@@ -48,3 +48,5 @@ Apache 2.0
 [downloads-image]: http://img.shields.io/npm/dm/jspm.svg
 [npm-url]: https://npmjs.org/package/jspm
 [npm-image]: http://img.shields.io/npm/v/jspm.svg
+[gratipay-url]: https://gratipay.com/~guybedford/
+[gratipay-image]: //img.shields.io/gratipay/guybedford.svg
