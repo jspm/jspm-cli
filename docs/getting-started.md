@@ -108,10 +108,11 @@ In an HTML page include the automatically downloaded SystemJS loader along with 
   </script>
   ```
 
-Run a local server and view the page, or run the browser with the 
-[file access from files flag](https://github.com/systemjs/systemjs/tree/0.17.0/docs/overview.md#file-access-from-files) and open the HTML page directly.
+Run a local server to view the page.
 
-> Note if using the file access from files flag, you will need to set the `config.js` baseURL to `.` so that packages are loaded relative to the HTML page itself.
+> jspm makes requests for many files. For best performance, ideally try to use a performant HTTP/2-enabled development server
+  and set up `jspm_packages` to be served with far-future expires from the local server so that it is cached in the browser
+  and separate requests don't need to be made.
 
 ### 6. Bundle for production
 
