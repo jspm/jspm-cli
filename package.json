@@ -21,7 +21,7 @@
     "rsvp": "^3.0.18",
     "semver": "^4.3.6",
     "systemjs": "^0.18.2",
-    "systemjs-builder": "^0.12.1",
+    "systemjs-builder": "git://github.com/systemjs/builder#master",
     "traceur": "0.0.90",
     "uglify-js": "~2.4.23"
   },
@@ -52,6 +52,10 @@
   "directories": {
     "test": "test"
   },
-  "ignore": ["sandbox", "testlibs", "test"],
+  "ignore": [
+    "sandbox",
+    "testlibs",
+    "test"
+  ],
   "license": "Apache 2.0"
 }
