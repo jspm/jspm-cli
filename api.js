@@ -24,6 +24,7 @@ var config = require('./lib/config');
 var path = require('path');
 var Builder = require('systemjs-builder');
 var toFileURL = require('./lib/common').toFileURL;
+var extend = require('./lib/common').extend;
 
 require('rsvp').on('error', function(reason) {
   ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
@@ -98,12 +99,10 @@ API.Builder = function(_config) {
   var cfg = config.loader.getConfig();
   cfg.baseURL = toFileURL(config.pjson.baseURL);
 
-  var systemBuilder = new Builder(cfg);
-
   if (_config)
-    systemBuilder.config(_config);
+    extend(cfg, _config);
 
-  return systemBuilder;
+  Builder.call(this, cfg);
 };
 API.Builder.prototype = Object.create(Builder.prototype);
 
