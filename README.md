@@ -8,7 +8,7 @@ _[Try jspm 0.16 beta](https://github.com/jspm/jspm-cli/releases/tag/0.16.0-beta)
 Registry and format agnostic JavaScript package manager.
 
 * Supports installing any module format from any registry, with GitHub and npm currently provided, via [the registry API](docs/registry-api.md).
-* Couples to the [SystemJS module loader](https://github.com/systemjs/systemjs), which is built on the current draft of the [browser ES6 module loader](https://github.com/ModuleLoader/es6-module-loader) specfication.
+* Couples to the [SystemJS module loader](https://github.com/systemjs/systemjs), which is built on the current draft of the [browser ES6 module loader](https://github.com/ModuleLoader/es6-module-loader) specification.
 * Carefully resolves version ranges using greedy fork minimization into flat multi-version package folders.
 * Provides tiered bundling of multi-format module trees using [SystemJS builder](https://github.com/systemjs/builder).
 * Loads and builds assets through [SystemJS plugins](https://github.com/systemjs/systemjs#plugins).
