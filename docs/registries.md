@@ -16,15 +16,21 @@ To support private GitHub, simply authenticate with your private GitHub account:
 ```
 
 ```
-Would you like to set up your GitHub credentials? [yes]: 
+Would you like to set up your GitHub credentials? [yes]:
      If using two-factor authentication or to avoid using your password you can generate an access token at https://github.com/settings/applications.
 
 Enter your GitHub username: username
-Enter your GitHub password or access token: 
-Would you like to test these credentials? [yes]: 
+Enter your GitHub password or access token:
+Would you like to test these credentials? [yes]:
 ```
 
 This will enable private repo installs.
+
+#### Github Rate Limiting
+
+Github rate limits by IP unless an auth token is provided. On hosted services such as Circle, Travis or Heroku where you share IPs with other users also using Github you will likely hit these limits. Setting a `JSPM_GITHUB_AUTH_TOKEN` variable in your environment is enough to tell jspm to use it. Most services have the ability to do this from their web panels.
+
+The `JSPM_GITHUB_AUTH_TOKEN` is an unencrypted Base64 encoding of the GitHub username and *password* or *access token* (separated by a `:`, e.g. `username:token`). The access token needs the `public_repo` scope. A generated `JSPM_GITHUB_AUTH_TOKEN` can be found in `~/.jspm/config` after you have configured private Github.
 
 #### Private npm
 
@@ -38,7 +44,7 @@ When available, the npm registry endpoint will automatically pull authentication
 and will not need to store this separately.
 
 ```
-npm registry [https://registry.npmjs.org]: 
+npm registry [https://registry.npmjs.org]:
 Currently reading credentials from npmrc, configure custom authentication? [no]:
 ```
 
@@ -50,7 +56,7 @@ You may wish to create your own custom registries, such as a custom private `npm
 
 > Note that it is not advisable to create an registry with a different name to `npm` or `github` if it is a mirror, as the goal is for registry names to be canonical and universal. **Only use this option when your custom registry doesn't duplicate public packages on npm or GitHub.**
 
-#### Separate private npm
+#### Separate Private npm
 
 This can be setup with:
 
@@ -64,15 +70,15 @@ We now have an `npm` registry based on a custom registry and authentication whic
   jspm install myregistry:package
 ```
 
-#### GitHub enterprise support
+#### GitHub Enterprise Support
 
 It is possible to create a GitHub enterprise support with:
 
 ```
   jspm registry create mycompany jspm-github
-Are you setting up a GitHub Enterprise endpoint? [yes]: 
+Are you setting up a GitHub Enterprise endpoint? [yes]:
 Enter the hostname of your GitHub Enterprise server: mycompany.com
-Would you like to set up your GitHub credentials? [yes]: 
+Would you like to set up your GitHub credentials? [yes]:
 ```
 
 Note that GitHub enterprise support has not been comprehensively tested, as we've had to rely on feedback and PRs from GitHub enterprise users. If there are any issues at all please post an issue and we'll work to fix these.
@@ -107,7 +113,6 @@ jspm config registries.github.auth JSPM_GITHUB_AUTH_TOKEN
 jspm config registries.github.maxRepoSize 100
 jspm config registries.github.handler jspm-github
 ```
-> The JSPM_GITHUB_AUTH_TOKEN above is an unencrypted Base64 encoding of the GitHub username and *password* or *access token* (separated by a `:`, e.g. `username:token`). The access token needs the `public_repo` scope.
 
 These commands can then be run to easily regenerate the registry configuration.
 
@@ -139,7 +144,7 @@ before_install:
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 ```
 
-### Creating a private jspm Registry
+### Creating a Private jspm Registry
 
 You may wish to run your own version of the jspm registry instead of using the publicly maintained default. Running your own registry is particularly useful if you want to create short names to private packages and test lots of overrides.
 
