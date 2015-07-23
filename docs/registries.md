@@ -124,26 +124,6 @@ For npm, you may wish to automate the loading of config from npmrc. This can be 
 
 Which will just respond with defaults to all questions asked during registry install.
 
-#### Travis CI
-
-To configure registries through TravisCI, use the [Travis CLI tool](https://github.com/travis-ci/travis.rb#installation) to encrypt the **[JSPM_GITHUB_AUTH_TOKEN](#auto-configuring-registries)** from the `jspm registry export`.
-
-```
-travis encrypt 'JSPM_GITHUB_AUTH_TOKEN=[JSPM_GITHUB_AUTH_TOKEN]'
-```
-
-Then include it in Travis.yml:
-
-```yml
-env:
-  global:
-  - secure: [ENCRYPTED_STRING]
-
-before_install:
-- npm install -g jspm
-- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
-```
-
 ### Creating a Private jspm Registry
 
 You may wish to run your own version of the jspm registry instead of using the publicly maintained default. Running your own registry is particularly useful if you want to create short names to private packages and test lots of overrides.
