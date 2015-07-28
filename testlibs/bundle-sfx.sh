@@ -1,2 +1,2 @@
-jspm bundle-sfx main + voxel-demo -mi
+jspm bundle-sfx main -mi
 http-server
