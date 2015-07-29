@@ -284,7 +284,7 @@ Now when you install or update a module your private registry will be used inste
 
 ## Production Workflows
 
-There are two main workflows for production:
+There are three main workflows for production:
 1. Compile into a bundle.
 2. Cache the dependency tree for flat multiplexing via SPDY / HTTP2.
 3. Create a self-executing bundle
