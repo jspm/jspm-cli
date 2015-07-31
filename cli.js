@@ -130,33 +130,63 @@ process.on('uncaughtException', function(err) {
     }
   }
 
-  function readOptions(args, flags, settings) {
-    settings = settings || [];
-    var argOptions = { args: [] }, i, j, k;
-    for (i = 0; i < args.length; i++) {
-      if (args[i].startsWith('--')) {
-        for (j = 0; j < flags.length; j++)
-          if (flags[j] === args[i])
-            argOptions[flags[j].substr(2)] = i;
-        for (j = 0; j < settings.length; j++)
-          if (settings[j] === args[i])
-            argOptions[settings[j].substr(2)] = args[++i];
-      }
-      else if (args[i].startsWith('-') && args[i].length > 1) {
-        var opts = args[i].substr(1);
-        opl: for (j = 0; j < opts.length; j++) {
-          for (k = 0; k < flags.length; k++) {
-            if (flags[k].substr(2, 1) === opts[j]) {
-              argOptions[flags[k].substr(2)] = argOptions.args.length;
-              continue opl;
-            }
-          }
-        }
-      }
-      else
-        argOptions.args.push(args[i]);
+
+  // takes commandline args, space-separated
+  // flags is array of flag names
+  // optFlags is array of flags that have option values
+  // optFlags suck up arguments until next flag
+  // returns { [flag]: true / false, ..., [optFlag]: value, ..., args: [all non-flag args] }
+  function readOptions(args, flags, optFlags) {
+    // output options object
+    var options = { args: [] };
+
+    flags = flags || [];
+    optFlags = optFlags || [];
+
+    var curOptionFlag;
+
+    function getFlagMatch(arg, flags) {
+      var index;
+
+      if (arg.startsWith('--'))
+        index = flags.indexOf(arg.substr(2));
+      else if (arg.startsWith('-'))
+        index = flags.indexOf(arg.substr(1));
+
+      if (index !== -1)
+        return flags[index];
     }
-    return argOptions;
+
+    for (i = 0; i < args.length; i++) {
+      var arg = args[i];
+
+      var flag = getFlagMatch(arg, flags);
+      var optFlag = getFlagMatch(arg, optFlags);
+
+      // option flag -> suck up args
+      if (optFlag) {
+        curOptionFlag = optFlag;
+        options[curOptionFlag] = [];
+      }
+      // normal boolean flag
+      else if (flag) {
+        options[flag] = true;
+      }
+      // value argument
+      else {
+        if (curOptionFlag)
+          options[curOptionFlag].push(arg);
+        else
+          options.args.push(arg);
+      }
+    }
+
+    // flag values are strings
+    optFlags.forEach(function(flag) {
+      options[flag] = (options[flag] || []).join(' ');
+    });
+
+    return options;
   }
 
   var args = process.argv.splice(2),
@@ -175,15 +205,15 @@ process.on('uncaughtException', function(err) {
 
     case 'i':
     case 'install':
-      options = readOptions(args, ['--force', '--override', '--link', '--yes', '--lock', '--latest',
-                                   '--unlink', '--quick', '--dev', '--edge']);
+      options = readOptions(args, ['force', 'link', 'yes', 'lock', 'latest',
+                                   'unlink', 'quick', 'dev', 'edge'], ['override']);
       options.inject = inject;
       options.update = doUpdate;
 
       args = options.args;
 
       var depMap;
-      for (var i = 1; i < (options.override || args.length); i++) {
+      for (var i = 1; i < args.length; i++) {
         depMap = depMap || {};
         var name, target;
         var arg = args[i];
@@ -204,7 +234,7 @@ process.on('uncaughtException', function(err) {
         depMap[name] = target || '';
       }
 
-      var override = options.override && args.splice(options.override).join(' ');
+      var override = options.override;
       if (override) {
         if (!override.startsWith('{')) {
           try {
@@ -257,7 +287,7 @@ process.on('uncaughtException', function(err) {
     case 'r':
     case 'remove':
     case 'uninstall':
-      options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['yes']);
 
       if (options.yes)
         ui.useDefaults();
@@ -274,12 +304,12 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'resolve':
-      options = readOptions(args, ['--only']);
+      options = readOptions(args, null, ['only']);
 
       if (!options.only)
         return ui.log('warn', 'Use %jspm resolve --only registry:pkg@version%');
 
-      install.resolveOnly(options.args[1])
+      install.resolveOnly(options.only)
       .catch(function(err) {
         if (!err)
           ui.log('err', 'Resolve operation not performed.');
@@ -290,7 +320,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'clean':
-      options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['yes']);
       args = options.args;
 
       if (options.yes)
@@ -307,7 +337,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'inspect':
-      options = readOptions(args, ['--forks']);
+      options = readOptions(args, ['forks']);
       args = options.args;
 
       config.load()
@@ -324,21 +354,21 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'init':
-      options = readOptions(args, ['--yes', '--prompts']);
+      options = readOptions(args, ['yes', 'prompts']);
       if (options.yes)
         ui.useDefaults();
       core.init(options.args[1], options.prompts);
       break;
 
     case 'dl-loader':
-      options = readOptions(args, ['--source', '--edge', '--yes', '--traceur', '--babel', '--typescript']);
+      options = readOptions(args, ['source', 'edge', 'yes', 'traceur', 'babel', 'typescript']);
       if (options.yes)
         ui.useDefaults();
       core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, true);
       break;
 
     case 'setmode':
-      options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['yes']);
       if (options.yes)
         ui.useDefaults();
       core.setMode(args.splice(1))
@@ -350,7 +380,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'depcache':
-      options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['yes']);
       if (options.yes)
         ui.useDefaults();
       bundle.depCache(args[1]);
@@ -361,22 +391,30 @@ process.on('uncaughtException', function(err) {
       var sfxBundle = true;
 
     case 'bundle':
-      options = readOptions(args, ['--inject', '--yes', '--skip-source-maps', '--minify',  '--no-mangle', '--hires-source-maps', '--no-runtime', '--inline-source-maps', '--amd', '--cjs', '--es6']);
+      options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify', 
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps'], ['format', 'global-name', 'globals']);
+
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
       options.mangle = !options['no-mangle'];
 
-      if (options['inline-source-maps']){
+      if (options['inline-source-maps'])
         options.sourceMaps = 'inline';
-      }
+
+      if (options['global-name'])
+        options.sfxGlobalName = options['global-name'];
+
+      options.sfxFormat = options.format;
+
+      if (options.globals)
+        options.sfxGlobals = eval('(' + options.globals + ')');
 
       var bArgs = options.args.splice(1);
 
-      if (bArgs.length === 0) {
+      if (bArgs.length === 0)
         return ui.log('warn', 'You must provide at least one module as the starting point for bundling');
-      }
 
       if (bArgs.length < 2) {
         (sfxBundle ? bundle.bundleSFX : bundle.bundle)(bArgs[0], undefined, options)
@@ -415,14 +453,14 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'build':
-      options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['yes']);
       if (options.yes)
         ui.useDefaults();
       core.build();
       break;
 
     case 'compile':
-      options = readOptions(args, ['--transpile', '--minify', '--removeJSExtensions', '--yes'], ['--map', '--format']);
+      options = readOptions(args, ['transpile', 'minify', 'removeJSExtensions', 'yes'], ['map', 'format']);
       if (options.yes)
         ui.useDefaults();
       if (options.map) {
@@ -440,7 +478,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'link':
-      options = readOptions(args, ['--force', '--yes']);
+      options = readOptions(args, ['force', 'yes']);
 
       if (options.yes)
         ui.useDefaults();
@@ -454,7 +492,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'registry':
-      options = readOptions(args, ['--yes']);
+      options = readOptions(args, ['yes']);
 
       if (options.yes)
         ui.useDefaults();
