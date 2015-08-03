@@ -148,13 +148,16 @@ process.on('uncaughtException', function(err) {
     function getFlagMatch(arg, flags) {
       var index;
 
-      if (arg.startsWith('--'))
+      if (arg.startsWith('--')) {
         index = flags.indexOf(arg.substr(2));
-      else if (arg.startsWith('-'))
-        index = flags.indexOf(arg.substr(1));
-
-      if (index !== -1)
-        return flags[index];
+        if (index !== -1)
+          return flags[index];
+      }
+      else if (arg.startsWith('-')) {
+        return flags.filter(function(f) {
+          return f.substr(0, 1) === arg.substr(1);
+        })[0];
+      }
     }
 
     for (i = 0; i < args.length; i++) {
