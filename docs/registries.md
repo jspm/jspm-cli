@@ -26,12 +26,6 @@ Would you like to test these credentials? [yes]:
 
 This will enable private repo installs.
 
-#### Github Rate Limiting
-
-Github rate limits by IP unless an auth token is provided. On hosted services such as Circle, Travis or Heroku where you share IPs with other users also using Github you will likely hit these limits. Setting a `JSPM_GITHUB_AUTH_TOKEN` variable in your environment is enough to tell jspm to use it. Most services have the ability to do this from their web panels.
-
-The `JSPM_GITHUB_AUTH_TOKEN` is an unencrypted Base64 encoding of the GitHub username and *password* or *access token* (separated by a `:`, e.g. `username:token`). The access token needs the `public_repo` scope. A generated `JSPM_GITHUB_AUTH_TOKEN` can be found in `~/.jspm/config` after you have configured private Github.
-
 #### Private npm
 
 Similarly for npm, we can authenticate and set a custom registry path through the configuration:
@@ -113,6 +107,9 @@ jspm config registries.github.auth JSPM_GITHUB_AUTH_TOKEN
 jspm config registries.github.maxRepoSize 100
 jspm config registries.github.handler jspm-github
 ```
+
+> The JSPM_GITHUB_AUTH_TOKEN above is an unencrypted Base64 encoding of the GitHub username and password or access token (separated by a :, e.g. username:token). The access token needs the public_repo scope.
+
 
 These commands can then be run to easily regenerate the registry configuration.
 
