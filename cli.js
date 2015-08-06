@@ -84,7 +84,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm link registry:pkg@version     Link a local folder as an installable package\n'
       + 'jspm install --link registry:name  Install a linked package\n'
       + '\n'
-      + 'jspm dl-loader [--edge --source]   Download the browser loader files\n'
+      + 'jspm dl-loader [--edge --latest]   Download the browser loader files\n'
       + 'jspm dl-loader [babel|traceur|typescript]\n'
       + '\n'
       + 'jspm resolve --only registry:package@version\n'
@@ -155,7 +155,7 @@ process.on('uncaughtException', function(err) {
       }
       else if (arg.startsWith('-')) {
         return flags.filter(function(f) {
-          return f.substr(0, 1) === arg.substr(1);
+          return f.substr(0, 1) === arg.substr(1, 1);
         })[0];
       }
     }
@@ -364,10 +364,10 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'dl-loader':
-      options = readOptions(args, ['source', 'edge', 'yes', 'traceur', 'babel', 'typescript']);
+      options = readOptions(args, ['source', 'latest', 'edge', 'yes', 'traceur', 'babel', 'typescript']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, true);
+      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, options.latest, true);
       break;
 
     case 'setmode':
