@@ -136,7 +136,7 @@ process.on('uncaughtException', function(err) {
   // optFlags is array of flags that have option values
   // optFlags suck up arguments until next flag
   // returns { [flag]: true / false, ..., [optFlag]: value, ..., args: [all non-flag args] }
-  function readOptions(args, flags, optFlags) {
+  function readOptions(inArgs, flags, optFlags) {
     // output options object
     var options = { args: [] };
 
@@ -160,9 +160,20 @@ process.on('uncaughtException', function(err) {
       }
     }
 
-    for (i = 0; i < args.length; i++) {
-      var arg = args[i];
+    // de-sugar any coupled single-letter flags
+    // -abc -> -a -b -c
+    var args = [];
+    inArgs.forEach(function(arg) {
+      if (arg[0] == '-' && arg.length > 1) {
+        for (var i = 1; i < arg.length; i++)
+          args.push('-' + arg[i]);
+      }
+      else {
+        args.push(arg);
+      }
+    });
 
+    args.forEach(function(arg) {
       var flag = getFlagMatch(arg, flags);
       var optFlag = getFlagMatch(arg, optFlags);
 
@@ -182,7 +193,7 @@ process.on('uncaughtException', function(err) {
         else
           options.args.push(arg);
       }
-    }
+    });
 
     // flag values are strings
     optFlags.forEach(function(flag) {
