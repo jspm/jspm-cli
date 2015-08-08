@@ -5,7 +5,7 @@
     "bitwise"       : true,     // true: Prohibit bitwise operators (&, |, ^, etc.)
     "camelcase"     : false,    // true: Identifiers must be in camelCase
     "curly"         : false,    // true: Require {} for every new block or scope
-    "eqeqeq"        : true,    // true: Require triple equals (===) for comparison
+    "eqeqeq"        : false,    // true: Require triple equals (===) for comparison
     "forin"         : false,     // false: Disable filtering for..in loops with obj.hasOwnProperty()
     "freeze"        : true,     // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
     "immed"         : true,    // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
