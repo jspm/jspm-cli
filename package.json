@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "Registry and format agnostic JavaScript package manager",
-  "version": "0.16.0-beta.3",
+  "version": "0.16.0-beta.4",
   "main": "./api.js",
   "author": "",
   "dependencies": {
@@ -9,8 +9,8 @@
     "core-js": "^0.9.17",
     "glob": "^5.0.10",
     "graceful-fs": "^3.0.8",
-    "jspm-github": "^0.12.2",
-    "jspm-npm": "^0.23.2",
+    "jspm-github": "^0.13.0",
+    "jspm-npm": "^0.24.0",
     "jspm-registry": "^0.4.0",
     "liftoff": "^2.1.0",
     "minimatch": "^2.0.8",
@@ -20,9 +20,9 @@
     "rimraf": "^2.4.0",
     "rsvp": "^3.0.18",
     "semver": "^5.0.1",
-    "systemjs": "^0.18.2",
-    "systemjs-builder": "git://github.com/systemjs/builder#master",
-    "traceur": "0.0.90",
+    "systemjs": "0.18.9",
+    "systemjs-builder": "^0.13.1",
+    "traceur": "0.0.91",
     "uglify-js": "~2.4.23"
   },
   "registry": "npm",
