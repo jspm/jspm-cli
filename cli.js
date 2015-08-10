@@ -164,7 +164,7 @@ process.on('uncaughtException', function(err) {
     // -abc -> -a -b -c
     var args = [];
     inArgs.forEach(function(arg) {
-      if (arg[0] == '-' && arg.length > 1) {
+      if (arg[0] == '-' && arg.length > 1 && arg[1] != '-') {
         for (var i = 1; i < arg.length; i++)
           args.push('-' + arg[i]);
       }
