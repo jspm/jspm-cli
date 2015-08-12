@@ -50,7 +50,7 @@ jspm config registries.github.handler jspm-github
 
 #### GitHub Authentication Environment Variable
 
-GitHub is rate-limited by IP so that when running automated installs for testing or other workflows, it is necessary to configure authentication.
+GitHub is rate-limited by IP so that when running automated installs for testing or other workflows, it is necessary to configure authentication, otherwise a `GitHub rate limit reached.` error message will likely be displayed.
 
 To make authentication easier, an environment variable `JSPM_GITHUB_AUTH_TOKEN` can be set on the automated server, containing exactly the value of `registries.github.auth` when running `jspm registry export github`, after configuring GitHub authentication manually via `jspm registry config github`.
 
