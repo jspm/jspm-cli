@@ -60,7 +60,7 @@ This can equally be written:
 
 Any version tag or branch can be installed this way for GitHub and npm. Commit-based installs are not supported for the GitHub registry currently.
 
-Install a version range with - 
+Install a version range with -
 
 [Semver compatibility range](https://github.com/npm/node-semver#caret-ranges-123-025-004):
 
@@ -155,7 +155,7 @@ To inspect all installed dependencies use `jspm inspect`:
                     npm:inherits 2.0.1
                      npm:process 0.10.0
                         npm:util 0.10.3
-     
+
   To inspect individual package constraints, use jspm inspect registry:name.
 ```
 
@@ -165,9 +165,9 @@ To see the install constraints for a given dependency use `jspm inspect registry
 
 ```
   jspm inspect npm:util
-     
+
   Installed versions of npm:util
-     
+
     github:jspm/nodelibs-util@0.1.0
       util 0.10.3 (^0.10.3)
 ```
@@ -196,7 +196,7 @@ To uninstall a package:
   jspm uninstall jquery
        Clearing configuration for github:components/jquery@2.1.3
        Removing package files for github:components/jquery@2.1.3
-  
+
   ok   Uninstall complete.
 ```
 
@@ -223,3 +223,11 @@ In this way, these resolution solutions are all handled greedily on a case-by-ca
 If the install causes an existing dependency to break because of new resolutions, you can revert and install with `jspm install --lock newpackage`. This will then not alter any of the existing resolutions in the tree at all, only performing deduping in the new tree.
 
 For further interest, the code for the resolution algorithm can be found in https://github.com/jspm/jspm-cli/blob/master/lib/install.js#L71.
+
+### Github Rate Limiting
+
+Github rate limits by IP unless an auth token is provided. On hosted CI and PaaS services such as Circle, Travis and Heroku where you share IPs with other users you will often see a `GitHub rate limit reached.` error message.
+
+Most CI and PaaS services have the ability to do add environment variables from their web panels. If you set a `JSPM_GITHUB_AUTH_TOKEN` variable in your environment, jspm will effectively call `jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN` on your behalf.
+
+> The `JSPM_GITHUB_AUTH_TOKEN` is an unencrypted Base64 encoding of the GitHub username and *password* or *access token* (separated by a `:`, e.g. `username:token`). A generated `JSPM_GITHUB_AUTH_TOKEN` can be found in `~/.jspm/config` after you have [configured private Github](registries.md#private-github).
