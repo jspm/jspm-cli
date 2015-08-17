@@ -22,7 +22,6 @@ var EventEmitter = require('events').EventEmitter;
 var SystemJSLoader = require('systemjs').constructor;
 var config = require('./lib/config');
 var path = require('path');
-var Builder = require('systemjs-builder');
 var toFileURL = require('./lib/common').toFileURL;
 var extend = require('./lib/common').extend;
 
@@ -93,19 +92,7 @@ API.Loader = function() {
 /*
  * Returns a jspm-configured SystemJS Builder class
  */
-API.Builder = function(_config) {
-  config.loadSync();
-
-  var cfg = config.loader.getConfig();
-  cfg.baseURL = toFileURL(config.pjson.baseURL);
-
-  if (_config)
-    extend(cfg, _config);
-
-  Builder.call(this, cfg);
-};
-API.Builder.prototype = Object.create(Builder.prototype);
-
+API.Builder = bundle.Builder;
 // options.inject
 // options.sourceMaps
 // options.minify
