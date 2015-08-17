@@ -23,7 +23,6 @@ var SystemJSLoader = require('systemjs').constructor;
 var config = require('./lib/config');
 var path = require('path');
 var toFileURL = require('./lib/common').toFileURL;
-var extend = require('./lib/common').extend;
 
 require('rsvp').on('error', function(reason) {
   ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
