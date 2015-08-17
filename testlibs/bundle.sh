@@ -1,2 +1,1 @@
-jspm bundle main + voxel-demo -mi
-http-server
+jspm bundle main + voxel-demo -m
