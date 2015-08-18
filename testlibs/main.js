@@ -1,5 +1,5 @@
 import mocha from 'mocha';
-import * as suites from 'tests/tests';
+import * as suites from './tests/tests';
 
 mocha.setup('tdd');
 for (var s in suites) {

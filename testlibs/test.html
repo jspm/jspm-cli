@@ -9,6 +9,10 @@
 </body>
 
 <script>
-  System.import('main');
+  System.import('./main').then(function(m) {
+    console.log(m);
+  }).catch(function(e) {
+    console.log(e);
+  })
 </script>
 
