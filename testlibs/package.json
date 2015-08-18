@@ -20,5 +20,14 @@
     "traceur-runtime": "jmcriffey/bower-traceur-runtime@0.0.91",
     "typescript": "npm:typescript@^1.6.0-dev.20150818"
   },
+  "overrides": {
+    "github:components/ember@1.13.0": {
+      "format": "global",
+      "main": "ember.prod",
+      "files": [
+        "ember.prod.js"
+      ]
+    }
+  },
   "jspm": true
 }
