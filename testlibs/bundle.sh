@@ -1,1 +1,1 @@
-jspm bundle main + voxel-demo -m
+jspm bundle main + voxel-demo -mi
