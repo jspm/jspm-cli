@@ -375,10 +375,10 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'dl-loader':
-      options = readOptions(args, ['source', 'latest', 'edge', 'yes', 'traceur', 'babel', 'typescript']);
+      options = readOptions(args, ['source', 'latest', 'edge', 'yes', 'traceur', 'babel', 'typescript', 'no-update']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, options.latest, true);
+      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, options.latest, !options['no-update']);
       break;
 
     case 'setmode':
