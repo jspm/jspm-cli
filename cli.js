@@ -378,7 +378,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['source', 'latest', 'edge', 'yes', 'traceur', 'babel', 'typescript']);
       if (options.yes)
         ui.useDefaults();
-      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, options.latest, true);
+      core.dlLoader(options.args[1] || options.traceur && 'traceur' || options.babel && 'babel' || options.typescript && 'typescript', options.source, options.edge, options.latest);
       break;
 
     case 'setmode':
