@@ -397,7 +397,10 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['yes']);
       if (options.yes)
         ui.useDefaults();
-      bundle.depCache(args[1]);
+      if (!args[1])
+        ui.log('warn', 'depCache requires a module name to trace.');
+      else
+        bundle.depCache(args[1]);
       break;
 
     case 'b':
