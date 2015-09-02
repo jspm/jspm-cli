@@ -88,8 +88,8 @@ process.on('uncaughtException', function(err) {
       + 'jspm dl-loader [babel|traceur|typescript]\n'
       + '\n'
       + 'jspm resolve --only registry:package@version\n'
-      + '  resolve --only npm:jquery@2.1.1  Resolve all versions of a package to the given version\n'    
-      + '\n'  
+      + '  resolve --only npm:jquery@2.1.1  Resolve all versions of a package to the given version\n'
+      + '\n'
       + 'jspm setmode <mode>\n'
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
@@ -205,6 +205,12 @@ process.on('uncaughtException', function(err) {
 
   var args = process.argv.splice(2),
       options;
+
+  var logArgIndex = args.indexOf('--log');
+  if (logArgIndex > -1) {
+    ui.setLogLevel(args[logArgIndex + 1]);
+    args.splice(logArgIndex, 2);
+  }
 
   switch(args[0]) {
     case 'run':
@@ -408,7 +414,7 @@ process.on('uncaughtException', function(err) {
       var sfxBundle = true;
 
     case 'bundle':
-      options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify', 
+      options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
           'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps'], ['format', 'global-name', 'globals']);
 
       if (options.yes)
