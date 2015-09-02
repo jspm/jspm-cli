@@ -109,7 +109,9 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'jspm cache-clear                   Clear global caches, not recommended\n'
       + '\n'
-      + 'All options work with the -y flag to skip prompts\n'
+      + 'Global Flags\n'
+      + ' --yes | -y                        Skip prompts / use default inputs\n'
+      + ' --log <ok|warn|err>               Set log level\n'
     );
   }
 
