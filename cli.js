@@ -94,7 +94,7 @@ process.on('uncaughtException', function(err) {
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps]\n'
+      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
       + 'jspm bundle-sfx app/main [outfile] [--format <amd|cjs|global>] \n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
@@ -417,13 +417,14 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps'], ['format', 'global-name', 'globals']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals']);
 
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
       options.lowResSourceMaps = !options['hires-source-maps'];
       options.mangle = !options['no-mangle'];
+      options.sourceMapContents = !!options['source-map-contents'];
 
       if (options['inline-source-maps'])
         options.sourceMaps = 'inline';
