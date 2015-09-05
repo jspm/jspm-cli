@@ -58,38 +58,38 @@ Errors that are due to authentication and server configuration can be indicated 
 * meta can contain other lookup data that will be returned to the download function.
 * Only versions that are valid semvers will be selected when doing version install ranges.
 
-#### download (packageName, version, hash, meta, dir)
+#### download (packageName, version, hash, meta, targetDir)
 ```
-  -> Promise pjson
+  -> Promise packageConfig
 ```
 
-* Downloads into `dir`
-* Only needs to return the package.json object if no `getPackageConfig` hook is provided.
+* Downloads into `targetDir`
+* Only needs to return the package config if no `getPackageConfig` hook is provided.
 
 #### getPackageConfig (packageName, version, hash, meta), optional
 ```
-  -> Promise pjson, always takes preference over download pjson
+  -> Promise package config, always takes preference over download package config
 ```
 * Allows for downloads not to block dependency tree discovery
 
-#### processPackageConfig (pjson, packageName), optional
+#### processPackageConfig (packageConfig, packageName), optional
 ```
-  -> Promise pjson
+  -> Promise processed packageConfig
 ```
 
-* Used to apply modification operations to the package.json file prior to build operations.
-* Called before reading dependencies, allowing for registry-specific custom dependency formats to be converted into jspm-form here.
+* Used to apply modification operations to the package configuration prior to build operations.
+* The `dependencies` returned will be immediately used for preloading dependencies in parallel to downloads.
 * This function, as well as the build, are separated from the transport implementations to enable linking workflows.
-* Package.json provided already has overrides added, and the `jspm` property applied as an override. The `jspm` property containing the override that was applied is still provided.
+* Package configuration provided already has overrides included, and any `jspm` property merged in as well. The `jspm` property containing the derived override that was applied is still provided.
 
-#### build (pjson, dir), optional
+#### processPackage (packageConfig, packageDir), optional
 ```
-  -> optional array of build warnings to be saved under `.jspm.error` in the package
+  -> Promise processed packageConfig
 ```
-* Build can modify the pjson object, which is then finally saved to `.jspm.json`.
-* The main entry point can still be modified in the package.json.
-* Additional dependencies can be added to the package.json, in which case they will be downloaded after build.
-* Dependencies cannot be modified or removed though.
+* With the package files present, further configuration processing can be appiled before returning the final packageConfig.
+* The main entry point can still be specified in the packageConfig
+* Additional dependencies can be added to the packageConfig, in which case they will be downloaded after build.
+* Dependencies cannot be modified or removed though due to preloading.
 
 #### getOverride(registry, packageName, versionRange, override)
 
@@ -101,19 +101,17 @@ Errors that are due to authentication and server configuration can be indicated 
 * The registry can also provide overrides for all packages for all other registries, as well as the locate hook which allows the registry locating.
 * It is configured through `jspm config defaultRegistry registryName`.
 
-#### static packageFormat
+#### static packageNameFormats
 
-A regular expression that can be used to verify a package path for the registry.
+An array of wildcard expressions that can be used to match a given package name for this registry.
 
-For example, for the path `github:components/jquery@1.2.3/some/path`, it should be able to match `components/jquery@1.2.3/some/path`.
+For example, for `github:components/jquery@1.2.3`, the package path format is `*/*`, where the `*` will not match deeply.
 
-If using capturing groups, the first capturing group should return the package name part (`components/jquery@1.2.3`). If not using capturing groups, the regular expression should match just this package name part. This is used by jspm to be able to separate the package name from the subpath.
+For npm, the package path formats are `['*', '@*/*']` to support normal names and scopes like `npm:@scope/name`.
 
-For example, both `/^[^\/]+\/[^\/]+/` and `/(^[^\/]+\/[^\/]+)(\/.+)?/` would be valid for the GitHub registry.
+This makes it possible to determine from any package expression like `npm:@some/package/path` which part of the expression describes the package name and which part describes a path within the package.
 
-If a package does not pass this format regular expression, an error will be thrown.
-
-If no value is provided, the default is taken to be `/^[^\/]+/`.
+If no value is provided, the default is taken to be `['*']`.
 
 #### static configure (config, ui), optional
 ```
