@@ -28,8 +28,6 @@ var Promise = require('rsvp').Promise;
 
 var link = require('./lib/link');
 
-var build = require('./lib/build');
-
 require('rsvp').on('error', function(reason) {
   ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
 });
