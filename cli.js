@@ -445,9 +445,6 @@ process.on('uncaughtException', function(err) {
       if (options['global-name'])
         options.globalName = options['global-name'];
 
-      if (options.inject)
-        options.injectConfig = true;
-
       options.format = options.format;
 
       if (options.globals)
@@ -494,31 +491,6 @@ process.on('uncaughtException', function(err) {
       .catch(function(e) {
         ui.log('err', e.stack || e);
         process.exit(1);
-      });
-      break;
-
-    case 'build':
-      options = readOptions(args, ['yes']);
-      if (options.yes)
-        ui.useDefaults();
-      core.build();
-      break;
-
-    case 'compile':
-      options = readOptions(args, ['transpile', 'minify', 'removeJSExtensions', 'yes'], ['map', 'format']);
-      if (options.yes)
-        ui.useDefaults();
-      if (options.map) {
-        var mapParts = options.map.split('=');
-        options.map = {};
-        options.map[mapParts[0]] = mapParts[1];
-      }
-
-      build.compileDir(args[1], options)
-      .then(function() {
-        ui.log('ok', 'Compilation complete');
-      }, function(e) {
-        ui.log('err', e.stack || e);
       });
       break;
 
