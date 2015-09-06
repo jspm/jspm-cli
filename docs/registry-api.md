@@ -82,7 +82,7 @@ Errors that are due to authentication and server configuration can be indicated 
 * This function, as well as the build, are separated from the transport implementations to enable linking workflows.
 * Package configuration provided already has overrides included, and any `jspm` property merged in as well. The `jspm` property containing the derived override that was applied is still provided.
 
-#### processPackage (packageConfig, packageDir), optional
+#### processPackage (packageConfig, packageName, packageDir), optional
 ```
   -> Promise processed packageConfig
 ```
