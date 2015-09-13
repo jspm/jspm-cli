@@ -94,9 +94,12 @@ process.on('uncaughtException', function(err) {
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
-      + 'jspm bundle-sfx app/main [outfile] [--format <amd|cjs|global>] [--minify]\n'
+      + 'jspm bundle moduleA + module/b     Create a named bundle to populate the loader registry\n'
+      * '  [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
+      + '\n'
+      + 'jspm build app/main                Create an optimized static single-file build\n'
+      + '  [outfile] [--format <amd|cjs|global>]\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
       + '\n'
       + 'jspm registry <command>            Manage registries\n'
@@ -424,13 +427,16 @@ process.on('uncaughtException', function(err) {
         bundle.depCache(args[1]);
       break;
 
-    case 'b':
     case 'bundle-sfx':
-      var sfxBundle = true;
+      ui.log('err', '`bundle-sfx` has been renamed to `build`.\n\tUse %jspm build ' + args.join(' ') + '%');
+      break;
+    case 'b':
+    case 'build':
+      var staticBuild = true;
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals', 'global-defs']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals', 'global-deps', 'global-defs']);
 
       if (options.yes)
         ui.useDefaults();
@@ -445,10 +451,13 @@ process.on('uncaughtException', function(err) {
       if (options['global-name'])
         options.globalName = options['global-name'];
 
-      options.format = options.format;
+      if (options['global-deps'])
+        options.globalDeps = eval('(' + options['global-deps'] + ')');
 
-      if (options.globals)
+      if (options.globals) {
+        ui.log('warn', 'The %--globals% option has been renamed to %--global-deps%.');
         options.globalDeps = eval('(' + options.globals + ')');
+      }
 
       if (options['global-defs'])
         options.globalDefs = eval('(' + options['global-defs'] + ')');
@@ -459,7 +468,7 @@ process.on('uncaughtException', function(err) {
         return ui.log('warn', 'You must provide at least one module as the starting point for bundling');
 
       if (bArgs.length < 2) {
-        (sfxBundle ? bundle.bundleSFX : bundle.bundle)(bArgs[0], undefined, options)
+        (staticBuild ? bundle.build : bundle.bundle)(bArgs[0], undefined, options)
         .catch(function() {
           process.exit(1);
         });
@@ -479,7 +488,7 @@ process.on('uncaughtException', function(err) {
           expression = bArgs.splice(0, bArgs.length - 1).join(' ');
           fileName = bArgs[bArgs.length - 1];
         }
-        (sfxBundle ? bundle.bundleSFX : bundle.bundle)(expression, fileName, options)
+        (staticBuild ? bundle.build : bundle.bundle)(expression, fileName, options)
         .catch(function() {
           process.exit(1);
         });
