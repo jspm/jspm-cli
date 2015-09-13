@@ -436,7 +436,7 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals', 'global-deps', 'global-defs']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node'], ['format', 'global-name', 'globals', 'global-deps', 'global-defs']);
 
       if (options.yes)
         ui.useDefaults();
