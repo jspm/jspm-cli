@@ -115,8 +115,11 @@ API.unbundle = function() {
  * returns a promise
  * options.minify, options.sourceMaps
  */
-API.bundleSFX = function(expression, fileName, options) {
-  return bundle.bundleSFX(expression, fileName, options);
+API.build = function(expression, fileName, options) {
+  return bundle.build(expression, fileName, options);
+};
+API.bundleSFX = function() {
+  return Promise.reject(new TypeError('jspm.bundleSFX is now jspm.build'));
 };
 
 
