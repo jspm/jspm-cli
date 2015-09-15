@@ -94,7 +94,7 @@ process.on('uncaughtException', function(err) {
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
+      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents] [--cjs-to-es5]\n'
       + 'jspm bundle-sfx app/main [outfile] [--format <amd|cjs|global>] \n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
@@ -417,7 +417,7 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'cjs-to-es5' ], ['format', 'global-name', 'globals']);
 
       if (options.yes)
         ui.useDefaults();
@@ -486,7 +486,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'compile':
-      options = readOptions(args, ['transpile', 'minify', 'removeJSExtensions', 'yes'], ['map', 'format']);
+      options = readOptions(args, ['transpile', 'minify', 'removeJSExtensions', 'yes', 'cjs-to-es5'], ['map', 'format']);
       if (options.yes)
         ui.useDefaults();
       if (options.map) {
