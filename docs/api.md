@@ -107,8 +107,8 @@ var builder = new jspm.Builder();
 
 builder.config({ custom: 'options' });
 
-// or builder.buildSFX
-builder.build('app/main.js', {
+// or builder.buildStatic
+builder.bundle('app/main.js', {
   minify: true,
   
   // inject the bundle config into the configuration file

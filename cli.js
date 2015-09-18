@@ -430,12 +430,12 @@ process.on('uncaughtException', function(err) {
         options.sourceMaps = 'inline';
 
       if (options['global-name'])
-        options.sfxGlobalName = options['global-name'];
+        options.globalName = options['global-name'];
 
-      options.sfxFormat = options.format;
+      options.format = options.format;
 
       if (options.globals)
-        options.sfxGlobals = eval('(' + options.globals + ')');
+        options.globalDeps = eval('(' + options.globals + ')');
 
       var bArgs = options.args.splice(1);
 
