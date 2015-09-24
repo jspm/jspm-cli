@@ -1,6 +1,6 @@
 * [Customizing Registries](#customizing-registries)
 * [Auto-configuring Registries](#auto-configuring-registries)
-* [Creating a private jspm registry](#creating-a-private-registry)
+* [Creating a private jspm registry](#creating-a-private-jspm-registry)
 * [Creating new Registries](#creating-new-registries)
 
 ### Customizing Registries
@@ -76,9 +76,9 @@ It is advisable to periodically maintain upstream updates from the jspm registry
 
 #### Custom Registries
 
-Third-party registries are listed at https://github.com/jspm/jspm-cli/wiki/Community-Projects#registry-endpoints.
+Third-party registries are listed at https://github.com/jspm/jspm-cli/wiki/Third-Party-Resources#registries.
 
-If you wish to create a custom registry for another type of package registry, this can be done by implementing the [Registry API](https://github.com/jspm/jspm-cli/wiki/Registry-API).
+If you wish to create a custom registry for another type of package registry, this can be done by implementing the [Registry API](registry-api.md).
 
 The custom registry can be installed through npm:
 
