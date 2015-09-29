@@ -5,6 +5,10 @@ var common = require('../lib/common');
 api.setPackagePath('testlibs');
 
 suite('API Calls', function() {
+  test('version', function() {
+    assert(api.version.match(/\d+\.\d+\.\d+(-[^\.]+)?/));
+  });
+
   test('Normalize', function(done) {
     api.normalize('jquery').then(function(normalized) {
       assert(normalized === System.baseURL + 'jspm_packages/github/components/jquery@2.1.4.js');
