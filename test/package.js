@@ -1,4 +1,5 @@
 var package = require('../lib/package');
+var common = require('../lib/common');
 
 suite('getVersionMatch', function() {
   suite('regular operation', function() {
@@ -247,7 +248,7 @@ suite('getVersionMatch', function() {
 });
 
 suite('Process Dependencies', function() {
-  var processDeps = package.processDeps;
+  var processDeps = common.processDeps;
 
   function serialize(packages) {
     var out = {};
