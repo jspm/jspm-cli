@@ -54,7 +54,7 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'jspm init [basepath] [--prompts]   Create / validate project configuration file\n'
       + '\n'
-      + 'jspm install <name[=target]+> [--force skips cache] [--latest]\n'
+      + 'jspm install <name[=target]+> [--force skips cache] [--latest] [--quick]\n'
       + '  install jquery                   Install a package looked up in the jspm registry\n'
       + '  install react=npm:react          Install a package from a registry to latest\n'
       + '  install jquery=2 react           Install a package to a version or range\n'
@@ -73,14 +73,13 @@ process.on('uncaughtException', function(err) {
       + 'jspm clean                         Clear unused and orphaned dependencies\n'
       + '\n'
       + 'jspm inspect [--forks]             View all installed package versions\n'
-      + 'jspm inspect npm:source-map        View the versions and ranges of a package\n'
+      + '  inspect npm:source-map           View the versions and ranges of a package\n'
       + '\n'
-      + 'jspm inject <name[=target]> [--force] [--latest] [--lock] [-o]\n'
-      + '  inject jquery                    Identical to install, but injects config\n'
+      //+ 'jspm inject <name[=target]> [--force] [--latest] [--lock] [-o]\n'
+      //+ '  inject jquery                    Identical to install, but injects config\n'
       + '                                   only instead of downloading the package\n'
       + '\n'
-      + 'jspm link registry:pkg@version     Link a local folder as an installable package\n'
-      + 'jspm install --link registry:name  Install a linked package\n'
+      + 'jspm link <path> [package-name]    Symlink a local folder for development\n'
       + '\n'
       + 'jspm dl-loader [--edge --latest]   Download the browser loader files\n'
       + 'jspm dl-loader [babel|traceur|typescript]\n'
@@ -88,16 +87,16 @@ process.on('uncaughtException', function(err) {
       + 'jspm resolve --only registry:package@version\n'
       + '  resolve --only npm:jquery@2.1.1  Resolve all versions of a package to the given version\n'
       + '\n'
-      + 'jspm setmode <mode>\n'
-      + '  setmode local                    Switch to locally downloaded libraries\n'
-      + '  setmode remote                   Switch to CDN external package sources\n'
+      //+ 'jspm setmode <mode>\n'
+      //+ '  setmode local                    Switch to locally downloaded libraries\n'
+      //+ '  setmode remote                   Switch to CDN external package sources\n'
       + '\n'
       + 'jspm bundle moduleA + module/b     Create a named bundle to populate the loader registry\n'
-      * '  [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
+      + '  [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + '\n'
-      + 'jspm build app/main                Create an optimized static single-file build\n'
-      + '  [outfile] [--format <amd|cjs|global>]\n'
+      //+ 'jspm build app/main                Create an optimized static single-file build\n'
+      //+ '  [outfile] [--format <amd|cjs|global>]\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
       + '\n'
       + 'jspm registry <command>            Manage registries\n'
@@ -240,7 +239,7 @@ process.on('uncaughtException', function(err) {
 
     case 'i':
     case 'install':
-      options = readOptions(args, ['force', 'link', 'yes', 'lock', 'latest',
+      options = readOptions(args, ['force', 'yes', 'lock', 'latest',
                                    'unlink', 'quick', 'dev', 'edge', 'production'], ['override']);
       options.inject = inject;
       options.update = doUpdate;
@@ -496,17 +495,14 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'link':
-      options = readOptions(args, ['force', 'yes']);
+      options = readOptions(args, ['force', 'yes', 'quick']);
 
       if (options.yes)
         ui.useDefaults();
 
       args = options.args;
 
-      var linkname = args[2] || args[1] || '';
-      var linkpath = args[2] || '.';
-
-      link.link(linkname, linkpath, options.force);
+      link.link(args[1], args[2], options);
       break;
 
     case 'registry':
