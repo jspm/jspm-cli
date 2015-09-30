@@ -258,7 +258,7 @@ process.on('uncaughtException', function(err) {
         if (!target) {
           target = name;
           if (name.indexOf(':') !== -1)
-            name = name.substr(name.indexOf(':') + 1);
+            name = name.substr(name.indexOf(':') + 1).split('/').pop();
           if (name.indexOf('@') > 0)
             name = name.substr(0, name.lastIndexOf('@'));
         }
