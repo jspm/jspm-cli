@@ -21,11 +21,60 @@
     "typescript": "npm:typescript@^1.6.0-dev.20150818"
   },
   "overrides": {
-    "github:components/ember@1.13.0": {
+    "github:components/jquery@2.1.4": {
+      "main": "jquery"
+    },
+    "github:jmcriffey/bower-traceur-runtime@0.0.91": {
       "format": "global",
+      "shim": {
+        "traceur-runtime": {
+          "exports": "$traceurRuntime"
+        }
+      }
+    },
+    "github:jmcriffey/bower-traceur@0.0.91": {
+      "format": "global",
+      "shim": {
+        "traceur": {
+          "exports": "traceur"
+        }
+      }
+    },
+    "github:components/ember@1.13.2": {
       "main": "ember.prod",
       "files": [
         "ember.prod.js"
+      ]
+    },
+    "github:components/handlebars.js@1.3.0": {
+      "main": "handlebars",
+      "shim": {
+        "handlebars": {
+          "exports": "Handlebars"
+        }
+      },
+      "files": [
+        "handlebars.js",
+        "handlebars.runtime.js"
+      ]
+    },
+    "github:twbs/bootstrap@3.3.4": {
+      "main": "js/bootstrap",
+      "shim": {
+        "js/bootstrap": {
+          "deps": [
+            "jquery"
+          ],
+          "exports": "$"
+        }
+      },
+      "dependencies": {
+        "jquery": "github:components/jquery"
+      },
+      "files": [
+        "css",
+        "fonts",
+        "js"
       ]
     }
   },
