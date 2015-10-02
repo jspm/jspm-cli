@@ -94,8 +94,8 @@ process.on('uncaughtException', function(err) {
       + '  setmode local                    Switch to locally downloaded libraries\n'
       + '  setmode remote                   Switch to CDN external package sources\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
-      + 'jspm bundle-sfx app/main [outfile] [--format <amd|cjs|global>] \n'
+      + 'jspm bundle moduleA + module/b [outfile] [--minify] [--global-defs <json string>] [--no-mangle] [--inject] [--skip-source-maps] [--source-map-contents]\n'
+      + 'jspm bundle-sfx app/main [outfile] [--format <amd|cjs|global>] [--minify] [--global-defs <json string>] \n'
       + 'jspm unbundle                      Remove injected bundle configuration\n'
       + 'jspm depcache moduleName           Stores dep cache in config for flat pipelining\n'
       + '\n'
@@ -417,7 +417,7 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents'], ['format', 'global-name', 'globals', 'global-defs']);
 
       if (options.yes)
         ui.useDefaults();
@@ -437,6 +437,9 @@ process.on('uncaughtException', function(err) {
       if (options.globals)
         options.globalDeps = eval('(' + options.globals + ')');
 
+      if (options['global-defs']) 
+        options.globalDefs = eval('(' + options['global-defs'] + ')');
+      
       var bArgs = options.args.splice(1);
 
       if (bArgs.length === 0)
