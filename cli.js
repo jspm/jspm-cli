@@ -240,7 +240,7 @@ process.on('uncaughtException', function(err) {
     case 'i':
     case 'install':
       options = readOptions(args, ['force', 'yes', 'lock', 'latest',
-                                   'unlink', 'quick', 'dev', 'edge', 'production'], ['override']);
+                                   'unlink', 'quick', 'dev', 'edge', 'production', 'peer'], ['override']);
       options.inject = inject;
       options.update = doUpdate;
 
@@ -260,6 +260,8 @@ process.on('uncaughtException', function(err) {
             name = name.substr(name.indexOf(':') + 1).split('/').pop();
           if (name.indexOf('@') > 0)
             name = name.substr(0, name.lastIndexOf('@'));
+          else if (name[0] == '/' || name[0] == '.')
+            return ui.log('err', 'Target %' + name + '% looks like a file path not a package.' + (args.length == 2 ? '\nDid you mean %jspm link ' + name + '%?' : ''));
         }
 
         if (target.indexOf(':') === -1)
