@@ -8,3 +8,9 @@ This is possible using the `jspm bundle` feature. If you're code lives in a fold
 ```
 jspm bundle 'lib/**/* - [lib/**/*] --inject'
 ```
+Modules loaded with specific loaders need to be excluded specifically. Examples:
+``` bash
+jspm bundle 'src/**/* - [src/**/*] - [src/**/*.css!]' bundle.js --inject
+jspm bundle 'src/**/* - [src/**/*] - [src/**/*.css!css-modules]' bundle.js --inject
+```
+When the loader is specific through [systemjs meta config](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md#meta) this isn't needed. 
