@@ -426,7 +426,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'bundle-sfx':
-      ui.log('err', '`bundle-sfx` has been renamed to `build`.\n\tUse %jspm build ' + args.join(' ') + '%');
+      ui.log('err', '`bundle-sfx` has been renamed to `build`.\n\tUse %jspm build ' + args.splice(1).join(' ') + '%');
       break;
     case 'b':
     case 'build':
