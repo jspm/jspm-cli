@@ -363,7 +363,7 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
 
-      install.clean()
+      install.clean(true)
       .then(function() {
         ui.log('');
         ui.log('ok', 'Project cleaned successfully.');
