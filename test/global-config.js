@@ -17,7 +17,7 @@ suite('global-config', function () {
     var original = fs.readFileSync(fakeConfigFile).toString();
 
     // we'll make 20 parallel processes
-    var child = require.resolve('../lib/global-config');
+    var child = require.resolve('../lib/config/global-config');
     for (var i = 0; i < 20; i++) {
       child_process.spawn(process.execPath, [child], {env: fakeEnv()})
         .on('exit', onExit);
@@ -43,7 +43,7 @@ suite('global-config', function () {
 
   test('should create a new file if one does not exist', function (done) {
     fs.unlinkSync(fakeConfigFile);
-    var child = require.resolve('../lib/global-config');
+    var child = require.resolve('../lib/config/global-config');
     child_process.spawn(process.execPath, [child], {env: fakeEnv()})
       .on('exit', function () {
         var actual = fs.readFileSync(fakeConfigFile).toString();
@@ -58,7 +58,7 @@ suite('global-config', function () {
     fs.unlinkSync(fakeConfigFile);
     fs.rmdir(path.join(fakeHomePath, '.jspm'));
 
-    var child = require.resolve('../lib/global-config');
+    var child = require.resolve('../lib/config/global-config');
     child_process.spawn(process.execPath, [child], {env: fakeEnv()})
       .on('exit', function () {
         var actual = fs.readFileSync(fakeConfigFile).toString();
@@ -111,7 +111,6 @@ suite('global-config', function () {
  */
 function resetConfigFile() {
   fs.writeFileSync(fakeConfigFile, JSON.stringify({
-    defaultTranspiler: 'babel',
     defaultRegistry: 'jspm',
     strictSSL: true,
     registries: {
