@@ -1,5 +1,4 @@
 {
-  "defaultTranspiler": "babel",
   "defaultRegistry": "jspm",
   "strictSSL": true,
   "registries": {
