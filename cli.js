@@ -571,9 +571,11 @@ process.on('uncaughtException', function(err) {
 
     case 'c':
     case 'config':
-      var property = args[1];
-      var value = args.splice(2).join(' ');
-      globalConfig.set(property, value);
+      options = readOptions(args, ['local'])
+      var property = options.args[1];
+      var value = options.args.splice(2).join(' ');
+
+      globalConfig.set(property, value, options.local);
       break;
 
     case 'cc':
