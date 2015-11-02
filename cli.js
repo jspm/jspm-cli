@@ -111,7 +111,7 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'Global Flags\n'
       + ' --yes | -y                        Skip prompts / use default inputs\n'
-      + ' --log <ok|warn|err>               Set log level\n'
+      + ' --log <ok|warn|err>               Set log level'
     );
   }
 
@@ -305,9 +305,6 @@ process.on('uncaughtException', function(err) {
         return core.checkDlLoader();
       })
       .then(function() {
-        return core.setMode(inject ? 'remote' : 'local');
-      })
-      .then(function() {
         ui.log('');
         ui.log('ok', 'Install complete.');
         process.exit();
@@ -402,18 +399,6 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
       core.dlLoader(options.source, options.edge, options.latest);
-      break;
-
-    case 'setmode':
-      options = readOptions(args, ['yes']);
-      if (options.yes)
-        ui.useDefaults();
-      core.setMode(args.splice(1))
-      .then(function(msg) {
-        ui.log('ok', msg);
-      }, function(err) {
-        ui.log('err', err.stack || err);
-      });
       break;
 
     case 'depcache':
