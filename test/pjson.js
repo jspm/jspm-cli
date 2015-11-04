@@ -10,25 +10,24 @@ suite('package.json', function() {
   mkdirp.sync('./test/outputs/pjson');
 
   inputs.forEach(function(input) {
-    test(input.replace(/\.json$/, ''), function(done) {
+    test(input.replace(/\.json$/, ''), function() {
       var test = new PackageJSON(path.resolve('./test/fixtures/pjson/initial/' + input));
-      return Promise.resolve(test.read())
-      .then(function() {
-        test.fileName = './test/outputs/pjson/' + input;
-        return test.write();
-      })
-      .then(function() {
-        var expected = fs.readFileSync('./test/fixtures/pjson/expected/' + input).toString();
-        var actual = fs.readFileSync('./test/outputs/pjson/' + input).toString().replace(/\r\n/g,'\n');
-        try {
-          assert.equal(actual, expected);
-        }
-        catch(e) {
-          e.showDiff = true;
-          throw e;
-        }
-      })
-      .then(done, done);
+      test.file.fileName = './test/outputs/pjson/' + input;
+      try {
+        fs.unlink(test.file.fileName);
+      }
+      catch(e) {}
+      test.file.timestamp = -1;
+      test.write();
+      var expected = fs.readFileSync('./test/fixtures/pjson/expected/' + input).toString();
+      var actual = fs.readFileSync('./test/outputs/pjson/' + input).toString();
+      try {
+        assert.equal(actual, expected);
+      }
+      catch(e) {
+        e.showDiff = true;
+        throw e;
+      }
     });
   });
 });
