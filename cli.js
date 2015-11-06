@@ -437,9 +437,9 @@ process.on('uncaughtException', function(err) {
       if (options.globals)
         options.globalDeps = eval('(' + options.globals + ')');
 
-      if (options['global-defs']) 
+      if (options['global-defs'])
         options.globalDefs = eval('(' + options['global-defs'] + ')');
-      
+
       var bArgs = options.args.splice(1);
 
       if (bArgs.length === 0)
@@ -571,7 +571,7 @@ process.on('uncaughtException', function(err) {
 
     case 'c':
     case 'config':
-      options = readOptions(args, ['local'])
+      options = readOptions(args, ['local']);
       var property = options.args[1];
       var value = options.args.splice(2).join(' ');
 
