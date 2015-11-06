@@ -19,7 +19,7 @@ suite('package.json', function() {
       })
       .then(function() {
         var expected = fs.readFileSync('./test/fixtures/pjson/expected/' + input).toString();
-        var actual = fs.readFileSync('./test/outputs/pjson/' + input).toString();
+        var actual = fs.readFileSync('./test/outputs/pjson/' + input).toString().replace(/\r\n/g,'\n');
         try {
           assert.equal(actual, expected);
         }

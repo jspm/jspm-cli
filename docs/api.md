@@ -107,16 +107,17 @@ var builder = new jspm.Builder();
 
 builder.config({ custom: 'options' });
 
-// or builder.buildSFX
-builder.build('app/main.js', {
-  minify: true,
-  
-  // inject the bundle config into the configuration file
-  inject: true
+// or builder.buildStatic
+builder.bundle('app/main.js', {
+  minify: true
 })
 .then(function(output) {
   // output is now an in-memory build
-})
+  // output.source
+
+  // get the depCache configuration for the tree
+  var depCache = builder.getDepCache(output.tree);
+});
 ```
 
 The builder will be automatically configured to have the correct jspm configuration and baseURL for the environment.
