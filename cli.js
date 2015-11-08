@@ -390,7 +390,10 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['yes', 'prompts']);
       if (options.yes)
         ui.useDefaults();
-      core.init(options.args[1], options.prompts);
+      core.init(options.args[1], options.prompts)
+      .catch(function(e) {
+        console.log(e);
+      });
       break;
 
     case 'dl-loader':
