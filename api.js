@@ -30,6 +30,8 @@ require('rsvp').on('error', function(reason) {
 
 var API = module.exports = new EventEmitter();
 
+API.version = config.version;
+
 API.setPackagePath = function(packagePath) {
   if (config.loaded && process.env.jspmConfigPath !== path.resolve(packagePath, 'package.json'))
     throw new Error('Configuration has already been loaded. Call setPackagePath before using other APIs.');
