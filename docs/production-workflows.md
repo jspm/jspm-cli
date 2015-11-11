@@ -63,7 +63,7 @@ You can also use arithmetic bundle:
   jspm bundle app/main.js - app/core.js main-bundle.js --inject
 ```
 
-This command will make main-bundle.js file with app/main and app/core module excluded.
+This command will make a `main-bundle.js` file from `app/main.js` excluding `app/core.js`.
 
 If wanting to move back to separate file mode, you can remove the bundle configuration manually from the `config.js` file, or use:
 
