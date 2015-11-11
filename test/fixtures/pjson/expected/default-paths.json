@@ -5,7 +5,8 @@
   },
   "configFile": "public/config.js",
   "configFiles": {
-    "jspm": "public/config.js"
+    "jspm": "public/config.js",
+    "jspm:browser": "public/jspm.browser.js"
   },
   "registry": "jspm"
 }
