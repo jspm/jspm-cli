@@ -18,7 +18,7 @@ jspm is primarily a browser package manager, but there are massive benefits to e
 
 ### jspm.import
 
-Just like `jspm run`, the [jspm API provides an import function](https://github.com/jspm/jspm-cli/wiki/API-Usage#importname-parentname---promisemodule) with the same functionality.
+Just like `jspm run`, the [jspm API provides an import function](api.md#import) with the same functionality.
 
 ### Node Core and Browserify support
 
