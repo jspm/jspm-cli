@@ -82,7 +82,6 @@ process.on('uncaughtException', function(err) {
       + 'jspm link <path> [package-name]    Symlink a local folder for development\n'
       + '\n'
       + 'jspm dl-loader [--edge --latest]   Download the browser loader files\n'
-      + 'jspm dl-loader [babel|traceur|typescript]\n'
       + '\n'
       + 'jspm resolve --only registry:package@version\n'
       + '  resolve --only npm:jquery@2.1.1  Resolve all versions of a package to the given version\n'
