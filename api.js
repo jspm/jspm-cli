@@ -24,10 +24,6 @@ var config = require('./lib/config');
 var path = require('path');
 var toFileURL = require('./lib/common').toFileURL;
 
-require('rsvp').on('error', function(reason) {
-  ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
-});
-
 var API = module.exports = new EventEmitter();
 
 API.version = config.version;
