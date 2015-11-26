@@ -205,7 +205,8 @@ process.on('uncaughtException', function(err) {
     return options;
   }
 
-  var args = process.argv.splice(2),
+  // [].concat() to avoid mutating the given process.argv
+  var args = process.argv.slice(2),
       options;
 
   var logArgIndex = args.indexOf('--log');
@@ -437,9 +438,9 @@ process.on('uncaughtException', function(err) {
       if (options.globals)
         options.globalDeps = eval('(' + options.globals + ')');
 
-      if (options['global-defs']) 
+      if (options['global-defs'])
         options.globalDefs = eval('(' + options['global-defs'] + ')');
-      
+
       var bArgs = options.args.splice(1);
 
       if (bArgs.length === 0)
