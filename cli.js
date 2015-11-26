@@ -229,7 +229,7 @@ process.on('uncaughtException', function(err) {
     case 'i':
     case 'install':
       options = readOptions(args, ['force', 'link', 'yes', 'lock', 'latest',
-                                   'unlink', 'quick', 'dev', 'edge'], ['override']);
+                                   'unlink', 'quick', 'dev', 'edge', 'production'], ['override']);
       options.inject = inject;
       options.update = doUpdate;
 
