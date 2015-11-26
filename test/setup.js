@@ -1,2 +1,2 @@
-global.Promise = require('rsvp').Promise;
+global.Promise = require('bluebird');
 global.assert = require('assert');
