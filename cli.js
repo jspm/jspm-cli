@@ -13,7 +13,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
- require('core-js/es6/string');
+require('core-js/es6/string');
 
 var ui = require('./lib/ui');
 var chalk = require('chalk');
@@ -24,13 +24,9 @@ var bundle = require('./lib/bundle');
 var registry = require('./lib/registry');
 var install = require('./lib/install');
 var fs = require('graceful-fs');
-var Promise = require('rsvp').Promise;
+var Promise = require('bluebird');
 
 var link = require('./lib/link');
-
-require('rsvp').on('error', function(reason) {
-  ui.log('warn', 'Unhandled promise rejection.\n' + reason && reason.stack || reason || '' + '\n');
-});
 
 process.on('uncaughtException', function(err) {
   ui.log('err', err.stack || err);
@@ -310,7 +306,7 @@ process.on('uncaughtException', function(err) {
       }, function(err) {
         // something happened (cancel / err)
         if (err)
-          ui.log('err', err.stack || err);
+         ui.log('err', err.stack || err);
         ui.log('warn', 'Installation changes not saved.');
         process.exit(1);
       });
