@@ -155,3 +155,9 @@ API.uninstall = function(names) {
 API.dlLoader = function(transpiler) {
   return core.checkDlLoader(transpiler);
 };
+
+API.inspectVersions = function(showForks) {
+  return config.load().then(function() {
+    return install.inspectVersions(showForks);
+  });
+};
