@@ -1,5 +1,5 @@
 import $ from 'bootstrap';
-import 'bootstrap/css/bootstrap.css!';
+import 'bootstrap/dist/css/bootstrap.css!';
 import template from './bootstrap.html!text';
 
 export function modal_test(done) {
