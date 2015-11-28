@@ -22,7 +22,6 @@ var EventEmitter = require('events').EventEmitter;
 var SystemJSLoader = require('systemjs').constructor;
 var config = require('./lib/config');
 var path = require('path');
-var toFileURL = require('./lib/common').toFileURL;
 
 var API = module.exports = new EventEmitter();
 
@@ -74,8 +73,7 @@ API.import = function(name, parentName) {
 API.Loader = function() {
   config.loadSync();
 
-  var cfg = config.loader.getConfig();
-  cfg.baseURL = toFileURL(config.pjson.baseURL);
+  var cfg = config.getLoaderConfig();
 
   var loader = new SystemJSLoader();
   loader.config(cfg);
