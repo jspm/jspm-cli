@@ -7,3 +7,4 @@ testlibs/jspm_packages
 testlibs/build.*
 test/outputs
 coverage
+docs/_book
