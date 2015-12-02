@@ -43,7 +43,8 @@
     "istanbul": "istanbul cover ./node_modules/.bin/_mocha -i='lib/**/*.js'",
     "coverage": "npm run istanbul -- --report html",
     "mocha": "mocha",
-    "jshint": "jshint api.js cli.js jspm.js lib test"
+    "jshint": "jshint api.js cli.js jspm.js lib test",
+    "gitbook": "gitbook build docs"
   },
   "bugs": {
     "url": "https://github.com/jspm/jspm/issues"
