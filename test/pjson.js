@@ -14,7 +14,7 @@ suite('package.json', function() {
       var test = new PackageJSON(path.resolve('./test/fixtures/pjson/initial/' + input));
       test.file.fileName = './test/outputs/pjson/' + input;
       try {
-        fs.unlink(test.file.fileName);
+        fs.unlinkSync(test.file.fileName);
       }
       catch(e) {}
       test.file.timestamp = -1;
