@@ -11,12 +11,13 @@
     "jspm": "jspm/jspm-cli@0.17",
     "jspm-cli": "jspm/jspm-cli@0.17",
     "mocha": "npm:mocha@^2.3.4",
+    "rsvp": "npm:rsvp@3.1.0",
     "systemjs": "systemjs/systemjs@master",
     "text": "systemjs/plugin-text@^0.0.2",
+    "traceur": "jmcriffey/bower-traceur@^0.0.92",
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
   "devDependencies": {
-    "traceur": "jmcriffey/bower-traceur@^0.0.92",
     "traceur-runtime": "jmcriffey/bower-traceur-runtime@^0.0.92"
   },
   "peerDependencies": {
@@ -48,7 +49,7 @@
   "overrides": {
     "github:angular/bower-angular@1.4.8": {
       "main": "angular",
-      "modules": {
+      "meta": {
         "angular.js": {
           "exports": "angular"
         }
@@ -66,7 +67,7 @@
     },
     "github:jmcriffey/bower-traceur-runtime@0.0.92": {
       "format": "global",
-      "modules": {
+      "meta": {
         "traceur-runtime.js": {
           "exports": "$traceurRuntime"
         }
@@ -74,7 +75,7 @@
     },
     "github:jmcriffey/bower-traceur@0.0.92": {
       "format": "global",
-      "modules": {
+      "meta": {
         "traceur.js": {
           "exports": "traceur"
         }
@@ -83,13 +84,13 @@
     "github:jspm/github@0.17": {
       "registry": "npm"
     },
-    "github:jspm/npm@0.17.0": {
+    "github:jspm/npm@0.17": {
       "registry": "npm"
     },
     "github:systemjs/builder@master": {
       "registry": "npm",
       "format": "cjs",
-      "modules": {
+      "meta": {
         "*": {
           "globals": {
             "process": "nodelibs/process"
@@ -119,12 +120,32 @@
     },
     "github:systemjs/systemjs@master": {
       "registry": "npm",
-      "modules": {
+      "main": "index.js",
+      "format": "cjs",
+      "map": {
+        "fs": "nodelibs/fs"
+      },
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "nodelibs/process"
+          }
+        },
+        "*.json": {
+          "loader": "nodelibs/json"
+        },
         "dist/system.src.js": {
           "deps": [
             "vm"
           ]
-        }
+        },
+        "docs/module-formats.md": {
+          "format": "amd"
+        },
+        "lib/amd.js": {
+          "format": "amd"
+        },
+        "package.json": true
       }
     },
     "github:twbs/bootstrap@3.3.6": {
@@ -149,7 +170,7 @@
       ],
       "systemjs": {
         "main": "dist/js/bootstrap.js",
-        "modules": {
+        "meta": {
           "dist/js/bootstrap.js": {
             "deps": [
               "jquery"
@@ -206,7 +227,7 @@
     },
     "npm:graceful-fs@3.0.8": {
       "format": "cjs",
-      "modules": {
+      "meta": {
         "*": {
           "globals": {
             "process": "nodelibs/process"
@@ -255,7 +276,7 @@
         "css": "*"
       },
       "registry": "jspm",
-      "modules": {
+      "meta": {
         "mocha.js": {
           "deps": [
             "./mocha.css!"
@@ -298,6 +319,24 @@
         "stream-browserify": "~1.0.0"
       }
     },
+    "npm:readdirp@2.0.0": {
+      "format": "cjs",
+      "map": {
+        "fs": "nodelibs/fs",
+        "readdirp": "."
+      },
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "nodelibs/process"
+          }
+        },
+        "*.json": {
+          "loader": "nodelibs/json"
+        },
+        "..": true
+      }
+    },
     "npm:stream-browserify@2.0.1": {
       "map": {
         "./index.js": {
@@ -315,7 +354,7 @@
     "npm:traceur@0.0.92": {
       "main": "src/node/api.js",
       "format": "cjs",
-      "modules": {
+      "meta": {
         "*": {
           "globals": {
             "process": "nodelibs/process"
@@ -374,7 +413,7 @@
     },
     "npm:when@3.7.5": {
       "format": "cjs",
-      "modules": {
+      "meta": {
         "es6-shim/Promise.js": {
           "format": "amd"
         }
