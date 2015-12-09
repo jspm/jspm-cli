@@ -16,6 +16,7 @@
     "minimatch": "^2.0.8",
     "mkdirp": "~0.5.1",
     "ncp": "^2.0.0",
+    "proper-lockfile": "^1.0.2",
     "request": "^2.58.0",
     "rimraf": "^2.4.0",
     "rsvp": "^3.0.18",
