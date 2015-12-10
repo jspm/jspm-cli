@@ -522,7 +522,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'registry':
-      options = readOptions(args, ['yes']);
+      options = readOptions(args, ['yes', 'local']);
 
       if (options.yes)
         ui.useDefaults();
@@ -532,7 +532,7 @@ process.on('uncaughtException', function(err) {
       if (action === 'config') {
         if (!args[2])
           return ui.log('warn', 'You must provide an registry name to configure.');
-        return Promise.resolve(registry.configure(args[2]))
+        return Promise.resolve(registry.configure(args[2], options.local))
         .then(function() {
           ui.log('ok', 'Registry %' + args[2] + '% configured successfully.');
         }, function(err) {
@@ -544,7 +544,7 @@ process.on('uncaughtException', function(err) {
           return ui.log('warn', 'You must provide an registry name to create.');
         if (!args[3])
           return ui.log('warn', 'You must provide the registry module name to generate from.');
-        return Promise.resolve(registry.create(args[2], args[3]))
+        return Promise.resolve(registry.create(args[2], args[3], undefined, options.local))
         .then(function(created) {
           if (created)
             ui.log('ok', 'Enpoint %' + args[2] + '% created successfully.');
@@ -572,9 +572,11 @@ process.on('uncaughtException', function(err) {
 
     case 'c':
     case 'config':
-      var property = args[1];
-      var value = args.splice(2).join(' ');
-      globalConfig.set(property, value);
+      options = readOptions(args, ['local']);
+      var property = options.args[1];
+      var value = options.args.splice(2).join(' ');
+
+      globalConfig.set(property, value, options.local);
       break;
 
     case 'cc':
