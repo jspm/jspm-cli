@@ -19,7 +19,7 @@ suite('global-config', function () {
     // we'll make 20 parallel processes
     var child = require.resolve('../lib/global-config');
     for (var i = 0; i < 20; i++) {
-      child_process.spawn(process.execPath, [child], {env: {HOME: fakeHomePath}})
+      child_process.spawn(process.execPath, [child], {env: fakeEnv()})
         .on('exit', onExit);
     }
 
@@ -44,7 +44,7 @@ suite('global-config', function () {
   test('should create a new file if one does not exist', function (done) {
     fs.unlinkSync(fakeConfigFile);
     var child = require.resolve('../lib/global-config');
-    child_process.spawn(process.execPath, [child], {env: {HOME: fakeHomePath}})
+    child_process.spawn(process.execPath, [child], {env: fakeEnv()})
       .on('exit', function () {
         var actual = fs.readFileSync(fakeConfigFile).toString();
         var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '');
@@ -59,12 +59,45 @@ suite('global-config', function () {
     fs.rmdir(path.join(fakeHomePath, '.jspm'));
 
     var child = require.resolve('../lib/global-config');
-    child_process.spawn(process.execPath, [child], {env: {HOME: fakeHomePath}})
+    child_process.spawn(process.execPath, [child], {env: fakeEnv()})
       .on('exit', function () {
         var actual = fs.readFileSync(fakeConfigFile).toString();
         var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '');
 
         assert.equal(actual, expected);
+        done();
+      });
+  });
+
+  test('should set a non-string value', function (done) {
+    resetConfigFile();
+    var child = require.resolve('../jspm');
+    child_process.spawn(child, ['config', 'strictSSL', 'false'], {env: fakeEnv()})
+      .on('exit', function () {
+        var actual = JSON.parse(fs.readFileSync(fakeConfigFile).toString());
+        assert.equal(actual.strictSSL, false);
+        done();
+      });
+  });
+
+  test('should set a number value', function (done) {
+    resetConfigFile();
+    var child = require.resolve('../jspm');
+    child_process.spawn(child, ['config', 'registries.github.maxRepoSize', '10'], {env: fakeEnv()})
+      .on('exit', function () {
+        var actual = JSON.parse(fs.readFileSync(fakeConfigFile).toString());
+        assert.equal(actual.registries.github.maxRepoSize, 10);
+        done();
+      });
+  });
+
+  test('should set a string value', function (done) {
+    resetConfigFile();
+    var child = require.resolve('../jspm');
+    child_process.spawn(child, ['config', 'defaultTranspiler', 'traceur'], {env: fakeEnv()})
+      .on('exit', function () {
+        var actual = JSON.parse(fs.readFileSync(fakeConfigFile).toString());
+        assert.equal(actual.defaultTranspiler, 'traceur');
         done();
       });
   });
@@ -90,4 +123,15 @@ function resetConfigFile() {
       }
     }
   }, null, '  '));
+}
+
+function fakeEnv() {
+  var env = Object.create(process.env);
+
+  env.HOME = fakeHomePath;
+  // for windows:
+  env.USERPROFILE = fakeHomePath;
+  env.USERHOME = fakeHomePath;
+
+  return env;
 }
