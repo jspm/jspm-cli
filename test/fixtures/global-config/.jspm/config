@@ -1,0 +1,13 @@
+{
+  "defaultTranspiler": "babel",
+  "defaultRegistry": "jspm",
+  "strictSSL": true,
+  "registries": {
+    "test": {
+      "handler": "dont-overwrite-me"
+    },
+    "github": {
+      "auth": "dont-overwrite-me"
+    }
+  }
+}
