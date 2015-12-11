@@ -205,6 +205,17 @@ process.on('uncaughtException', function(err) {
     return options;
   }
 
+  // this will get a value in its true type from the CLI
+  function readValue(val) {
+    if (val === 'true' || val === 'false') {
+      return eval(val);
+    } else if (!isNaN(parseInt(val))) {
+      return parseInt(val);
+    } else {
+      return val;
+    }
+  }
+
   // [].concat() to avoid mutating the given process.argv
   var args = process.argv.slice(2),
       options;
@@ -573,7 +584,7 @@ process.on('uncaughtException', function(err) {
     case 'c':
     case 'config':
       var property = args[1];
-      var value = args.splice(2).join(' ');
+      var value = readValue(args.splice(2).join(' '));
       globalConfig.set(property, value);
       break;
 
