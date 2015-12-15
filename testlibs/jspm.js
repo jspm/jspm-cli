@@ -79,12 +79,13 @@ System.config({
         "minimatch": "npm:minimatch@2.0.10",
         "mkdirp": "npm:mkdirp@0.5.1",
         "ncp": "npm:ncp@2.0.0",
+        "proper-lockfile": "npm:proper-lockfile@1.0.2",
         "request": "npm:request@2.58.0",
         "rimraf": "npm:rimraf@2.4.4",
         "semver": "npm:semver@5.1.0",
         "systemjs": "github:systemjs/systemjs@master",
         "systemjs-builder": "github:systemjs/builder@master",
-        "traceur": "npm:traceur@0.0.92",
+        "traceur": "npm:traceur@0.0.93",
         "uglify-js": "npm:uglify-js@2.4.24"
       }
     },
@@ -98,7 +99,7 @@ System.config({
         "rmdir": "npm:rmdir@1.1.0",
         "semver": "npm:semver@5.1.0",
         "tar": "npm:tar@1.0.3",
-        "traceur": "npm:traceur@0.0.92",
+        "traceur": "npm:traceur@0.0.93",
         "which": "npm:which@1.2.0"
       }
     },
@@ -110,7 +111,7 @@ System.config({
         "mkdirp": "npm:mkdirp@0.5.1",
         "source-map": "npm:source-map@0.4.4",
         "systemjs": "github:systemjs/systemjs@master",
-        "traceur": "npm:traceur@0.0.92",
+        "traceur": "npm:traceur@0.0.93",
         "uglify-js": "npm:uglify-js@2.4.24"
       }
     },
@@ -861,6 +862,14 @@ System.config({
         "create-hmac": "npm:create-hmac@1.1.4"
       }
     },
+    "npm:proper-lockfile@1.0.2": {
+      "map": {
+        "err-code": "npm:err-code@0.1.2",
+        "extend": "npm:extend@1.3.0",
+        "graceful-fs": "npm:graceful-fs@3.0.8",
+        "retry": "npm:retry@0.6.1"
+      }
+    },
     "npm:public-encrypt@4.0.0": {
       "map": {
         "bn.js": "npm:bn.js@4.4.0",
@@ -1022,7 +1031,7 @@ System.config({
         "rsvp": "npm:rsvp@3.1.0",
         "source-map": "npm:source-map@0.4.4",
         "systemjs": "github:systemjs/systemjs@master",
-        "traceur": "npm:traceur@0.0.92",
+        "traceur": "npm:traceur@0.0.93",
         "uglify-js": "npm:uglify-js@2.4.24"
       }
     },
@@ -1047,7 +1056,7 @@ System.config({
         "ndarray-ops": "npm:ndarray-ops@1.1.1"
       }
     },
-    "npm:traceur@0.0.92": {
+    "npm:traceur@0.0.93": {
       "map": {
         "commander": "npm:commander@2.6.0",
         "glob": "npm:glob@4.3.5",
