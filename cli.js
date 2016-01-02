@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2015 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2016 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -419,7 +419,7 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node'], ['format', 'global-name', 'global-deps', 'global-defs']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node', 'skip-encode-names'], ['format', 'global-name', 'global-deps', 'global-defs']);
 
       if (options.yes)
         ui.useDefaults();
