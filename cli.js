@@ -236,7 +236,13 @@ process.on('uncaughtException', function(err) {
     case 'i':
     case 'install':
       options = readOptions(args, ['force', 'yes', 'lock', 'latest',
-                                   'unlink', 'quick', 'dev', 'edge', 'production', 'peer'], ['override']);
+                                   'unlink', 'quick', 'dev', 'save-dev', 'edge', 'production', 'peer'], ['override']);
+
+      if (options['save-dev']) {
+        ui.log('warn', 'The %--save-dev% install flag in jspm is just %--dev%.');
+        options.dev = true;
+      }
+
       options.inject = inject;
       options.update = doUpdate;
 
