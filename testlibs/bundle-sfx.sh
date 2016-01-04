@@ -1,1 +1,1 @@
-jspm bundle-sfx main -mi
+jspm build main.js -mi
