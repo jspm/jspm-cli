@@ -79,6 +79,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm link <path> [package-name]  Symlink a local folder for development\n'
       + '\n'
       + 'jspm dl-loader [--edge --latest] Download the browser loader files\n'
+      + '                                 Without any flags pins to stable SystemJS\n'
       + '\n'
       + 'jspm resolve --only registry:package@version\n'
       + '  resolve --only npm:util@0.10.3 Resolve all versions of a package to one version\n'
