@@ -58,7 +58,6 @@ process.on('uncaughtException', function(err) {
       + '  install                        Reproducible / shrinkwrap install package.json\n'
       + '\n'
       + '  install react --lock           Stable install, locking existing dependencies\n'
-      + '\n'
       + '  install react=npm:react --edge Install a package alias to latest unstable\n'
       + '\n'
       + '  install dep -o override.json   Install with the given custom override\n'
@@ -84,17 +83,18 @@ process.on('uncaughtException', function(err) {
       + 'jspm resolve --only registry:package@version\n'
       + '  resolve --only npm:util@0.10.3 Resolve all versions of a package to one version\n'
       + '\n'
-      + 'jspm bundle moduleA + module/b   Create a named bundle to pre-populate the loader\n'
-      + '  [outfile] [--minify] [--no-mangle] [--skip-source-maps] [--source-map-contents]\n'
+      + 'jspm bundle app.js + b [outfile] Create a named bundle to pre-populate the loader\n'
+      + '  --minify --no-mangle --skip-source-maps --source-map-contents\n'
+      + '  bundle x --config build.json   Use a custom config file for the build.\n'
       + '\n'
       + 'jspm bundle ./app.js --inject    Automatically load the named bundle when needed\n'
       + 'jspm unbundle                    Remove injected bundle configuration\n'
       + '\n'
       + 'jspm build main.js - x [outfile] Create an optimized static single-file build\n'
-      + '  [--minify] [--no-mangle] [...] When building ES modules, static optimization\n'
-      + '  [--skip-rollup]                via Rollup is applied.\n'
-      + '  [--format <amd|cjs|umd|global|esm>]\n'
-      + '  [--global-name <g>] [--global-deps "{globalModuleMap}"]\n'
+      + '  --skip-rollup                  Skip Rollup static optimizations\n'
+      + '  --minify --no-mangle --config <build.json>       \n'
+      + '  --format <amd|cjs|umd|esm>     Specify a custom output format for the build\n'
+      + '  --format global --global-name <g> --global-deps "{globalModuleMap}"\n'
       + '\n'
       + 'jspm build ./x.js --format cjs   Statically optimize into a CommonJS build\n'
       + 'jspm build ./x.js - y            Statically build a global with a global dep\n'
@@ -232,6 +232,28 @@ process.on('uncaughtException', function(err) {
     args.splice(logArgIndex, 2);
   }
 
+  function readJSON(fileOrJSON) {
+    var json;
+    if (!fileOrJSON.startsWith('{')) {
+      try {
+        json = fs.readFileSync(fileOrJSON);
+      }
+      catch(e) {
+        return ui.log('err', 'Unable to read config file %' + fileOrJSON + '%.');
+      }
+      try {
+        fileOrJSON = JSON.parse(json);
+      }
+      catch(e) {
+        return ui.log('err', 'Invalid JSON in config file %' + fileOrJSON + '%.');
+      }
+    }
+    else {
+      json = eval('(' + fileOrJSON + ')');
+    }
+    return json;
+  }
+
   switch(args[0]) {
     case 'run':
       core.run(args[1]);
@@ -283,26 +305,8 @@ process.on('uncaughtException', function(err) {
         depMap[name] = target || '';
       }
 
-      if ('override' in options) {
-        var override = options.override || '{}';
-        if (!override.startsWith('{')) {
-          try {
-            options.override = fs.readFileSync(override);
-          }
-          catch(e) {
-            return ui.log('err', 'Unable to read override file %' + override + '%.');
-          }
-          try {
-            options.override = JSON.parse(options.override);
-          }
-          catch(e) {
-            return ui.log('err', 'Invalid JSON in override file %' + override + '%.');
-          }
-        }
-        else {
-          options.override = eval('(' + override + ')');
-        }
-      }
+      if ('override' in options)
+        options.override = readJSON(options.override);
 
       if (options.yes)
         ui.useDefaults();
@@ -435,7 +439,8 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node', 'skip-encode-names', 'skip-rollup'], ['format', 'global-name', 'global-deps', 'global-defs']);
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node', 'skip-encode-names', 'skip-rollup'], 
+          ['format', 'global-name', 'global-deps', 'global-defs', 'config']);
 
       if (options.yes)
         ui.useDefaults();
@@ -455,6 +460,9 @@ process.on('uncaughtException', function(err) {
 
       if (options['global-defs'])
         options.globalDefs = eval('(' + options['global-defs'] + ')');
+
+      if (options.config)
+        options.config = readJSON(options.config);
 
       var bArgs = options.args.splice(1);
 
