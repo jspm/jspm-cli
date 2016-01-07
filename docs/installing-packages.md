@@ -206,7 +206,9 @@ Run `jspm clean` at any time to perform this same clearing operation.
 
 ### Other Options
 
-Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.
+Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.  
+Example:  
+`jspm install github:twbs/bootstrap -o "{ main: 'js/bootstrap', shim: { 'js/bootstrap': ['jquery'] } }"`
 
 Use `-f` or `--force` with the install command to ensure the cache is completely refreshed for all installs. Usually this is unnecessary but can be useful if you've made manual edits or have patched registry endpoint code.
 
