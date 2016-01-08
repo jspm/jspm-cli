@@ -262,6 +262,7 @@ process.on('uncaughtException', function(err) {
     case 'inject':
       var inject = true;
 
+    case 'u':
     case 'update':
       var doUpdate = !inject;
 
