@@ -23,28 +23,34 @@
     "traceur-runtime": "jmcriffey/bower-traceur-runtime@^0.0.95"
   },
   "peerDependencies": {
-    "assert": "npm:assert@^1.3.0",
-    "buffer": "npm:buffer@^3.5.3",
-    "constants": "npm:constants-browserify@^1.0.0",
-    "crypto": "npm:crypto-browserify@^3.11.0",
-    "events": "npm:events@^1.1.0",
-    "grunt": "npm:grunt@~0.4.0",
-    "http": "npm:stream-http@^2.0.2",
-    "https": "npm:https-browserify@^0.0.1",
+    "assert": "jspm/nodelibs-assert@^0.2.0-alpha",
+    "buffer": "jspm/nodelibs-buffer@^0.2.0-alpha",
+    "child_process": "jspm/nodelibs-child_process@^0.2.0-alpha",
+    "constants": "jspm/nodelibs-constants@^0.2.0-alpha",
+    "crypto": "jspm/nodelibs-crypto@^0.2.0-alpha",
+    "dgram": "jspm/nodelibs-dgram@^0.2.0-alpha",
+    "dns": "jspm/nodelibs-dns@^0.2.0-alpha",
+    "events": "jspm/nodelibs-events@^0.2.0-alpha",
+    "fs": "jspm/nodelibs-fs@^0.2.0-alpha",
+    "http": "jspm/nodelibs-http@^0.2.0-alpha",
+    "https": "jspm/nodelibs-https@^0.2.0-alpha",
     "jspm-registry": "npm:jspm-registry@^0.4.0",
-    "nodelibs": "jspm/nodelibs@^0.1.0",
-    "os": "npm:os-browserify@^0.2.0",
-    "path": "npm:path-browserify@^0.0.0",
-    "punycode": "npm:punycode@^1.4.0",
-    "querystring": "npm:querystring@^0.2.0",
-    "stream": "npm:stream-browserify@^2.0.1",
-    "string_decoder": "npm:string_decoder@^0.10.31",
-    "sys": "npm:util@^0.10.3",
-    "tty": "npm:tty-browserify@^0.0.0",
-    "url": "npm:url@^0.11.0",
-    "util": "npm:util@^0.10.3",
-    "vm": "npm:vm-browserify@^0.0.4",
-    "zlib": "npm:browserify-zlib@^0.1.4"
+    "module": "jspm/nodelibs-module@^0.2.0-alpha",
+    "net": "jspm/nodelibs-net@^0.2.0-alpha",
+    "os": "jspm/nodelibs-os@^0.2.0-alpha",
+    "path": "jspm/nodelibs-path@^0.2.0-alpha",
+    "process": "jspm/nodelibs-process@^0.2.0-alpha",
+    "punycode": "jspm/nodelibs-punycode@^0.2.0-alpha",
+    "querystring": "jspm/nodelibs-querystring@^0.2.0-alpha",
+    "readline": "jspm/nodelibs-readline@^0.2.0-alpha",
+    "stream": "jspm/nodelibs-stream@^0.2.0-alpha",
+    "string_decoder": "jspm/nodelibs-string_decoder@^0.2.0-alpha",
+    "tls": "jspm/nodelibs-tls@^0.2.0-alpha",
+    "tty": "jspm/nodelibs-tty@^0.2.0-alpha",
+    "url": "jspm/nodelibs-url@^0.2.0-alpha",
+    "util": "jspm/nodelibs-util@^0.2.0-alpha",
+    "vm": "jspm/nodelibs-vm@^0.2.0-alpha",
+    "zlib": "jspm/nodelibs-zlib@^0.2.0-alpha"
   },
   "overrides": {
     "github:angular/bower-angular@1.4.8": {
@@ -77,15 +83,15 @@
       "meta": {
         "*": {
           "globals": {
-            "process": "nodelibs/process"
+            "process": "process"
           }
         },
         "*.json": {
-          "loader": "nodelibs/json"
+          "format": "json"
         },
         "lib/output.js": {
           "globals": {
-            "Buffer": "nodelibs/buffer"
+            "Buffer": "buffer"
           }
         },
         "lib/compile.js": {
@@ -98,26 +104,20 @@
             "../compilers/json"
           ]
         }
-      },
-      "map": {
-        "fs": "nodelibs/fs"
       }
     },
     "github:systemjs/systemjs@master": {
       "registry": "npm",
       "main": "index.js",
       "format": "cjs",
-      "map": {
-        "fs": "nodelibs/fs"
-      },
       "meta": {
         "*": {
           "globals": {
-            "process": "nodelibs/process"
+            "process": "process"
           }
         },
         "*.json": {
-          "loader": "nodelibs/json"
+          "format": "json"
         },
         "dist/system.src.js": {
           "deps": [
@@ -165,13 +165,6 @@
         }
       }
     },
-    "npm:assert@1.3.0": {
-      "map": {
-        "./assert.js": {
-          "node": "@node/assert"
-        }
-      }
-    },
     "npm:base64-js@0.0.8": {
       "ignore": [
         "bench"
@@ -183,31 +176,7 @@
         "pako": "~0.2.0"
       },
       "map": {
-        "_stream_transform": "readable-stream/transform",
-        "./src/index.js": {
-          "node": "@node/zlib"
-        }
-      }
-    },
-    "npm:constants-browserify@1.0.0": {
-      "map": {
-        "./constants.json": {
-          "node": "@node/constants"
-        }
-      }
-    },
-    "npm:crypto-browserify@3.11.0": {
-      "map": {
-        "./index.js": {
-          "node": "@node/crypto"
-        }
-      }
-    },
-    "npm:events@1.1.0": {
-      "map": {
-        "./events.js": {
-          "node": "@node/events"
-        }
+        "_stream_transform": "readable-stream/transform"
       }
     },
     "npm:graceful-fs@3.0.8": {
@@ -215,23 +184,15 @@
       "meta": {
         "*": {
           "globals": {
-            "process": "nodelibs/process"
+            "process": "process"
           }
         },
         "*.json": {
-          "loader": "nodelibs/json"
+          "format": "json"
         }
       },
       "map": {
-        "./fs.js": "@node/fs",
-        "module": "nodelibs/module"
-      }
-    },
-    "npm:https-browserify@0.0.1": {
-      "map": {
-        "./index.js": {
-          "node": "@node/https"
-        }
+        "./fs.js": "@node/fs"
       }
     },
     "npm:inherits@2.0.1": {
@@ -243,7 +204,7 @@
         "format": "cjs",
         "meta": {
           "*.json": {
-            "loader": "nodelibs/json"
+            "format": "json"
           }
         },
         "map": {
@@ -270,56 +231,21 @@
         }
       }
     },
-    "npm:path-browserify@0.0.0": {
-      "map": {
-        "./index.js": {
-          "node": "@node/path"
-        }
-      }
-    },
-    "npm:punycode@1.3.2": {
-      "map": {
-        "./punycode.js": {
-          "node": "@node/punycode"
-        }
-      }
-    },
-    "npm:querystring@0.2.0": {
-      "map": {
-        "./index.js": {
-          "node": "@node/querystring"
-        }
-      }
-    },
-    "npm:stream-browserify@2.0.1": {
-      "map": {
-        "./index.js": {
-          "node": "@node/stream"
-        }
-      }
-    },
-    "npm:stream-http@2.0.2": {
-      "map": {
-        "./index.js": {
-          "node": "@node/http"
-        }
-      }
-    },
     "npm:traceur@0.0.95": {
       "main": "src/node/api.js",
       "format": "cjs",
       "meta": {
         "*": {
           "globals": {
-            "process": "nodelibs/process"
+            "process": "process"
           }
         },
         "*.json": {
-          "loader": "nodelibs/json"
+          "format": "json"
         },
         "src/node/NodeCompiler.js": {
           "globals": {
-            "Buffer": "nodelibs/buffer"
+            "Buffer": "buffer"
           }
         },
         "bin/traceur.js": {
@@ -328,41 +254,7 @@
         }
       },
       "map": {
-        "fs": "nodelibs/fs",
-        "module": "nodelibs/module",
         "./src/node/traceur.js": "./bin/traceur.js"
-      }
-    },
-    "npm:tty-browserify@0.0.0": {
-      "map": {
-        "./index.js": {
-          "node": "@node/tty"
-        }
-      }
-    },
-    "npm:url@0.11.0": {
-      "map": {
-        "./url.js": {
-          "node": "@node/url"
-        }
-      }
-    },
-    "npm:util@0.10.3": {
-      "map": {
-        "./util.js": {
-          "node": "@node/util"
-        },
-        "./index.js": {
-          "node": "@node/util",
-          "~node": "./util.js"
-        }
-      }
-    },
-    "npm:vm-browserify@0.0.4": {
-      "map": {
-        "./index.js": {
-          "node": "@node/vm"
-        }
       }
     },
     "npm:when@3.7.7": {
