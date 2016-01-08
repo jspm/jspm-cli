@@ -1,53 +1,58 @@
-System.config({
+SystemJS.config({
   packageConfigPaths: [
     "npm:@*/*.json",
     "npm:*.json",
-    "github:*/*.json",
-    "github:*.json"
+    "github:*/*.json"
   ],
   globalEvaluationScope: false,
 
   map: {
     "angular": "github:angular/bower-angular@1.4.8",
-    "assert": "npm:assert@1.3.0",
+    "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
-    "buffer": "npm:buffer@3.5.3",
+    "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
     "builder": "github:systemjs/builder@0.15",
-    "clean-css": "npm:clean-css@3.4.8",
-    "constants": "npm:constants-browserify@1.0.0",
-    "crypto": "npm:crypto-browserify@3.11.0",
+    "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
+    "clean-css": "npm:clean-css@3.4.9",
+    "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
+    "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
     "css": "github:systemjs/plugin-css@0.1.20",
-    "d3": "github:mbostock/d3@3.5.10",
+    "d3": "github:mbostock/d3@3.5.12",
+    "dgram": "github:jspm/nodelibs-dgram@0.2.0-alpha",
+    "dns": "github:jspm/nodelibs-dns@0.2.0-alpha",
     "ember": "github:components/ember@1.13.2",
-    "events": "npm:events@1.1.0",
+    "events": "github:jspm/nodelibs-events@0.2.0-alpha",
+    "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "github": "github:jspm/github@0.17",
-    "grunt": "npm:grunt@0.4.5",
-    "http": "npm:stream-http@2.0.2",
-    "https": "npm:https-browserify@0.0.1",
+    "http": "github:jspm/nodelibs-http@0.2.0-alpha",
+    "https": "github:jspm/nodelibs-https@0.2.0-alpha",
     "jquery": "github:components/jquery@2.1.4",
     "jspm": "github:jspm/jspm-cli@0.17",
     "jspm-registry": "npm:jspm-registry@0.4.0",
     "mocha": "npm:mocha@2.3.4",
-    "nodelibs": "github:jspm/nodelibs@0.1.5",
+    "module": "github:jspm/nodelibs-module@0.2.0-alpha",
+    "net": "github:jspm/nodelibs-net@0.2.0-alpha",
     "npm": "github:jspm/npm@0.17",
-    "os": "npm:os-browserify@0.2.0",
-    "path": "npm:path-browserify@0.0.0",
-    "punycode": "npm:punycode@1.4.0",
-    "querystring": "npm:querystring@0.2.0",
+    "os": "github:jspm/nodelibs-os@0.2.0-alpha",
+    "path": "github:jspm/nodelibs-path@0.2.0-alpha",
+    "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+    "punycode": "github:jspm/nodelibs-punycode@0.2.0-alpha",
+    "querystring": "github:jspm/nodelibs-querystring@0.2.0-alpha",
+    "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
     "rsvp": "npm:rsvp@3.1.0",
-    "stream": "npm:stream-browserify@2.0.1",
-    "string_decoder": "npm:string_decoder@0.10.31",
-    "sys": "npm:util@0.10.3",
+    "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
+    "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
     "systemjs": "github:systemjs/systemjs@master",
     "text": "github:systemjs/plugin-text@0.0.2",
+    "tls": "github:jspm/nodelibs-tls@0.2.0-alpha",
     "traceur": "github:jmcriffey/bower-traceur@0.0.95",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.95",
-    "tty": "npm:tty-browserify@0.0.0",
-    "url": "npm:url@0.11.0",
-    "util": "npm:util@0.10.3",
-    "vm": "npm:vm-browserify@0.0.4",
+    "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
+    "url": "github:jspm/nodelibs-url@0.2.0-alpha",
+    "util": "github:jspm/nodelibs-util@0.2.0-alpha",
+    "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
     "voxel-demo": "npm:voxel-demo@0.0.1",
-    "zlib": "npm:browserify-zlib@0.1.4"
+    "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha"
   },
 
   packages: {
@@ -62,7 +67,7 @@ System.config({
         "rimraf": "npm:rimraf@2.3.4",
         "semver": "npm:semver@5.1.0",
         "tar": "npm:tar@2.2.1",
-        "which": "npm:which@1.0.9"
+        "which": "npm:which@1.2.1"
       }
     },
     "github:jspm/jspm-cli@0.17": {
@@ -89,6 +94,51 @@ System.config({
         "uglify-js": "npm:uglify-js@2.6.1"
       }
     },
+    "github:jspm/nodelibs-buffer@0.2.0-alpha": {
+      "map": {
+        "buffer-browserify": "npm:buffer@4.0.0"
+      }
+    },
+    "github:jspm/nodelibs-crypto@0.2.0-alpha": {
+      "map": {
+        "crypto-browserify": "npm:crypto-browserify@3.11.0"
+      }
+    },
+    "github:jspm/nodelibs-http@0.2.0-alpha": {
+      "map": {
+        "http-browserify": "npm:stream-http@2.0.2"
+      }
+    },
+    "github:jspm/nodelibs-os@0.2.0-alpha": {
+      "map": {
+        "os-browserify": "npm:os-browserify@0.2.0"
+      }
+    },
+    "github:jspm/nodelibs-punycode@0.2.0-alpha": {
+      "map": {
+        "punycode-browserify": "npm:punycode@1.3.2"
+      }
+    },
+    "github:jspm/nodelibs-stream@0.2.0-alpha": {
+      "map": {
+        "stream-browserify": "npm:stream-browserify@2.0.1"
+      }
+    },
+    "github:jspm/nodelibs-string_decoder@0.2.0-alpha": {
+      "map": {
+        "string_decoder-browserify": "npm:string_decoder@0.10.31"
+      }
+    },
+    "github:jspm/nodelibs-url@0.2.0-alpha": {
+      "map": {
+        "url-browserify": "npm:url@0.11.0"
+      }
+    },
+    "github:jspm/nodelibs-zlib@0.2.0-alpha": {
+      "map": {
+        "zlib-browserify": "npm:browserify-zlib@0.1.4"
+      }
+    },
     "github:jspm/npm@0.17": {
       "map": {
         "bluebird": "npm:bluebird@3.1.1",
@@ -109,7 +159,7 @@ System.config({
         "es6-template-strings": "npm:es6-template-strings@2.0.0",
         "glob": "npm:glob@6.0.3",
         "mkdirp": "npm:mkdirp@0.5.1",
-        "rollup": "npm:rollup@0.21.3",
+        "rollup": "npm:rollup@0.24.0",
         "source-map": "npm:source-map@0.5.3",
         "systemjs": "github:systemjs/systemjs@master",
         "traceur": "npm:traceur@0.0.95",
@@ -118,7 +168,7 @@ System.config({
     },
     "github:systemjs/systemjs@master": {
       "map": {
-        "es6-module-loader": "npm:es6-module-loader@0.17.9",
+        "es6-module-loader": "npm:es6-module-loader@0.17.10",
         "when": "npm:when@3.7.7"
       }
     },
@@ -148,22 +198,11 @@ System.config({
         "gl-shader": "npm:gl-shader@0.0.6"
       }
     },
-    "npm:argparse@0.1.16": {
-      "map": {
-        "underscore": "npm:underscore@1.7.0",
-        "underscore.string": "npm:underscore.string@2.4.0"
-      }
-    },
-    "npm:asn1.js@4.2.1": {
+    "npm:asn1.js@4.3.0": {
       "map": {
         "bn.js": "npm:bn.js@4.6.2",
         "inherits": "npm:inherits@2.0.1",
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
-      }
-    },
-    "npm:assert@1.3.0": {
-      "map": {
-        "util": "npm:util@0.10.3"
       }
     },
     "npm:bl@0.9.4": {
@@ -245,11 +284,11 @@ System.config({
         "readable-stream": "npm:readable-stream@1.0.33"
       }
     },
-    "npm:buffer@3.5.3": {
+    "npm:buffer@4.0.0": {
       "map": {
         "base64-js": "npm:base64-js@0.0.8",
         "ieee754": "npm:ieee754@1.1.6",
-        "is-array": "npm:is-array@1.0.1"
+        "isarray": "npm:isarray@1.0.0"
       }
     },
     "npm:center-align@0.1.2": {
@@ -272,7 +311,7 @@ System.config({
         "inherits": "npm:inherits@2.0.1"
       }
     },
-    "npm:clean-css@3.4.8": {
+    "npm:clean-css@3.4.9": {
       "map": {
         "commander": "npm:commander@2.8.1",
         "source-map": "npm:source-map@0.4.4"
@@ -371,7 +410,7 @@ System.config({
         "es5-ext": "npm:es5-ext@0.10.11"
       }
     },
-    "npm:dashdash@1.11.0": {
+    "npm:dashdash@1.12.0": {
       "map": {
         "assert-plus": "npm:assert-plus@0.1.5"
       }
@@ -420,7 +459,7 @@ System.config({
         "es6-symbol": "npm:es6-symbol@3.0.2"
       }
     },
-    "npm:es6-module-loader@0.17.9": {
+    "npm:es6-module-loader@0.17.10": {
       "map": {
         "when": "npm:when@3.7.7"
       }
@@ -441,7 +480,7 @@ System.config({
       "map": {
         "esprima": "npm:esprima@1.0.4",
         "estraverse": "npm:estraverse@0.0.4",
-        "source-map": "npm:source-map@0.4.4"
+        "source-map": "npm:source-map@0.5.3"
       }
     },
     "npm:esniff@1.0.0": {
@@ -465,12 +504,6 @@ System.config({
         "esprima": "npm:esprima@1.0.4"
       }
     },
-    "npm:findup-sync@0.1.3": {
-      "map": {
-        "glob": "npm:glob@3.2.11",
-        "lodash": "npm:lodash@2.4.2"
-      }
-    },
     "npm:findup-sync@0.3.0": {
       "map": {
         "glob": "npm:glob@5.0.15"
@@ -485,9 +518,9 @@ System.config({
     },
     "npm:form-data@1.0.0-rc3": {
       "map": {
-        "async": "npm:async@1.5.1",
+        "async": "npm:async@1.5.2",
         "combined-stream": "npm:combined-stream@1.0.5",
-        "mime-types": "npm:mime-types@2.1.8"
+        "mime-types": "npm:mime-types@2.1.9"
       }
     },
     "npm:fstream@1.0.8": {
@@ -555,19 +588,6 @@ System.config({
         "webglew": "npm:webglew@0.0.0"
       }
     },
-    "npm:glob@3.1.21": {
-      "map": {
-        "graceful-fs": "npm:graceful-fs@1.2.3",
-        "inherits": "npm:inherits@1.0.2",
-        "minimatch": "npm:minimatch@0.2.14"
-      }
-    },
-    "npm:glob@3.2.11": {
-      "map": {
-        "inherits": "npm:inherits@2.0.1",
-        "minimatch": "npm:minimatch@0.3.0"
-      }
-    },
     "npm:glob@4.3.5": {
       "map": {
         "inflight": "npm:inflight@1.0.4",
@@ -625,57 +645,6 @@ System.config({
         "iota-array": "npm:iota-array@1.0.0",
         "typedarray-pool": "npm:typedarray-pool@1.1.0",
         "uniq": "npm:uniq@1.0.1"
-      }
-    },
-    "npm:grunt-legacy-log-utils@0.1.1": {
-      "map": {
-        "colors": "npm:colors@0.6.2",
-        "lodash": "npm:lodash@2.4.2",
-        "underscore.string": "npm:underscore.string@2.3.3"
-      }
-    },
-    "npm:grunt-legacy-log@0.1.2": {
-      "map": {
-        "colors": "npm:colors@0.6.2",
-        "grunt-legacy-log-utils": "npm:grunt-legacy-log-utils@0.1.1",
-        "hooker": "npm:hooker@0.2.3",
-        "lodash": "npm:lodash@2.4.2",
-        "underscore.string": "npm:underscore.string@2.3.3"
-      }
-    },
-    "npm:grunt-legacy-util@0.2.0": {
-      "map": {
-        "async": "npm:async@0.1.22",
-        "exit": "npm:exit@0.1.2",
-        "getobject": "npm:getobject@0.1.0",
-        "hooker": "npm:hooker@0.2.3",
-        "lodash": "npm:lodash@0.9.2",
-        "underscore.string": "npm:underscore.string@2.2.1",
-        "which": "npm:which@1.0.9"
-      }
-    },
-    "npm:grunt@0.4.5": {
-      "map": {
-        "async": "npm:async@0.1.22",
-        "coffee-script": "npm:coffee-script@1.3.3",
-        "colors": "npm:colors@0.6.2",
-        "dateformat": "npm:dateformat@1.0.2-1.2.3",
-        "eventemitter2": "npm:eventemitter2@0.4.14",
-        "exit": "npm:exit@0.1.2",
-        "findup-sync": "npm:findup-sync@0.1.3",
-        "getobject": "npm:getobject@0.1.0",
-        "glob": "npm:glob@3.1.21",
-        "grunt-legacy-log": "npm:grunt-legacy-log@0.1.2",
-        "grunt-legacy-util": "npm:grunt-legacy-util@0.2.0",
-        "hooker": "npm:hooker@0.2.3",
-        "iconv-lite": "npm:iconv-lite@0.2.11",
-        "js-yaml": "npm:js-yaml@2.0.5",
-        "lodash": "npm:lodash@0.9.2",
-        "minimatch": "npm:minimatch@0.2.14",
-        "nopt": "npm:nopt@1.0.10",
-        "rimraf": "npm:rimraf@2.2.8",
-        "underscore.string": "npm:underscore.string@2.2.1",
-        "which": "npm:which@1.0.9"
       }
     },
     "npm:har-validator@1.8.0": {
@@ -738,7 +707,7 @@ System.config({
       "map": {
         "assert-plus": "npm:assert-plus@0.1.5",
         "jsprim": "npm:jsprim@1.2.2",
-        "sshpk": "npm:sshpk@1.7.1"
+        "sshpk": "npm:sshpk@1.7.2"
       }
     },
     "npm:inflight@1.0.4": {
@@ -765,16 +734,10 @@ System.config({
         "jsbn": "npm:jsbn@0.1.0"
       }
     },
-    "npm:js-yaml@2.0.5": {
-      "map": {
-        "argparse": "npm:argparse@0.1.16",
-        "esprima": "npm:esprima@1.0.4"
-      }
-    },
     "npm:jspm-registry@0.4.0": {
       "map": {
         "graceful-fs": "npm:graceful-fs@3.0.8",
-        "rimraf": "npm:rimraf@2.5.0",
+        "rimraf": "npm:rimraf@2.3.4",
         "rsvp": "npm:rsvp@3.1.0",
         "semver": "npm:semver@4.3.6"
       }
@@ -811,21 +774,9 @@ System.config({
         "mime-db": "npm:mime-db@1.12.0"
       }
     },
-    "npm:mime-types@2.1.8": {
+    "npm:mime-types@2.1.9": {
       "map": {
-        "mime-db": "npm:mime-db@1.20.0"
-      }
-    },
-    "npm:minimatch@0.2.14": {
-      "map": {
-        "lru-cache": "npm:lru-cache@2.2.4",
-        "sigmund": "npm:sigmund@1.0.1"
-      }
-    },
-    "npm:minimatch@0.3.0": {
-      "map": {
-        "lru-cache": "npm:lru-cache@2.2.4",
-        "sigmund": "npm:sigmund@1.0.1"
+        "mime-db": "npm:mime-db@1.21.0"
       }
     },
     "npm:minimatch@2.0.10": {
@@ -898,11 +849,6 @@ System.config({
         "node.extend": "npm:node.extend@1.0.8"
       }
     },
-    "npm:nopt@1.0.10": {
-      "map": {
-        "abbrev": "npm:abbrev@1.0.7"
-      }
-    },
     "npm:once@1.3.3": {
       "map": {
         "wrappy": "npm:wrappy@1.0.1"
@@ -910,7 +856,7 @@ System.config({
     },
     "npm:parse-asn1@5.0.0": {
       "map": {
-        "asn1.js": "npm:asn1.js@4.2.1",
+        "asn1.js": "npm:asn1.js@4.3.0",
         "browserify-aes": "npm:browserify-aes@1.0.5",
         "create-hash": "npm:create-hash@1.1.2",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
@@ -949,6 +895,7 @@ System.config({
         "core-util-is": "npm:core-util-is@1.0.2",
         "inherits": "npm:inherits@2.0.1",
         "isarray": "npm:isarray@0.0.1",
+        "stream-browserify": "npm:stream-browserify@1.0.0",
         "string_decoder": "npm:string_decoder@0.10.31"
       }
     },
@@ -1033,7 +980,7 @@ System.config({
         "is-typedarray": "npm:is-typedarray@1.0.0",
         "isstream": "npm:isstream@0.1.2",
         "json-stringify-safe": "npm:json-stringify-safe@5.0.1",
-        "mime-types": "npm:mime-types@2.1.8",
+        "mime-types": "npm:mime-types@2.1.9",
         "node-uuid": "npm:node-uuid@1.4.7",
         "oauth-sign": "npm:oauth-sign@0.8.0",
         "qs": "npm:qs@5.2.0",
@@ -1062,7 +1009,7 @@ System.config({
         "node.flow": "npm:node.flow@1.2.3"
       }
     },
-    "npm:rollup@0.21.3": {
+    "npm:rollup@0.24.0": {
       "map": {
         "chalk": "npm:chalk@1.1.1",
         "minimist": "npm:minimist@1.2.0",
@@ -1099,15 +1046,21 @@ System.config({
         "amdefine": "npm:amdefine@1.0.0"
       }
     },
-    "npm:sshpk@1.7.1": {
+    "npm:sshpk@1.7.2": {
       "map": {
         "asn1": "npm:asn1@0.2.3",
         "assert-plus": "npm:assert-plus@0.2.0",
-        "dashdash": "npm:dashdash@1.11.0",
+        "dashdash": "npm:dashdash@1.12.0",
         "ecc-jsbn": "npm:ecc-jsbn@0.1.1",
         "jodid25519": "npm:jodid25519@1.0.2",
         "jsbn": "npm:jsbn@0.1.0",
-        "tweetnacl": "npm:tweetnacl@0.13.2"
+        "tweetnacl": "npm:tweetnacl@0.13.3"
+      }
+    },
+    "npm:stream-browserify@1.0.0": {
+      "map": {
+        "inherits": "npm:inherits@2.0.1",
+        "readable-stream": "npm:readable-stream@1.0.33"
       }
     },
     "npm:stream-browserify@2.0.1": {
@@ -1184,19 +1137,9 @@ System.config({
         "querystring": "npm:querystring@0.2.0"
       }
     },
-    "npm:util@0.10.3": {
-      "map": {
-        "inherits": "npm:inherits@2.0.1"
-      }
-    },
     "npm:verror@1.3.6": {
       "map": {
         "extsprintf": "npm:extsprintf@1.0.2"
-      }
-    },
-    "npm:vm-browserify@0.0.4": {
-      "map": {
-        "indexof": "npm:indexof@0.0.1"
       }
     },
     "npm:voxel-demo@0.0.1": {
