@@ -418,6 +418,12 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['source', 'latest', 'edge', 'yes']);
       if (options.yes)
         ui.useDefaults();
+      if (['traceur', 'typescript', 'babel'].indexOf(options.args[1]) != -1) {
+        ui.log('err', '%jspm dl-loader% no longer provides transpiler downloading.\n');
+        ui.log('info', 'To set a transpiler use the init prompts %jspm init -p%.\n\n' + 
+            'Alternatively manually install via %jspm install plugin-' + options.args[1] + '% and set this as the %transpiler% property in the jspm config.');
+        break;
+      }
       core.dlLoader(options.source, options.edge, options.latest);
       break;
 
