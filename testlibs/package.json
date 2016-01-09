@@ -8,13 +8,13 @@
     "css": "systemjs/plugin-css@^0.1.19",
     "d3": "mbostock/d3@^3.5.9",
     "ember": "components/ember@1.13.2",
-    "github": "jspm/github@0.17",
+    "github": "npm:jspm-github@^0.27.0",
     "jquery": "components/jquery@2.1.4",
     "jspm": "jspm/jspm-cli@0.17",
     "mocha": "npm:mocha@^2.3.4",
-    "npm": "jspm/npm@0.17",
+    "npm": "npm:jspm-npm@^0.27.0",
     "rsvp": "npm:rsvp@3.1.0",
-    "systemjs": "systemjs/systemjs@master",
+    "systemjs": "npm:systemjs@0.19.14",
     "text": "systemjs/plugin-text@^0.0.2",
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
@@ -71,15 +71,7 @@
     "github:components/jquery@2.1.4": {
       "main": "jquery"
     },
-    "github:jspm/github@0.17": {
-      "registry": "npm"
-    },
-    "github:jspm/npm@0.17": {
-      "registry": "npm"
-    },
-    "github:systemjs/builder@0.15": {
-      "registry": "npm",
-      "format": "cjs",
+    "npm:systemjs-builder@0.15.0": {
       "meta": {
         "*": {
           "globals": {
@@ -106,8 +98,7 @@
         }
       }
     },
-    "github:systemjs/systemjs@master": {
-      "registry": "npm",
+    "npm:systemjs@0.19.14": {
       "main": "index.js",
       "format": "cjs",
       "meta": {
