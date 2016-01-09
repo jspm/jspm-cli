@@ -2,7 +2,6 @@
 
 * [Getting Started](getting-started.md)
 * [Installing Packages](installing-packages.md)
-* [CLI](cli.md)
 * [Linking](linking.md)
 * [API](api.md)
 * [Plugins](plugins.md)
