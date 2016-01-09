@@ -207,13 +207,13 @@ process.on('uncaughtException', function(err) {
 
   // this will get a value in its true type from the CLI
   function readValue(val) {
-    if (val === 'true' || val === 'false') {
+    val = val.trim();
+    if (val === 'true' || val === 'false')
       return eval(val);
-    } else if (!isNaN(parseInt(val))) {
+    else if (parseInt(val).toString() == val)
       return parseInt(val);
-    } else {
+    else
       return val;
-    }
   }
 
   // [].concat() to avoid mutating the given process.argv
