@@ -1,6 +1,7 @@
 var api = require('../api');
 var fs = require('fs');
 var common = require('../lib/common');
+var path = require('path');
 
 api.setPackagePath('testlibs');
 
@@ -11,7 +12,7 @@ suite('API Calls', function() {
 
   test('Normalize', function(done) {
     api.normalize('jquery').then(function(normalized) {
-      assert(normalized === System.baseURL + 'jspm_packages/github/components/jquery@2.1.4.js');
+      assert(normalized === 'file://' + path.resolve('testlibs') + '/jspm_packages/github/components/jquery@2.1.4.js');
       done();
     })
     .catch(done);
