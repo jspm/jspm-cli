@@ -11,7 +11,7 @@ SystemJS.config({
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "builder": "github:systemjs/builder@0.15",
+    "builder": "npm:systemjs-builder@0.15.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "clean-css": "npm:clean-css@3.4.9",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
@@ -23,7 +23,7 @@ SystemJS.config({
     "ember": "github:components/ember@1.13.2",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
-    "github": "github:jspm/github@0.17",
+    "github": "npm:jspm-github@0.14.0",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
     "jquery": "github:components/jquery@2.1.4",
@@ -32,7 +32,7 @@ SystemJS.config({
     "mocha": "npm:mocha@2.3.4",
     "module": "github:jspm/nodelibs-module@0.2.0-alpha",
     "net": "github:jspm/nodelibs-net@0.2.0-alpha",
-    "npm": "github:jspm/npm@0.17",
+    "npm": "npm:jspm-npm@0.27.0",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
@@ -42,7 +42,7 @@ SystemJS.config({
     "rsvp": "npm:rsvp@3.1.0",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
-    "systemjs": "github:systemjs/systemjs@master",
+    "systemjs": "npm:systemjs@0.19.14",
     "text": "github:systemjs/plugin-text@0.0.2",
     "tls": "github:jspm/nodelibs-tls@0.2.0-alpha",
     "traceur": "github:jmcriffey/bower-traceur@0.0.95",
@@ -56,7 +56,17 @@ SystemJS.config({
   },
 
   packages: {
-    "github:jspm/github@0.17": {
+    "npm:graceful-readlink@1.0.1": {
+      "map": {
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha"
+      }
+    },
+    "npm:inherits@2.0.1": {
+      "map": {
+        "util": "github:jspm/nodelibs-util@0.2.0-alpha"
+      }
+    },
+    "npm:jspm-github@0.14.0": {
       "map": {
         "bluebird": "npm:bluebird@3.1.1",
         "expand-tilde": "npm:expand-tilde@1.2.0",
@@ -77,8 +87,8 @@ SystemJS.config({
         "core-js": "npm:core-js@1.2.6",
         "glob": "npm:glob@6.0.3",
         "graceful-fs": "npm:graceful-fs@4.1.2",
-        "jspm-github": "github:jspm/github@0.17",
-        "jspm-npm": "github:jspm/npm@0.17",
+        "jspm-github": "npm:jspm-github@0.14.0",
+        "jspm-npm": "npm:jspm-npm@0.27.0",
         "jspm-registry": "npm:jspm-registry@0.4.0",
         "liftoff": "npm:liftoff@2.2.0",
         "minimatch": "npm:minimatch@3.0.0",
@@ -88,8 +98,8 @@ SystemJS.config({
         "request": "npm:request@2.67.0",
         "rimraf": "npm:rimraf@2.5.0",
         "semver": "npm:semver@5.1.0",
-        "systemjs": "github:systemjs/systemjs@master",
-        "systemjs-builder": "github:systemjs/builder@0.15",
+        "systemjs": "npm:systemjs@0.19.14",
+        "systemjs-builder": "npm:systemjs-builder@0.15.0",
         "traceur": "npm:traceur@0.0.95",
         "uglify-js": "npm:uglify-js@2.6.1"
       }
@@ -139,7 +149,7 @@ SystemJS.config({
         "zlib-browserify": "npm:browserify-zlib@0.1.4"
       }
     },
-    "github:jspm/npm@0.17": {
+    "npm:jspm-npm@0.27.0": {
       "map": {
         "bluebird": "npm:bluebird@3.1.1",
         "graceful-fs": "npm:graceful-fs@3.0.8",
@@ -148,12 +158,18 @@ SystemJS.config({
         "request": "npm:request@2.58.0",
         "rmdir": "npm:rmdir@1.1.0",
         "semver": "npm:semver@5.1.0",
+        "systemjs-builder": "npm:systemjs-builder@0.15.0",
         "tar": "npm:tar@1.0.3",
         "traceur": "npm:traceur@0.0.95",
         "which": "npm:which@1.2.1"
       }
     },
-    "github:systemjs/builder@0.15": {
+    "npm:string_decoder@0.10.31": {
+      "map": {
+        "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha"
+      }
+    },
+    "npm:systemjs-builder@0.15.0": {
       "map": {
         "bluebird": "npm:bluebird@3.1.1",
         "es6-template-strings": "npm:es6-template-strings@2.0.0",
@@ -161,12 +177,12 @@ SystemJS.config({
         "mkdirp": "npm:mkdirp@0.5.1",
         "rollup": "npm:rollup@0.24.0",
         "source-map": "npm:source-map@0.5.3",
-        "systemjs": "github:systemjs/systemjs@master",
+        "systemjs": "npm:systemjs@0.19.14",
         "traceur": "npm:traceur@0.0.95",
         "uglify-js": "npm:uglify-js@2.6.1"
       }
     },
-    "github:systemjs/systemjs@master": {
+    "npm:systemjs@0.19.14": {
       "map": {
         "es6-module-loader": "npm:es6-module-loader@0.17.10",
         "when": "npm:when@3.7.7"
@@ -195,6 +211,7 @@ SystemJS.config({
     "npm:ao-shader@0.2.3": {
       "map": {
         "brfs": "npm:brfs@0.0.9",
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
         "gl-shader": "npm:gl-shader@0.0.6"
       }
     },
@@ -235,6 +252,10 @@ SystemJS.config({
       "map": {
         "escodegen": "npm:escodegen@0.0.17",
         "falafel": "npm:falafel@0.1.6",
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+        "path": "github:jspm/nodelibs-path@0.2.0-alpha",
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+        "systemjs-json": "github:systemjs/plugin-json@0.1.0",
         "through": "npm:through@2.2.7"
       }
     },
@@ -336,7 +357,12 @@ SystemJS.config({
     },
     "npm:commander@2.8.1": {
       "map": {
-        "graceful-readlink": "npm:graceful-readlink@1.0.1"
+        "child_process": "github:jspm/nodelibs-child_process@0.1.0",
+        "events": "github:jspm/nodelibs-events@0.2.0-alpha",
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+        "graceful-readlink": "npm:graceful-readlink@1.0.1",
+        "path": "github:jspm/nodelibs-path@0.2.0-alpha",
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha"
       }
     },
     "npm:commander@2.9.0": {
@@ -385,11 +411,13 @@ SystemJS.config({
     },
     "npm:cwise-compiler@0.0.0": {
       "map": {
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
         "uniq": "npm:uniq@0.0.2"
       }
     },
     "npm:cwise-compiler@0.1.0": {
       "map": {
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
         "uniq": "npm:uniq@0.0.2"
       }
     },
@@ -480,6 +508,9 @@ SystemJS.config({
       "map": {
         "esprima": "npm:esprima@1.0.4",
         "estraverse": "npm:estraverse@0.0.4",
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+        "path": "github:jspm/nodelibs-path@0.2.0-alpha",
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
         "source-map": "npm:source-map@0.5.3"
       }
     },
@@ -637,6 +668,7 @@ SystemJS.config({
     },
     "npm:glsl-tokenizer@0.0.9": {
       "map": {
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
         "through": "npm:through@2.3.8"
       }
     },
@@ -895,7 +927,6 @@ SystemJS.config({
         "core-util-is": "npm:core-util-is@1.0.2",
         "inherits": "npm:inherits@2.0.1",
         "isarray": "npm:isarray@0.0.1",
-        "stream-browserify": "npm:stream-browserify@1.0.0",
         "string_decoder": "npm:string_decoder@0.10.31"
       }
     },
@@ -1057,12 +1088,6 @@ SystemJS.config({
         "tweetnacl": "npm:tweetnacl@0.13.3"
       }
     },
-    "npm:stream-browserify@1.0.0": {
-      "map": {
-        "inherits": "npm:inherits@2.0.1",
-        "readable-stream": "npm:readable-stream@1.0.33"
-      }
-    },
     "npm:stream-browserify@2.0.1": {
       "map": {
         "inherits": "npm:inherits@2.0.1",
@@ -1095,6 +1120,18 @@ SystemJS.config({
         "inherits": "npm:inherits@2.0.1"
       }
     },
+    "npm:through@1.1.2": {
+      "map": {
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+        "stream": "github:jspm/nodelibs-stream@0.2.0-alpha"
+      }
+    },
+    "npm:through@2.2.7": {
+      "map": {
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+        "stream": "github:jspm/nodelibs-stream@0.2.0-alpha"
+      }
+    },
     "npm:tile-mip-map@0.2.1": {
       "map": {
         "ndarray": "npm:ndarray@1.0.18",
@@ -1120,6 +1157,7 @@ SystemJS.config({
     "npm:typedarray-pool@1.1.0": {
       "map": {
         "bit-twiddle": "npm:bit-twiddle@1.0.2",
+        "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
         "dup": "npm:dup@1.0.0"
       }
     },
