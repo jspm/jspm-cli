@@ -88,52 +88,7 @@ API.Loader = function() {
 /*
  * Builder API
  */
-
-/*
- * Returns a jspm-configured SystemJS Builder class
- */
-API.Builder = function() {
-  bundle.Builder.apply(this, arguments);
-};
-
-API.Builder.prototype = Object.create(bundle.Builder);
-
-
-// extend build functions with jspm 0.16 compatibility options
-API.Builder.prototype.bundle = function(expressionOrTree, outFile, opts) {
-  if (outFile && typeof outFile === 'object') {
-    opts = outFile;
-    outFile = undefined;
-  }
-
-  opts = opts || {};
-
-  if (outFile)
-    opts.outFile = outFile;
-
-  if (!('normalize' in opts))
-    opts.normalize = true;
-
-  return bundle.Builder.prototype.bundle.call(this, expressionOrTree, opts);
-};
-
-API.Builder.prototype.buildStatic = function(expressionOrTree, outFile, opts) {
-  if (outFile && typeof outFile === 'object') {
-    opts = outFile;
-    outFile = undefined;
-  }
-
-  opts = opts || {};
-
-  if (outFile)
-    opts.outFile = outFile;
-
-  if (!('format' in opts))
-    opts.format = 'global';
-
-  return bundle.Builder.prototype.buildStatic.call(this, expressionOrTree, opts);
-};
-
+API.Builder = bundle.Builder;
 
 // options.inject
 // options.sourceMaps
