@@ -114,7 +114,7 @@ API.Builder.prototype.bundle = function(expressionOrTree, outFile, opts) {
   if (!('normalize' in opts))
     opts.normalize = true;
 
-  return bundle.Builder.bundle.call(this, expressionOrTree, opts);
+  return bundle.Builder.prototype.bundle.call(this, expressionOrTree, opts);
 };
 
 API.Builder.prototype.buildStatic = function(expressionOrTree, outFile, opts) {
@@ -131,7 +131,7 @@ API.Builder.prototype.buildStatic = function(expressionOrTree, outFile, opts) {
   if (!('format' in opts))
     opts.format = 'global';
 
-  return bundle.Builder.buildStatic.call(this, expressionOrTree, opts);
+  return bundle.Builder.prototype.buildStatic.call(this, expressionOrTree, opts);
 };
 
 
