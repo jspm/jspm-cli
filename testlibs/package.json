@@ -3,7 +3,7 @@
   "dependencies": {
     "angular": "angular/bower-angular@^1.4.8",
     "bootstrap": "twbs/bootstrap@^3.3.6",
-    "builder": "systemjs/builder@0.15",
+    "builder": "npm:systemjs-builder@^0.15",
     "clean-css": "npm:clean-css@^3.4.8",
     "css": "systemjs/plugin-css@^0.1.19",
     "d3": "mbostock/d3@^3.5.9",
@@ -14,7 +14,7 @@
     "mocha": "npm:mocha@^2.3.4",
     "npm": "npm:jspm-npm@^0.27.0",
     "rsvp": "npm:rsvp@3.1.0",
-    "systemjs": "npm:systemjs@0.19.14",
+    "systemjs": "npm:systemjs@0.19.15",
     "text": "systemjs/plugin-text@^0.0.2",
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
@@ -71,6 +71,25 @@
     "github:components/jquery@2.1.4": {
       "main": "jquery"
     },
+    "npm:bluebird@3.1.1": {
+      "meta": {
+        "js/browser/bluebird.js": {},
+        "js/browser/bluebird.min.js": {}
+      }
+    },
+    "npm:readable-stream@1.0.33": {
+      "map": {
+        "stream": "stream-browserify/index"
+      },
+      "systemjs": {},
+      "dependencies": {
+        "core-util-is": "~1.0.0",
+        "isarray": "0.0.1",
+        "string_decoder": "~0.10.0",
+        "inherits": "~2.0.1",
+        "stream-browserify": "~1.0.0"
+      }
+    },
     "npm:systemjs-builder@0.15.0": {
       "meta": {
         "*": {
@@ -96,32 +115,6 @@
             "../compilers/json"
           ]
         }
-      }
-    },
-    "npm:systemjs@0.19.14": {
-      "main": "index.js",
-      "format": "cjs",
-      "meta": {
-        "*": {
-          "globals": {
-            "process": "process"
-          }
-        },
-        "*.json": {
-          "format": "json"
-        },
-        "dist/system.src.js": {
-          "deps": [
-            "vm"
-          ]
-        },
-        "docs/module-formats.md": {
-          "format": "amd"
-        },
-        "lib/amd.js": {
-          "format": "amd"
-        },
-        "package.json": true
       }
     },
     "github:twbs/bootstrap@3.3.6": {
@@ -155,11 +148,6 @@
           }
         }
       }
-    },
-    "npm:base64-js@0.0.8": {
-      "ignore": [
-        "bench"
-      ]
     },
     "npm:browserify-zlib@0.1.4": {
       "dependencies": {
@@ -220,6 +208,32 @@
           ],
           "exports": "mocha"
         }
+      }
+    },
+    "npm:systemjs@0.19.15": {
+      "main": "index.js",
+      "format": "cjs",
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "process"
+          }
+        },
+        "*.json": {
+          "format": "json"
+        },
+        "dist/system.src.js": {
+          "deps": [
+            "vm"
+          ]
+        },
+        "docs/module-formats.md": {
+          "format": "amd"
+        },
+        "lib/amd.js": {
+          "format": "amd"
+        },
+        "package.json": true
       }
     },
     "npm:traceur@0.0.95": {
