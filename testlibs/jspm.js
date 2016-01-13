@@ -29,7 +29,7 @@ SystemJS.config({
     "jquery": "github:components/jquery@2.1.4",
     "jspm": "github:jspm/jspm-cli@0.17",
     "jspm-registry": "npm:jspm-registry@0.4.0",
-    "mocha": "npm:mocha@2.3.4",
+    "mocha": "npm:mocha@1.21.5",
     "module": "github:jspm/nodelibs-module@0.2.0-alpha",
     "net": "github:jspm/nodelibs-net@0.2.0-alpha",
     "npm": "npm:jspm-npm@0.27.0",
@@ -181,6 +181,11 @@ SystemJS.config({
         "tar": "npm:tar@1.0.3",
         "traceur": "npm:traceur@0.0.95",
         "which": "npm:which@1.2.1"
+      }
+    },
+    "npm:mocha@1.21.5": {
+      "map": {
+        "css": "github:systemjs/plugin-css@0.1.20"
       }
     },
     "npm:rollup@0.24.1": {
@@ -834,11 +839,6 @@ SystemJS.config({
     "npm:mkdirp@0.5.1": {
       "map": {
         "minimist": "npm:minimist@0.0.8"
-      }
-    },
-    "npm:mocha@2.3.4": {
-      "map": {
-        "css": "github:systemjs/plugin-css@0.1.20"
       }
     },
     "npm:ndarray-downsample2x@0.1.1": {
