@@ -236,22 +236,21 @@ process.on('uncaughtException', function(err) {
     var json;
     if (!fileOrJSON.startsWith('{')) {
       try {
-        json = fs.readFileSync(fileOrJSON);
+        json = fs.readFileSync(fileOrJSON).toString();
       }
       catch(e) {
         return ui.log('err', 'Unable to read config file %' + fileOrJSON + '%.');
       }
       try {
-        fileOrJSON = JSON.parse(json);
+        return JSON.parse(json);
       }
       catch(e) {
         return ui.log('err', 'Invalid JSON in config file %' + fileOrJSON + '%.');
       }
     }
     else {
-      json = eval('(' + fileOrJSON + ')');
+      return eval('(' + fileOrJSON + ')');
     }
-    return json;
   }
 
   switch(args[0]) {
@@ -447,7 +446,7 @@ process.on('uncaughtException', function(err) {
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
           'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node', 'skip-encode-names', 'skip-rollup'],
-          ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config']);
+          ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions']);
 
       if (options.yes)
         ui.useDefaults();
@@ -475,6 +474,9 @@ process.on('uncaughtException', function(err) {
 
       if (options.config)
         options.config = readJSON(options.config);
+
+      if (options.conditions)
+        options.conditions = readJSON(options.conditions);
 
       var bArgs = options.args.splice(1);
 
