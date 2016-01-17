@@ -255,7 +255,8 @@ process.on('uncaughtException', function(err) {
 
   switch(args[0]) {
     case 'run':
-      core.run(args[1]);
+      options = readOptions(args, ['view']);
+      core.run(args[1], options.view);
       break;
 
     case 'inject':
@@ -445,8 +446,9 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node', 'skip-encode-names', 'skip-rollup'],
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 'browser', 'node', 'dev', 'skip-encode-names', 'skip-rollup'],
           ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions']);
+
 
       if (options.yes)
         ui.useDefaults();
