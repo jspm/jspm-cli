@@ -11,7 +11,7 @@
     "glob": "^6.0.1",
     "graceful-fs": "^4.1.2",
     "jspm-github": "^0.14.1",
-    "jspm-npm": "^0.27.1",
+    "jspm-npm": "^0.27.2",
     "jspm-registry": "^0.4.0",
     "liftoff": "^2.2.0",
     "minimatch": "^3.0.0",
