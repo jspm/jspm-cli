@@ -16,6 +16,7 @@
 
 var install = require('./lib/install');
 var bundle = require('./lib/bundle');
+var link = require('./lib/link');
 var core = require('./lib/core');
 var ui = require('./lib/ui');
 var EventEmitter = require('events').EventEmitter;
@@ -150,4 +151,17 @@ API.uninstall = function(names) {
 
 API.dlLoader = function(transpiler) {
   return core.checkDlLoader(transpiler);
+};
+
+/**
+ * Link a local folder as an installable package
+ * @param {string} linkTargetDir Filesystem path to package source directory
+ * @param {string} linkName Uncanonical package name used to register the link target (the version before map/path rules are applied)
+ * @param {object} options
+ * @param {boolean} options.force
+ * @param {boolean} options.quick
+ * @returns {Promise}
+ */
+API.link = function(linkTargetDir, linkName, options) {
+  return link.link(linkTargetDir, linkName, options || {});
 };
