@@ -233,6 +233,8 @@ process.on('uncaughtException', function(err) {
   }
 
   function readJSON(fileOrJSON) {
+    if (fileOrJSON.trim() == '')
+      return {};
     var json;
     if (!fileOrJSON.startsWith('{')) {
       try {
