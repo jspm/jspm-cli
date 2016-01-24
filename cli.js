@@ -53,7 +53,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm install <name[=target]+> [--force skips cache] [--latest] [--quick]\n'
       + '  install jquery                 Install a package resolved in the jspm registry\n'
       + '  install react=npm:react        Install a package from a registry to latest\n'
-      + '  install jquery=2 react         Install a package to a version or range\n'
+      + '  install jquery@2 react         Install a package to a version or range\n'
       + '\n'
       + '  install                        Reproducible / shrinkwrap install package.json\n'
       + '\n'
