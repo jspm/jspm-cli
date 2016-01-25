@@ -8,3 +8,4 @@ testlibs/build.*
 test/outputs
 coverage
 docs/_book
+docs/book.json
