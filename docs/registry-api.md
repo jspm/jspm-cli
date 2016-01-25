@@ -6,7 +6,7 @@ Custom registries can be easily created by exporting a new package following thi
 
 Please do ask questions or create suggestions to help make this documentation better.
 
-# Registry API Version 1.7
+# Registry API Version 2.0
 
 ### Constructor
 
