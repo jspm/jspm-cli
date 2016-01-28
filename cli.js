@@ -240,6 +240,7 @@ process.on('uncaughtException', function(err) {
       var doUpdate = !inject;
 
     case 'i':
+    case 'isntall':
     case 'install':
       options = readOptions(args, ['force', 'link', 'yes', 'lock', 'latest',
                                    'unlink', 'quick', 'dev', 'edge', 'production'], ['override']);
