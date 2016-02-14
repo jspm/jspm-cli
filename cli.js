@@ -69,7 +69,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm clean                       Clear unused and orphaned dependencies\n'
       + '\n'
       + 'jspm inspect [--forks]           View all installed package versions\n'
-      + '  inspect npm:source-map         View the versions and ranges of a package\n'
+      + '  inspect [registry]:[package]   View the versions and ranges of a package\n'
       + '\n'
       //+ 'jspm inject <name[=target]> [--force] [--latest] [--lock] [-o]\n'
       //+ '  inject jquery                    Identical to install, but injects config\n'
