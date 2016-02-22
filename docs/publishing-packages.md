@@ -56,7 +56,7 @@ That is all you need to do to make your package installable by anyone with `jspm
 
 It is advisable to ensure the following package.json properties are set when publishing jspm packages to GitHub:
 
-* `format`: The module format you've written your package in - `es6`, `amd`, `cjs` or `global`.
+* `format`: The module format you've written your package in - `esm`, `amd`, `cjs` or `global`.
 * `directories.lib`: A subdirectory to install your package from, all other directories and files are then ignored and paths are relative to this folder.
 * `main`: The main entry point for your package. If using a `directories.lib` the main is relative to this folder.
 * `registry`: Typically set this to `jspm` as the registry you have written your package for.
