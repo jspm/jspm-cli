@@ -59,7 +59,6 @@ API.version = require('./package.json').version;
 /*
  * Loader API
  */
-
 var apiLoader;
 API.normalize = function(name, parentName) {
   apiLoader = apiLoader || new API.Loader();
@@ -87,35 +86,18 @@ API.Loader = function() {
  */
 API.Builder = bundle.Builder;
 
-// options.inject
-// options.sourceMaps
-// options.minify
-API.bundle = function(expression, fileName, options) {
-  return bundle.bundle(expression, fileName, options);
-};
+// deprecated:
+function builderDeprecationMsg(method) {
+  return Promise.reject(new TypeError('jspm.' + method + ' is deprecated for the Builder API:\n\tvar Builder = require(\'jspm\').Builder;\n\tvar builder = new Builder();\n\tbuilder.' + method + '(...).then(...)'));
+}
 
-/*
- * Remove the bundle configuration.
- * This will allow you to move back to separate file mode
- * returns a promise
- */
+
+API.bundle = builderDeprecationMsg.bind(API, 'bundle');
+API.build = builderDeprecationMsg.bind(API, 'build');
+API.bundleSFX = builderDeprecationMsg.bind(API, 'bundleSFX');
 API.unbundle = function() {
   return bundle.unbundle();
 };
-
-
-/*
- * Creates a distributable script file that can be used entirely on its own independent of SystemJS and jspm.
- * returns a promise
- * options.minify, options.sourceMaps
- */
-API.build = function(expression, fileName, options) {
-  return bundle.build(expression, fileName, options);
-};
-API.bundleSFX = function() {
-  return Promise.reject(new TypeError('jspm.bundleSFX is now jspm.build'));
-};
-
 
 /*
  * Package Management API
