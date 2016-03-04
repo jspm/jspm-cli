@@ -475,6 +475,15 @@ process.on('uncaughtException', function(err) {
       if (options['global-defs'])
         options.globalDefs = eval('(' + options['global-defs'] + ')');
 
+      if (options['skip-encode-names'])
+        options.encodeNames = options['skip-encode-names'];
+
+      if (options['skip-rollup'])
+        options.rollup = !options['skip-rollup'];
+
+      if (options.dev)
+        options.development = true;
+
       if (options.config)
         options.config = readJSON(options.config);
 
