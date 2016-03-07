@@ -60,6 +60,7 @@
     "supernew"      : false,     // true: Tolerate `new function () { ... };` and `new Object;`
     "validthis"     : false,     // true: Tolerate using this in a non-constructor function
     "-W086"         : true,      // true: allow fall-through
+    "-W082"         : true,      // true: allow functions in blocks
 
     // Environments
     "browser"       : false,    // Web Browser (window, document, etc)
