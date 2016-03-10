@@ -259,7 +259,7 @@ suite('Process Dependencies', function() {
   }
 
   test('Escaping versions', function() {
-    assert.deepEqual(serialize(processDeps({ 'jquery': 'some/version' }, 'jspm')), { 'jquery': 'jspm:jquery@some%2Fversion' });
+    assert.deepEqual(serialize(processDeps({ 'jquery': 'some/version' }, 'jspm')), { 'jquery': 'jspm:jquery@some/version' });
   });
 
   test('No target', function() {
