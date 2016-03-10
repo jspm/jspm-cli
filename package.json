@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "Registry and format agnostic JavaScript package manager",
-  "version": "0.17.0-beta.10",
+  "version": "0.17.0-beta.11",
   "main": "./api.js",
   "author": "",
   "dependencies": {
@@ -22,7 +22,7 @@
     "rimraf": "^2.4.4",
     "semver": "^5.1.0",
     "systemjs": "0.19.24",
-    "systemjs-builder": "0.15.11",
+    "systemjs-builder": "0.15.12",
     "traceur": "0.0.95",
     "uglify-js": "^2.6.1"
   },
