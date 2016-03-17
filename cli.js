@@ -476,7 +476,7 @@ process.on('uncaughtException', function(err) {
         options.globalDefs = eval('(' + options['global-defs'] + ')');
 
       if (options['skip-encode-names'])
-        options.encodeNames = options['skip-encode-names'];
+        options.encodeNames = !options['skip-encode-names'];
 
       if (options['skip-rollup'])
         options.rollup = !options['skip-rollup'];
