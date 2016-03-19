@@ -90,7 +90,7 @@ Creates a single self-executing bundle for a module.
 
 Both `bundle` and `bundleSFX` support the following options:
 
-* `minify`: Use minification, defaults to true.
+* `minify`: Use minification, defaults to false.
 * `mangle`: Use mangling with minification, defaults to true.
 * `lowResSourceMaps`: Use faster low-resolution source maps, defaults to true.
 * `sourceMaps`: Use source maps, defaults to true.
