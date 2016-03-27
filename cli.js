@@ -447,6 +447,9 @@ process.on('uncaughtException', function(err) {
       if (options['global-name'])
         options.globalName = options['global-name'];
 
+      if (options.inject)
+        options.injectConfig = true;
+
       options.format = options.format;
 
       if (options.globals)
