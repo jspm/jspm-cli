@@ -457,6 +457,7 @@ process.on('uncaughtException', function(err) {
       options.lowResSourceMaps = !options['hires-source-maps'];
       options.mangle = !options['no-mangle'];
       options.sourceMapContents = !!options['source-map-contents'];
+      options.injectConfig = !!options.inject;
 
       if (options['inline-source-maps'])
         options.sourceMaps = 'inline';
