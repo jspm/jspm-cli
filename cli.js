@@ -258,8 +258,8 @@ process.on('uncaughtException', function(err) {
 
   switch(args[0]) {
     case 'run':
-      options = readOptions(args, ['view']);
-      core.run(args[1], options.view);
+      options = readOptions(args, ['view', 'production']);
+      core.run(args[1], options.view, options.production);
       break;
 
     case 'inject':
