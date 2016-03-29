@@ -25,7 +25,8 @@
     "systemjs": "0.19.24",
     "systemjs-builder": "0.15.12",
     "traceur": "0.0.95",
-    "uglify-js": "^2.6.1"
+    "uglify-js": "^2.6.1",
+    "fb-watchman": "^1.9.0"
   },
   "registry": "npm",
   "devDependencies": {
