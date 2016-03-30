@@ -453,11 +453,6 @@ process.on('uncaughtException', function(err) {
           'browser', 'node', 'dev', 'production', 'skip-encode-names', 'skip-rollup', 'watch'],
           ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions']);
 
-      if (staticBuild && options.watch) {
-        ui.log('err', 'The %--watch% option is only supported for %jspm bundle%, not builds.');
-        return;
-      }
-
       if (options.yes)
         ui.useDefaults();
       options.sourceMaps = !options['skip-source-maps'];
