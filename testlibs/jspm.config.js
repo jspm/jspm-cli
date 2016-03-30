@@ -85,6 +85,11 @@ SystemJS.config({
         "randombytes": "npm:randombytes@2.0.3"
       }
     },
+    "npm:bser@1.0.2": {
+      "map": {
+        "node-int64": "npm:node-int64@0.4.0"
+      }
+    },
     "npm:buffer@4.5.0": {
       "map": {
         "base64-js": "npm:base64-js@1.1.1",
@@ -110,6 +115,16 @@ SystemJS.config({
         "brorand": "npm:brorand@1.0.5",
         "hash.js": "npm:hash.js@1.0.3",
         "inherits": "npm:inherits@2.0.1"
+      }
+    },
+    "npm:exec-sh@0.2.0": {
+      "map": {
+        "merge": "npm:merge@1.2.0"
+      }
+    },
+    "npm:fb-watchman@1.9.0": {
+      "map": {
+        "bser": "npm:bser@1.0.2"
       }
     },
     "npm:glob@6.0.4": {
@@ -158,6 +173,7 @@ SystemJS.config({
         "proper-lockfile": "npm:proper-lockfile@1.1.1",
         "request": "npm:request@2.67.0",
         "rimraf": "npm:rimraf@2.5.0",
+        "sane": "npm:sane@1.3.3",
         "semver": "npm:semver@5.1.0",
         "systemjs": "npm:systemjs@0.19.15",
         "systemjs-builder": "npm:systemjs-builder@0.15.0",
@@ -225,6 +241,17 @@ SystemJS.config({
         "which": "npm:which@1.2.1"
       }
     },
+    "npm:makeerror@1.0.11": {
+      "map": {
+        "tmpl": "npm:tmpl@1.0.4"
+      }
+    },
+    "npm:minimatch@0.2.14": {
+      "map": {
+        "lru-cache": "npm:lru-cache@2.7.3",
+        "sigmund": "npm:sigmund@1.0.1"
+      }
+    },
     "npm:mocha@1.21.5": {
       "map": {
         "css": "github:systemjs/plugin-css@0.1.20"
@@ -235,6 +262,16 @@ SystemJS.config({
         "chalk": "npm:chalk@1.1.1",
         "minimist": "npm:minimist@1.2.0",
         "source-map-support": "npm:source-map-support@0.3.3"
+      }
+    },
+    "npm:sane@1.3.3": {
+      "map": {
+        "exec-sh": "npm:exec-sh@0.2.0",
+        "fb-watchman": "npm:fb-watchman@1.9.0",
+        "minimatch": "npm:minimatch@0.2.14",
+        "minimist": "npm:minimist@1.2.0",
+        "walker": "npm:walker@1.0.7",
+        "watch": "npm:watch@0.10.0"
       }
     },
     "npm:sha.js@2.4.5": {
@@ -1173,6 +1210,11 @@ SystemJS.config({
         "ndarray": "npm:ndarray@1.0.18",
         "ndarray-fill": "npm:ndarray-fill@0.1.0",
         "ndarray-ops": "npm:ndarray-ops@1.1.1"
+      }
+    },
+    "npm:walker@1.0.7": {
+      "map": {
+        "makeerror": "npm:makeerror@1.0.11"
       }
     },
     "npm:which@1.2.1": {
