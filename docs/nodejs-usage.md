@@ -3,7 +3,7 @@ jspm is primarily a browser package manager, but there are massive benefits to e
 **It is advisable not to use jspm for arbitrary server applications currently** as there are two major issues with Node module npm support that are limiting use of jspm in Node:
 
 1. Browserify transforms support (https://github.com/jspm/npm/issues/10)
-2. Packages with a `browser` field will always use that browser mapping even in Node (https://github.com/jspm/npm/issues/32), pending [conditional loading support in SystemJS](https://github.com/systemjs/systemjs/issues/285).
+2. Packages with a `browser` field will always use that browser mapping even in Node (https://github.com/jspm/npm/issues/32)
 
 ### jspm run
 
