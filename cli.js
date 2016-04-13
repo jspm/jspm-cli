@@ -404,6 +404,7 @@ process.on('uncaughtException', function(err) {
       })
       .catch(function(e) {
         ui.log('err', e.stack || e);
+        process.exit(1);
       });
       break;
 
@@ -414,6 +415,7 @@ process.on('uncaughtException', function(err) {
       core.init(options.args[1], options.prompts)
       .catch(function(e) {
         console.log(e);
+        process.exit(1);
       });
       break;
 
