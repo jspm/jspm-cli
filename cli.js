@@ -152,7 +152,7 @@ process.on('uncaughtException', function(err) {
     args.splice(logArgIndex, 2);
   }
 
-  function readJSON(fileOrJSON) {
+  function readJSON(fileOrJSON, supportFile) {
     if (fileOrJSON.trim() == '')
       return {};
     
@@ -161,6 +161,9 @@ process.on('uncaughtException', function(err) {
 
     else if (fileOrJSON.indexOf('=') != -1)
       return readPropertySetters(fileOrJSON);
+
+    if (!supportFile)
+      return ui.log('err', 'Invalid data option `' + fileOrJSON + '`. Provide JSON with `{...}` syntax or a list of property expressions with `=`.');
 
     var json;
     try {
@@ -231,7 +234,7 @@ process.on('uncaughtException', function(err) {
       }
 
       if ('override' in options)
-        options.override = readJSON(options.override);
+        options.override = readJSON(options.override, true);
 
       if (options.yes)
         ui.useDefaults();
@@ -374,7 +377,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
           'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 
           'browser', 'node', 'dev', 'production', 'skip-encode-names', 'skip-rollup', 'watch'],
-          ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions']);
+          ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions', 'externals']);
 
       if (options.yes)
         ui.useDefaults();
@@ -387,19 +390,31 @@ process.on('uncaughtException', function(err) {
       if (options['inline-source-maps'])
         options.sourceMaps = 'inline';
 
-      if (options['global-name'])
+      if (options['global-name']) {
         options.globalName = options['global-name'];
+      }
 
-      if (options['global-deps'])
-        options.globalDeps = eval('(' + options['global-deps'] + ')');
+      if (options['externals']) {
+        options.externals = options['externals'].split(' ').map(function(item) {
+          return item.trim();
+        });
+      }
+
+      if (options['global-deps']) {
+        // globalDeps are by default externals
+        options.globalDeps = readJSON(options['global-deps']);
+        options.externals = (options.externals || []).concat(Object.keys(options.globalDeps).filter(function(global) {
+          return !options.externals || options.externals.indexOf(global) == -1;
+        }));
+      }
 
       if (options.globals) {
         ui.log('warn', 'The %--globals% option has been renamed to %--global-deps%.');
-        options.globalDeps = eval('(' + options.globals + ')');
+        options.globalDeps = readJSON(options.globals);
       }
 
       if (options['global-defs'])
-        options.globalDefs = eval('(' + options['global-defs'] + ')');
+        options.globalDefs = readJSON(options['global-defs']);
 
       if (options['skip-encode-names'])
         options.encodeNames = !options['skip-encode-names'];
@@ -411,7 +426,7 @@ process.on('uncaughtException', function(err) {
         options.development = true;
 
       if (options.config)
-        options.config = readJSON(options.config);
+        options.config = readJSON(options.config, true);
 
       if (options.conditions)
         options.conditions = readJSON(options.conditions);
