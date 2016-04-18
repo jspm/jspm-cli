@@ -26,6 +26,10 @@ var install = require('./lib/install');
 var fs = require('graceful-fs');
 var Promise = require('bluebird');
 
+var readOptions = require('./lib/cli-utils').readOptions;
+var readValue = require('./lib/cli-utils').readValue;
+var readPropertySetters = require('./lib/cli-utils').readPropertySetters;
+
 var link = require('./lib/link');
 
 process.on('uncaughtException', function(err) {
@@ -138,91 +142,6 @@ process.on('uncaughtException', function(err) {
     }
   }
 
-
-  // takes commandline args, space-separated
-  // flags is array of flag names
-  // optFlags is array of flags that have option values
-  // optFlags suck up arguments until next flag
-  // returns { [flag]: true / false, ..., [optFlag]: value, ..., args: [all non-flag args] }
-  function readOptions(inArgs, flags, optFlags) {
-    // output options object
-    var options = { args: [] };
-
-    flags = flags || [];
-    optFlags = optFlags || [];
-
-    var curOptionFlag;
-
-    function getFlagMatch(arg, flags) {
-      var index;
-
-      if (arg.startsWith('--')) {
-        index = flags.indexOf(arg.substr(2));
-        if (index !== -1)
-          return flags[index];
-      }
-      else if (arg.startsWith('-')) {
-        return flags.filter(function(f) {
-          return f.substr(0, 1) === arg.substr(1, 1);
-        })[0];
-      }
-    }
-
-    // de-sugar any coupled single-letter flags
-    // -abc -> -a -b -c
-    var args = [];
-    inArgs.forEach(function(arg) {
-      if (arg[0] == '-' && arg.length > 1 && arg[1] != '-') {
-        for (var i = 1; i < arg.length; i++)
-          args.push('-' + arg[i]);
-      }
-      else {
-        args.push(arg);
-      }
-    });
-
-    args.forEach(function(arg) {
-      var flag = getFlagMatch(arg, flags);
-      var optFlag = getFlagMatch(arg, optFlags);
-
-      // option flag -> suck up args
-      if (optFlag) {
-        curOptionFlag = optFlag;
-        options[curOptionFlag] = [];
-      }
-      // normal boolean flag
-      else if (flag) {
-        options[flag] = true;
-      }
-      // value argument
-      else {
-        if (curOptionFlag)
-          options[curOptionFlag].push(arg);
-        else
-          options.args.push(arg);
-      }
-    });
-
-    // flag values are strings
-    optFlags.forEach(function(flag) {
-      if (options[flag])
-        options[flag] = options[flag].join(' ');
-    });
-
-    return options;
-  }
-
-  // this will get a value in its true type from the CLI
-  function readValue(val) {
-    val = val.trim();
-    if (val === 'true' || val === 'false')
-      return eval(val);
-    else if (parseInt(val).toString() == val)
-      return parseInt(val);
-    else
-      return val;
-  }
-
   // [].concat() to avoid mutating the given process.argv
   var args = process.argv.slice(2),
       options;
@@ -236,23 +155,25 @@ process.on('uncaughtException', function(err) {
   function readJSON(fileOrJSON) {
     if (fileOrJSON.trim() == '')
       return {};
-    var json;
-    if (!fileOrJSON.startsWith('{')) {
-      try {
-        json = fs.readFileSync(fileOrJSON).toString();
-      }
-      catch(e) {
-        return ui.log('err', 'Unable to read config file %' + fileOrJSON + '%.');
-      }
-      try {
-        return JSON.parse(json);
-      }
-      catch(e) {
-        return ui.log('err', 'Invalid JSON in config file %' + fileOrJSON + '%.');
-      }
-    }
-    else {
+    
+    if (fileOrJSON.startsWith('{'))
       return eval('(' + fileOrJSON + ')');
+
+    else if (fileOrJSON.indexOf('=') != -1)
+      return readPropertySetters(fileOrJSON);
+
+    var json;
+    try {
+      json = fs.readFileSync(fileOrJSON).toString();
+    }
+    catch(e) {
+      return ui.log('err', 'Unable to read config file %' + fileOrJSON + '%.');
+    }
+    try {
+      return JSON.parse(json);
+    }
+    catch(e) {
+      return ui.log('err', 'Invalid JSON in config file %' + fileOrJSON + '%.');
     }
   }
 
