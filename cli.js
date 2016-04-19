@@ -394,8 +394,8 @@ process.on('uncaughtException', function(err) {
         options.globalName = options['global-name'];
       }
 
-      if (options['externals']) {
-        options['externals'] = options['externals'].split(' ').map(function(item) {
+      if (options.externals) {
+        options.externals = options.externals.split(' ').map(function(item) {
           return item.trim();
         });
       }
