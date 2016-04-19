@@ -395,7 +395,7 @@ process.on('uncaughtException', function(err) {
       }
 
       if (options['externals']) {
-        options.externals = options['externals'].split(' ').map(function(item) {
+        options['externals'] = options['externals'].split(' ').map(function(item) {
           return item.trim();
         });
       }
