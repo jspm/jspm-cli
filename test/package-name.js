@@ -21,7 +21,7 @@ suite('Package Name', function() {
     assert.equal(pkg.toString(), 'custom:dep@a%2Fb');
 
     // already escaped
-    var pkg = new PackageName('custom:dep@a%2Fb', true);
+    pkg = new PackageName('custom:dep@a%2Fb', true);
     assert.equal(pkg.version, 'a/b');
     assert.equal(pkg.registry, 'custom');
     assert.equal(pkg.toString(), 'custom:dep@a%2Fb');
@@ -34,12 +34,12 @@ suite('Package Name', function() {
     assert.equal(pkg.toString(), 'custom:pkg@v/subpath');
 
     // urls treated as custom paths too
-    var pkg = new PackageName('https://custom/path', true);
+    pkg = new PackageName('https://custom/path', true);
     assert.equal(pkg.registry, '');
-    assert.equal(pkg.toString(), 'https://custom/path')
+    assert.equal(pkg.toString(), 'https://custom/path');
 
     // and plain maps with not :
-    var pkg = new PackageName('./custom/path/map@123', true);
+    pkg = new PackageName('./custom/path/map@123', true);
     assert.equal(pkg.registry, '');
     assert.equal(pkg.version, undefined);
     assert.equal(pkg.toString(), './custom/path/map@123');
