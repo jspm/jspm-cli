@@ -20,8 +20,8 @@ If you really want to use npm for jspm-style code, set the `jspmNodeConversion` 
 
 ```json
 {
+  "jspmNodeConversion": false,
   "jspm": {
-    "jspmNodeConversion": false,
     "format": "es6",
     "dependencies": {
     }
