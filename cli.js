@@ -26,6 +26,10 @@ var install = require('./lib/install');
 var fs = require('graceful-fs');
 var Promise = require('bluebird');
 
+var readOptions = require('./lib/cli-utils').readOptions;
+var readValue = require('./lib/cli-utils').readValue;
+var readPropertySetters = require('./lib/cli-utils').readPropertySetters;
+
 var link = require('./lib/link');
 
 process.on('uncaughtException', function(err) {
@@ -138,91 +142,6 @@ process.on('uncaughtException', function(err) {
     }
   }
 
-
-  // takes commandline args, space-separated
-  // flags is array of flag names
-  // optFlags is array of flags that have option values
-  // optFlags suck up arguments until next flag
-  // returns { [flag]: true / false, ..., [optFlag]: value, ..., args: [all non-flag args] }
-  function readOptions(inArgs, flags, optFlags) {
-    // output options object
-    var options = { args: [] };
-
-    flags = flags || [];
-    optFlags = optFlags || [];
-
-    var curOptionFlag;
-
-    function getFlagMatch(arg, flags) {
-      var index;
-
-      if (arg.startsWith('--')) {
-        index = flags.indexOf(arg.substr(2));
-        if (index !== -1)
-          return flags[index];
-      }
-      else if (arg.startsWith('-')) {
-        return flags.filter(function(f) {
-          return f.substr(0, 1) === arg.substr(1, 1);
-        })[0];
-      }
-    }
-
-    // de-sugar any coupled single-letter flags
-    // -abc -> -a -b -c
-    var args = [];
-    inArgs.forEach(function(arg) {
-      if (arg[0] == '-' && arg.length > 1 && arg[1] != '-') {
-        for (var i = 1; i < arg.length; i++)
-          args.push('-' + arg[i]);
-      }
-      else {
-        args.push(arg);
-      }
-    });
-
-    args.forEach(function(arg) {
-      var flag = getFlagMatch(arg, flags);
-      var optFlag = getFlagMatch(arg, optFlags);
-
-      // option flag -> suck up args
-      if (optFlag) {
-        curOptionFlag = optFlag;
-        options[curOptionFlag] = [];
-      }
-      // normal boolean flag
-      else if (flag) {
-        options[flag] = true;
-      }
-      // value argument
-      else {
-        if (curOptionFlag)
-          options[curOptionFlag].push(arg);
-        else
-          options.args.push(arg);
-      }
-    });
-
-    // flag values are strings
-    optFlags.forEach(function(flag) {
-      if (options[flag])
-        options[flag] = options[flag].join(' ');
-    });
-
-    return options;
-  }
-
-  // this will get a value in its true type from the CLI
-  function readValue(val) {
-    val = val.trim();
-    if (val === 'true' || val === 'false')
-      return eval(val);
-    else if (parseInt(val).toString() == val)
-      return parseInt(val);
-    else
-      return val;
-  }
-
   // [].concat() to avoid mutating the given process.argv
   var args = process.argv.slice(2),
       options;
@@ -233,26 +152,31 @@ process.on('uncaughtException', function(err) {
     args.splice(logArgIndex, 2);
   }
 
-  function readJSON(fileOrJSON) {
+  function readJSON(fileOrJSON, supportFile) {
     if (fileOrJSON.trim() == '')
       return {};
-    var json;
-    if (!fileOrJSON.startsWith('{')) {
-      try {
-        json = fs.readFileSync(fileOrJSON).toString();
-      }
-      catch(e) {
-        return ui.log('err', 'Unable to read config file %' + fileOrJSON + '%.');
-      }
-      try {
-        return JSON.parse(json);
-      }
-      catch(e) {
-        return ui.log('err', 'Invalid JSON in config file %' + fileOrJSON + '%.');
-      }
-    }
-    else {
+    
+    if (fileOrJSON.startsWith('{'))
       return eval('(' + fileOrJSON + ')');
+
+    else if (fileOrJSON.indexOf('=') != -1)
+      return readPropertySetters(fileOrJSON);
+
+    if (!supportFile)
+      return ui.log('err', 'Invalid data option `' + fileOrJSON + '`. Provide JSON with `{...}` syntax or a list of property expressions with `=`.');
+
+    var json;
+    try {
+      json = fs.readFileSync(fileOrJSON).toString();
+    }
+    catch(e) {
+      return ui.log('err', 'Unable to read config file %' + fileOrJSON + '%.');
+    }
+    try {
+      return JSON.parse(json);
+    }
+    catch(e) {
+      return ui.log('err', 'Invalid JSON in config file %' + fileOrJSON + '%.');
     }
   }
 
@@ -310,7 +234,7 @@ process.on('uncaughtException', function(err) {
       }
 
       if ('override' in options)
-        options.override = readJSON(options.override);
+        options.override = readJSON(options.override, true);
 
       if (options.yes)
         ui.useDefaults();
@@ -453,7 +377,7 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
           'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 
           'browser', 'node', 'dev', 'production', 'skip-encode-names', 'skip-rollup', 'watch'],
-          ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions']);
+          ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions', 'externals']);
 
       if (options.yes)
         ui.useDefaults();
@@ -466,19 +390,31 @@ process.on('uncaughtException', function(err) {
       if (options['inline-source-maps'])
         options.sourceMaps = 'inline';
 
-      if (options['global-name'])
+      if (options['global-name']) {
         options.globalName = options['global-name'];
+      }
 
-      if (options['global-deps'])
-        options.globalDeps = eval('(' + options['global-deps'] + ')');
+      if (options.externals) {
+        options.externals = options.externals.split(' ').map(function(item) {
+          return item.trim();
+        });
+      }
+
+      if (options['global-deps']) {
+        // globalDeps are by default externals
+        options.globalDeps = readJSON(options['global-deps']);
+        options.externals = (options.externals || []).concat(Object.keys(options.globalDeps).filter(function(global) {
+          return !options.externals || options.externals.indexOf(global) == -1;
+        }));
+      }
 
       if (options.globals) {
         ui.log('warn', 'The %--globals% option has been renamed to %--global-deps%.');
-        options.globalDeps = eval('(' + options.globals + ')');
+        options.globalDeps = readJSON(options.globals);
       }
 
       if (options['global-defs'])
-        options.globalDefs = eval('(' + options['global-defs'] + ')');
+        options.globalDefs = readJSON(options['global-defs']);
 
       if (options['skip-encode-names'])
         options.encodeNames = !options['skip-encode-names'];
@@ -490,7 +426,7 @@ process.on('uncaughtException', function(err) {
         options.development = true;
 
       if (options.config)
-        options.config = readJSON(options.config);
+        options.config = readJSON(options.config, true);
 
       if (options.conditions)
         options.conditions = readJSON(options.conditions);
