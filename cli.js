@@ -152,7 +152,7 @@ process.on('uncaughtException', function(err) {
     args.splice(logArgIndex, 2);
   }
 
-  function readJSON(fileOrJSON, supportFile) {
+  function readJSON(fileOrJSON, supportFile, dottedProperties) {
     if (fileOrJSON.trim() == '')
       return {};
     
@@ -160,7 +160,7 @@ process.on('uncaughtException', function(err) {
       return eval('(' + fileOrJSON + ')');
 
     else if (fileOrJSON.indexOf('=') != -1)
-      return readPropertySetters(fileOrJSON);
+      return readPropertySetters(fileOrJSON, dottedProperties);
 
     if (!supportFile)
       return ui.log('err', 'Invalid data option `' + fileOrJSON + '`. Provide JSON with `{...}` syntax or a list of property expressions with `=`.');
@@ -234,7 +234,7 @@ process.on('uncaughtException', function(err) {
       }
 
       if ('override' in options)
-        options.override = readJSON(options.override, true);
+        options.override = readJSON(options.override, true, true);
 
       if (options.yes)
         ui.useDefaults();
@@ -402,7 +402,7 @@ process.on('uncaughtException', function(err) {
 
       if (options['global-deps']) {
         // globalDeps are by default externals
-        options.globalDeps = readJSON(options['global-deps']);
+        options.globalDeps = readJSON(options['global-deps'], false, false);
         options.externals = (options.externals || []).concat(Object.keys(options.globalDeps).filter(function(global) {
           return !options.externals || options.externals.indexOf(global) == -1;
         }));
@@ -410,11 +410,11 @@ process.on('uncaughtException', function(err) {
 
       if (options.globals) {
         ui.log('warn', 'The %--globals% option has been renamed to %--global-deps%.');
-        options.globalDeps = readJSON(options.globals);
+        options.globalDeps = readJSON(options.globals, false, false);
       }
 
       if (options['global-defs'])
-        options.globalDefs = readJSON(options['global-defs']);
+        options.globalDefs = readJSON(options['global-defs'], false, false);
 
       if (options['skip-encode-names'])
         options.encodeNames = !options['skip-encode-names'];
@@ -426,10 +426,10 @@ process.on('uncaughtException', function(err) {
         options.development = true;
 
       if (options.config)
-        options.config = readJSON(options.config, true);
+        options.config = readJSON(options.config, true, true);
 
       if (options.conditions)
-        options.conditions = readJSON(options.conditions);
+        options.conditions = readJSON(options.conditions, false, false);
 
       var bArgs = options.args.splice(1);
 
