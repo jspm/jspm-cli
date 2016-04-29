@@ -20,14 +20,15 @@
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
   "devDependencies": {
-    "traceur": "jmcriffey/bower-traceur@^0.0.95",
-    "traceur-runtime": "jmcriffey/bower-traceur-runtime@^0.0.95"
+    "traceur": "jmcriffey/bower-traceur@^0.0.105",
+    "traceur-runtime": "jmcriffey/bower-traceur-runtime@^0.0.105"
   },
   "peerDependencies": {
     "assert": "jspm/nodelibs-assert@^0.2.0-alpha",
     "buffer": "jspm/nodelibs-buffer@^0.2.0-alpha",
     "child_process": "jspm/nodelibs-child_process@^0.2.0-alpha",
     "constants": "jspm/nodelibs-constants@^0.2.0-alpha",
+    "core-js": "npm:core-js@^1.2.0",
     "crypto": "jspm/nodelibs-crypto@^0.2.0-alpha",
     "dgram": "jspm/nodelibs-dgram@^0.2.0-alpha",
     "dns": "jspm/nodelibs-dns@^0.2.0-alpha",
@@ -77,10 +78,21 @@
     "github:components/jquery@2.1.4": {
       "main": "jquery"
     },
-    "npm:bluebird@3.1.1": {
+    "npm:babel-runtime@5.8.38": {
+      "main": false,
+      "dependencies": {},
+      "optionalDependencies": {
+        "core-js": "^1.2.0"
+      }
+    },
+    "npm:bluebird@3.3.5": {
       "meta": {
-        "js/browser/bluebird.js": {},
-        "js/browser/bluebird.min.js": {}
+        "js/browser/bluebird.js": {
+          "format": "global"
+        },
+        "js/browser/bluebird.min.js": {
+          "format": "global"
+        }
       }
     },
     "npm:mocha@1.21.5": {
@@ -216,6 +228,33 @@
         }
       }
     },
+    "npm:systemjs-builder@0.15.16": {
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "process"
+          }
+        },
+        "*.json": {
+          "format": "json"
+        },
+        "lib/output.js": {
+          "globals": {
+            "Buffer": "buffer"
+          }
+        },
+        "lib/compile.js": {
+          "deps": [
+            "../compilers/amd",
+            "../compilers/cjs",
+            "../compilers/esm",
+            "../compilers/global",
+            "../compilers/register",
+            "../compilers/json"
+          ]
+        }
+      }
+    },
     "npm:systemjs@0.19.15": {
       "main": "index.js",
       "format": "cjs",
@@ -242,7 +281,33 @@
         "package.json": true
       }
     },
-    "npm:traceur@0.0.95": {
+    "npm:systemjs@0.19.27": {
+      "main": "index.js",
+      "format": "cjs",
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "process"
+          }
+        },
+        "*.json": {
+          "format": "json"
+        },
+        "dist/system.src.js": {
+          "deps": [
+            "vm"
+          ]
+        },
+        "docs/module-formats.md": {
+          "format": "amd"
+        },
+        "lib/amd.js": {
+          "format": "amd"
+        },
+        "package.json": true
+      }
+    },
+    "npm:traceur@0.0.105": {
       "main": "src/node/api.js",
       "format": "cjs",
       "meta": {
