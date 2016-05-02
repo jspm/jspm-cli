@@ -23,10 +23,10 @@ suite('CLI Utils', function() {
   test('Arrays', function() {
     var outObj = readPropertySetters('a[]=1,2,3 b=["1",2,"3"] c[]=asdf asdf', true);
     assert(outObj.a instanceof Array);
-    assert(outObj.a[0] === "1");
+    assert(outObj.a[0] === '1');
     assert(outObj.b instanceof Array);
-    assert(outObj.b[0] === "1");
+    assert(outObj.b[0] === '1');
     assert(outObj.b[1] === 2);
     assert(outObj.c[0] == 'asdf asdf');
-  })
+  });
 });
