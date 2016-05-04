@@ -20,8 +20,14 @@ suite('CLI Utils', function() {
     assert(outObj['dotted.property'] === 5);
   });
 
+  test('Bracket object properties mixed with dots', function() {
+    var outObj = readPropertySetters('dotted.property["x.y.z"] = 5 meta[lib/index.js].deps[]=./definitions/init', true);
+    assert(outObj.dotted.property['x.y.z'] === 5);
+    assert(outObj.meta['lib/index.js'].deps[0] == './definitions/init');
+  });
+
   test('Arrays', function() {
-    var outObj = readPropertySetters('a[]=1,2,3 b=["1",2,"3"] c[]=asdf asdf', true);
+    var outObj = readPropertySetters('a[] = 1,2,3 b=[\'1\',2,"3"] c[]=asdf asdf', true);
     assert(outObj.a instanceof Array);
     assert(outObj.a[0] === '1');
     assert(outObj.b instanceof Array);
