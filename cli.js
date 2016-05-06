@@ -241,10 +241,6 @@ process.on('uncaughtException', function(err) {
       if (options.yes)
         ui.useDefaults();
 
-      // jspm install with no arguments is locked
-      if (!depMap && !doUpdate)
-        options.lock = true;
-
       // no install package -> install from package.json dependencies
       (depMap ? install.install(depMap, options) : install.install(true, options))
       .then(function() {
