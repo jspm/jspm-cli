@@ -1,6 +1,4 @@
-SystemJS.config({
-  packages: {}
-});
+SystemJS.config({});
 
 SystemJS.config({
   packageConfigPaths: [
@@ -16,6 +14,8 @@ SystemJS.config({
     "builder": "npm:systemjs-builder@0.15.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "clean-css": "npm:clean-css@3.4.9",
+    "cluster": "github:jspm/nodelibs-cluster@0.2.0-alpha",
+    "console": "github:jspm/nodelibs-console@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "core-js": "npm:core-js@1.2.6",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
@@ -23,6 +23,7 @@ SystemJS.config({
     "d3": "github:mbostock/d3@3.5.12",
     "dgram": "github:jspm/nodelibs-dgram@0.2.0-alpha",
     "dns": "github:jspm/nodelibs-dns@0.2.0-alpha",
+    "domain": "github:jspm/nodelibs-domain@0.2.0-alpha",
     "ecc-jsbn": "npm:ecc-jsbn@0.1.1",
     "ember": "github:components/ember@1.13.2",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
@@ -45,6 +46,7 @@ SystemJS.config({
     "punycode": "github:jspm/nodelibs-punycode@0.2.0-alpha",
     "querystring": "github:jspm/nodelibs-querystring@0.2.0-alpha",
     "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
+    "repl": "github:jspm/nodelibs-repl@0.2.0-alpha",
     "rsvp": "npm:rsvp@3.1.0",
     "source-map": "npm:source-map@0.5.3",
     "sshpk": "npm:sshpk@1.7.3",
@@ -52,9 +54,8 @@ SystemJS.config({
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
     "systemjs": "npm:systemjs@0.19.15",
     "text": "github:systemjs/plugin-text@0.0.2",
+    "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
     "tls": "github:jspm/nodelibs-tls@0.2.0-alpha",
-    "traceur": "github:jmcriffey/bower-traceur@0.0.105",
-    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.105",
     "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
     "tweetnacl": "npm:tweetnacl@0.14.1",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
@@ -64,6 +65,16 @@ SystemJS.config({
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha"
   },
   packages: {
+    "github:jspm/nodelibs-domain@0.2.0-alpha": {
+      "map": {
+        "domain-browserify": "npm:domain-browser@1.1.7"
+      }
+    },
+    "github:jspm/nodelibs-timers@0.2.0-alpha": {
+      "map": {
+        "timers-browserify": "npm:timers-browserify@1.4.2"
+      }
+    },
     "npm:asn1.js@4.5.1": {
       "map": {
         "bn.js": "npm:bn.js@4.11.0",
@@ -1353,6 +1364,11 @@ SystemJS.config({
         "ndarray": "npm:ndarray@1.0.18",
         "ndarray-downsample2x": "npm:ndarray-downsample2x@0.1.1",
         "ndarray-ops": "npm:ndarray-ops@1.1.1"
+      }
+    },
+    "npm:timers-browserify@1.4.2": {
+      "map": {
+        "process": "npm:process@0.11.3"
       }
     },
     "npm:traceur@0.0.105": {
