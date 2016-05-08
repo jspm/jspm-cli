@@ -1,0 +1,5 @@
+FROM node:6.1.0-slim
+RUN apt-get update && apt-get install -y git
+
+WORKDIR /src/
+ENV PATH=/src/node_modules/.bin:$PATH

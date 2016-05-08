@@ -1,0 +1,12 @@
+version: '2'
+services:
+  jspm:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile-node-4
+    command: sh -c 'npm install && npm test'
+    volumes:
+      - .:/src/
+      - jspm:/src/node_modules
+volumes:
+  jspm:

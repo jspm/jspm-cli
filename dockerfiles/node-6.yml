@@ -1,0 +1,5 @@
+version: '2'
+services:
+  jspm:
+    build:
+      dockerfile: dockerfiles/Dockerfile-node-6
