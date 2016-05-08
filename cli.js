@@ -263,12 +263,12 @@ process.on('uncaughtException', function(err) {
     case 'r':
     case 'remove':
     case 'uninstall':
-      options = readOptions(args, ['yes']);
+      options = readOptions(args, ['yes', 'peer']);
 
       if (options.yes)
         ui.useDefaults();
 
-      install.uninstall(options.args.splice(1))
+      install.uninstall(options.args.splice(1), options.peer)
       .then(function() {
         ui.log('');
         ui.log('ok', 'Uninstall complete.');
