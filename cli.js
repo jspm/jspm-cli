@@ -52,7 +52,7 @@ process.on('uncaughtException', function(err) {
     ui.log('\n'
       + 'jspm run main                    Run a jspm module in Node\n'
       + '\n'
-      + 'jspm init [basepath] [--prompts] Create / validate project configuration file\n'
+      + 'jspm init [basepath]             Run project configuration prompts\n'
       + '\n'
       + 'jspm install <name[=target]+> [--force skips cache] [--dev] [--peer]\n'
       + '  install jquery                 Install a package resolved in the jspm registry\n'
@@ -87,6 +87,8 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'jspm resolve --only registry:package@version\n'
       + '  resolve --only npm:util@0.10.3 Resolve all versions of a package to one version\n'
+      + '\n'
+      + 'jspm normalize pkg               Get the resolved path to a given module name\n'
       + '\n'
       + 'jspm bundle app.js + b [outfile] Create a named bundle to pre-populate the loader\n'
       + '  --minify --no-mangle --skip-source-maps --source-map-contents\n'
@@ -334,7 +336,9 @@ process.on('uncaughtException', function(err) {
       options = readOptions(args, ['yes', 'prompts']);
       if (options.yes)
         ui.useDefaults();
-      core.init(options.args[1], options.prompts)
+      if (options.prompts)
+        ui.log('warn', 'The %--prompts% / %-p% flag has been deprecated and is no longer necessary.');
+      core.init(options.args[1])
       .catch(function(e) {
         console.log(e);
         process.exit(1);
@@ -352,6 +356,18 @@ process.on('uncaughtException', function(err) {
         break;
       }
       core.dlLoader(options.source, options.edge, options.latest);
+      break;
+
+    case 'normalize':
+      options = readOptions(args, ['yes'], ['parent']);
+      core.normalize(options.args[1], options.parent)
+      .then(function(normalized) {
+        console.log(normalized);
+      })
+      .catch(function(e) {
+        ui.log('err', (e || e.stack).toString());
+        process.exit(1);
+      });
       break;
 
     case 'depcache':
