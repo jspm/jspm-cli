@@ -1,4 +1,12 @@
-SystemJS.config({});
+SystemJS.config({
+  devConfig: {
+    "map": {
+      "traceur": "github:jmcriffey/bower-traceur@0.0.105",
+      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.105"
+    }
+  },
+  transpiler: "traceur"
+});
 
 SystemJS.config({
   packageConfigPaths: [
@@ -65,16 +73,6 @@ SystemJS.config({
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha"
   },
   packages: {
-    "github:jspm/nodelibs-domain@0.2.0-alpha": {
-      "map": {
-        "domain-browserify": "npm:domain-browser@1.1.7"
-      }
-    },
-    "github:jspm/nodelibs-timers@0.2.0-alpha": {
-      "map": {
-        "timers-browserify": "npm:timers-browserify@1.4.2"
-      }
-    },
     "npm:asn1.js@4.5.1": {
       "map": {
         "bn.js": "npm:bn.js@4.11.0",
@@ -1366,11 +1364,6 @@ SystemJS.config({
         "ndarray-ops": "npm:ndarray-ops@1.1.1"
       }
     },
-    "npm:timers-browserify@1.4.2": {
-      "map": {
-        "process": "npm:process@0.11.3"
-      }
-    },
     "npm:traceur@0.0.105": {
       "map": {
         "commander": "npm:commander@2.9.0",
@@ -1442,6 +1435,21 @@ SystemJS.config({
         "cliui": "npm:cliui@2.1.0",
         "decamelize": "npm:decamelize@1.1.2",
         "window-size": "npm:window-size@0.1.0"
+      }
+    },
+    "github:jspm/nodelibs-domain@0.2.0-alpha": {
+      "map": {
+        "domain-browserify": "npm:domain-browser@1.1.7"
+      }
+    },
+    "github:jspm/nodelibs-timers@0.2.0-alpha": {
+      "map": {
+        "timers-browserify": "npm:timers-browserify@1.4.2"
+      }
+    },
+    "npm:timers-browserify@1.4.2": {
+      "map": {
+        "process": "npm:process@0.11.3"
       }
     }
   }
