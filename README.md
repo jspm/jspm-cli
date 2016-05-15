@@ -1,7 +1,7 @@
 jspm CLI
 ===
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Support](https://supporterhq.com/support/project/33df4abbec4d39260f49015d2457eafe/JSPM)](https://supporter.60devs.com/support/33df4abbec4d39260f49015d2457eafe/JSPM)
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Support](https://supporterhq.com/api/b/33df4abbec4d39260f49015d2457eafe/JSPM)](https://supporterhq.com/support/33df4abbec4d39260f49015d2457eafe/JSPM)
 
 Registry and format agnostic JavaScript package manager.
 
