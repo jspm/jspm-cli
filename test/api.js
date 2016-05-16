@@ -12,7 +12,7 @@ suite('API Calls', function() {
 
   test('Normalize', function(done) {
     api.normalize('jquery').then(function(normalized) {
-      assert(normalized === 'file://' + path.resolve('testlibs') + '/jspm_packages/github/components/jquery@2.1.4.js');
+      assert.equal(normalized, 'file://' + path.resolve('testlibs') + '/jspm_packages/github/components/jquery@2.1.4.js');
       done();
     })
     .catch(done);
