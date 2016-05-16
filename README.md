@@ -3,7 +3,8 @@ jspm CLI
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Travis build Status][travis-image]][travis-url]
+[![AppVeyor build Status][appveyor-image]][appveyor-url]
 [![Gitter][gitter-image]][gitter-url]
 [![Support][supporterhq-image]][supporterhq-url]
 
@@ -45,6 +46,8 @@ See the [SystemJS](https://github.com/systemjs/systemjs) project page for System
 
 Apache 2.0
 
+[appveyor-url]: https://ci.appveyor.com/project/guybedford/jspm-cli
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/XXXXXXXXXXXXXXXX/branch/master?svg=true
 [downloads-image]: http://img.shields.io/npm/dm/jspm.svg
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
