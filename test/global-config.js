@@ -25,7 +25,7 @@ suite('global-config', function () {
     var actual = fs.readFileSync(fakeConfigFile).toString();
     var expected = fs.readFileSync(combinedConfigFile).toString().replace(/\n$/, '');
 
-    assert.equal(actual, expected);
+    assert.equal(actual.trim(), expected.trim());
     done();
   });
 
@@ -35,7 +35,7 @@ suite('global-config', function () {
     var actual = fs.readFileSync(fakeConfigFile).toString();
     var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '');
 
-    assert.equal(actual, expected);
+    assert.equal(actual.trim(), expected.trim());
     done();
   });
 
@@ -47,7 +47,7 @@ suite('global-config', function () {
     var actual = fs.readFileSync(fakeConfigFile).toString();
     var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '');
 
-    assert.equal(actual, expected);
+    assert.equal(actual.trim(), expected.trim());
     done();
   });
 
