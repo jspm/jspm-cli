@@ -89,6 +89,7 @@ process.on('uncaughtException', function(err) {
       + '  resolve --only npm:util@0.10.3 Resolve all versions of a package to one version\n'
       + '\n'
       + 'jspm normalize pkg               Get the resolved path to a given module name\n'
+      + 'jspm canonicalize pkg            Get the canonical name representation for a module\n'
       + '\n'
       + 'jspm bundle app.js + b [outfile] Create a named bundle to pre-populate the loader\n'
       + '  --minify --no-mangle --skip-source-maps --source-map-contents\n'
@@ -358,9 +359,12 @@ process.on('uncaughtException', function(err) {
       core.dlLoader(options.source, options.edge, options.latest);
       break;
 
+    case 'canonicalize':
+      var canonicalize = true;
+
     case 'normalize':
       options = readOptions(args, ['yes'], ['parent']);
-      core.normalize(options.args[1], options.parent)
+      core.normalize(options.args[1], options.parent, canonicalize)
       .then(function(normalized) {
         console.log(normalized);
       })
