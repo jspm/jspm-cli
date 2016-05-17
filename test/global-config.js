@@ -22,8 +22,8 @@ suite('global-config', function () {
 
     // make sure that it is still our original file, and that
     // hasn't been overwritten with the jspm default config
-    var actual = fs.readFileSync(fakeConfigFile).toString();
-    var expected = fs.readFileSync(combinedConfigFile).toString().replace(/\n$/, '').replace(/\r/g, '');
+    var actual = fs.readFileSync(fakeConfigFile).toString().replace(/\r/g, '');
+    var expected = fs.readFileSync(combinedConfigFile).toString().replace(/\n$/, '');
 
     assert.equal(actual.trim(), expected.trim());
     done();
@@ -32,8 +32,8 @@ suite('global-config', function () {
   test('should create a new file if one does not exist', function (done) {
     fs.unlinkSync(fakeConfigFile);
     new GlobalConfig(fakeHomePath);
-    var actual = fs.readFileSync(fakeConfigFile).toString();
-    var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '').replace(/\r/g, '');
+    var actual = fs.readFileSync(fakeConfigFile).toString().replace(/\r/g, '');
+    var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '');
 
     assert.equal(actual.trim(), expected.trim());
     done();
@@ -44,8 +44,8 @@ suite('global-config', function () {
     fs.rmdir(path.join(fakeHomePath, '.jspm'));
 
     new GlobalConfig(fakeHomePath);
-    var actual = fs.readFileSync(fakeConfigFile).toString();
-    var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '').replace(/\r/g, '');
+    var actual = fs.readFileSync(fakeConfigFile).toString().replace(/\r/g, '');
+    var expected = fs.readFileSync(defaultConfigFile).toString().replace(/\n$/, '');
 
     assert.equal(actual.trim(), expected.trim());
     done();
