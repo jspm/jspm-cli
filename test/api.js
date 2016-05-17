@@ -14,7 +14,7 @@ suite('API tests', function() {
   test('Normalize', function(done) {
     return api.normalize('jquery')
     .then(function(normalized) {
-      assert(normalized === 'file://' + path.resolve('testlibs') + '/jspm_packages/github/components/jquery@2.1.4/jquery.js');
+      assert(normalized === common.toFileURL(path.resolve('testlibs') + '/jspm_packages/github/components/jquery@2.1.4/jquery.js'));
     })
     .then(done, done);
 
