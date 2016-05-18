@@ -16,7 +16,6 @@ install:
 
   - npm config set spin false
   - npm install
-  - npm 
 test_script:
   - node --version
   - npm --version
