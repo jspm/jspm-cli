@@ -1,11 +1,10 @@
 SystemJS.config({
   devConfig: {
     "map": {
-      "traceur": "github:jmcriffey/bower-traceur@0.0.105",
-      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.105"
+      "plugin-babel": "npm:systemjs-plugin-babel@0.0.10"
     }
   },
-  transpiler: "traceur"
+  transpiler: "plugin-babel"
 });
 
 SystemJS.config({
