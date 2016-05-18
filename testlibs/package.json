@@ -20,8 +20,7 @@
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
   "devDependencies": {
-    "traceur": "jmcriffey/bower-traceur@^0.0.105",
-    "traceur-runtime": "jmcriffey/bower-traceur-runtime@^0.0.105"
+    "plugin-babel": "npm:systemjs-plugin-babel@^0.0.10"
   },
   "peerDependencies": {
     "assert": "jspm/nodelibs-assert@^0.2.0-alpha",
