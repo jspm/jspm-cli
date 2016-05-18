@@ -16,9 +16,10 @@ install:
 
   - npm config set spin false
   - npm install
-  - node_modules\.bin\jspm config registries.github.timeouts.download 600
+  - npm 
 test_script:
   - node --version
   - npm --version
+  - npm run set-timeouts
   - npm test
 build: off
