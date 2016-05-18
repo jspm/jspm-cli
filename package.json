@@ -47,7 +47,8 @@
     "coverage": "npm run istanbul -- --report html",
     "mocha": "mocha",
     "jshint": "jshint api.js cli.js jspm.js lib test",
-    "gitbook": "gitbook build docs"
+    "gitbook": "gitbook build docs",
+    "set-timeouts": "jspm config registries.github.timeouts.download 600"
   },
   "bugs": {
     "url": "https://github.com/jspm/jspm/issues"
