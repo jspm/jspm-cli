@@ -27,6 +27,14 @@ suite('CLI Utils', function() {
     assert(outObj.meta['lib/index.js'].deps[0] == './definitions/init');
   });
 
+  test('Object sub properties', function() {
+    var outObj = readPropertySetters('meta[js/pbkdf2.js]={format:\'cjs\',deps:[\'./hmac\',\'./md\',\'./util\',\'crypto\'],cjsDeferDepsExecute:false}', true);
+    assert(outObj.meta['js/pbkdf2.js'].format == 'cjs');
+    assert(outObj.meta['js/pbkdf2.js'].deps[0] == './hmac');
+    assert(outObj.meta['js/pbkdf2.js'].deps[1] == './md');
+    assert(outObj.meta['js/pbkdf2.js'].cjsDeferDepsExecute === false);
+  });
+
   test('Arrays', function() {
     var outObj = readPropertySetters('a[] = 1,2,3 b=[\'1\',2,"3"] c[]=asdf asdf', true);
     assert(outObj.a instanceof Array);
