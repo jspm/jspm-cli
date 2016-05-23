@@ -10,7 +10,7 @@
     "core-js": "^1.2.6",
     "glob": "^6.0.1",
     "graceful-fs": "^4.1.2",
-    "jspm-github": "^0.14.6",
+    "jspm-github": "^0.14.7",
     "jspm-npm": "^0.28.10",
     "jspm-registry": "^0.4.1",
     "liftoff": "^2.2.0",
