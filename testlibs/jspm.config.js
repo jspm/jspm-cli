@@ -355,7 +355,8 @@ SystemJS.config({
         "systemjs": "npm:systemjs@0.19.27",
         "systemjs-builder": "npm:systemjs-builder@0.15.16",
         "traceur": "npm:traceur@0.0.105",
-        "uglify-js": "npm:uglify-js@2.6.1"
+        "uglify-js": "npm:uglify-js@2.6.1",
+        "resolve": "npm:resolve@1.1.7"
       }
     },
     "github:jspm/nodelibs-buffer@0.2.0-alpha": {

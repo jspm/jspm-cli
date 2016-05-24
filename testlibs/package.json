@@ -6,7 +6,7 @@
     "builder": "npm:systemjs-builder@^0.15",
     "clean-css": "npm:clean-css@^3.4.8",
     "css": "systemjs/plugin-css@^0.1.20",
-    "d3": "mbostock/d3@^3.5.9",
+    "d3": "d3/d3@^3.5.9",
     "ember": "components/ember@1.13.2",
     "github": "npm:jspm-github@^0.27.0",
     "jquery": "components/jquery@2.1.4",
