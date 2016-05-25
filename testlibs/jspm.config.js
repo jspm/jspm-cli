@@ -18,7 +18,7 @@ SystemJS.config({
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "builder": "npm:systemjs-builder@0.15.0",
+    "builder": "npm:systemjs-builder@0.15.18",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "clean-css": "npm:clean-css@3.4.9",
     "cluster": "github:jspm/nodelibs-cluster@0.2.0-alpha",
@@ -35,7 +35,7 @@ SystemJS.config({
     "ember": "github:components/ember@1.13.2",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
-    "github": "npm:jspm-github@0.14.0",
+    "github": "npm:jspm-github@0.14.7",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
     "jodid25519": "npm:jodid25519@1.0.2",
@@ -46,7 +46,7 @@ SystemJS.config({
     "mocha": "npm:mocha@1.21.5",
     "module": "github:jspm/nodelibs-module@0.2.0-alpha",
     "net": "github:jspm/nodelibs-net@0.2.0-alpha",
-    "npm": "npm:jspm-npm@0.27.0",
+    "npm": "npm:jspm-npm@0.28.12",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
@@ -59,7 +59,7 @@ SystemJS.config({
     "sshpk": "npm:sshpk@1.7.3",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
-    "systemjs": "npm:systemjs@0.19.15",
+    "systemjs": "npm:systemjs@0.19.29",
     "text": "github:systemjs/plugin-text@0.0.2",
     "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
     "tls": "github:jspm/nodelibs-tls@0.2.0-alpha",
@@ -87,54 +87,10 @@ SystemJS.config({
         "js-tokens": "npm:js-tokens@1.0.3"
       }
     },
-    "npm:babel-core@6.7.7": {
-      "map": {
-        "babel-code-frame": "npm:babel-code-frame@6.7.7",
-        "babel-generator": "npm:babel-generator@6.7.7",
-        "babel-helpers": "npm:babel-helpers@6.6.0",
-        "babel-messages": "npm:babel-messages@6.7.2",
-        "babel-register": "npm:babel-register@6.7.2",
-        "babel-runtime": "npm:babel-runtime@5.8.38",
-        "babel-template": "npm:babel-template@6.7.0",
-        "babel-traverse": "npm:babel-traverse@6.7.6",
-        "babel-types": "npm:babel-types@6.7.7",
-        "babylon": "npm:babylon@6.7.0",
-        "convert-source-map": "npm:convert-source-map@1.2.0",
-        "debug": "npm:debug@2.2.0",
-        "json5": "npm:json5@0.4.0",
-        "lodash": "npm:lodash@3.10.1",
-        "minimatch": "npm:minimatch@2.0.10",
-        "path-exists": "npm:path-exists@1.0.0",
-        "path-is-absolute": "npm:path-is-absolute@1.0.0",
-        "private": "npm:private@0.1.6",
-        "shebang-regex": "npm:shebang-regex@1.0.0",
-        "slash": "npm:slash@1.0.0",
-        "source-map": "npm:source-map@0.5.3"
-      }
-    },
-    "npm:babel-generator@6.7.7": {
-      "map": {
-        "babel-messages": "npm:babel-messages@6.7.2",
-        "babel-runtime": "npm:babel-runtime@5.8.38",
-        "babel-types": "npm:babel-types@6.7.7",
-        "detect-indent": "npm:detect-indent@3.0.1",
-        "is-integer": "npm:is-integer@1.0.6",
-        "lodash": "npm:lodash@3.10.1",
-        "repeating": "npm:repeating@1.1.3",
-        "source-map": "npm:source-map@0.5.3",
-        "trim-right": "npm:trim-right@1.0.1"
-      }
-    },
     "npm:babel-helper-hoist-variables@6.6.5": {
       "map": {
         "babel-runtime": "npm:babel-runtime@5.8.38",
         "babel-types": "npm:babel-types@6.7.7"
-      }
-    },
-    "npm:babel-helpers@6.6.0": {
-      "map": {
-        "babel-runtime": "npm:babel-runtime@5.8.38",
-        "babel-template": "npm:babel-template@6.7.0"
       }
     },
     "npm:babel-messages@6.7.2": {
@@ -154,18 +110,6 @@ SystemJS.config({
       "map": {
         "babel-runtime": "npm:babel-runtime@5.8.38",
         "babel-types": "npm:babel-types@6.7.7"
-      }
-    },
-    "npm:babel-register@6.7.2": {
-      "map": {
-        "babel-core": "npm:babel-core@6.7.7",
-        "babel-runtime": "npm:babel-runtime@5.8.38",
-        "core-js": "npm:core-js@2.3.0",
-        "home-or-tmp": "npm:home-or-tmp@1.0.0",
-        "lodash": "npm:lodash@3.10.1",
-        "mkdirp": "npm:mkdirp@0.5.1",
-        "path-exists": "npm:path-exists@1.0.0",
-        "source-map-support": "npm:source-map-support@0.2.10"
       }
     },
     "npm:babel-template@6.7.0": {
@@ -314,25 +258,6 @@ SystemJS.config({
         "number-is-nan": "npm:number-is-nan@1.0.0"
       }
     },
-    "npm:is-integer@1.0.6": {
-      "map": {
-        "is-finite": "npm:is-finite@1.0.1"
-      }
-    },
-    "npm:jspm-github@0.14.0": {
-      "map": {
-        "bluebird": "npm:bluebird@3.3.5",
-        "expand-tilde": "npm:expand-tilde@1.2.0",
-        "graceful-fs": "npm:graceful-fs@3.0.8",
-        "mkdirp": "npm:mkdirp@0.5.1",
-        "netrc": "npm:netrc@0.1.4",
-        "request": "npm:request@2.53.0",
-        "rimraf": "npm:rimraf@2.3.4",
-        "semver": "npm:semver@5.1.0",
-        "tar": "npm:tar@2.2.1",
-        "which": "npm:which@1.2.1"
-      }
-    },
     "github:jspm/jspm-cli@0.17": {
       "map": {
         "bluebird": "npm:bluebird@3.3.5",
@@ -340,8 +265,8 @@ SystemJS.config({
         "core-js": "npm:core-js@1.2.6",
         "glob": "npm:glob@6.0.4",
         "graceful-fs": "npm:graceful-fs@4.1.2",
-        "jspm-github": "npm:jspm-github@0.14.0",
-        "jspm-npm": "npm:jspm-npm@0.27.0",
+        "jspm-github": "npm:jspm-github@0.14.7",
+        "jspm-npm": "npm:jspm-npm@0.28.12",
         "jspm-registry": "npm:jspm-registry@0.4.0",
         "liftoff": "npm:liftoff@2.2.0",
         "minimatch": "npm:minimatch@3.0.0",
@@ -352,8 +277,8 @@ SystemJS.config({
         "rimraf": "npm:rimraf@2.5.0",
         "sane": "npm:sane@1.3.3",
         "semver": "npm:semver@5.1.0",
-        "systemjs": "npm:systemjs@0.19.27",
-        "systemjs-builder": "npm:systemjs-builder@0.15.16",
+        "systemjs": "npm:systemjs@0.19.29",
+        "systemjs-builder": "npm:systemjs-builder@0.15.18",
         "traceur": "npm:traceur@0.0.105",
         "uglify-js": "npm:uglify-js@2.6.1",
         "resolve": "npm:resolve@1.1.7"
@@ -404,21 +329,6 @@ SystemJS.config({
         "zlib-browserify": "npm:browserify-zlib@0.1.4"
       }
     },
-    "npm:jspm-npm@0.27.0": {
-      "map": {
-        "bluebird": "npm:bluebird@3.3.5",
-        "graceful-fs": "npm:graceful-fs@3.0.8",
-        "mkdirp": "npm:mkdirp@0.5.1",
-        "readdirp": "npm:readdirp@2.0.0",
-        "request": "npm:request@2.58.0",
-        "rmdir": "npm:rmdir@1.1.0",
-        "semver": "npm:semver@5.1.0",
-        "systemjs-builder": "npm:systemjs-builder@0.15.0",
-        "tar": "npm:tar@1.0.3",
-        "traceur": "npm:traceur@0.0.105",
-        "which": "npm:which@1.2.1"
-      }
-    },
     "npm:loose-envify@1.1.0": {
       "map": {
         "js-tokens": "npm:js-tokens@1.0.3"
@@ -443,13 +353,6 @@ SystemJS.config({
     "npm:repeating@1.1.3": {
       "map": {
         "is-finite": "npm:is-finite@1.0.1"
-      }
-    },
-    "npm:rollup@0.24.1": {
-      "map": {
-        "chalk": "npm:chalk@1.1.1",
-        "minimist": "npm:minimist@1.2.0",
-        "source-map-support": "npm:source-map-support@0.3.3"
       }
     },
     "npm:rollup@0.25.8": {
@@ -733,11 +636,6 @@ SystemJS.config({
         "d": "npm:d@0.1.1",
         "es5-ext": "npm:es5-ext@0.10.11",
         "es6-symbol": "npm:es6-symbol@3.0.2"
-      }
-    },
-    "npm:es6-module-loader@0.17.10": {
-      "map": {
-        "when": "npm:when@3.7.7"
       }
     },
     "npm:es6-symbol@3.0.2": {
@@ -1298,41 +1196,7 @@ SystemJS.config({
         "ansi-regex": "npm:ansi-regex@2.0.0"
       }
     },
-    "npm:systemjs-builder@0.15.0": {
-      "map": {
-        "bluebird": "npm:bluebird@3.3.5",
-        "es6-template-strings": "npm:es6-template-strings@2.0.0",
-        "glob": "npm:glob@6.0.4",
-        "mkdirp": "npm:mkdirp@0.5.1",
-        "rollup": "npm:rollup@0.24.1",
-        "source-map": "npm:source-map@0.5.3",
-        "systemjs": "npm:systemjs@0.19.15",
-        "traceur": "npm:traceur@0.0.105",
-        "uglify-js": "npm:uglify-js@2.6.1"
-      }
-    },
-    "npm:systemjs-builder@0.15.16": {
-      "map": {
-        "babel-core": "npm:babel-core@6.7.7",
-        "babel-plugin-transform-es2015-modules-systemjs": "npm:babel-plugin-transform-es2015-modules-systemjs@6.6.5",
-        "bluebird": "npm:bluebird@3.3.5",
-        "es6-template-strings": "npm:es6-template-strings@2.0.0",
-        "glob": "npm:glob@7.0.3",
-        "mkdirp": "npm:mkdirp@0.5.1",
-        "rollup": "npm:rollup@0.25.8",
-        "source-map": "npm:source-map@0.5.3",
-        "systemjs": "npm:systemjs@0.19.27",
-        "traceur": "npm:traceur@0.0.105",
-        "uglify-js": "npm:uglify-js@2.6.1"
-      }
-    },
-    "npm:systemjs@0.19.15": {
-      "map": {
-        "es6-module-loader": "npm:es6-module-loader@0.17.10",
-        "when": "npm:when@3.7.7"
-      }
-    },
-    "npm:systemjs@0.19.27": {
+    "npm:systemjs@0.19.29": {
       "map": {
         "when": "npm:when@3.7.7"
       }
@@ -1450,6 +1314,153 @@ SystemJS.config({
     "npm:timers-browserify@1.4.2": {
       "map": {
         "process": "npm:process@0.11.3"
+      }
+    },
+    "npm:systemjs-builder@0.15.18": {
+      "map": {
+        "babel-plugin-transform-es2015-modules-systemjs": "npm:babel-plugin-transform-es2015-modules-systemjs@6.6.5",
+        "bluebird": "npm:bluebird@3.3.5",
+        "es6-template-strings": "npm:es6-template-strings@2.0.0",
+        "glob": "npm:glob@7.0.3",
+        "mkdirp": "npm:mkdirp@0.5.1",
+        "rollup": "npm:rollup@0.25.8",
+        "source-map": "npm:source-map@0.5.3",
+        "systemjs": "npm:systemjs@0.19.29",
+        "traceur": "npm:traceur@0.0.105",
+        "uglify-js": "npm:uglify-js@2.6.1",
+        "data-uri-to-buffer": "npm:data-uri-to-buffer@0.0.4",
+        "babel-core": "npm:babel-core@6.9.0"
+      }
+    },
+    "npm:babel-core@6.9.0": {
+      "map": {
+        "babylon": "npm:babylon@6.7.0",
+        "convert-source-map": "npm:convert-source-map@1.2.0",
+        "debug": "npm:debug@2.2.0",
+        "json5": "npm:json5@0.4.0",
+        "minimatch": "npm:minimatch@2.0.10",
+        "path-exists": "npm:path-exists@1.0.0",
+        "path-is-absolute": "npm:path-is-absolute@1.0.0",
+        "private": "npm:private@0.1.6",
+        "shebang-regex": "npm:shebang-regex@1.0.0",
+        "slash": "npm:slash@1.0.0",
+        "source-map": "npm:source-map@0.5.3",
+        "babel-code-frame": "npm:babel-code-frame@6.8.0",
+        "babel-messages": "npm:babel-messages@6.8.0",
+        "babel-generator": "npm:babel-generator@6.9.0",
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "babel-traverse": "npm:babel-traverse@6.9.0",
+        "babel-types": "npm:babel-types@6.9.0",
+        "babel-register": "npm:babel-register@6.9.0",
+        "babel-template": "npm:babel-template@6.9.0",
+        "lodash": "npm:lodash@4.13.1",
+        "babel-helpers": "npm:babel-helpers@6.8.0"
+      }
+    },
+    "npm:jspm-npm@0.28.12": {
+      "map": {
+        "bluebird": "npm:bluebird@3.3.5",
+        "mkdirp": "npm:mkdirp@0.5.1",
+        "readdirp": "npm:readdirp@2.0.0",
+        "request": "npm:request@2.58.0",
+        "rmdir": "npm:rmdir@1.1.0",
+        "semver": "npm:semver@5.1.0",
+        "systemjs-builder": "npm:systemjs-builder@0.15.18",
+        "tar": "npm:tar@1.0.3",
+        "traceur": "npm:traceur@0.0.105",
+        "which": "npm:which@1.2.1",
+        "graceful-fs": "npm:graceful-fs@4.1.4"
+      }
+    },
+    "npm:babel-runtime@6.9.0": {
+      "map": {
+        "core-js": "npm:core-js@2.4.0"
+      }
+    },
+    "npm:babel-register@6.9.0": {
+      "map": {
+        "core-js": "npm:core-js@2.4.0",
+        "babel-core": "npm:babel-core@6.9.0",
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "home-or-tmp": "npm:home-or-tmp@1.0.0",
+        "lodash": "npm:lodash@4.13.1",
+        "mkdirp": "npm:mkdirp@0.5.1",
+        "path-exists": "npm:path-exists@1.0.0",
+        "source-map-support": "npm:source-map-support@0.2.10"
+      }
+    },
+    "npm:babel-code-frame@6.8.0": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "chalk": "npm:chalk@1.1.1",
+        "esutils": "npm:esutils@2.0.2",
+        "js-tokens": "npm:js-tokens@1.0.3"
+      }
+    },
+    "npm:babel-generator@6.9.0": {
+      "map": {
+        "babel-messages": "npm:babel-messages@6.8.0",
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "babel-types": "npm:babel-types@6.9.0",
+        "detect-indent": "npm:detect-indent@3.0.1",
+        "lodash": "npm:lodash@4.13.1",
+        "source-map": "npm:source-map@0.5.3"
+      }
+    },
+    "npm:babel-traverse@6.9.0": {
+      "map": {
+        "babel-code-frame": "npm:babel-code-frame@6.8.0",
+        "babel-messages": "npm:babel-messages@6.8.0",
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "babel-types": "npm:babel-types@6.9.0",
+        "babylon": "npm:babylon@6.7.0",
+        "debug": "npm:debug@2.2.0",
+        "globals": "npm:globals@8.18.0",
+        "invariant": "npm:invariant@2.2.1",
+        "lodash": "npm:lodash@4.13.1"
+      }
+    },
+    "npm:babel-messages@6.8.0": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.9.0"
+      }
+    },
+    "npm:babel-template@6.9.0": {
+      "map": {
+        "babylon": "npm:babylon@6.7.0",
+        "babel-traverse": "npm:babel-traverse@6.9.0",
+        "babel-types": "npm:babel-types@6.9.0",
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "lodash": "npm:lodash@4.13.1"
+      }
+    },
+    "npm:babel-types@6.9.0": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "babel-traverse": "npm:babel-traverse@6.9.0",
+        "esutils": "npm:esutils@2.0.2",
+        "lodash": "npm:lodash@4.13.1",
+        "to-fast-properties": "npm:to-fast-properties@1.0.2"
+      }
+    },
+    "npm:jspm-github@0.14.7": {
+      "map": {
+        "expand-tilde": "npm:expand-tilde@1.2.0",
+        "bluebird": "npm:bluebird@3.3.5",
+        "mkdirp": "npm:mkdirp@0.5.1",
+        "netrc": "npm:netrc@0.1.4",
+        "request": "npm:request@2.53.0",
+        "rimraf": "npm:rimraf@2.3.4",
+        "semver": "npm:semver@5.1.0",
+        "tar": "npm:tar@2.2.1",
+        "which": "npm:which@1.2.1",
+        "graceful-fs": "npm:graceful-fs@4.1.4"
+      }
+    },
+    "npm:babel-helpers@6.8.0": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.9.0",
+        "babel-template": "npm:babel-template@6.9.0"
       }
     }
   }
