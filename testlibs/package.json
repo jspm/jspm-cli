@@ -15,7 +15,7 @@
     "npm": "npm:jspm-npm@^0.27.0",
     "rsvp": "npm:rsvp@3.1.0",
     "sshpk": "npm:sshpk@1.7.3",
-    "systemjs": "npm:systemjs@0.19.15",
+    "systemjs": "npm:systemjs@0.19.29",
     "text": "systemjs/plugin-text@^0.0.2",
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
@@ -128,7 +128,7 @@
         "stream-browserify": "~1.0.0"
       }
     },
-    "npm:systemjs-builder@0.15.0": {
+    "npm:systemjs-builder@0.15.18": {
       "meta": {
         "*": {
           "globals": {
@@ -232,60 +232,7 @@
         }
       }
     },
-    "npm:systemjs-builder@0.15.16": {
-      "meta": {
-        "*": {
-          "globals": {
-            "process": "process"
-          }
-        },
-        "*.json": {
-          "format": "json"
-        },
-        "lib/output.js": {
-          "globals": {
-            "Buffer": "buffer"
-          }
-        },
-        "lib/compile.js": {
-          "deps": [
-            "../compilers/amd",
-            "../compilers/cjs",
-            "../compilers/esm",
-            "../compilers/global",
-            "../compilers/register",
-            "../compilers/json"
-          ]
-        }
-      }
-    },
-    "npm:systemjs@0.19.15": {
-      "main": "index.js",
-      "format": "cjs",
-      "meta": {
-        "*": {
-          "globals": {
-            "process": "process"
-          }
-        },
-        "*.json": {
-          "format": "json"
-        },
-        "dist/system.src.js": {
-          "deps": [
-            "vm"
-          ]
-        },
-        "docs/module-formats.md": {
-          "format": "amd"
-        },
-        "lib/amd.js": {
-          "format": "amd"
-        },
-        "package.json": true
-      }
-    },
-    "npm:systemjs@0.19.27": {
+    "npm:systemjs@0.19.29": {
       "main": "index.js",
       "format": "cjs",
       "meta": {
