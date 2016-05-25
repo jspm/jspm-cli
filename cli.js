@@ -491,7 +491,7 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'link':
-      options = readOptions(args, ['force', 'yes', 'quick']);
+      options = readOptions(args, ['force', 'yes', 'quick', 'dev', 'peer']);
 
       if (options.yes)
         ui.useDefaults();
