@@ -5,7 +5,7 @@
     "bootstrap": "twbs/bootstrap@^3.3.1",
     "clean-css": "npm:clean-css@^3.3.3",
     "css": "systemjs/plugin-css@master",
-    "d3": "mbostock/d3@^3.4.13",
+    "d3": "d3/d3@^3.4.13",
     "ember": "components/ember@1.13.2",
     "jquery": "components/jquery@^2.1.1",
     "mocha": "npm:mocha@^1.21.5",
