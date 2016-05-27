@@ -298,6 +298,7 @@ process.on('uncaughtException', function(err) {
       });
       break;
 
+    case 'prune':
     case 'clean':
       options = readOptions(args, ['yes']);
       args = options.args;
