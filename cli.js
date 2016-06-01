@@ -224,8 +224,12 @@ process.on('uncaughtException', function(err) {
           target = name;
           if (name.indexOf('@') == 0)
             name = name.substr(1);
-          if (name.indexOf(':') !== -1)
-            name = name.substr(name.indexOf(':') + 1).split('/').pop();
+          if (name.indexOf(':') !== -1) {
+            name = name.substr(name.indexOf(':') + 1);
+            if (name.indexOf('@') != -1)
+              name = name.substr(0, name.lastIndexOf('@'));
+            name = name.split('/').pop();
+          }
           if (name.indexOf('@') !== -1)
             name = name.substr(0, name.lastIndexOf('@'));
           else if (name[0] == '/' || name[0] == '.')
