@@ -62,5 +62,27 @@
     "testlibs",
     "test"
   ],
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "bundledDependencies": [
+    "chalk",
+    "core-js",
+    "glob",
+    "graceful-fs",
+    "jspm-github",
+    "jspm-npm",
+    "jspm-registry",
+    "liftoff",
+    "minimatch",
+    "mkdirp",
+    "ncp",
+    "proper-lockfile",
+    "request",
+    "rimraf",
+    "rsvp",
+    "semver",
+    "systemjs",
+    "systemjs-builder",
+    "traceur",
+    "uglify-js"
+  ]
 }
