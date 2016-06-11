@@ -367,8 +367,18 @@ process.on('uncaughtException', function(err) {
       var canonicalize = true;
 
     case 'normalize':
-      options = readOptions(args, ['yes'], ['parent']);
-      core.normalize(options.args[1], options.parent, canonicalize)
+      options = readOptions(args, ['yes'], ['parent', 'browser', 'dev', 'production']);
+      var env = {};
+      if ('production' in options) {
+        env.production = true;
+        env.dev = false;
+      }
+      if ('browser' in options) {
+        env.browser = true;
+        env.node = false;
+      }
+
+      core.normalize(options.args[1], options.parent, canonicalize, env)
       .then(function(normalized) {
         console.log(normalized);
       })
