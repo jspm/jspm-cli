@@ -7,6 +7,7 @@ jspm CLI
 [![AppVeyor build Status][appveyor-image]][appveyor-url]
 [![Gitter][gitter-image]][gitter-url]
 [![Support][supporterhq-image]][supporterhq-url]
+[![Codecov][codecov-image]][codecov-url]
 
 Registry and format agnostic JavaScript package manager.
 
@@ -57,3 +58,5 @@ Apache 2.0
 [supporterhq-url]: https://supporterhq.com/support/33df4abbec4d39260f49015d2457eafe/JSPM
 [travis-image]: https://travis-ci.org/jspm/jspm-cli.svg?branch=master
 [travis-url]: https://travis-ci.org/jspm/jspm-cli
+[codecov-image]: https://img.shields.io/codecov/c/github/jspm/jspm-cli/master.svg
+[codecov-url]: https://codecov.io/gh/jspm/jspm-cli/branch/master
