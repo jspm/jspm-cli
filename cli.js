@@ -26,9 +26,10 @@ var install = require('./lib/install');
 var fs = require('graceful-fs');
 var Promise = require('bluebird');
 
-// load the API but revert the API resolver
+// load the API but revert the API resolver and defaults
 require('./api');
 ui.setResolver();
+ui.useDefaults(false);
 
 var readOptions = require('./lib/cli-utils').readOptions;
 var readValue = require('./lib/cli-utils').readValue;
