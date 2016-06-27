@@ -35,6 +35,13 @@ suite('CLI Utils', function() {
     assert(outObj.meta['js/pbkdf2.js'].cjsDeferDepsExecute === false);
   });
 
+  test('Array sub properties', function() {
+    var outObj = readPropertySetters('meta[lib/util.js].deps=[domain,stream] meta[*.json].format=json', true);
+    assert(outObj.meta['lib/util.js'].deps[0] == 'domain');
+    assert(outObj.meta['lib/util.js'].deps[1] == 'stream');
+    assert(outObj.meta['*.json'].format == 'json');
+  });
+
   test('Arrays', function() {
     var outObj = readPropertySetters('a[] = 1,2,3 b=[\'1\',2,"3"] c[]=asdf asdf', true);
     assert(outObj.a instanceof Array);
