@@ -227,14 +227,9 @@ process.on('uncaughtException', function(err) {
 
         if (!target) {
           target = name;
-          if (name.indexOf('@') == 0)
-            name = name.substr(1);
-          if (name.indexOf(':') !== -1) {
+          if (name.indexOf(':') !== -1)
             name = name.substr(name.indexOf(':') + 1);
-            if (name.indexOf('@') > 0)
-              name = name.substr(0, name.lastIndexOf('@'));
-          }
-          if (name.indexOf('@') > 0)
+          if (name.lastIndexOf('@') > 0)
             name = name.substr(0, name.lastIndexOf('@'));
           else if (name[0] == '/' || name[0] == '.')
             return ui.log('err', 'Target %' + name + '% looks like a file path not a package.' + (args.length == 2 ? '\nDid you mean %jspm link ' + name + '%?' : ''));
