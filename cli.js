@@ -512,6 +512,11 @@ process.on('uncaughtException', function(err) {
 
       args = options.args;
 
+      if (!args[1]) {
+        ui.log('err', 'You must provide a local path to a folder to jspm link.\n     %jspm link ../folder%.');
+        break;
+      }
+
       link.link(args[1], args[2], options);
       break;
 
