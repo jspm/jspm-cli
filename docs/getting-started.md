@@ -23,13 +23,14 @@ Create a new project configuration:
   jspm init
 
 Package.json file does not exist, create it? [yes]: 
-Would you like jspm to prefix the jspm package.json properties under jspm? [yes]: 
-Enter server baseURL (public folder path) [.]: 
-Enter jspm packages folder [./jspm_packages]: 
-Enter config file path [./config.js]: 
+Would you like jspm to prefix the jspm package.json properties under jspm? [yes]:
+Enter server baseURL (public folder path) [./]:
+Enter jspm packages folder [.\jspm_packages]:
+Enter config file path [.\config.js]:
 Configuration file config.js doesn't exist, create it? [yes]:
-Enter client baseURL (public folder URL) [/]: 
-Which ES6 transpiler would you like to use, Traceur or Babel? [traceur]:
+Enter client baseURL (public folder URL) [/]:
+Do you wish to use a transpiler? [yes]:
+Which ES6 transpiler would you like to use, Babel, TypeScript or Traceur? [babel]:
 ```
 
   Sets up the package.json and configuration file.
