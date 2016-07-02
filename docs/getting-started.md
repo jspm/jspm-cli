@@ -25,8 +25,8 @@ Create a new project configuration:
 Package.json file does not exist, create it? [yes]: 
 Would you like jspm to prefix the jspm package.json properties under jspm? [yes]:
 Enter server baseURL (public folder path) [./]:
-Enter jspm packages folder [.\jspm_packages]:
-Enter config file path [.\config.js]:
+Enter jspm packages folder [./jspm_packages]:
+Enter config file path [./config.js]:
 Configuration file config.js doesn't exist, create it? [yes]:
 Enter client baseURL (public folder URL) [/]:
 Do you wish to use a transpiler? [yes]:
