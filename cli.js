@@ -46,9 +46,9 @@ process.on('uncaughtException', function(err) {
 (function() {
   function showHeader() {
     ui.log('\n'
-      + '  ' + chalk.bgWhite('      ') + '\n'
-      + '  ' + chalk.bgWhite.yellow(' jspm ') + '  ' + chalk.grey('Browser Package Management') + '\n'
-      + '  ' + chalk.bgWhite('      ') + '\n'
+      + '  ' + chalk.bgWhite('        ') + '\n'
+      + '  ' + chalk.bgWhite.yellow('  jspm  ') + '  ' + chalk.grey('Browser Package Management') + '\n'
+      + '  ' + chalk.bgWhite('        ') + '\n'
     );
   }
 
