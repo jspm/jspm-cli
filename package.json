@@ -7,6 +7,7 @@
   "dependencies": {
     "bluebird": "^3.0.5",
     "chalk": "^1.1.1",
+    "checksum": "^0.1.1",
     "core-js": "^1.2.6",
     "glob": "^6.0.1",
     "graceful-fs": "^4.1.2",

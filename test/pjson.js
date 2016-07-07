@@ -17,7 +17,7 @@ suite('package.json', function() {
         fs.unlinkSync(test.file.fileName);
       }
       catch(e) {}
-      test.file.timestamp = -1;
+      test.file.checksum = -1;
       test.write();
       var expected = fs.readFileSync('./test/fixtures/pjson/expected/' + input).toString();
       var actual = fs.readFileSync('./test/outputs/pjson/' + input).toString();

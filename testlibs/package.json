@@ -99,6 +99,26 @@
         }
       }
     },
+    "npm:debug@2.2.0": {
+      "main": "browser.js",
+      "jspmNodeConversion": false,
+      "format": "cjs",
+      "map": {
+        "./browser.js": {
+          "node": "./node.js"
+        },
+        "fs": "@node/fs",
+        "net": "@node/net",
+        "tty": "@node/tty",
+        "util": "@node/util"
+      }
+    },
+    "npm:lodash@4.13.1": {
+      "map": {
+        "buffer": "@empty",
+        "process": "@empty"
+      }
+    },
     "npm:mocha@1.21.5": {
       "browser": "mocha",
       "main": "mocha",
@@ -114,6 +134,10 @@
           "exports": "mocha"
         }
       }
+    },
+    "npm:ms@0.7.1": {
+      "jspmNodeConversion": false,
+      "format": "cjs"
     },
     "npm:readable-stream@1.0.33": {
       "map": {
