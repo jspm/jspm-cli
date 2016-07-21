@@ -39,6 +39,7 @@ var link = require('./lib/link');
 
 process.on('uncaughtException', function(err) {
   ui.log('err', err.stack || err);
+  process.exit(1);
 });
 
 /* jshint laxbreak: true */
@@ -191,7 +192,10 @@ process.on('uncaughtException', function(err) {
   switch(args[0]) {
     case 'run':
       options = readOptions(args, ['view', 'production']);
-      core.run(args[1], options.view, options.production);
+      core.run(args[1], options.view, options.production)
+      .catch(function() {
+        process.exit(1);
+      });
       break;
 
     case 'inject':
