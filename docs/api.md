@@ -76,7 +76,7 @@ jspm.bundle('app/main', 'build.js', { mangle: false }).then(function() {
 });
 ```
 
-Set the `inject` option to inject the bundle tree into the configuration file.
+Set the `injectConfig` option to inject the bundle tree into the configuration file.
 
 ### unbundle() -> Promise()
 
