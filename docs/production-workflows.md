@@ -2,7 +2,7 @@ There are three main workflows for production:
 
 1. [Compile into a bundle](#creating-a-bundle)
 2. [Create a self-executing bundle](#creating-a-self-executing-bundle)
-3. [Cache the dependency tree for flat multiplexing via SPDY / HTTP2](#creating-a-dependency-cache)
+3. [Cache the dependency tree for flat multiplexing via HTTP/2](#creating-a-dependency-cache)
 
 ### Creating a Bundle
 
@@ -86,7 +86,7 @@ maintaining bindings and circular references as with normal bundles.
 
 ### Creating a Dependency Cache
 
-The jspm CDN uses SPDY, optimal cache headers, and minified files, making this workflow suitable for production use.
+The jspm CDN uses HTTP/2, optimal cache headers, and minified files, making this workflow suitable for production use.
 
 The remaining performance issue is the round trip latency required to load deep dependencies, as we only find out
 the dependencies of a module once we have fetched that module, before fetching its dependencies in turn.
