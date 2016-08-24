@@ -56,10 +56,14 @@
   "directories": {
     "test": "test"
   },
-  "ignore": [
-    "sandbox",
-    "testlibs",
-    "test"
+  "files": [
+    "lib",
+    "LICENSE",
+    "CONTRIBUTORS",
+    "README.md",
+    "api.js",
+    "cli.js",
+    "docs"
   ],
   "license": "Apache-2.0"
 }
