@@ -23,7 +23,7 @@
     "sane": "^1.3.3",
     "semver": "^5.1.0",
     "systemjs": "0.19.37",
-    "systemjs-builder": "0.15.29",
+    "systemjs-builder": "0.15.30",
     "traceur": "0.0.105",
     "uglify-js": "^2.6.1"
   },
@@ -63,6 +63,7 @@
     "README.md",
     "api.js",
     "cli.js",
+    "jspm.js",
     "docs"
   ],
   "license": "Apache-2.0"
