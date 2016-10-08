@@ -28,8 +28,7 @@ var jspmCLI = new Liftoff({
   }
 });
 
-var args = process.argv.slice(2),
-      options;
+var args = process.argv.slice(2);
 
 var cwdArgIndex = args.indexOf('--cwd');
 if (cwdArgIndex > -1) {
