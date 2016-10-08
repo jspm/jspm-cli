@@ -114,6 +114,7 @@ process.on('uncaughtException', function(err) {
       + 'Global Flags\n'
       + ' --yes | -y                        Skip prompts / use default inputs\n'
       + ' --log <ok|warn|err>               Set log level\n'
+      + ' --cwd [path]                      Set the working directory\n'
     );
   }
 
@@ -226,6 +227,11 @@ process.on('uncaughtException', function(err) {
   if (logArgIndex > -1) {
     ui.setLogLevel(args[logArgIndex + 1]);
     args.splice(logArgIndex, 2);
+  }
+
+  var cwdArgIndex = args.indexOf('--cwd');
+  if (cwdArgIndex > -1) {
+    args.splice(cwdArgIndex, 2);
   }
 
   switch(args[0]) {
