@@ -18,7 +18,6 @@
 
 var Liftoff = require('liftoff');
 var path = require('path');
-var env = require('./lib/env');
 
 var jspmCLI = new Liftoff({
   name: 'jspm',
@@ -29,13 +28,12 @@ var jspmCLI = new Liftoff({
 });
 
 var args = process.argv.slice(2);
-
 var cwdArgIndex = args.indexOf('--cwd');
 if (cwdArgIndex > -1) {
-  env.setCwd(args[cwdArgIndex + 1]);
+  process.chdir(args[cwdArgIndex + 1]);
 }
 
-jspmCLI.launch({cwd: env.cwd()}, function(env) {
+jspmCLI.launch({ cwd: process.cwd() }, function(env) {
   process.env.jspmConfigPath = env.configPath || '';
   process.env.globalJspm = !env.modulePath;
   if (env.modulePath)
