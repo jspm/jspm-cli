@@ -26,7 +26,14 @@ var jspmCLI = new Liftoff({
     '.json': null
   }
 });
-jspmCLI.launch({}, function(env) {
+
+var args = process.argv.slice(2);
+var cwdArgIndex = args.indexOf('--cwd');
+if (cwdArgIndex > -1) {
+  process.chdir(args[cwdArgIndex + 1]);
+}
+
+jspmCLI.launch({ cwd: process.cwd() }, function(env) {
   process.env.jspmConfigPath = env.configPath || '';
   process.env.globalJspm = !env.modulePath;
   if (env.modulePath)
