@@ -70,6 +70,7 @@ process.on('uncaughtException', function(err) {
       + '  install react --lock           Stable install, locking existing dependencies\n'
       + '  install react=npm:react --edge Install a package alias to latest unstable\n'
       + '  install react --quick          Quick install, skipping tree hash verifications\n'
+      + '  install react --exact          Install and pin the latest version of a package\n'
       + '\n'
       + '  install dep -o override.json   Install with the given custom override\n'
       + '  install dep -o "{json}"        useful for testing package overrides\n'
@@ -214,7 +215,7 @@ process.on('uncaughtException', function(err) {
     case 'i':
     case 'isntall':
     case 'install':
-      options = readOptions(args, ['force', 'yes', 'lock', 'latest',
+      options = readOptions(args, ['force', 'yes', 'lock', 'latest', 'exact',
                                    'unlink', 'quick', 'dev', 'save-dev', 'edge', 'production', 'peer'], ['override']);
 
       if (options['save-dev']) {
