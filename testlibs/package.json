@@ -23,45 +23,45 @@
     "plugin-babel": "npm:systemjs-plugin-babel@^0.0.10"
   },
   "peerDependencies": {
-    "assert": "jspm/nodelibs-assert@^0.2.0-alpha",
-    "buffer": "jspm/nodelibs-buffer@^0.2.0-alpha",
-    "child_process": "jspm/nodelibs-child_process@^0.2.0-alpha",
-    "cluster": "jspm/nodelibs-cluster@^0.2.0-alpha",
-    "console": "jspm/nodelibs-console@^0.2.0-alpha",
-    "constants": "jspm/nodelibs-constants@^0.2.0-alpha",
+    "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+    "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
+    "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
+    "cluster": "npm:jspm-nodelibs-cluster@^0.2.0",
+    "console": "npm:jspm-nodelibs-console@^0.2.0",
+    "constants": "npm:jspm-nodelibs-constants@^0.2.0",
     "core-js": "npm:core-js@^1.2.0",
-    "crypto": "jspm/nodelibs-crypto@^0.2.0-alpha",
-    "dgram": "jspm/nodelibs-dgram@^0.2.0-alpha",
-    "dns": "jspm/nodelibs-dns@^0.2.0-alpha",
-    "domain": "jspm/nodelibs-domain@^0.2.0-alpha",
+    "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+    "dgram": "npm:jspm-nodelibs-dgram@^0.2.0",
+    "dns": "npm:jspm-nodelibs-dns@^0.2.0",
+    "domain": "npm:jspm-nodelibs-domain@^0.2.0",
     "ecc-jsbn": "npm:ecc-jsbn@0",
-    "events": "jspm/nodelibs-events@^0.2.0-alpha",
-    "fs": "jspm/nodelibs-fs@^0.2.0-alpha",
-    "http": "jspm/nodelibs-http@^0.2.0-alpha",
-    "https": "jspm/nodelibs-https@^0.2.0-alpha",
+    "events": "npm:jspm-nodelibs-events@^0.2.0",
+    "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+    "http": "npm:jspm-nodelibs-http@^0.2.0",
+    "https": "npm:jspm-nodelibs-https@^0.2.0",
     "jodid25519": "npm:jodid25519@^1.0.0",
     "jsbn": "npm:jsbn@0.1",
     "jspm-registry": "npm:jspm-registry@^0.4.0",
-    "module": "jspm/nodelibs-module@^0.2.0-alpha",
-    "net": "jspm/nodelibs-net@^0.2.0-alpha",
-    "os": "jspm/nodelibs-os@^0.2.0-alpha",
-    "path": "jspm/nodelibs-path@^0.2.0-alpha",
-    "process": "jspm/nodelibs-process@^0.2.0-alpha",
-    "punycode": "jspm/nodelibs-punycode@^0.2.0-alpha",
-    "querystring": "jspm/nodelibs-querystring@^0.2.0-alpha",
-    "readline": "jspm/nodelibs-readline@^0.2.0-alpha",
-    "repl": "jspm/nodelibs-repl@^0.2.0-alpha",
+    "module": "npm:jspm-nodelibs-module@^0.2.0",
+    "net": "npm:jspm-nodelibs-net@^0.2.0",
+    "os": "npm:jspm-nodelibs-os@^0.2.0",
+    "path": "npm:jspm-nodelibs-path@^0.2.0",
+    "process": "npm:jspm-nodelibs-process@^0.2.0",
+    "punycode": "npm:jspm-nodelibs-punycode@^0.2.0",
+    "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
+    "readline": "npm:jspm-nodelibs-readline@^0.2.0",
+    "repl": "npm:jspm-nodelibs-repl@^0.2.0",
     "source-map": "npm:source-map",
-    "stream": "jspm/nodelibs-stream@^0.2.0-alpha",
-    "string_decoder": "jspm/nodelibs-string_decoder@^0.2.0-alpha",
-    "timers": "jspm/nodelibs-timers@^0.2.0-alpha",
-    "tls": "jspm/nodelibs-tls@^0.2.0-alpha",
-    "tty": "jspm/nodelibs-tty@^0.2.0-alpha",
+    "stream": "npm:jspm-nodelibs-stream@^0.2.0",
+    "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
+    "timers": "npm:jspm-nodelibs-timers@^0.2.0",
+    "tls": "npm:jspm-nodelibs-tls@^0.2.0",
+    "tty": "npm:jspm-nodelibs-tty@^0.2.0",
     "tweetnacl": "npm:tweetnacl@0",
-    "url": "jspm/nodelibs-url@^0.2.0-alpha",
-    "util": "jspm/nodelibs-util@^0.2.0-alpha",
-    "vm": "jspm/nodelibs-vm@^0.2.0-alpha",
-    "zlib": "jspm/nodelibs-zlib@^0.2.0-alpha"
+    "url": "npm:jspm-nodelibs-url@^0.2.0",
+    "util": "npm:jspm-nodelibs-util@^0.2.0",
+    "vm": "npm:jspm-nodelibs-vm@^0.2.0",
+    "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
   },
   "overrides": {
     "github:angular/bower-angular@1.4.8": {
@@ -99,6 +99,29 @@
         }
       }
     },
+    "npm:debug@2.2.0": {
+      "main": "browser.js",
+      "jspmNodeConversion": false,
+      "format": "cjs",
+      "map": {
+        "./browser.js": {
+          "node": "./node.js"
+        },
+        "./node.js": {
+          "browser": "./browser.js"
+        },
+        "fs": "@node/fs",
+        "net": "@node/net",
+        "tty": "@node/tty",
+        "util": "@node/util"
+      }
+    },
+    "npm:lodash@4.13.1": {
+      "map": {
+        "buffer": "@empty",
+        "process": "@empty"
+      }
+    },
     "npm:mocha@1.21.5": {
       "browser": "mocha",
       "main": "mocha",
@@ -114,6 +137,10 @@
           "exports": "mocha"
         }
       }
+    },
+    "npm:ms@0.7.1": {
+      "jspmNodeConversion": false,
+      "format": "cjs"
     },
     "npm:readable-stream@1.0.33": {
       "map": {
