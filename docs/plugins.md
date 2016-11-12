@@ -52,7 +52,7 @@ CSS should always be a dependency in your package.json if sharing a package that
 
 #### CSS Builds
 
-The CSS plugin will inline and combine CSS requires into the bundle output when using `jspm bundle`. The following options can be added to the jspm `config.js` file to alter this behaviour further:
+The CSS plugin will inline and combine CSS requires into the bundle output when using `jspm bundle`. The following options can be added to the jspm `jspm.config.js` file to alter this behaviour further:
 
 * `buildCSS: false` add this option to opt-out of CSS inlining, and instead have the CSS loaded as separate files in production.
 * `separateCSS: true` add this option to create a `bundle.js` AND a `bundle.css` file which can be included with a separate link tag.
