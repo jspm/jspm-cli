@@ -30,7 +30,7 @@ System.config({
     "voxel-demo": "npm:voxel-demo@0.0.1",
     "github:components/ember@1.13.2": {
       "handlebars.js": "github:components/handlebars.js@1.3.0",
-      "jquery": "npm:jquery@2.2.4"
+      "jquery": "npm:jquery@3.1.1"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
