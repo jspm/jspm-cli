@@ -13,18 +13,17 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
+var EventEmitter = require('events').EventEmitter;
+var API = module.exports = new EventEmitter();
 
 var install = require('./lib/install');
 var bundle = require('./lib/bundle');
 var link = require('./lib/link');
 var core = require('./lib/core');
 var ui = require('./lib/ui');
-var EventEmitter = require('events').EventEmitter;
 var SystemJSLoader = require('systemjs').constructor;
 var config = require('./lib/config');
 var path = require('path');
-
-var API = module.exports = new EventEmitter();
 
 API.version = config.version;
 
