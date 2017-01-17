@@ -479,6 +479,9 @@ process.on('uncaughtException', function(err) {
       if (bArgs.length === 0)
         return ui.log('warn', 'You must provide at least one module as the starting point for bundling');
 
+      if (options.format && options.format.match(/es.?/) && options.minify) // remove this on resolution of https://github.com/systemjs/builder/issues/726
+        return ui.log('warn', 'The %--minify% option is currently not compatible with %--format ' + options.format + '%, consider specifying a different format or skipping minification');
+
       if (bArgs.length < 2) {
         (staticBuild ? bundle.build : bundle.bundle)(bArgs[0], undefined, options)
         .catch(function() {
