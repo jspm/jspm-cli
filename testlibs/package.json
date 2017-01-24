@@ -5,10 +5,10 @@
     "bootstrap": "twbs/bootstrap@^3.3.6",
     "builder": "npm:systemjs-builder@^0.15",
     "clean-css": "npm:clean-css@^3.4.8",
-    "css": "systemjs/plugin-css@^0.1.20",
+    "css": "systemjs/plugin-css@^0.1.32",
     "d3": "d3/d3@^3.5.9",
     "ember": "components/ember@1.13.2",
-    "github": "npm:jspm-github@^0.27.0",
+    "github": "npm:jspm-github@^0.14.11",
     "jquery": "components/jquery@2.1.4",
     "jspm": "jspm/jspm-cli@0.17",
     "mocha": "npm:mocha@1.21.5",
@@ -51,7 +51,7 @@
     "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
     "readline": "npm:jspm-nodelibs-readline@^0.2.0",
     "repl": "npm:jspm-nodelibs-repl@^0.2.0",
-    "source-map": "npm:source-map",
+    "source-map": "npm:source-map@^0.5.6",
     "stream": "npm:jspm-nodelibs-stream@^0.2.0",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
     "timers": "npm:jspm-nodelibs-timers@^0.2.0",
@@ -64,7 +64,7 @@
     "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
   },
   "overrides": {
-    "github:angular/bower-angular@1.4.8": {
+    "github:angular/bower-angular@1.6.1": {
       "main": "angular",
       "meta": {
         "angular.js": {
@@ -82,6 +82,38 @@
     "github:components/jquery@2.1.4": {
       "main": "jquery"
     },
+    "github:twbs/bootstrap@3.3.7": {
+      "shim": {
+        "js/bootstrap": {
+          "deps": [
+            "jquery"
+          ],
+          "exports": "$"
+        }
+      },
+      "dependencies": {
+        "jquery": "github:components/jquery"
+      },
+      "files": [
+        "dist",
+        "fonts",
+        "js",
+        "less",
+        "grunt",
+        "LICENSE"
+      ],
+      "systemjs": {
+        "main": "dist/js/bootstrap.js",
+        "meta": {
+          "dist/js/bootstrap.js": {
+            "deps": [
+              "jquery"
+            ],
+            "exports": "$"
+          }
+        }
+      }
+    },
     "npm:babel-runtime@5.8.38": {
       "main": false,
       "dependencies": {},
@@ -90,6 +122,16 @@
       }
     },
     "npm:bluebird@3.3.5": {
+      "meta": {
+        "js/browser/bluebird.js": {
+          "format": "global"
+        },
+        "js/browser/bluebird.min.js": {
+          "format": "global"
+        }
+      }
+    },
+    "npm:bluebird@3.4.7": {
       "meta": {
         "js/browser/bluebird.js": {
           "format": "global"
@@ -116,7 +158,66 @@
         "util": "@node/util"
       }
     },
+    "npm:debug@2.6.0": {
+      "main": "browser.js",
+      "jspmNodeConversion": false,
+      "format": "cjs",
+      "map": {
+        "./browser.js": {
+          "node": "./node.js"
+        },
+        "./node.js": {
+          "browser": "./browser.js"
+        },
+        "fs": "@node/fs",
+        "net": "@node/net",
+        "tty": "@node/tty",
+        "util": "@node/util"
+      }
+    },
+    "npm:graceful-fs@3.0.11": {
+      "format": "cjs",
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "process"
+          }
+        },
+        "*.json": {
+          "format": "json"
+        }
+      },
+      "map": {
+        "./fs.js": "@node/fs"
+      }
+    },
+    "npm:inherits@2.0.3": {
+      "ignore": [
+        "test.js"
+      ],
+      "systemjs": {
+        "main": "inherits.js",
+        "format": "cjs",
+        "meta": {
+          "*.json": {
+            "format": "json"
+          }
+        },
+        "map": {
+          "util": "@node/util",
+          "./inherits.js": {
+            "browser": "./inherits_browser.js"
+          }
+        }
+      }
+    },
     "npm:lodash@4.13.1": {
+      "map": {
+        "buffer": "@empty",
+        "process": "@empty"
+      }
+    },
+    "npm:lodash@4.17.4": {
       "map": {
         "buffer": "@empty",
         "process": "@empty"
@@ -139,6 +240,10 @@
       }
     },
     "npm:ms@0.7.1": {
+      "jspmNodeConversion": false,
+      "format": "cjs"
+    },
+    "npm:ms@0.7.2": {
       "jspmNodeConversion": false,
       "format": "cjs"
     },
@@ -179,38 +284,6 @@
             "../compilers/register",
             "../compilers/json"
           ]
-        }
-      }
-    },
-    "github:twbs/bootstrap@3.3.6": {
-      "shim": {
-        "js/bootstrap": {
-          "deps": [
-            "jquery"
-          ],
-          "exports": "$"
-        }
-      },
-      "dependencies": {
-        "jquery": "github:components/jquery"
-      },
-      "files": [
-        "dist",
-        "fonts",
-        "js",
-        "less",
-        "grunt",
-        "LICENSE"
-      ],
-      "systemjs": {
-        "main": "dist/js/bootstrap.js",
-        "meta": {
-          "dist/js/bootstrap.js": {
-            "deps": [
-              "jquery"
-            ],
-            "exports": "$"
-          }
         }
       }
     },
@@ -259,7 +332,60 @@
         }
       }
     },
+    "npm:systemjs-builder@0.15.35": {
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "process"
+          }
+        },
+        "*.json": {
+          "format": "json"
+        },
+        "lib/output.js": {
+          "globals": {
+            "Buffer": "buffer"
+          }
+        },
+        "lib/compile.js": {
+          "deps": [
+            "../compilers/amd",
+            "../compilers/cjs",
+            "../compilers/esm",
+            "../compilers/global",
+            "../compilers/register",
+            "../compilers/json"
+          ]
+        }
+      }
+    },
     "npm:systemjs@0.19.29": {
+      "main": "index.js",
+      "format": "cjs",
+      "meta": {
+        "*": {
+          "globals": {
+            "process": "process"
+          }
+        },
+        "*.json": {
+          "format": "json"
+        },
+        "dist/system.src.js": {
+          "deps": [
+            "vm"
+          ]
+        },
+        "docs/module-formats.md": {
+          "format": "amd"
+        },
+        "lib/amd.js": {
+          "format": "amd"
+        },
+        "package.json": true
+      }
+    },
+    "npm:systemjs@0.19.43": {
       "main": "index.js",
       "format": "cjs",
       "meta": {

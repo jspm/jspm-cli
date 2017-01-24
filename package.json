@@ -22,7 +22,7 @@
     "rimraf": "^2.4.4",
     "sane": "^1.3.3",
     "semver": "^5.1.0",
-    "systemjs": "0.20.0-alpha.1",
+    "systemjs": "0.20.0-rc.8",
     "systemjs-builder": "0.16.0-alpha.1",
     "traceur": "0.0.105",
     "uglify-js": "^2.6.1"
