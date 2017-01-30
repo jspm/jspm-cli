@@ -131,7 +131,7 @@ process.on('uncaughtException', function(err) {
       + '\n'
       + 'Global Flags\n'
       + ' --yes | -y                      Skip prompts / use default inputs\n'
-      + ' --log <ok|warn|err>             Set log level'
+      + ' --log <ok|warn|err>             Set log level\n'
       + ' --cwd [path]                    Set the working directory\n'
     );
   }
