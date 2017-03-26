@@ -1,6 +1,7 @@
-# JSPM 
+# JSPM
 
 * [Getting Started](getting-started.md)
+* [New in 0.17](new-in-0.17.md)
 * [Installing Packages](installing-packages.md)
 * [Linking](linking.md)
 * [API](api.md)

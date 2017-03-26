@@ -60,7 +60,7 @@ This can equally be written:
 
 Any version tag or branch can be installed this way for GitHub and npm. Commit-based installs are not supported for the GitHub registry currently.
 
-Install a version range with - 
+Install a version range with -
 
 [Semver compatibility range](https://github.com/npm/node-semver#caret-ranges-123-025-004):
 
@@ -114,9 +114,9 @@ The way this is handled is through [SystemJS contextual map config](https://gith
 
 ### Reproducible Installs
 
-All install ranges are saved in the `package.json` file, with the exact version solution saved in to `config.js`. Both of these files should be checked into version control.
+All install ranges are saved in the `package.json` file, with the exact version solution saved in to `jspm.config.js`. Both of these files should be checked into version control.
 
-To reproduce an install of the `package.json` to the exact version ranges in the `config.js` file, use `jspm install` with no arguments:
+To reproduce an install of the `package.json` to the exact version ranges in the `jspm.config.js` file, use `jspm install` with no arguments:
 
 ```
   jspm install
@@ -155,7 +155,7 @@ To inspect all installed dependencies use `jspm inspect`:
                     npm:inherits 2.0.1
                      npm:process 0.10.0
                         npm:util 0.10.3
-     
+
   To inspect individual package constraints, use jspm inspect registry:name.
 ```
 
@@ -165,9 +165,9 @@ To see the install constraints for a given dependency use `jspm inspect registry
 
 ```
   jspm inspect npm:util
-     
+
   Installed versions of npm:util
-     
+
     github:jspm/nodelibs-util@0.1.0
       util 0.10.3 (^0.10.3)
 ```
@@ -176,7 +176,7 @@ This shows us all parent dependencies, and the version range they have installed
 
 ### Resolving Conflicts
 
-It is fine to change dependency versions of dependencies within the `config.js` file manually to alter resolutions.
+It is fine to change dependency versions of dependencies within the `jspm.config.js` file manually to alter resolutions.
 
 If there is a scenario where you want all versions of a package to resolve to exactly a given version, you can use `resolve --only`:
 
@@ -196,7 +196,7 @@ To uninstall a package:
   jspm uninstall jquery
        Clearing configuration for github:components/jquery@2.1.3
        Removing package files for github:components/jquery@2.1.3
-  
+
   ok   Uninstall complete.
 ```
 
@@ -206,8 +206,8 @@ Run `jspm clean` at any time to perform this same clearing operation.
 
 ### Other Options
 
-Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.  
-Example:  
+Use `-o` or `--override` to force-set the package override for a package that needs extra configuration. See https://github.com/jspm/registry#testing-package-overrides.
+Example:
 `jspm install github:twbs/bootstrap -o "{ main: 'js/bootstrap', shim: { 'js/bootstrap': ['jquery'] } }"`
 
 Use `-f` or `--force` with the install command to ensure the cache is completely refreshed for all installs. Usually this is unnecessary but can be useful if you've made manual edits or have patched registry endpoint code.

@@ -55,10 +55,10 @@ var mySystem = new jspm.Loader();
 
 // can be used as any other System instance
 mySystem.normalize('moduleName').then(function(normalized) {
-  
+
 });
 mySystem.import('moduleName').then(function(module) {
-  
+
 });
 ```
 
@@ -66,29 +66,29 @@ mySystem.import('moduleName').then(function(module) {
 
 ### Bundle API
 
-#### bundle(expression, fileName, options) -> Promise()
+#### bundle(moduleExpression, fileName, opts) -> Promise()
 
 ```javascript
-// jspm bundle app/main build.js --no-mangle
+// jspm bundle app build.js --no-mangle
 var jspm = require('jspm');
 jspm.setPackagePath('.');
-jspm.bundle('app/main', 'build.js', { mangle: false }).then(function() {
+jspm.bundle('app', 'build.js', { mangle: false }).then(function() {
 });
 ```
 
-Set the `injectConfig` option to inject the bundle tree into the configuration file.
+Set the `inject` option to inject the bundle tree into the configuration file.
 
 ### unbundle() -> Promise()
 
 Removes any existing `depCache` or `bundle` configuration from the configuration file.
 
-#### bundleSFX(moduleName, fileName, options) -> Promise()
+#### build(expression, fileName, opts) -> Promise()
 
 Creates a single self-executing bundle for a module.
 
 ##### Bundle Options
 
-Both `bundle` and `bundleSFX` support the following options:
+Both `bundle` and `build` support the following options:
 
 * `minify`: Use minification, defaults to false.
 * `mangle`: Use mangling with minification, defaults to true.
@@ -108,7 +108,7 @@ var builder = new jspm.Builder();
 builder.config({ custom: 'options' });
 
 // or builder.buildStatic
-builder.bundle('app/main.js', {
+builder.bundle('app', {
   minify: true
 })
 .then(function(output) {

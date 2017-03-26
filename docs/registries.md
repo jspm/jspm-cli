@@ -16,12 +16,13 @@ To support private GitHub, simply authenticate with your private GitHub account:
 ```
 
 ```
-Would you like to set up your GitHub credentials? [yes]: 
-     If using two-factor authentication or to avoid using your password you can generate an access token at https://github.com/settings/tokens.
+Would you like to set up your GitHub credentials? [Yes]: Yes
+     If using two-factor authentication or to avoid using your password you can generate an access token at https://github.com/settings/tokens. Ensure it has public_repo scope access.
 
-Enter your GitHub username: username
-Enter your GitHub password or access token: 
-Would you like to test these credentials? [yes]: 
+Enter your GitHub username:
+Enter your GitHub password or access token:
+Would you like to test these credentials? [Yes]: Yes
+
 ```
 
 This will enable private repo installs.
@@ -42,9 +43,11 @@ All registries can export their exact configurations including authentication vi
 
 ```
   jspm registry export github
+
+jspm config registries.github.timeouts.lookup 60
+jspm config registries.github.timeouts.build 120
 jspm config registries.github.remote https://github.jspm.io
 jspm config registries.github.auth JSPM_GITHUB_AUTH_TOKEN
-jspm config registries.github.maxRepoSize 100
 jspm config registries.github.handler jspm-github
 ```
 
@@ -97,9 +100,9 @@ It is possible to create a GitHub enterprise support with:
 
 ```
   jspm registry create mycompany jspm-github
-Are you setting up a GitHub Enterprise endpoint? [yes]: 
+Are you setting up a GitHub Enterprise endpoint? [yes]:
 Enter the hostname of your GitHub Enterprise server: mycompany.com
-Would you like to set up your GitHub credentials? [yes]: 
+Would you like to set up your GitHub credentials? [yes]:
 ```
 
 Note that GitHub enterprise support has not been comprehensively tested, as we've had to rely on feedback and PRs from GitHub enterprise users. If there are any issues at all please post an issue and we'll work to fix these.
