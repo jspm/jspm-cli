@@ -76,7 +76,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm uninstall name                Uninstall a package and clean dependencies\n'
       + 'jspm clean                         Clear unused and orphaned dependencies\n'
       + '\n'
-      + 'jspm inspect [--forks]             View all installed package versions\n'
+      + 'jspm inspect [--forks] [--multiple] View all installed package versions\n'
       + 'jspm inspect npm:source-map        View the versions and ranges of a package\n'
       + '\n'
       + 'jspm inject <name[=target]> [--force] [--latest] [--lock] [-o]\n'
@@ -380,13 +380,13 @@ process.on('uncaughtException', function(err) {
       break;
 
     case 'inspect':
-      options = readOptions(args, ['forks']);
+      options = readOptions(args, ['forks', 'multiple']);
       args = options.args;
 
       config.load()
       .then(function() {
         if (!args[1])
-          return install.showVersions(options.forks);
+          return install.showVersions(options.forks, options.multiple);
         if (!args[1].includes(':'))
           return ui.log('warn', 'Enter a full package name of the format `registry:repo`.');
         return install.showInstallGraph(args[1]);
