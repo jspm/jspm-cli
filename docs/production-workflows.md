@@ -10,7 +10,7 @@ There are three main workflows for production:
   jspm bundle app/main build.js
 ```
 
-Creates a file `build.js` containing `app/main` and all its dependencies referenced in config.js.
+Creates a file `build.js` containing `app/main` and all its imported dependencies.
 
 We can then load this with a script tag in the page:
 
