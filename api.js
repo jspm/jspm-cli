@@ -98,6 +98,13 @@ API.bundle = function(expression, fileName, options) {
 };
 
 /*
+ * Returns a promise for unbundling
+ */
+API.unbundle = function() {
+  return bundle.unbundle();
+};
+
+/*
  * Remove the bundle configuration.
  * This will allow you to move back to separate file mode
  * returns a promise
