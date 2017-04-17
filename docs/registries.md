@@ -54,7 +54,16 @@ GitHub is rate-limited by IP so that when running automated installs for testing
 
 To make authentication easier, an environment variable `JSPM_GITHUB_AUTH_TOKEN` can be set on the automated server, containing exactly the value of `registries.github.auth` when running `jspm registry export github`, after configuring GitHub authentication manually via `jspm registry config github`.
 
-> This `JSPM_GITHUB_AUTH_TOKEN` is an unencrypted Base64 encoding of the GitHub username and *password* or *access token* separated by a `:`, e.g. `username:token`.
+> This `JSPM_GITHUB_AUTH_TOKEN` is an unencrypted Base64 encoding of the GitHub username and *password* or *access token* separated by a `:`, e.g. `username:token`. You can generate the JSPM_GITHUB_AUTH_TOKEN using one of the following commands:
+```bash
+# The -n makes sure that echo doesn't append characters that we don't want
+echo -n username:password | base64
+echo -n username:token | base64
+echo -n username:password | openssl base64
+echo -n username:token | openssl base64
+# Or if you've already entered your credentials into jspm
+jspm registry export github
+```
 
 ### Creating a private jspm Registry
 
