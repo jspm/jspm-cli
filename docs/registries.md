@@ -26,6 +26,8 @@ Would you like to test these credentials? [yes]:
 
 This will enable private repo installs.
 
+To use an access token, you have to create it on your [Github settings: Personal access tokens page](https://github.com/settings/tokens)
+
 #### Private npm
 
 When available, the npm registry endpoint will automatically pull authentication details from the local `.npmrc` file, so that private npm scopes and registries should be configured automatically.
