@@ -1,7 +1,12 @@
 jspm CLI
 ===
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Support](https://supporterhq.com/api/b/33df4abbec4d39260f49015d2457eafe/JSPM)](https://supporterhq.com/support/33df4abbec4d39260f49015d2457eafe/JSPM)
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+[![Travis build Status][travis-image]][travis-url]
+[![AppVeyor build Status][appveyor-image]][appveyor-url]
+[![Gitter][gitter-image]][gitter-url]
+[![Support][supporterhq-image]][supporterhq-url]
 
 Registry and format agnostic JavaScript package manager.
 
@@ -41,8 +46,14 @@ See the [SystemJS](https://github.com/systemjs/systemjs) project page for System
 
 Apache 2.0
 
-[travis-url]: https://travis-ci.org/jspm/jspm-cli
-[travis-image]: https://travis-ci.org/jspm/jspm-cli.svg?branch=master
+[appveyor-url]: https://ci.appveyor.com/project/guybedford/jspm-cli
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/XXXXXXXXXXXXXXXX/branch/master?svg=true
 [downloads-image]: http://img.shields.io/npm/dm/jspm.svg
-[npm-url]: https://npmjs.org/package/jspm
+[gitter-image]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-url]: https://gitter.im/jspm/jspm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 [npm-image]: http://img.shields.io/npm/v/jspm.svg
+[npm-url]: https://npmjs.org/package/jspm
+[supporterhq-image]: https://supporterhq.com/api/b/33df4abbec4d39260f49015d2457eafe/JSPM
+[supporterhq-url]: https://supporterhq.com/support/33df4abbec4d39260f49015d2457eafe/JSPM
+[travis-image]: https://travis-ci.org/jspm/jspm-cli.svg?branch=master
+[travis-url]: https://travis-ci.org/jspm/jspm-cli
