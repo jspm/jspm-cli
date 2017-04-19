@@ -47,7 +47,6 @@ API.setPackagePath('.');
  * Callback answer defined in https://github.com/SBoudrias/Inquirer.js/tree/master#answers
  */
 ui.setResolver(API);
-ui.useDefaults();
 
 API.promptDefaults = function(_useDefaults) {
   ui.useDefaults(_useDefaults);
