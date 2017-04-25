@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2016 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -171,7 +171,7 @@ process.on('uncaughtException', function(err) {
   function readJSON(fileOrJSON, supportFile, dottedProperties) {
     if (fileOrJSON.trim() == '')
       return {};
-    
+
     if (fileOrJSON.startsWith('{'))
       return eval('(' + fileOrJSON + ')');
 
@@ -367,7 +367,7 @@ process.on('uncaughtException', function(err) {
         ui.useDefaults();
       if (['traceur', 'typescript', 'babel'].indexOf(options.args[1]) != -1) {
         ui.log('err', '%jspm dl-loader% no longer provides transpiler downloading.\n');
-        ui.log('info', 'To set a transpiler use the init prompts %jspm init -p%.\n\n' + 
+        ui.log('info', 'To set a transpiler use the init prompts %jspm init -p%.\n\n' +
             'Alternatively manually install via %jspm install plugin-' + options.args[1] + '% and set this as the %transpiler% property in the jspm config.');
         break;
       }
@@ -418,7 +418,7 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents',
           'browser', 'node', 'dev', 'production', 'skip-encode-names', 'skip-rollup', 'watch'],
           ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions', 'externals']);
 
