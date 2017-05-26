@@ -587,6 +587,10 @@ process.on('uncaughtException', function(err) {
     case 'config':
       var property = args[1];
       var value = readValue(args.splice(2).join(' '));
+      if(!(property && value)){
+        ui.log('warn', 'jspm config requires a property and value via %jspm config property value%');
+        break;
+      }
       globalConfig.set(property, value);
       break;
 
