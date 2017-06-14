@@ -16,12 +16,11 @@
     "rsvp": "npm:rsvp@3.1.0",
     "sshpk": "npm:sshpk@1.7.3",
     "systemjs": "npm:systemjs@0.19.29",
+    "systemjs-plugin-babel": "npm:systemjs-plugin-babel@0.0.23",
     "text": "systemjs/plugin-text@^0.0.2",
     "voxel-demo": "npm:voxel-demo@^0.0.1"
   },
-  "devDependencies": {
-    "plugin-babel": "npm:systemjs-plugin-babel@^0.0.10"
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "assert": "npm:jspm-nodelibs-assert@^0.2.0",
     "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
