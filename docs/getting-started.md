@@ -122,7 +122,7 @@ Run a local server to view the page.
 
 Refresh the browser, and see the entire app loaded from a single bundle file.
 
-Alternatively, use `jspm bundle-sfx lib/main` to create a bundle script that can be used on its own with a `<script>` tag independent of `config.js` and `system.js`.
+Alternatively, use `jspm build lib/main` to create a bundle script that can be used on its own with a `<script>` tag independent of `config.js` and `system.js`.
 
 ### Next Steps
 
