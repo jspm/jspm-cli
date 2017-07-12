@@ -75,10 +75,10 @@ Which will automatically clear out any injected bundle configuration.
 
 ### Creating a self-executing bundle
 
-To create an output distributable script file that can be included entirely on its own independent of SystemJS and jspm, we can use `bundle-sfx`.
+To create an output distributable script file that can be included entirely on its own independent of SystemJS and jspm, we can use `build`.
 
 ```
-  jspm bundle-sfx app/main.js app.js
+  jspm build app/main.js app.js
 ```
 
 `app.js` contains a micro-loader implementation (1.4KB gzipped), converts all module formats into ES5 (including compiling ES6), and
