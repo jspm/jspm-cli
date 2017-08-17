@@ -19,8 +19,12 @@ suite('package.json', function() {
       catch(e) {}
       test.file.timestamp = -1;
       test.write();
-      var expected = fs.readFileSync('./test/fixtures/pjson/expected/' + input).toString();
-      var actual = fs.readFileSync('./test/outputs/pjson/' + input).toString();
+      var expected = fs.readFileSync('./test/fixtures/pjson/expected/' + input)
+        .toString()
+        .replace(/\r/g, '');
+      var actual = fs.readFileSync('./test/outputs/pjson/' + input)
+        .toString()
+        .replace(/\r/g, '');
       try {
         assert.equal(actual, expected);
       }
