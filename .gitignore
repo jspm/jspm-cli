@@ -1,12 +1,7 @@
 node_modules
 sandbox
-.idea
-.DS_Store
-npm-debug.log
-testlibs/jspm_packages
-testlibs/build.*
-test/outputs
-coverage
+package-lock.json
 docs/_book
 docs/book.json
-docs/book.json
+test/fixtures/install-basic/jspm_packages
+test/fixtures/install-basic/jspm.json

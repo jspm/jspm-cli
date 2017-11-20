@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "chalk": "^2.3.0",
+    "custom": "git://github.com/guybedford/require-css",
+    "jquery": "3.2.1",
+    "jspm": "link:../../../",
+    "lodash": "4.17.4",
+    "mkdirp": "~0.5.1",
+    "require-css": "github:guybedford/require-css@~0.1.10"
+  },
+  "overrides": {
+    "git://github.com/guybedford/require-css": {
+      "registry": "npm",
+      "version": "master"
+    }
+  }
+}

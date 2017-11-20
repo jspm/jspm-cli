@@ -1,70 +1,59 @@
 {
   "name": "jspm",
-  "description": "Registry and format agnostic JavaScript package manager",
-  "version": "0.17.0-beta.41",
-  "main": "./api.js",
-  "author": "",
+  "description": "ES Module Package Manager",
+  "version": "2.0.0-dev",
+  "main": "lib/api.js",
   "dependencies": {
-    "bluebird": "^3.0.5",
-    "chalk": "^1.1.1",
-    "core-js": "^1.2.6",
-    "glob": "^6.0.1",
-    "graceful-fs": "^4.1.2",
-    "jspm-github": "^0.14.11",
-    "jspm-npm": "^0.30.2",
-    "jspm-registry": "^0.4.1",
-    "liftoff": "^2.2.0",
-    "minimatch": "^3.0.0",
-    "mkdirp": "~0.5.1",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-cjs-dew": "git+ssh://git@github.com/jspm/babel-plugin-transform-cjs-dew",
+    "babel-traverse": "^6.26.0",
+    "babel-visit-cjs-deps": "^0.1.0",
+    "buffer-peek-stream": "^1.0.1",
+    "chalk": "^2.3.0",
+    "devcert-sanscache": "^0.4.1",
+    "git-credential-node": "^1.1.0",
+    "graceful-fs": "^4.1.11",
+    "he": "^1.1.1",
+    "https-proxy-agent": "^2.1.0",
+    "jspm-github": "git+ssh://git@github.com/jspm/github#2.0",
+    "jspm-npm": "git+ssh://git@github.com/jspm/npm#2.0",
+    "jspm-resolve": "git+ssh://git@github.com/jspm/jspm-resolve",
+    "liftoff": "^2.3.0",
+    "mime": "^2.0.3",
     "ncp": "^2.0.0",
-    "proper-lockfile": "^1.1.2",
-    "request": "^2.67.0",
-    "rimraf": "^2.4.4",
-    "sane": "^1.3.3",
-    "semver": "^5.1.0",
-    "systemjs": "0.20.10",
-    "systemjs-builder": "0.16.4",
-    "traceur": "0.0.105",
-    "uglify-js": "^2.6.1"
-  },
-  "registry": "npm",
-  "devDependencies": {
-    "istanbul": "^0.3.13",
-    "jshint": "~2.8.0",
-    "mocha": "~2.2.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jspm/jspm.git"
+    "node-browser-builtins": "^1.0.0",
+    "node-fetch": "^1.7.3",
+    "opn": "^5.1.0",
+    "ora": "^1.3.0",
+    "promise-retry": "^1.1.1",
+    "proper-lockfile": "^2.0.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.50.1",
+    "rollup-plugin-jspm": "git+ssh://git@github.com/jspm/rollup-plugin-jspm",
+    "semver": "^5.4.1",
+    "sver": "^1.6.0",
+    "tar-fs": "^1.16.0",
+    "which": "^1.3.0"
   },
   "bin": {
-    "jspm": "./jspm.js"
+    "jspm": "bin/jspm.js"
   },
   "scripts": {
-    "test": "npm run jshint && cd testlibs && node ../jspm.js install && cd .. && npm run mocha",
-    "istanbul": "istanbul cover ./node_modules/.bin/_mocha -i='lib/**/*.js'",
-    "coverage": "npm run istanbul -- --report html",
-    "mocha": "mocha",
-    "jshint": "jshint api.js cli.js jspm.js lib test",
-    "gitbook": "gitbook build docs",
-    "set-timeouts": "jspm config registries.github.timeouts.download 600"
-  },
-  "bugs": {
-    "url": "https://github.com/jspm/jspm/issues"
-  },
-  "homepage": "https://github.com/jspm/jspm",
-  "directories": {
-    "test": "test"
+    "test": "mocha -u tdd --timeout 20000",
+    "gitbook": "gitbook build docs"
   },
   "files": [
+    "bin",
     "lib",
     "LICENSE",
     "CONTRIBUTORS",
     "README.md",
-    "api.js",
-    "cli.js",
-    "jspm.js",
     "docs"
   ],
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^8.0.47",
+    "mocha": "^4.0.1",
+    "typescript": "^2.5.3"
+  }
 }

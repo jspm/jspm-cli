@@ -1,8 +1,0 @@
-{
-  "directories": {
-    "baseURL": "public/folder",
-    "packages": "public/folder/jspm_packages"
-  },
-  "configFile": "public/config.js",
-  "registry": "jspm"
-}

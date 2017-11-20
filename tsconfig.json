@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "typeRoots": ["node_modules/@types"],
+    "module": "commonjs",
+    "target": "esnext",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "outDir": "lib",
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/api.js"
+  ]
+}

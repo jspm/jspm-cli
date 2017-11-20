@@ -1,4 +1,0 @@
---require test/setup.js
---reporter dot
---ui tdd
---timeout 120000

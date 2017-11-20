@@ -1,0 +1,465 @@
+/*
+ *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
+
+import * as ui from './utils/ui';
+if (!(parseInt(process.versions.node.split('.')[0]) >= 8)) {
+  ui.logErr('jspm 2 requires NodeJS 8.0.0 or above.');
+  process.exit();
+}
+
+import path = require('path');
+import * as api from './api';
+import { bold, highlight, JspmUserError } from './utils/common';
+import globalConfig from './config/global-config-file';
+
+import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
+import { readOptions, readValue, readPropertySetters } from './utils/opts';
+
+const installEqualRegEx = /^([@\-\_\.a-z\d]+)=/i;
+const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
+
+this.jobQueue = {};
+
+export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {
+  if (typeof args === 'string')
+    args = args.split(' ');
+  
+  let project: api.Project;
+  try {
+    let userInput = true, offline = false, preferOffline = false;
+    // first read global options
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i];
+      switch (arg) {
+        case '-y':
+        case '--skip-prompts':
+          (<string[]>args).splice(i--, 1);
+          ui.setUseDefaults(true);
+          userInput = false;
+        break;
+        case '-l':
+        case '--log':
+          const logLevelString = args[i + 1];
+          const logLevel = ui.LogType[logLevelString];
+          if (typeof logLevel !== 'number') {
+            ui.warn(`${bold(logLevelString)} is not a valid log level.`);
+            return process.exit(1);
+          }
+          ui.setLogLevel(logLevel);
+          (<string[]>args).splice(i, 2);
+          i -= 2;
+        break;
+        case '-p':
+        case '--project':
+          projectPath = args[i + 1];
+          (<string[]>args).splice(i, 1);
+          i -= 2;
+        break;
+        case '-q':
+        case '--prefer-offline':
+          preferOffline = true;
+          (<string[]>args).splice(i--, 1);
+        break;
+        case '--offline':
+          offline = true;
+          (<string[]>args).splice(i--, 1);
+        break;
+      }
+    }
+
+    switch (cmd) {
+      case undefined:
+      case '--version':
+      case '-v':
+        ui.info(api.version + '\n' +
+            (process.env.globalJspm === 'true' || process.env.localJspm === 'false'
+            ? 'Running against global jspm install.'
+            : 'Running against local jspm install.'));
+      break;
+
+      case '--help':
+      case '-h':
+        ui.info(`
+${bold('Install')}
+    jspm install                      Install from package.json with jspm.json version lock
+    jspm install <name[=target]>+
+      <pkg>                           Install a package
+      <pkg@version>                   Install a package to a version or version range
+      <pkgA> <pkgB>                   Install multiple packages at the same time
+      <pkg> --edge                    Install to latest unstable version resolution
+      <pkg> --lock                    Install without updating any existing resolutions
+      <pkg> --latest                  Install all dependencies to their very latest versions
+      <pkg> (--dev|--peer|--optional) Install a dev, peer or optional dependency
+      <pkg> --override main=dist/x.js Install with a persisted package.json property override
+      <source> -o name=x              Install a custom source (git:|git+(https|..):|https:|file:)
+
+    jspm link <name>? <source>        Link a custom source into jspm_packages as a named package
+    jspm unlink <name>?               Unlink a named package back to its original target
+    jspm update                       Update packages within package.json ranges
+    jspm update <name>+               Update the matching package install within its range
+    jspm uninstall <name>+            Uninstall a top-level package
+    jspm clean                        Clear unused and orphaned dependencies
+    jspm checkout <name>+             Copy a package within jspm_packages for local modification
+
+    Install Options:
+      --offline                       Run command offline using the jspm cache
+      --prefer-offline (-q)           Use cached lookups where possible for fastest install
+
+${bold('Execute')}
+    jspm exec <module>                Execute a given module in NodeJS with jspm resolution${/*
+    jspm run <script-name>            Execute a package.json script*/''}
+    
+    jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
+      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
+      --open (-o)                     Automatically open a new browser window when starting the server
+
+${bold('Build')}
+    jspm build <entry> -o <outfile>?  Build a module into a single file, inlining dynamic import
+      <entry>+ -o <outfile>+          Build entry point modules into respective output files
+      <entry> -d <outdir>             Build a module into a directory, chunking dynamic import
+      <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic import
+
+    Build Options:
+      --watch                         Watch build files after build for rebuild on change
+      --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
+      --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
+      (--group <name>+)+              Define a shared chunk, always to be used for its modules
+      (--chunk <name>+)+              Define a manual chunk, used only in exact combination
+      --exclude-deps                  Exclude all jspm_packages and node_modules dependencies
+      --format <cjs|system|global>    Set a custom output format for the build (defaults to esm)
+      --global-name x                 When using the global format, set the top-level global name
+      --global-deps <dep=globalName>  When using the global format, name external dep globals
+      --minify                        Minify the build output
+      --skip-source-maps              Disable source maps
+      --banner <file|source>          Include the given banner at the top of the build file
+      --global-defs <global=value>+   Define the given constant global values for build
+      --source-map-contents           Inline source contents into the source map
+      --hide-graph                    Don't show build graph analysis on completion
+    
+    jspm depcache <entry>             Outload the latency-optimizing preloading HTML for a module
+
+${bold('Inspect')}${
+/*  jspm depgraph <entry> (TODO)      Display the dependency graph for a given module*/''}
+    jspm resolve <module>             Resolve a module name with the jspm resolver to a path
+      <module> <parent>               Resolve a module name within the given parent
+      <module> (--browser|--bin)      Resolve a module name to a different conditional env
+${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
+${bold('Configure')}
+  jspm registry-config <name>       Run configuration prompts for a specific registry
+  jspm config <option> <setting>    Set jspm global config values in .jspm/config
+    
+    Global Options:
+      --skip-prompts (-y)             Use default options for prompts, never asking for user input
+      --log [ok|warn|err|debug|none]  Set the log level
+      --project (-p) <path>           Set the jspm project working directory
+  `);
+      break;
+
+      case 'e':
+      case 'exec':
+        // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
+        // let options;
+        // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
+        await api.exec(args[0], args.splice(1));
+      break;
+
+      case 'ds':
+      case 'devserver': {
+        let options;
+        ({ options, args } = readOptions(args, ['open', 'generate-cert'], []));
+        if (projectPath) {
+          try {
+            process.chdir(projectPath);
+          }
+          catch (err) {
+            if (err && err.code === 'ENOENT')
+              throw new JspmUserError(`Project path ${bold(projectPath)} isn't a valid folder path.`);
+          }
+        }
+        if (args.length)
+          throw new JspmUserError(`Unknown argument ${bold(args[0])}.`);
+        const server = await api.devserver(options);
+        await server.process;
+      }
+      break;
+
+      case 're':
+      case 'resolve': {
+        let options;
+        ({ args, options } = readOptions(args, ['format', 'browser', 'bin', 'react-native', 'production', 'electron']));
+
+        let env;
+        if (options.browser)
+          (env = env || {}).browser = true;
+        if (options.bin)
+          (env = env || {}).bin = true;
+        if (options['react-native'])
+          (env = env || {})['react-native'] = true;
+        if (options.production)
+          (env = env || {}).production = true;
+        if (options.electron)
+          (env = env || {}).electron = true;
+        
+        let parent;
+        if (args[1])
+          parent = (await api.resolve(args[1], undefined, env)).resolved;
+        
+        const resolved = await api.resolve(args[0], parent, env);
+
+        if (options.format)
+          ui.info(resolved.format || '<undefined>');
+        else
+          ui.info(resolved.resolved || '@empty');
+      }
+      break;
+
+      case 'cl':
+      case 'clean':
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        await project.clean();
+      break;
+
+      case 'co':
+      case 'checkout':
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        await project.checkout(args);
+      break;
+
+      case 'un':
+      case 'uninstall':
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        await project.uninstall(args);
+      break;
+
+      case 'l':
+      case 'link': {
+        let options;
+        ({ options, args } = readOptions(args, [
+          // TODO 'force', 'verify'
+        ], ['override']));
+
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        
+        if (args.length === 2) {
+          await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
+        }
+        else if (args.length === 1) {
+          const linkSource = 'file:' + path.resolve(args[0]);
+          const target = await project.registryManager.resolveSource(linkSource, project.projectPath, project.projectPath);
+          await project.install([{
+            name: undefined,
+            parent: undefined,
+            target,
+            type: DepType.primary
+          }], options);
+        }
+        else if (args.length !== 1) {
+          throw new JspmUserError(`Link command takes at most two arguments - an optional package name and a path.`);
+        }
+      }
+      break;
+
+      case 'ug':
+      case 'upgrade': {
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        ui.warn('Still to be implemented.');
+      }
+      break;
+
+      case 'un':
+      case 'up':
+      case 'unlink':
+      case 'update': {
+        // the name given here is not a "TARGET" but a "SELECTOR"
+        let { options, args: selectors } = readOptions(args, [
+          // install options
+          'reset', // TODO 'force', 'verify'
+          'latest'
+          ], ['override']);
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        await project.update(selectors, options);
+      }
+      break;
+
+      case 'i':
+      case 'install': {
+        let { options, args: installArgs } = readOptions(args, [
+            // install options
+            'reset', // TODO 'force', 'verify'
+            // install type
+            'save-dev', 'dev', 'optional', 'peer',
+            // constraint options
+            'exact', 'edge',
+            // resolver options
+            'latest', 'lock',
+            ], ['override']);
+        
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+
+        if (options.saveDev) {
+          project.log.warn(`The ${bold(`--save-dev`)} install flag in jspm is just ${bold(`--dev`)}.`);
+          options.dev = true;
+        }
+
+        let type;
+        if (options.dev)
+          type = DepType.dev;
+        else if (options.peer)
+          type = DepType.peer;
+        else if (options.optional)
+          type = DepType.optional;
+        else
+          type = DepType.primary;
+
+        if (typeof options.override === 'string') {
+          options.override = readPropertySetters(options.override, true);
+          if (options.override && installArgs.length > 1)
+            throw new JspmUserError(`An override can only be specified through ${highlight(`-o`)} when installing a single dependency at a time.`);
+        }
+
+        const installTargets = installArgs.map(arg => {
+          let name, target;
+
+          /*
+           * Assignment target install
+           *   jspm install x=y@1.2.3
+           */
+          const match = arg.match(installEqualRegEx);
+          if (match) {
+            name = match[1];
+            target = arg.substr(name.length + 1);
+          }
+          else {
+            target = arg;
+          }
+
+          /*
+           * File install sugar cases:
+           *   ./local -> file:./local
+           *   /local -> file:/local
+           *   ~/file -> file:~/file
+           */
+          if (target.match(fileInstallRegEx)) {
+            target = 'file:' + target;
+          }
+          
+          /*
+           * Plain target install
+           * Should ideally support a/b/c -> file:a/b/c resource sugar, but for now omitted
+           */
+          else if (!target.match(resourceInstallRegEx)) {
+            let registryIndex = target.indexOf(':');
+            let targetString = target;
+            // a/b -> github:a/b sugar
+            if (registryIndex === -1 && target.indexOf('/') !== -1 && target[0] !== '@')
+              targetString = 'github:' + target;
+            if (registryIndex === -1)
+              targetString = ':' + targetString;
+            target = processPackageTarget(name, targetString, project.defaultRegistry);
+          }
+
+          // when name is undefined, install will auto-populate from target
+          if (options.override)
+            return { name, parent: undefined, target, type, override: options.override };
+          else
+            return { name, parent: undefined, target, type };
+        });
+    
+        await project.install(installTargets, options);
+        // TODO: look through install cache of install state for checked out and linked
+        // and log that list so that the user is aware of it
+        // await project.logInstallStates();
+      }
+      break;
+
+      case 'b':
+      case 'build':
+      let { options, args: buildArgs } = readOptions(args, [
+        'node'
+        // --cwd
+        // 'watch' 'exclude-external', 'minify', 'skip-source-maps', 'source-map-contents', 'inline-source-maps'
+        ], [/*'external', 'exclude-deps', 'format', 'global-name', 'global-deps', 'banner', 'global-defs'*/]);
+
+        await api.build(projectPath, buildArgs[0], buildArgs[1], options);
+      break;
+
+      case 'r':
+      case 'registry':
+        if (args[0] !== 'config')
+          throw new JspmUserError(`Unknown command ${bold(cmd)}.`);
+        args = args.splice(1);
+      case 'rc':
+      case 'registry-config':
+        if (args.length !== 1)
+          throw new JspmUserError(`Only one argument expected for the registry name to configure.`);
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        await project.registryConfig(args[0]);
+      break;
+
+      case 'c':
+      case 'config': {
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        let property, value;
+        const unsetIndex = args.indexOf('--unset');
+        if (unsetIndex !== -1) {
+          if (args.length !== 2)
+            throw new JspmUserError(`Only one configuration property is expected to be unset.`);
+          if (unsetIndex === 1)
+            property = args[0];
+          else
+            property = args[1];
+          globalConfig.set(property, undefined);
+          project.log.ok(`Global configuration ${bold(property)} unset.`);
+        }
+        else {
+          property = args[0];
+          value = readValue(args.splice(1).join(' '));
+          if (property === undefined || value === undefined)
+            throw new JspmUserError(`jspm config requires a property and value via ${bold(`jspm config <property> <value>`)}`);
+          globalConfig.set(property, value);
+          project.log.ok(`Global configuration ${bold(property)} set.`);
+        }
+      }
+      break;
+
+      case 'cc':
+      case 'clear-cache':
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        await project.clearCache();
+      break;
+
+      default:
+        throw new JspmUserError(`Unknown command ${bold(cmd)}.`);
+    }
+  }
+  catch (err) {
+    if (process.env.globalJspm !== undefined) {
+      if (err && err.hideStack)
+        (project ? project.log.err.bind(project.log) : ui.err)(err.message || err);
+      else
+        (project ? project.log.err : ui.err)(err && err.stack || err);
+    }
+    throw err;
+  }
+  finally {
+    if (project)
+      await project.dispose();
+  }
+}
+
+if (process.env.globalJspm !== undefined)
+  cliHandler(path.dirname(process.env.jspmConfigPath), process.argv[2], process.argv.slice(3))
+  .then(() => process.exit(), _err => process.exit(1));
