@@ -13,11 +13,6 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-
-// NB split this out into a separate "dew-transform-cluster" package
-// with ability to enable / disable the cache checking
-// then it can be used by rollup-plugin-jspm for example
-
 import fs = require('graceful-fs');
 import { md5, isWindows, winSepRegEx } from '../utils/common';
 import childProcess = require('child_process');
@@ -43,11 +38,7 @@ interface FileTransformRecord {
   watching: boolean;
 }
 
-interface CodeError extends Error {
-  code?: string;
-}
-
-interface ResolveMap {
+export interface ResolveMap {
   [name: string]: string
 };
 
@@ -62,7 +53,7 @@ export default class FileTransformCache {
   private maxWatchCount: number;
   private production: boolean;
   private records: {
-    [path: string]: Promise<string|FileTransformRecord|void>
+    [path: string]: Promise<FileTransformRecord|void>
   };
   private publicDir: string;
   private watching: {
@@ -74,9 +65,10 @@ export default class FileTransformCache {
   private resolveCache: any;
   private resolveEnv: any;
   private nextExpiry: number;
-  private cacheInterval: NodeJS.Timer;
+  private cacheInterval: NodeJS.Timer | void;
+  private cacheClearInterval: number;
 
-  constructor (publicDir: string, resolveCacheClearInterval: number, maxWatchCount: number, production: boolean) {
+  constructor (publicDir: string, cacheClearInterval: number, maxWatchCount: number, production: boolean) {
     if (publicDir[publicDir.length - 1] !== path.sep)
       publicDir += path.sep;
     publicDir = publicDir.replace(winSepRegEx, '/');
@@ -86,7 +78,7 @@ export default class FileTransformCache {
     this.watching = [];
     this.workers = [];
     this.transformQueue = [];
-    this.nextExpiry = Date.now() + resolveCacheClearInterval;
+    this.nextExpiry = Date.now() + cacheClearInterval;
     this.resolveCache = {
       jspmConfigCache: {},
       pjsonConfigCache: {},
@@ -103,10 +95,9 @@ export default class FileTransformCache {
     // the number of files touched by the resolver, we instead
     // just clear the resolver cache every ~500ms, then hash
     // resolutions as a transform cache input
-    this.cacheInterval = setInterval(() => {
-      this.resolveCache = {};
-      this.nextExpiry = Date.now() + resolveCacheClearInterval;
-    }, resolveCacheClearInterval);
+    this.cacheClearInterval = cacheClearInterval;
+    if (cacheClearInterval > 0)
+      this.cacheInterval = setInterval(<typeof FileTransformCache.prototype.clearResolveCache>this.clearResolveCache.bind(this), cacheClearInterval);
 
     const workerCnt = require('os').cpus().length;
     for (let i = 0; i < workerCnt; i++) {
@@ -131,10 +122,25 @@ export default class FileTransformCache {
     }
   }
 
+  clearResolveCache () {
+    this.resolveCache = {};
+    this.nextExpiry = Date.now() + this.cacheClearInterval;
+  }
+
   dispose () {
-    clearTimeout(this.cacheInterval);
+    if (this.cacheInterval)
+      clearTimeout(this.cacheInterval);
     for (let watch of this.watching)
       watch.watcher.close();
+  }
+
+  async resolve (name: string, parentPath: string, cjsResolve = false) {
+    const { resolved } = await jspmResolve(name[name.length - 1] === '/' ? name.substr(0, name.length - 1) : name, parentPath, {
+      cache: this.resolveCache,
+      env: this.resolveEnv,
+      cjsResolve
+    });
+    return resolved;
   }
 
   private format (filePath: string, cjsResolve = false) {
@@ -145,11 +151,14 @@ export default class FileTransformCache {
   // throws ENOTRANSFORM if an invalid dew transform
   // throws ETRANSFORM for a transform error
   // returns correct wrappers for dew cases
-  async get (filePath: string, dew: boolean, sourceMap: boolean, etag?: string): Promise<{ source: string, etag: string | void, isGlobalCache: boolean }> {
-    const dewSuffix = (dew || sourceMap ? '?' : '') + (dew ? 'dew' : '') + (sourceMap ? 'map' : '');
+  async get (filePath: string, hash?: string): Promise<{ source: string, sourceMap: string, hash: string, isGlobalCache: boolean }> {
+    const dew = filePath.endsWith('?dew');
+    const dewSuffix = dew ? '?dew': '';
+    if (dew)
+      filePath = filePath.substr(0, filePath.length - 4);
     let record = await this.records[filePath + dewSuffix];
 
-    if (!record)
+    if (record === undefined)
       record = await (this.records[filePath + dewSuffix] = (async () => {
         const sourcePromise = new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
         sourcePromise.catch(() => {});
@@ -159,25 +168,22 @@ export default class FileTransformCache {
 
         const format = await formatPromise;
 
-        if (!sourceMap) {
-          if (dew) {
-            if (format !== 'cjs' && format !== 'json') {
-              const e: CodeError = new Error(`No dew transform for ${format} format.`);
-              e.code = 'ENOTRANSFORM';
-              throw e;
-            }
+        if (dew) {
+          if (format !== 'cjs' && format !== 'json') {
+            const e = new Error(`No dew transform for ${format} format.`);
+            (<{ code?: string }>e).code = 'ENOTRANSFORM';
+            throw e;
           }
-          else {
-            switch (format) {
-              case 'cjs':
-                return `import { exports, __dew__ } from "./${path.basename(filePath)}?dew"; if (__dew__) __dew__(); export { exports as default };`;
-              case 'esm':
+        }
+        else {
+          switch (format) {
+            case 'esm':
               break;
-              case 'json':
-                return `export { exports as default } from "./${path.basename(filePath)}?dew";`;
-              default:
-                throw new Error(`Unable to transform module format ${format || 'unknown'}.`);
-            }
+            case 'json':
+            case 'cjs':
+              return null;
+            default:
+              throw new Error(`Unable to transform module format ${format || 'unknown'}.`);
           }
         }
 
@@ -209,15 +215,15 @@ export default class FileTransformCache {
         }
         return record;
       })());
-
-    if (typeof record !== 'object')
-      return { source: record, etag: '2.0', isGlobalCache: false };
+    
+    if (!record)
+      return;
 
     if (record.hashPromise === undefined) {
       // in-progress transform
       if (record.transformPromise !== undefined) {
-        if (etag && record.fullHash === etag)
-          return { source: undefined, etag, isGlobalCache: record.isGlobalCache };
+        if (hash && record.fullHash === hash)
+          return { source: undefined, sourceMap: undefined, hash, isGlobalCache: record.isGlobalCache };
         else
           await record.transformPromise;
       }
@@ -244,10 +250,10 @@ export default class FileTransformCache {
           }
         }
         const { resolveMap, worker } = await this.doHash(record);
-        if (etag && record.fullHash === etag) {
+        if (hash && record.fullHash === hash) {
           if (worker)
             this.freeWorker(worker);
-          return { source: undefined, etag, isGlobalCache: record.isGlobalCache };
+          return { source: undefined, sourceMap: undefined, hash, isGlobalCache: record.isGlobalCache };
         }
         await this.doTransform(record, resolveMap, worker);
       }
@@ -256,8 +262,8 @@ export default class FileTransformCache {
     else {
       // worker doesnt belong to us here
       const { resolveMap } = await <Promise<{ resolveMap: ResolveMap }>>record.hashPromise;
-      if (etag && record.fullHash === etag)
-        return { source: undefined, etag, isGlobalCache: record.isGlobalCache };
+      if (hash && record.fullHash === hash)
+        return { source: undefined, sourceMap: undefined, hash, isGlobalCache: record.isGlobalCache };
       
       if (record.transformPromise !== undefined)
         await record.transformPromise;
@@ -265,15 +271,7 @@ export default class FileTransformCache {
         await this.doTransform(record, resolveMap, undefined);
     }
 
-    if (sourceMap) {
-      if (!record.sourceMap) {
-        const e: CodeError = new Error('No source map for this transform.');
-        e.code = 'ENOTRANSFORM';
-        throw e;
-      }
-      return { source: record.sourceMap, etag: record.fullHash, isGlobalCache: record.isGlobalCache };
-    }
-    return { source: <string>record.source, etag: record.fullHash, isGlobalCache: record.isGlobalCache };
+    return { source: <string>record.source, sourceMap: <string>record.sourceMap, hash: <string>record.fullHash, isGlobalCache: record.isGlobalCache };
   }
 
   async isGlobalCache (filePath: string): Promise<boolean> {
@@ -289,27 +287,30 @@ export default class FileTransformCache {
 
     return record.hashPromise = (async () => {
       try {
+        const sourceHash = md5(<string>record.originalSource);
+
         if (record.path.endsWith('.json')) {
           record.hashPromise = undefined;
-          record.fullHash = '2.0';
+          record.fullHash = sourceHash;
           return {
             resolveMap: undefined,
             worker: undefined
           };
         }
 
-        const sourceHash = md5(<string>record.originalSource);
-
         // get deps
         let worker: TransformWorker;
         if (record.originalSourceHash !== sourceHash) {
           record.originalSourceHash = sourceHash;
           worker = await this.assignWorker(record);
-          record.deps = await new Promise<string[]>((resolve, reject) => {
+          const { deps } = await new Promise<{
+            deps: string[]
+          }>((resolve, reject) => {
             worker.msgResolve = resolve;
             worker.msgReject = reject;
-            worker.process.send({ type: record.dew ? 'deps-cjs' : 'deps-esm', data: record.dew === false });
+            worker.process.send({ type: record.dew ? 'analyze-cjs' : 'analyze-esm', data: false });
           });
+          record.deps = deps;
         }
 
         // get resolveMap
@@ -322,7 +323,9 @@ export default class FileTransformCache {
         };
       }
       finally {
-        record.hashPromise = undefined;
+        setTimeout(() => {
+          record.hashPromise = undefined;
+        }, this.cacheClearInterval);
       }
     })();
   }
@@ -342,6 +345,15 @@ export default class FileTransformCache {
         return;
       }
 
+      // esm with no deps -> no need to transform
+      if (record.dew === false && (<string[]>record.deps).length === 0) {
+        record.source = record.originalSource;
+        record.isGlobalCache = await isGlobalCachePromise;
+        if (worker)
+          this.freeWorker(worker);
+        return;
+      }
+
       if (!worker)
         worker = await this.assignWorker(record);
 
@@ -351,11 +363,11 @@ export default class FileTransformCache {
           (<TransformWorker>worker).msgReject = reject;
           (<TransformWorker>worker).process.send({ type: record.dew ? 'transform-dew' : 'transform-esm', data: resolveMap });
         }));
-
-        this.freeWorker(worker);
+        
         record.isGlobalCache = await isGlobalCachePromise;
       }
       finally {
+        this.freeWorker(worker);
         record.transformPromise = undefined;
       }
     })();
@@ -418,9 +430,6 @@ export default class FileTransformCache {
         env: this.resolveEnv,
         cjsResolve: record.dew
       });
-      if (format === undefined) {
-        // bad!
-      }
       if (format === 'builtin') {
         resolved = resolveBuiltin(resolved);
         if (resolved === '@empty')
@@ -445,7 +454,10 @@ export default class FileTransformCache {
       }
       if (record.dew)
         relResolved += '?dew';
-      resolveMap[dep] = relResolved;
+      else if (format === 'cjs' || format === 'json')
+        relResolved += '?cjs';
+      if (dep !== relResolved)
+        resolveMap[dep] = relResolved;
       hash.update(dep);
       hash.update(resolved);
     }

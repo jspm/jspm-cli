@@ -90,7 +90,7 @@ export default async function renderDirectoryListing (dir: string, rootDir: stri
     const isDir = entry.stats !== undefined && entry.stats.isDirectory();
     const ext = isDir === false ? path.extname(entry.path).substr(1) : undefined;
     const displayName = he.encode(entry.path) + (isDir ? '/' : '');
-    const href = '/' + baseDirComponentEncoded + encodeURIComponent(entry.path) + (jsExts.includes(ext) ? '?raw' : '');
+    const href = '/' + baseDirComponentEncoded + encodeURIComponent(entry.path);
     return `
       <tr>
         <td><i class="icon icon-${isDir ? '_blank' : (ext in icons ? ext : '_page')}"></i></td>
@@ -118,8 +118,6 @@ export default async function renderDirectoryListing (dir: string, rootDir: stri
 </body>
 </html>`;
 }
-
-const jsExts = ['js', 'mjs', 'json'];
 
 const icons = {
   "_blank": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWBJREFUeNqEUj1LxEAQnd1MVA4lyIEWx6UIKEGUExGsbC3tLfwJ/hT/g7VlCnubqxXBwg/Q4hQP/LhKL5nZuBsvuGfW5MGyuzM7jzdvVuR5DgYnZ+f99ai7Vt5t9K9unu4HLweI3qWYxI6PDosdy0fhcntxO44CcOBzPA7mfEyuHwf7ntQk4jcnywOxIlfxOCNYaLVgb6cXbkTdhJXq2SIlNMC0xIqhHczDbi8OVzpLSUa0WebRfmigLHqj1EcPZnwf7gbDIrYVRyEinurj6jTBHyI7pqVrFQqEbt6TEmZ9v1NRAJNC1xTYxIQh/MmRUlmFQE3qWOW1nqB2TWk1/3tgJV0waVvkFIEeZbHq4ElyKzAmEXOx6gnEVJuWBzmkRJBRPYGZBDsVaOlpSgVJE2yVaAe/0kx/3azBRO0VsbMFZE3CDSZKweZfYIVg+DZ6v7h9GDVOwZPw/PoxKu/fAgwALbDAXf7DdQkAAAAASUVORK5CYII=",

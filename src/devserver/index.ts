@@ -21,6 +21,7 @@ import mime = require('mime/lite');
 import globalConfig from '../config/global-config-file';
 import { input, info } from '../utils/ui';
 import FileTransformCache from './file-transform';
+import { checkPjsonEsm } from '../wizards';
 
 import { JSPM_CONFIG_DIR } from '../utils/common';
 
@@ -72,7 +73,14 @@ export async function devserver (opts: DevserverOptions) {
   const port = opts.port || 5776;
   const server = http2.createSecureServer({ key, cert });
   const publicDir = opts.publicDir || process.cwd();
-  const jsExts = ['.js', '.json', '.mjs'];
+
+  enum stype {
+    DEFAULT, // default request
+    DEW,
+    DEWMAP,
+    RAW,
+    CJS
+  }
 
   const serverProcess = new Promise((resolve, reject) => {
     server.on('error', reject);
@@ -89,7 +97,7 @@ export async function devserver (opts: DevserverOptions) {
         return;
       }
 
-      let requestName = headers[':path'].substr(1), dew = false, sourceMap = false, raw = false;
+      let requestName = headers[':path'].substr(1), dew = false, sourceMap = false, cjs = false, raw = false;
 
       if (requestName[0] === '@') {
         if (requestName === '@empty') {
@@ -106,25 +114,26 @@ export async function devserver (opts: DevserverOptions) {
       try {
         let queryParamIndex = requestName.indexOf('?');
         if (queryParamIndex !== -1) {
-          let queryParams = requestName.substr(queryParamIndex + 1).split('&');
-          for (let queryParam of queryParams) {
-            switch (queryParam) {
-              case 'dew':
-                dew = true;
-              break;
-              case 'dewmap':
-                dew = true;
-                sourceMap = true;
-              break;
-              case 'map':
-                sourceMap = true;
-              break;
-              case 'raw':
-                raw = true;
-              break;
-              default:
-                throw `Unknown query parameter "${queryParam}".`;
-            }
+          let queryParam = requestName.substr(queryParamIndex + 1);
+          switch (queryParam) {
+            case 'dew':
+              dew = true;
+            break;
+            case 'dewmap':
+              dew = true;
+              sourceMap = true;
+            break;
+            case 'map':
+              sourceMap = true;
+            break;
+            case 'raw':
+              raw = true;
+            break;
+            case 'cjs':
+              cjs = true;
+            break;
+            default:
+              throw `Invalid query parameter "${queryParam}".`;
           }
           requestName = decodeURIComponent(requestName.substr(0, queryParamIndex));
         }
@@ -138,34 +147,62 @@ export async function devserver (opts: DevserverOptions) {
         return;
       }
 
-      resolvedPath = path.resolve(publicDir, requestName);
-      const curEtag = headers['if-none-match'];
-
-      const ext = path.extname(resolvedPath);
-      const doModuleTransform = raw === false && jsExts.includes(ext);
-
-      // JS module transforms
-      if (doModuleTransform) {
-        let { source, etag, isGlobalCache } = await fileCache.get(resolvedPath, dew, sourceMap, curEtag);
-
-        if (curEtag !== undefined && etag === curEtag) {
-          stream.respond({ ':status': 304 });
-          stream.end();
-          return;
-        }
-
-        if (!sourceMap && requestName.endsWith('.json') === false)
-          source += `\n//# sourceMappingURL=${path.basename(requestName)}${dew ? '?dewmap' : '?map'}`;
-        
+      if (cjs) {
         stream.respond({
           ':status': 200,
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/javascript',
-          'Cache-Control': isGlobalCache ? 'max-age=600' : 'must-revalidate',
-          'ETag': etag
+          'Cache-Control': 'immutable',
         });
-        stream.end(source);
+        stream.end(`import { __dew__, exports } from "./${path.basename(requestName)}?dew";
+if (__dew__) __dew__();
+export default exports;
+`);
         return;
+      }
+
+      resolvedPath = path.resolve(publicDir, requestName);
+      const curEtag = headers['if-none-match'];
+
+      const ext = path.extname(resolvedPath);
+      const doModuleTransform = ext === '.js' || ext === '.mjs' || dew;
+
+      if (raw === true && doModuleTransform === false) {
+        const e = new Error('Invalid transform');
+        (e as { code?: string }).code = 'ENOTRANSFORM';
+        throw e;
+      }
+
+      // JS module transforms
+      if (raw === false && doModuleTransform === true) {
+        const result = await fileCache.get(resolvedPath + (dew ? '?dew' : ''), curEtag);
+        // we don't transform JS that isn't ESM
+        if (result) {
+          let source, etag, isGlobalCache;
+          if (sourceMap)
+            ({ sourceMap: source, hash: etag, isGlobalCache } = result);
+          else
+            ({ source, hash: etag, isGlobalCache } = result);
+
+          if (curEtag !== undefined && etag === curEtag) {
+            stream.respond({ ':status': 304 });
+            stream.end();
+            return;
+          }
+
+          if (!sourceMap && requestName.endsWith('.json') === false)
+            source += `\n//# sourceMappingURL=${path.basename(requestName)}${dew ? '?dewmap' : '?map'}`;
+          
+          stream.respond({
+            ':status': 200,
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/javascript',
+            'Cache-Control': isGlobalCache ? 'max-age=600' : 'must-revalidate',
+            'ETag': etag
+          });
+          stream.end(source);
+          return;
+        }
       }
       
       if (dew === true || sourceMap === true) {
@@ -220,6 +257,11 @@ export async function devserver (opts: DevserverOptions) {
     }
     catch (err) {
       try {
+        if (typeof err === 'string') {
+          console.error(`[400] Invalid request: ${err}`);
+          stream.respond({ ':status': 400, 'Access-Control-Allow-Origin': '*' });
+          stream.end(err);
+        }
         switch (err && err.code) {
           case 'MODULE_NOT_FOUND':
             console.error(`[400] Dependency not found: ${err}`);
@@ -255,6 +297,9 @@ export async function devserver (opts: DevserverOptions) {
 
   server.listen(port);
   info(`Serving ${path.relative(process.cwd(), publicDir) || './'} on https://localhost:${port}`);
+
+  checkPjsonEsm(publicDir).catch(() => {});
+
   if (opts.open)
     require('opn')(`https://localhost:${port}`);
 

@@ -20,17 +20,18 @@ import { bold, JspmUserError } from './common';
 // optFlags is array of flags that have option values
 // optFlags suck up arguments until next flag
 // returns { options: { [flag]: true / false, ..., [optFlag]: value, ...}, args: [all non-flag args] }
-export function readOptions (inArgs: string[], flags: string[], optFlags: string[] = []) {
+export function readOptions (inArgs: string[], boolFlags: string[], optFlags: string[] = [], optFlagsGreedy: string[] = []) {
   // output options object
   let options:{
     args: string[],
     options: any
   } = { args: [], options: {} };
 
-  flags = flags || [];
+  boolFlags = boolFlags || [];
   optFlags = optFlags || [];
+  optFlagsGreedy = optFlagsGreedy || [];
 
-  let curOptionFlag;
+  let curOptionFlag, curOptionFlagGreedy;
 
   function getFlagMatch (arg, flags) {
     let index;
@@ -49,10 +50,10 @@ export function readOptions (inArgs: string[], flags: string[], optFlags: string
 
   // de-sugar any coupled single-letter flags
   // -abc -> -a -b -c
-  var args = [];
+  const args = [];
   inArgs.forEach(arg => {
     if (arg[0] === '-' && arg.length > 1 && arg[1] !== '-') {
-      for (var i = 1; i < arg.length; i++)
+      for (let i = 1; i < arg.length; i++)
         args.push('-' + arg[i]);
     }
     else {
@@ -61,12 +62,19 @@ export function readOptions (inArgs: string[], flags: string[], optFlags: string
   });
 
   args.forEach(arg => {
-    var flag = getFlagMatch(arg, flags);
-    var optFlag = getFlagMatch(arg, optFlags);
+    let flag = getFlagMatch(arg, boolFlags);
+    let optFlag = getFlagMatch(arg, optFlags);
+    let optFlagGreedy = getFlagMatch(arg, optFlagsGreedy);
 
     // option flag -> suck up args
-    if (optFlag) {
+    if (optFlagGreedy) {
       curOptionFlag = optFlag;
+      curOptionFlagGreedy = true;
+      options.options[dashedToCamelCase(curOptionFlag)] = [];
+    }
+    else if (optFlag) {
+      curOptionFlag = optFlag;
+      curOptionFlagGreedy = false;
       options.options[dashedToCamelCase(curOptionFlag)] = [];
     }
     // normal boolean flag
@@ -75,8 +83,11 @@ export function readOptions (inArgs: string[], flags: string[], optFlags: string
     }
     // value argument
     else {
-      if (curOptionFlag)
+      if (curOptionFlag) {
         options.options[dashedToCamelCase(curOptionFlag)].push(arg);
+        if (!curOptionFlagGreedy)
+          curOptionFlag = undefined;
+      }
       else if (arg.startsWith('--'))
         throw new JspmUserError(`Unknown option flag ${bold(arg)}.`);
       else
@@ -85,10 +96,10 @@ export function readOptions (inArgs: string[], flags: string[], optFlags: string
   });
 
   // flag values are strings
-  Object.keys(options.options).forEach(option => {
+  for (let option of Object.keys(options.options)) {
     if (Array.isArray(options.options[option]))
       options.options[option] = options.options[option].join(' ');
-  });
+  }
 
   return options;
 }

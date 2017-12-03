@@ -31,8 +31,6 @@ import { readOptions, readValue, readPropertySetters } from './utils/opts';
 const installEqualRegEx = /^([@\-\_\.a-z\d]+)=/i;
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
-this.jobQueue = {};
-
 export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {
   if (typeof args === 'string')
     args = args.split(' ');
@@ -65,7 +63,7 @@ export default async function cliHandler (projectPath: string, cmd: string, args
         case '-p':
         case '--project':
           projectPath = args[i + 1];
-          (<string[]>args).splice(i, 1);
+          (<string[]>args).splice(i, 2);
           i -= 2;
         break;
         case '-q':
@@ -119,18 +117,16 @@ ${bold('Install')}
       --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-    jspm exec <module>                Execute a given module in NodeJS with jspm resolution${/*
-    jspm run <script-name>            Execute a package.json script*/''}
+    jspm run <module>                Execute a given module in NodeJS with jspm resolution${/*
+    jspm <script-name> <args>        Execute a package.json script*/''}
     
     jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
       --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
       --open (-o)                     Automatically open a new browser window when starting the server
 
 ${bold('Build')}
-    jspm build <entry> -o <outfile>?  Build a module into a single file, inlining dynamic import
-      <entry>+ -o <outfile>+          Build entry point modules into respective output files
-      <entry> -d <outdir>             Build a module into a directory, chunking dynamic import
-      <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic import
+    jspm build <entry> -o <outfile>?  Build a module into a single file, inlining dynamic imports
+      <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic imports
 
     Build Options:
       --watch                         Watch build files after build for rebuild on change
@@ -168,8 +164,8 @@ ${bold('Configure')}
   `);
       break;
 
-      case 'e':
-      case 'exec':
+      case 'r':
+      case 'run':
         // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
         // let options;
         // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
@@ -201,21 +197,11 @@ ${bold('Configure')}
         let options;
         ({ args, options } = readOptions(args, ['format', 'browser', 'bin', 'react-native', 'production', 'electron']));
 
-        let env;
-        if (options.browser)
-          (env = env || {}).browser = true;
-        if (options.bin)
-          (env = env || {}).bin = true;
-        if (options['react-native'])
-          (env = env || {})['react-native'] = true;
-        if (options.production)
-          (env = env || {}).production = true;
-        if (options.electron)
-          (env = env || {}).electron = true;
+        let env = readEnv(options);
         
         let parent;
         if (args[1])
-          parent = (await api.resolve(args[1], undefined, env)).resolved;
+          parent = (await api.resolve(args[1], projectPath, env)).resolved;
         
         const resolved = await api.resolve(args[0], parent, env);
 
@@ -249,7 +235,7 @@ ${bold('Configure')}
         let options;
         ({ options, args } = readOptions(args, [
           // TODO 'force', 'verify'
-        ], ['override']));
+        ], [], ['override']));
 
         project = new api.Project(projectPath, { offline, preferOffline, userInput });
         
@@ -288,7 +274,7 @@ ${bold('Configure')}
           // install options
           'reset', // TODO 'force', 'verify'
           'latest'
-          ], ['override']);
+          ], [], ['override']);
         project = new api.Project(projectPath, { offline, preferOffline, userInput });
         await project.update(selectors, options);
       }
@@ -305,7 +291,7 @@ ${bold('Configure')}
             'exact', 'edge',
             // resolver options
             'latest', 'lock',
-            ], ['override']);
+            ], [], ['override']);
         
         project = new api.Project(projectPath, { offline, preferOffline, userInput });
 
@@ -388,15 +374,24 @@ ${bold('Configure')}
       case 'b':
       case 'build':
       let { options, args: buildArgs } = readOptions(args, [
-        'node'
-        // --cwd
+        'node',
+        'mjs',
+        'browser', 'bin', 'react-native', 'production', 'electron',
         // 'watch' 'exclude-external', 'minify', 'skip-source-maps', 'source-map-contents', 'inline-source-maps'
-        ], [/*'external', 'exclude-deps', 'format', 'global-name', 'global-deps', 'banner', 'global-defs'*/]);
-
-        await api.build(projectPath, buildArgs[0], buildArgs[1], options);
+        ], ['directory', 'out', 'format', 'global-name', 'chunk-prefix' /*'external', 'exclude-deps', 'global-deps', 'banner', 'global-defs'*/]);
+        options.env = readEnv(options);
+        options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
+        if ('out' in options) {
+          if (buildArgs.length !== 1)
+            throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
+          await api.build(buildArgs[0], options.out || 'build.js', options);
+        }
+        else {
+          await api.build(buildArgs, options.directory || 'dist', options);
+        }
       break;
 
-      case 'r':
+      case 're':
       case 'registry':
         if (args[0] !== 'config')
           throw new JspmUserError(`Unknown command ${bold(cmd)}.`);
@@ -463,3 +458,18 @@ ${bold('Configure')}
 if (process.env.globalJspm !== undefined)
   cliHandler(path.dirname(process.env.jspmConfigPath), process.argv[2], process.argv.slice(3))
   .then(() => process.exit(), _err => process.exit(1));
+
+function readEnv (opts) {
+  let env;
+  if (opts.browser)
+    (env = env || {}).browser = true;
+  if (opts.bin)
+    (env = env || {}).bin = true;
+  if (opts['react-native'])
+    (env = env || {})['react-native'] = true;
+  if (opts.production)
+    (env = env || {}).production = true;
+  if (opts.electron)
+    (env = env || {}).electron = true;
+  return env;
+}

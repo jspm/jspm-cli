@@ -8,9 +8,11 @@
     "babel-plugin-transform-cjs-dew": "git+ssh://git@github.com/jspm/babel-plugin-transform-cjs-dew",
     "babel-traverse": "^6.26.0",
     "babel-visit-cjs-deps": "^0.1.0",
+    "bn.js": "^4.11.8",
     "buffer-peek-stream": "^1.0.1",
     "chalk": "^2.3.0",
     "devcert-sanscache": "^0.4.1",
+    "es-module-optimizer": "git+ssh://git@github.com/jspm/es-module-optimizer",
     "git-credential-node": "^1.1.0",
     "graceful-fs": "^4.1.11",
     "he": "^1.1.1",
@@ -28,7 +30,7 @@
     "promise-retry": "^1.1.1",
     "proper-lockfile": "^2.0.1",
     "rimraf": "^2.6.2",
-    "rollup": "^0.50.1",
+    "rollup": "^0.52.0",
     "rollup-plugin-jspm": "git+ssh://git@github.com/jspm/rollup-plugin-jspm",
     "semver": "^5.4.1",
     "sver": "^1.6.0",
@@ -54,6 +56,6 @@
   "devDependencies": {
     "@types/node": "^8.0.47",
     "mocha": "^4.0.1",
-    "typescript": "^2.5.3"
+    "typescript": "^2.7.0-dev.20171126"
   }
 }

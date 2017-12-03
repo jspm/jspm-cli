@@ -31,49 +31,60 @@ process.on('message', async ({ type, data }) => {
       curProduction = data.production;
       curAst = undefined;
       process.send({ type: 'source', data: undefined });
-    break;
+      break;
 
-    case 'deps-esm':
+    case 'analyze-esm':
       try {
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
             sourceType: 'module',
             sourceFilename: curFilename
           });
-        // extract export specifiers
-        const deps = extractDeps(curAst);
+        const body = curAst.program.body;
+        const deps = [];
+        for (let i = 0; i < body.length; i++) {
+          const node = body[i];
+          let depIndex;
+          if (node.source) {
+            depIndex = deps.indexOf(node.source.value);
+            if (depIndex === -1) {
+              deps.push(node.source.value);
+              depIndex = deps.length - 1;
+            }
+          }
+        }
         // NB will have to do a full walk for extracting dynamic import
-        process.send({ type: 'deps', data: deps });
+        process.send({ type: 'deps', data: { deps } });
       }
       catch (err) {
         process.send({ type: 'error', data: err.stack });
       }
-    break;
+      break;
 
-    case 'deps-cjs':
-    try {
-      if (curAst === undefined)
-        curAst = babylon.parse(curSource, {
-          allowReturnOutsideFunction: true,
-          sourceFilename: curFilename
-        });
-      // extract export specifiers
-      const deps = [], resolves = [];
-      traverse(curAst, visitCjsDeps({ deps, resolves }));
+    case 'analyze-cjs':
+      try {
+        if (curAst === undefined)
+          curAst = babylon.parse(curSource, {
+            allowReturnOutsideFunction: true,
+            sourceFilename: curFilename
+          });
+        // extract export specifiers
+        const deps = [], resolves = [];
+        traverse(curAst, visitCjsDeps({ deps, resolves }));
 
-      for (let i = 0; i < deps.length; i++) {
-        const dep = deps[i];
-        if (resolves.indexOf(dep) === -1)
-          resolves.push(dep);
+        for (let i = 0; i < deps.length; i++) {
+          const dep = deps[i];
+          if (resolves.indexOf(dep) === -1)
+            resolves.push(dep);
+        }
+
+        // NB will have to do a full walk for extracting dynamic import
+        process.send({ type: 'deps', data: data === false ? { deps } : { deps }});
       }
-
-      // NB will have to do a full walk for extracting dynamic import
-      process.send({ type: 'deps', data: deps });
-    }
-    catch (err) {
-      process.send({ type: 'error', data: err.stack });
-    }
-  break;
+      catch (err) {
+        process.send({ type: 'error', data: err.stack });
+      }
+      break;
 
     case 'transform-dew':
       try {
@@ -94,7 +105,7 @@ process.on('message', async ({ type, data }) => {
             define: {
               'process.env.NODE_ENV': curProduction ? '"production"' : '"development"'
             },
-            resolve: name => resolveMap[name]
+            resolve: typeof resolveMap === 'object' && (name => resolveMap[name])
           }]]
         });
         map.sourcesContent = [curSource];
@@ -105,7 +116,7 @@ process.on('message', async ({ type, data }) => {
       catch (err) {
         process.send({ type: 'error', data: err.stack });
       }
-    break;
+      break;
 
     case 'transform-esm':
       try {
@@ -121,7 +132,7 @@ process.on('message', async ({ type, data }) => {
           compact: false,
           sourceMaps: true,
           sourceMapTarget: curFilename,
-          resolveModuleSource: source => resolveMap[source] || '/@empty'
+          resolveModuleSource: typeof resolveMap === 'object' && (source => resolveMap[source] || '/@empty')
         });
         map.sourcesContent = [curSource];
         curAst = undefined;
@@ -131,22 +142,6 @@ process.on('message', async ({ type, data }) => {
       catch (err) {
         process.send({ type: 'error', data: err.stack });
       }
-    break;
+      break;
   }
 });
-
-function extractDeps (ast): string[] {
-  const body = ast.program.body;
-  const deps = [];
-  for (let i = 0; i < body.length; i++) {
-    const node = body[i];
-    switch (node.type) {
-      case 'ImportDeclaration':
-      case 'ExportAllDeclaration':
-      case 'ExportNamedDeclaration':
-        if (node.source)
-          deps.push(node.source.value);
-    }
-  }
-  return deps;
-}

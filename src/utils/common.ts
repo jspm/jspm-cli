@@ -74,7 +74,7 @@ export interface RetryOptions {
   ranomize?: boolean
 }
 
-const invalidFileCharRegEx = /[<>:"/\|?*^\u0001-\u0031]/g;
+export const invalidFileCharRegEx = /[<>:"/\|?*^\u0001-\u0031]/g;
 export function encodeInvalidFileChars (str) {
   // NB check if this is actually a perf shortpath!
   if (!invalidFileCharRegEx.test(str))
