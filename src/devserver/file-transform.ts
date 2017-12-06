@@ -14,11 +14,10 @@
  *   limitations under the License.
  */
 import fs = require('graceful-fs');
-import { md5, isWindows, winSepRegEx } from '../utils/common';
+import { md5, isWindows, winSepRegEx, hasProperties } from '../utils/common';
 import childProcess = require('child_process');
 import path = require('path');
 import jspmResolve = require('jspm-resolve');
-import resolveBuiltin = require('node-browser-builtins');
 import crypto = require('crypto');
 
 interface FileTransformRecord {
@@ -346,7 +345,7 @@ export default class FileTransformCache {
       }
 
       // esm with no deps -> no need to transform
-      if (record.dew === false && (<string[]>record.deps).length === 0) {
+      if (record.dew === false && hasProperties(resolveMap) === false) {
         record.source = record.originalSource;
         record.isGlobalCache = await isGlobalCachePromise;
         if (worker)
@@ -428,16 +427,22 @@ export default class FileTransformCache {
       let { resolved, format } = await jspmResolve(dep[dep.length - 1] === '/' ? dep.substr(0, dep.length - 1) : dep, record.path, {
         cache: this.resolveCache,
         env: this.resolveEnv,
-        cjsResolve: record.dew
+        cjsResolve: record.dew,
+        browserBuiltins: false
       });
       if (format === 'builtin') {
-        resolved = resolveBuiltin(resolved);
-        if (resolved === '@empty')
+        if (nodeCoreBrowserUnimplemented.indexOf(resolved) !== -1) {
           resolved = undefined;
+        }
+        else {
+          hash.update(dep);
+          hash.update(resolveMap[dep] = record.dew ? `/@node/${resolved}.js?dew` : `/@node/${resolved}.js?cjs`);
+          continue;
+        }
       }
       // @empty maps to resolved undefined
       if (resolved === undefined) {
-        resolveMap[dep] = null;
+        resolveMap[dep] = '/@empty' + (record.dew ? '?dew' : '?cjs');
         hash.update(dep);
         hash.update('@empty');
         continue;
@@ -447,7 +452,7 @@ export default class FileTransformCache {
         relResolved = relResolved.replace(winSepRegEx, '/');
       if (!relResolved.startsWith('../'))
         relResolved = './' + relResolved;
-      if (!resolved.startsWith(this.publicDir)) {
+      if (record.path.startsWith(this.publicDir) && !resolved.startsWith(this.publicDir)) {
         const e = new Error(`Path ${path.relative(this.publicDir, record.path).replace(winSepRegEx, '/')} has a dependency ${relResolved} outside of the public directory.`);
         (e as { code?: string }).code = 'ETRANSFORM';
         throw e;
@@ -513,3 +518,5 @@ export default class FileTransformCache {
     });
   }
 }
+
+const nodeCoreBrowserUnimplemented = ['child_process', 'cluster', 'dgram', 'dns', 'fs', 'module', 'net', 'readline', 'repl', 'tls'];

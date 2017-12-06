@@ -19,11 +19,10 @@ import { Stats } from 'fs';
 import fs = require('graceful-fs');
 import mime = require('mime/lite');
 import globalConfig from '../config/global-config-file';
-import { input, info } from '../utils/ui';
+import { input, info, warn, ok } from '../utils/ui';
 import FileTransformCache from './file-transform';
-import { checkPjsonEsm } from '../wizards';
 
-import { JSPM_CONFIG_DIR } from '../utils/common';
+import { JSPM_CONFIG_DIR, bold, highlight } from '../utils/common';
 
 export interface DevserverOptions {
   port: number;
@@ -73,14 +72,7 @@ export async function devserver (opts: DevserverOptions) {
   const port = opts.port || 5776;
   const server = http2.createSecureServer({ key, cert });
   const publicDir = opts.publicDir || process.cwd();
-
-  enum stype {
-    DEFAULT, // default request
-    DEW,
-    DEWMAP,
-    RAW,
-    CJS
-  }
+  const browserBuiltinsDir = path.resolve(require.resolve('jspm-resolve'), '../node-browser-builtins');
 
   const serverProcess = new Promise((resolve, reject) => {
     server.on('error', reject);
@@ -98,18 +90,6 @@ export async function devserver (opts: DevserverOptions) {
       }
 
       let requestName = headers[':path'].substr(1), dew = false, sourceMap = false, cjs = false, raw = false;
-
-      if (requestName[0] === '@') {
-        if (requestName === '@empty') {
-          stream.respond({
-            ':status': 200,
-            'Cache-Control': `max-age=31536000, public, immutable`,
-            'Content-Type': 'application/javascript'
-          });
-          stream.end(!dew ? '' : 'export var exports = {};\nexport var __dew__;');
-          return;
-        }
-      }
 
       try {
         let queryParamIndex = requestName.indexOf('?');
@@ -161,7 +141,21 @@ export default exports;
         return;
       }
 
-      resolvedPath = path.resolve(publicDir, requestName);
+      if (requestName === '@empty') {
+        stream.respond({
+          ':status': 200,
+          'Cache-Control': `max-age=31536000, public, immutable`,
+          'Content-Type': 'application/javascript'
+        });
+        stream.end(!dew ? '' : 'export var exports = {};\nexport var __dew__;');
+        return;
+      }
+      
+      if (requestName.startsWith('@node/'))
+        resolvedPath = path.resolve(browserBuiltinsDir, requestName.substr(6));
+      else
+        resolvedPath = path.resolve(publicDir, requestName);
+      
       const curEtag = headers['if-none-match'];
 
       const ext = path.extname(resolvedPath);
@@ -310,4 +304,57 @@ export default exports;
     },
     process: serverProcess
   };
+}
+
+async function checkPjsonEsm (projectPath: string) {
+  // for the given project path, find the first package.json and ensure it has "esm": true
+  // if it does not, then warn, and correct
+  let hasEsm = false;
+  let pjsonPath = projectPath;
+  if (!pjsonPath.endsWith(path.sep))
+    pjsonPath += path.sep;
+  do {
+    try {
+      var source = fs.readFileSync(pjsonPath + 'package.json').toString();
+    }
+    catch (err) {
+      if (!err || err.code !== 'ENOENT')
+        throw err;
+    }
+    if (source) {
+      try {
+        var pjson = JSON.parse(source);
+      }
+      catch (err) {
+        return;
+      }
+      if (typeof pjson.esm === 'boolean')
+        hasEsm = true;
+      break;
+    }
+    pjsonPath = pjsonPath.substr(0, pjsonPath.lastIndexOf(path.sep, pjsonPath.length - 2) + 1);
+  }
+  while (pjsonPath && source === undefined)
+
+  if (hasEsm === false) {
+    warn(`${bold(`Note: Files with ".js" extensions in this folder will not be loaded as JavaScript modules (ES Modules).
+To suport module script loading of CommonJS, add "?cjs" to the request: <script type=module src="file.js?cjs"></script>.`)}
+
+To load JavaScript modules from ".js" extensions, add an ${bold(`"esm": true`)} property to the package.json file.
+${bold(`Type "esm" and press <Enter>`)} to add this property to your package.json file automatically now.`);
+    function checkFixup (buf) {
+      if (buf.toString().trim() === 'esm') {
+        const pjson = JSON.parse(fs.readFileSync(pjsonPath + 'package.json').toString());
+        pjson.esm = true;
+        fs.writeFileSync(pjsonPath + 'package.json', JSON.stringify(pjson, null, 2));
+        ok(`${bold(`"esm": true`)} property added to ${highlight(`${projectPath}${path.sep}package.json`)}.`);
+      }
+      else {
+        info(`package.json unaltered.`);
+      }
+      process.stdin.removeListener('data', checkFixup);
+      process.stdin.pause();
+    }
+    process.stdin.on('data', checkFixup);
+  }
 }

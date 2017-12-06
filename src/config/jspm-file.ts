@@ -15,8 +15,6 @@
  */
 import ConfigFile from './config-file';
 import { ResolveTree } from '../install/package';
-import Config from './index';
-import { Project } from '../project';
 
 /*
  * jspm.json file implementation
@@ -27,16 +25,11 @@ import { Project } from '../project';
 export default class JspmCfg extends ConfigFile {
   installed: ResolveTree;
 
-  private project: Project;
-  private config: Config;
-
-  constructor (configPath, project) {
+  constructor (configPath) {
     super(configPath, [
       'resolve',
       'dependencies',
     ]);
-    this.project = project;
-    this.config = project.config;
     this.lock();
     this.read();
     this.installed = new ResolveTree(this.getObject(['resolve']), this.getObject(['dependencies']));

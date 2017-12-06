@@ -11,12 +11,12 @@ export default class ProjectConfig {
   defaultRegistry: string;
   project: Project;
 
-  constructor (projectPath: string, project: Project) {
+  constructor (projectPath: string, project: Project, init = false) {
     let pjsonPath = path.resolve(projectPath, 'package.json');
 
     this.project = project;
     this.pjson = new PackageJsonFile(pjsonPath, project);
-    this.jspm = new JspmFile(this.pjson.configFile, project);
+    this.jspm = new JspmFile(this.pjson.configFile);
 
     if (!this.jspm.exists()) {
       // check upgrade paths

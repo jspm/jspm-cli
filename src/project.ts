@@ -93,7 +93,7 @@ export class Project {
   installer: Installer;
   fetch: FetchClass;
 
-  constructor (projectPath: string, { userInput = true, offline = false, preferOffline = false } = {}) {
+  constructor (projectPath: string, { userInput = true, offline = false, preferOffline = false, init = false } = {}) {
     this.projectPath = projectPath;
     if (!hasGit)
       throw new JspmUserError(`${bold('git')} is not installed in path. You can install git from http://git-scm.com/downloads.`);
@@ -171,6 +171,10 @@ export class Project {
       this.config.dispose(),
       this.registryManager.dispose()
     ]);
+  }
+
+  async save () {
+    return await this.config.save();
   }
 
   /*

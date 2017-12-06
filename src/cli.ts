@@ -35,6 +35,7 @@ export default async function cliHandler (projectPath: string, cmd: string, args
   if (typeof args === 'string')
     args = args.split(' ');
   
+  let setProjectPath = false;
   let project: api.Project;
   try {
     let userInput = true, offline = false, preferOffline = false;
@@ -62,6 +63,7 @@ export default async function cliHandler (projectPath: string, cmd: string, args
         break;
         case '-p':
         case '--project':
+          setProjectPath = true;
           projectPath = args[i + 1];
           (<string[]>args).splice(i, 2);
           i -= 2;
@@ -88,9 +90,14 @@ export default async function cliHandler (projectPath: string, cmd: string, args
             : 'Running against local jspm install.'));
       break;
 
+      case 'h':
+      case 'help':
       case '--help':
       case '-h':
         ui.info(`
+${bold('Init')}
+    jspm init <path>?                 Initialize or validate a jspm project in the current directory
+
 ${bold('Install')}
     jspm install                      Install from package.json with jspm.json version lock
     jspm install <name[=target]>+
@@ -118,7 +125,7 @@ ${bold('Install')}
 
 ${bold('Execute')}
     jspm run <module>                Execute a given module in NodeJS with jspm resolution${/*
-    jspm <script-name> <args>        Execute a package.json script*/''}
+    jspm <script-name> <args>        Execute a package.json script TODO*/''}
     
     jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
       --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
@@ -129,13 +136,13 @@ ${bold('Build')}
       <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic imports
 
     Build Options:
-      --watch                         Watch build files after build for rebuild on change
       --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
+      --exclude-deps                  Exclude all jspm_packages and node_modules dependencies
+      --format [cjs|system|global]    Set a custom output format for the build (defaults to esm)
+${/*TODO:      --watch                         Watch build files after build for rebuild on change
       --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
       (--group <name>+)+              Define a shared chunk, always to be used for its modules
       (--chunk <name>+)+              Define a manual chunk, used only in exact combination
-      --exclude-deps                  Exclude all jspm_packages and node_modules dependencies
-      --format <cjs|system|global>    Set a custom output format for the build (defaults to esm)
       --global-name x                 When using the global format, set the top-level global name
       --global-deps <dep=globalName>  When using the global format, name external dep globals
       --minify                        Minify the build output
@@ -143,7 +150,7 @@ ${bold('Build')}
       --banner <file|source>          Include the given banner at the top of the build file
       --global-defs <global=value>+   Define the given constant global values for build
       --source-map-contents           Inline source contents into the source map
-      --hide-graph                    Don't show build graph analysis on completion
+--graph                    Show build graph analysis on completion*/''}
     
     jspm depcache <entry>             Outload the latency-optimizing preloading HTML for a module
 
@@ -160,8 +167,22 @@ ${bold('Configure')}
     Global Options:
       --skip-prompts (-y)             Use default options for prompts, never asking for user input
       --log [ok|warn|err|debug|none]  Set the log level
-      --project (-p) <path>           Set the jspm project working directory
+      --project (-p) <path>           Set the jspm project directory
   `);
+      break;
+
+      case 'init':
+        let projectDir;
+        if (setProjectPath) {
+          if (args[0])
+            throw new JspmUserError(`Only one argument is passed to jspm init - the project path to initialize.`);
+          projectDir = projectPath;
+        }
+        else {
+          projectDir = args[0];
+        }
+        project = new api.Project(projectDir, { offline, preferOffline, userInput, init: true });
+        await project.save();
       break;
 
       case 'r':
@@ -169,14 +190,14 @@ ${bold('Configure')}
         // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
         // let options;
         // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
-        await api.exec(args[0], args.splice(1));
+        await api.run(args[0], args.splice(1));
       break;
 
       case 'ds':
       case 'devserver': {
         let options;
         ({ options, args } = readOptions(args, ['open', 'generate-cert'], []));
-        if (projectPath) {
+        if (projectPath && setProjectPath) {
           try {
             process.chdir(projectPath);
           }
@@ -200,10 +221,14 @@ ${bold('Configure')}
         let env = readEnv(options);
         
         let parent;
-        if (args[1])
-          parent = (await api.resolve(args[1], projectPath, env)).resolved;
+        if (args[1]) {
+          let parentFormat;
+          ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env, true));
+          if (parentFormat === 'builtin')
+            parent = undefined;
+        }
         
-        const resolved = await api.resolve(args[0], parent, env);
+        const resolved = api.resolveSync(args[0], parent, env, true);
 
         if (options.format)
           ui.info(resolved.format || '<undefined>');

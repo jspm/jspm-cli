@@ -26,12 +26,17 @@ const invalidNodeArguments = {
   '--print': true, '-i': true, '--interactive': true, '-r': true, '--require': true
 };
 
-export async function resolve (name: string, parent: string | void, env: any) {
+export async function resolve (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
   const jspmResolve = require('jspm-resolve');
-  return jspmResolve(name, parent, { env });
+  return jspmResolve(name, parent, { env, relativeFallback });
 }
 
-export async function exec (entryModule, args = [], nodeArgs = ['--no-warnings']) {
+export function resolveSync (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
+  const jspmResolve = require('jspm-resolve');
+  return jspmResolve.sync(name, parent, { env, relativeFallback });
+}
+
+export async function run (entryModule, args = [], nodeArgs = ['--no-warnings']) {
   const jspmResolve = require('jspm-resolve');
   const nodeVersion = process.versions.node.split('.');
   const nodeMajor = parseInt(nodeVersion[0]);

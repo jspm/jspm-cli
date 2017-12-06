@@ -105,7 +105,7 @@ process.on('message', async ({ type, data }) => {
             define: {
               'process.env.NODE_ENV': curProduction ? '"production"' : '"development"'
             },
-            resolve: typeof resolveMap === 'object' && (name => resolveMap[name])
+            resolve: typeof resolveMap === 'object' && (name => resolveMap[name] || name)
           }]]
         });
         map.sourcesContent = [curSource];
@@ -132,7 +132,7 @@ process.on('message', async ({ type, data }) => {
           compact: false,
           sourceMaps: true,
           sourceMapTarget: curFilename,
-          resolveModuleSource: typeof resolveMap === 'object' && (source => resolveMap[source] || '/@empty')
+          resolveModuleSource: typeof resolveMap === 'object' && (source => resolveMap[source] || source)
         });
         map.sourcesContent = [curSource];
         curAst = undefined;
