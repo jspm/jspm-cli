@@ -278,7 +278,7 @@ export default exports;
             stream.end('Transform error.');
           return;
           default:
-            console.error('[500] Internal error: ' + err);
+            console.error('[500] Internal error: ' + err.stack);
             stream.respond({ ':status': 500, 'Access-Control-Allow-Origin': '*' });
             stream.end('Internal error.');
         }
