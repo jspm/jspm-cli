@@ -172,11 +172,14 @@ export default class RegistryManager {
     }
     catch (e) {
       if (e && e.code === 'MODULE_NOT_FOUND') {
-        if (e.message && e.message.indexOf(handler) !== -1)
-          throw new JspmUserError(`Registry module '${handler}' not found loading package ${bold(name)}.
-     This registry can be removed with ${bold(`jspm config --unset registries.${name}`)}.`, 'REGISTRY_NOT_FOUND', e);
-        else
+        if (e.message && e.message.indexOf(handler) !== -1) {
+          this.util.log.warn(`Registry module '${handler}' not found loading package ${bold(name)}.
+This may be from a previous jspm version and can be removed with ${bold(`jspm config --unset registries.${name}`)}.`);
+          return;
+        }
+        else {
           throw new JspmError(`Error loading registry ${bold(name)} from module '${handler}'.`, 'REGISTRY_LOAD_ERROR', e);
+        }
       }
       else {
         throw e;

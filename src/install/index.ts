@@ -566,7 +566,7 @@ export class Installer {
       // and use the configuration from the package.json directly
       if (!this.opts.reset && await this.isPackageCheckedOut(resolvedPkgName)) {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as it is checked out. Use the ${bold('--reset')} install flag to revert to the original source.`);
+        this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
         // override is undefined by definition of checked out.
         return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
       }
@@ -772,7 +772,7 @@ export class Installer {
       // if checked out, skip the actual resource install
       if (!this.opts.reset && await this.isPackageCheckedOut(resolvedPkgName)) {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as it is checked out. Use the ${bold('--reset')} install flag to revert to the original source.`);
+        this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
         // override is undefined by definition of checked out.
         return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
       }
@@ -876,10 +876,7 @@ export class Installer {
     const registry = resolvedPkgName.substr(0, registryIndex);
     const pkgPath = path.join(this.config.pjson.packages, registry, resolvedPkgName.substr(registryIndex + 1));
     
-    try {
-      var json = await readJSON(path.join(pkgPath, 'package.json'));
-    }
-    catch (e) {}
+    var json = await readJSON(path.join(pkgPath, 'package.json'));
     let config = processPackageConfig(json || {}, true);
 
     if (override) {
@@ -944,7 +941,7 @@ export class Installer {
       }
       else {
         if (linkPath !== undefined)
-          this.project.log.info(`Removing custom symlink for ${pkgName}.`);
+          this.project.log.info(`Replacing custom symlink for ${pkgName}.`);
         await new Promise((resolve, reject) => fs.unlink(localPackagePath, err => err ? reject(err) : resolve()));
       }
     }
@@ -1023,8 +1020,10 @@ export class Installer {
             case 'ENOENT':
               resolve();
             break;
-            case 'UNKNOWN': // (windows)
             case 'EINVAL':
+              resolve('<UNKNOWN>');
+            break;
+            case 'UNKNOWN':
               resolve(pkgPath);
             break;
             default:

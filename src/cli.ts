@@ -128,7 +128,8 @@ ${bold('Execute')}
     jspm <script-name> <args>        Execute a package.json script TODO*/''}
     
     jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
-      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
+${/*POSSIBILITY:      --http                          Run a HTTP/1 dev server to skip certificate authentication*/
+''}      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
       --open (-o)                     Automatically open a new browser window when starting the server
 
 ${bold('Build')}
@@ -163,6 +164,7 @@ ${/*jspm inspect (TODO)               Inspect the installation constraints of a 
 ${bold('Configure')}
   jspm registry-config <name>       Run configuration prompts for a specific registry
   jspm config <option> <setting>    Set jspm global config values in .jspm/config
+  jspm config --get <option>        Read a jspm global config value
     
     Global Options:
       --skip-prompts (-y)             Use default options for prompts, never asking for user input
@@ -431,9 +433,9 @@ ${bold('Configure')}
 
       case 'c':
       case 'config': {
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
         let property, value;
         const unsetIndex = args.indexOf('--unset');
+        const getIndex = args.indexOf('--get');
         if (unsetIndex !== -1) {
           if (args.length !== 2)
             throw new JspmUserError(`Only one configuration property is expected to be unset.`);
@@ -442,7 +444,15 @@ ${bold('Configure')}
           else
             property = args[1];
           globalConfig.set(property, undefined);
-          project.log.ok(`Global configuration ${bold(property)} unset.`);
+        }
+        else if (getIndex !== -1) {
+          if (args.length !== 2)
+            throw new JspmUserError(`Only one configuration property is expected to be read.`);
+          if (getIndex === 1)
+            property = args[0];
+          else
+            property = args[1];
+          console.log(globalConfig.get(property));
         }
         else {
           property = args[0];
@@ -450,7 +460,6 @@ ${bold('Configure')}
           if (property === undefined || value === undefined)
             throw new JspmUserError(`jspm config requires a property and value via ${bold(`jspm config <property> <value>`)}`);
           globalConfig.set(property, value);
-          project.log.ok(`Global configuration ${bold(property)} set.`);
         }
       }
       break;

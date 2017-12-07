@@ -28,28 +28,6 @@ import FetchClass from './install/fetch';
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
 
-if (process.env.globalJspm !== undefined) {
-  process.once('unhandledRejection', err => {
-    log('Internal Error: Unhandled promise rejection.', LogType.err);
-    logErr(err.stack || err);
-    process.exit(1);
-  });
-  process.once('SIGINT', () => {
-    log('jspm process terminated.');
-    process.exit(1);
-  });
-  process.once('SIGTERM', () => {
-    log('jspm process terminated.');
-    process.exit(1);
-  });
-}
-else {
-  process.on('unhandledRejection', err => {
-    console.error('Internal Error: Unhandled promise rejection.');
-    throw err;
-  });
-}
-
 export type Hook = 'preinstall' | 'postinstall';
 
 export interface Logger {

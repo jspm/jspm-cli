@@ -16,10 +16,40 @@
 const { spawn } = require('child_process');
 export const version = require('../package.json').version;
 import { bold, JspmUserError } from './utils/common';
+import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
 export { build, BuildOptions } from './build';
 export { devserver, DevserverOptions } from './devserver';
+import { devServerRunning } from './devserver';
+
+if (process.env.globalJspm !== undefined) {
+  process.once('unhandledRejection', err => {
+    log('Internal Error: Unhandled promise rejection.', LogType.err);
+    logErr(err.stack || err);
+    process.exit(1);
+  });
+  process.once('SIGINT', () => {
+    if (devServerRunning)
+      log('jspm dev server terminated.');
+    else
+      log('jspm process terminated.');
+    process.exit(1);
+  });
+  process.once('SIGTERM', () => {
+    if (devServerRunning)
+      log('jspm dev server terminated.');
+    else
+      log('jspm process terminated.');
+    process.exit(1);
+  });
+}
+else {
+  process.on('unhandledRejection', err => {
+    console.error('Internal Error: Unhandled promise rejection.');
+    throw err;
+  });
+}
 
 const invalidNodeArguments = {
   '-v': true, '--version': true, '-h': true, '--help': true, '-e': true, '--eval': true, '-p': true,
@@ -46,7 +76,7 @@ export async function run (entryModule, args = [], nodeArgs = ['--no-warnings'])
   
   const node = process.argv[0];
 
-  const resolved = jspmResolve.sync(entryModule, undefined, { env: { bin: true } });
+  const resolved = jspmResolve.sync(entryModule, undefined, { env: { bin: true }, relativeFallback: true });
   if (!resolved.resolved)
     throw new JspmUserError(`@empty resolution found for ${entryModule}.`);
   
