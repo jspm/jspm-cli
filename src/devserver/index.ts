@@ -92,7 +92,7 @@ export async function devserver (opts: DevserverOptions) {
 
   const port = opts.port || 5776;
   const server = http2.createSecureServer({ key, cert });
-  const publicDir = opts.publicDir || process.cwd();
+  const publicDir = opts.publicDir ? path.resolve(opts.publicDir) : process.cwd();
   const browserBuiltinsDir = path.resolve(require.resolve('jspm-resolve'), '../node-browser-builtins');
 
   let prompting = false;
@@ -322,8 +322,17 @@ export default exports;
 
   checkPjsonEsm(publicDir).catch(() => {});
 
-  if (opts.open)
-    require('opn')(`https://localhost:${port}`);
+  if (opts.open) {
+    let indexExists = false;
+    try {
+      const stats = fs.statSync(path.resolve(publicDir, 'index.html'));
+      indexExists = stats.isFile();
+    }
+    catch (err) {
+      indexExists = false;
+    }
+    require('opn')(`https://localhost:${port}/${indexExists ? 'index.html' : ''}`);
+  }
   
   return {
     close () {
@@ -367,7 +376,7 @@ export default exports;
     if (hasEsm === false) {
       prompting = true;
       warn(`To load JavaScript modules from ".js" extensions, add an ${bold(`"esm": true`)} property to the package.json file.`);
-      if (await confirm(`Would you like to add this property to your package.json file automatically now?`)) {
+      if (await confirm(`Would you like to add this property to your package.json file automatically now?`, true)) {
         prompting = false;;
         const pjson = JSON.parse(fs.readFileSync(pjsonPath + 'package.json').toString());
         pjson.esm = true;

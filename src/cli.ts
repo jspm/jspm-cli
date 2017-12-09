@@ -22,7 +22,7 @@ if (!(parseInt(process.versions.node.split('.')[0]) >= 8)) {
 
 import path = require('path');
 import * as api from './api';
-import { bold, highlight, JspmUserError } from './utils/common';
+import { bold, highlight, JspmUserError, winSepRegEx } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
@@ -127,7 +127,7 @@ ${bold('Execute')}
   jspm run <module>                 Execute a given module in NodeJS with jspm resolution${/*
   jspm <script-name> <args>         Execute a package.json script TODO*/''}
   
-  jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
+  jspm serve                        Start a HTTP/2 server with <script type=module> loading
 ${/*POSSIBILITY:      --http                          Run a HTTP/1 dev server to skip certificate authentication*/
 ''}      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
       --open (-o)                     Automatically open a new browser window when starting the server
@@ -140,9 +140,7 @@ ${bold('Build')}
     --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
     --format [cjs|system|global]    Set a custom output format for the build (defaults to esm)
     --remove-dir                    Clear the output directory before build
-    --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
-    (--common <name>+)+             Define a common chunk, always to be used for its modules
-    (--group <name>+)+              Define a manual chunk, used only in exact combination
+    --show-graph                    Show the build module graph summary
 ${/*TODO:      --watch                         Watch build files after build for rebuild on change
       --global-name x                 When using the global format, set the top-level global name
       --global-deps <dep=globalName>  When using the global format, name external dep globals
@@ -151,7 +149,9 @@ ${/*TODO:      --watch                         Watch build files after build for
       --banner <file|source>          Include the given banner at the top of the build file
       --global-defs <global=value>+   Define the given constant global values for build
       --source-map-contents           Inline source contents into the source map
-      --graph                         Show build graph analysis on completion
+      --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
+      (--common <name>+)+             Define a common chunk, always to be used for its modules
+      (--group <name>+)+              Define a manual chunk, used only in exact combination
 
     jspm depcache <entry>             Outload the latency-optimizing preloading HTML for an ES module*/''}
 ${bold('Inspect')}${
@@ -194,8 +194,8 @@ ${bold('Configure')}
         await api.run(args[0], args.splice(1));
       break;
 
-      case 'ds':
-      case 'devserver': {
+      case 's':
+      case 'serve': {
         let options;
         ({ options, args } = readOptions(args, ['open', 'generate-cert'], []));
         if (projectPath && setProjectPath) {
@@ -403,7 +403,8 @@ ${bold('Configure')}
         'remove-dir',
         'node',
         'mjs',
-        'browser', 'bin', 'react-native', 'production', 'electron'
+        'browser', 'bin', 'react-native', 'production', 'electron',
+        'show-graph'
         // 'watch' 'exclude-external', 'minify', 'skip-source-maps', 'source-map-contents', 'inline-source-maps'
         ], ['directory', 'out', 'format', 'global-name', 'chunk-prefix', 'external' /*, 'global-deps', 'banner', 'global-defs'*/]);
         options.env = readEnv(options);
@@ -423,13 +424,36 @@ ${bold('Configure')}
           });
           options.external = external;
         }
-        if ('out' in options) {
+        let result;
+        if ('out' in options || 'directory' in options === false && buildArgs.length === 1) {
           if (buildArgs.length !== 1)
             throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
-          const result = await api.build(buildArgs[0], options.out || 'build.js', options);
+          result = { [options.out || 'build.js']: await api.build(buildArgs[0], options.out || 'build.js', options) };
         }
         else {
-          const result = await api.build(buildArgs, options.directory || 'dist', options);
+          result = await api.build(buildArgs, options.directory || 'dist', options);
+        }
+        if (options.showGraph) {
+          // Improvements to this welcome! sizes in KB? Actual graph display? See also index.ts in es-module-optimizer
+          const names = Object.keys(result).sort((a, b) => {
+            const aEntry = result[a].entryPoint;
+            const bEntry = result[b].entryPoint;
+            if (aEntry && !bEntry)
+              return -1;
+            else if (bEntry && !aEntry)
+              return 1;
+            return a > b ? 1 : -1;
+          });
+          for (let name of names) {
+            const entry = result[name];
+            const deps = entry.imports;
+            console.log(`${bold(name)}${deps.length ? ' imports ' : ''}${deps.sort().join(', ')}:`);
+            
+            for (let module of entry.modules.sort()) {
+              console.log(`  ${path.relative(process.cwd(), module).replace(winSepRegEx, '/')}`);
+            }
+            console.log('');
+          }
         }
       break;
 

@@ -424,12 +424,27 @@ export default class FileTransformCache {
     const resolveMap = {};
     const hash = crypto.createHash('md5');
     for (let dep of <string[]>record.deps) {
-      let { resolved, format } = await jspmResolve(dep[dep.length - 1] === '/' ? dep.substr(0, dep.length - 1) : dep, record.path, {
-        cache: this.resolveCache,
-        env: this.resolveEnv,
-        cjsResolve: record.dew,
-        browserBuiltins: false
-      });
+      let resolved, format;
+      try {
+        ({ resolved, format } = await jspmResolve(dep[dep.length - 1] === '/' ? dep.substr(0, dep.length - 1) : dep, record.path, {
+          cache: this.resolveCache,
+          env: this.resolveEnv,
+          cjsResolve: record.dew,
+          browserBuiltins: false
+        }));
+      }
+      catch (err) {
+        // external URLs
+        if (err && err.code === 'INVALID_MODULE_NAME') {
+          resolveMap[dep] = dep;
+          hash.update(dep);
+          hash.update(dep);
+          continue;
+        }
+        else {
+          throw err;
+        }
+      }
       if (format === 'builtin') {
         if (nodeCoreBrowserUnimplemented.indexOf(resolved) !== -1) {
           resolved = undefined;
