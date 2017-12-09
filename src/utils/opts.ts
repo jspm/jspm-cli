@@ -62,23 +62,20 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
   });
 
   args.forEach(arg => {
-    let flag = getFlagMatch(arg, boolFlags);
-    let optFlag = getFlagMatch(arg, optFlags);
-    let optFlagGreedy = getFlagMatch(arg, optFlagsGreedy);
-
+    let flag;
     // option flag -> suck up args
-    if (optFlagGreedy) {
-      curOptionFlag = optFlag;
+    if (flag = getFlagMatch(arg, optFlagsGreedy)) {
+      curOptionFlag = flag;
       curOptionFlagGreedy = true;
       options.options[dashedToCamelCase(curOptionFlag)] = [];
     }
-    else if (optFlag) {
-      curOptionFlag = optFlag;
+    else if (flag = getFlagMatch(arg, optFlags)) {
+      curOptionFlag = flag;
       curOptionFlagGreedy = false;
       options.options[dashedToCamelCase(curOptionFlag)] = [];
     }
     // normal boolean flag
-    else if (flag) {
+    else if (flag = getFlagMatch(arg, boolFlags)) {
       options.options[dashedToCamelCase(flag)] = true;
     }
     // value argument

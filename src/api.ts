@@ -19,9 +19,14 @@ import { bold, JspmUserError } from './utils/common';
 import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
-export { build, BuildOptions } from './build';
 export { devserver, DevserverOptions } from './devserver';
 import { devServerRunning } from './devserver';
+
+import { build as buildFunc } from './build';
+
+export const build: typeof buildFunc = function () {
+  return require('./build').build.apply(this, arguments);
+}
 
 if (process.env.globalJspm !== undefined) {
   process.once('unhandledRejection', err => {

@@ -96,54 +96,54 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       case '-h':
         ui.info(`
 ${bold('Init')}
-    jspm init <path>?                 Initialize or validate a jspm project in the current directory
+  jspm init <path>?                 Initialize or validate a jspm project in the current directory
 
 ${bold('Install')}
-    jspm install                      Install from package.json with jspm.json version lock
-    jspm install <name[=target]>+
-      <pkg>                           Install a package
-      <pkg@version>                   Install a package to a version or version range
-      <pkgA> <pkgB>                   Install multiple packages at the same time
-      <pkg> --edge                    Install to latest unstable version resolution
-      <pkg> --lock                    Install without updating any existing resolutions
-      <pkg> --latest                  Install all dependencies to their very latest versions
-      <pkg> (--dev|--peer|--optional) Install a dev, peer or optional dependency
-      <pkg> --override main=dist/x.js Install with a persisted package.json property override
-      <source> -o name=x              Install a custom source (git:|git+(https|..):|https:|file:)
+  jspm install                      Install from package.json with jspm.json version lock
+  jspm install <name[=target]>+
+    <pkg>                           Install a package
+    <pkg@version>                   Install a package to a version or version range
+    <pkgA> <pkgB>                   Install multiple packages at the same time
+    <pkg> --edge                    Install to latest unstable version resolution
+    <pkg> --lock                    Install without updating any existing resolutions
+    <pkg> --latest                  Install all dependencies to their very latest versions
+    <pkg> (--dev|--peer|--optional) Install a dev, peer or optional dependency
+    <pkg> --override main=dist/x.js Install with a persisted package.json property override
+    <source> -o name=x              Install a custom source (git:|git+(https|..):|https:|file:)
 
-    jspm link <name>? <source>        Link a custom source into jspm_packages as a named package
-    jspm unlink <name>?               Unlink a named package back to its original target
-    jspm update                       Update packages within package.json ranges
-    jspm update <name>+               Update the matching package install within its range
-    jspm uninstall <name>+            Uninstall a top-level package
-    jspm clean                        Clear unused and orphaned dependencies
-    jspm checkout <name>+             Copy a package within jspm_packages for local modification
+  jspm link <name>? <source>        Link a custom source into jspm_packages as a named package
+  jspm unlink <name>?               Unlink a named package back to its original target
+  jspm update                       Update packages within package.json ranges
+  jspm update <name>+               Update the matching package install within its range
+  jspm uninstall <name>+            Uninstall a top-level package
+  jspm clean                        Clear unused and orphaned dependencies
+  jspm checkout <name>+             Copy a package within jspm_packages for local modification
 
-    Install Options:
-      --offline                       Run command offline using the jspm cache
-      --prefer-offline (-q)           Use cached lookups where possible for fastest install
+  Install Options:
+    --offline                       Run command offline using the jspm cache
+    --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-    jspm run <module>                Execute a given module in NodeJS with jspm resolution${/*
-    jspm <script-name> <args>        Execute a package.json script TODO*/''}
-    
-    jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
+  jspm run <module>                 Execute a given module in NodeJS with jspm resolution${/*
+  jspm <script-name> <args>         Execute a package.json script TODO*/''}
+  
+  jspm devserver                    Start a HTTP/2 dev server for <script type=module> loading
 ${/*POSSIBILITY:      --http                          Run a HTTP/1 dev server to skip certificate authentication*/
 ''}      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
       --open (-o)                     Automatically open a new browser window when starting the server
 
 ${bold('Build')}
-    jspm build <entry> -o <outfile>?  Build a module into a single file, inlining dynamic imports
-      <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic imports
+  jspm build <entry> -o <outfile>?  Build a module into a single file, inlining dynamic imports
+    <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic imports
 
-    Build Options:
-      --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
-      --exclude-deps                  Exclude all jspm_packages and node_modules dependencies
-      --format [cjs|system|global]    Set a custom output format for the build (defaults to esm)
+  Build Options:
+    --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
+    --format [cjs|system|global]    Set a custom output format for the build (defaults to esm)
+    --remove-dir                    Clear the output directory before build
+    --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
+    (--common <name>+)+             Define a common chunk, always to be used for its modules
+    (--group <name>+)+              Define a manual chunk, used only in exact combination
 ${/*TODO:      --watch                         Watch build files after build for rebuild on change
-      --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
-      (--group <name>+)+              Define a shared chunk, always to be used for its modules
-      (--chunk <name>+)+              Define a manual chunk, used only in exact combination
       --global-name x                 When using the global format, set the top-level global name
       --global-deps <dep=globalName>  When using the global format, name external dep globals
       --minify                        Minify the build output
@@ -151,25 +151,24 @@ ${/*TODO:      --watch                         Watch build files after build for
       --banner <file|source>          Include the given banner at the top of the build file
       --global-defs <global=value>+   Define the given constant global values for build
       --source-map-contents           Inline source contents into the source map
---graph                    Show build graph analysis on completion*/''}
-    
-    jspm depcache <entry>             Outload the latency-optimizing preloading HTML for a module
+      --graph                         Show build graph analysis on completion
 
+    jspm depcache <entry>             Outload the latency-optimizing preloading HTML for an ES module*/''}
 ${bold('Inspect')}${
-/*  jspm depgraph <entry> (TODO)      Display the dependency graph for a given module*/''}
-    jspm resolve <module>             Resolve a module name with the jspm resolver to a path
-      <module> <parent>               Resolve a module name within the given parent
-      <module> (--browser|--bin)      Resolve a module name to a different conditional env
+/*  jspm graph <entry> (TODO)      Display the dependency graph for a given module*/''}
+  jspm resolve <module>             Resolve a module name with the jspm resolver to a path
+    <module> <parent>               Resolve a module name within the given parent
+    <module> (--browser|--bin)      Resolve a module name in a different conditional env
 ${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
 ${bold('Configure')}
   jspm registry-config <name>       Run configuration prompts for a specific registry
   jspm config <option> <setting>    Set jspm global config values in .jspm/config
   jspm config --get <option>        Read a jspm global config value
-    
-    Global Options:
-      --skip-prompts (-y)             Use default options for prompts, never asking for user input
-      --log [ok|warn|err|debug|none]  Set the log level
-      --project (-p) <path>           Set the jspm project directory
+  
+  Global Options:
+    --skip-prompts (-y)             Use default options for prompts, never asking for user input
+    --log [ok|warn|err|debug|none]  Set the log level
+    --project (-p) <path>           Set the jspm project directory
   `);
       break;
 
@@ -401,20 +400,36 @@ ${bold('Configure')}
       case 'b':
       case 'build':
       let { options, args: buildArgs } = readOptions(args, [
+        'remove-dir',
         'node',
         'mjs',
-        'browser', 'bin', 'react-native', 'production', 'electron',
+        'browser', 'bin', 'react-native', 'production', 'electron'
         // 'watch' 'exclude-external', 'minify', 'skip-source-maps', 'source-map-contents', 'inline-source-maps'
-        ], ['directory', 'out', 'format', 'global-name', 'chunk-prefix' /*'external', 'exclude-deps', 'global-deps', 'banner', 'global-defs'*/]);
+        ], ['directory', 'out', 'format', 'global-name', 'chunk-prefix', 'external' /*, 'global-deps', 'banner', 'global-defs'*/]);
         options.env = readEnv(options);
         options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
+        if (options.external) {
+          const external = {};
+          options.external.split(' ').forEach(pair => {
+            const aliasIndex = pair.indexOf('=');
+            if (aliasIndex !== -1) {
+              const externalName = pair.substr(0, aliasIndex);
+              const aliasName = pair.substr(aliasIndex + 1);
+              external[externalName] = aliasName;
+            }
+            else {
+              external[pair] = true;
+            }
+          });
+          options.external = external;
+        }
         if ('out' in options) {
           if (buildArgs.length !== 1)
             throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
-          await api.build(buildArgs[0], options.out || 'build.js', options);
+          const result = await api.build(buildArgs[0], options.out || 'build.js', options);
         }
         else {
-          await api.build(buildArgs, options.directory || 'dist', options);
+          const result = await api.build(buildArgs, options.directory || 'dist', options);
         }
       break;
 
