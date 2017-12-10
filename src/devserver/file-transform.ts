@@ -109,10 +109,14 @@ export default class FileTransformCache {
       this.workers.push(worker);
       worker.process.on('message', ({ type, data }) => {
         if (type === 'error') {
-          console.log('worker error ' + this.workers.indexOf(worker));
-          const e = new Error(data);
+          const e = new Error(`Processing ${(<FileTransformRecord>worker.record).path}:\n${data}`);
           (e as { code?: string }).code = 'ETRANSFORM';
           worker.msgReject(e);
+        }
+        else if (type === 'syntax-error') {
+          const codeFrameColumns = require('@babel/code-frame').codeFrameColumns;
+          const errOutput = `Error parsing ${(<FileTransformRecord>worker.record).path}:\n${data.msg}\n` + codeFrameColumns((<FileTransformRecord>worker.record).originalSource, { start: data.loc }, {});
+          worker.msgReject(errOutput);
         }
         else {
           worker.msgResolve(data);
@@ -302,14 +306,20 @@ export default class FileTransformCache {
         if (record.originalSourceHash !== sourceHash) {
           record.originalSourceHash = sourceHash;
           worker = await this.assignWorker(record);
-          const { deps } = await new Promise<{
-            deps: string[]
-          }>((resolve, reject) => {
-            worker.msgResolve = resolve;
-            worker.msgReject = reject;
-            worker.process.send({ type: record.dew ? 'analyze-cjs' : 'analyze-esm', data: false });
-          });
-          record.deps = deps;
+          try {
+            const { deps } = await new Promise<{
+              deps: string[]
+            }>((resolve, reject) => {
+              worker.msgResolve = resolve;
+              worker.msgReject = reject;
+              worker.process.send({ type: record.dew ? 'analyze-cjs' : 'analyze-esm', data: false });
+            });
+            record.deps = deps;
+          }
+          catch (err) {
+            this.freeWorker(worker);
+            throw err;
+          }
         }
 
         // get resolveMap
@@ -512,24 +522,34 @@ export default class FileTransformCache {
     this.watching.push({ record, watcher });
     record.watching = true;
 
-    watcher.on('change', async type => {
-      // trigger refresh
-      if (type === 'change') {
-        const source = await new Promise<string>((resolve, reject) => fs.readFile(record.path, (err, source) => err ? reject(err) : resolve(source.toString())));
-        record.originalSource = source;
-        const hash = record.fullHash;
-        if (record.transformPromise || record.hashPromise)
-          await record.transformPromise || record.hashPromise;
-        const { resolveMap, worker } = await this.doHash(record);
-        if (hash !== record.fullHash)
-          this.doTransform(record, resolveMap, worker).catch(() => {});
-        else if (worker)
-          this.freeWorker(worker);
-      }
-      else if (type === 'rename') {
-        record.watching = false;
-        record.checkTime = Date.now();
-      }
+    watcher.on('change', type => {
+      (async () => {
+        try {
+          // trigger refresh
+          if (type === 'change') {
+            const source = await new Promise<string>((resolve, reject) => fs.readFile(record.path, (err, source) => err ? reject(err) : resolve(source.toString())));
+            record.originalSource = source;
+            const hash = record.fullHash;
+            if (record.transformPromise || record.hashPromise)
+              await record.transformPromise || record.hashPromise;
+            const { resolveMap, worker } = await this.doHash(record);
+            if (hash !== record.fullHash)
+              this.doTransform(record, resolveMap, worker).catch(() => {});
+            else if (worker)
+              this.freeWorker(worker);
+          }
+          else if (type === 'rename') {
+            record.watching = false;
+            record.checkTime = Date.now();
+          }
+        }
+        catch (err) {
+          if (typeof err === 'string')
+            console.error(err);
+          else
+            console.error(err && err.stack || err);
+        }
+      })();
     });
   }
 }

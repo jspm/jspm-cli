@@ -282,6 +282,7 @@ export default exports;
           console.error(`[400] Invalid request: ${err}`);
           stream.respond({ ':status': 400, 'Access-Control-Allow-Origin': '*' });
           stream.end(err);
+          return;
         }
         switch (err && err.code) {
           case 'MODULE_NOT_FOUND':
@@ -303,6 +304,10 @@ export default exports;
             console.error(`[500] Transform error: ${err}`);
             stream.respond({ ':status': 400, 'Access-Control-Allow-Origin': '*' });
             stream.end('Transform error.');
+          return;
+          case 'ERR_HTTP2_INVALID_STREAM':
+            // these can happen on server restart, no need to report
+            // could possibly provide in debug mode only
           return;
           default:
             console.error('[500] Internal error: ' + err.stack);

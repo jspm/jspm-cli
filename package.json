@@ -4,6 +4,7 @@
   "version": "2.0.0-dev",
   "main": "lib/api.js",
   "dependencies": {
+    "@babel/code-frame": "^7.0.0-beta.34",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-cjs-dew": "git+ssh://git@github.com/jspm/babel-plugin-transform-cjs-dew",
     "babel-traverse": "^6.26.0",
