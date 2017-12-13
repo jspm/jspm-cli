@@ -20,20 +20,23 @@ import path = require('path');
 import jspmResolve = require('jspm-resolve');
 import crypto = require('crypto');
 
+const noop = () => {};
+
 interface FileTransformRecord {
   path: string;
-  hashPromise: Promise<{ resolveMap: ResolveMap, worker: TransformWorker | void }> | void;
-  transformPromise: Promise<void> | void;
-  mtime: number | void;
+  loadPromise: Promise<boolean>;
+  hashPromise: Promise<{ resolveMap: ResolveMap, worker: TransformWorker | void }>;
+  transformPromise: Promise<void>;
+  mtime: number;
   isGlobalCache: boolean;
-  checkTime: number | void;
-  originalSource: string | void;
-  originalSourceHash: string | void;
-  deps: string[] | void;
+  checkTime: number;
+  originalSource: string;
+  originalSourceHash: string;
+  deps: string[];
   dew: boolean;
-  fullHash: string | void;
-  source: string | void;
-  sourceMap: string | void;
+  fullHash: string;
+  source: string;
+  sourceMap: string;
   watching: boolean;
 }
 
@@ -52,7 +55,7 @@ export default class FileTransformCache {
   private maxWatchCount: number;
   private production: boolean;
   private records: {
-    [path: string]: Promise<FileTransformRecord|void>
+    [path: string]: FileTransformRecord
   };
   private publicDir: string;
   private watching: {
@@ -154,20 +157,40 @@ export default class FileTransformCache {
   // throws ENOTRANSFORM if an invalid dew transform
   // throws ETRANSFORM for a transform error
   // returns correct wrappers for dew cases
-  async get (filePath: string, hash?: string): Promise<{ source: string, sourceMap: string, hash: string, isGlobalCache: boolean }> {
-    const dew = filePath.endsWith('?dew');
-    const dewSuffix = dew ? '?dew': '';
-    if (dew)
-      filePath = filePath.substr(0, filePath.length - 4);
-    let record = await this.records[filePath + dewSuffix];
+  async get (recordPath: string, hash?: string | void): Promise<{ source: string, sourceMap: string, hash: string, isGlobalCache: boolean }> {
+    const dew = recordPath.endsWith('?dew');
+    const filePath = dew ? recordPath.substr(0, recordPath.length - 4) : recordPath;
+    let record: FileTransformRecord = await this.records[recordPath];
 
     if (record === undefined)
-      record = await (this.records[filePath + dewSuffix] = (async () => {
-        const sourcePromise = new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
-        sourcePromise.catch(() => {});
-
+      record = this.records[recordPath] = {
+        loadPromise: undefined,
+        path: filePath,
+        hashPromise: undefined,
+        transformPromise: undefined,
+        mtime: undefined,
+        isGlobalCache: false,
+        checkTime: Date.now(),
+        originalSource: undefined,
+        originalSourceHash: undefined,
+        deps: undefined,
+        fullHash: undefined,
+        dew,
+        source: undefined,
+        sourceMap: undefined,
+        watching: false
+      };
+    
+    if (record.loadPromise === undefined || record.watching === false && record.checkTime < this.nextExpiry)
+      record.loadPromise = (async () => {
         const formatPromise = this.format(filePath, dew);
-        formatPromise.catch(() => {});
+        formatPromise.catch(noop);
+
+        const sourcePromise = new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
+        sourcePromise.catch(noop);
+
+        const mtimePromise = this.getMtime(record.path);
+        mtimePromise.catch(noop);
 
         const format = await formatPromise;
 
@@ -178,36 +201,15 @@ export default class FileTransformCache {
             throw e;
           }
         }
-        else {
-          switch (format) {
-            case 'esm':
-              break;
-            case 'json':
-            case 'cjs':
-              return null;
-            default:
-              throw new Error(`Unable to transform module format ${format || 'unknown'}.`);
-          }
+        else if (format !== 'esm') {
+          return false;
         }
 
-        const record: FileTransformRecord = {
-          path: filePath,
-          hashPromise: undefined,
-          transformPromise: undefined,
-          mtime: undefined,
-          isGlobalCache: false,
-          checkTime: Date.now(),
-          originalSource: undefined,
-          originalSourceHash: undefined,
-          deps: undefined,
-          fullHash: undefined,
-          dew,
-          source: undefined,
-          sourceMap: undefined,
-          watching: false
-        };
-        this.watch(record);
-
+        record.mtime = await mtimePromise;
+  
+        if (!record.watching && record.mtime !== -1)
+          this.watch(record);
+  
         try {
           record.originalSource = await sourcePromise;
         }
@@ -216,50 +218,26 @@ export default class FileTransformCache {
             err.code = 'ENOTFOUND';
           throw err;
         }
-        return record;
-      })());
+
+        record.hashPromise = undefined;
+
+        return true;
+      })();
     
-    if (!record)
+    if (await record.loadPromise === false)
       return;
 
     if (record.hashPromise === undefined) {
-      // in-progress transform
-      if (record.transformPromise !== undefined) {
-        if (hash && record.fullHash === hash)
-          return { source: undefined, sourceMap: undefined, hash, isGlobalCache: record.isGlobalCache };
-        else
-          await record.transformPromise;
+      const prevHash = record.fullHash;
+      const { resolveMap, worker } = await this.doHash(record);
+      if (record.fullHash !== prevHash)
+        record.transformPromise = undefined;
+      if (hash && record.fullHash === hash) {
+        if (worker)
+          this.freeWorker(worker);
+        return { source: undefined, sourceMap: undefined, hash, isGlobalCache: record.isGlobalCache };
       }
-      // done and waiting -> check freshness
-      else {
-        // check source freshness (updating deps if source changed)
-        if (record.checkTime < this.nextExpiry) {
-          if (record.watching === false) {
-            this.records[filePath + dewSuffix] = (async () => {
-              const mtime = await this.getMtime(record.path);
-              if (mtime !== record.mtime) {
-                try {
-                  record.originalSource = await new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
-                  record.mtime = mtime;
-                }
-                catch (err) {
-                  if (err && err.code === 'ENOENT')
-                    return;
-                  throw err;
-                }
-              }
-              return record;
-            })();
-          }
-        }
-        const { resolveMap, worker } = await this.doHash(record);
-        if (hash && record.fullHash === hash) {
-          if (worker)
-            this.freeWorker(worker);
-          return { source: undefined, sourceMap: undefined, hash, isGlobalCache: record.isGlobalCache };
-        }
-        await this.doTransform(record, resolveMap, worker);
-      }
+      await this.doTransform(record, resolveMap, worker);
     }
     // already a hash promise -> wait on it
     else {
@@ -498,7 +476,7 @@ export default class FileTransformCache {
   }
 
   private async getMtime (path: string) {
-    await new Promise<number>((resolve, reject) => {
+    return await new Promise<number>((resolve, reject) => {
       fs.stat(path, (err, stats) => {
         if (err && (err.code === 'ENOENT' || err.code === 'EACCES'))
           resolve(-1);
@@ -523,33 +501,23 @@ export default class FileTransformCache {
     record.watching = true;
 
     watcher.on('change', type => {
-      (async () => {
-        try {
-          // trigger refresh
-          if (type === 'change') {
-            const source = await new Promise<string>((resolve, reject) => fs.readFile(record.path, (err, source) => err ? reject(err) : resolve(source.toString())));
-            record.originalSource = source;
-            const hash = record.fullHash;
-            if (record.transformPromise || record.hashPromise)
-              await record.transformPromise || record.hashPromise;
-            const { resolveMap, worker } = await this.doHash(record);
-            if (hash !== record.fullHash)
-              this.doTransform(record, resolveMap, worker).catch(() => {});
-            else if (worker)
-              this.freeWorker(worker);
-          }
-          else if (type === 'rename') {
-            record.watching = false;
-            record.checkTime = Date.now();
-          }
-        }
-        catch (err) {
-          if (typeof err === 'string')
-            console.error(err);
-          else
-            console.error(err && err.stack || err);
-        }
-      })();
+      if (type === 'rename') {
+        record.watching = false;
+        record.checkTime = Date.now();
+      }
+      else if (type === 'change') {
+        (async () => {
+          const lastLoadPromise = record.loadPromise;
+          await record.loadPromise;
+          // debouncing
+          await new Promise(resolve => setTimeout(resolve, 10));
+          // beaten to reload -> our job has been done for us
+          if (record.loadPromise !== lastLoadPromise)
+            return;
+          record.loadPromise = undefined;
+          return this.get(record.path + (record.dew ? '?dew' : ''), record.fullHash);
+        })().catch(noop);
+      }
     });
   }
 }

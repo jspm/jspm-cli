@@ -316,6 +316,8 @@ export default exports;
         }
       }
       catch (err) {
+        if (err && err.code === 'ERR_HTTP@_INVALID_STREAM')
+          return;
         console.error(err);
       }
     }

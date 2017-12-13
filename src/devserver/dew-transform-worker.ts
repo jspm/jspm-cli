@@ -54,6 +54,7 @@ process.on('message', async ({ type, data }) => {
             }
           }
         }
+        // extract dynamic imports
         traverse(curAst, {
           enter (path) {
             if (path.type !== 'Import')
@@ -71,7 +72,6 @@ process.on('message', async ({ type, data }) => {
             }
           }
         });
-        // NB will have to do a full walk for extracting dynamic import
         process.send({ type: 'deps', data: { deps } });
       }
       catch (err) {
@@ -99,7 +99,6 @@ process.on('message', async ({ type, data }) => {
             resolves.push(dep);
         }
 
-        // NB will have to do a full walk for extracting dynamic import
         process.send({ type: 'deps', data: data === false ? { deps } : { deps }});
       }
       catch (err) {
