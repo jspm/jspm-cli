@@ -519,6 +519,10 @@ export default class FileTransformCache {
         })().catch(noop);
       }
     });
+    watcher.on('error', _err => {
+      record.watching = false;
+      record.checkTime = Date.now();
+    });
   }
 }
 

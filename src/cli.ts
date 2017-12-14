@@ -173,7 +173,9 @@ ${bold('Configure')}
       break;
 
       case 'init':
-        let projectDir;
+        ui.err('jspm init is still under development.');
+        return;
+        var projectDir;
         if (setProjectPath) {
           if (args[0])
             throw new JspmUserError(`Only one argument is passed to jspm init - the project path to initialize.`);
