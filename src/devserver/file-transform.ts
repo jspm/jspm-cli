@@ -282,7 +282,6 @@ export default class FileTransformCache {
         // get deps
         let worker: TransformWorker;
         if (record.originalSourceHash !== sourceHash) {
-          record.originalSourceHash = sourceHash;
           worker = await this.assignWorker(record);
           try {
             const { deps } = await new Promise<{
@@ -293,6 +292,7 @@ export default class FileTransformCache {
               worker.process.send({ type: record.dew ? 'analyze-cjs' : 'analyze-esm', data: false });
             });
             record.deps = deps;
+            record.originalSourceHash = sourceHash;
           }
           catch (err) {
             this.freeWorker(worker);
