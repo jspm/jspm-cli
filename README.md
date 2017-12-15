@@ -12,7 +12,7 @@ The concept of jspm is the concept of a workflow for JavaScript based on:
 * Easily executing those dependencies, without a build or further configuration, in both the browser and Node
 * Providing workflows for production optimizations on projects, both for building whole applications and libraries.
 
-The key concept being that the package manager, ecosystem and linker are all heavily intwined and have to exist together
+The key concept being that the package manager, ecosystem and linker are all heavily entwined and have to exist together
 to ensure these smooth workflows.
 
 The first version got caught up in SystemJS as the spec for JS execution, and failed the moment the loader spec got derailed.
@@ -56,16 +56,16 @@ The following items are still outstanding for the release:
 
 ## jspm 2.0 Alpha Quickstart
 
-1. Install jspm 2.0 alpha
-1. Create a Project
-1. Install Dependencies
-1. Execution in NodeJS
-1. Execution in the Browser
-1. Building for NodeJS
-1. Dynamic Import Support
-1. Building for the Browser
-1. Automated Chunked Builds
-1. Building for Legacy Browsers
+1. [Install jspm 2.0 alpha](#1-install-jspm-20-alpha)
+1. [Create a Project](#2-create-a-project)
+1. [Install Dependencies](#3-install-dependencies)
+1. [Execution in NodeJS](#4-execution-in-nodejs)
+1. [Execution in the Browser](#5-execution-in-the-browser)
+1. [Building for NodeJS](#6-building-for-nodejs)
+1. [Dynamic Import Support](#7-dynamic-import-support)
+1. [Building for the Browser](#8-building-for-the-browser)
+1. [Automated Chunked Builds](#9-automated-chunked-builds)
+1. [Building for Legacy Browsers](#10-building-for-legacy-browsers)
 
 ### 1. Install jspm 2.0 alpha
 
