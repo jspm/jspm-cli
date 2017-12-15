@@ -15,7 +15,7 @@
  */
 const { spawn } = require('child_process');
 export const version = require('../package.json').version;
-import { bold, JspmUserError } from './utils/common';
+import { bold, JspmUserError, isWindows } from './utils/common';
 import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
@@ -93,7 +93,7 @@ export async function run (entryModule, args = [], nodeArgs = ['--no-warnings'])
   });
 
   await new Promise((resolve, reject) => {
-    spawn(node, [...nodeArgs, '--experimental-modules', '--harmony-dynamic-import', '--loader', '/' + loaderPath, resolved.resolved, ...args], {
+    spawn(node, [...nodeArgs, '--experimental-modules', '--harmony-dynamic-import', '--loader', (isWindows ? '/' : '') + loaderPath, resolved.resolved, ...args], {
       stdio: 'inherit'
     })
     .on('close', code => code === 0 ? resolve() : reject());
