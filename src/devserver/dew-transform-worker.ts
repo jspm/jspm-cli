@@ -37,7 +37,7 @@ process.on('message', async ({ type, data }) => {
       try {
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
-            plugins: ['dynamicImport'],
+            plugins: ['dynamicImport', 'importMeta', 'classProperties', 'optionalCatchBinding', 'objectRestSpread'],
             sourceType: 'module',
             sourceFilename: curFilename
           });
@@ -86,6 +86,7 @@ process.on('message', async ({ type, data }) => {
       try {
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
+            plugins: ['classProperties', 'optionalCatchBinding', 'objectRestSpread'],
             allowReturnOutsideFunction: true,
             sourceFilename: curFilename
           });
@@ -115,6 +116,7 @@ process.on('message', async ({ type, data }) => {
           throw new Error('Source not passed to worker.');
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
+            plugins: ['classProperties', 'optionalCatchBinding', 'objectRestSpread'],
             allowReturnOutsideFunction: true,
             sourceFilename: curFilename
           });
@@ -150,7 +152,7 @@ process.on('message', async ({ type, data }) => {
           throw new Error('Source not passed to worker.');
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
-            plugins: ['dynamicImport'],
+            plugins: ['dynamicImport', 'importMeta', 'classProperties', 'optionalCatchBinding', 'objectRestSpread'],
             sourceType: 'module',
             sourceFilename: curFilename
           });

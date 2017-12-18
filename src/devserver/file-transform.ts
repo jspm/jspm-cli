@@ -423,7 +423,7 @@ export default class FileTransformCache {
       }
       catch (err) {
         // external URLs
-        if (err && err.code === 'INVALID_MODULE_NAME') {
+        if (err && (err.code === 'INVALID_MODULE_NAME' || err.code === 'MODULE_NOT_FOUND')) {
           resolveMap[dep] = dep;
           hash.update(dep);
           hash.update(dep);
