@@ -23,6 +23,9 @@ const visitCjsDeps = require('babel-visit-cjs-deps');
 
 let curSource: string, curAst: any, curFilename: string, curProduction: boolean;
 
+const stage3 = ['asyncGenerators', 'classProperties', 'optionalCatchBinding', 'objectRestSpread', 'numericSeparator'];
+const stage3DynamicImport = stage3.concat(['dynamicImport', 'importMeta']);
+
 process.on('message', async ({ type, data }) => {
   switch (type) {
     case 'source':
@@ -37,7 +40,7 @@ process.on('message', async ({ type, data }) => {
       try {
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
-            plugins: ['dynamicImport', 'importMeta', 'classProperties', 'optionalCatchBinding', 'objectRestSpread'],
+            plugins: stage3DynamicImport,
             sourceType: 'module',
             sourceFilename: curFilename
           });
@@ -86,7 +89,7 @@ process.on('message', async ({ type, data }) => {
       try {
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
-            plugins: ['classProperties', 'optionalCatchBinding', 'objectRestSpread'],
+            plugins: stage3,
             allowReturnOutsideFunction: true,
             sourceFilename: curFilename
           });
@@ -116,7 +119,7 @@ process.on('message', async ({ type, data }) => {
           throw new Error('Source not passed to worker.');
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
-            plugins: ['classProperties', 'optionalCatchBinding', 'objectRestSpread'],
+            plugins: stage3,
             allowReturnOutsideFunction: true,
             sourceFilename: curFilename
           });
@@ -152,7 +155,7 @@ process.on('message', async ({ type, data }) => {
           throw new Error('Source not passed to worker.');
         if (curAst === undefined)
           curAst = babylon.parse(curSource, {
-            plugins: ['dynamicImport', 'importMeta', 'classProperties', 'optionalCatchBinding', 'objectRestSpread'],
+            plugins: stage3DynamicImport,
             sourceType: 'module',
             sourceFilename: curFilename
           });
