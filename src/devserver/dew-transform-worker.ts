@@ -16,7 +16,7 @@
 
 const babel = require('babel-core');
 const babylon = require('babylon');
-const traverse = require('babel-traverse').default;
+const traverse = require('@babel/traverse').default;
 const t = require('babel-types');
 const pluginEsdew = require('babel-plugin-transform-cjs-dew');
 const visitCjsDeps = require('babel-visit-cjs-deps');
