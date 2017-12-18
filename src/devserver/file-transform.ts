@@ -20,6 +20,11 @@ import path = require('path');
 import jspmResolve = require('jspm-resolve');
 import crypto = require('crypto');
 
+// basically anything except "./x" and "../x"
+function isPermittedExternal (name) {
+  return !(name[0] === '.' && (name[1] === '/' || name[1] === '.' && name[2] === '/'));
+}
+
 const noop = () => {};
 
 interface FileTransformRecord {
@@ -423,7 +428,7 @@ export default class FileTransformCache {
       }
       catch (err) {
         // external URLs
-        if (err && (err.code === 'INVALID_MODULE_NAME' || err.code === 'MODULE_NOT_FOUND')) {
+        if (err && (err.code === 'INVALID_MODULE_NAME' || err.code === 'MODULE_NOT_FOUND') && isPermittedExternal(dep)) {
           resolveMap[dep] = dep;
           hash.update(dep);
           hash.update(dep);
