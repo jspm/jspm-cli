@@ -15,10 +15,6 @@
  */
 
 import * as ui from './utils/ui';
-if (!(parseInt(process.versions.node.split('.')[0]) >= 8)) {
-  ui.logErr('jspm 2 requires NodeJS 8.0.0 or above.');
-  process.exit();
-}
 
 import path = require('path');
 import * as api from './api';
