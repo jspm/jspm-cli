@@ -39,7 +39,7 @@ Follow the quickstart below for the exact workflows here.
 The following items are still outstanding for the release:
 
 **Package Manager**
-- [ ] Scoped package dependency support
+- [x] Scoped package dependency support
 - [ ] Peer dependencies
 - [ ] Support package.json scripts and bins
 - [ ] Package manager script hooks

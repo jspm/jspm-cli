@@ -445,7 +445,7 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
       return depTarget;
   }
   const versionIndex = depTarget.lastIndexOf('@');
-  if (versionIndex > registryIndex) {
+  if (versionIndex > registryIndex + 1) {
     name = depTarget.substring(registryIndex + 1, versionIndex);
     version = depTarget.substr(versionIndex + 1);
   }
