@@ -15,7 +15,6 @@
     "buffer-peek-stream": "^1.0.1",
     "chalk": "^2.3.0",
     "devcert-sanscache": "^0.4.5",
-    "es-module-optimizer": "git+ssh://git@github.com/jspm/es-module-optimizer",
     "git-credential-node": "^1.1.0",
     "graceful-fs": "^4.1.11",
     "he": "^1.1.1",

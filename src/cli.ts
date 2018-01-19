@@ -133,21 +133,14 @@ ${bold('Build')}
     <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic imports
 
   Build Options:
+    --source-maps                   Output source maps
     --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
-    --format [cjs|system|global]    Set a custom output format for the build (defaults to esm)
+    --format [cjs|system|amd]       Set a custom output format for the build (defaults to esm)
     --remove-dir                    Clear the output directory before build
     --show-graph                    Show the build module graph summary
 ${/*TODO:      --watch                         Watch build files after build for rebuild on change
-      --global-name x                 When using the global format, set the top-level global name
-      --global-deps <dep=globalName>  When using the global format, name external dep globals
-      --minify                        Minify the build output
-      --skip-source-maps              Disable source maps
-      --banner <file|source>          Include the given banner at the top of the build file
-      --global-defs <global=value>+   Define the given constant global values for build
-      --source-map-contents           Inline source contents into the source map
-      --inline (<name>(|<parent>)?)+  Modules to always inline into their parents, never chunked
-      (--common <name>+)+             Define a common chunk, always to be used for its modules
-      (--group <name>+)+              Define a manual chunk, used only in exact combination
+    --minify                        Minify the build output
+    --banner <file|source>          Include the given banner at the top of the build file  
 
     jspm depcache <entry>             Outload the latency-optimizing preloading HTML for an ES module*/''}
 ${bold('Inspect')}${
@@ -402,9 +395,11 @@ ${bold('Configure')}
         'node',
         'mjs',
         'browser', 'bin', 'react-native', 'production', 'electron',
-        'show-graph'
-        // 'watch' 'exclude-external', 'minify', 'skip-source-maps', 'source-map-contents', 'inline-source-maps'
-        ], ['directory', 'out', 'format', 'global-name', 'chunk-prefix', 'external' /*, 'global-deps', 'banner', 'global-defs'*/]);
+        'show-graph',
+        'source-maps'
+
+        // 'watch' 'exclude-external', 'minify',
+        ], ['dir', 'out', 'format', 'external' /*, 'banner' */]);
         options.env = readEnv(options);
         options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
         if (options.external) {
@@ -423,13 +418,15 @@ ${bold('Configure')}
           options.external = external;
         }
         let result;
-        if ('out' in options || 'directory' in options === false && buildArgs.length === 1) {
+        if ('out' in options || 'dir' in options === false && buildArgs.length === 1) {
           if (buildArgs.length !== 1)
             throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
-          result = { [options.out || 'build.js']: await api.build(buildArgs[0], options.out || 'build.js', options) };
+          options.out = options.out || 'build.js';
+          result = { [options.out || 'build.js']: await api.build(buildArgs[0], options) };
         }
         else {
-          result = await api.build(buildArgs, options.directory || 'dist', options);
+          options.dir = options.dir || 'dist';
+          result = await api.build(buildArgs, options);
         }
         if (options.showGraph) {
           // Improvements to this welcome! sizes in KB? Actual graph display? See also index.ts in es-module-optimizer
