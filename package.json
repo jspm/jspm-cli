@@ -6,8 +6,8 @@
   "types": "lib/api.d.ts",
   "dependencies": {
     "@babel/code-frame": "^7.0.0-beta.35",
-    "@babel/traverse": "^7.0.0-beta.35",
     "@babel/core": "^7.0.0-beta.35",
+    "@babel/traverse": "^7.0.0-beta.35",
     "babel-plugin-transform-cjs-dew": "git+ssh://git@github.com/jspm/babel-plugin-transform-cjs-dew",
     "babel-visit-cjs-deps": "^0.1.0",
     "babylon": "^7.0.0-beta.35",

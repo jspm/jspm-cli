@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-const babel = require('babel-core');
+const babel = require('@babel/core');
 const babylon = require('babylon');
 const traverse = require('@babel/traverse').default;
 const t = require('babel-types');
@@ -168,6 +168,12 @@ process.on('message', async ({ type, data }) => {
           plugins: [
             ({ types: t }) => ({
               visitor: {
+                'ExportAllDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ImportDeclaration' (path) {
+                  if (!path.node.source || typeof resolveMap !== 'object')
+                    return;
+                  const specifier = path.node.source.value;
+                  path.get('source').replaceWith(t.stringLiteral(resolveMap[specifier] || specifier));
+                },
                 Import (path) {
                   let argPath = path.parentPath.get('arguments.0');
                   switch (argPath.node.type) {
