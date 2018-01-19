@@ -31,6 +31,7 @@
     "promise-retry": "^1.1.1",
     "proper-lockfile": "^2.0.1",
     "rimraf": "^2.6.2",
+    "rollup": "git+ssh://git@github.com/guybedford/rollup.git#code-splitting-build",
     "semver": "^5.4.1",
     "sver": "^1.6.1",
     "tar-fs": "^1.16.0",
