@@ -164,7 +164,6 @@ process.on('message', async ({ type, data }) => {
           compact: false,
           sourceMaps: true,
           sourceMapTarget: curFilename,
-          resolveModuleSource: typeof resolveMap === 'object' && (source => resolveMap[source] || source),
           plugins: [
             ({ types: t }) => ({
               visitor: {
