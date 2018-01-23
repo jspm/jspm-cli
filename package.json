@@ -31,7 +31,7 @@
     "promise-retry": "^1.1.1",
     "proper-lockfile": "^2.0.1",
     "rimraf": "^2.6.2",
-    "rollup": "git+ssh://git@github.com/guybedford/rollup.git#code-splitting-build",
+    "rollup": "^0.55.0",
     "rollup-plugin-jspm": "git+ssh://git@github.com/jspm/rollup-plugin-jspm.git",
     "semver": "^5.4.1",
     "sver": "^1.6.1",
