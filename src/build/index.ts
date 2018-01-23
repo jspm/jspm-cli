@@ -103,7 +103,7 @@ export async function build (input: string | string[], opts: BuildOptions) {
       const deps = entry.imports;
       console.log(`${bold(name)}${deps.length ? ' imports ' : ''}${deps.sort().join(', ')}:`);
       
-      for (let module of entry.modules.sort()) {
+      for (let module of entry.modules.sort((m1, m2) => m1.id > m2.id ? 1 : -1)) {
         console.log(`  ${path.relative(process.cwd(), module.id).replace(winSepRegEx, '/')}`);
       }
       console.log('');

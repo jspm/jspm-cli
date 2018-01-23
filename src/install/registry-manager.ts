@@ -49,6 +49,7 @@ export interface LookupData {
 }
 
 export interface Resolved {
+  version?: string,
   source?: string,
   override?: PackageConfig,
   deprecated?: string
@@ -371,7 +372,7 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
       pkg: <ExactPackage>{
         registry,
         name: pkg.name,
-        version: resolvedVersion,
+        version: resolved.version || resolvedVersion,
         semver: new Semver(resolvedVersion)
       },
       target: redirects ? <PackageName>{
