@@ -18,14 +18,14 @@ import * as ui from './utils/ui';
 
 import path = require('path');
 import * as api from './api';
-import { bold, highlight, JspmUserError, winSepRegEx } from './utils/common';
+import { bold, highlight, JspmUserError } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { ok } from './utils/ui';
 
-const installEqualRegEx = /^([@\-\_\.a-z\d]+)=/i;
+const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
 export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {

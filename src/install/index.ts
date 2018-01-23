@@ -28,7 +28,7 @@ import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { globalConfig } from '../config';
 
-const validNameRegEx = /^[-_\.a-z\d]+$/i;
+const validNameRegEx = /^@?([-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
 
 export interface InstallOptions {
   verify: boolean, // verify all internal caches (--force)
@@ -380,7 +380,7 @@ export class Installer {
       // auto-generate name from target if necessary
       if (!install.name) {
         if (typeof install.target !== 'string')
-          install.name = install.target.name.split('/').pop();
+          install.name = install.target.name.split(':').pop();
         else
           install.name = getResourceName(install.target, this.project.projectPath);
       }
@@ -451,7 +451,7 @@ export class Installer {
 
   private async packageInstall (install: PackageInstall): Promise<void> {
     if (install.type === DepType.peer) {
-      this.project.log.warn('Peer resolution yet to be implemented.');
+      // this.project.log.warn('Peer resolution yet to be implemented.');
       install.type = DepType.primary;
     }
 
@@ -829,10 +829,15 @@ export class Installer {
         if (typeof target !== 'string') {
           if (target.range.isExact || this.opts.exact)
             target = target.fromVersion(resolution.version);
-          if (target.range.isMajor || target.range.isWildcard)
-            target = target.fromVersion('^' + resolution.version);
-          else if (target.range.isStable)
-            target = target.fromVersion('~' + resolution.version);
+          if (Semver.isValid(resolution.version)) {
+            if (target.range.isMajor || target.range.isWildcard)
+              target = target.fromVersion('^' + resolution.version);
+            else if (target.range.isStable)
+              target = target.fromVersion('~' + resolution.version);
+          }
+          else {
+            target = resolution.version;
+          }
         }
         this.changed = true;
         this.primaryRanges[install.name] = {
