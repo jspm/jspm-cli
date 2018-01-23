@@ -23,6 +23,7 @@ import globalConfig from './config/global-config-file';
 
 import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
+import { ok } from './utils/ui';
 
 const installEqualRegEx = /^([@\-\_\.a-z\d]+)=/i;
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
@@ -399,7 +400,7 @@ ${bold('Configure')}
         'source-maps'
 
         // 'watch' 'exclude-external', 'minify',
-        ], ['dir', 'out', 'format', 'external' /*, 'banner' */]);
+        ], ['dir', 'out', 'format'], ['external', /*, 'banner' */]);
         options.env = readEnv(options);
         options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
         if (options.external) {
@@ -415,40 +416,20 @@ ${bold('Configure')}
               external[pair] = true;
             }
           });
-          options.external = external;
+          // TODO: aliasing
+          options.external = Object.keys(external);
         }
-        let result;
         if ('out' in options || 'dir' in options === false && buildArgs.length === 1) {
           if (buildArgs.length !== 1)
             throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
           options.out = options.out || 'build.js';
-          result = { [options.out || 'build.js']: await api.build(buildArgs[0], options) };
+          await api.build(buildArgs[0], options);
+          ok(`Built into ${bold(options.out)}`);
         }
         else {
           options.dir = options.dir || 'dist';
-          result = await api.build(buildArgs, options);
-        }
-        if (options.showGraph) {
-          // Improvements to this welcome! sizes in KB? Actual graph display? See also index.ts in es-module-optimizer
-          const names = Object.keys(result).sort((a, b) => {
-            const aEntry = result[a].entryPoint;
-            const bEntry = result[b].entryPoint;
-            if (aEntry && !bEntry)
-              return -1;
-            else if (bEntry && !aEntry)
-              return 1;
-            return a > b ? 1 : -1;
-          });
-          for (let name of names) {
-            const entry = result[name];
-            const deps = entry.imports;
-            console.log(`${bold(name)}${deps.length ? ' imports ' : ''}${deps.sort().join(', ')}:`);
-            
-            for (let module of entry.modules.sort()) {
-              console.log(`  ${path.relative(process.cwd(), module).replace(winSepRegEx, '/')}`);
-            }
-            console.log('');
-          }
+          await api.build(buildArgs, options);
+          ok(`Built into ${bold(options.dir + '/')}`);
         }
       break;
 

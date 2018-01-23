@@ -17,33 +17,37 @@ import * as rollup from 'rollup';
 import jspmRollup = require('rollup-plugin-jspm');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
+import { ModuleFormat } from 'rollup';
+import { bold, winSepRegEx } from '../utils/common';
+import path = require('path');
 
 export interface BuildOptions {
   projectPath?: string;
   removeDir?: boolean;
   env?: any;
-  // watch: boolean;
-  // excludeExternal: boolean;
   // minify: boolean;
   sourcemap?: boolean;
   out?: string;
   dir?: 'string';
-  format?: 'esm' | 'es6' | 'es' | 'cjs' | 'amd' | 'global' | 'system';
-  external?: string | string[];
+  format?: 'esm' | 'es6' | 'es' | 'cjs' | 'amd' | 'global' | 'system' | 'iife' | 'umd';
+  external?: string[];
   globals?: { [id: string]: string };
   banner?: string;
   footer?: string;
   intro?: string;
-  // watch: boolean;
-  // excludeExternal: boolean;
+  showGraph?: boolean;
 }
 
 export async function build (input: string | string[], opts: BuildOptions) {
   if (!opts.format || opts.format === 'esm' || opts.format === 'es6')
     opts.format = 'es';
+  if (opts.format === 'global')
+    opts.format = 'iife';
 
   const rollupOptions: any = {
     input,
+    external: opts.external,
+    onwarn: () => {},
     sourcemap: opts.sourcemap,
     experimentalDynamicImport: true,
     experimentalCodeSplitting: true,
@@ -59,22 +63,50 @@ export async function build (input: string | string[], opts: BuildOptions) {
     rollupOptions.dir = opts.dir;
 
   const build = await rollup.rollup(rollupOptions);
+  let chunks;
   if (opts.out) {
+    chunks = {
+      [opts.out]: {
+        imports: build.imports,
+        exports: build.exports,
+        modules: build.modules
+      }
+    };
     await build.write({
+      exports: 'named',
       file: opts.out,
-      format: opts.format,
-      sourcemap: opts.sourcemap
-    })
+      format: <ModuleFormat>opts.format,
+      sourcemap: opts.sourcemap,
+      indent: true
+    });
   }
   else {
+    chunks = (<any>build).chunks;
     if (opts.removeDir) {
       rimraf.sync(opts.dir);
       mkdirp.sync(opts.dir);
     }
     await build.write({
+      exports: 'named',
       dir: opts.dir,
-      format: opts.format,
-      sourcemap: opts.sourcemap
-    })
+      format: <ModuleFormat>opts.format,
+      sourcemap: opts.sourcemap,
+      indent: true
+    });
+  }
+
+  if (opts.showGraph) {
+    console.log('');
+    // Improvements to this welcome! sizes in KB? Actual graph display? See also index.ts in es-module-optimizer
+    for (let name of Object.keys(chunks)) {
+      const entry = chunks[name];
+      const deps = entry.imports;
+      console.log(`${bold(name)}${deps.length ? ' imports ' : ''}${deps.sort().join(', ')}:`);
+      
+      for (let module of entry.modules.sort()) {
+        console.log(`  ${path.relative(process.cwd(), module.id).replace(winSepRegEx, '/')}`);
+      }
+      console.log('');
+    }
   }
 }
