@@ -18,10 +18,12 @@ import jspmRollup = require('rollup-plugin-jspm');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { ModuleFormat } from 'rollup';
-import { bold, winSepRegEx } from '../utils/common';
+import { bold, winSepRegEx, JspmUserError } from '../utils/common';
 import path = require('path');
+import { ok, info } from '../utils/ui';
 
 export interface BuildOptions {
+  log: boolean;
   projectPath?: string;
   removeDir?: boolean;
   env?: any;
@@ -33,9 +35,8 @@ export interface BuildOptions {
   external?: string[];
   globals?: { [id: string]: string };
   banner?: string;
-  footer?: string;
-  intro?: string;
   showGraph?: boolean;
+  watch?: boolean;
 }
 
 export async function build (input: string | string[], opts: BuildOptions) {
@@ -62,6 +63,31 @@ export async function build (input: string | string[], opts: BuildOptions) {
   else
     rollupOptions.dir = opts.dir;
 
+  if (opts.watch) {
+    if (!opts.out)
+      throw new JspmUserError(`jspm build --watch is only supported for single file builds currently.`);
+    rollupOptions.output = {
+      exports: 'named',
+      file: opts.out,
+      format: <ModuleFormat>opts.format,
+      sourcemap: opts.sourcemap,
+      indent: true,
+      banner: opts.banner
+    };
+    const watcher = await rollup.watch(rollupOptions);
+    let firstRun = true;
+    (<any>watcher).on('event', event => {
+      if (firstRun)
+        firstRun = false;
+      else if (event.code === 'BUNDLE_START')
+        info(`Rebuilding...`);
+      else if (event.code === 'BUNDLE_END')
+        ok(`Built into ${bold(opts.out)}`);
+    });
+    // pause indefinitely
+    await new Promise((_resolve, _reject) => {});
+  }
+
   const build = await rollup.rollup(rollupOptions);
   let chunks;
   if (opts.out) {
@@ -77,8 +103,11 @@ export async function build (input: string | string[], opts: BuildOptions) {
       file: opts.out,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
-      indent: true
+      indent: true,
+      banner: opts.banner
     });
+    if (opts.log)
+      ok(`Built into ${bold(opts.out)}`);
   }
   else {
     chunks = (<any>build).chunks;
@@ -91,11 +120,14 @@ export async function build (input: string | string[], opts: BuildOptions) {
       dir: opts.dir,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
-      indent: true
+      indent: true,
+      banner: opts.banner
     });
+    if (opts.log)
+      ok(`Built into ${bold(opts.dir + '/')}`);
   }
 
-  if (opts.showGraph) {
+  if (opts.showGraph && opts.log) {
     console.log('');
     // Improvements to this welcome! sizes in KB? Actual graph display? See also index.ts in es-module-optimizer
     for (let name of Object.keys(chunks)) {

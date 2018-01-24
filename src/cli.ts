@@ -139,10 +139,10 @@ ${bold('Build')}
     --format [cjs|system|amd]       Set a custom output format for the build (defaults to esm)
     --remove-dir                    Clear the output directory before build
     --show-graph                    Show the build module graph summary
-${/*TODO:      --watch                         Watch build files after build for rebuild on change
-    --minify                        Minify the build output
+    --watch                         Watch build files after build for rebuild on change     
     --banner <file|source>          Include the given banner at the top of the build file  
-
+${/*TODO:      
+    --minify                        Minify the build output
     jspm depcache <entry>             Outload the latency-optimizing preloading HTML for an ES module*/''}
 ${bold('Inspect')}${
 /*  jspm graph <entry> (TODO)      Display the dependency graph for a given module*/''}
@@ -402,10 +402,9 @@ ${bold('Configure')}
         'mjs',
         'browser', 'bin', 'react-native', 'production', 'electron',
         'show-graph',
-        'source-maps'
-
-        // 'watch' 'exclude-external', 'minify',
-        ], ['dir', 'out', 'format'], ['external', /*, 'banner' */]);
+        'source-maps',
+        'watch'// 'exclude-external', 'minify',
+        ], ['dir', 'out', 'format'], ['external', 'banner']);
         options.env = readEnv(options);
         options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
         if (options.external) {
@@ -424,17 +423,16 @@ ${bold('Configure')}
           // TODO: aliasing
           options.external = Object.keys(external);
         }
+        options.log = true;
         if ('out' in options || 'dir' in options === false && buildArgs.length === 1) {
           if (buildArgs.length !== 1)
             throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
           options.out = options.out || 'build.js';
           await api.build(buildArgs[0], options);
-          ok(`Built into ${bold(options.out)}`);
         }
         else {
           options.dir = options.dir || 'dist';
           await api.build(buildArgs, options);
-          ok(`Built into ${bold(options.dir + '/')}`);
         }
       break;
 
