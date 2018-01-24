@@ -24,9 +24,9 @@ import FileTransformCache from './file-transform';
 
 import { JSPM_CONFIG_DIR, bold, highlight, JspmUserError } from '../utils/common';
 
-export let devServerRunning = false;
+export let serverRunning = false;
 
-export interface DevserverOptions {
+export interface ServerOptions {
   port: number;
   env: any;
   open: boolean;
@@ -38,7 +38,7 @@ export interface DevserverOptions {
   production: boolean;
 };
 
-export async function devserver (opts: DevserverOptions) {
+export async function serve (opts: ServerOptions) {
   // highly immoral HTTP/2 module emitWarning avoidance
   let http2;
   try {
@@ -48,7 +48,7 @@ export async function devserver (opts: DevserverOptions) {
     process.emitWarning = emitWarning;
   }
   catch (err) {
-    throw new JspmUserError(`jspm devserver requires NodeJS 8.9.0 or greater with HTTP/2 support.`);
+    throw new JspmUserError(`jspm server requires NodeJS 8.9.0 or greater with HTTP/2 support.`);
   }
 
   let key, cert;
@@ -325,7 +325,7 @@ export default exports;
 
   server.listen(port);
   info(`Serving ${path.relative(process.cwd(), publicDir) || './'} on https://localhost:${port}`);
-  devServerRunning = true;
+  serverRunning = true;
 
   checkPjsonEsm(publicDir).catch(() => {});
 
@@ -345,7 +345,7 @@ export default exports;
     close () {
       server.close();
       fileCache.dispose();
-      devServerRunning = false;
+      serverRunning = false;
     },
     process: serverProcess
   };

@@ -206,7 +206,7 @@ ${bold('Configure')}
         }
         if (args.length)
           throw new JspmUserError(`Unknown argument ${bold(args[0])}.`);
-        const server = await api.devserver(options);
+        const server = await api.serve(options);
         await server.process;
       }
       break;

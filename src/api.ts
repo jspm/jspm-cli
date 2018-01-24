@@ -19,8 +19,8 @@ import { bold, JspmUserError, isWindows } from './utils/common';
 import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
-export { devserver, DevserverOptions } from './devserver';
-import { devServerRunning } from './devserver';
+export { serve, ServerOptions } from './serve';
+import { serverRunning } from './serve';
 
 import { build as buildFunc } from './build';
 
@@ -35,15 +35,15 @@ if (process.env.globalJspm !== undefined) {
     process.exit(1);
   });
   process.once('SIGINT', () => {
-    if (devServerRunning)
-      log('jspm dev server terminated.');
+    if (serverRunning)
+      log('jspm server terminated.');
     else
       log('jspm process terminated.');
     process.exit(1);
   });
   process.once('SIGTERM', () => {
-    if (devServerRunning)
-      log('jspm dev server terminated.');
+    if (serverRunning)
+      log('jspm server terminated.');
     else
       log('jspm process terminated.');
     process.exit(1);
