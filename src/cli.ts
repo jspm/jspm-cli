@@ -23,7 +23,6 @@ import globalConfig from './config/global-config-file';
 
 import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
-import { ok } from './utils/ui';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;

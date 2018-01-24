@@ -200,7 +200,7 @@ export default class FileTransformCache {
         const format = await formatPromise;
 
         if (dew) {
-          if (format !== 'cjs' && format !== 'json') {
+          if (format !== 'commonjs' && format !== 'json') {
             const e = new Error(`No dew transform for ${format} format.`);
             (<{ code?: string }>e).code = 'ENOTRANSFORM';
             throw e;
@@ -467,7 +467,7 @@ export default class FileTransformCache {
       }
       if (record.dew)
         relResolved += '?dew';
-      else if (format === 'cjs' || format === 'json')
+      else if (format === 'commonjs' || format === 'json')
         relResolved += '?cjs';
       if (dep !== relResolved)
         resolveMap[dep] = relResolved;
