@@ -27,6 +27,7 @@ import FetchClass from './install/fetch';
 
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
+import { runCmd } from './utils/run-cmd';
 
 export type Hook = 'preinstall' | 'postinstall';
 
@@ -303,6 +304,45 @@ export class Project {
     this.log.info(`${bold(`jspm install <packageName> -f`)} is equivalent to running a cache clear for that specific install tree.`);
     this.log.info(`Please post an issue if you suspect the cache isn't invalidating properly.`);
   }
+
+  async run (name: string, args: string[]): Promise<number> {
+    const scripts = this.config.pjson.scripts;
+    const script = scripts[name];
+    if (!script)
+      throw new JspmUserError(`No package.json ${highlight('"scripts"')} entry for command ${bold(name)}`);
+  
+    const doPrePost = !name.startsWith('pre') && !name.startsWith('post');
+  
+    const cmds = [];
+    if (doPrePost) {
+      const pre = scripts[`pre${name}`];
+      if (pre)
+        cmds.push(pre);
+      cmds.push(script);
+      const post = scripts[`post${name}`];
+      if (post)
+        cmds.push(post);
+    }
+    else {
+      cmds.push(script);
+    }
+  
+    let exitCode = 0;
+    await Promise.all(cmds.map(async cmd => {
+      if (args.length)
+        cmd += joinArgs(args);
+      const cmdCode = await runCmd(cmd, this.projectPath);
+      if (cmdCode !== 0)
+        exitCode = cmdCode;
+    }));
+
+    return exitCode;
+  }
+}
+
+const dblQuoteRegEx = /"/g;
+function joinArgs (args: string[]) {
+  return args.reduce((str, arg) => `${str} "${arg.replace(dblQuoteRegEx, '\\"')}"`, '');
 }
 
 export async function runHook (project: Project, name: Hook) {

@@ -40,10 +40,13 @@ export default class PackageJson extends ConfigFile {
       target: string | PackageTarget
     }
   };
-  overrides: { target: PackageTarget | string, override: ProcessedPackageConfig }[]
+  overrides: { target: PackageTarget | string, override: ProcessedPackageConfig }[];
   hooks: {
     [hook: string]: string
-  }
+  };
+  scripts: {
+    [name: string]: string;
+  };
 
   constructor (pjsonPath: string, project: Project) {
     super(pjsonPath, [
@@ -80,12 +83,14 @@ export default class PackageJson extends ConfigFile {
         'devDependencies',
         'peerDependencies',
         'optionalDependencies',
+        'scripts',
         ['hooks', [
           'preinstall',
           'postinstall'
         ]],
         'overrides'
       ]],
+      'scripts',
       ['hooks', [
         'preinstall',
         'postinstall'
@@ -113,7 +118,8 @@ export default class PackageJson extends ConfigFile {
 
     this.name = this.prefixedGetValue(['name'], 'string') || !this.jspmAware && 'app';
     this.version = this.prefixedGetValue(['version'], 'string');
-    this.hooks = this.prefixedGetObject(['hooks'], true);
+    this.hooks = this.prefixedGetObject(['hooks'], true) || {};
+    this.scripts = this.prefixedGetObject(['scripts'], false) || {};
 
     this.setBaseURL(this.prefixedGetValue(['directories', 'baseURL'], 'string') || '');
 

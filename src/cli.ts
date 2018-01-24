@@ -179,7 +179,9 @@ ${bold('Configure')}
 
       case 'r':
       case 'run':
-        console.log('jspm run is now jspm node. jspm run will run package.json scripts, but this is still a TODO');
+        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        const exitCode = await project.run(args[0], args.slice(1));
+        process.exit(exitCode);
       break;
 
       case 'n':
