@@ -42,17 +42,11 @@ The following items are still outstanding for the release:
 - [x] Scoped package dependency support
 - [ ] Peer dependencies
 - [ ] Support package.json scripts and bins
-- [ ] Package manager script hooks
 - [ ] `jspm init` workflow
 
-**Browser Server**
-- [ ] `--production` flag support
-
 **Build**
-- [ ] Source maps debugging
+- [x] Source maps debugging
 - [ ] `--minify` option for builds
-- [ ] Allow custom chunking options
-- [ ] Support sther standard options (`--banner`, `--skip-source-maps`, `--global-defs`, `--global-name` for global, umd outputs)
 
 ## jspm 2.0 Alpha Quickstart
 
@@ -110,7 +104,7 @@ console.log(clone({ a: 'b' }));
 ```
 
 ```
-jspm run test.js
+jspm node test.js
 ```
 
 When executing jspm is using the NodeJS `--experimental-modules` feature directly, configuring the jspm resolver through
