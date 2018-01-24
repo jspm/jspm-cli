@@ -71,13 +71,13 @@ export function resolveSync (name: string, parent?: string, env?: any, relativeF
   return jspmResolve.sync(name, parent, { env, relativeFallback });
 }
 
-export async function run (entryModule, args = [], nodeArgs = ['--no-warnings']) {
+export async function execNode (entryModule, args = [], nodeArgs = ['--no-warnings']) {
   const jspmResolve = require('jspm-resolve');
   const nodeVersion = process.versions.node.split('.');
   const nodeMajor = parseInt(nodeVersion[0]);
   const nodeMinor = parseInt(nodeVersion[1]);
   if (nodeMajor < 8 || nodeMajor === 8 && nodeMinor < 9)
-    throw new JspmUserError(`${bold('jspm run')} requires NodeJS 8.9.0 or greater.`, 'ERR_INVALID_NODE_VERSION');
+    throw new JspmUserError(`${bold('jspm node')} requires NodeJS 8.9.0 or greater.`, 'ERR_INVALID_NODE_VERSION');
   
   const node = process.argv[0];
 
@@ -89,7 +89,7 @@ export async function run (entryModule, args = [], nodeArgs = ['--no-warnings'])
 
   nodeArgs.forEach(arg => {
     if (arg[0] !== '-' || invalidNodeArguments[arg])
-      throw new JspmUserError(`Invalid NodeJS argument ${bold(arg)} for jspm run.`);
+      throw new JspmUserError(`Invalid NodeJS argument ${bold(arg)} for jspm node.`);
   });
 
   await new Promise((resolve, reject) => {

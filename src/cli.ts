@@ -121,7 +121,7 @@ ${bold('Install')}
     --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-  jspm run <module>                 Execute a given module in NodeJS with jspm resolution${/*
+  jspm node <module>                Execute NodeJS with jspm resolution${/*
   jspm <script-name> <args>         Execute a package.json script TODO*/''}
   
   jspm serve                        Start a HTTP/2 server with <script type=module> loading
@@ -180,10 +180,15 @@ ${bold('Configure')}
 
       case 'r':
       case 'run':
+        console.log('jspm run is now jspm node. jspm run will run package.json scripts, but this is still a TODO');
+      break;
+
+      case 'n':
+      case 'node':
         // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
         // let options;
         // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
-        await api.run(args[0], args.splice(1));
+        await api.execNode(args[0], args.splice(1));
       break;
 
       case 's':
