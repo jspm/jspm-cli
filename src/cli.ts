@@ -188,7 +188,7 @@ ${bold('Configure')}
         // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
         // let options;
         // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
-        await api.execNode(args[0], args.splice(1));
+        await api.execNode(args);
       break;
 
       case 's':

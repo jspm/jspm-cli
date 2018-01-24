@@ -56,11 +56,6 @@ else {
   });
 }
 
-const invalidNodeArguments = {
-  '-v': true, '--version': true, '-h': true, '--help': true, '-e': true, '--eval': true, '-p': true,
-  '--print': true, '-i': true, '--interactive': true, '-r': true, '--require': true
-};
-
 export async function resolve (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
   const jspmResolve = require('jspm-resolve');
   return jspmResolve(name, parent, { env, relativeFallback });
@@ -71,29 +66,36 @@ export function resolveSync (name: string, parent?: string, env?: any, relativeF
   return jspmResolve.sync(name, parent, { env, relativeFallback });
 }
 
-export async function execNode (entryModule, args = [], nodeArgs = ['--no-warnings']) {
-  const jspmResolve = require('jspm-resolve');
+export async function execNode (args = []) {
+  if (typeof args === 'string')
+    throw new Error('Args must be an array');
+  
   const nodeVersion = process.versions.node.split('.');
   const nodeMajor = parseInt(nodeVersion[0]);
   const nodeMinor = parseInt(nodeVersion[1]);
   if (nodeMajor < 8 || nodeMajor === 8 && nodeMinor < 9)
     throw new JspmUserError(`${bold('jspm node')} requires NodeJS 8.9.0 or greater.`, 'ERR_INVALID_NODE_VERSION');
-  
+
   const node = process.argv[0];
 
-  const resolved = jspmResolve.sync(entryModule, undefined, { env: { bin: true }, relativeFallback: true });
-  if (!resolved.resolved)
-    throw new JspmUserError(`@empty resolution found for ${entryModule}.`);
+  // resolve the module argument
+  for (let i = 0; i < args.length; i++) {
+    let arg = args[i];
+    if (arg === '-e')
+      break;
+    if (arg[0] === '-')
+      continue;
+    const jspmResolve = require('jspm-resolve');
+    const resolved = jspmResolve.sync(arg, undefined, { env: { bin: true }, relativeFallback: true });
+    if (!resolved.resolved)
+      throw new JspmUserError(`@empty resolution found for ${arg}.`);
+    args[i] = resolved.resolved;
+  }
   
   const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');
 
-  nodeArgs.forEach(arg => {
-    if (arg[0] !== '-' || invalidNodeArguments[arg])
-      throw new JspmUserError(`Invalid NodeJS argument ${bold(arg)} for jspm node.`);
-  });
-
   await new Promise((resolve, reject) => {
-    spawn(node, [...nodeArgs, '--experimental-modules', '--harmony-dynamic-import', '--loader', (isWindows ? '/' : '') + loaderPath, resolved.resolved, ...args], {
+    spawn(node, ['--experimental-modules', '--harmony-dynamic-import', '--loader', (isWindows ? '/' : '') + loaderPath, ...args], {
       stdio: 'inherit'
     })
     .on('close', code => code === 0 ? resolve() : reject());
