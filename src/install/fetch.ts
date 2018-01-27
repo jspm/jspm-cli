@@ -24,6 +24,7 @@ import { HttpsProxyAgentOptions } from './fetch';
 import { globalConfig } from '../config';
 import gitCredentialNode = require('git-credential-node');
 import { Project } from '../project';
+import { lchmod } from 'fs';
 
 // TODO: add an "http2" option to fetchOptions for http/2 support
 
@@ -103,6 +104,7 @@ export default class FetchClass {
   }
 
   getCredentials (url: string, unauthorized = false): Promise<Credentials> {
+    this.debugLog(`Getting credentials for ${url}`);
     if (!unauthorized)
       for (const urlBase in this.cachedCredentials) {
         if (url.startsWith(urlBase))
@@ -110,7 +112,9 @@ export default class FetchClass {
       }
 
     const urlObj = new URL(url);
-    const urlBase = urlObj.origin;
+    let urlBase = urlObj.origin;
+    if (urlBase === 'null')
+      urlBase = `${urlObj.protocol}//${urlObj.host}`;
     
     return this.cachedCredentials[urlBase] = (async () => {
       const credentials = {

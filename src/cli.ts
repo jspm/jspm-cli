@@ -23,6 +23,7 @@ import globalConfig from './config/global-config-file';
 
 import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
+import { runCmd } from './utils/run-cmd';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
@@ -195,7 +196,7 @@ ${bold('Configure')}
       case 's':
       case 'serve': {
         let options;
-        ({ options, args } = readOptions(args, ['open', 'generate-cert'], []));
+        ({ options, args } = readOptions(args, ['open', 'generate-cert'], null, ['script']));
         if (projectPath && setProjectPath) {
           try {
             process.chdir(projectPath);
@@ -208,7 +209,12 @@ ${bold('Configure')}
         if (args.length)
           throw new JspmUserError(`Unknown argument ${bold(args[0])}.`);
         const server = await api.serve(options);
+        let runTask;
+        if (options.script)
+          runTask = runCmd(options.script, projectPath);
         await server.process;
+        if (runTask)
+          process.exit(await runTask);
       }
       break;
 

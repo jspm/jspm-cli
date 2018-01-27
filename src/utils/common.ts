@@ -99,7 +99,7 @@ export class JspmError extends Error {
     let originalErr = (<JspmError>childErr).originalErr;
     if (!(<JspmUserError>childErr).hideStack) {
       let stack = originalErr ? originalErr.stack : childErr.stack;
-      this.stack = message + '\n     ' + stack;
+      this.stack = message + (stack ? '\n     ' + stack : '');
     }
     this.retriable = (<JspmError>childErr).retriable || false;
     this.hideStack = (<JspmError>childErr).hideStack || false;

@@ -27,6 +27,7 @@ import ncp = require('ncp');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { globalConfig } from '../config';
+import { writeBinScripts } from './bin';
 
 const validNameRegEx = /^@?([-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
 
@@ -63,6 +64,7 @@ interface PackageInstallState {
 };
 
 export class Installer {
+  binFolderChecked: boolean;
   private opts: InstallOptions;
   private project: Project;
   private config: Config;
@@ -106,6 +108,7 @@ export class Installer {
     // cache information associated with the current jspm project
     // keyed by package path -> package info
     this.jspmPackageInstallStateCache = {};
+    this.binFolderChecked = false;
     this.sourceInstalls = {};
     this.installs = {};
 
@@ -579,7 +582,7 @@ export class Installer {
         return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
       }
 
-      let preloadedDepNames: string[], depsInstallPromise: Promise<void>, preloadDepsInstallPromise: Promise<void>;
+      let preloadedDepNames: string[], preloadDepsInstallPromise: Promise<void>;
       
       // kick off dependency installs now
       if (override) {
@@ -613,24 +616,43 @@ export class Installer {
       let config, hash;
       ({ config, override, hash } = installResult);
 
-      // install dependencies, skipping already preloaded
-      depsInstallPromise = this.installDependencies(resolvedPkg.registry, config, resolvedPkgName, preloadedDepNames);
-      depsInstallPromise.catch(() => {});
+      await [
+        // install dependencies, skipping already preloaded
+        this.installDependencies(resolvedPkg.registry, config, resolvedPkgName, preloadedDepNames),
 
-      // symlink to the global install
-      if (await this.setPackageToHash(resolvedPkgName, hash)) {
-        this.changed = true;
-        
-        // only show deprecation message on first install into jspm_packages
-        if (deprecated)
-          this.project.log.warn(`Deprecation warning for ${highlight(resolvedPkgName)}: ${bold(deprecated)}`);
-      }
+        // symlink to the global install
+        (async () => {
+          if (await this.setPackageToHash(resolvedPkgName, hash)) {
+            this.changed = true;
+            
+            // only show deprecation message on first install into jspm_packages
+            if (deprecated)
+              this.project.log.warn(`Deprecation warning for ${highlight(resolvedPkgName)}: ${bold(deprecated)}`);
+          }
+        })(),
 
-      await preloadDepsInstallPromise;
-      await depsInstallPromise;
+        this.createBins(config, resolvedPkgName),
+
+        preloadDepsInstallPromise
+      ];
 
       return override;
     })();
+  }
+
+  private async createBins (config: ProcessedPackageConfig, resolvedPkgName: string) {
+    // NB we should create a queue based on precedence to ensure deterministic ordering
+    // when there are namespace collissions, but this problem will likely not be hit for a while
+    if (config.bin) {
+      const binDir = path.join(this.config.pjson.packages, '.bin');
+      if (!this.binFolderChecked) {
+        await new Promise((resolve, reject) => mkdirp(binDir, err => err ? reject(err) : resolve(binDir)));
+        this.binFolderChecked = true;
+      }
+      await Promise.all(Object.keys(config.bin).map(p => 
+        writeBinScripts(binDir, p, resolvedPkgName.replace(':', path.sep) + path.sep + config.bin[p])
+      ));
+    }
   }
 
   // resource install is different to source install in that
@@ -777,19 +799,20 @@ export class Installer {
         return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
       }
 
-      const depsInstallPromise = this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
-      depsInstallPromise.catch(() => {});
-
-      if (isLink) {
-        if (await this.setPackageToLinked(resolvedPkgName, linkPath))
-          this.changed = true;
-      }
-      else {
-        if (await this.setPackageToHash(resolvedPkgName, hash))
-          this.changed = true;
-      }
-
-      await depsInstallPromise;
+      await [
+        this.installDependencies(resolvedPkg.registry, config, resolvedPkgName),
+        (async () => {
+          if (isLink) {
+            if (await this.setPackageToLinked(resolvedPkgName, linkPath))
+              this.changed = true;
+          }
+          else {
+            if (await this.setPackageToHash(resolvedPkgName, hash))
+              this.changed = true;
+          }
+        })(),
+        this.createBins(config, resolvedPkgName)
+      ];
     })();
   }
 
@@ -1180,7 +1203,7 @@ export class Installer {
         let filePath = path.resolve(dir, file);
         let pkgName = pkgBase + (pkgBase.indexOf(':') === -1 ? ':' : '/') + file;
 
-        if (packageList.indexOf(pkgName) !== -1) {
+        if (packageList.indexOf(pkgName) !== -1 || pkgName === ':.bin') {
           deletedAll = false;
           return;
         }

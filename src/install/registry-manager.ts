@@ -126,7 +126,6 @@ export default class RegistryManager {
     this.cacheDir = cacheDir;
     this.strictSSL = strictSSL;
     this.timeouts = timeouts;
-    this.cacheDir = cacheDir;
     this.defaultRegistry = defaultRegistry;
     this.instanceId = Math.round(Math.random() * 10**10);
 
@@ -485,10 +484,11 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
   }> {
     let sourceHash = sha256(source);
 
-    var { config = undefined, hash = undefined } = await this.cache.getUnlocked(sourceHash, this.timeouts.download) || {};
+    var { config = undefined, hash = undefined }: { config: ProcessedPackageConfig, hash: string }
+        = await this.cache.getUnlocked(sourceHash, this.timeouts.download) || {};
 
     if (config) {
-      config = processPackageConfig(config, true);
+      config = processPackageConfig(<any>config, true);
       if (override) {
         ({ config, override } = overridePackageConfig(config, override));
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
@@ -508,9 +508,12 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
     try {
       // could have been a write while we were getting the lock
       if (!config) {
-        var { config = undefined, hash = undefined } = await this.cache.get(sourceHash) || {};
+        var { config = undefined, hash = undefined }: {
+          config: ProcessedPackageConfig,
+          hash: string
+        } = await this.cache.get(sourceHash) || {};
         if (config) {
-          config = processPackageConfig(config, true);
+          config = processPackageConfig(<any>config, true);
           if (override) {
             ({ config, override } = overridePackageConfig(config, override));
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');

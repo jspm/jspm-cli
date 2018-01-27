@@ -210,7 +210,7 @@ Looking at `dist` we now see three separate files:
 
 * `babel-core.js`, the dynamically loaded chunk.
 * `test.js`, the initial load
-* `chunk-<hash>.js`, the chunk containing the shared code between `babel-core` and `test.js` (lodash clone)
+* `chunk-<index>.js`, the chunk containing the shared code between `babel-core` and `test.js` (lodash clone)
 
 We can also set the `--show-graph` flag when building to see the exact module breakdown here.
 

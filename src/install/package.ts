@@ -299,6 +299,9 @@ export interface ProcessedPackageConfig {
   esm?: boolean,
   mains?: Conditional,
   map?: MapConfig,
+  bin?: {
+    [name: string]: string
+  },
   dependencies?: {
     [name: string]: PackageTarget | string
   },
@@ -318,6 +321,9 @@ export interface PackageConfig {
   esm?: boolean,
   mains?: Conditional,
   map?: MapConfig,
+  bin?: string | {
+    [name: string]: string
+  },
   dependencies?: {
     [name: string]: string
   },
@@ -407,6 +413,15 @@ export function processPackageConfig (pcfg: PackageConfig, rangeConversion = fal
     processed.name = pcfg.name;
   if (typeof pcfg.version === 'string')
     processed.version = pcfg.version;
+  if (typeof pcfg.bin === 'string')
+    processed.bin = { [pcfg.name]: pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin };
+  else if (typeof pcfg.bin === 'object') {
+    processed.bin = {};
+    for (let p in pcfg.bin) {
+      const mapped = pcfg.bin[p];
+      processed.bin[p] = mapped.startsWith('./') ? mapped.substr(2) : mapped;
+    }
+  }
   if (pcfg.dependencies) {
     const dependencies = processed.dependencies = {};
     for (const name in pcfg.dependencies)
@@ -549,6 +564,8 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     spcfg.name = pcfg.name;
   if (pcfg.version)
     spcfg.version = pcfg.version;
+  if (pcfg.bin)
+    spcfg.bin = pcfg.bin;
   if (pcfg.dependencies) {
     const dependencies = spcfg.dependencies = {};
     for (let p in pcfg.dependencies)
@@ -648,6 +665,11 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
               override = {};
             override.map = mapOverride;
           }
+        }
+        else if (p === 'bin') {
+          if (!override)
+            override = {};
+          override.bin = Object.assign(baseVal, overridePcfg[p]);
         }
         // dependencies
         else {
