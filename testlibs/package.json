@@ -246,7 +246,10 @@
       "jspmNodeConversion": false,
       "format": "cjs"
     },
-    "npm:readable-stream@1.0.33": {
+    "npm:pbkdf2@3.0.14": {
+      "main": "browser.js"
+    },
+    "npm:readable-stream@1.0.34": {
       "map": {
         "stream": "stream-browserify/index"
       },
@@ -258,6 +261,9 @@
         "inherits": "~2.0.1",
         "stream-browserify": "~1.0.0"
       }
+    },
+    "npm:safe-buffer@5.1.1": {
+      "browser": "index.js"
     },
     "npm:systemjs-builder@0.15.18": {
       "meta": {
@@ -309,26 +315,6 @@
       },
       "map": {
         "./fs.js": "@node/fs"
-      }
-    },
-    "npm:inherits@2.0.1": {
-      "ignore": [
-        "test.js"
-      ],
-      "systemjs": {
-        "main": "inherits.js",
-        "format": "cjs",
-        "meta": {
-          "*.json": {
-            "format": "json"
-          }
-        },
-        "map": {
-          "util": "@node/util",
-          "./inherits.js": {
-            "browser": "./inherits_browser.js"
-          }
-        }
       }
     },
     "npm:systemjs-builder@0.15.35": {
