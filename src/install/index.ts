@@ -859,7 +859,7 @@ export class Installer {
               target = target.fromVersion('~' + resolution.version);
           }
           else {
-            target = resolution.version;
+            target = new PackageTarget(resolution.registry, resolution.name, resolution.version);
           }
         }
         this.changed = true;

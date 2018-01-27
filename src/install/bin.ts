@@ -8,7 +8,7 @@ export async function writeBinScripts (binDir: string, name: string, binModulePa
     }, err => err ? reject(err) : resolve())
   ), new Promise((resolve, reject) =>
     fs.writeFile(path.resolve(binDir, name + '.cmd'), winBin(binModulePath), {
-      mode: 0x777
+      mode: 0o777
     }, err => err ? reject(err) : resolve())
   )];
 }
