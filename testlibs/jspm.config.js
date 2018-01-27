@@ -34,7 +34,7 @@ SystemJS.config({
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "jodid25519": "npm:jodid25519@1.0.2",
-    "jquery": "github:components/jquery@2.1.4",
+    "jquery": "github:components/jquery@2.2.4",
     "jsbn": "npm:jsbn@0.1.0",
     "jspm": "github:jspm/jspm-cli@0.17",
     "jspm-registry": "npm:jspm-registry@0.4.3",
@@ -1849,7 +1849,7 @@ SystemJS.config({
     },
     "github:twbs/bootstrap@3.3.7": {
       "map": {
-        "jquery": "github:components/jquery@2.1.4"
+        "jquery": "github:components/jquery@2.2.4"
       }
     },
     "npm:which@1.2.12": {
