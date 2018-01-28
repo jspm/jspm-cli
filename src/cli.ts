@@ -398,7 +398,7 @@ ${bold('Configure')}
         'show-graph',
         'source-maps',
         'watch'// 'exclude-external', 'minify',
-        ], ['dir', 'out', 'format'], ['external', 'banner']);
+        ], ['dir', 'out', 'format'], ['target', 'external', 'banner']);
         options.env = readEnv(options);
         options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
         if (options.external) {
@@ -417,6 +417,10 @@ ${bold('Configure')}
           // TODO: aliasing
           options.external = Object.keys(external);
         }
+        if (options.target)
+          options.target = options.target.split(',').map(x => x.trim());
+        else if (options.target === '')
+          options.target = true;
         options.log = true;
         if ('out' in options || 'dir' in options === false && buildArgs.length === 1) {
           if (buildArgs.length !== 1)

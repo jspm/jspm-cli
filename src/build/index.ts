@@ -22,6 +22,52 @@ import { bold, winSepRegEx, JspmUserError } from '../utils/common';
 import path = require('path');
 import { ok, info } from '../utils/ui';
 
+const defaultEnvTargets = {
+  browser: {
+    esm: {
+      esmodules: true
+    },
+    other: {
+      browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
+    }
+  },
+  node: {
+    esm: {
+      node: '8.9.0'
+    },
+    other: {
+      node: '6.12.3'
+    }
+  }
+};
+
+function getDefaultTarget (env: any, target: boolean | string[], esm: boolean) {
+  let envTarget, envTargetName;
+  if (env.node === false || env.browser === true) {
+    if (target)
+      envTarget = { browsers: target };
+    else if (esm)
+      envTarget = defaultEnvTargets.browser.esm;
+    else
+      envTarget = defaultEnvTargets.browser.other;
+  }
+  else {
+    if (target)
+      envTarget = { node: target };
+    else if (esm)
+      envTarget = defaultEnvTargets.node.esm;
+    else
+      envTarget = defaultEnvTargets.node.other;
+  }
+  if (env.node === false || env.browser === true) {
+    envTargetName = 'browser ' + (target && (<string[]>target).join(', ') || envTarget.browsers || 'esmodules baseline');
+  }
+  else {
+    envTargetName = 'NodeJS ' + (target && (<string[]>target).join(', ') || envTarget.node);
+  }
+  return { envTarget, envTargetName };
+}
+
 export interface BuildOptions {
   log: boolean;
   projectPath?: string;
@@ -37,6 +83,7 @@ export interface BuildOptions {
   banner?: string;
   showGraph?: boolean;
   watch?: boolean;
+  target?: boolean | string[];
 }
 
 export async function build (input: string | string[], opts: BuildOptions) {
@@ -45,6 +92,8 @@ export async function build (input: string | string[], opts: BuildOptions) {
   if (opts.format === 'global')
     opts.format = 'iife';
 
+  let { envTarget, envTargetName } = getDefaultTarget(opts.env || {}, opts.target, opts.format === 'es');
+  
   const rollupOptions: any = {
     input,
     external: opts.external,
@@ -54,7 +103,8 @@ export async function build (input: string | string[], opts: BuildOptions) {
     experimentalCodeSplitting: true,
     plugins: [jspmRollup({
       projectPath: opts.projectPath || process.cwd(),
-      env: opts.env
+      env: opts.env,
+      envTarget
     })]
   };
 
@@ -107,7 +157,7 @@ export async function build (input: string | string[], opts: BuildOptions) {
       banner: opts.banner
     });
     if (opts.log)
-      ok(`Built into ${bold(opts.out)}`);
+      ok(`Built into ${bold(opts.out)}${envTargetName ? ' for ' + envTargetName : ''}`);
   }
   else {
     chunks = (<any>build).chunks;
@@ -124,7 +174,7 @@ export async function build (input: string | string[], opts: BuildOptions) {
       banner: opts.banner
     });
     if (opts.log)
-      ok(`Built into ${bold(opts.dir + '/')}`);
+      ok(`Built into ${bold(opts.dir + '/')}${envTargetName ? ' for ' + envTargetName : ''}`);
   }
 
   if (opts.showGraph && opts.log) {
