@@ -52,6 +52,9 @@ export { JSPM_CONFIG_DIR, JSPM_CACHE_DIR }
 
 export const isWindows = process.platform === 'win32';
 
+export const PATH = isWindows ? Object.keys(process.env).find(e => Boolean(e.match(/^PATH$/i))) || 'Path' : 'PATH';
+export const PATHS_SEP = process.platform === 'win32' ? ';' : ':';
+
 export const winSepRegEx = /\\/g;
 
 export function bold (str: string): string {

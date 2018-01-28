@@ -20,7 +20,7 @@ import RegistryManager from './registry-manager';
 import { Semver } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
-    ResolveTree, processPackageConfig, overridePackageConfig } from './package';
+    ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx } from './package';
 import { JSPM_CACHE_DIR, readJSON, JspmUserError, bold, highlight, JspmError, isWindows } from '../utils/common';
 import fs = require('graceful-fs');
 import ncp = require('ncp');
@@ -30,15 +30,17 @@ import { globalConfig } from '../config';
 import { writeBinScripts } from './bin';
 
 const validNameRegEx = /^@?([-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
+const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
 export interface InstallOptions {
-  verify: boolean, // verify all internal caches (--force)
-  edge: boolean, // allow installing prerelease ranges
-  lock: boolean, // existing dependency installs remain locked, new ones get deduped
-  latest: boolean, // all dependencies loaded to latest version with no deduping
-  optional: boolean, // install optional dependencies
-  reset: boolean, // resets checked out and linked packages
-  exact: boolean, // install to exact version
+  verify?: boolean, // verify all internal caches (--force)
+  edge?: boolean, // allow installing prerelease ranges
+  lock?: boolean, // existing dependency installs remain locked, new ones get deduped
+  latest?: boolean, // all dependencies loaded to latest version with no deduping
+  dedupe?: boolean,
+  optional?: boolean, // install optional dependencies
+  reset?: boolean, // resets checked out and linked packages
+  exact?: boolean, // install to exact version
 }
 
 export interface Install {
@@ -363,6 +365,9 @@ export class Installer {
     this.opts = opts;
     this.changed = false;
 
+    if (this.opts.dedupe !== false)
+      this.opts.dedupe = !this.opts.lock;
+
     // no installs, install from package.json
     if (installs.length === 0) {
       // maintain existing package.json ranges
@@ -380,6 +385,34 @@ export class Installer {
 
     // install in parallel
     await Promise.all(installs.map(install => {
+      const target = install.target;
+      if (typeof target === 'string') {
+        /*
+          * File install sugar cases:
+          *   ./local -> file:./local
+          *   /local -> file:/local
+          *   ~/file -> file:~/file
+          */
+        if (target.match(fileInstallRegEx)) {
+          install.target = 'file:' + target;
+        }
+        
+        /*
+          * Plain target install
+          * Should ideally support a/b/c -> file:a/b/c resource sugar, but for now omitted
+          */
+        else if (!target.match(resourceInstallRegEx)) {
+          let registryIndex = target.indexOf(':');
+          let targetString = target;
+          // a/b -> github:a/b sugar
+          if (registryIndex === -1 && target.indexOf('/') !== -1 && target[0] !== '@')
+            targetString = 'github:' + target;
+          if (registryIndex === -1)
+            targetString = ':' + targetString;
+          install.target = processPackageTarget(install.name, targetString, this.project.defaultRegistry);
+        }
+      }
+
       // auto-generate name from target if necessary
       if (!install.name) {
         if (typeof install.target !== 'string')
@@ -541,7 +574,7 @@ export class Installer {
         new PackageTarget(resolution.target.registry, resolution.target.name, resolution.target.version), resolution.pkg, source);
 
       // upgrade anything to this resolution which can (this is the orphaning)
-      if (!this.opts.lock)
+      if (this.opts.dedupe)
         this.upgradePackagesTo(resolvedPkg).catch(() => {});
       
       const sourceInstallPromise = this.sourceInstall(resolvedPkg, source, override, resolution && resolution.deprecated);
@@ -616,7 +649,7 @@ export class Installer {
       let config, hash;
       ({ config, override, hash } = installResult);
 
-      await [
+      await Promise.all([
         // install dependencies, skipping already preloaded
         this.installDependencies(resolvedPkg.registry, config, resolvedPkgName, preloadedDepNames),
 
@@ -634,7 +667,7 @@ export class Installer {
         this.createBins(config, resolvedPkgName),
 
         preloadDepsInstallPromise
-      ];
+      ]);
 
       return override;
     })();
@@ -799,7 +832,7 @@ export class Installer {
         return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
       }
 
-      await [
+      await Promise.all([
         this.installDependencies(resolvedPkg.registry, config, resolvedPkgName),
         (async () => {
           if (isLink) {
@@ -812,7 +845,7 @@ export class Installer {
           }
         })(),
         this.createBins(config, resolvedPkgName)
-      ];
+      ]);
     })();
   }
 
@@ -917,10 +950,6 @@ export class Installer {
 
   // upgrades any packages in the installing or installed tree to the newly added resolution
   private async upgradePackagesTo (upgradePkg: ExactPackage) {
-    // dont upgrade installed tree if locked
-    if (this.opts.lock)
-      return;
-
     await this.ensureInstallRanges(upgradePkg);
 
     await this.installTree.visit((pkg: ExactPackage, name: string, parent?: string) => {

@@ -388,10 +388,10 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
   async resolveSource (source: string, packagePath: string, projectPath: string): Promise<string> {
     if (source.startsWith('link:') || source.startsWith('file:') || source.startsWith('git+file:')) {
       let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
-      let sourcePath = path.resolve(projectPath, source.substr(source[0] === 'g' ? 9 : 5));
+      let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
       
       // relative file path installs that are not for the top-level project are relative to their package real path
-      if (packagePath !== projectPath) {
+      if (packagePath !== process.cwd()) {
         if ((isWindows && (source[0] === '/' || source[0] === '\\')) ||
             sourcePath[0] === '.' && (sourcePath[1] === '/' || sourcePath[1] === '\\' || (
             sourcePath[1] === '.' && (sourcePath[2] === '/' || sourcePath[2] === '\\')))) {
@@ -566,6 +566,30 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
           })()
         ]);
         pjsonPath = path.resolve(dir, 'package.json');
+      }
+
+      // resolve each "bin" creating a ".js" symlink for those without an extension
+      // ".js" extension added automatically during config processing phase already
+      if (config.bin) {
+        await Object.keys(config.bin).map(async name => {
+          const binPath = config.bin[name];
+          // NB this should really be exact jspm resolve
+          if (await new Promise((resolve, reject) => fs.access(path.resolve(dir, binPath), err => {
+            if (err && err.code !== 'ENOENT')
+              reject(err);
+            else
+              resolve(err ? false : true);
+          })))
+            return;
+          if (await new Promise((resolve, reject) => fs.access(path.resolve(dir, binPath.substr(0, binPath.length - 3)), err => {
+            if (err && err.code !== 'ENOENT')
+              reject(err);
+            else
+              resolve(err ? false : true);
+          }))) {
+            await new Promise((resolve, reject) => fs.symlink(`./${path.basename(binPath.substr(0, binPath.length - 3))}`, path.resolve(dir, binPath), err => err ? reject(err) : resolve()));
+          }
+        });
       }
 
       await writeJSONStyled(pjsonPath, Object.assign(pjson, serializePackageConfig(config)), style || defaultStyle);

@@ -21,12 +21,12 @@ import * as api from './api';
 import { bold, highlight, JspmUserError } from './utils/common';
 import globalConfig from './config/global-config-file';
 
-import { DepType, processPackageTarget, resourceInstallRegEx } from './install/package';
+import { DepType } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { runCmd } from './utils/run-cmd';
+import { JSPM_GLOBAL_PATH } from './api';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
-const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
 export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {
   if (typeof args === 'string')
@@ -57,6 +57,11 @@ export default async function cliHandler (projectPath: string, cmd: string, args
           ui.setLogLevel(logLevel);
           (<string[]>args).splice(i, 2);
           i -= 2;
+        break;
+        case '-g':
+          setProjectPath = true;
+          projectPath = api.JSPM_GLOBAL_PATH;
+          (<string[]>args).splice(i, 1);
         break;
         case '-p':
         case '--project':
@@ -162,27 +167,33 @@ ${bold('Configure')}
   `);
       break;
 
-      case 'init':
-        ui.err('jspm init is still under development.');
-        return;
-        var projectDir;
-        if (setProjectPath) {
-          if (args[0])
-            throw new JspmUserError(`Only one argument is passed to jspm init - the project path to initialize.`);
-          projectDir = projectPath;
+      case 'init': {
+        const [generator, target = generator] = args[0] && args[0].split('=');
+        if (!generator) {
+          throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
-        else {
-          projectDir = args[0];
-        }
-        project = new api.Project(projectDir, { offline, preferOffline, userInput, init: true });
-        await project.save();
+        const generatorName = `jspm-template-${generator}`;
+        project = new api.Project(api.JSPM_GLOBAL_PATH, { offline, preferOffline, userInput });
+        await project.install([{
+          name: generatorName,
+          target: target || generatorName,
+          parent: undefined,
+          type: DepType.primary
+        }], {
+          dedupe: false,
+          latest: true
+        });
+        const exitCode = await api.execNode([`${generatorName}/init`, ...args.slice(1)], api.JSPM_GLOBAL_PATH);
+        process.exit(exitCode);
+      }
       break;
 
       case 'r':
-      case 'run':
+      case 'run': {
         project = new api.Project(projectPath, { offline, preferOffline, userInput });
         const exitCode = await project.run(args[0], args.slice(1));
         process.exit(exitCode);
+      }
       break;
 
       case 'n':
@@ -190,7 +201,7 @@ ${bold('Configure')}
         // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
         // let options;
         // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
-        await api.execNode(args);
+        await api.execNode(args, setProjectPath ? projectPath : undefined);
       break;
 
       case 's':
@@ -231,6 +242,9 @@ ${bold('Configure')}
           ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env, true));
           if (parentFormat === 'builtin')
             parent = undefined;
+        }
+        else if (setProjectPath) {
+          parent = projectPath + path.sep;
         }
         
         const resolved = api.resolveSync(args[0], parent, env, true);
@@ -346,6 +360,11 @@ ${bold('Configure')}
             throw new JspmUserError(`An override can only be specified through ${highlight(`-o`)} when installing a single dependency at a time.`);
         }
 
+        if (projectPath === JSPM_GLOBAL_PATH && !options.lock) {
+          options.latest = true;
+          options.dedupe = false;
+        }
+
         const installTargets = installArgs.map(arg => {
           let name, target;
 
@@ -360,31 +379,6 @@ ${bold('Configure')}
           }
           else {
             target = arg;
-          }
-
-          /*
-           * File install sugar cases:
-           *   ./local -> file:./local
-           *   /local -> file:/local
-           *   ~/file -> file:~/file
-           */
-          if (target.match(fileInstallRegEx)) {
-            target = 'file:' + target;
-          }
-          
-          /*
-           * Plain target install
-           * Should ideally support a/b/c -> file:a/b/c resource sugar, but for now omitted
-           */
-          else if (!target.match(resourceInstallRegEx)) {
-            let registryIndex = target.indexOf(':');
-            let targetString = target;
-            // a/b -> github:a/b sugar
-            if (registryIndex === -1 && target.indexOf('/') !== -1 && target[0] !== '@')
-              targetString = 'github:' + target;
-            if (registryIndex === -1)
-              targetString = ':' + targetString;
-            target = processPackageTarget(name, targetString, project.defaultRegistry);
           }
 
           // when name is undefined, install will auto-populate from target

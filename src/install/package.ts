@@ -413,13 +413,20 @@ export function processPackageConfig (pcfg: PackageConfig, rangeConversion = fal
     processed.name = pcfg.name;
   if (typeof pcfg.version === 'string')
     processed.version = pcfg.version;
-  if (typeof pcfg.bin === 'string')
-    processed.bin = { [pcfg.name]: pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin };
+  if (typeof pcfg.bin === 'string') {
+    let binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
+    if (!binPath.endsWith('.js'))
+      binPath += '.js';
+    processed.bin = { [pcfg.name]: binPath };
+  }
   else if (typeof pcfg.bin === 'object') {
     processed.bin = {};
     for (let p in pcfg.bin) {
       const mapped = pcfg.bin[p];
-      processed.bin[p] = mapped.startsWith('./') ? mapped.substr(2) : mapped;
+      let binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
+      if (!binPath.endsWith('.js'))
+        binPath += '.js';
+      processed.bin[p] = binPath;
     }
   }
   if (pcfg.dependencies) {
@@ -667,9 +674,13 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
           }
         }
         else if (p === 'bin') {
-          if (!override)
-            override = {};
-          override.bin = Object.assign(baseVal, overridePcfg[p]);
+          for (let q in overridePcfg.bin) {
+            if (baseVal[q] === overridePcfg.bin[q])
+              continue;
+            override = override || {};
+            override.bin = override.bin || {};
+            baseVal[q] = override.bin[q] = overridePcfg.bin[q];
+          }
         }
         // dependencies
         else {

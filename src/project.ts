@@ -16,8 +16,9 @@
 import * as path from 'path';
 import rimraf = require('rimraf');
 import events = require('events');
+import mkdirp = require('mkdirp');
 
-import { JspmUserError, bold, highlight, underline, JSPM_CACHE_DIR } from './utils/common';
+import { JspmUserError, bold, highlight, underline, JSPM_CACHE_DIR, PATH } from './utils/common';
 import { logErr, log, confirm, input, LogType, startSpinner, stopSpinner, logLevel } from './utils/ui';
 import Config from './config';
 import RegistryManager from './install/registry-manager';
@@ -28,6 +29,7 @@ import FetchClass from './install/fetch';
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
 import { runCmd } from './utils/run-cmd';
+import { JSPM_GLOBAL_PATH } from './api';
 
 export type Hook = 'preinstall' | 'postinstall';
 
@@ -72,8 +74,9 @@ export class Project {
   installer: Installer;
   fetch: FetchClass;
 
-  constructor (projectPath: string, { userInput = true, offline = false, preferOffline = false, init = false } = {}) {
+  constructor (projectPath: string, { userInput = true, offline = false, preferOffline = false } = {}) {
     this.projectPath = projectPath;
+
     if (!hasGit)
       throw new JspmUserError(`${bold('git')} is not installed in path. You can install git from http://git-scm.com/downloads.`);
 
@@ -84,8 +87,17 @@ export class Project {
     if (process.env.globalJspm === 'true')
       this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
 
+    if (this.projectPath === JSPM_GLOBAL_PATH) {
+      const globalBin = path.join(this.projectPath, 'jspm_packages', '.bin');
+      if (process.env[PATH].indexOf(globalBin) === -1) {
+        this.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
+      }
+    }
+
     // hardcoded for now (pending jspm 3...)
     this.defaultRegistry = 'npm';
+
+    mkdirp.sync(projectPath);
 
     this.config = new Config(projectPath, this);
     this.globalConfig = globalConfig;
@@ -174,7 +186,7 @@ export class Project {
     else
       this.log.ok('Already up to date.');
   }
-  async install (installs: Install[], opts: InstallOptions) {
+  async install (installs: Install[], opts: InstallOptions = {}) {
     const taskEnd = this.log.taskStart('Installing...');
     try {
       await runHook(this, 'preinstall');      

@@ -15,7 +15,7 @@
  */
 const { spawn } = require('child_process');
 export const version = require('../package.json').version;
-import { bold, JspmUserError, isWindows } from './utils/common';
+import { bold, JspmUserError, isWindows, JSPM_CONFIG_DIR } from './utils/common';
 import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
@@ -23,6 +23,9 @@ export { serve, ServerOptions } from './serve';
 import { serverRunning } from './serve';
 
 import { build as buildFunc } from './build';
+import path = require('path');
+
+export const JSPM_GLOBAL_PATH = path.resolve(JSPM_CONFIG_DIR, 'global-project');
 
 export const build: typeof buildFunc = function () {
   return require('./build').build.apply(this, arguments);
@@ -66,7 +69,7 @@ export function resolveSync (name: string, parent?: string, env?: any, relativeF
   return jspmResolve.sync(name, parent, { env, relativeFallback });
 }
 
-export async function execNode (args = []) {
+export async function execNode (args = [], projectPath = process.cwd()) {
   if (typeof args === 'string')
     throw new Error('Args must be an array');
   
@@ -86,7 +89,7 @@ export async function execNode (args = []) {
     if (arg[0] === '-')
       continue;
     const jspmResolve = require('jspm-resolve');
-    const resolved = jspmResolve.sync(arg, undefined, { env: { bin: true }, relativeFallback: true });
+    const resolved = jspmResolve.sync(arg, projectPath + '/', { env: { bin: true }, relativeFallback: true });
     if (!resolved.resolved)
       throw new JspmUserError(`@empty resolution found for ${arg}.`);
     args[i] = resolved.resolved;
@@ -94,10 +97,11 @@ export async function execNode (args = []) {
   
   const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');
 
-  await new Promise((resolve, reject) => {
+  return new Promise<number>((resolve, reject) => {
     spawn(node, ['--experimental-modules', '--harmony-dynamic-import', '--loader', (isWindows ? '/' : '') + loaderPath, ...args], {
       stdio: 'inherit'
     })
-    .on('close', code => code === 0 ? resolve() : reject());
+    .on('close', code => resolve(code))
+    .on('error', err => reject(err));
   });
 }

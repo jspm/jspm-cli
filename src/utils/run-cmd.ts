@@ -1,9 +1,7 @@
 import childProcess = require('child_process');
 import process = require('process');
-import { isWindows } from './common';
+import { isWindows, PATH, PATHS_SEP } from './common';
 import path = require('path');
-
-const PATH = isWindows ? Object.keys(process.env).find(e => Boolean(e.match(/^PATH$/i))) || 'Path' : 'PATH';
 
 export async function runCmd (script: string, cwd: string): Promise<number> {
   const env = {};
@@ -14,7 +12,7 @@ export async function runCmd (script: string, cwd: string): Promise<number> {
   pathArr.push(path.join(cwd, 'node_modules', '.bin'));
   pathArr.push(process.env[PATH]);
 
-  env[PATH] = pathArr.join(process.platform === 'win32' ? ';' : ':');
+  env[PATH] = pathArr.join(PATHS_SEP);
 
   const sh = isWindows ? process.env.comspec || 'cmd' : 'sh';
   const shFlag = isWindows ? '/d /s /c' : '-c';
