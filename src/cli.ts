@@ -172,7 +172,7 @@ ${bold('Configure')}
         if (!generator) {
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
-        const generatorName = `jspm-template-${generator}`;
+        const generatorName = `jspm-init-${generator}`;
         project = new api.Project(api.JSPM_GLOBAL_PATH, { offline, preferOffline, userInput });
         await project.install([{
           name: generatorName,
