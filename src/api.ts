@@ -93,6 +93,7 @@ export async function execNode (args = [], projectPath = process.cwd()) {
     if (!resolved.resolved)
       throw new JspmUserError(`@empty resolution found for ${arg}.`);
     args[i] = resolved.resolved;
+    break;
   }
   
   const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');

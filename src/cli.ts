@@ -169,6 +169,7 @@ ${bold('Configure')}
 
       case 'init': {
         const [generator, target = generator] = args[0] && args[0].split('=');
+        const initPath = args[1] || '.';
         if (!generator) {
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
@@ -183,7 +184,7 @@ ${bold('Configure')}
           dedupe: false,
           latest: true
         });
-        const exitCode = await api.execNode([`${generatorName}/init`, ...args.slice(1)], api.JSPM_GLOBAL_PATH);
+        const exitCode = await api.execNode([`${generatorName}/init`, initPath, ...args.slice(2)], api.JSPM_GLOBAL_PATH);
         process.exit(exitCode);
       }
       break;
