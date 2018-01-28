@@ -209,17 +209,9 @@ ${bold('Configure')}
       case 'serve': {
         let options;
         ({ options, args } = readOptions(args, ['open', 'generate-cert'], null, ['script']));
-        if (projectPath && setProjectPath) {
-          try {
-            process.chdir(projectPath);
-          }
-          catch (err) {
-            if (err && err.code === 'ENOENT')
-              throw new JspmUserError(`Project path ${bold(projectPath)} isn't a valid folder path.`);
-          }
-        }
         if (args.length)
           throw new JspmUserError(`Unknown argument ${bold(args[0])}.`);
+        options.projectPath = projectPath;
         const server = await api.serve(options);
         let runTask;
         if (options.script)

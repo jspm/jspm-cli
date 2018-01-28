@@ -14,14 +14,15 @@
  *   limitations under the License.
  */
 
+const fs = require('fs');
+const path = require('path');
 const babel = require('@babel/core');
-const babylon = require('babylon');
 const traverse = require('@babel/traverse').default;
 const t = require('babel-types');
 const pluginEsdew = require('babel-plugin-transform-cjs-dew');
 const visitCjsDeps = require('babel-visit-cjs-deps');
 
-let curSource: string, curAst: any, curFilename: string, curProduction: boolean;
+let curSource: string, curAst: any, curFilename: string, curProduction: boolean, browserTargets: string[];
 
 const stage3 = ['asyncGenerators', 'classProperties', 'optionalCatchBinding', 'objectRestSpread', 'numericSeparator'];
 const stage3DynamicImport = stage3.concat(['dynamicImport', 'importMeta']);
@@ -39,11 +40,15 @@ process.on('message', async ({ type, data }) => {
     case 'analyze-esm':
       try {
         if (curAst === undefined)
-          curAst = babylon.parse(curSource, {
-            plugins: stage3DynamicImport,
+          ({ ast: curAst } = babel.transform(curSource, {
+            babelrc: false,
             sourceType: 'module',
-            sourceFilename: curFilename
-          });
+            code: false,
+            parserOpts: {
+              plugins: stage3DynamicImport
+            },
+            sourceFileName: curFilename
+          }));
         const body = curAst.program.body;
         const deps = [];
         for (let i = 0; i < body.length; i++) {
@@ -88,11 +93,16 @@ process.on('message', async ({ type, data }) => {
     case 'analyze-cjs':
       try {
         if (curAst === undefined)
-          curAst = babylon.parse(curSource, {
-            plugins: stage3,
+          ({ ast: curAst } = babel.transform(curSource, {
+            babelrc: false,
+            code: false,
+            sourceType: 'script',
+            parserOpts: {
+              plugins: stage3
+            },
             allowReturnOutsideFunction: true,
-            sourceFilename: curFilename
-          });
+            sourceFileName: curFilename
+          }));
         // extract export specifiers
         const deps = [], resolves = [];
         traverse(curAst, visitCjsDeps({ deps, resolves }));
@@ -117,14 +127,10 @@ process.on('message', async ({ type, data }) => {
       try {
         if (curSource === undefined)
           throw new Error('Source not passed to worker.');
-        if (curAst === undefined)
-          curAst = babylon.parse(curSource, {
-            plugins: stage3,
-            allowReturnOutsideFunction: true,
-            sourceFilename: curFilename
-          });
         const resolveMap = data;
         const { code, map } = babel.transformFromAst(curAst, curSource, {
+          babelrc: false,
+          sourceType: 'script',
           compact: false,
           sourceMaps: true,
           sourceMapTarget: curFilename + '?dew',
@@ -153,16 +159,15 @@ process.on('message', async ({ type, data }) => {
       try {
         if (curSource === undefined)
           throw new Error('Source not passed to worker.');
-        if (curAst === undefined)
-          curAst = babylon.parse(curSource, {
-            plugins: stage3DynamicImport,
-            sourceType: 'module',
-            sourceFilename: curFilename
-          });
         const resolveMap = data;
         const { code, map } = babel.transformFromAst(curAst, curSource, {
+          babelrc: false,
+          sourceType: 'script',
           compact: false,
           sourceMaps: true,
+          parserOpts: {
+            plugins: stage3DynamicImport
+          },
           sourceMapTarget: curFilename,
           plugins: [
             ({ types: t }) => ({
