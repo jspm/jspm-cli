@@ -168,7 +168,7 @@ ${bold('Configure')}
       break;
 
       case 'init': {
-        const [generator, target = generator] = args[0] && args[0].split('=');
+        const [generator, target = generator] = args[0] && args[0].split('=') || [undefined];
         const initPath = args[1] || '.';
         if (!generator) {
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
