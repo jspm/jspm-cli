@@ -98,9 +98,9 @@ process.on('message', async ({ type, data }) => {
             code: false,
             sourceType: 'script',
             parserOpts: {
-              plugins: stage3
+              plugins: stage3,
+              allowReturnOutsideFunction: true
             },
-            allowReturnOutsideFunction: true,
             sourceFileName: curFilename
           }));
         // extract export specifiers
@@ -125,6 +125,17 @@ process.on('message', async ({ type, data }) => {
 
     case 'transform-dew':
       try {
+        if (curAst === undefined)
+          ({ ast: curAst } = babel.transform(curSource, {
+            babelrc: false,
+            code: false,
+            sourceType: 'script',
+            parserOpts: {
+              plugins: stage3,
+              allowReturnOutsideFunction: true
+            },
+            sourceFileName: curFilename
+          }));
         if (curSource === undefined)
           throw new Error('Source not passed to worker.');
         const resolveMap = data;
@@ -157,6 +168,16 @@ process.on('message', async ({ type, data }) => {
 
     case 'transform-esm':
       try {
+        if (curAst === undefined)
+          ({ ast: curAst } = babel.transform(curSource, {
+            babelrc: false,
+            sourceType: 'module',
+            code: false,
+            parserOpts: {
+              plugins: stage3DynamicImport
+            },
+            sourceFileName: curFilename
+          }));
         if (curSource === undefined)
           throw new Error('Source not passed to worker.');
         const resolveMap = data;
