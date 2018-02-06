@@ -9,7 +9,7 @@
     "d3": "d3/d3@^3.5.9",
     "ember": "components/ember@1.13.2",
     "github": "npm:jspm-github@^0.14.11",
-    "jquery": "components/jquery@2.1.4",
+    "jquery": "components/jquery@2.2.4",
     "jspm": "jspm/jspm-cli@0.17",
     "mocha": "npm:mocha@1.21.5",
     "npm": "npm:jspm-npm@^0.27.0",
@@ -78,7 +78,7 @@
         "ember.prod.js"
       ]
     },
-    "github:components/jquery@2.1.4": {
+    "github:components/jquery@2.2.4": {
       "main": "jquery"
     },
     "github:twbs/bootstrap@3.3.7": {
@@ -246,7 +246,10 @@
       "jspmNodeConversion": false,
       "format": "cjs"
     },
-    "npm:readable-stream@1.0.33": {
+    "npm:pbkdf2@3.0.14": {
+      "main": "browser.js"
+    },
+    "npm:readable-stream@1.0.34": {
       "map": {
         "stream": "stream-browserify/index"
       },
@@ -258,6 +261,9 @@
         "inherits": "~2.0.1",
         "stream-browserify": "~1.0.0"
       }
+    },
+    "npm:safe-buffer@5.1.1": {
+      "browser": "index.js"
     },
     "npm:systemjs-builder@0.15.18": {
       "meta": {
@@ -309,26 +315,6 @@
       },
       "map": {
         "./fs.js": "@node/fs"
-      }
-    },
-    "npm:inherits@2.0.1": {
-      "ignore": [
-        "test.js"
-      ],
-      "systemjs": {
-        "main": "inherits.js",
-        "format": "cjs",
-        "meta": {
-          "*.json": {
-            "format": "json"
-          }
-        },
-        "map": {
-          "util": "@node/util",
-          "./inherits.js": {
-            "browser": "./inherits_browser.js"
-          }
-        }
       }
     },
     "npm:systemjs-builder@0.15.35": {
