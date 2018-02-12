@@ -372,7 +372,7 @@ export default exports;
         catch (err) {
           return;
         }
-        if (typeof pjson.esm === 'boolean')
+        if (typeof pjson.mode === 'string')
           hasEsm = true;
         break;
       }
@@ -382,11 +382,11 @@ export default exports;
   
     if (hasEsm === false) {
       prompting = true;
-      warn(`To load JavaScript modules from ".js" extensions, add an ${bold(`"esm": true`)} property to the package.json file.`);
+      warn(`To load JavaScript modules from ".js" extensions, add a ${bold(`"mode": "esm"`)} property to the package.json file.`);
       if (await confirm(`Would you like to add this property to your package.json file automatically now?`, true)) {
         prompting = false;;
         const pjson = JSON.parse(fs.readFileSync(pjsonPath + 'package.json').toString());
-        pjson.esm = true;
+        pjson.mode = 'esm';
         fs.writeFileSync(pjsonPath + 'package.json', JSON.stringify(pjson, null, 2));
         ok(`${bold(`"esm": true`)} property added to ${highlight(`${projectPath}${path.sep}package.json`)}.`);
       }

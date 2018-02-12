@@ -22,7 +22,7 @@ This version aims to realign with `<script type="module">`, modules in NodeJS an
 The way modules are loaded is designed to exactly match the way modules load in NodeJS as this set the ecosystem conventions, with two main extensions:
 
 1. We support loading from `jspm_packages` using a `jspm.json` lockfile read by the resolver itself, falling back to `node_modules` lookup when a package is not found.
-2. We support the `package.json` `"esm": true` flag for enabling `.js` extensions for ES modules (spec proposal for NodeJS at https://github.com/nodejs/node-eps/pull/60)
+2. We support the `package.json` `"mode": "esm"` flag for enabling `.js` extensions for ES modules (spec proposal for NodeJS at https://github.com/nodejs/node-eps/pull/60, with PR at https://github.com/nodejs/node/pull/18392)
 
 The aim is to build and extend on shared community conventions, to ensure convention based workflows. Edge cases have to
 all work out over a large ecosystem, so great care is taken to exactly support Node module resolution in all its edge cases,
@@ -78,7 +78,7 @@ Also make sure to run NodeJS 8.9.0 or greater.
 ```
 mkdir jspm-test
 cd jspm-test
-echo '{ "esm": true }' > package.json
+echo '{ "mode": "esm" }' > package.json
 ```
 
 ### 2. Install Dependencies
