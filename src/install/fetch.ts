@@ -24,7 +24,6 @@ import { HttpsProxyAgentOptions } from './fetch';
 import { globalConfig } from '../config';
 import gitCredentialNode = require('git-credential-node');
 import { Project } from '../project';
-import { lchmod } from 'fs';
 
 // TODO: add an "http2" option to fetchOptions for http/2 support
 

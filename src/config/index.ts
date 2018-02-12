@@ -11,7 +11,7 @@ export default class ProjectConfig {
   defaultRegistry: string;
   project: Project;
 
-  constructor (projectPath: string, project: Project, init = false) {
+  constructor (projectPath: string, project: Project) {
     let pjsonPath = path.resolve(projectPath, 'package.json');
 
     this.project = project;

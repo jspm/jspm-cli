@@ -26,7 +26,6 @@ import fs = require('graceful-fs');
 import ncp = require('ncp');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
-import { globalConfig } from '../config';
 import { writeBinScripts } from './bin';
 
 const validNameRegEx = /^@?([-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
@@ -63,7 +62,7 @@ interface PackageInstallState {
   exists: boolean,
   hash: string | void,
   linkPath: string | void
-};
+}
 
 export class Installer {
   binFolderChecked: boolean;
@@ -88,13 +87,13 @@ export class Installer {
     [parent: string]: {
       [name: string]: PackageTarget | string;
     }
-  }
+  };
   private primaryRanges: {
     [name: string]: {
       type: DepType;
       target: PackageTarget | string;
     }
-  }
+  };
   private jspmPackageInstallStateCache: {
     [path: string]: PackageInstallState
   };
@@ -122,9 +121,7 @@ export class Installer {
     this.globalPackagesPath = path.join(JSPM_CACHE_DIR, 'packages');
 
     // ensure registries are loaded
-    Object.keys(globalConfig.get('registries')).forEach(registryName => {
-      this.registryManager.getEndpoint(registryName);
-    });
+    this.registryManager.loadEndpoints();
 
     this.changed = false;
     this.busy = false;
@@ -705,7 +702,7 @@ export class Installer {
       return;
 
     return this.installs[installId] = (async () => {
-      let override = install.override || this.cutOverride(install.target);
+      let override = (install.override as ProcessedPackageConfig) || this.cutOverride(install.target);
 
       // handle lock lookups for resourceInstall
       const existingResolution = this.installTree.getResolution(install);

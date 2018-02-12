@@ -18,10 +18,10 @@ import rimraf = require('rimraf');
 import events = require('events');
 import mkdirp = require('mkdirp');
 
-import { JspmUserError, bold, highlight, underline, JSPM_CACHE_DIR, PATH } from './utils/common';
+import { JspmUserError, bold, highlight, underline, JSPM_CACHE_DIR } from './utils/common';
 import { logErr, log, confirm, input, LogType, startSpinner, stopSpinner, logLevel } from './utils/ui';
 import Config from './config';
-import RegistryManager from './install/registry-manager';
+import RegistryManager, { Registry } from './install/registry-manager';
 import Cache from './utils/cache';
 import globalConfig from './config/global-config-file';
 import FetchClass from './install/fetch';
@@ -29,7 +29,6 @@ import FetchClass from './install/fetch';
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
 import { runCmd } from './utils/run-cmd';
-import { JSPM_GLOBAL_PATH } from './api';
 
 export type Hook = 'preinstall' | 'postinstall';
 
@@ -58,6 +57,39 @@ catch (e) {
   hasGit = false;
 }
 
+export interface ProjectConfiguration {
+  userInput?: boolean;
+  cacheDir: string;
+  timeouts?: {
+    resolve?: number;
+    download?: number
+  };
+  defaultRegistry?: string;
+  offline?: boolean;
+  preferOffline?: boolean;
+  strictSSL?: boolean;
+  registries: {[name: string]: Registry};
+  cli?: boolean;
+}
+
+const projectConfigurationDefaults = {
+  userInput: true,
+  defaultRegistry: 'npm',
+  offline: false,
+  preferOffline: false,
+  cli: false,
+  timeouts: {
+    resolve: 30000,
+    download: 300000
+  }
+}
+
+function applyDefaultConfiguration(config: ProjectConfiguration) {
+  const filledConfig = Object.assign({}, config, projectConfigurationDefaults);
+  filledConfig.timeouts = Object.assign({}, config.timeouts, projectConfigurationDefaults.timeouts);
+  return filledConfig;
+}
+
 export class Project {
   projectPath: string;
   config: Config;
@@ -74,22 +106,19 @@ export class Project {
   installer: Installer;
   fetch: FetchClass;
 
-  constructor (projectPath: string, { userInput = true, offline = false, preferOffline = false } = {}) {
+  constructor (projectPath: string, options: ProjectConfiguration) {
     this.projectPath = projectPath;
 
     if (!hasGit)
       throw new JspmUserError(`${bold('git')} is not installed in path. You can install git from http://git-scm.com/downloads.`);
 
+    const filledConfig = applyDefaultConfiguration(options);
+
     // is this running as a CLI or API?
-    this.cli = process.env.globalJspm !== undefined;
+    this.cli = filledConfig.cli;
     this.log = this.cli ? new CLILogger() : new APILogger();
 
-    if (this.projectPath === JSPM_GLOBAL_PATH) {
-      const globalBin = path.join(this.projectPath, 'jspm_packages', '.bin');
-      if (process.env[PATH].indexOf(globalBin) === -1) {
-        this.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
-      }
-    }
+    this.defaultRegistry = filledConfig.defaultRegistry;
 
     // hardcoded for now (pending jspm 3...)
     this.defaultRegistry = 'npm';
@@ -100,56 +129,35 @@ export class Project {
     this.globalConfig = globalConfig;
     this.confirm = this.cli ? confirm : (_msg, def) => Promise.resolve(typeof def === 'boolean' ? def : undefined);
     this.input = this.cli ? input : (_msg, def) => Promise.resolve(typeof def === 'string' ? def : undefined);
-    
-    this.userInput = userInput;
-    this.offline = offline;
-    this.preferOffline = preferOffline;
+
+    this.userInput = filledConfig.userInput;
+    this.offline = filledConfig.offline;
+    this.preferOffline = filledConfig.preferOffline;
 
     this.fetch = new FetchClass(this);
 
-    if (!this.offline && !this.preferOffline) {
-      if (globalConfig.get('preferOffline') === true)
-        this.preferOffline = true;
-    }
-
-    let defaultRegistry = globalConfig.get('defaultRegistry');
-    if (defaultRegistry === undefined || defaultRegistry === 'jspm')
-      defaultRegistry = 'npm';
-
     this.registryManager = new RegistryManager({
       cacheDir: JSPM_CACHE_DIR,
-      defaultRegistry,
+      defaultRegistry: this.defaultRegistry,
       Cache,
       timeouts: {
-        resolve: globalConfig.get('timeouts.resolve') || 30000,
-        download: globalConfig.get('timeouts.download') || 300000
+        resolve: filledConfig.timeouts.resolve,
+        download: filledConfig.timeouts.download
       },
-      offline,
-      preferOffline,
-      userInput,
-      strictSSL: globalConfig.get('strictSSL'),
+      offline: this.offline,
+      preferOffline: this.preferOffline,
+      userInput: this.userInput,
+      strictSSL: filledConfig.strictSSL,
       log: this.log,
       confirm: this.confirm,
       input: this.input,
-      fetch: this.fetch
+      fetch: this.fetch,
+      registries: filledConfig.registries
     });
 
     // load registries upfront
     // (strictly we should save registry configuration when a new registry appears)
-    let registries = globalConfig.get('registries');
-    Object.keys(registries).forEach(registry => {
-      if (registry === 'jspm')
-        return;
-      try {
-        this.registryManager.getEndpoint(registry);
-      }
-      catch (err) {
-        if (err && err.code === 'REGISTRY_NOT_FOUND')
-          this.log.warn(err.message.substr(err.message.indexOf('\n')).trim());
-        else
-          throw err;
-      }
-    });
+    this.registryManager.loadEndpoints();
 
     this.installer = new Installer(this);
   }
@@ -165,17 +173,10 @@ export class Project {
     return await this.config.save();
   }
 
-  private warnIfGlobal () {
-    if (process.env.globalJspm === 'true')
-      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
-  }
-
   /*
    * Main API methods
    */
   async update (selectors: string[], opts: InstallOptions) {
-    this.warnIfGlobal();
-
     const taskEnd = this.log.taskStart('Updating...');
     try {
       var changed = await this.installer.update(selectors, opts);
@@ -191,8 +192,6 @@ export class Project {
       this.log.ok('Already up to date.');
   }
   async install (installs: Install[], opts: InstallOptions = {}) {
-    this.warnIfGlobal();
-
     const taskEnd = this.log.taskStart('Installing...');
     try {
       await runHook(this, 'preinstall');      
@@ -218,8 +217,6 @@ export class Project {
   }
 
   async uninstall (names: string[]) {
-    this.warnIfGlobal();
-
     const taskEnd = this.log.taskStart('Uninstalling...');
     try {
       await this.installer.uninstall(names);
@@ -232,8 +229,6 @@ export class Project {
   }
 
   async checkout (names: string[]) {
-    this.warnIfGlobal();
-
     const taskEnd = this.log.taskStart('Checking out...');
     try {
       await this.installer.checkout(names);
@@ -244,8 +239,6 @@ export class Project {
   }
 
   async link (pkg: string, source: string, opts: InstallOptions) {
-    this.warnIfGlobal();
-
     const taskEnd = this.log.taskStart('Linking...');
     try {
       await runHook(this, 'preinstall');
@@ -263,8 +256,6 @@ export class Project {
   }
 
   async clean () {
-    this.warnIfGlobal();
-
     const taskEnd = this.log.taskStart('Cleaning...');
     try {
       await this.installer.clean(true);

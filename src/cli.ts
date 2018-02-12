@@ -18,15 +18,62 @@ import * as ui from './utils/ui';
 
 import path = require('path');
 import * as api from './api';
-import { bold, highlight, JspmUserError } from './utils/common';
+import { bold, highlight, JspmUserError, PATH, JSPM_CACHE_DIR } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { runCmd } from './utils/run-cmd';
 import { JSPM_GLOBAL_PATH } from './api';
+import { Registry } from './install/registry-manager';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
+
+function createCliProject(projectPath: string, config: {offline: boolean, preferOffline: boolean, userInput: boolean}) {
+  const registriesGlobalConfig = globalConfig.get('registries') || {};
+
+  const registries: {[name: string]: Registry} = {};
+  Object.keys(registriesGlobalConfig).forEach((registryName) => {
+    const registry = registriesGlobalConfig[registryName];
+    registries[registryName] = {
+      handler: registry.handler || `jspm-${registryName}`,
+      config: registry
+    };
+  });
+
+  let defaultRegistry = globalConfig.get('defaultRegistry');
+  if (defaultRegistry === 'jspm')
+    defaultRegistry = 'npm';
+
+  if (!config.offline && !config.preferOffline) {
+      if (globalConfig.get('preferOffline') === true)
+	      config.preferOffline = true;
+  }
+
+  const project = new api.Project(projectPath, {
+    cacheDir: JSPM_CACHE_DIR,
+    offline: config.offline,
+    preferOffline: config.preferOffline,
+    userInput: config.userInput,
+    strictSSL: globalConfig.get('strictSSL'),
+    timeouts: {
+      resolve: globalConfig.get('timeouts.resolve'),
+      download: globalConfig.get('timeouts.download')
+    },
+    registries: registries,
+    defaultRegistry: defaultRegistry,
+    cli: true
+  });
+
+  if (process.env.globalJspm === 'true')
+      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
+
+  const globalBin = path.join(projectPath, 'jspm_packages', '.bin');
+  if (process.env[PATH].indexOf(globalBin) === -1) {
+    project.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
+  }
+  return project;
+}
 
 export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {
   if (typeof args === 'string')
@@ -174,7 +221,7 @@ ${bold('Configure')}
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
         const generatorName = `jspm-init-${generator}`;
-        project = new api.Project(api.JSPM_GLOBAL_PATH, { offline, preferOffline, userInput });
+        project = createCliProject(api.JSPM_GLOBAL_PATH, { offline, preferOffline, userInput });
         await project.install([{
           name: generatorName,
           target: target || generatorName,
@@ -191,7 +238,7 @@ ${bold('Configure')}
 
       case 'r':
       case 'run': {
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         const exitCode = await project.run(args[0], args.slice(1));
         process.exit(exitCode);
       }
@@ -251,19 +298,19 @@ ${bold('Configure')}
 
       case 'cl':
       case 'clean':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         await project.clean();
       break;
 
       case 'co':
       case 'checkout':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         await project.checkout(args);
       break;
 
       case 'un':
       case 'uninstall':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         await project.uninstall(args);
       break;
 
@@ -274,7 +321,7 @@ ${bold('Configure')}
           // TODO 'force', 'verify'
         ], [], ['override']));
 
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         
         if (args.length === 2) {
           await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
@@ -297,7 +344,7 @@ ${bold('Configure')}
 
       case 'ug':
       case 'upgrade': {
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         ui.warn('Still to be implemented.');
       }
       break;
@@ -312,7 +359,7 @@ ${bold('Configure')}
           'reset', // TODO 'force', 'verify'
           'latest'
           ], [], ['override']);
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         await project.update(selectors, options);
       }
       break;
@@ -330,7 +377,7 @@ ${bold('Configure')}
             'latest', 'lock',
             ], [], ['override']);
         
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
 
         if (options.saveDev) {
           project.log.warn(`The ${bold(`--save-dev`)} install flag in jspm is just ${bold(`--dev`)}.`);
@@ -443,7 +490,7 @@ ${bold('Configure')}
       case 'registry-config':
         if (args.length !== 1)
           throw new JspmUserError(`Only one argument expected for the registry name to configure.`);
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         await project.registryConfig(args[0]);
       break;
 
@@ -482,7 +529,7 @@ ${bold('Configure')}
 
       case 'cc':
       case 'clear-cache':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput });
+        project = createCliProject(projectPath, { offline, preferOffline, userInput });
         await project.clearCache();
       break;
 

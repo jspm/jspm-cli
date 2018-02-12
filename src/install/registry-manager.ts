@@ -68,6 +68,10 @@ export interface RegistryEndpoint {
   resolve?: (pkgName: string, version: string, lookup: LookupData) => Promise<void | boolean>;
 }
 
+export interface RegistryEndpointConstructable {
+  new(utils: EndpointUtils, config: any): RegistryEndpoint;
+}
+
 export interface EndpointUtils {
   encodeVersion: (version: string) => string;
   JspmUserError: typeof JspmUserError;
@@ -80,6 +84,11 @@ export interface EndpointUtils {
   globalConfig: typeof globalConfig;
   fetch: Fetch;
   getCredentials: GetCredentials;
+}
+
+export interface Registry {
+  handler: RegistryEndpointConstructable | string;
+  config: any;
 }
 
 export interface ConstructorOptions {
@@ -97,8 +106,9 @@ export interface ConstructorOptions {
   offline: boolean,
   preferOffline: boolean,
   strictSSL: boolean,
-  fetch: FetchClass
-};
+  fetch: FetchClass,
+  registries: {[name: string]: Registry}
+}
 
 export default class RegistryManager {
   userInput: boolean;
@@ -115,11 +125,11 @@ export default class RegistryManager {
   endpoints: Map<string,{ endpoint: RegistryEndpoint, cache: Cache }>;
   util: EndpointUtils;
   instanceId: number;
-  endpointOpts: any;
   strictSSL: boolean;
   fetch: FetchClass;
+  registries: {[name: string]: Registry};
 
-  constructor ({ cacheDir, timeouts, Cache, userInput, offline, preferOffline, strictSSL, defaultRegistry, log, input, confirm, fetch }: ConstructorOptions) {
+  constructor ({ cacheDir, timeouts, Cache, userInput, offline, preferOffline, strictSSL, defaultRegistry, log, input, confirm, fetch, registries }: ConstructorOptions) {
     this.userInput = userInput;
     this.offline = offline;
     this.preferOffline = preferOffline;
@@ -128,6 +138,7 @@ export default class RegistryManager {
     this.timeouts = timeouts;
     this.defaultRegistry = defaultRegistry;
     this.instanceId = Math.round(Math.random() * 10**10);
+    this.registries = registries;
 
     this.util = {
       encodeVersion: encodeInvalidFileChars,
@@ -152,38 +163,59 @@ export default class RegistryManager {
     mkdirp.sync(path.resolve(cacheDir, 'packages'));
   }
 
+  loadEndpoints() {
+    Object.keys(this.registries).forEach((registryName) => {
+      if (registryName === 'jspm')
+        return;
+      try {
+        this.getEndpoint(registryName);
+      }
+      catch (err) {
+        if (err && err.code === 'REGISTRY_NOT_FOUND')
+          this.util.log.warn(err.message.substr(err.message.indexOf('\n')).trim());
+        else
+          throw err;
+      }
+    });
+  }
+
   getEndpoint (name) {
     let endpointEntry = this.endpoints.get(name);
     if (endpointEntry)
       return endpointEntry;
 
     // config returned by config get is a new object owned by us
-    const config = globalConfig.get(['registries', name]) || {};
+    const registry = this.registries[name];
+    const config = registry.config;
     if (config.strictSSL !== 'boolean')
       config.strictSSL = this.strictSSL;
     config.timeout = this.timeouts.resolve;
     config.userInput = this.userInput;
     config.offline = this.offline;
     config.preferOffline = this.preferOffline;
-    const handler = config.handler || `jspm-${name}`;
 
-    try {
-      var EndpointConstructor = require(handler);
-    }
-    catch (e) {
-      if (e && e.code === 'MODULE_NOT_FOUND') {
-        if (e.message && e.message.indexOf(handler) !== -1) {
-          this.util.log.warn(`Registry module '${handler}' not found loading package ${bold(name)}.
-This may be from a previous jspm version and can be removed with ${bold(`jspm config --unset registries.${name}`)}.`);
-          return;
+    let EndpointConstructor: RegistryEndpointConstructable;
+    if (typeof registry.handler === "string") {
+      try {
+        EndpointConstructor = require(registry.handler) as RegistryEndpointConstructable;
+      }
+      catch (e) {
+        if (e && e.code === 'MODULE_NOT_FOUND') {
+          if (e.message && e.message.indexOf(registry.handler) !== -1) {
+            this.util.log.warn(`Registry module '${registry.handler}' not found loading package ${bold(name)}.
+  This may be from a previous jspm version and can be removed with ${bold(`jspm config --unset registries.${name}`)}.`);
+            return;
+          }
+          else {
+            throw new JspmError(`Error loading registry ${bold(name)} from module '${registry.handler}'.`, 'REGISTRY_LOAD_ERROR', e);
+          }
         }
         else {
-          throw new JspmError(`Error loading registry ${bold(name)} from module '${handler}'.`, 'REGISTRY_LOAD_ERROR', e);
+          throw e;
         }
       }
-      else {
-        throw e;
-      }
+    } else {
+      EndpointConstructor = registry.handler;
     }
 
     const endpoint = new EndpointConstructor(this.util, config);
@@ -395,7 +427,7 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
         if ((isWindows && (source[0] === '/' || source[0] === '\\')) ||
             sourcePath[0] === '.' && (sourcePath[1] === '/' || sourcePath[1] === '\\' || (
             sourcePath[1] === '.' && (sourcePath[2] === '/' || sourcePath[2] === '\\')))) {
-          const realPackagePath = await new Promise((resolve, reject) => fs.realpath(packagePath, (err, realpath) => err ? reject(err) : resolve(realpath)));
+          const realPackagePath = await new Promise<string>((resolve, reject) => fs.realpath(packagePath, (err, realpath) => err ? reject(err) : resolve(realpath)));
           sourcePath = path.resolve(realPackagePath, sourcePath);
         }
       }
