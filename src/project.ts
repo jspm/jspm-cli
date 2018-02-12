@@ -83,9 +83,6 @@ export class Project {
     // is this running as a CLI or API?
     this.cli = process.env.globalJspm !== undefined;
     this.log = this.cli ? new CLILogger() : new APILogger();
-  
-    if (process.env.globalJspm === 'true')
-      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
 
     if (this.projectPath === JSPM_GLOBAL_PATH) {
       const globalBin = path.join(this.projectPath, 'jspm_packages', '.bin');
@@ -168,10 +165,17 @@ export class Project {
     return await this.config.save();
   }
 
+  private warnIfGlobal () {
+    if (process.env.globalJspm === 'true')
+      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
+  }
+
   /*
    * Main API methods
    */
   async update (selectors: string[], opts: InstallOptions) {
+    this.warnIfGlobal();
+
     const taskEnd = this.log.taskStart('Updating...');
     try {
       var changed = await this.installer.update(selectors, opts);
@@ -187,6 +191,8 @@ export class Project {
       this.log.ok('Already up to date.');
   }
   async install (installs: Install[], opts: InstallOptions = {}) {
+    this.warnIfGlobal();
+
     const taskEnd = this.log.taskStart('Installing...');
     try {
       await runHook(this, 'preinstall');      
@@ -212,6 +218,8 @@ export class Project {
   }
 
   async uninstall (names: string[]) {
+    this.warnIfGlobal();
+
     const taskEnd = this.log.taskStart('Uninstalling...');
     try {
       await this.installer.uninstall(names);
@@ -224,6 +232,8 @@ export class Project {
   }
 
   async checkout (names: string[]) {
+    this.warnIfGlobal();
+
     const taskEnd = this.log.taskStart('Checking out...');
     try {
       await this.installer.checkout(names);
@@ -234,6 +244,8 @@ export class Project {
   }
 
   async link (pkg: string, source: string, opts: InstallOptions) {
+    this.warnIfGlobal();
+
     const taskEnd = this.log.taskStart('Linking...');
     try {
       await runHook(this, 'preinstall');
@@ -251,6 +263,8 @@ export class Project {
   }
 
   async clean () {
+    this.warnIfGlobal();
+
     const taskEnd = this.log.taskStart('Cleaning...');
     try {
       await this.installer.clean(true);
@@ -279,12 +293,6 @@ export class Project {
     
     let resolved = loader.resolveSync(name, parentName);
     return toCleanPath(resolved);
-  }
-
-  async run (moduleName: string, view = false) {
-    let m = require(moduleName);
-    if (view)
-      this.log(m);
   }
   */
 
@@ -338,11 +346,16 @@ export class Project {
     else {
       cmds.push(script);
     }
+
+    // before running commands dispose the configuration
+    this.config.dispose();
+    this.config = undefined;
   
     let exitCode = 0;
     await Promise.all(cmds.map(async cmd => {
       if (args.length)
         cmd += joinArgs(args);
+      cmd = cmd.replace('npm ', 'jspm ');
       const cmdCode = await runCmd(cmd, this.projectPath);
       if (cmdCode !== 0)
         exitCode = cmdCode;
