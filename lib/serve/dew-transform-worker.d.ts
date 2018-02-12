@@ -1,0 +1,10 @@
+declare const fs: any;
+declare const path: any;
+declare const babel: any;
+declare const traverse: any;
+declare const t: any;
+declare const pluginEsdew: any;
+declare const visitCjsDeps: any;
+declare let curSource: string, curAst: any, curFilename: string, curProduction: boolean, browserTargets: string[];
+declare const stage3: string[];
+declare const stage3DynamicImport: string[];
