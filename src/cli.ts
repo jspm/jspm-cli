@@ -29,7 +29,7 @@ import { Registry } from './install/registry-manager';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 
-function createCliProject(projectPath: string, config: {offline: boolean, preferOffline: boolean, userInput: boolean}) {
+function createCliProject (projectPath: string, config: { offline: boolean, preferOffline: boolean, userInput: boolean }) {
   const registriesGlobalConfig = globalConfig.get('registries') || {};
 
   const registries: {[name: string]: Registry} = {};
@@ -46,8 +46,8 @@ function createCliProject(projectPath: string, config: {offline: boolean, prefer
     defaultRegistry = 'npm';
 
   if (!config.offline && !config.preferOffline) {
-      if (globalConfig.get('preferOffline') === true)
-	      config.preferOffline = true;
+    if (globalConfig.get('preferOffline') === true)
+	  config.preferOffline = true;
   }
 
   const project = new api.Project(projectPath, {
@@ -66,7 +66,7 @@ function createCliProject(projectPath: string, config: {offline: boolean, prefer
   });
 
   if (process.env.globalJspm === 'true')
-      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
+    this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
 
   const globalBin = path.join(projectPath, 'jspm_packages', '.bin');
   if (process.env[PATH].indexOf(globalBin) === -1) {
