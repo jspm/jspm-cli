@@ -32,7 +32,7 @@ const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 function createCliProject (projectPath: string, config: { offline: boolean, preferOffline: boolean, userInput: boolean }) {
   const registriesGlobalConfig = globalConfig.get('registries') || {};
 
-  const registries: {[name: string]: Registry} = {};
+  const registries: { [name: string]: Registry } = {};
   Object.keys(registriesGlobalConfig).forEach((registryName) => {
     const registry = registriesGlobalConfig[registryName];
     registries[registryName] = {
@@ -47,7 +47,7 @@ function createCliProject (projectPath: string, config: { offline: boolean, pref
 
   if (!config.offline && !config.preferOffline) {
     if (globalConfig.get('preferOffline') === true)
-	  config.preferOffline = true;
+      config.preferOffline = true;
   }
 
   const project = new api.Project(projectPath, {

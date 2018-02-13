@@ -56,9 +56,6 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^8.0.47",
-    "@types/acorn": "^4.0.3",
-    "@types/chokidar": "^1.7.4",
-    "magic-string": "^0.22.4",
     "mocha": "^4.0.1",
     "typescript": "^2.7.0-dev.20171126"
   }
