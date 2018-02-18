@@ -85,8 +85,8 @@ const projectConfigurationDefaults = {
 }
 
 function applyDefaultConfiguration(config: ProjectConfiguration) {
-  const filledConfig = Object.assign({}, config, projectConfigurationDefaults);
-  filledConfig.timeouts = Object.assign({}, config.timeouts, projectConfigurationDefaults.timeouts);
+  const filledConfig = Object.assign({}, projectConfigurationDefaults, config);
+  filledConfig.timeouts = Object.assign({}, projectConfigurationDefaults.timeouts, config.timeouts);
   return filledConfig;
 }
 

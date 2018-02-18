@@ -66,7 +66,7 @@ function createCliProject (projectPath: string, config: { offline: boolean, pref
   });
 
   if (process.env.globalJspm === 'true')
-    this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
+    project.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
 
   const globalBin = path.join(projectPath, 'jspm_packages', '.bin');
   if (process.env[PATH].indexOf(globalBin) === -1) {
