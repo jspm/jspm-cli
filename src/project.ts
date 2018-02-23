@@ -59,7 +59,7 @@ catch (e) {
 
 export interface ProjectConfiguration {
   userInput?: boolean;
-  cacheDir: string;
+  cacheDir?: string;
   timeouts?: {
     resolve?: number;
     download?: number
@@ -72,17 +72,20 @@ export interface ProjectConfiguration {
   cli?: boolean;
 }
 
-const projectConfigurationDefaults = {
+const projectConfigurationDefaults: ProjectConfiguration = {
   userInput: true,
-  defaultRegistry: 'npm',
-  offline: false,
-  preferOffline: false,
-  cli: false,
+  cacheDir: JSPM_CACHE_DIR,
   timeouts: {
     resolve: 30000,
     download: 300000
-  }
-}
+  },
+  defaultRegistry: 'npm',
+  offline: false,
+  preferOffline: false,
+  strictSSL: undefined,
+  registries: {},
+  cli: false
+};
 
 function applyDefaultConfiguration(config: ProjectConfiguration) {
   const filledConfig = Object.assign({}, projectConfigurationDefaults, config);
@@ -105,6 +108,7 @@ export class Project {
   registryManager: RegistryManager;
   installer: Installer;
   fetch: FetchClass;
+  cacheDir: string;
 
   constructor (projectPath: string, options: ProjectConfiguration) {
     this.projectPath = projectPath;
@@ -133,11 +137,12 @@ export class Project {
     this.userInput = filledConfig.userInput;
     this.offline = filledConfig.offline;
     this.preferOffline = filledConfig.preferOffline;
+    this.cacheDir = filledConfig.cacheDir;
 
     this.fetch = new FetchClass(this);
 
     this.registryManager = new RegistryManager({
-      cacheDir: JSPM_CACHE_DIR,
+      cacheDir: this.cacheDir,
       defaultRegistry: this.defaultRegistry,
       Cache,
       timeouts: {
@@ -310,7 +315,7 @@ export class Project {
   }
 
   async clearCache () {
-    await new Promise((resolve, reject) => rimraf(JSPM_CACHE_DIR, err => err ? reject(err) : resolve()));
+    await new Promise((resolve, reject) => rimraf(this.cacheDir, err => err ? reject(err) : resolve()));
     this.log.warn(`Global cache cleared. ${underline(`All jspm projects for this system user will now have broken symlinks due to the shared global package cache.`)}`);
     this.log.info(`${bold(`jspm install <packageName> -f`)} is equivalent to running a cache clear for that specific install tree.`);
     this.log.info(`Please post an issue if you suspect the cache isn't invalidating properly.`);

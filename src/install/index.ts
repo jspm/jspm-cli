@@ -21,7 +21,7 @@ import { Semver } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx } from './package';
-import { JSPM_CACHE_DIR, readJSON, JspmUserError, bold, highlight, JspmError, isWindows } from '../utils/common';
+import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows } from '../utils/common';
 import fs = require('graceful-fs');
 import ncp = require('ncp');
 import rimraf = require('rimraf');
@@ -118,7 +118,7 @@ export class Installer {
     this.secondaryRanges = {};
     this.installTree = this.config.jspm.installed;
 
-    this.globalPackagesPath = path.join(JSPM_CACHE_DIR, 'packages');
+    this.globalPackagesPath = path.join(project.cacheDir, 'packages');
 
     // ensure registries are loaded
     this.registryManager.loadEndpoints();
@@ -1003,7 +1003,7 @@ export class Installer {
       await new Promise((resolve, reject) => mkdirp(path.dirname(localPackagePath), err => err ? reject(err) : resolve()));
     }
 
-    const cachePath = path.resolve(JSPM_CACHE_DIR, 'packages', hash);
+    const cachePath = path.resolve(this.globalPackagesPath, hash);
 
     await new Promise((resolve, reject) => mkdirp(path.dirname(localPackagePath), err => err ? reject(err) : resolve()));
     await new Promise((resolve, reject) => fs.symlink(cachePath, localPackagePath, 'junction', err => err ? reject(err) : resolve()));
