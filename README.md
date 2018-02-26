@@ -34,20 +34,6 @@ From this base, we then provide execution in NodeJS, execution in the browser, a
 
 Follow the quickstart below for the exact workflows here.
 
-## jspm 2.0 Release Checklist
-
-The following items are still outstanding for the release:
-
-**Package Manager**
-- [x] Scoped package dependency support
-- [ ] Peer dependencies
-- [ ] Support package.json scripts and bins
-- [ ] `jspm init` workflow
-
-**Build**
-- [x] Source maps debugging
-- [ ] `--minify` option for builds
-
 ## jspm 2.0 Alpha Quickstart
 
 1. [Install jspm 2.0 alpha](#1-install-jspm-20-alpha)
@@ -70,6 +56,8 @@ npm install -g git+ssh://git@github.com/jspm/jspm2-cli#2.0
 ```
 
 Also make sure to run NodeJS 8.9.0 or greater.
+
+> Installing `jspm` installs `jspx` as well, working just like `npx`. Try it out!
 
 ### 1. Create a Project
 
@@ -134,7 +122,7 @@ index.html
 ```
 
 ```
-jspm serve --open
+jsps --open
 ```
 
 In order to start an HTTP/2 server, the above will first generate a local client certificate with some prompts to follow.
@@ -220,7 +208,7 @@ Updating `test-build.html`:
 <script type="module" src="dist/test.js"></script>
 ```
 
-And running `jspm s` (or using any other server), we now get three files loaded only in the network tab, with no code duplication.
+And running `jsps` (or using any other server), we now get three files loaded only in the network tab, with no code duplication.
 
 > The algorithm used for chunking will create the minimum number of separate chunks needed to work over arbitrary numbers of entry points (`jspm build entryA.js entryB.js, ...`), and dynamic imports, while never duplicating code between chunks. I call this the maximal disjoint chunking algorithm.
 
