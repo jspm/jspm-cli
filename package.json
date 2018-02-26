@@ -39,7 +39,9 @@
     "which": "^1.3.0"
   },
   "bin": {
-    "jspm": "bin/jspm.js"
+    "jspm": "bin/jspm.js",
+    "jspx": "bin/jspx.js",
+    "jsps": "bin/jsps.js"
   },
   "scripts": {
     "test": "mocha -u tdd --timeout 20000",

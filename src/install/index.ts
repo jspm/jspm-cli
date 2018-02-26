@@ -916,6 +916,12 @@ export class Installer {
     return target;
   }
 
+  public getPackagePath (name: string) {
+    const resolvedPkgName = serializePackageName(this.config.jspm.installed.resolve[name]);
+    const registryIndex = resolvedPkgName.indexOf(':');
+    return path.join(this.config.pjson.packages, resolvedPkgName.substr(0, registryIndex), resolvedPkgName.substr(registryIndex + 1));
+  }
+
   private createCheckoutPrompt (resolvedPkgName: string) {
     const registryIndex = resolvedPkgName.indexOf(':');
     const localPackagePath = path.join(this.config.pjson.packages, resolvedPkgName.substr(0, registryIndex), resolvedPkgName.substr(registryIndex + 1));

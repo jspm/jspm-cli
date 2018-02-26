@@ -18,7 +18,7 @@ import rimraf = require('rimraf');
 import events = require('events');
 import mkdirp = require('mkdirp');
 
-import { JspmUserError, bold, highlight, underline, JSPM_CACHE_DIR } from './utils/common';
+import { JspmUserError, bold, highlight, underline, JSPM_CACHE_DIR, PATH } from './utils/common';
 import { logErr, log, confirm, input, LogType, startSpinner, stopSpinner, logLevel } from './utils/ui';
 import Config from './config';
 import RegistryManager, { Registry } from './install/registry-manager';
@@ -68,29 +68,60 @@ export interface ProjectConfiguration {
   offline?: boolean;
   preferOffline?: boolean;
   strictSSL?: boolean;
-  registries: {[name: string]: Registry};
+  registries?: {[name: string]: Registry};
   cli?: boolean;
 }
 
-const projectConfigurationDefaults: ProjectConfiguration = {
-  userInput: true,
-  cacheDir: JSPM_CACHE_DIR,
-  timeouts: {
-    resolve: 30000,
-    download: 300000
-  },
-  defaultRegistry: 'npm',
-  offline: false,
-  preferOffline: false,
-  strictSSL: undefined,
-  registries: {},
-  cli: false
-};
+function applyDefaultConfiguration (userConfig: ProjectConfiguration) {
+  const config: ProjectConfiguration = Object.assign({}, userConfig);
 
-function applyDefaultConfiguration(config: ProjectConfiguration) {
-  const filledConfig = Object.assign({}, projectConfigurationDefaults, config);
-  filledConfig.timeouts = Object.assign({}, projectConfigurationDefaults.timeouts, config.timeouts);
-  return filledConfig;
+  if (!config.registries) {
+    const registriesGlobalConfig = globalConfig.get('registries') || {};
+
+    const registries: { [name: string]: Registry } = {};
+    Object.keys(registriesGlobalConfig).forEach((registryName) => {
+      const registry = registriesGlobalConfig[registryName];
+      registries[registryName] = {
+        handler: registry.handler || `jspm-${registryName}`,
+        config: registry
+      };
+    });
+
+    config.registries = registries
+  }
+
+  if (!config.defaultRegistry) {
+    let defaultRegistry = globalConfig.get('defaultRegistry');
+    if (!defaultRegistry || defaultRegistry === 'jspm')
+      defaultRegistry = 'npm';
+    config.defaultRegistry = defaultRegistry;
+  }
+
+  if ('offline' in config === false)
+    config.offline = false;
+
+  if ('preferOffline' in config === false)
+    config.preferOffline = globalConfig.get('preferOffline') || false;
+
+  if ('cli' in config === false)
+    config.cli = true;
+
+  if ('timeouts' in config === false)
+    config.timeouts =  {
+      resolve: globalConfig.get('timeouts.resolve') || 30000,
+      download: globalConfig.get('timeouts.download') || 300000
+    };
+
+  if ('userInput' in config === false)
+    config.userInput = true;
+
+  if ('cacheDir' in config === false)
+    config.cacheDir = JSPM_CACHE_DIR;
+
+  if ('strictSSL' in config === false)
+    config.strictSSL = globalConfig.get('strictSSL');
+
+  return config;
 }
 
 export class Project {
@@ -116,13 +147,20 @@ export class Project {
     if (!hasGit)
       throw new JspmUserError(`${bold('git')} is not installed in path. You can install git from http://git-scm.com/downloads.`);
 
-    const filledConfig = applyDefaultConfiguration(options);
+    const config = applyDefaultConfiguration(options);
 
     // is this running as a CLI or API?
-    this.cli = filledConfig.cli;
+    this.cli = config.cli;
     this.log = this.cli ? new CLILogger() : new APILogger();
 
-    this.defaultRegistry = filledConfig.defaultRegistry;
+    if (process.env.globalJspm === 'true')
+      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
+
+    const globalBin = path.join(projectPath, 'jspm_packages', '.bin');
+    if (process.env[PATH].indexOf(globalBin) === -1)
+      this.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
+
+    this.defaultRegistry = config.defaultRegistry;
 
     // hardcoded for now (pending jspm 3...)
     this.defaultRegistry = 'npm';
@@ -134,10 +172,10 @@ export class Project {
     this.confirm = this.cli ? confirm : (_msg, def) => Promise.resolve(typeof def === 'boolean' ? def : undefined);
     this.input = this.cli ? input : (_msg, def) => Promise.resolve(typeof def === 'string' ? def : undefined);
 
-    this.userInput = filledConfig.userInput;
-    this.offline = filledConfig.offline;
-    this.preferOffline = filledConfig.preferOffline;
-    this.cacheDir = filledConfig.cacheDir;
+    this.userInput = config.userInput;
+    this.offline = config.offline;
+    this.preferOffline = config.preferOffline;
+    this.cacheDir = config.cacheDir;
 
     this.fetch = new FetchClass(this);
 
@@ -146,18 +184,18 @@ export class Project {
       defaultRegistry: this.defaultRegistry,
       Cache,
       timeouts: {
-        resolve: filledConfig.timeouts.resolve,
-        download: filledConfig.timeouts.download
+        resolve: config.timeouts.resolve,
+        download: config.timeouts.download
       },
       offline: this.offline,
       preferOffline: this.preferOffline,
       userInput: this.userInput,
-      strictSSL: filledConfig.strictSSL,
+      strictSSL: config.strictSSL,
       log: this.log,
       confirm: this.confirm,
       input: this.input,
       fetch: this.fetch,
-      registries: filledConfig.registries
+      registries: config.registries
     });
 
     // load registries upfront

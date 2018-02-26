@@ -18,61 +18,28 @@ import * as ui from './utils/ui';
 
 import path = require('path');
 import * as api from './api';
-import { bold, highlight, JspmUserError, PATH, JSPM_CACHE_DIR } from './utils/common';
+import { bold, highlight, JspmUserError } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
-import { runCmd } from './utils/run-cmd';
 import { JSPM_GLOBAL_PATH } from './api';
-import { Registry } from './install/registry-manager';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 
-function createCliProject (projectPath: string, config: { offline: boolean, preferOffline: boolean, userInput: boolean }) {
-  const registriesGlobalConfig = globalConfig.get('registries') || {};
+function readTargetEquals (installArg: string) {
+  let name: string | undefined, target: string;
 
-  const registries: { [name: string]: Registry } = {};
-  Object.keys(registriesGlobalConfig).forEach((registryName) => {
-    const registry = registriesGlobalConfig[registryName];
-    registries[registryName] = {
-      handler: registry.handler || `jspm-${registryName}`,
-      config: registry
-    };
-  });
-
-  let defaultRegistry = globalConfig.get('defaultRegistry');
-  if (defaultRegistry === 'jspm')
-    defaultRegistry = 'npm';
-
-  if (!config.offline && !config.preferOffline) {
-    if (globalConfig.get('preferOffline') === true)
-      config.preferOffline = true;
+  const match = installArg.match(installEqualRegEx);
+  if (match) {
+    name = match[1];
+    target = installArg.substr(name.length + 1);
+  }
+  else {
+    target = installArg;
   }
 
-  const project = new api.Project(projectPath, {
-    cacheDir: JSPM_CACHE_DIR,
-    offline: config.offline,
-    preferOffline: config.preferOffline,
-    userInput: config.userInput,
-    strictSSL: globalConfig.get('strictSSL'),
-    timeouts: {
-      resolve: globalConfig.get('timeouts.resolve'),
-      download: globalConfig.get('timeouts.download')
-    },
-    registries: registries,
-    defaultRegistry: defaultRegistry,
-    cli: true
-  });
-
-  if (process.env.globalJspm === 'true')
-    project.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
-
-  const globalBin = path.join(projectPath, 'jspm_packages', '.bin');
-  if (process.env[PATH].indexOf(globalBin) === -1) {
-    project.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
-  }
-  return project;
+  return { name, target };
 }
 
 export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {
@@ -173,10 +140,11 @@ ${bold('Install')}
     --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-  jspm node <module>                Execute NodeJS with jspm resolution${/*
+  jspm node <module>                Execute NodeJS with jspm resolution
+  jspx <module>                     Install and run a given module in a temporary project${/*
   jspm <script-name> <args>         Execute a package.json script TODO*/''}
   
-  jspm serve                        Start a HTTP/2 server with <script type=module> loading
+  jsps                              Start a HTTP/2 server with <script type=module> loading
 ${/*POSSIBILITY:      --http                          Run a HTTP/1 dev server to skip certificate authentication*/
 ''}      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
       --open (-o)                     Automatically open a new browser window when starting the server
@@ -221,24 +189,14 @@ ${bold('Configure')}
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
         const generatorName = `jspm-init-${generator}`;
-        project = createCliProject(api.JSPM_GLOBAL_PATH, { offline, preferOffline, userInput });
-        await project.install([{
-          name: generatorName,
-          target: target || generatorName,
-          parent: undefined,
-          type: DepType.primary
-        }], {
-          dedupe: false,
-          latest: true
-        });
-        const exitCode = await api.execNode([`${generatorName}/init`, initPath, ...args.slice(2)], api.JSPM_GLOBAL_PATH);
+        const exitCode = await api.jspx(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
         process.exit(exitCode);
       }
       break;
 
       case 'r':
       case 'run': {
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         const exitCode = await project.run(args[0], args.slice(1));
         process.exit(exitCode);
       }
@@ -250,23 +208,6 @@ ${bold('Configure')}
         // let options;
         // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
         await api.execNode(args, setProjectPath ? projectPath : undefined);
-      break;
-
-      case 's':
-      case 'serve': {
-        let options;
-        ({ options, args } = readOptions(args, ['open', 'generate-cert'], null, ['script']));
-        if (args.length)
-          throw new JspmUserError(`Unknown argument ${bold(args[0])}.`);
-        options.projectPath = projectPath;
-        const server = await api.serve(options);
-        let runTask;
-        if (options.script)
-          runTask = runCmd(options.script, projectPath);
-        await server.process;
-        if (runTask)
-          process.exit(await runTask);
-      }
       break;
 
       case 're':
@@ -298,19 +239,19 @@ ${bold('Configure')}
 
       case 'cl':
       case 'clean':
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         await project.clean();
       break;
 
       case 'co':
       case 'checkout':
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         await project.checkout(args);
       break;
 
       case 'un':
       case 'uninstall':
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         await project.uninstall(args);
       break;
 
@@ -321,7 +262,7 @@ ${bold('Configure')}
           // TODO 'force', 'verify'
         ], [], ['override']));
 
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         
         if (args.length === 2) {
           await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
@@ -344,7 +285,7 @@ ${bold('Configure')}
 
       case 'ug':
       case 'upgrade': {
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         ui.warn('Still to be implemented.');
       }
       break;
@@ -359,7 +300,7 @@ ${bold('Configure')}
           'reset', // TODO 'force', 'verify'
           'latest'
           ], [], ['override']);
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         await project.update(selectors, options);
       }
       break;
@@ -377,7 +318,7 @@ ${bold('Configure')}
             'latest', 'lock',
             ], [], ['override']);
         
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
 
         if (options.saveDev) {
           project.log.warn(`The ${bold(`--save-dev`)} install flag in jspm is just ${bold(`--dev`)}.`);
@@ -406,20 +347,11 @@ ${bold('Configure')}
         }
 
         const installTargets = installArgs.map(arg => {
-          let name, target;
-
           /*
            * Assignment target install
            *   jspm install x=y@1.2.3
            */
-          const match = arg.match(installEqualRegEx);
-          if (match) {
-            name = match[1];
-            target = arg.substr(name.length + 1);
-          }
-          else {
-            target = arg;
-          }
+          let { name, target } = readTargetEquals(arg);
 
           // when name is undefined, install will auto-populate from target
           if (options.override)
@@ -490,7 +422,7 @@ ${bold('Configure')}
       case 'registry-config':
         if (args.length !== 1)
           throw new JspmUserError(`Only one argument expected for the registry name to configure.`);
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         await project.registryConfig(args[0]);
       break;
 
@@ -529,7 +461,7 @@ ${bold('Configure')}
 
       case 'cc':
       case 'clear-cache':
-        project = createCliProject(projectPath, { offline, preferOffline, userInput });
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         await project.clearCache();
       break;
 
