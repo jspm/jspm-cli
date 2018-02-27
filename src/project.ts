@@ -29,6 +29,7 @@ import FetchClass from './install/fetch';
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
 import { runCmd } from './utils/run-cmd';
+import { JSPM_GLOBAL_PATH } from './api';
 
 export type Hook = 'preinstall' | 'postinstall';
 
@@ -140,6 +141,7 @@ export class Project {
   installer: Installer;
   fetch: FetchClass;
   cacheDir: string;
+  checkedGlobalBin: boolean;
 
   constructor (projectPath: string, options: ProjectConfiguration) {
     this.projectPath = projectPath;
@@ -155,10 +157,6 @@ export class Project {
 
     if (process.env.globalJspm === 'true')
       this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
-
-    const globalBin = path.join(projectPath, 'jspm_packages', '.bin');
-    if (process.env[PATH].indexOf(globalBin) === -1)
-      this.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
 
     this.defaultRegistry = config.defaultRegistry;
 
@@ -203,6 +201,17 @@ export class Project {
     this.registryManager.loadEndpoints();
 
     this.installer = new Installer(this);
+  }
+
+  checkGlobalBin () {
+    // TODO: Provide the code to automatically add "$globalBin" to the users PATH with a prompt
+    // although I couldn't find any existing npm packages that do this cross-platform!
+    if (this.checkedGlobalBin)
+      return;
+    const globalBin = path.join(JSPM_GLOBAL_PATH, 'jspm_packages', '.bin');
+    if (process.env[PATH].indexOf(globalBin) === -1)
+      this.log.warn(`The global jspm bin folder ${highlight(globalBin)} is not currently in your PATH, add this for native jspm bin support.`);
+    this.checkedGlobalBin = true;
   }
 
   dispose () {

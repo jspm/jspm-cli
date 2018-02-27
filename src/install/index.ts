@@ -679,6 +679,7 @@ export class Installer {
         await new Promise((resolve, reject) => mkdirp(binDir, err => err ? reject(err) : resolve(binDir)));
         this.binFolderChecked = true;
       }
+      this.project.checkGlobalBin();
       await Promise.all(Object.keys(config.bin).map(p => 
         writeBinScripts(binDir, p, resolvedPkgName.replace(':', path.sep) + path.sep + config.bin[p])
       ));

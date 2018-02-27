@@ -138,7 +138,23 @@ export async function build (input: string | string[], opts: BuildOptions) {
     await new Promise((_resolve, _reject) => {});
   }
 
-  const build = await rollup.rollup(rollupOptions);
+  try {
+    var build = await rollup.rollup(rollupOptions);
+  }
+  catch (err) {
+    if (err.code === 'PARSE_ERROR' &&
+        err.message.indexOf(`'import' and 'export' may only appear at the top level`) !== -1 &&
+        err.loc.file.endsWith('?dew')) {
+      throw new JspmUserError(`Error parsing ${err.loc.file.substr(0, err.loc.file.length - 4)}:\n\tThis file is being built as a CommonJS module when it uses import/export syntax.\n\tTry setting the package.json "mode": "esm" property for this package module to be interpreted correctly.`);
+    }
+    if (err.frame) {
+      throw new JspmUserError(err.frame);
+    }
+    if (err.loc) {
+      throw new JspmUserError(`Error parsing ${err.loc.file}:\n\t${err.message}`);
+    }
+    throw err;
+  }
   let chunks;
   if (opts.out) {
     chunks = {

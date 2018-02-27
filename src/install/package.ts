@@ -296,7 +296,7 @@ export interface ProcessedPackageConfig {
   registry?: string,
   name?: string,
   version?: string,
-  esm?: boolean,
+  mode?: string,
   mains?: Conditional,
   map?: MapConfig,
   bin?: {
@@ -318,7 +318,7 @@ export interface PackageConfig {
   registry?: string,
   name?: string,
   version?: string,
-  esm?: boolean,
+  mode?: string,
   mains?: Conditional,
   map?: MapConfig,
   bin?: string | {
@@ -413,6 +413,8 @@ export function processPackageConfig (pcfg: PackageConfig, rangeConversion = fal
     processed.name = pcfg.name;
   if (typeof pcfg.version === 'string')
     processed.version = pcfg.version;
+  if (typeof pcfg.mode === 'string')
+    processed.mode = pcfg.mode;
   if (typeof pcfg.bin === 'string') {
     let binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
     if (!binPath.endsWith('.js'))
@@ -588,8 +590,8 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     for (let p in pcfg.optionalDependencies)
       optionalDependencies[p] = serializePackageTargetCanonical(p, pcfg.optionalDependencies[p], defaultRegistry);
   }
-  if (pcfg.esm === true) {
-    spcfg.esm = true;
+  if (pcfg.mode) {
+    spcfg.mode = pcfg.mode;
   }
   if (pcfg.mains) {
     let mainSugar = true;
