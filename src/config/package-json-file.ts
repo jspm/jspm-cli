@@ -141,7 +141,7 @@ export default class PackageJson extends ConfigFile {
     
     this.dependencies = {};
     
-    const optionalDependencies = this.prefixedGetObject(['optionalDependencies']);
+    const optionalDependencies = this.readDependencies(['optionalDependencies']);
     if (optionalDependencies)
       Object.keys(optionalDependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -149,7 +149,7 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, optionalDependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const devDependencies = this.prefixedGetObject(['devDependencies']);
+    const devDependencies = this.readDependencies(['devDependencies']);
     if (devDependencies)
       Object.keys(devDependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -157,7 +157,7 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, devDependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const dependencies = this.prefixedGetObject(['dependencies']);
+    const dependencies = this.readDependencies(['dependencies']);
     if (dependencies)
       Object.keys(dependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -165,7 +165,7 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, dependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const peerDependencies = this.prefixedGetObject(['peerDependencies']);
+    const peerDependencies = this.readDependencies(['peerDependencies']);
     if (peerDependencies)
       Object.keys(peerDependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -344,6 +344,13 @@ export default class PackageJson extends ConfigFile {
         this.remove(['jspm']);
     }
     this.jspmPrefix = this.depsPrefixed = jspmPrefix;
+  }
+
+  private readDependencies (depName: string[]) {
+    if (this.depsPrefixed)
+      return this.getObject(['jspm'].concat(depName));
+    else
+      return this.getObject(depName);
   }
 
   private prefixedSetObject (memberArray, object, clearIfEmpty = false) {
