@@ -141,7 +141,7 @@ export default class PackageJson extends ConfigFile {
     
     this.dependencies = {};
     
-    const optionalDependencies = this.readDependencies(['optionalDependencies']);
+    const optionalDependencies = this.readDependencies('optionalDependencies');
     if (optionalDependencies)
       Object.keys(optionalDependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -149,7 +149,7 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, optionalDependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const devDependencies = this.readDependencies(['devDependencies']);
+    const devDependencies = this.readDependencies('devDependencies');
     if (devDependencies)
       Object.keys(devDependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -157,7 +157,7 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, devDependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const dependencies = this.readDependencies(['dependencies']);
+    const dependencies = this.readDependencies('dependencies');
     if (dependencies)
       Object.keys(dependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -165,7 +165,7 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, dependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const peerDependencies = this.readDependencies(['peerDependencies']);
+    const peerDependencies = this.readDependencies('peerDependencies');
     if (peerDependencies)
       Object.keys(peerDependencies).forEach(dep => {
         this.dependencies[dep] = {
@@ -269,10 +269,10 @@ export default class PackageJson extends ConfigFile {
       }
     });
 
-    this.prefixedSetObject(['dependencies'], dependencies, !this.jspmPrefix || !this.has(['dependencies']) && !this.has(['jspm', 'dependencies']));
-    this.prefixedSetObject(['peerDependencies'], peerDependencies, !this.jspmPrefix || !this.has(['peerDependencies']) && !this.has(['jspm', 'peerDependencies']));
-    this.prefixedSetObject(['devDependencies'], devDependencies, !this.jspmPrefix || !this.has(['devDependencies']) && !this.has(['jspm', 'devDependencies']));
-    this.prefixedSetObject(['optionalDependencies'], optionalDependencies, !this.jspmPrefix || !this.has(['optionalDependencies']) && !this.has(['jspm', 'optionalDependencies']));
+    this.writeDependencies('dependencies', dependencies);
+    this.writeDependencies('peerDependencies', peerDependencies);
+    this.writeDependencies('devDependencies', devDependencies);
+    this.writeDependencies('optionalDependencies', optionalDependencies);
 
     const overrides = {};
     this.overrides.sort(({ target: targetA }, { target: targetB }) => {
@@ -346,11 +346,18 @@ export default class PackageJson extends ConfigFile {
     this.jspmPrefix = this.depsPrefixed = jspmPrefix;
   }
 
-  private readDependencies (depName: string[]) {
+  private readDependencies (depName: string) {
     if (this.depsPrefixed)
-      return this.getObject(['jspm'].concat(depName));
+      return this.getObject(['jspm', depName]);
     else
-      return this.getObject(depName);
+      return this.getObject([depName]);
+  }
+
+  private writeDependencies (depName: string, value: Object) {
+    if (this.depsPrefixed)
+      return this.setObject(['jspm', depName], value, !this.has(['jspm', depName]));
+    else
+      this.setObject([depName], value, !this.has([depName]));
   }
 
   private prefixedSetObject (memberArray, object, clearIfEmpty = false) {
