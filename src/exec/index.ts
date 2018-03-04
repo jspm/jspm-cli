@@ -55,8 +55,11 @@ export async function jspx (target: string, args: string[], opts: JspxOptions): 
   const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');
 
   return new Promise<number>((resolve, reject) => {
-    spawn(node, ['--experimental-modules', '--harmony-dynamic-import', '--loader', (isWindows ? '/' : '') + loaderPath, binScript, ...args], {
-      stdio: 'inherit'
+    spawn(node, [binScript, ...args], {
+      stdio: 'inherit',
+      env: Object.assign({}, process.env, {
+        NODE_OPTIONS: `--experimental-modules --loader ${(isWindows ? '/' : '') + loaderPath}`
+      })
     })
     .on('close', code => resolve(code))
     .on('error', err => reject(err));
@@ -96,8 +99,11 @@ export async function execNode (args = [], projectPath = process.cwd()) {
   const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');
 
   return new Promise<number>((resolve, reject) => {
-    spawn(node, ['--experimental-modules', '--harmony-dynamic-import', '--loader', (isWindows ? '/' : '') + loaderPath, ...args], {
-      stdio: 'inherit'
+    spawn(node, args, {
+      stdio: 'inherit',
+      env: Object.assign({}, process.env, {
+        NODE_OPTIONS: `--experimental-modules --loader ${(isWindows ? '/' : '') + loaderPath}`
+      })
     })
     .on('close', code => resolve(code))
     .on('error', err => reject(err));

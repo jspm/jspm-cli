@@ -30,7 +30,7 @@ case "$(uname -s)" in
     JSPM_DIR=$(dirname "$JSPM_DIR")
     ;;
 esac
-node --experimental-modules --harmony-dynamic-import --loader "//$JSPM_DIR/node_modules/jspm-resolve/loader.mjs" "$BASE_DIR/${binModulePath}" "$@"
+NODE_OPTIONS="--experimental-modules --loader \"//$JSPM_DIR/node_modules/jspm-resolve/loader.mjs\"" node "$BASE_DIR/${binModulePath}" "$@"
 ret=$?
 exit $ret`;
 
@@ -40,5 +40,5 @@ const winBin = (binModulePath: string) => `@setlocal
   @echo jspm not found in path, make sure it is installed globally.
   @exit /B 1
 )
-@node --experimental-modules --harmony-dynamic-import --loader "/%JSPM_PATH%node_modules\\jspm\\node_modules\\jspm-resolve\\loader.mjs" "%~dp0\\..\\${binModulePath}" %*`
+@NODE_OPTIONS="--experimental-modules --loader \"/%JSPM_PATH%node_modules\\jspm\\node_modules\\jspm-resolve\\loader.mjs\"" node "%~dp0\\..\\${binModulePath}" %*`
 
