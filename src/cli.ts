@@ -393,8 +393,7 @@ ${bold('Configure')}
               external[pair] = true;
             }
           });
-          // TODO: aliasing
-          options.external = Object.keys(external);
+          options.external = external;
         }
         if (options.target)
           options.target = options.target.split(',').map(x => x.trim());

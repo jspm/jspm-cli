@@ -422,7 +422,6 @@ export default class FileTransformCache {
         }));
       }
       catch (err) {
-        console.log(err);
         // external URLs
         if (err.code === 'MODULE_NAME_URL_NOT_FILE') {
           resolveMap[dep] = dep;

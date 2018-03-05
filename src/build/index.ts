@@ -78,7 +78,7 @@ export interface BuildOptions {
   out?: string;
   dir?: 'string';
   format?: 'esm' | 'es6' | 'es' | 'cjs' | 'amd' | 'global' | 'system' | 'iife' | 'umd';
-  external?: string[];
+  external?: { [name: string]: string | true } | string[];
   globals?: { [id: string]: string };
   banner?: string;
   showGraph?: boolean;
@@ -93,10 +93,27 @@ export async function build (input: string | string[], opts: BuildOptions) {
     opts.format = 'iife';
 
   let { envTarget, envTargetName } = getDefaultTarget(opts.env || {}, opts.target, opts.format === 'es');
+
+  let external = <string[]>opts.external;
+  let paths;
+  if (typeof opts.external === 'object') {
+    external = [];
+    paths = {};
+    Object.keys(opts.external).forEach(name => {
+      const alias = opts.external[name];
+      if (alias === true) {
+        external.push(name);
+      }
+      else if (typeof alias === 'string') {
+        external.push(name);
+        paths[name] = alias;
+      }
+    });
+  }
   
   const rollupOptions: any = {
     input,
-    external: opts.external,
+    external,
     onwarn: () => {},
     sourcemap: opts.sourcemap,
     experimentalDynamicImport: true,
@@ -118,6 +135,7 @@ export async function build (input: string | string[], opts: BuildOptions) {
       throw new JspmUserError(`jspm build --watch is only supported for single file builds currently.`);
     rollupOptions.output = {
       exports: 'named',
+      paths,
       file: opts.out,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
@@ -166,6 +184,7 @@ export async function build (input: string | string[], opts: BuildOptions) {
     };
     await build.write({
       exports: 'named',
+      paths,
       file: opts.out,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
