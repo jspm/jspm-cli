@@ -9,7 +9,7 @@
     "d3": "d3/d3@^3.5.9",
     "ember": "components/ember@1.13.2",
     "github": "npm:jspm-github@^0.14.11",
-    "jquery": "npm:jquery@^3.3.1",
+    "jquery": "npm:jquery@3.3.1",
     "jspm": "jspm/jspm-cli@0.17",
     "mocha": "npm:mocha@1.21.5",
     "npm": "npm:jspm-npm@^0.27.0",

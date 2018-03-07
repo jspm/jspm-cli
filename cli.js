@@ -63,7 +63,7 @@ process.on('uncaughtException', function(err) {
       + 'jspm install <name[=target]+> [--force skips cache] [--dev] [--peer]\n'
       + '  install jquery                 Install a package resolved in the jspm registry\n'
       + '  install react=npm:react        Install a package from a registry to latest\n'
-      + '  install jquery@2 react         Install a package to a version or range\n'
+      + '  install jquery@3 react         Install a package to a version or range\n'
       + '\n'
       + '  install                        Reproducible / shrinkwrap install package.json\n'
       + '\n'
@@ -171,7 +171,7 @@ process.on('uncaughtException', function(err) {
   function readJSON(fileOrJSON, supportFile, dottedProperties) {
     if (fileOrJSON.trim() == '')
       return {};
-    
+
     if (fileOrJSON.startsWith('{'))
       return eval('(' + fileOrJSON + ')');
 
@@ -367,7 +367,7 @@ process.on('uncaughtException', function(err) {
         ui.useDefaults();
       if (['traceur', 'typescript', 'babel'].indexOf(options.args[1]) != -1) {
         ui.log('err', '%jspm dl-loader% no longer provides transpiler downloading.\n');
-        ui.log('info', 'To set a transpiler use the init prompts %jspm init -p%.\n\n' + 
+        ui.log('info', 'To set a transpiler use the init prompts %jspm init -p%.\n\n' +
             'Alternatively manually install via %jspm install plugin-' + options.args[1] + '% and set this as the %transpiler% property in the jspm config.');
         break;
       }
@@ -418,7 +418,7 @@ process.on('uncaughtException', function(err) {
 
     case 'bundle':
       options = readOptions(args, ['inject', 'yes', 'skip-source-maps', 'minify',
-          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents', 
+          'no-mangle', 'hires-source-maps', 'no-runtime', 'inline-source-maps', 'source-map-contents',
           'browser', 'node', 'dev', 'production', 'skip-encode-names', 'skip-rollup', 'watch'],
           ['format', 'global-name', 'globals', 'global-deps', 'global-defs', 'config', 'conditions', 'externals']);
 
