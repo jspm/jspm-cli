@@ -7,7 +7,7 @@
     "css": "systemjs/plugin-css@master",
     "d3": "d3/d3@^3.4.13",
     "ember": "components/ember@1.13.2",
-    "jquery": "npm:jquery@^3.3.1",
+    "jquery": "npm:jquery@3.3.1",
     "mocha": "npm:mocha@^1.21.5",
     "text": "systemjs/plugin-text@^0.0.2",
     "voxel-demo": "npm:voxel-demo@^0.0.1"
