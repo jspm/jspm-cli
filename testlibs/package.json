@@ -9,7 +9,7 @@
     "d3": "d3/d3@^3.5.9",
     "ember": "components/ember@1.13.2",
     "github": "npm:jspm-github@^0.14.11",
-    "jquery": "components/jquery@2.2.4",
+    "jquery": "npm:jquery@^3.3.1",
     "jspm": "jspm/jspm-cli@0.17",
     "mocha": "npm:mocha@1.21.5",
     "npm": "npm:jspm-npm@^0.27.0",
@@ -77,9 +77,6 @@
       "files": [
         "ember.prod.js"
       ]
-    },
-    "github:components/jquery@2.2.4": {
-      "main": "jquery"
     },
     "github:twbs/bootstrap@3.3.7": {
       "shim": {
@@ -209,6 +206,9 @@
           }
         }
       }
+    },
+    "npm:jquery@3.3.1": {
+      "format": "amd"
     },
     "npm:lodash@4.13.1": {
       "map": {

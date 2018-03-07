@@ -1,7 +1,7 @@
 SystemJS.config({
   transpiler: "plugin-babel",
   map: {
-    "plugin-babel": "npm:systemjs-plugin-babel@0.0.23"
+    "plugin-babel": "npm:systemjs-plugin-babel@0.0.25"
   }
 });
 
@@ -37,7 +37,7 @@ SystemJS.config({
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "jodid25519": "npm:jodid25519@1.0.2",
-    "jquery": "github:components/jquery@2.2.4",
+    "jquery": "npm:jquery@3.3.1",
     "jsbn": "npm:jsbn@0.1.0",
     "jspm": "github:jspm/jspm-cli@0.17",
     "jspm-registry": "npm:jspm-registry@0.4.3",
@@ -48,7 +48,6 @@ SystemJS.config({
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "process": "npm:jspm-nodelibs-process@0.2.1",
-    "plugin-babel": "npm:systemjs-plugin-babel@0.0.25",
     "punycode": "npm:jspm-nodelibs-punycode@0.2.0",
     "querystring": "npm:jspm-nodelibs-querystring@0.2.0",
     "readline": "npm:jspm-nodelibs-readline@0.2.0",
@@ -1694,7 +1693,7 @@ SystemJS.config({
     },
     "github:twbs/bootstrap@3.3.7": {
       "map": {
-        "jquery": "github:components/jquery@2.2.4"
+        "jquery": "github:components/jquery@3.3.1"
       }
     },
     "npm:which@1.2.12": {
