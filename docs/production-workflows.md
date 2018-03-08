@@ -6,11 +6,12 @@ There are three main workflows for production:
 
 ### Creating a Bundle
 
+***Important**: The module names such as `app/main` used in the examples below should only be `/` separated (On Windows, do NOT use `\` as your path separator for this argument). The module names are specified in URL space; in particular, they are not file-paths.*
+
 ```
   jspm bundle app/main build.js
 ```
-
-Creates a file `build.js` containing `app/main` and all its dependencies referenced in config.js.
+Creates a file `build.js` containing `app/main` and all its dependencies referenced in config.js. \
 
 We can then load this with a script tag in the page:
 
