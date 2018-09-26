@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -700,7 +700,7 @@ export function detectStyle (string: string): jsonStyle {
   return style;
 }
 
-function serializeJson (json, style: jsonStyle) {
+export function serializeJson (json, style: jsonStyle) {
   let jsonString = JSON.stringify(json, null, style.tab);
 
   if (style.trailingNewline)

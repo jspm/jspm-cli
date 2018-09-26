@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -21,14 +21,13 @@ import { Semver } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx } from './package';
-import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows } from '../utils/common';
+import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows, validPkgNameRegEx } from '../utils/common';
 import fs = require('graceful-fs');
 import ncp = require('ncp');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { writeBinScripts } from './bin';
 
-const validNameRegEx = /^@?([-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
 export interface InstallOptions {
@@ -412,12 +411,17 @@ export class Installer {
 
       // auto-generate name from target if necessary
       if (!install.name) {
-        if (typeof install.target !== 'string')
-          install.name = install.target.name.split(':').pop();
-        else
+        if (typeof install.target !== 'string') {
+          if (install.target.name.substr(install.target.name.lastIndexOf(':') + 1).match(validPkgNameRegEx))
+            install.name = install.target.name.substr(install.target.name.lastIndexOf(':') + 1);
+          else
+            install.name = install.target.name.substr(install.target.name.lastIndexOf(':') + 1).split('/').pop();
+        }
+        else {
           install.name = getResourceName(install.target, this.project.projectPath);
+        }
       }
-      if (!install.name.match(validNameRegEx))
+      if (!install.name.match(validPkgNameRegEx))
         throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
       if (typeof install.target === 'string')
         return this.resourceInstall(<ResourceInstall>install);
@@ -443,7 +447,7 @@ export class Installer {
     if (typeof pkg === 'string') {
       const matchIndex = this.config.pjson.overrides.findIndex(({ target }) => target === pkg);
       const match = this.config.pjson.overrides[matchIndex];
-      if (cut && matchIndex !== -1)
+      if (cut && matchIndex !== -1 && !match.fresh)
         this.config.pjson.overrides.splice(matchIndex, 1);
       return match && match.override;
     }
@@ -451,8 +455,9 @@ export class Installer {
       let bestTargetIndex = -1;
       let bestTarget: PackageTarget | void;
       let bestOverride: ProcessedPackageConfig | void;
+      let bestIsFresh: boolean;
       for (let i = 0; i < this.config.pjson.overrides.length; i++) {
-        let { target, override } = this.config.pjson.overrides[i];
+        let { target, override, fresh } = this.config.pjson.overrides[i];
         if (typeof target === 'string')
           continue;
         if (target.has(pkg)) {
@@ -460,10 +465,11 @@ export class Installer {
             bestTargetIndex = i;
             bestTarget = target;
             bestOverride = override;
+            bestIsFresh = fresh;
           }
         }
       }
-      if (cut && bestTargetIndex !== -1)
+      if (cut && bestTargetIndex !== -1 && !bestIsFresh)
         this.config.pjson.overrides.splice(bestTargetIndex, 1);
       return bestOverride;
     }
@@ -478,7 +484,8 @@ export class Installer {
   private setOverride (pkgTarget: PackageTarget | string, override: ProcessedPackageConfig) {
     this.config.pjson.overrides.push({
       target: pkgTarget,
-      override
+      override,
+      fresh: true
     });
   }
 
@@ -523,7 +530,7 @@ export class Installer {
           target = this.setResolution(install, target, resolvedPkg, existingResolved.source);
           override = this.cutOverride(resolvedPkg);
           override = await this.sourceInstall(resolvedPkg, existingResolved.source, override, undefined);
-          if (override)
+          if (override) 
             this.setOverride(target, override);
           return;
         }

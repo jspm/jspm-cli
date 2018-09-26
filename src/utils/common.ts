@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -18,6 +18,21 @@ import path = require('path');
 import promiseRetry = require('promise-retry');
 import chalk from 'chalk';
 import os = require('os');
+
+export function readModuleEnv (opts) {
+  let env;
+  if (opts.browser)
+    (env = env || {}).browser = true;
+  if (opts.bin)
+    (env = env || {}).bin = true;
+  if (opts['react-native'])
+    (env = env || {})['react-native'] = true;
+  if (opts.production)
+    (env = env || {}).production = true;
+  if (opts.electron)
+    (env = env || {}).electron = true;
+  return env;
+}
 
 export const HOME_DIR = os.homedir();
 
@@ -264,4 +279,18 @@ export function sha256 (input: string): string {
 }
 export function md5 (input: string): string {
   return crypto.createHash('md5').update(input).digest('hex');
+}
+
+export const validPkgNameRegEx = /^(@[-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
+
+const simpleIdentifierRegEx = /^[a-zA-Z_$][0-9a-zA-Z_$]*$/;
+export function isValidIdentifier (name: string) {
+  return name.match(simpleIdentifierRegEx);
+}
+
+export function alphabetize<T> (obj: T): T {
+  const out: T = <T>{};
+  for (const key of Object.keys(obj).sort())
+    out[key] = obj[key];
+  return out;
 }

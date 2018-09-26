@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import globalConfig from '../config/global-config-file';
 import { Logger, input, confirm } from '../project';
 import { resolveSource, downloadSource } from '../install/source';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
+import { convertCJSPackage, convertCJSConfig } from '../compile/cjs-convert';
 
 const VerifyState = {
   NOT_INSTALLED: 0,
@@ -525,6 +526,7 @@ export default class RegistryManager {
         ({ config, override } = overridePackageConfig(config, override));
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
       }
+      convertCJSConfig(config);
       var dir = path.join(this.cacheDir, 'packages', hash);
       const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
       if (verifyState > VerifyState.INVALID)
@@ -550,6 +552,7 @@ export default class RegistryManager {
             ({ config, override } = overridePackageConfig(config, override));
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           }
+          convertCJSConfig(config);
           var dir = path.join(this.cacheDir, 'packages', hash);
           const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
           if (verifyState > VerifyState.INVALID)
@@ -573,72 +576,60 @@ export default class RegistryManager {
       // if source is linked, can return the linked dir directly
       await downloadSource(this.util.log, this.fetch, source, dir, this.timeouts.download);
 
-      let pjsonPath = path.resolve(dir, 'package.json');
-      let { json: pjson, style } = await readJSONStyled(pjsonPath);
-      if (!pjson)
-        pjson = {};
+      const logEnd = this.util.log.taskStart('Finalizing ' + highlight(source));
 
-      if (!config) {
-        let pjsonConfig = processPackageConfig(pjson, true);
-        const serializedConfig = serializePackageConfig(pjsonConfig);
-        if (override)
-          ({ config, override } = overridePackageConfig(pjsonConfig, override));
-        else
-          config = pjsonConfig;
-        hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
-        await Promise.all([
-          this.cache.set(sourceHash, { config: serializedConfig, hash }),
-          // move the tmp folder to the known hash now
-          (async () => {
-            const toDir = path.join(this.cacheDir, 'packages', hash);
-            await new Promise((resolve, reject) => rimraf(toDir, err => err ? reject(err) : resolve()));
-            await new Promise((resolve, reject) => {
-              fs.rename(dir, dir = toDir, err => err ? reject(err) : resolve());
-            });
-          })()
-        ]);
-        pjsonPath = path.resolve(dir, 'package.json');
-      }
+      try {
+        let pjsonPath = path.resolve(dir, 'package.json');
+        let { json: pjson, style } = await readJSONStyled(pjsonPath);
+        if (!pjson)
+          pjson = {};
 
-      // resolve each "bin" creating a ".js" symlink for those without an extension
-      // ".js" extension added automatically during config processing phase already
-      if (config.bin) {
-        await Object.keys(config.bin).map(async name => {
-          const binPath = config.bin[name];
-          // NB this should really be exact jspm resolve
-          if (await new Promise((resolve, reject) => fs.access(path.resolve(dir, binPath), err => {
-            if (err && err.code !== 'ENOENT')
-              reject(err);
-            else
-              resolve(err ? false : true);
-          })))
-            return;
-          if (await new Promise((resolve, reject) => fs.access(path.resolve(dir, binPath.substr(0, binPath.length - 3)), err => {
-            if (err && err.code !== 'ENOENT')
-              reject(err);
-            else
-              resolve(err ? false : true);
-          }))) {
-            await new Promise((resolve, reject) => fs.symlink(`./${path.basename(binPath.substr(0, binPath.length - 3))}`, path.resolve(dir, binPath), err => err ? reject(err) : resolve()));
-          }
+        if (!config) {
+          let pjsonConfig = processPackageConfig(pjson, true);
+          const serializedConfig = serializePackageConfig(pjsonConfig, this.defaultRegistry);
+          if (override)
+            ({ config, override } = overridePackageConfig(pjsonConfig, override));
+          else
+            config = pjsonConfig;
+          convertCJSConfig(config);
+          hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
+          await Promise.all([
+            this.cache.set(sourceHash, { config: serializedConfig, hash }),
+            // move the tmp folder to the known hash now
+            (async () => {
+              const toDir = path.join(this.cacheDir, 'packages', hash);
+              await new Promise((resolve, reject) => rimraf(toDir, err => err ? reject(err) : resolve()));
+              await new Promise((resolve, reject) => {
+                fs.rename(dir, dir = toDir, err => err ? reject(err) : resolve());
+              });
+            })()
+          ]);
+          pjsonPath = path.resolve(dir, 'package.json');
+        }
+
+        await writeJSONStyled(pjsonPath, Object.assign(pjson, serializePackageConfig(config)), style || defaultStyle);
+
+        // run package conversion
+        // (on any subfolder containing a "mode": "cjs")
+        await convertCJSPackage(this.util.log, dir, config.name, config, this.defaultRegistry);
+
+        var mtime = await new Promise((resolve, reject) => fs.stat(pjsonPath, (err, stats) => err ? reject(err) : resolve(stats.mtimeMs)));
+        
+        // todo: diffs for invalid?
+        // const fileHashes = await calculateFileHashes(dir);
+        // will be useful for avoiding mistaken mtime bumps when viewing
+
+        await new Promise((resolve, reject) => {
+          fs.writeFile(path.join(dir, '.jspm'), JSON.stringify({ mtime, hash }), err => err ? reject(err) : resolve())
         });
+
+        this.verifiedCache[hash] = VerifyState.VERIFIED_VALID;
+
+        return { config, override, dir, hash, changed: true };
       }
-
-      await writeJSONStyled(pjsonPath, Object.assign(pjson, serializePackageConfig(config)), style || defaultStyle);
-
-      var mtime = await new Promise((resolve, reject) => fs.stat(pjsonPath, (err, stats) => err ? reject(err) : resolve(stats.mtimeMs)));
-      
-      // todo: diffs for invalid?
-      // const fileHashes = await calculateFileHashes(dir);
-      // will be useful for avoiding mistaken mtime bumps when viewing
-
-      await new Promise((resolve, reject) => {
-        fs.writeFile(path.join(dir, '.jspm'), JSON.stringify({ mtime, hash }), err => err ? reject(err) : resolve())
-      });
-
-      this.verifiedCache[hash] = VerifyState.VERIFIED_VALID;
-
-      return { config, override, dir, hash, changed: true };
+      finally {
+        logEnd();
+      }
     }
     finally {
       unlock();
@@ -650,7 +641,7 @@ function dirWalk (dir: string, visit: (filePath: string, stats, files?: string[]
   return new Promise((resolve, reject) => {
     let errored = false;
     let cnt = 0;
-    visitFileOrDir(dir);
+    visitFileOrDir(path.resolve(dir));
     function handleError (err) {
       if (!errored) {
         errored = true;
@@ -659,7 +650,6 @@ function dirWalk (dir: string, visit: (filePath: string, stats, files?: string[]
     }
     function visitFileOrDir (fileOrDir) {
       cnt++;
-      fileOrDir = path.resolve(fileOrDir);
       fs.stat(fileOrDir, async (err, stats) => {
         if (err || errored)
           return handleError(err);
@@ -671,12 +661,13 @@ function dirWalk (dir: string, visit: (filePath: string, stats, files?: string[]
           return handleError(err);
         }
         if (stats.isDirectory()) {
-          fs.readdir(dir, (err, paths) => {
+          fs.readdir(fileOrDir, (err, paths) => {
             if (err || errored)
               return handleError(err);
-            if (paths.length === 0 && !errored && --cnt === 0)
+            cnt--;
+            if (paths.length === 0 && !errored && cnt === 0)
               return resolve();
-            paths.forEach(visitFileOrDir);
+            paths.forEach(fileOrDirPath => visitFileOrDir(path.resolve(fileOrDir, fileOrDirPath)));
           });
         }
         else if (!errored && --cnt === 0) {
@@ -686,4 +677,3 @@ function dirWalk (dir: string, visit: (filePath: string, stats, files?: string[]
     }
   });
 }
-

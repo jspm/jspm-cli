@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ import ConfigFile from './config-file';
 import { ResolveTree } from '../install/package';
 
 /*
- * jspm.json file implementation
+ * jspm.json lock file implementation
  * Designed to be a system file for jspm first, not humans first.
  */
 

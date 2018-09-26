@@ -1,4 +1,5 @@
 node_modules
+lib
 sandbox
 package-lock.json
 docs/_book

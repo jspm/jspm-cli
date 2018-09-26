@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -412,7 +412,7 @@ function readSource (log: Logger, source: string): Source {
       return { url };
     }
     const hashType = hashMatch.hashType;
-    const hash = new Buffer(source.substr(hashIndex + 1), 'hex');
+    const hash = Buffer.from(source.substr(hashIndex + 1), 'hex');
     return { url, hash, hashType };
   }
   // base64 integrity-style hash
@@ -429,7 +429,7 @@ function readSource (log: Logger, source: string): Source {
       log.warn(`Source ${source} is using an unsupported hash algorithm so is being ignored.`);
       return { url };
     }
-    const hash = new Buffer(source.substr(hashTypeIndex + 1), 'base64');
+    const hash = Buffer.from(source.substr(hashTypeIndex + 1), 'base64');
     if (hashMatch.len !== hash.length) {
       log.warn(`Source ${source} does not have a valid length ${hashType} base64 hash so it is being ignored.`);;
       return { url };

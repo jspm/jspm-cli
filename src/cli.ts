@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -15,15 +15,17 @@
  */
 
 import * as ui from './utils/ui';
-
+import fs = require('fs');
 import path = require('path');
 import * as api from './api';
-import { bold, highlight, JspmUserError } from './utils/common';
+import { bold, highlight, JspmUserError, readModuleEnv } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { JSPM_GLOBAL_PATH } from './api';
+import { extend } from './map/utils';
+import { readJSONStyled, defaultStyle, serializeJson } from './config/config-file';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 
@@ -140,30 +142,17 @@ ${bold('Install')}
     --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-  jspm node <module>                Execute NodeJS with jspm resolution
-  jspx <module>                     Install and run a given module in a temporary project${/*
+  node-jspm <module>                Execute NodeJS with jspm resolution
+  jspx <module>                     Install and run a given module in a temporary project
+  jspm run <name>                   Run package.json "scripts" with the project bin env${/*
   jspm <script-name> <args>         Execute a package.json script TODO*/''}
-  
-  jsps                              Start a HTTP/2 server with <script type=module> loading
-${/*POSSIBILITY:      --http                          Run a HTTP/1 dev server to skip certificate authentication*/
-''}      --generate-cert (-g)            Generate, authorize and sign a custom CA cert for serving
-      --open (-o)                     Automatically open a new browser window when starting the server
 
-${bold('Build')}
-  jspm build <entry> -o <outfile>?  Build a module into a single file, inlining dynamic imports
-    <entry>+ -d <outdir>            Build modules, chunking entry points and dynamic imports
+${bold('Package Name Maps Generation')}
+  jspm map -o packagemap.json       Generates a package name map for all dependencies
+    --production                    Generate a package name map with production resolutions
+  jspm map <module>+                Generate a package name map for specific modules only
+  jspm map -i in.json -o out.json   Combine the generated output with an existing package map
 
-  Build Options:
-    --source-maps                   Output source maps
-    --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
-    --format [cjs|system|amd]       Set a custom output format for the build (defaults to esm)
-    --remove-dir                    Clear the output directory before build
-    --show-graph                    Show the build module graph summary
-    --watch                         Watch build files after build for rebuild on change     
-    --banner <file|source>          Include the given banner at the top of the build file  
-${/*TODO:      
-    --minify                        Minify the build output
-    jspm depcache <entry>             Outload the latency-optimizing preloading HTML for an ES module*/''}
 ${bold('Inspect')}${
 /*  jspm graph <entry> (TODO)      Display the dependency graph for a given module*/''}
   jspm resolve <module>             Resolve a module name with the jspm resolver to a path
@@ -204,10 +193,59 @@ ${bold('Configure')}
 
       case 'n':
       case 'node':
-        // TODO: support custom env for jspm-resolve loader by passing JSPM_ENV_PRODUCTION custom env vars
-        // let options;
-        // ({ args, options } = readOptions(args, ['react-native', 'production', 'electron']));
-        await api.execNode(args, setProjectPath ? projectPath : undefined);
+        ui.err(`Use ${bold('jspm-node')} for NodeJS execution.`);
+      break;
+
+      case 't':
+      case 'trace': {
+        let options;
+        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'node'], ['out', 'in']));
+
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        const map = await api.map(project, process.cwd(), options);
+
+        if (!args.length)
+          throw new JspmUserError('Trace requires a list of module names to trace.');
+
+        const traced = await api.trace(project, map, options.out ? path.dirname(path.resolve(options.out)) : undefined, args);
+
+        const output = await serializeJson(traced, defaultStyle);
+
+        if (options.out)
+          await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
+        else
+          process.stdout.write(output);
+      }
+      break;
+
+      case 'm':
+      case 'map': {
+        let options;
+        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron'], ['out', 'in']));
+
+        let inputMap, style = defaultStyle;
+        if (options.in)
+          ({ json: inputMap, style } = await readJSONStyled(options.in));
+
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        let map = await api.map(project, options.out ? path.dirname(path.resolve(options.out)) : undefined, options);
+
+        if (inputMap)
+          extend(map, inputMap);
+
+        if (args.length)
+          map = await api.filterMap(project, map, options.out ? path.dirname(path.resolve(options.out)) : undefined, args);
+
+        // we dont want input map items filtered so always add them back
+        if (inputMap)
+          extend(map, inputMap);
+
+        const output = await serializeJson(map, style);
+        if (options.out)
+          await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
+        else
+          process.stdout.write(output);
+      }
       break;
 
       case 're':
@@ -215,7 +253,7 @@ ${bold('Configure')}
         let options;
         ({ args, options } = readOptions(args, ['format', 'browser', 'bin', 'react-native', 'production', 'electron']));
 
-        let env = readEnv(options);
+        let env = readModuleEnv(options);
         
         let parent;
         if (args[1]) {
@@ -309,7 +347,7 @@ ${bold('Configure')}
       case 'install': {
         let { options, args: installArgs } = readOptions(args, [
             // install options
-            'reset', // TODO 'force', 'verify'
+            'reset', 'force',
             // install type
             'save-dev', 'dev', 'optional', 'peer',
             // constraint options
@@ -317,6 +355,9 @@ ${bold('Configure')}
             // resolver options
             'latest', 'lock',
             ], [], ['override']);
+
+        if (options.force)
+          throw new JspmUserError(`${highlight('--force')} flag is yet to be implemented. Use ${bold('jspm cc && jspm install')} for now, although this is only necessary if you have upgraded jspm or modified a globally linked dependency file.`);
         
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
 
@@ -365,51 +406,6 @@ ${bold('Configure')}
         // and log that list so that the user is aware of it
         // await project.logInstallStates();
       }
-      break;
-
-      case 'b':
-      case 'build':
-      let { options, args: buildArgs } = readOptions(args, [
-        'remove-dir',
-        'node',
-        'mjs',
-        'browser', 'bin', 'react-native', 'production', 'electron',
-        'show-graph',
-        'source-maps',
-        'watch'// 'exclude-external', 'minify',
-        ], ['dir', 'out', 'format'], ['target', 'external', 'banner']);
-        options.env = readEnv(options);
-        options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
-        if (options.external) {
-          const external = {};
-          options.external.split(' ').forEach(pair => {
-            const aliasIndex = pair.indexOf('=');
-            if (aliasIndex !== -1) {
-              const externalName = pair.substr(0, aliasIndex);
-              const aliasName = pair.substr(aliasIndex + 1);
-              external[externalName] = aliasName;
-            }
-            else {
-              external[pair] = true;
-            }
-          });
-          options.external = external;
-        }
-        if (options.target)
-          options.target = options.target.split(',').map(x => x.trim());
-        else if (options.target === '')
-          options.target = true;
-        options.log = true;
-        if ('out' in options || 'dir' in options === false && buildArgs.length === 1) {
-          if (buildArgs.length !== 1)
-            throw new JspmUserError(`A single module name must be provided to jspm build -o.`);
-          options.out = options.out || 'build.js';
-          await api.build(buildArgs[0], options);
-        }
-        else {
-          options.dir = options.dir || 'dist';
-          await api.build(buildArgs, options);
-        }
       break;
 
       case 're':
@@ -486,18 +482,3 @@ ${bold('Configure')}
 if (process.env.globalJspm !== undefined)
   cliHandler(path.dirname(process.env.jspmConfigPath), process.argv[2], process.argv.slice(3))
   .then(() => process.exit(), _err => process.exit(1));
-
-function readEnv (opts) {
-  let env;
-  if (opts.browser)
-    (env = env || {}).browser = true;
-  if (opts.bin)
-    (env = env || {}).bin = true;
-  if (opts['react-native'])
-    (env = env || {})['react-native'] = true;
-  if (opts.production)
-    (env = env || {}).production = true;
-  if (opts.electron)
-    (env = env || {}).electron = true;
-  return env;
-}

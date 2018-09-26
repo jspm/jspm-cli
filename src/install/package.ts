@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -293,54 +293,56 @@ export interface MapConfig {
 }
 
 export interface ProcessedPackageConfig {
-  registry?: string,
-  name?: string,
-  version?: string,
-  mode?: string,
-  mains?: Conditional,
-  map?: MapConfig,
+  registry?: string;
+  name?: string;
+  version?: string;
+  mode?: string;
+  main?: string;
+  skipESMConversion?: boolean | string[];
+  namedExports?: Record<string, string[]>;
+  map?: MapConfig;
   bin?: {
-    [name: string]: string
-  },
+    [name: string]: string;
+  };
   dependencies?: {
-    [name: string]: PackageTarget | string
-  },
+    [name: string]: PackageTarget | string;
+  };
   peerDependencies?: {
-    [name: string]: PackageTarget | string
-  },
+    [name: string]: PackageTarget | string;
+  };
   optionalDependencies?: {
-    [name: string]: PackageTarget | string
-  }
+    [name: string]: PackageTarget | string;
+  };
 }
 
 // package configuration + sugars
 export interface PackageConfig {
-  registry?: string,
-  name?: string,
-  version?: string,
-  mode?: string,
-  mains?: Conditional,
-  map?: MapConfig,
+  registry?: string;
+  name?: string;
+  version?: string;
+  mode?: string;
+  main?: string;
+  skipESMConversion?: boolean | string[];
+  namedExports?: Record<string, string[]>;
+  map?: MapConfig;
   bin?: string | {
     [name: string]: string
-  },
+  };
   dependencies?: {
     [name: string]: string
-  },
+  };
   peerDependencies?: {
     [name: string]: string
-  },
+  };
   optionalDependencies?: {
     [name: string]: string
-  },
+  };
 
-  main?: string,
-  module?: boolean | string,
-  'react-native'?: string,
-  electron?: string,
+  'react-native'?: string;
+  electron?: string;
   browser?: string | {
     [name: string]: string | boolean
-  }
+  };
 }
 
 // Target is assumed pre-canonicalized
@@ -415,6 +417,14 @@ export function processPackageConfig (pcfg: PackageConfig, rangeConversion = fal
     processed.version = pcfg.version;
   if (typeof pcfg.mode === 'string')
     processed.mode = pcfg.mode;
+  else
+    processed.mode = 'cjs';
+  if (typeof pcfg.namedExports === 'object' && Object.keys(pcfg.namedExports).every(key => pcfg.namedExports[key] instanceof Array && pcfg.namedExports[key].every(value => typeof value === 'string')))
+    processed.namedExports = pcfg.namedExports;
+  if (pcfg.skipESMConversion === true || pcfg.skipESMConversion instanceof Array && pcfg.skipESMConversion.every(x => typeof x === 'string'))
+    processed.skipESMConversion = pcfg.skipESMConversion;
+  if (processed.mode === 'cjs' && !processed.skipESMConversion)
+    delete processed.mode;
   if (typeof pcfg.bin === 'string') {
     let binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
     if (!binPath.endsWith('.js'))
@@ -426,8 +436,8 @@ export function processPackageConfig (pcfg: PackageConfig, rangeConversion = fal
     for (let p in pcfg.bin) {
       const mapped = pcfg.bin[p];
       let binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
-      if (!binPath.endsWith('.js'))
-        binPath += '.js';
+      //if (!binPath.endsWith('.js'))
+      //  binPath += '.js';
       processed.bin[p] = binPath;
     }
   }
@@ -564,7 +574,6 @@ function overrideMapConfig (map: MapConfig, overrideMap: MapConfig) {
 }
 
 // recanonicalize the output of a processed package config
-const mainTypes = ['browser', 'electron', 'react-native', 'module', 'default'];
 export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultRegistry?: string): PackageConfig {
   const spcfg: PackageConfig = {};
   if (pcfg.registry)
@@ -575,6 +584,12 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     spcfg.version = pcfg.version;
   if (pcfg.bin)
     spcfg.bin = pcfg.bin;
+  if (pcfg.skipESMConversion)
+    spcfg.skipESMConversion = true;
+  if (pcfg.mode === 'cjs')
+    spcfg.mode = 'cjs';
+  if (pcfg.namedExports)
+    spcfg.namedExports = pcfg.namedExports;
   if (pcfg.dependencies) {
     const dependencies = spcfg.dependencies = {};
     for (let p in pcfg.dependencies)
@@ -590,48 +605,11 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     for (let p in pcfg.optionalDependencies)
       optionalDependencies[p] = serializePackageTargetCanonical(p, pcfg.optionalDependencies[p], defaultRegistry);
   }
-  if (pcfg.mode) {
-    spcfg.mode = pcfg.mode;
-  }
-  if (pcfg.mains) {
-    let mainSugar = true;
-    for (let c in pcfg.mains) {
-      const target = pcfg.mains[c];
-      let defaultString;
-      if (typeof target === 'string') {
-        defaultString = target;
-      }
-      else if (typeof target === 'object') {
-        for (let p in target) {
-          if (p === 'default' && typeof target.default === 'string') {
-            defaultString = target[p];
-          }
-          else {
-            defaultString = undefined;
-            break;
-          }
-        }
-      }
-      if (!defaultString || !mainTypes.includes(defaultString)) {
-        mainSugar = false;
-        spcfg.mains = pcfg.mains;
-        break;
-      }
-    }
-    if (mainSugar) {
-      for (let c in pcfg.mains) {
-        const target = pcfg.mains[c];
-        const main = typeof target === 'string' ? target : <string>target.default;
-        if (c === 'default')
-          spcfg.main = main;
-        else
-          spcfg[c] = main;
-      }
-    }
-  }
-  if (pcfg.map) {
+  spcfg.mode = pcfg.mode;
+  if (pcfg.main)
+    spcfg.main = pcfg.main;
+  if (pcfg.map)
     spcfg.map = pcfg.map;
-  }
   return spcfg;
 }
 
@@ -655,17 +633,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
       else {
         if (baseVal === undefined)
           baseVal = {};
-        if (p === 'mains') {
-          const { conditional, override: conditionalOverride } = overrideConditional(baseVal, val);
-          if (conditional)
-            pcfg.mains = conditional;
-          if (conditionalOverride) {
-            if (!override)
-              override = {};
-            override.mains =  conditionalOverride;
-          }
-        }
-        else if (p === 'map') {
+        if (p === 'map') {
           const { map, override: mapOverride } = overrideMapConfig(baseVal,  val);
           if (map)
             pcfg.map = map;
@@ -682,6 +650,17 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
             override = override || {};
             override.bin = override.bin || {};
             baseVal[q] = override.bin[q] = overridePcfg.bin[q];
+            pcfg.bin = baseVal;
+          }
+        }
+        else if (p === 'namedExports') {
+          for (let q in overridePcfg.namedExports) {
+            if (JSON.stringify(baseVal[q]) === JSON.stringify(overridePcfg.namedExports[q]))
+              continue;
+            override = override || {};
+            override.namedExports = override.namedExports || {};
+            baseVal[q] = override.namedExports[q] = overridePcfg.namedExports[q];
+            pcfg.namedExports = baseVal;
           }
         }
         // dependencies

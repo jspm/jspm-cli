@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ jspmCLI.launch({ cwd: process.cwd() }, env => {
   process.env.jspmConfigPath = env.configPath || '';
   process.env.globalJspm = !env.modulePath;
   if (env.modulePath)
-    require(path.resolve(env.modulePath, '../jsps'));
+    require(path.resolve(env.modulePath, '../jspm-node'));
   else
-    require('../lib/jsps');
+    require('../lib/jspm-node');
 });

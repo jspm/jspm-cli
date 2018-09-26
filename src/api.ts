@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -18,10 +18,8 @@ import { JSPM_CONFIG_DIR } from './utils/common';
 import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
-export { serve, ServerOptions } from './serve';
-import { serverRunning } from './serve';
 
-import { build as buildFunc } from './build';
+export { map, filterMap, trace } from './map';
 import { execNode as execFunc, jspx as jspxFunc } from './exec';
 import path = require('path');
 
@@ -32,17 +30,11 @@ if (process.env.globalJspm !== undefined) {
     process.exit(1);
   });
   process.once('SIGINT', () => {
-    if (serverRunning)
-      log('jspm server terminated.');
-    else
-      log('jspm process terminated.');
+    log('jspm process terminated.');
     process.exit(1);
   });
   process.once('SIGTERM', () => {
-    if (serverRunning)
-      log('jspm server terminated.');
-    else
-      log('jspm process terminated.');
+    log('jspm process terminated.');
     process.exit(1);
   });
 }
@@ -67,10 +59,6 @@ export const JSPM_GLOBAL_PATH = path.resolve(JSPM_CONFIG_DIR, 'global');
 
 export const jspx: typeof jspxFunc = function () {
   return require('./exec').jspx.apply(this, arguments);
-}
-
-export const build: typeof buildFunc = function () {
-  return require('./build').build.apply(this, arguments);
 }
 
 export const execNode: typeof execFunc = function () {

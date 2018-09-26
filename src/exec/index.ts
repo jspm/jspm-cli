@@ -1,3 +1,18 @@
+/*
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
 const { spawn } = require('child_process');
 import { bold, JspmUserError, isWindows, JSPM_CACHE_DIR, readJSON, highlight } from '../utils/common';
 export const version = require('../../package.json').version;
@@ -88,10 +103,14 @@ export async function execNode (args = [], projectPath = process.cwd()) {
     if (arg[0] === '-')
       continue;
     const jspmResolve = require('jspm-resolve');
-    const resolved = jspmResolve.sync(arg, projectPath + '/', { env: { bin: true }, relativeFallback: true });
-    if (!resolved.resolved)
-      throw new JspmUserError(`@empty resolution found for ${arg}.`);
-    args[i] = resolved.resolved;
+    try {
+      args[i] = jspmResolve.sync(arg, projectPath + '/', { env: { bin: true } }).resolved;
+    }
+    catch (e) {
+      if (e.code !== 'MODULE_NOT_FOUND' || path.isAbsolute(arg) || arg.startsWith('./') || arg.startsWith('/') || arg.startsWith('../'))
+        throw e;
+      args[i] = jspmResolve.sync('./' + arg, projectPath + '/', { env: { bin: true } }).resolved;
+    }
     break;
   }
   
@@ -102,7 +121,7 @@ export async function execNode (args = [], projectPath = process.cwd()) {
     spawn(node, args, {
       stdio: 'inherit',
       env: Object.assign({}, process.env, {
-        NODE_OPTIONS: `--experimental-modules --loader ${(isWindows ? '/' : '') + loaderPath}`
+        NODE_OPTIONS: `${process.env.NODE_OPTIONS ? process.env.NODE_OPTIONS + ' ' : ''}--experimental-modules --loader ${(isWindows ? '/' : '') + loaderPath}`
       })
     })
     .on('close', code => resolve(code))

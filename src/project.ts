@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -155,8 +155,8 @@ export class Project {
     this.cli = config.cli;
     this.log = this.cli ? new CLILogger() : new APILogger();
 
-    if (process.env.globalJspm === 'true')
-      this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
+    // if (process.env.globalJspm === 'true')
+    //  this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
 
     this.defaultRegistry = config.defaultRegistry;
 
@@ -206,6 +206,7 @@ export class Project {
   checkGlobalBin () {
     // TODO: Provide the code to automatically add "$globalBin" to the users PATH with a prompt
     // although I couldn't find any existing npm packages that do this cross-platform!
+    return;
     if (this.checkedGlobalBin)
       return;
     const globalBin = path.join(JSPM_GLOBAL_PATH, 'jspm_packages', '.bin');

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2017 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ export default class PackageJson extends ConfigFile {
       target: string | PackageTarget
     }
   };
-  overrides: { target: PackageTarget | string, override: ProcessedPackageConfig }[];
+  overrides: { target: PackageTarget | string, override: ProcessedPackageConfig, fresh: boolean }[];
   hooks: {
     [hook: string]: string
   };
@@ -188,7 +188,8 @@ export default class PackageJson extends ConfigFile {
         }
         this.overrides.push({
           target,
-          override: processPackageConfig(overrides[name], true)
+          override: processPackageConfig(overrides[name], true),
+          fresh: false
         });
       });
     }
