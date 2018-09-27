@@ -28,7 +28,7 @@ export function relativeResolve (require: string, filePath: string, pkgBasePath:
 
   // local maps need to be "plain" to support package maps
   if (localMaps[resolvedPkgPath || pkgPath])
-    return toDew(name + '/' + (resolvedPkgPath || pkgPath));  
+    return toDew(name + '/' + (resolvedPkgPath || pkgPath));
 
   if (!resolvedPkgPath)
     return toDew(require);
@@ -86,11 +86,6 @@ export function pcfgToDeps (pcfg: ProcessedPackageConfig) {
     Object.keys(pcfg.dependencies).forEach(key => deps[key] = true);
   if (pcfg.peerDependencies)
     Object.keys(pcfg.peerDependencies).forEach(key => deps[key] = true);
-  if (pcfg.map)
-    Object.keys(pcfg.map).forEach(key => {
-      if (!key.startsWith('./'))
-        deps[key] = true;
-    });
 
   return deps;
 }

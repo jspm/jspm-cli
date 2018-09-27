@@ -20,27 +20,59 @@ function tryParseCjs (source) {
       allowReturnOutsideFunction: true,
       plugins: stage3Syntax
     },
-    plugins: [({ types: t }) => ({
-      visitor: {
-        ReferencedIdentifier (path) {
-          const identifierName = path.node.name;
-          if (!hasProcess && identifierName === 'process' && !path.scope.hasBinding('process'))
-            hasProcess = true;
-          if (!hasBuffer && identifierName === 'Buffer' && !path.scope.hasBinding('Buffer'))
-            hasBuffer = true;
-        },
-        CallExpression (path) {
-          if (t.isIdentifier(path.node.callee, { name: 'require' })) {
-            let arg = path.node.arguments[0];
-            if (t.isStringLiteral(arg))
-              requires.add(arg.value);
-            else if (t.isTemplateLiteral(arg) && arg.expressions.length === 0)
-              requires.add(arg.quasis[0].value.cooked);
-            // no dynamic require detection support currently
+    plugins: [({ types: t }) => {
+      function resolvePartialWildcardString (node, lastIsWildcard) {
+        if (t.isStringLiteral(node))
+          return node.value;
+        if (t.isTemplateLiteral(node)) {
+          let str = '';
+          for (let i = 0; i < node.quasis.length; i++) {
+            const quasiStr = node.quasis[i].value.cooked;
+            if (quasiStr.length) {
+              str += quasiStr;
+              lastIsWildcard = false;
+            }
+            const nextNode = node.expressions[i];
+            if (nextNode) {
+              const nextStr = resolvePartialWildcardString(nextNode, lastIsWildcard);
+              if (nextStr.length) {
+                lastIsWildcard = nextStr.endsWith('*');
+                str += nextStr;
+              }
+            }
+          }
+          return str;
+        }
+        if (t.isBinaryExpression(node) && node.operator === '+') {
+          const leftResolved = resolvePartialWildcardString(node.left, lastIsWildcard);
+          if (leftResolved.length)
+            lastIsWildcard = leftResolved.endsWith('*');
+          const rightResolved = resolvePartialWildcardString(node.right, lastIsWildcard);
+          return leftResolved + rightResolved;
+        }
+        return lastIsWildcard ? '' : '*';
+      }
+
+      return {
+        visitor: {
+          ReferencedIdentifier (path) {
+            const identifierName = path.node.name;
+            if (!hasProcess && identifierName === 'process' && !path.scope.hasBinding('process'))
+              hasProcess = true;
+            if (!hasBuffer && identifierName === 'Buffer' && !path.scope.hasBinding('Buffer'))
+              hasBuffer = true;
+          },
+          CallExpression (path) {
+            if (t.isIdentifier(path.node.callee, { name: 'require' })) {
+              let arg = path.node.arguments[0];
+              const req = resolvePartialWildcardString(arg, false);
+              if (req !== '*')
+                requires.add(req);
+            }
           }
         }
-      }
-    })]
+      };
+    }]
   });
   if (hasProcess && !requires.has('process'))
     requires.add('process');
@@ -61,6 +93,7 @@ function transformDew (ast, source, resolveMap, deps) {
     },
     plugins: [[dewTransformPlugin, {
       resolve: name => resolveMap[name] || name,
+      resolveWildcard: name => resolveMap[name],
       esmDependencies: resolved => isESM(resolved, deps),
       filename: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url).pathname`,
       dirname: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(0, import.meta.url.lastIndexOf('/')).slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url.slice(0, import.meta.url.lastIndexOf('/'))).pathname`
@@ -77,8 +110,29 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, de
     var { ast, requires } = tryParseCjs(source);
     
     const resolveMap = {};
-    for (const require of requires)
-      resolveMap[require] = relativeResolve(require, filePath, pkgBasePath, files, main, folderMains, localMaps, name);
+    for (const require of requires) {
+      if (require.indexOf('*') === -1) {
+        resolveMap[require] = relativeResolve(require, filePath, pkgBasePath, files, main, folderMains, localMaps, name);
+      }
+      else {
+        // we can only wildcard resolve internal requires
+        if (!require.startsWith('./') && !require.startsWith('../'))
+          continue;
+        const wildcardPath = path.relative(pkgBasePath, path.resolve(filePath.substr(0, filePath.lastIndexOf(path.sep)), require)).replace(/\\/g, '/');
+        const wildcardPattern = new RegExp(wildcardPath.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*'));
+        const matches = Object.keys(files).filter(file => file.match(wildcardPattern) && (file.endsWith('.js') || file.endsWith('.json') || file.endsWith('.node')));
+        const relFile = path.relative(pkgBasePath, path.resolve(filePath.substr(0, filePath.lastIndexOf(path.sep))));
+        resolveMap[require] = matches.map(match => {
+          let relPath = path.relative(relFile, match).replace(/\\/g, '/');
+          if (relPath === '')
+            relPath = './' + filePath.substr(filePath.lastIndexOf('/') + 1);
+          else if (!relPath.startsWith('../'))
+            relPath = './' + relPath;
+          requires.add(relPath);
+          return relPath;
+        });
+      }
+    }
     
     const dewTransform = transformDew(ast, source, resolveMap, deps);
 
@@ -89,7 +143,7 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, de
       return true;
     if (filePath.endsWith('.js')) {
       try {
-        const dewTransform = `export function dew () {\n  throw new Error('jspm error converting CommonJS File: ${err.message.replace('\'', '\\\'')}')}\n`;
+        const dewTransform = `export function dew () {\n  throw new Error('Error converting CommonJS File. If this file is valid CommonJS, please post a jspm bug with a test case: ${err.message.replace('\'', '\\\'')}');\n}\n`;
         await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve()));
       }
       catch (e) {

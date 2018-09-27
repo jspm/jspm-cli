@@ -139,25 +139,31 @@ class Mapper {
         let mainEntry = true;
         let onlyMain = false;
 
-        const depMapped = applyMap(mapped, pkg.resolve) || applyMap(mapped, this.dependencies);
-        if (depMapped) {
-          mapped = 'jspm_packages/' + depMapped.replace(':', '/');
-          if (mapped.endsWith('/')) {
-            mapped = mapped.substr(0, mapped.length - 1);
-            mainEntry = false;
+        if (mapped.startsWith('./')) {
+          mapped = pkgPath + mapped.substr(1);
+        }
+        else {
+          const depMapped = applyMap(mapped, pkg.resolve) || applyMap(mapped, this.dependencies);
+          if (depMapped) {
+            mapped = 'jspm_packages/' + depMapped.replace(':', '/');
+          }
+          else if (jspmBuiltins[mapped]) {
+            mapped = `${nodeBuiltinsPkg}/${mapped}.js`;
+            onlyMain = true;
           }
         }
-        else if (jspmBuiltins[mapped]) {
-          mapped = `${nodeBuiltinsPkg}/${mapped}.js`;
-          onlyMain = true;
+
+        if (mapped.endsWith('/')) {
+          mapped = mapped.substr(0, mapped.length - 1);
+          mainEntry = false;
         }
         
-        const relPath = path.relative(pkgPath + '/' + depName + '/', mapped).replace(/\\/g, '/');
+        const relPath = path.relative(onlyMain ? pkgPath + '/' + target : pkgPath, mapped).replace(/\\/g, '/');
 
         if (onlyMain)
           scopedPackages[target] = relPath;
         else if (mainEntry)
-          scopedPackages[target] = { main: '.', path: relPath };
+          scopedPackages[target] = { main: '../' + relPath.substr(relPath.lastIndexOf('/') + 1), path: relPath };
         else
           scopedPackages[target] = { path: relPath };
       }
@@ -268,7 +274,7 @@ class MapResolver {
     const resolved = this.resolve(id, parentUrl, toplevel);
 
     if (seen[resolved])
-      return;
+      return resolved;
     seen[resolved] = true;
 
     let deps;
@@ -278,11 +284,14 @@ class MapResolver {
     catch (err) {
       throw new JspmUserError(`Loading ${highlight(id)} from ${bold(decodeURI(parentUrl.substr(7 + +isWindows).replace(/\//g, path.sep)))}`, err.code, err);
     }
+    
     const resolvedDeps = await Promise.all(deps.map(dep => this.resolveAll(dep, resolved, seen)));
 
-    const trace = this.trace[resolved] = Object.create(null);
-    for (let i = 0; i < deps.length; i++)
-      trace[deps[i]] = resolvedDeps[i];
+    if (deps.length) {
+      const trace = this.trace[resolved] = Object.create(null);
+      for (let i = 0; i < deps.length; i++)
+        trace[deps[i]] = resolvedDeps[i];
+    }
 
     return resolved;
   }

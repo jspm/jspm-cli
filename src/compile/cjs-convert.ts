@@ -66,7 +66,7 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
     for (const match of Object.keys(pcfg.map)) {
       if (!newMap)
         newMap = {};
-      const mapping = pcfg.map[match];
+      let mapping = pcfg.map[match];
       newMap[match] = mapping;
       const isRel = match.startsWith('./');
       if (isESM(match, deps))
@@ -89,8 +89,11 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
     pcfg.map = newMap;
 }
 function convertMappingToDew (mapping: string | Conditional, plain: boolean): string | Conditional {
-  if (typeof mapping === 'string')
+  if (typeof mapping === 'string') {
+    if (mapping === '@empty')
+      return '@empty.dew';
     return plain ? (builtins[mapping] ? mapping : toDewPlain(mapping)) : toDew(mapping);
+  }
 
   const newMap = {};
   for (const condition of Object.keys(mapping))
