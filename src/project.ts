@@ -73,6 +73,8 @@ export interface ProjectConfiguration {
   cli?: boolean;
 }
 
+
+
 function applyDefaultConfiguration (userConfig: ProjectConfiguration) {
   const config: ProjectConfiguration = Object.assign({}, userConfig);
 
@@ -83,7 +85,7 @@ function applyDefaultConfiguration (userConfig: ProjectConfiguration) {
     Object.keys(registriesGlobalConfig).forEach((registryName) => {
       const registry = registriesGlobalConfig[registryName];
       registries[registryName] = {
-        handler: registry.handler || `jspm-${registryName}`,
+        handler: registry.handler || `@jspm/${registryName}`,
         config: registry
       };
     });

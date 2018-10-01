@@ -18,7 +18,7 @@ import path = require('path');
 import { DepType, serializePackageName } from "../install/package";
 import { readJSON, highlight, JspmUserError, isWindows, bold } from "../utils/common";
 import { clean, createPackageMap, getMatch } from "./utils";
-const { builtins, applyMap } = require('jspm-resolve');
+const { builtins, applyMap } = require('@jspm/resolve');
 import { URL } from 'url';
 import { resolveIfNotPlainOrUrl } from "./common";
 import fs = require('graceful-fs');

@@ -19,7 +19,7 @@
 import { encodeInvalidFileChars, hasProperties } from '../utils/common';
 import { Semver, SemverRange } from 'sver';
 import convertRange = require('sver/convert-range');
-const { processPjsonConfig } = require('jspm-resolve');
+const { processPjsonConfig } = require('@jspm/resolve');
 import crypto = require('crypto');
 export { processPjsonConfig }
 import { sourceProtocols } from './source';

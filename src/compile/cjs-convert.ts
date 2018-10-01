@@ -21,7 +21,7 @@ import * as fs from 'graceful-fs';
 import * as path from 'path';
 import { writeJSONStyled, readJSONStyled, defaultStyle } from '../config/config-file';
 import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM, getOverriddenBuiltins } from './dew-resolve';
-import { builtins } from 'jspm-resolve';
+import { builtins } from '@jspm/resolve';
 
 // this can be ^0.1.1 when the package map version is no longer unnecessarily locked
 const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/node-builtins', '0.1.2');

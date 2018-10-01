@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { validPkgNameRegEx } from '../utils/common';
 import { ProcessedPackageConfig } from '../install/package';
-import { builtins } from 'jspm-resolve';
+import { builtins } from '@jspm/resolve';
 
 export function relativeResolve (require: string, filePath: string, pkgBasePath: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, localMaps: Record<string, boolean>, name: string) {
   const fileDir = path.resolve(filePath, '..');

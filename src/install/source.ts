@@ -23,7 +23,7 @@ import peek = require('buffer-peek-stream');
 import fs = require('graceful-fs');
 import tar = require('tar-fs');
 import Stream = require('stream');
-import execGit = require('jspm-github/exec-git');
+import execGit = require('@jspm/github/exec-git');
 import rimraf = require('rimraf');
 import path = require('path');
 

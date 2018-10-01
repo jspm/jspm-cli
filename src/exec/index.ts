@@ -67,7 +67,7 @@ export async function jspx (target: string, args: string[], opts: JspxOptions): 
   binScript = path.resolve(packagePath, binScript);
 
   const node = process.argv[0];
-  const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');
+  const loaderPath =  require.resolve('@jspm/resolve').replace(/resolve\.js$/, 'loader.mjs');
 
   return new Promise<number>((resolve, reject) => {
     spawn(node, [binScript, ...args], {
@@ -102,7 +102,7 @@ export async function execNode (args = [], projectPath = process.cwd()) {
       break;
     if (arg[0] === '-')
       continue;
-    const jspmResolve = require('jspm-resolve');
+    const jspmResolve = require('@jspm/resolve');
     try {
       args[i] = jspmResolve.sync(arg, projectPath + '/', { env: { bin: true } }).resolved;
     }
@@ -115,7 +115,7 @@ export async function execNode (args = [], projectPath = process.cwd()) {
   }
   
   const node = process.argv[0];
-  const loaderPath =  require.resolve('jspm-resolve').replace(/resolve\.js$/, 'loader.mjs');
+  const loaderPath =  require.resolve('@jspm/resolve').replace(/resolve\.js$/, 'loader.mjs');
 
   return new Promise<number>((resolve, reject) => {
     spawn(node, args, {

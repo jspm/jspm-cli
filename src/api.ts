@@ -46,12 +46,12 @@ else {
 }
 
 export async function resolve (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
-  const jspmResolve = require('jspm-resolve');
+  const jspmResolve = require('@jspm/resolve');
   return jspmResolve(name, parent, { env, relativeFallback });
 }
 
 export function resolveSync (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
-  const jspmResolve = require('jspm-resolve');
+  const jspmResolve = require('@jspm/resolve');
   return jspmResolve.sync(name, parent, { env, relativeFallback });
 }
 
