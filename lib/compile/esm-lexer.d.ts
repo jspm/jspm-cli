@@ -1,0 +1,17 @@
+export declare function analyzeModuleSyntax(_str: any): any[];
+export declare function isWs(): boolean;
+export declare function isBr(): boolean;
+export declare function isBrOrWs(charCode: any): boolean;
+export declare function blockComment(): void;
+export declare function lineComment(): void;
+export declare function singleQuoteString(): void;
+export declare function doubleQuoteString(): void;
+export declare function regexCharacterClass(): void;
+export declare function regularExpression(): void;
+export declare function readPrecedingKeyword(endIndex: any): any;
+export declare function readToWsOrPunctuator(startIndex: any): any;
+export declare function isExpressionKeyword(lastTokenIndex: any): any;
+export declare function isParenKeyword(lastTokenIndex: any): boolean;
+export declare function isExpressionPunctuator(charCode: any): boolean;
+export declare function isExpressionTerminator(lastTokenIndex: any): boolean;
+export declare function syntaxError(): void;

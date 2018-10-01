@@ -97,7 +97,7 @@ export default class RegistryManager {
     registries: {
         [name: string]: Registry;
     };
-    constructor({cacheDir, timeouts, Cache, userInput, offline, preferOffline, strictSSL, defaultRegistry, log, input, confirm, fetch, registries}: ConstructorOptions);
+    constructor({ cacheDir, timeouts, Cache, userInput, offline, preferOffline, strictSSL, defaultRegistry, log, input, confirm, fetch, registries }: ConstructorOptions);
     loadEndpoints(): void;
     getEndpoint(name: any): {
         endpoint: RegistryEndpoint;

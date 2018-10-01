@@ -1,3 +1,4 @@
+export declare function readModuleEnv(opts: any): any;
 export declare const HOME_DIR: string;
 export declare const JSPM_LEGACY_CONFIG_DIR: string;
 declare let JSPM_CONFIG_DIR: any, JSPM_CACHE_DIR: any;
@@ -47,3 +48,6 @@ export declare function hasProperties(obj: any): boolean;
 export declare function readJSON(file: string): Promise<any>;
 export declare function sha256(input: string): string;
 export declare function md5(input: string): string;
+export declare const validPkgNameRegEx: RegExp;
+export declare function isValidIdentifier(name: string): RegExpMatchArray;
+export declare function alphabetize<T>(obj: T): T;

@@ -63,3 +63,4 @@ export declare const defaultStyle: {
     quote: string;
 };
 export declare function detectStyle(string: string): jsonStyle;
+export declare function serializeJson(json: any, style: jsonStyle): string;

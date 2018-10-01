@@ -25,6 +25,7 @@ export default class PackageJson extends ConfigFile {
     overrides: {
         target: PackageTarget | string;
         override: ProcessedPackageConfig;
+        fresh: boolean;
     }[];
     hooks: {
         [hook: string]: string;
@@ -37,11 +38,11 @@ export default class PackageJson extends ConfigFile {
     setBaseURL(baseURL: string): void;
     write(): boolean;
     setPrefix(jspmPrefix: boolean): void;
-    private readDependencies(depName);
-    private writeDependencies(depName, value);
-    private prefixedSetObject(memberArray, object, clearIfEmpty?);
-    private prefixedSetValue(memberArray, value, defaultValue?);
-    private prefixedGetValue(memberArray, type?);
-    private prefixedGetObject(memberArray, nested?);
-    private toRelativePath(absPath);
+    private readDependencies;
+    private writeDependencies;
+    private prefixedSetObject;
+    private prefixedSetValue;
+    private prefixedGetValue;
+    private prefixedGetObject;
+    private toRelativePath;
 }

@@ -5,7 +5,7 @@ export declare enum LogType {
     ok = 3,
     info = 4,
     debug = 5,
-    status = 6,
+    status = 6
 }
 export declare let logLevel: LogType;
 export declare let useDefaults: boolean;

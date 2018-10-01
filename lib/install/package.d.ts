@@ -47,7 +47,7 @@ export declare class ResolveTree {
         dependencies: {};
     };
     createResolveRecord(resolution: string): ResolveRecord;
-    getResolution({name, parent}: {
+    getResolution({ name, parent }: {
         name: string;
         parent: string | void;
     }): ExactPackage;
@@ -70,7 +70,9 @@ export interface ProcessedPackageConfig {
     name?: string;
     version?: string;
     mode?: string;
-    mains?: Conditional;
+    main?: string;
+    skipESMConversion?: boolean | string[];
+    namedExports?: Record<string, string[]>;
     map?: MapConfig;
     bin?: {
         [name: string]: string;
@@ -90,7 +92,9 @@ export interface PackageConfig {
     name?: string;
     version?: string;
     mode?: string;
-    mains?: Conditional;
+    main?: string;
+    skipESMConversion?: boolean | string[];
+    namedExports?: Record<string, string[]>;
     map?: MapConfig;
     bin?: string | {
         [name: string]: string;
@@ -104,8 +108,6 @@ export interface PackageConfig {
     optionalDependencies?: {
         [name: string]: string;
     };
-    main?: string;
-    module?: boolean | string;
     'react-native'?: string;
     electron?: string;
     browser?: string | {
@@ -113,7 +115,7 @@ export interface PackageConfig {
     };
 }
 export declare function serializePackageTargetCanonical(name: string, target: PackageTarget | string, defaultRegistry?: string): string;
-export declare function processPackageConfig(pcfg: PackageConfig, rangeConversion?: boolean): ProcessedPackageConfig;
+export declare function processPackageConfig(pcfg: PackageConfig, partial?: boolean): ProcessedPackageConfig;
 export declare function processPackageTarget(depName: string, depTarget: string, defaultRegistry?: string, rangeConversion?: boolean): string | PackageTarget;
 export declare function serializePackageConfig(pcfg: ProcessedPackageConfig, defaultRegistry?: string): PackageConfig;
 export declare function overridePackageConfig(pcfg: ProcessedPackageConfig, overridePcfg: ProcessedPackageConfig): {
@@ -126,7 +128,7 @@ export declare enum DepType {
     dev = 1,
     peer = 2,
     optional = 3,
-    secondary = 4,
+    secondary = 4
 }
 export interface DepMap {
     [name: string]: string | PackageTarget;
