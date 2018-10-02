@@ -27,8 +27,8 @@ import { builtins } from '@jspm/resolve';
 const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/node-builtins', '0.1.2');
 
 const convertWorker: any = workerFarm({
-  maxConcurrentWorkers: require('os').cpus().length / 2,
-  maxConcurrentCallsPerWorker: 2,
+  maxConcurrentWorkers: require('os').cpus().length,
+  maxConcurrentCallsPerWorker: 1,
   autoStart: true
 }, require.resolve('./dew-worker'));
 
