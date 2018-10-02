@@ -60,7 +60,7 @@ Make sure your GitHub SSH keys are configured correctly then:
 npm install -g git+ssh://git@github.com/jspm/jspm2-cli#2.0
 ```
 
-Also make sure to run NodeJS 8.9.0 or greater.
+Also make sure to run NodeJS 10.x or greater.
 
 > Installing `jspm` installs `jspx` as well, working just like `npx`. Try it out!
 
@@ -107,6 +107,8 @@ jspm-node test.js
 
 When executing jspm is using the NodeJS `--experimental-modules` feature directly, configuring the jspm resolver through the NodeJS `--loader` hooks so this is using full native ES module support in Node.js.
 
+> If you get an error when running this, you may not be on the latest Node.js version. Only Node.js 10.x supports dynamic import through native ES modules.
+
 ### 5. Execution in the Browser
 
 To execute the above file in the browser, we can create a package map:
@@ -134,6 +136,8 @@ test.html
 ```
 
 Run any local server to load the page (eg `jspx http-server`), and you should see the code running in the browser console.
+
+**We are loading 100s of ES modules converted from Node.js semantics to work natively in the browser with only a package map.**
 
 > jspx is just like npx, but for jspm. A jspm install is run in the background to a private package and everything is executed as Node-native ES modules with the jspm resolver.
 
