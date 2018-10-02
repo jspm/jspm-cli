@@ -84,6 +84,8 @@ function applyDefaultConfiguration (userConfig: ProjectConfiguration) {
     const registries: { [name: string]: Registry } = {};
     Object.keys(registriesGlobalConfig).forEach((registryName) => {
       const registry = registriesGlobalConfig[registryName];
+      if (registry.handler === 'jspm-npm' || registry.handler === 'jspm-github')
+        registry.handler = undefined;
       registries[registryName] = {
         handler: registry.handler || `@jspm/${registryName}`,
         config: registry
