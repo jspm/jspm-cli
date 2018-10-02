@@ -19,7 +19,7 @@ The package manager, ecosystem and linker are all heavily entwined and have to e
 
 ## Basic Architecture
 
-The first version was based on SystemJS as the spec for JS execution, which became an issue when that spec was no longer supported.
+The first version was based on SystemJS as the spec for JS execution, which became stalled when that spec was no longer supported.
 
 This version aims to realign with:
 
@@ -457,9 +457,9 @@ For more information, the resolution algorithm is explained in fine detail at ht
 
 ### Implementing and using the jspm resolver
 
-The jspm resolver is provided as a library that can be installed. This will be available at `npm install @jspm/resolve` on public release, but for now it is only available via the `jspm/jspm-resolve` GitHub project.
+The jspm resolver API is provided as a library. This will be available at `npm install @jspm/resolve` on public release, but for now it is only available via the `jspm/jspm-resolve` GitHub project.
 
-Using the resolver plugins can be writed to integrate jspm resolution into any framework / tool.
+Using the resolver plugins can be written to integrate jspm resolution into any framework / tool.
 
 Parcel and Webpack resolver plugins still need to be done. If you work on this for any tools, please do share your work!
 
@@ -471,9 +471,9 @@ The jspm resolver also provides [an ES module loader for Node.js loading](https:
 node --experimental-modules --loader @jspm/resolve/loader.mjs
 ```
 
-`jspm-node` is example just a bin alias for the above.
+`jspm-node` is just a bin alias for the above.
 
-For tools like Mocha, supported can be added just through the NODE_OPTIONS environment variable:
+For tools like Mocha, support can be added just through the NODE_OPTIONS environment variable:
 
 ```js
 NODE_OPTIONS="--experimental-modules --loader \"@jspm/resolve/loader.mjs\"" mocha
