@@ -20,7 +20,7 @@ import { JspmUserError } from '../utils/common';
 import * as fs from 'graceful-fs';
 import * as path from 'path';
 import { writeJSONStyled, readJSONStyled, defaultStyle } from '../config/config-file';
-import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM, getOverriddenBuiltins } from './dew-resolve';
+import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM } from './dew-resolve';
 import { builtins } from '@jspm/resolve';
 
 // this can be ^0.1.1 when the package map version is no longer unnecessarily locked
@@ -74,7 +74,8 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
       newMap[isRel ? toDew(match) : toDewPlain(match)] = convertMappingToDew(mapping, !isRel);
     }
   }
-  if (pcfg.bin) {
+  // we actually want the bin to remain to the ESM wrapper
+  /*if (pcfg.bin) {
     let newBin;
     for (const bin of Object.keys(pcfg.bin)) {
       if (!newBin)
@@ -84,7 +85,7 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
     }
     if (newBin)
       pcfg.bin = newBin;
-  }
+  }*/
   if (newMap)
     pcfg.map = newMap;
 }
@@ -200,7 +201,7 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
   // the worker will also write over the original file with the ESM wrapper
   log.debug(`Sending conversion manifest to process worker for ${pkgName}...`);
   await new Promise<string[]>((resolve, reject) => {
-    convertWorker(pcfg.name, dir, convertFiles, main, folderMains, pcfg.namedExports, getOverriddenBuiltins(pcfg), getLocalMaps(pcfg), (err, convertedFiles) => {
+    convertWorker(pcfg.name, dir, convertFiles, main, folderMains, pcfg.namedExports, getLocalMaps(pcfg), pcfgToDeps(pcfg, true), (err, convertedFiles) => {
       if (err)
         reject(new JspmUserError(`Error converting ${pkgName}${err.filename ? ` file ${err.filename}` : ''}. This package may not load correctly in jspm. Please post a bug!\n${err.stack || err.toString()}`, 'ESM_CONVERSION_ERROR'));
       else

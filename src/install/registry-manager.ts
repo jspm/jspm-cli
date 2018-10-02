@@ -521,7 +521,7 @@ export default class RegistryManager {
         = await this.cache.getUnlocked(sourceHash, this.timeouts.download) || {};
 
     if (config) {
-      config = processPackageConfig(<any>config, true);
+      config = processPackageConfig(<any>config);
       if (override) {
         ({ config, override } = overridePackageConfig(config, override));
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
@@ -547,7 +547,7 @@ export default class RegistryManager {
           hash: string
         } = await this.cache.get(sourceHash) || {};
         if (config) {
-          config = processPackageConfig(<any>config, true);
+          config = processPackageConfig(<any>config);
           if (override) {
             ({ config, override } = overridePackageConfig(config, override));
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
@@ -585,7 +585,7 @@ export default class RegistryManager {
           pjson = {};
 
         if (!config) {
-          let pjsonConfig = processPackageConfig(pjson, true);
+          let pjsonConfig = processPackageConfig(pjson);
           const serializedConfig = serializePackageConfig(pjsonConfig, this.defaultRegistry);
           if (override)
             ({ config, override } = overridePackageConfig(pjsonConfig, override));

@@ -188,7 +188,7 @@ export default class PackageJson extends ConfigFile {
         }
         this.overrides.push({
           target,
-          override: processPackageConfig(overrides[name], true),
+          override: processPackageConfig(overrides[name]),
           fresh: false
         });
       });
@@ -291,7 +291,7 @@ export default class PackageJson extends ConfigFile {
       overrides[target.toString()] = serializePackageConfig(override, typeof target !== 'string' ? target.registry : undefined);
     });
 
-    this.prefixedSetObject(['overrides'], overrides, !this.jspmPrefix || !this.has(['dependencies']) && !this.has(['jspm', 'dependencies']));
+    this.prefixedSetObject(['overrides'], overrides, !this.jspmPrefix || !this.has(['overrides']));
 
     let baseURL = this.toRelativePath(this.baseURL);
     let baseURLPath = baseURL + (baseURL ? '/' : '');

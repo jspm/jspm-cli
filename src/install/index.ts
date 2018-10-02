@@ -70,6 +70,7 @@ export class Installer {
   private config: Config;
   private registryManager: RegistryManager;
   private installTree: ResolveTree;
+  private primaryType: DepType;
   // we install one "top-level" operation at a time
   // so no need to track individual completions
   private installs: {
@@ -112,6 +113,7 @@ export class Installer {
     this.sourceInstalls = {};
     this.installs = {};
 
+    this.primaryType = undefined;
     this.primaryRanges = this.config.pjson.dependencies;
     this.updatePrimaryRanges = true;
     this.secondaryRanges = {};
@@ -379,6 +381,8 @@ export class Installer {
       });
     }
 
+    this.primaryType = installs[0] && installs[0].type;
+
     // install in parallel
     await Promise.all(installs.map(install => {
       const target = install.target;
@@ -490,14 +494,9 @@ export class Installer {
   }
 
   private async packageInstall (install: PackageInstall): Promise<void> {
-    if (install.type === DepType.peer) {
-      // this.project.log.warn('Peer resolution yet to be implemented.');
-      install.type = DepType.primary;
-    }
-
     // first check if already doing this install, to avoid redoing work
     // this in turn catches circular installs on the early returns
-    const installId = `${install.parent}|${install.name}`;
+    const installId = `${install.type === DepType.peer ? undefined : install.parent}|${install.name}`;
     const existingPackageInstall = this.installs[installId];
     if (existingPackageInstall)
       return;
@@ -507,7 +506,7 @@ export class Installer {
   
       // install information
       let target = install.target;
-      let override: ProcessedPackageConfig | void = install.override && processPackageConfig(install.override, true);
+      let override: ProcessedPackageConfig | void = install.override && processPackageConfig(install.override);
       let source: string;
   
       let resolvedPkg: ExactPackage;
@@ -575,7 +574,7 @@ export class Installer {
 
       // immediately store the resolution if necessary
       target = this.setResolution(install,
-        new PackageTarget(resolution.target.registry, resolution.target.name, resolution.target.version), resolution.pkg, source);
+          new PackageTarget(resolution.target.registry, resolution.target.name, resolution.target.version), resolution.pkg, source);
 
       // upgrade anything to this resolution which can (this is the orphaning)
       if (this.opts.dedupe)
@@ -697,14 +696,9 @@ export class Installer {
   // we need to normalize the source string into resolved form and
   // we need to install first to find out the name of the package
   private async resourceInstall (install: ResourceInstall): Promise<void> {
-    if (install.type === DepType.peer) {
-      install.type = DepType.primary;
-      this.project.log.warn('Peer resolution yet to be implemented.');
-    }
-
     // first check if already doing this install, to avoid redoing work
     // this in turn catches circular installs on the early returns
-    const installId = `${install.parent}|${install.name}`;
+    const installId = `${install.type === DepType.peer ? undefined : install.parent}|${install.name}`;
     const existingPackageInstall = this.installs[installId];
     if (existingPackageInstall)
       return;
@@ -729,7 +723,7 @@ export class Installer {
       }
 
       this.project.log.debug(`Installing resource ${install.name}${install.parent ? ` for ${install.parent}` : ``}`);
-      const parentPath = install.parent ? path.join(this.config.pjson.packages, install.parent.replace(':', path.sep)) : this.project.projectPath;
+      const parentPath = install.parent && install.type !== DepType.peer ? path.join(this.config.pjson.packages, install.parent.replace(':', path.sep)) : this.project.projectPath;
 
       // first normalize the source
       try {
@@ -756,7 +750,7 @@ export class Installer {
           var json = await readJSON(path.join(linkPath, 'package.json'));
         }
         catch (e) {}
-        config = processPackageConfig(json || {}, true);
+        config = processPackageConfig(json || {});
         if (override) {
           ({ config, override } = overridePackageConfig(config, override));
           if (override)
@@ -902,7 +896,7 @@ export class Installer {
         }
         this.changed = true;
         this.primaryRanges[install.name] = {
-          type: install.type,
+          type: install.parent ? this.primaryType : install.type,
           target
         };
       }
@@ -949,7 +943,7 @@ export class Installer {
     const pkgPath = path.join(this.config.pjson.packages, registry, resolvedPkgName.substr(registryIndex + 1));
     
     var json = await readJSON(path.join(pkgPath, 'package.json'));
-    let config = processPackageConfig(json || {}, true);
+    let config = processPackageConfig(json || {});
 
     if (override) {
       ({ config, override } = overridePackageConfig(config, override));

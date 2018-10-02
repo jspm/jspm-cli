@@ -148,13 +148,12 @@ function parseNext () {
       const start = i;
       charCode = str.charCodeAt(i += 6);
       commentWhitespace();
-      const index = i;
       switch (charCode) {
         // dynamic import
         case 40/*(*/:
           // dynamic import indicated by positive d
           lastTokenIndexStack.push(i + 5);
-          oImports.push({ s: start, e: start + 6, d: index + 1 });
+          oImports.push({ s: start, e: start + 6, d: i + 1 });
           return;
         // import.meta
         case 46/*.*/:

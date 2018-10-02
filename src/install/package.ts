@@ -161,7 +161,7 @@ export class ResolveTree {
       else
         resolveMap.resolve = {};
       if (resolveMap.override)
-        resolveMap.override = overridePackageConfig(baseConfig, processPackageConfig(resolveMap.override, true)).override;
+        resolveMap.override = overridePackageConfig(baseConfig, processPackageConfig(resolveMap.override)).override;
     });
 
     this.resolve = resolve;
@@ -406,55 +406,61 @@ export function serializePackageTargetCanonical (name: string, target: PackageTa
  * 
  * We do not convert github resource sources into registry sources, as
  * resource handling should be consistent
+ * 
+ * partial is for npm partial package meta where we mustn't fill out things that will come in full package.json parse
  */
-export function processPackageConfig (pcfg: PackageConfig, rangeConversion = false): ProcessedPackageConfig {
+export function processPackageConfig (pcfg: PackageConfig, partial = false): ProcessedPackageConfig {
   const processed: ProcessedPackageConfig = processPjsonConfig(pcfg);
-  if (typeof pcfg.registry === 'string')
-    processed.registry = pcfg.registry;
   if (typeof pcfg.name === 'string')
     processed.name = pcfg.name;
   if (typeof pcfg.version === 'string')
     processed.version = pcfg.version;
-  if (typeof pcfg.mode === 'string')
-    processed.mode = pcfg.mode;
-  else
-    processed.mode = 'cjs';
-  if (typeof pcfg.namedExports === 'object' && Object.keys(pcfg.namedExports).every(key => pcfg.namedExports[key] instanceof Array && pcfg.namedExports[key].every(value => typeof value === 'string')))
-    processed.namedExports = pcfg.namedExports;
-  if (pcfg.skipESMConversion === true || pcfg.skipESMConversion instanceof Array && pcfg.skipESMConversion.every(x => typeof x === 'string'))
-    processed.skipESMConversion = pcfg.skipESMConversion;
-  if (processed.mode === 'cjs' && !processed.skipESMConversion)
-    delete processed.mode;
-  if (typeof pcfg.bin === 'string') {
-    let binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
-    if (!binPath.endsWith('.js'))
-      binPath += '.js';
-    processed.bin = { [pcfg.name]: binPath };
+  if (partial) {
+    delete processed.main;
+    delete processed.map;
   }
-  else if (typeof pcfg.bin === 'object') {
-    processed.bin = {};
-    for (let p in pcfg.bin) {
-      const mapped = pcfg.bin[p];
-      let binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
-      //if (!binPath.endsWith('.js'))
-      //  binPath += '.js';
-      processed.bin[p] = binPath;
+  else {
+    if (typeof pcfg.mode === 'string')
+      processed.mode = pcfg.mode;
+    else
+      processed.mode = 'cjs';
+    if (typeof pcfg.namedExports === 'object' && Object.keys(pcfg.namedExports).every(key => pcfg.namedExports[key] instanceof Array && pcfg.namedExports[key].every(value => typeof value === 'string')))
+      processed.namedExports = pcfg.namedExports;
+    if (pcfg.skipESMConversion === true || pcfg.skipESMConversion instanceof Array && pcfg.skipESMConversion.every(x => typeof x === 'string'))
+      processed.skipESMConversion = pcfg.skipESMConversion;
+    if (processed.mode === 'cjs' && !processed.skipESMConversion)
+      delete processed.mode;
+    if (typeof pcfg.bin === 'string') {
+      let binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
+      if (!binPath.endsWith('.js'))
+        binPath += '.js';
+      processed.bin = { [pcfg.name]: binPath };
+    }
+    else if (typeof pcfg.bin === 'object') {
+      processed.bin = {};
+      for (let p in pcfg.bin) {
+        const mapped = pcfg.bin[p];
+        let binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
+        //if (!binPath.endsWith('.js'))
+        //  binPath += '.js';
+        processed.bin[p] = binPath;
+      }
     }
   }
   if (pcfg.dependencies) {
     const dependencies = processed.dependencies = {};
     for (const name in pcfg.dependencies)
-      dependencies[name] = processPackageTarget(name, pcfg.dependencies[name], '', rangeConversion);
+      dependencies[name] = processPackageTarget(name, pcfg.dependencies[name], '', true);
   }
   if (pcfg.peerDependencies) {
     const peerDependencies = processed.peerDependencies = {};
     for (const name in pcfg.peerDependencies)
-      peerDependencies[name] = processPackageTarget(name, pcfg.peerDependencies[name], '', rangeConversion);
+      peerDependencies[name] = processPackageTarget(name, pcfg.peerDependencies[name], '', true);
   }
   if (pcfg.optionalDependencies) {
     const optionalDependencies = processed.optionalDependencies = {};
     for (const name in pcfg.optionalDependencies)
-      optionalDependencies[name] = processPackageTarget(name, pcfg.optionalDependencies[name], '', rangeConversion);
+      optionalDependencies[name] = processPackageTarget(name, pcfg.optionalDependencies[name], '', true);
   }
   return processed;
 }
@@ -585,8 +591,8 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
   if (pcfg.bin)
     spcfg.bin = pcfg.bin;
   if (pcfg.skipESMConversion)
-    spcfg.skipESMConversion = true;
-  if (pcfg.mode === 'cjs')
+    spcfg.skipESMConversion = pcfg.skipESMConversion;
+  else if (pcfg.mode === 'cjs')
     spcfg.mode = 'cjs';
   if (pcfg.namedExports)
     spcfg.namedExports = pcfg.namedExports;
@@ -663,6 +669,12 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
             pcfg.namedExports = baseVal;
           }
         }
+        else if (p === 'skipESMConversion') {
+          if (JSON.stringify(baseVal) === JSON.stringify(overridePcfg.skipESMConversion))
+            continue;
+          override = override || {};
+          pcfg.skipESMConversion = override.skipESMConversion = overridePcfg.skipESMConversion;
+        }
         // dependencies
         else {
           let depsOverride;
@@ -687,6 +699,9 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
       pcfg[p] = override[p] = val;
     }
   }
+
+  if (pcfg.skipESMConversion && pcfg.mode === 'cjs')
+    delete override.mode;
 
   return {
     config: pcfg,

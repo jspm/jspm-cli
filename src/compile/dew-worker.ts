@@ -81,7 +81,7 @@ function tryParseCjs (source) {
   return { ast, requires };
 }
 
-function transformDew (ast, source, resolveMap, deps) {
+function transformDew (ast, source, resolveMap) {
   const { code: dewTransform } = babel.transformFromAst(ast, source, {
     babelrc: false,
     highlightCode: false,
@@ -92,9 +92,9 @@ function transformDew (ast, source, resolveMap, deps) {
       plugins: stage3Syntax
     },
     plugins: [[dewTransformPlugin, {
-      resolve: name => resolveMap[name] || name,
+      resolve: name => resolveMap[name],
       resolveWildcard: name => resolveMap[name],
-      esmDependencies: resolved => isESM(resolved, deps),
+      esmDependencies: resolved => isESM(resolved),
       filename: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url).pathname`,
       dirname: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(0, import.meta.url.lastIndexOf('/')).slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url.slice(0, import.meta.url.lastIndexOf('/'))).pathname`
     }]]
@@ -102,7 +102,7 @@ function transformDew (ast, source, resolveMap, deps) {
   return dewTransform;
 }
 
-async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, deps, localMaps, name) {
+async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, localMaps, deps, name) {
   const dewPath = filePath.endsWith('.js') ? filePath.substr(0, filePath.length - 3) + '.dew.js' : filePath + '.dew.js';
   try {
     const source = await new Promise((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
@@ -112,7 +112,7 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, de
     const resolveMap = {};
     for (const require of requires) {
       if (require.indexOf('*') === -1) {
-        resolveMap[require] = relativeResolve(require, filePath, pkgBasePath, files, main, folderMains, localMaps, name);
+        resolveMap[require] = relativeResolve(require, filePath, pkgBasePath, files, main, folderMains, localMaps, deps, name);
       }
       else {
         // we can only wildcard resolve internal requires
@@ -134,7 +134,7 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, de
       }
     }
     
-    const dewTransform = transformDew(ast, source, resolveMap, deps);
+    const dewTransform = transformDew(ast, source, resolveMap);
 
     await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve()));
   }
@@ -175,7 +175,7 @@ async function createJsonDew (filePath) {
   }
 }
 
-module.exports = function convert (name: string, dir: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, namedExports: Record<string, string[]>, deps: Record<string, boolean>, localMaps: Record<string, boolean>, callback) {
+module.exports = function convert (name: string, dir: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, namedExports: Record<string, string[]>, localMaps: Record<string, boolean>, deps: Record<string, boolean>, callback) {
   return Promise.resolve()
   .then(async function () {
     const dewWithoutExtensions = Object.create(null);
@@ -207,7 +207,7 @@ module.exports = function convert (name: string, dir: string, files: Record<stri
         // we attempt to create dew for all files as CommonJS can import any file extension as CommonJS
         // this will also fail if a file is already occupying the file.dew.js spot
         // on error, file.dew.js is populated with the error
-        conversionPromises.push(tryCreateDew(path.resolve(dir, file), dir, files, main, folderMains, deps, localMaps, name).then(err => {
+        conversionPromises.push(tryCreateDew(path.resolve(dir, file), dir, files, main, folderMains, localMaps, deps, name).then(err => {
           if (err)
             return;
           // exports should be passed as an argument here supporting both names, and star exports which are in turn provided from the esm of the star (internal or external)

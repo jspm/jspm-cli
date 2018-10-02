@@ -3,15 +3,18 @@ import { validPkgNameRegEx } from '../utils/common';
 import { ProcessedPackageConfig } from '../install/package';
 import { builtins } from '@jspm/resolve';
 
-export function relativeResolve (require: string, filePath: string, pkgBasePath: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, localMaps: Record<string, boolean>, name: string) {
+export function relativeResolve (require: string, filePath: string, pkgBasePath: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, localMaps: Record<string, boolean>, deps: Record<string, boolean>, name: string) {
   const fileDir = path.resolve(filePath, '..');
 
   if (require === '.')
     require += '/';
   const internalResolution = require.startsWith('./') || require.startsWith('../');
   
-  if (!internalResolution)
+  if (!internalResolution) {
+    if (require.startsWith('/') || !getMatch(require, deps) && !builtins[require])
+      return null;
     return toDewPlain(require.endsWith('/') ? require.substr(0, require.length - 1) : require);
+  }
 
   // jspm-resolve internal resolution handling
   const resolved = path.resolve(fileDir, require);
@@ -80,36 +83,26 @@ export function toDew (path: string) {
   return path + '.dew.js';
 }
 
-export function pcfgToDeps (pcfg: ProcessedPackageConfig) {
+export function pcfgToDeps (pcfg: ProcessedPackageConfig, optional = false) {
   const deps: Record<string, boolean> = {};
   if (pcfg.dependencies)
     Object.keys(pcfg.dependencies).forEach(key => deps[key] = true);
   if (pcfg.peerDependencies)
     Object.keys(pcfg.peerDependencies).forEach(key => deps[key] = true);
-
+  if (optional && pcfg.optionalDependencies)
+    Object.keys(pcfg.optionalDependencies).forEach(key => deps[key] = true);
   return deps;
 }
 
-export function isESM (resolved: string, dependencies: Record<string, boolean>) {
-  return resolved.endsWith('.node') || builtins[resolved] && !dependencies[resolved];
+export function isESM (resolved: string, deps?: Record<string, boolean>) {
+  return resolved.endsWith('.node') || builtins[resolved] && !(deps && deps[resolved]);
 }
 
-export function getOverriddenBuiltins (pcfg: ProcessedPackageConfig) {
-  const overriddenBuiltins = [];
-  if (pcfg.dependencies)
-    for (let key in pcfg.dependencies) {
-      if (builtins[key])
-        overriddenBuiltins.push(key);
-    }
-  if (pcfg.peerDependencies)
-    for (let key in pcfg.peerDependencies) {
-      if (builtins[key])
-        overriddenBuiltins.push(key);
-    }
-  if (pcfg.map)
-    for (let key in pcfg.map) {
-      if (builtins[key])
-        overriddenBuiltins.push(key);
-    }
-  return overriddenBuiltins;
+export function getMatch (path: string, matchObj: Record<string, any>): string {
+  let sepIndex = path.length;
+  do {
+    const segment = path.slice(0, sepIndex);
+    if (segment in matchObj)
+      return segment;
+  } while ((sepIndex = path.lastIndexOf('/', sepIndex - 1)) !== -1)
 }

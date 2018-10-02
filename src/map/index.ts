@@ -336,13 +336,21 @@ class MapResolver {
     if (err)
       throw new JspmUserError(`Syntax error analyzing ${bold(filePath)}`, 'ANALYSIS_ERROR');
     const deps = [];
+    const dynamicImportRegEx = /('[^'\\]+'|"[^"\\]+")\)/g;
     for (const { s, e, d } of imports) {
       if (d === -2)
         continue;
-      // TODO: Dynamic import partial resolution
-      if (d !== -1)
-        continue;
-      deps.push(source.slice(s, e));
+      // dynamic import
+      if (d !== -1) {
+        const match = source.substr(d).match(dynamicImportRegEx);
+        // we don't yet support partial dynamic import traces
+        if (match) {
+          deps.push(match[0].slice(1, match[0].length - 2));
+        }
+      }
+      else {
+        deps.push(source.slice(s, e));
+      }
     }
     return deps;
   }
