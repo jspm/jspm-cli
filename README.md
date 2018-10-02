@@ -3,19 +3,19 @@ jspm 2.0 Private Beta
 
 Thanks for trying out the jspm 2.0 beta. Your feedback will shape the final release.
 
-**This is a private experimental beta release, by using this release you agree to keep all code and technical details private.**
+**This is a private experimental beta release, the code and technical architecture are not currently public, please do not share any of the code or technical details publicly.**
 
 ## Reminder: what jspm does
 
 The basic concept of jspm is the concept of a workflow for JavaScript based on:
 
 * Installing dependencies
-* Easily executing those dependencies, without a build or further configuration, in both the browser and Node
+* Easily executing those dependencies, without a build or further configuration, in both the browser and Node using the native JavaScript module loader.
 * Enabling workflows for production optimizations on projects, both for building whole applications and libraries.
 
 The stretch long-term mission of the project is to investigate how published packages can be optimized for production-level delivery directly to the browser in a decentralized way for fine-grained cache sharing, and these associatead workflows.
 
-While it has changed considerably over the years, these initial goals are all clear from the first JSConf presentation on jspm. The package manager, ecosystem and linker are all heavily entwined and have to exist together to ensure these workflows don't get brought down by compatibility frictions.
+The package manager, ecosystem and linker are all heavily entwined and have to exist together to ensure these workflows don't get brought down by compatibility frictions.
 
 ## Basic Architecture
 
@@ -37,20 +37,22 @@ Since loading only requires the jspm resolver, it is easy to provide into existi
 
 These workflows above will all make further sense in how they come together going through this guide.
 
-## jspm 2.0 Alpha Quickstart
+## jspm 2.0 Beta Quickstart Guide
 
-1. [Install jspm 2.0 alpha](#1-install-jspm-20-alpha)
+1. [Install jspm 2.0 beta](#1-install-jspm-20-beta)
 1. [Create a Project](#2-create-a-project)
 1. [Install Dependencies](#3-install-dependencies)
-1. [Execution in NodeJS](#4-execution-in-nodejs)
+1. [Executing ES Modules](#4-executing-es-modules)
 1. [Execution in the Browser](#5-execution-in-the-browser)
-1. [Building for NodeJS](#6-building-for-nodejs)
-1. [Dynamic Import Support](#7-dynamic-import-support)
-1. [Building for the Browser](#8-building-for-the-browser)
-1. [Automated Chunked Builds](#9-automated-chunked-builds)
-1. [Building for Legacy Browsers](#10-building-for-legacy-browsers)
+1. [Building for the Browser](#6-building-for-the-browser)
+1. [Building for Legacy Browsers](#7-building-for-legacy-browsers)
+1. [Partial Builds](#8-partial-builds)
+1. [Transpilation Builds](#9-transpilation-builds)
+1. [Debugging Helpers](#10-debugging-helpers)
 
-### 1. Install jspm 2.0 alpha
+* [Architecture Summary](#architecture-summary)
+
+### 1. Install jspm 2.0 beta
 
 Make sure your GitHub SSH keys are configured correctly then:
 
@@ -62,7 +64,7 @@ Also make sure to run NodeJS 8.9.0 or greater.
 
 > Installing `jspm` installs `jspx` as well, working just like `npx`. Try it out!
 
-### 1. Create a Project
+### 2. Create a Project
 
 `jspm init` is still in development for now, so create a new project manually:
 
@@ -74,7 +76,7 @@ echo '{ "jspm": {} }' > package.json
 
 > By using the `jspm` prefix, we can have `npm` and `jspm` have separate dependencies in the same project. We will use this for building shortly.
 
-### 2. Install Dependencies
+### 3. Install Dependencies
 
 As expected:
 
@@ -86,7 +88,7 @@ This will populate the dependencies in `package.json` and also generate a `jspm.
 
 > A lot of effort has been made to make installs run really fast. There's also support for `install --offline` and `install --prefer-offline` as expected these days.
 
-### 3. Executing ES Modules
+### 4. Executing ES Modules
 
 test.js
 ```js
@@ -105,7 +107,7 @@ jspm-node test.js
 
 When executing jspm is using the NodeJS `--experimental-modules` feature directly, configuring the jspm resolver through the NodeJS `--loader` hooks so this is using full native ES module support in Node.js.
 
-### 4. Execution in the Browser
+### 5. Execution in the Browser
 
 To execute the above file in the browser, we can create a package map:
 
@@ -124,7 +126,7 @@ jspm install es-module-shims --dev
 ```
 
 test.html
-```html`
+```html
 <!doctype html>
 <script type-"module" src="jspm_packages/npm/es-module-shims@0.1.11/dist/es-module-shims.js"></script>
 <script type="packagemap-shim" src="packagemap.json"></script>
@@ -137,7 +139,7 @@ Run any local server to load the page (eg `jspx http-server`), and you should se
 
 > [ES Module Shims](https://github.com/guybedford/es-module-shims) supports package name maps only for browsers that already support ES modules. Its module lexing is fast enough that it is actually suitable for prodution workflows. When package maps are natively supported in browsers, this project will no longer be necessary.
 
-### 6. Building for the Browser.
+### 6. Building for the Browser
 
 Since Lodash is not optimized for browser delivery we still want to do a modular build for production.
 
@@ -296,11 +298,11 @@ This kind of partial build should be done for all packages before publishing.
 
 > While Babel and Lodash are not optimized themselves, if all packages performed these sorts of optimizations on publish, then we would be getting 10s of requests in the browser not 100s, and these workflows may even become suitable in production.
 
-### 9. Build Compilation
+### 9. Transpilation Builds
 
 If you want to use Babel / TypeScript etc, there are basically two standard approaches to this:
 
-#### 1. Per-file pre-compilation
+#### 1. Per-file Pre-compilation Build
 
 * Write a `src/` folder containing the uncompiled `.js` or `.ts` code. 
 * Have a build command / watcher that converts this `src/` folder into a `lib/` folder as build js files.
@@ -308,7 +310,7 @@ If you want to use Babel / TypeScript etc, there are basically two standard appr
 
 This is a good workflow because per-file-caching is provided making it fast for rebuilds, while also enabling per-file loading in both Node and the browser early in the workflow as well.
 
-#### 2. The Monolithic Build Tool
+#### 2. The Monolithic Build
 
 * Have the Rollup or other custom build step do the compilation at the same time as the main build.
 * In the example above, that means adding a TypeScript or Babel plugin to the `rollup.config.js` file.
@@ -319,7 +321,7 @@ Note that one catch with these workflows is that you must ensure that the `.js` 
 
 When using TypeScript with (1) this isn't currently easy to configure unfortunately, but TypeScript will need to provide a solution here if/when Node.js decides not to add default .js extensions. It should be possible to configure this in Rollup or Webpack builds when doing (2) though. Any easy workflows you come up with here are very welcome to be shared as starter repos.
 
-### 10. Some Debugging Helpers
+### 10. Debugging Helpers
 
 Two useful helpers when debugging resolution in jspm are `jspm resolve` and `jspm trace`.
 
@@ -364,10 +366,6 @@ jspm trace @babel/core/lib/config/helpers/environment.js
 }
 ```
 
-### 10. CDN Workflows
-
-TODO: This should hopefully be updated in the next week.
-
 ## Further Features not yet covered in this tutorial or docs
 
 TODO: flesh these out!
@@ -381,6 +379,7 @@ TODO: flesh these out!
 * Authentication management
 * `jspm resolve`
 * Map configuration and conditional resolution
+* CDN Workflows (coming soon!)
 
 ## Architecture Summary
 
