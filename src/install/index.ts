@@ -366,6 +366,8 @@ export class Installer {
     if (this.opts.dedupe !== false)
       this.opts.dedupe = !this.opts.lock;
 
+    this.primaryType = installs.length === 0 ? DepType.primary : installs[0].type;
+
     // no installs, install from package.json
     if (installs.length === 0) {
       // maintain existing package.json ranges
@@ -380,8 +382,6 @@ export class Installer {
         };
       });
     }
-
-    this.primaryType = installs[0] && installs[0].type;
 
     // install in parallel
     await Promise.all(installs.map(install => {
@@ -895,8 +895,10 @@ export class Installer {
           }
         }
         this.changed = true;
+        const existingPrimaryAndNotDev = this.primaryRanges[install.name] && 
+            (this.primaryRanges[install.name].type === DepType.peer || this.primaryRanges[install.name].type === DepType.primary);
         this.primaryRanges[install.name] = {
-          type: install.parent ? this.primaryType : install.type,
+          type: existingPrimaryAndNotDev ? this.primaryRanges[install.name].type : install.parent ? this.primaryType : install.type,
           target
         };
       }

@@ -23,8 +23,7 @@ import { writeJSONStyled, readJSONStyled, defaultStyle } from '../config/config-
 import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM } from './dew-resolve';
 import { builtins } from '@jspm/resolve';
 
-// this can be ^0.1.1 when the package map version is no longer unnecessarily locked
-const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/node-builtins', '0.1.2');
+const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/node-builtins', '^1.0.0');
 
 const convertWorker: any = workerFarm({
   maxConcurrentWorkers: Math.max(require('os').cpus().length / 2, 4),
@@ -48,7 +47,7 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
     return;
   if (!pcfg.peerDependencies)
     pcfg.peerDependencies = {};
-  pcfg.peerDependencies['jspm-node-builtins'] = nodeBuiltinsTarget;
+  pcfg.peerDependencies['@jspm/node-builtins'] = nodeBuiltinsTarget;
   if (pcfg.main) {
     if (pcfg.map && pcfg.map['./' + pcfg.main]) {
       if (!newMap)

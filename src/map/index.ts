@@ -26,8 +26,6 @@ import { analyzeModuleSyntax } from "./esm-lexer";
 
 const jspmBuiltins = Object.assign({ '@empty.dew': true }, builtins);
 
-const nodeBuiltinsPkg = 'jspm_packages/npm/@jspm/node-builtins@0.1.2';
-
 const nodeCoreBrowserUnimplemented = {
   child_process: true, cluster: true, dgram: true, dns: true, fs: true, module: true, net: true, readline: true, repl: true, tls: true
 };
@@ -41,8 +39,8 @@ export interface Scopes {
   };
 };
 export interface PackageMap {
-  packages: Packages;
-  scopes: Scopes;
+  packages?: Packages;
+  scopes?: Scopes;
 }
 
 class Mapper {
@@ -50,6 +48,7 @@ class Mapper {
   env: any;
   cachedPackagePaths: Record<string, Promise<PackageConfig>>;
   dependencies: Record<string, string>;
+  _nodeBuiltinsPkg: string;
 
   constructor (project: Project, env: any = { browser: true }) {
     if (!env.node && env.browser !== false)
@@ -64,13 +63,19 @@ class Mapper {
       this.dependencies[dep] = serializePackageName(project.config.jspm.installed.resolve[dep]);
     }
 
+    this._nodeBuiltinsPkg = 'jspm_packages/' + this.dependencies['@jspm/node-builtins'].replace(':', '/');
+
     this.env = env;
     this.cachedPackagePaths = {};
   }
 
-  async createMapAll (mapBase = this.project.projectPath) {
-    const relBase = path.relative(mapBase, this.project.projectPath).replace(/\\/g, '/');
-  
+  get nodeBuiltinsPkg () {
+    if (this._nodeBuiltinsPkg)
+      return this._nodeBuiltinsPkg;
+    throw new Error('Unable to locate @jspm/node-builtins dependency. Make sure this is properly installed.');
+  }
+
+  async createMapAll () {
     const packages: Packages = {};
     const scopes: Scopes = {};
     const packageMap: PackageMap = {
@@ -80,17 +85,17 @@ class Mapper {
 
     const populationPromises: Promise<void>[] = [];
     for (const depName of Object.keys(this.dependencies)) {
-      if (depName === 'jspm-node-builtins')
+      if (depName === '@jspm/node-builtins')
         continue;
-      populationPromises.push(this.populatePackage(depName, this.dependencies[depName], undefined, packageMap, relBase));
+      populationPromises.push(this.populatePackage(depName, this.dependencies[depName], undefined, packageMap));
     }
 
     // when peerDependencies are fixed as primaries
-    // then the version below here must be from project.config.jspm.installed.resolve['jspm-node-builtins']
+    // then the version below here must be from project.config.jspm.installed.resolve['@jspm/node-builtins']
     for (const name of Object.keys(jspmBuiltins)) {
       if (name in packages)
         continue;
-      packages[name] = path.relative(name, `${nodeBuiltinsPkg}/${nodeCoreBrowserUnimplemented[name] ? '@empty' : name}.js`).replace(/\\/g, '/');
+      packages[name] = path.relative(name, `${this.nodeBuiltinsPkg}/${nodeCoreBrowserUnimplemented[name] ? '@empty' : name}.js`).replace(/\\/g, '/');
     }
 
     await Promise.all(populationPromises);
@@ -100,7 +105,7 @@ class Mapper {
     return packageMap;
   }
 
-  async populatePackage (depName: string, pkgName: string, scopeParent: string, packageMap: PackageMap, relBase: string, seen: Record<string, boolean> = {}) {
+  async populatePackage (depName: string, pkgName: string, scopeParent: string, packageMap: PackageMap, seen: Record<string, boolean> = {}) {
     // no need to duplicate base-level dependencies
     if (scopeParent && this.dependencies[depName] === pkgName)
       return;
@@ -108,7 +113,7 @@ class Mapper {
     const pkgPath = `jspm_packages/${pkgName.replace(':', '/')}`;
     const packages = scopeParent ? (packageMap.scopes[scopeParent] = (packageMap.scopes[scopeParent] || { packages: {} })).packages : packageMap.packages;
     const curPkg = packages[depName] = {
-      path: scopeParent  ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : (relBase.length ? relBase + '/' : '') + pkgPath,
+      path: scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath,
       main: undefined
     };
     const pkg = this.project.config.jspm.installed.dependencies[pkgName];
@@ -130,8 +135,9 @@ class Mapper {
       const scopedPackages = (packageMap.scopes[pkgPath] = (packageMap.scopes[pkgPath] || { packages: {} })).packages;
 
       scopedPackages[name] = { path: '.', main };
-      for (const subpath of Object.keys(paths))
+      for (const subpath of Object.keys(paths)) {
         scopedPackages[name + '/' + subpath] = path.relative(name + '/' + subpath, paths[subpath]).replace(/\\/g, '/');
+      }
 
       for (const target of Object.keys(map)) {
         let mapped = map[target];
@@ -148,7 +154,7 @@ class Mapper {
             mapped = 'jspm_packages/' + depMapped.replace(':', '/');
           }
           else if (jspmBuiltins[mapped]) {
-            mapped = `${nodeBuiltinsPkg}/${mapped}.js`;
+            mapped = `${this.nodeBuiltinsPkg}/${mapped}.js`;
             onlyMain = true;
           }
         }
@@ -175,9 +181,9 @@ class Mapper {
   
     const populationPromises: Promise<void>[] = [pathsPromise];
     for (const depName of Object.keys(pkg.resolve)) {
-      if (depName === 'jspm-node-builtins')
+      if (depName === '@jspm/node-builtins')
         continue;
-      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath, packageMap, relBase, seen));
+      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath, packageMap, seen));
     }
     await Promise.all(populationPromises);
   }
@@ -203,14 +209,14 @@ class Mapper {
         if (main) {
           const mapped = applyMap('./' + main, pjson.map, this.env);
           if (mapped)
-            main = mapped === '@empty' ? `${nodeBuiltinsPkg}/@empty.js` : mapped;
+            main = mapped === '@empty' ? `${this.nodeBuiltinsPkg}/@empty.js` : mapped;
         }
 
         for (const target of Object.keys(pjson.map)) {
           if (target.startsWith('./')) {
             const mapped = applyMap(target, pjson.map, this.env);
             if (mapped)
-              paths[target.substr(2)] = mapped === '@empty' ? `${nodeBuiltinsPkg}/@empty.js` : mapped;
+              paths[target.substr(2)] = mapped === '@empty' ? `${this.nodeBuiltinsPkg}/@empty.js` : mapped;
           }
           else {
             const mapped = applyMap(target, pjson.map, this.env);
@@ -225,9 +231,42 @@ class Mapper {
   }
 }
 
-export async function map (project: Project, baseDir: string, env: any) {
+// jspmPackagesUrl must be an absolute URL
+function cdnReplace (path) {
+  return path.replace(/jspm_packages\/(\w+)\//, 'jspm_packages/$1:');
+}
+
+export function renormalizeMap (map: PackageMap, jspmPackagesURL: string, cdn: boolean) {
+  if (jspmPackagesURL.endsWith('/'))
+    jspmPackagesURL = jspmPackagesURL.substr(0, jspmPackagesURL.length - 1);
+  const newMap: PackageMap = {};
+  if (map.packages) {
+    const packages = Object.create(null);
+    newMap.packages = packages;
+    for (const pkgName of Object.keys(map.packages)) {
+      const pkg = map.packages[pkgName];
+      if (typeof pkg === 'string')
+        newMap.packages[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
+      else
+        newMap.packages[pkgName] = {
+          path: jspmPackagesURL + (cdn ? cdnReplace(pkg.path) : pkg).substr(13),
+          main: pkg.main
+        };
+    }
+  }
+  if (map.scopes) {
+    const scopes = Object.create(null);
+    newMap.scopes = scopes;
+    for (const scopeName of Object.keys(map.scopes)) {
+      newMap.scopes[jspmPackagesURL + (cdn ? cdnReplace(scopeName) : scopeName).substr(13)] = map.scopes[scopeName];
+    }
+  }
+  return newMap;
+}
+
+export async function map (project: Project, env: any) {
   const mapper = new Mapper(project, env);
-  return await mapper.createMapAll(baseDir);
+  return await mapper.createMapAll();
 }
 
 class MapResolver {
@@ -241,7 +280,8 @@ class MapResolver {
   trace: Record<string, Record<string, string>>
   mapResolve: (id: string, parentUrl: string) => string;
 
-  constructor (project: Project, map: PackageMap, baseDir = project.projectPath) {
+  constructor (project: Project, map: PackageMap) {
+    let baseDir = project.projectPath;
     this.project = project;
     this.packages = map.packages;
 
@@ -356,9 +396,9 @@ class MapResolver {
   }
 }
 
-export async function filterMap (project: Project, map: PackageMap, baseDir: string, modules: string[]): Promise<PackageMap> {
-  const mapResolve = new MapResolver(project, map, baseDir);
-  let baseURL = new URL('file:' + baseDir).href;
+export async function filterMap (project: Project, map: PackageMap, modules: string[]): Promise<PackageMap> {
+  const mapResolve = new MapResolver(project, map);
+  let baseURL = new URL('file:' + project.projectPath).href;
   if (baseURL[baseURL.length - 1] !== '/')
     baseURL += '/';
 
@@ -370,7 +410,7 @@ export async function filterMap (project: Project, map: PackageMap, baseDir: str
 }
 
 export async function trace (project: Project, map: PackageMap, baseDir: string, modules: string[]): Promise<Record<string, Record<string, string>>> {
-  const mapResolve = new MapResolver(project, map, baseDir);
+  const mapResolve = new MapResolver(project, map);
   let baseURL = new URL('file:' + baseDir).href;
   if (baseURL[baseURL.length - 1] !== '/')
     baseURL += '/';

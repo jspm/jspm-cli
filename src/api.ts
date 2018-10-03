@@ -19,7 +19,7 @@ import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
 
-export { map, filterMap, trace } from './map';
+export { map, filterMap, renormalizeMap, trace } from './map';
 import { execNode as execFunc, jspx as jspxFunc } from './exec';
 import path = require('path');
 
