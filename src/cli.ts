@@ -152,7 +152,8 @@ ${bold('Package Name Maps Generation')}
     --production                    Generate a package name map with production resolutions
   jspm map <module>+                Generate a package name map for specific modules only
   jspm map -i in.json -o out.json   Combine the generated output with an existing package map
-  jspm map x -p /jspm_packages      Generate a package name map to a specific jspm_packages URL
+  jspm map -j https://site.com/     Generate a package name map to a specific jspm_packages URL
+  jspm map --cdn                    Generate a package name mape against the jspm CDN
 
 ${bold('Inspect')}
   jspm trace <entry>+               Return the JSON resolution graph for a given module
