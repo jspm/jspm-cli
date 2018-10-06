@@ -49,6 +49,7 @@ These workflows above will all make further sense in how they come together goin
 1. [Partial Builds](#8-partial-builds)
 1. [Transpilation Builds](#9-transpilation-builds)
 1. [Debugging Helpers](#10-debugging-helpers)
+1. [CDN Package Maps](#11-cdn-package-maps)
 
 * [Architecture Summary](#architecture-summary)
 
@@ -370,6 +371,22 @@ jspm trace @babel/core/lib/config/helpers/environment.js
 }
 ```
 
+### 11. CDN Package Maps
+
+Instead of building a package map against the local jspm_packages packages folder, the jspm CDN can be used instead as the package map target.
+
+To do this in the original package map example we just add the `--cdn` flag:
+
+```
+jspm map ./test.js -o packagemap.json --cdn
+```
+
+Loading the previous `test.html` in the browser, in the network tab all requests are now made against `https://mapdev.jspm.io`.
+
+Because the structure of jspm_packages is universal, we can just change the reference in this way.
+
+To use a custom jspm_packages path such as your own CDN library server use `--jspmPackages https://mysite.com` rather.
+
 ## Further Features not yet covered in this tutorial or docs
 
 TODO: flesh these out!
@@ -383,7 +400,6 @@ TODO: flesh these out!
 * Authentication management
 * `jspm resolve`
 * Map configuration and conditional resolution
-* CDN Workflows (coming soon!)
 
 ## Architecture Summary
 
