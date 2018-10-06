@@ -238,8 +238,11 @@ ${bold('Configure')}
         if (args.length)
           map = await api.filterMap(project, map, args);
 
-        if (options.cdn && !options.jspmPackages)
+        if (options.cdn && !options.jspmPackages) {
+          if (options.production)
+            throw new Error('The production jspm.io CDN has not yet been launched, only https://mapdev.jspm.io for now.');
           options.jspmPackages = options.production ? 'https://production.jspm.io' : 'https://mapdev.jspm.io';
+        }
 
         const jspmPackagesURL = options.jspmPackages ? options.jspmPackages : options.out ?  path.relative(path.dirname(path.resolve(options.out)), path.resolve(projectPath, 'jspm_packages')).replace(/\\/g, '/') : 'jspm_packages';
         if (jspmPackagesURL !== 'jspm_packages')

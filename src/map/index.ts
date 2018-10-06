@@ -258,7 +258,33 @@ export function renormalizeMap (map: PackageMap, jspmPackagesURL: string, cdn: b
     const scopes = Object.create(null);
     newMap.scopes = scopes;
     for (const scopeName of Object.keys(map.scopes)) {
-      newMap.scopes[jspmPackagesURL + (cdn ? cdnReplace(scopeName) : scopeName).substr(13)] = map.scopes[scopeName];
+      const scope = map.scopes[scopeName];
+      const newScope = { packages: Object.create(null) };
+      let scopeRegistry = scopeName.substr(14);
+      scopeRegistry = scopeRegistry.substr(0, scopeRegistry.indexOf('/'));
+
+      const isScopedPackage = scopeName.indexOf('/', scopeName.indexOf('/', 14) + 1) !== -1;
+
+      for (const pkgName of Object.keys(scope.packages)) {
+        let pkg = scope.packages[pkgName];
+        if (typeof pkg === 'string') {
+          if (cdn && pkg.startsWith('../')) {
+            // exception is within-scope backtracking
+            if (!(isScopedPackage && pkg.startsWith('../') && !pkg.startsWith('../../')))
+              pkg = pkg.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
+          }
+          newScope.packages[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
+        }
+        else {
+          pkg = Object.assign({}, pkg);
+          if (cdn && pkg.path.startsWith('../')) {
+            if (!(isScopedPackage && pkg.path.startsWith('../') && !pkg.path.startsWith('../../')))
+              pkg.path = pkg.path.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
+          }
+          newScope.packages[pkgName] = pkg;
+        }
+      }
+      newMap.scopes[jspmPackagesURL + (cdn ? cdnReplace(scopeName) : scopeName).substr(13)] = newScope;
     }
   }
   return newMap;
