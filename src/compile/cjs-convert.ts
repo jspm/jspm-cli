@@ -262,10 +262,12 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
   // main main
   if (pcfg.main && pcfg.main !== 'index' && pcfg.main !== 'index.js' && pcfg.main !== 'index.json') {
     const resolved = resolveFile(pcfg.main, convertFiles) || resolveDir(pcfg.main, convertFiles, folderMains);
-    if (resolved.endsWith('.node'))
-      writeNodeAlias('index.dew.js', resolved);
-    else if (convertFiles[resolved])
-      writeDewAlias('index.dew.js', toDew(resolved));
+    if (resolved) {
+      if (resolved.endsWith('.node'))
+        writeNodeAlias('index.dew.js', resolved);
+      else if (convertFiles[resolved])
+        writeDewAlias('index.dew.js', toDew(resolved));
+    }
   }
   else {
     // index.js and index.json both already aliased to index.dew.js
