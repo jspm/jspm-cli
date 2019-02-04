@@ -790,15 +790,7 @@ export class Installer {
       }
 
       if (this.project.userInput) {
-        if (!registry)
-          registry = await this.project.input(`Enter the ${bold('registry')} to ${isLink ? `link as` : `install ${install.target} as`}`, this.project.defaultRegistry, {
-            info: 'All installs in jspm need to be assigned a registry, name and version for flat installation.',
-            validate: (input: string) => {
-              if (!input.match(/^[a-z]+$/))
-                return 'A valid registry name must be provided.';
-            }
-          });
-        
+        if (!registry) registry = 'npm';        
         if (!version)
           version = await this.project.input(`Enter the ${bold('version')} to ${isLink ? `link as` : `install ${install.target} as`}`, 'master', {
             info: 'All installs in jspm need to be assigned a registry, name and version for flat installation.',

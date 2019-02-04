@@ -30,7 +30,7 @@ export interface JspxOptions {
 
 export const JSPX_PATH = path.resolve(JSPM_CACHE_DIR, 'jspx');
 
-export async function jspx (target: string, args: string[], opts: JspxOptions): Promise<number> {
+export async function exec (target: string, args: string[], opts: JspxOptions): Promise<number> {
   ensureNodeLoaderSupport();
 
   const project = new Project(JSPX_PATH, { userInput: opts.userInput, offline: opts.offline, preferOffline: true, cli: false });
@@ -69,15 +69,15 @@ export async function jspx (target: string, args: string[], opts: JspxOptions): 
   const node = process.argv[0];
   const loaderPath =  require.resolve('@jspm/resolve').replace(/resolve\.js$/, 'loader.mjs');
 
-  return new Promise<number>((resolve, reject) => {
-    spawn(node, [binScript, ...args], {
-      stdio: 'inherit',
-      env: Object.assign({}, process.env, {
-        NODE_OPTIONS: `--experimental-modules --loader ${(isWindows ? '/' : '') + loaderPath}`
-      })
+  const ps = spawn(node, [binScript, ...args], {
+    stdio: 'inherit',
+    env: Object.assign({}, process.env, {
+      NODE_OPTIONS: `--experimental-modules --no-warnings --loader ${(isWindows ? '/' : '') + loaderPath}`
     })
-    .on('close', code => resolve(code))
-    .on('error', err => reject(err));
+  });
+  return new Promise<number>((resolve, reject) => {
+    ps.on('exit', code => resolve(code));
+    ps.on('error', err => reject(err));
   });
 }
 
@@ -89,7 +89,7 @@ export function ensureNodeLoaderSupport () {
     throw new JspmUserError(`${bold('jspm node')} requires NodeJS 8.9.0 or greater.`, 'ERR_INVALID_NODE_VERSION');
 }
 
-export async function execNode (args = [], projectPath = process.cwd()) {
+export async function run (args = [], projectPath = process.cwd()) {
   if (typeof args === 'string')
     throw new Error('Args must be an array');
 
@@ -104,12 +104,12 @@ export async function execNode (args = [], projectPath = process.cwd()) {
       continue;
     const jspmResolve = require('@jspm/resolve');
     try {
-      args[i] = jspmResolve.sync(arg, projectPath + '/', { env: { bin: true } }).resolved;
+      args[i] = jspmResolve.sync(arg, projectPath + '/').resolved;
     }
     catch (e) {
       if (e.code !== 'MODULE_NOT_FOUND' || path.isAbsolute(arg) || arg.startsWith('./') || arg.startsWith('/') || arg.startsWith('../'))
         throw e;
-      args[i] = jspmResolve.sync('./' + arg, projectPath + '/', { env: { bin: true } }).resolved;
+      args[i] = jspmResolve.sync('./' + arg, projectPath + '/').resolved;
     }
     break;
   }
@@ -117,14 +117,14 @@ export async function execNode (args = [], projectPath = process.cwd()) {
   const node = process.argv[0];
   const loaderPath =  require.resolve('@jspm/resolve').replace(/resolve\.js$/, 'loader.mjs');
 
-  return new Promise<number>((resolve, reject) => {
-    spawn(node, args, {
-      stdio: 'inherit',
-      env: Object.assign({}, process.env, {
-        NODE_OPTIONS: `${process.env.NODE_OPTIONS ? process.env.NODE_OPTIONS + ' ' : ''}--experimental-modules --loader ${(isWindows ? '/' : '') + loaderPath}`
-      })
+  const ps = spawn(node, args, {
+    stdio: 'inherit',
+    env: Object.assign({}, process.env, {
+      NODE_OPTIONS: `${process.env.NODE_OPTIONS ? process.env.NODE_OPTIONS + ' ' : ''}--experimental-modules --no-warnings --loader ${(isWindows ? '/' : '') + loaderPath}`
     })
-    .on('close', code => resolve(code))
-    .on('error', err => reject(err));
+  });
+  return new Promise<number>((resolve, reject) => {
+    ps.on('exit', code => resolve(code));
+    ps.on('error', err => reject(err));
   });
 }

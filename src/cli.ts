@@ -102,6 +102,8 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       case undefined:
       case '--version':
       case '-v':
+        // run project checks
+        new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         ui.info(api.version + '\n' +
             (process.env.globalJspm === 'true' || process.env.localJspm === 'false'
             ? 'Running against global jspm install.'
@@ -142,10 +144,8 @@ ${bold('Install')}
     --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-  jspm-node <module>                Execute NodeJS with jspm resolution
-  jspx <module>                     Install and run a given module in a temporary project
-  jspm run <name>                   Run package.json "scripts" with the project bin env${/*
-  jspm <script-name> <args>         Execute a package.json script TODO*/''}
+  jspm run <file>                   Execute a module with jspm module resolution
+  jspm script <name>                Run package.json "scripts" with the project bin env
 
 ${bold('Package Name Maps Generation')}
   jspm map -o packagemap.json       Generates a package name map for all dependencies
@@ -180,22 +180,31 @@ ${bold('Configure')}
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
         const generatorName = `jspm-init-${generator}`;
-        const exitCode = await api.jspx(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
+        const exitCode = await api.exec(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
         process.exit(exitCode);
       }
       break;
 
-      case 'r':
-      case 'run': {
+      case 's':
+      case 'script': {
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         const exitCode = await project.run(args[0], args.slice(1));
         process.exit(exitCode);
       }
       break;
 
-      case 'n':
-      case 'node':
-        ui.err(`Use ${bold('jspm-node')} for NodeJS execution.`);
+      case 'r':
+      case 'run': {
+        const exitCode = await api.run(args);
+        process.exit(exitCode);
+      }
+      break;
+
+      case 'e':
+      case 'exec': {
+        const exitCode = await api.exec(args);
+        process.exit(exitCode);
+      }
       break;
 
       case 't':

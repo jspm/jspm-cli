@@ -29,9 +29,7 @@
     "worker-farm": "^1.6.0"
   },
   "bin": {
-    "jspm": "bin/jspm.js",
-    "jspx": "bin/jspx.js",
-    "jspm-node": "bin/jspm-node.js"
+    "jspm": "bin/jspm.js"
   },
   "scripts": {
     "test": "mocha -u tdd --timeout 20000",

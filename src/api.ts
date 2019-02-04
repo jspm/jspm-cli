@@ -57,11 +57,10 @@ export function resolveSync (name: string, parent?: string, env?: any, relativeF
 
 export const JSPM_GLOBAL_PATH = path.resolve(JSPM_CONFIG_DIR, 'global');
 
-export const jspx: typeof jspxFunc = function () {
-  return require('./exec').jspx.apply(this, arguments);
+export const exec: typeof execFunc = function () {
+  return require('./exec').exec.apply(this, arguments);
 }
 
-export const execNode: typeof execFunc = function () {
-  return require('./exec').execNode.apply(this, arguments);
+export const run: typeof execFunc = function () {
+  return require('./exec').run.apply(this, arguments);
 }
-
