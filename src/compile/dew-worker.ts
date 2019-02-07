@@ -119,7 +119,7 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, lo
         if (!require.startsWith('./') && !require.startsWith('../'))
           continue;
         const wildcardPath = path.relative(pkgBasePath, path.resolve(filePath.substr(0, filePath.lastIndexOf(path.sep)), require)).replace(/\\/g, '/');
-        const wildcardPattern = new RegExp(wildcardPath.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*'));
+        const wildcardPattern = new RegExp('^' + wildcardPath.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*'));
         const matches = Object.keys(files).filter(file => file.match(wildcardPattern) && (file.endsWith('.js') || file.endsWith('.json') || file.endsWith('.node')));
         const relFile = path.relative(pkgBasePath, path.resolve(filePath.substr(0, filePath.lastIndexOf(path.sep))));
         resolveMap[require] = matches.map(match => {
@@ -143,7 +143,7 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, lo
       return true;
     if (filePath.endsWith('.js')) {
       try {
-        const dewTransform = `export function dew () {\n  throw new Error('Error converting CommonJS File. If this file is valid CommonJS, please post a jspm bug with a test case: ${err.message.replace('\'', '\\\'')}');\n}\n`;
+        const dewTransform = `export function dew () {\n  throw new Error("Error converting CommonJS file ${name + filePath.substr(pkgBasePath.length)}, please post a jspm bug with this message.\\n${JSON.stringify(err.stack || err.toString()).slice(1, -1)}");\n}\n`;
         await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve()));
       }
       catch (e) {
@@ -165,7 +165,7 @@ async function createJsonDew (filePath) {
       dewTransform = `export function dew () {\n  return exports;\n}\nvar exports = ${JSON.stringify(parsed)};\n`;
     }
     catch (err) {
-      dewTransform = `export function dew () {\n  throw new Error('jspm CommonJS Conversion Error: Error parsing JSON file.')}\n`;
+      dewTransform = `export function dew () {\n  throw new SyntaxError(${JSON.stringify(err.message)});\n}\n`;
     }
 
     await new Promise((resolve, reject) => fs.writeFile(filePath + '.dew.js', dewTransform, err => err ? reject(err) : resolve()));

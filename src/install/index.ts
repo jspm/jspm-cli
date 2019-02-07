@@ -36,7 +36,7 @@ export interface InstallOptions {
   lock?: boolean, // existing dependency installs remain locked, new ones get deduped
   latest?: boolean, // all dependencies loaded to latest version with no deduping
   dedupe?: boolean,
-  optional?: boolean, // install optional dependencies
+  // optional?: boolean, // install optional dependencies
   reset?: boolean, // resets checked out and linked packages
   exact?: boolean, // install to exact version
 }
@@ -843,7 +843,7 @@ export class Installer {
   private async installDependencies (registry: string, config: ProcessedPackageConfig, resolvedPkgName: string, preloadedDepNames?: string[]): Promise<void> {
     const preLoad = preloadedDepNames !== undefined && preloadedDepNames.length !== 0;
     try {
-      await Promise.all(depsToInstalls(registry, this.opts.optional, config, resolvedPkgName, preLoad === false && preloadedDepNames).map(install => {
+      await Promise.all(depsToInstalls(registry, config, resolvedPkgName, preLoad === false && preloadedDepNames).map(install => {
         if (preLoad && preloadedDepNames)
           preloadedDepNames.push(install.name);
         if (typeof install.target === 'string')
@@ -1273,7 +1273,7 @@ export class Installer {
   }
 }
 
-function depsToInstalls (defaultRegistry: string, optional: boolean, deps: Dependencies, parent?: string, skipDepsNames?: string[]): Install[] {
+function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent?: string, skipDepsNames?: string[]): Install[] {
   let installs = [];
   if (deps.dependencies)
     Object.keys(deps.dependencies).forEach(name => {
@@ -1307,7 +1307,7 @@ function depsToInstalls (defaultRegistry: string, optional: boolean, deps: Depen
         });
       }
     });
-  if (optional && deps.optionalDependencies)
+  if (deps.optionalDependencies)
     Object.keys(deps.optionalDependencies).forEach(name => {
       if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
         return;

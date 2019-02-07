@@ -25,7 +25,10 @@ import { builtins } from '@jspm/resolve';
 
 const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/node-builtins', '^1.0.0');
 
-const convertWorker: any = workerFarm({
+const convertWorker: any = workerFarm(<any>{
+  workerOptions: {
+    execArgv: process.execArgv.concat(['--max_old_space_size=4096'])
+  },
   maxConcurrentWorkers: Math.max(require('os').cpus().length / 2, 4),
   maxConcurrentCallsPerWorker: 1,
   autoStart: true
@@ -242,6 +245,19 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
       fs.writeFile(path.resolve(dir, filePath), `import m from './${nodeName}';\nexport function dew () { return m; }`, err => err ? reject(err) : resolve())
     ).catch(() => {}));
   }
+  function writeJsAlias (filePath: string, jsName: string, hasDefault: boolean, hasNames: boolean) {
+    let aliasSource = '';
+    if (!hasDefault && !hasNames) {
+      aliasSource += `import './${jsName}';\n`;
+    }
+    else {
+      if (hasDefault) aliasSource += `export { default } from './${jsName}';\n`;
+      if (hasNames) aliasSource += `export * from './${jsName}';\n`;
+    }
+    aliasPromises.push(new Promise((resolve, reject) =>
+      fs.writeFile(path.resolve(dir, filePath), aliasSource, err => err ? reject(err) : resolve())
+    ).catch(() => {}));
+  }
   // json dew aliases (.dew.js -> .json.dew.js)
   for (const file of Object.keys(convertFiles).filter(file => file.endsWith('.json') && convertFiles[file] === true)) {
     if (!Object.hasOwnProperty.call(convertFiles, file.substr(0, file.length - 5)) && !(file.substr(0, file.length - 5) + '.js' in convertFiles))
@@ -254,10 +270,13 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
     // folder mains can be overridden by files of the same name
     if (!resolved || resolved[folderPath.length] !== '/')
       continue;
-    if (resolved.endsWith('.node'))
+    if (resolved.endsWith('.node')) {
       writeNodeAlias(folderPath + '.dew.js', resolved.substr(folderPath.lastIndexOf('/') + 1));
-    else if (convertFiles[resolved])
+    }
+    else if (convertFiles[resolved]) {
+      writeJsAlias(folderPath + '.js', resolved.substr(folderPath.lastIndexOf('/') + 1), true, false);
       writeDewAlias(folderPath + '.dew.js', toDew(resolved.substr(folderPath.lastIndexOf('/') + 1)));
+    }
   }
   // main main
   if (pcfg.main && pcfg.main !== 'index' && pcfg.main !== 'index.js' && pcfg.main !== 'index.json') {
@@ -284,11 +303,10 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
    */
   let changed = false;
   if (pcfg.main) {
-    
     // TODO add support for maps
     // issue is that folder and file map cases need to be separated, but completely doable by just outputting two maps per original map
     if (!(pcfg.map && pcfg.map[pcfg.main])) {
-      let resolved = resolveFile(pcfg.main, convertFiles);
+      let resolved = resolveFile(pcfg.main, convertFiles) || resolveDir(pcfg.main, convertFiles, folderMains);
       // JSON mains
       if (resolved) {
         if (resolved.endsWith('.json'))
