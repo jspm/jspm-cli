@@ -94,6 +94,7 @@ function transformDew (ast, source, resolveMap) {
     plugins: [[dewTransformPlugin, {
       resolve: name => resolveMap[name],
       resolveWildcard: name => resolveMap[name],
+      wildcardExtensions: ['.js', '.json', '.node'],
       esmDependencies: resolved => isESM(resolved),
       filename: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url).pathname`,
       dirname: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(0, import.meta.url.lastIndexOf('/')).slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url.slice(0, import.meta.url.lastIndexOf('/'))).pathname`
@@ -102,10 +103,25 @@ function transformDew (ast, source, resolveMap) {
   return dewTransform;
 }
 
-async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, localMaps, deps, name) {
+interface DewResult {
+  err: any;
+  hashbang?: boolean;
+}
+
+const hashbangRegEx = /#!\s*([^\s]+)\s*([^\s]+)?/;
+
+async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, localMaps, deps, name): Promise<DewResult> {
   const dewPath = filePath.endsWith('.js') ? filePath.substr(0, filePath.length - 3) + '.dew.js' : filePath + '.dew.js';
+  const result = {
+    err: undefined,
+    hashbang: false
+  };
   try {
-    const source = await new Promise((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
+    const source = await new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
+
+    const hashbangMatch = source.match(hashbangRegEx);
+    if (hashbangMatch)
+      result.hashbang = true;
 
     var { ast, requires } = tryParseCjs(source);
     
@@ -135,24 +151,24 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, lo
     }
     
     const dewTransform = transformDew(ast, source, resolveMap);
-
     await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve()));
   }
   catch (err) {
     if (err instanceof SyntaxError && err.toString().indexOf('sourceType: "module"') !== -1)
-      return true;
+      return { err: true };
     if (filePath.endsWith('.js')) {
       try {
         const dewTransform = `export function dew () {\n  throw new Error("Error converting CommonJS file ${name + filePath.substr(pkgBasePath.length)}, please post a jspm bug with this message.\\n${JSON.stringify(err.stack || err.toString()).slice(1, -1)}");\n}\n`;
-        await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve()));
+        await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve(result)));
       }
       catch (e) {
-        return true;
+        return { err: true };
       }
-      return;
+      return result;
     }
-    return true;
+    return { err: true };
   }
+  return result;
 }
 
 async function createJsonDew (filePath) {
@@ -200,20 +216,20 @@ module.exports = function convert (name: string, dir: string, files: Record<stri
           if (err)
             return;
           // all json files also get a ".json.js" entry for convenience
-          esmWrapperPromises.push(writeESMWrapper(dir, file + '.js', toDew(path.basename(file)), namedExports));
+          esmWrapperPromises.push(writeESMWrapper(dir, file + '.js', toDew(path.basename(file)), namedExports, false));
         }));
       }
       else {
         // we attempt to create dew for all files as CommonJS can import any file extension as CommonJS
         // this will also fail if a file is already occupying the file.dew.js spot
         // on error, file.dew.js is populated with the error
-        conversionPromises.push(tryCreateDew(path.resolve(dir, file), dir, files, main, folderMains, localMaps, deps, name).then(err => {
-          if (err)
+        conversionPromises.push(tryCreateDew(path.resolve(dir, file), dir, files, main, folderMains, localMaps, deps, name).then(result => {
+          if (result.err)
             return;
           // exports should be passed as an argument here supporting both names, and star exports which are in turn provided from the esm of the star (internal or external)
           if (!file.endsWith('.js'))
             dewWithoutExtensions[file] = true;
-          esmWrapperPromises.push(writeESMWrapper(dir, file, toDew(path.basename(file)), namedExports));
+          esmWrapperPromises.push(writeESMWrapper(dir, file, toDew(path.basename(file)), namedExports, result.hashbang));
         }));
       }
     }
@@ -224,16 +240,18 @@ module.exports = function convert (name: string, dir: string, files: Record<stri
   .then(callback, callback);
 }
 
-function writeESMWrapper (dir: string, file: string, dewFile: string, namedExports: Record<string, string[]>): Promise<void> {
-  let esmWrapperSource;
+function writeESMWrapper (dir: string, file: string, dewFile: string, namedExports: Record<string, string[]>, hashbang: boolean): Promise<void> {
+  let esmWrapperSource = '';
+  if (hashbang) {
+    esmWrapperSource += '#!/usr/bin/env jspm\n';
+  }
   if (namedExports && namedExports[file]) {
     const exportNames = namedExports[file].filter(name => isValidIdentifier(name) && name !== 'default');
-    esmWrapperSource = `import { dew } from './${dewFile}';\nconst exports = dew();\nexport default exports;\nexport const ${
+    esmWrapperSource += `import { dew } from './${dewFile}';\nconst exports = dew();\nexport default exports;\nexport const ${
       exportNames.map(name => `${name} = exports.${name}`).join(', ')
     };\n`;
-  }
-  else {
-    esmWrapperSource = `import { dew } from './${dewFile}';\nexport default dew();\n`;
+  } else {
+    esmWrapperSource += `import { dew } from './${dewFile}';\nexport default dew();\n`;
   }
   return new Promise((resolve, reject) => 
     fs.writeFile(path.resolve(dir, file), esmWrapperSource, err => err ? reject(err) : resolve())

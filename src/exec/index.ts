@@ -30,7 +30,7 @@ export interface JspxOptions {
 
 export const JSPX_PATH = path.resolve(JSPM_CACHE_DIR, 'jspx');
 
-export async function exec (target: string, args: string[], opts: JspxOptions): Promise<number> {
+export async function run (target: string, args: string[], opts: JspxOptions): Promise<number> {
   ensureNodeLoaderSupport();
 
   const project = new Project(JSPX_PATH, { userInput: opts.userInput, offline: opts.offline, preferOffline: true, cli: false });
@@ -89,7 +89,7 @@ export function ensureNodeLoaderSupport () {
     throw new JspmUserError(`${bold('jspm node')} requires NodeJS 8.9.0 or greater.`, 'ERR_INVALID_NODE_VERSION');
 }
 
-export async function run (args = [], projectPath = process.cwd()) {
+export async function exec (args = [], projectPath = process.cwd()) {
   if (typeof args === 'string')
     throw new Error('Args must be an array');
 
@@ -104,7 +104,7 @@ export async function run (args = [], projectPath = process.cwd()) {
       continue;
     const jspmResolve = require('@jspm/resolve');
     try {
-      args[i] = jspmResolve.sync(arg, projectPath + '/').resolved;
+      args[i] = jspmResolve.sync(arg, projectPath + '/', { realpath: false }).resolved;
     }
     catch (e) {
       if (e.code !== 'MODULE_NOT_FOUND' || path.isAbsolute(arg) || arg.startsWith('./') || arg.startsWith('/') || arg.startsWith('../'))

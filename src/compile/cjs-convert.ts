@@ -128,6 +128,8 @@ function convertMappingToDew (mapping: string | Conditional, plain: boolean): st
  *    x.json + x.js -> x.js wins the x.dew.js, x.dew.json still exists, similarly for index lookups winning
  *    dew aliases are simply: export { dew } from './actual.dew.js';
  * 
+ *    Extensionless files that are valid JS are overwritten with their ESM entry
+ * 
  * -  We skip files that are in subfolders of "mode": "esm" (up to next cancelling subfolder), or files that are in the skipESMConversion array
  *    Such files will simply break if loaded as entries or dew requires. There might possibly be a way to skip the ".js" entry, but keep the ".dew". Perhaps this goes with entry point lock downs -> "sealed": true kind of thing.
  */

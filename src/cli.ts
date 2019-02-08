@@ -98,10 +98,17 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       }
     }
 
+    // if the cmd is a valid path, then we execute it directly
+    if (fs.existsSync(cmd)) {
+      const exitCode = await api.exec([cmd, ...args]);
+      process.exit(exitCode);
+      return;
+    }
+
     switch (cmd) {
       case undefined:
-      case '--version':
-      case '-v':
+      case 'version':
+      case 'v':
         // run project checks
         new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         ui.info(api.version + '\n' +
@@ -112,8 +119,6 @@ export default async function cliHandler (projectPath: string, cmd: string, args
 
       case 'h':
       case 'help':
-      case '--help':
-      case '-h':
         ui.info(`
 ${bold('Init')}
   jspm init <path>?                 Initialize or validate a jspm project in the current directory
@@ -144,8 +149,8 @@ ${bold('Install')}
     --prefer-offline (-q)           Use cached lookups where possible for fastest install
 
 ${bold('Execute')}
-  jspm run <file>                   Execute a module with jspm module resolution
-  jspm script <name>                Run package.json "scripts" with the project bin env
+  jspm <file>                       Execute a module with jspm module resolution
+  jspm run <name>                   Run package.json "scripts" with the project bin env
 
 ${bold('Package Name Maps Generation')}
   jspm map -o packagemap.json       Generates a package name map for all dependencies
@@ -180,32 +185,25 @@ ${bold('Configure')}
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
         const generatorName = `jspm-init-${generator}`;
-        const exitCode = await api.exec(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
-        process.exit(exitCode);
-      }
-      break;
-
-      case 's':
-      case 'script': {
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        const exitCode = await project.run(args[0], args.slice(1));
+        const exitCode = await api.run(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
         process.exit(exitCode);
       }
       break;
 
       case 'r':
       case 'run': {
-        const exitCode = await api.run(args);
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        const exitCode = await project.run(args[0], args.slice(1));
         process.exit(exitCode);
       }
       break;
 
-      case 'e':
+      /* case 'e':
       case 'exec': {
-        const exitCode = await api.exec(args);
+        const exitCode = await api.run(args);
         process.exit(exitCode);
       }
-      break;
+      break;*/
 
       case 't':
       case 'trace': {

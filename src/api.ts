@@ -20,7 +20,7 @@ import { log, LogType, logErr } from './utils/ui';
 export * from './project';
 
 export { map, filterMap, renormalizeMap, trace } from './map';
-import { execNode as execFunc, jspx as jspxFunc } from './exec';
+import { exec as execFunc, run as runFunc } from './exec';
 import path = require('path');
 
 if (process.env.globalJspm !== undefined) {
@@ -61,6 +61,6 @@ export const exec: typeof execFunc = function () {
   return require('./exec').exec.apply(this, arguments);
 }
 
-export const run: typeof execFunc = function () {
+export const run: typeof runFunc = function () {
   return require('./exec').run.apply(this, arguments);
 }
