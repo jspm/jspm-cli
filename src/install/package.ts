@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // collection of package handling helpers
 
-import { encodeInvalidFileChars, hasProperties } from '../utils/common';
+import { encodeInvalidFileChars, hasProperties, bold, JspmUserError, highlight } from '../utils/common';
 import { Semver, SemverRange } from 'sver';
 import convertRange = require('sver/convert-range');
 const { processPjsonConfig } = require('@jspm/resolve');
@@ -409,8 +409,19 @@ export function serializePackageTargetCanonical (name: string, target: PackageTa
  * 
  * partial is for npm partial package meta where we mustn't fill out things that will come in full package.json parse
  */
-export function processPackageConfig (pcfg: PackageConfig, partial = false): ProcessedPackageConfig {
+const validKeys = ['peerDependencies', 'mode', 'map', 'bin', 'namedExports', 'skipESMConversion', 'registry', 'dependencies', 'peerDependencies', 'optionalDependencies', 'map', 'main'];
+export function validateOverride (pcfg: PackageConfig, name: string) {
+  for (let p in pcfg) {
+    if (validKeys.indexOf(p) === -1)
+      throw new JspmUserError(`${bold(`"${p}"`)} is not a valid property to override for ${highlight(name)}.`);
+  }
+  return true;
+}
+
+export function processPackageConfig (pcfg: PackageConfig, partial = false, registry = ''): ProcessedPackageConfig {
   const processed: ProcessedPackageConfig = processPjsonConfig(pcfg);
+  if (processed.peerDependencies)
+    delete processed.peerDependencies;
   if (typeof pcfg.name === 'string')
     processed.name = pcfg.name;
   if (typeof pcfg.version === 'string')
@@ -447,20 +458,23 @@ export function processPackageConfig (pcfg: PackageConfig, partial = false): Pro
       }
     }
   }
+  registry = registry || pcfg.registry;
+  if (registry)
+    processed.registry = registry;
   if (pcfg.dependencies) {
     const dependencies = processed.dependencies = {};
     for (const name in pcfg.dependencies)
-      dependencies[name] = processPackageTarget(name, pcfg.dependencies[name], '', true);
+      dependencies[name] = processPackageTarget(name, pcfg.dependencies[name], registry || '', true);
   }
   if (pcfg.peerDependencies) {
     const peerDependencies = processed.peerDependencies = {};
     for (const name in pcfg.peerDependencies)
-      peerDependencies[name] = processPackageTarget(name, pcfg.peerDependencies[name], '', true);
+      peerDependencies[name] = processPackageTarget(name, pcfg.peerDependencies[name], registry || '', true);
   }
   if (pcfg.optionalDependencies) {
     const optionalDependencies = processed.optionalDependencies = {};
     for (const name in pcfg.optionalDependencies)
-      optionalDependencies[name] = processPackageTarget(name, pcfg.optionalDependencies[name], '', true);
+      optionalDependencies[name] = processPackageTarget(name, pcfg.optionalDependencies[name], registry || '', true);
   }
   return processed;
 }
@@ -518,6 +532,13 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   else if (!(version[0] === '^' && SemverRange.isValid(version)) && version !== '*') {
     version = encodeInvalidFileChars(version);
   }
+  const targetNameLen = name.split('/').length;
+  if (targetNameLen > 2)
+    throw new JspmUserError(`Invalid package target name ${bold(name)}`);
+  if (targetNameLen === 2 && name[0] !== '@')
+    name = '@' + name;
+  if (targetNameLen === 1 && name[0] === '@')
+    throw new JspmUserError(`Invalid package target name ${bold(name)}`);
   return new PackageTarget(registry, name, version);
 }
 
@@ -680,7 +701,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
           let depsOverride;
           for (let q in val) {
             const newVal = val[q];
-            if (typeof newVal === 'string' && baseVal[q] !== newVal || !newVal.eq(baseVal[q])) {
+            if (typeof newVal === 'string' ? baseVal[q] !== newVal : !newVal.eq(baseVal[q])) {
               if (depsOverride === undefined) {
                 if (!override)
                   override = {};

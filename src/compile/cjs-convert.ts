@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -75,6 +75,10 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
         continue;
       newMap[isRel ? toDew(match) : toDewPlain(match)] = convertMappingToDew(mapping, !isRel);
     }
+  }
+  if (pcfg.name) {
+    newMap = newMap || {};
+    newMap[pcfg.name + '/'] = './';
   }
   // we actually want the bin to remain to the ESM wrapper
   /*if (pcfg.bin) {

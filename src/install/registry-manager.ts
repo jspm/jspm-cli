@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -393,7 +393,7 @@ export default class RegistryManager {
 
     let resolvedOverride;
     if (resolved.override) {
-      resolvedOverride = processPackageConfig(resolved.override, true);
+      resolvedOverride = processPackageConfig(resolved.override, true, override && override.registry);
       if (override)
         ({ config: override } = overridePackageConfig(resolvedOverride, override));
       else

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import RegistryManager from './registry-manager';
 import { Semver } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
-    ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx } from './package';
+    ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx, validateOverride } from './package';
 import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows, validPkgNameRegEx } from '../utils/common';
 import fs = require('graceful-fs');
 import ncp = require('ncp');
@@ -506,7 +506,7 @@ export class Installer {
   
       // install information
       let target = install.target;
-      let override: ProcessedPackageConfig | void = install.override && processPackageConfig(install.override);
+      let override: ProcessedPackageConfig | void = install.override && validateOverride(install.override, install.name) && processPackageConfig(install.override);
       let source: string;
   
       let resolvedPkg: ExactPackage;

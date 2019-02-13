@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ export * from './project';
 export { map, filterMap, renormalizeMap, trace } from './map';
 import { exec as execFunc, run as runFunc } from './exec';
 import path = require('path');
+export { build } from './build';
 
 if (process.env.globalJspm !== undefined) {
   process.once('unhandledRejection', err => {

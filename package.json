@@ -22,6 +22,8 @@
     "promise-retry": "^1.1.1",
     "proper-lockfile": "^2.0.1",
     "rimraf": "^2.6.2",
+    "rollup": "^1.1.2",
+    "rollup-plugin-jspm": "git+ssh://git@github.com/jspm/rollup-plugin-jspm.git",
     "semver": "^5.4.1",
     "sver": "^1.8.2",
     "tar-fs": "^1.16.0",
@@ -45,7 +47,7 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/node": "^8.0.47",
+    "@types/node": "^8.10.40",
     "mocha": "^4.0.1",
     "typescript": "^2.7.0-dev.20171126"
   }

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -98,13 +98,6 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       }
     }
 
-    // if the cmd is a valid path, then we execute it directly
-    if (fs.existsSync(cmd)) {
-      const exitCode = await api.exec([cmd, ...args]);
-      process.exit(exitCode);
-      return;
-    }
-
     switch (cmd) {
       case undefined:
       case 'version':
@@ -151,6 +144,18 @@ ${bold('Install')}
 ${bold('Execute')}
   jspm <file>                       Execute a module with jspm module resolution
   jspm run <name>                   Run package.json "scripts" with the project bin env
+
+${bold('Build')}
+  jspm build <entry>+ -o <dir>      Build the given entry points into the output directory
+
+  Build Options:
+    --source-maps                   Output source maps
+    --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
+    --format [cjs|system|amd]       Set a custom output format for the build (defaults to esm)
+    --remove-dir                    Clear the output directory before build
+    --show-graph                    Show the build module graph summary
+    --watch                         Watch build files after build for rebuild on change     
+    --banner <file|source>          Include the given banner at the top of the build file  
 
 ${bold('Package Name Maps Generation')}
   jspm map -o packagemap.json       Generates a package name map for all dependencies
@@ -427,6 +432,49 @@ ${bold('Configure')}
       }
       break;
 
+      case 'b':
+      case 'build':
+        let { options, args: buildArgs } = readOptions(args, [
+          'remove-dir',
+          'node',
+          'mjs',
+          'browser', 'bin', 'react-native', 'production', 'electron',
+          'show-graph',
+          'source-maps',
+          'watch'// 'exclude-external', 'minify',
+        ], ['dir', 'out', 'format'], ['target', 'external', 'banner']);
+        if (options.browser)
+          (options.env = options.env || {}).browser = true;
+        if (options.bin)
+          (options.env = options.env || {}).bin = true;
+        if (options['react-native'])
+          (options.env = options.env || {})['react-native'] = true;
+        if (options.production)
+          (options.env = options.env || {}).production = true;
+        if (options.electron)
+          (options.env = options.env || {}).electron = true;
+        options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
+        if (options.external) {
+          const external = {};
+          options.external.split(' ').forEach(pair => {
+            const aliasIndex = pair.indexOf('=');
+            if (aliasIndex !== -1) {
+              const externalName = pair.substr(0, aliasIndex);
+              const aliasName = pair.substr(aliasIndex + 1);
+              external[externalName] = aliasName;
+            }
+            else {
+              external[pair] = true;
+            }
+          });
+          // TODO: aliasing
+          options.external = Object.keys(external);
+        }
+        options.log = true;
+        options.dir = options.dir || 'dist';
+        await api.build(buildArgs, options);
+      break;
+
       case 're':
       case 'registry':
         if (args[0] !== 'config')
@@ -480,7 +528,19 @@ ${bold('Configure')}
       break;
 
       default:
-        throw new JspmUserError(`Unknown command ${bold(cmd)}.`);
+        // if the cmd is a valid file, then we execute it directly
+        let isFile = false;
+        try {
+          isFile = fs.statSync(cmd).isFile();
+        }
+        catch {}
+        if (isFile) {
+          const exitCode = await api.exec([cmd, ...args]);
+          process.exit(exitCode);
+          return;
+        }
+
+        throw new JspmUserError(`Command or file ${bold(cmd)} does not exist.`);
     }
   }
   catch (err) {

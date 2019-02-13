@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import { isWindows, PATH, PATHS_SEP } from './common';
 import path = require('path');
 
 export async function runCmd (script: string, cwd: string): Promise<number> {
-  const env = {};
+  const env = Object.create(null);
   
   const pathArr = [];
   pathArr.push(path.join(cwd, 'jspm_packages', '.bin'));
@@ -27,6 +27,7 @@ export async function runCmd (script: string, cwd: string): Promise<number> {
   pathArr.push(path.join(cwd, 'node_modules', '.bin'));
   pathArr.push(process.env[PATH]);
 
+  Object.assign(env, process.env);
   env[PATH] = pathArr.join(PATHS_SEP);
 
   const sh = isWindows ? process.env.comspec || 'cmd' : 'sh';

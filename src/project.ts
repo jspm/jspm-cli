@@ -240,7 +240,6 @@ export class Project {
     finally {
       taskEnd();
     }
-    this.log.newline();
     // NB install state change logging!
     if (changed)
       this.log.ok('Update complete.');
@@ -264,7 +263,6 @@ export class Project {
     finally {
       taskEnd();
     }
-    this.log.newline();
     // NB install state change logging!
     if (changed)
       this.log.ok('Install complete.');
@@ -280,7 +278,6 @@ export class Project {
     finally {
       taskEnd();
     }
-    this.log.newline();
     this.log.ok('Uninstalled successfully.');
   }
 
@@ -304,7 +301,6 @@ export class Project {
     finally {
       taskEnd();
     }
-    this.log.newline();
     if (changed)
       this.log.ok('Linked Successfully.');
     else
@@ -319,7 +315,6 @@ export class Project {
     finally {
       taskEnd();
     }
-    this.log.newline();
     this.log.ok('Project cleaned successfully.');
   }
 

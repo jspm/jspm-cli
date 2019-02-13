@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -77,13 +77,13 @@ const format = {
     return moduleMsg(msg + (opt ? ' [' + opt + ']' : '') + ': ');
   },
   [LogType.err] (msg: string) {
-    return '\n' + chalk.red.bold('err  ') + moduleMsg(msg, false, false);
+    return chalk.red.bold('err  ') + moduleMsg(msg, false, false);
   },
   [LogType.info] (msg: string) {
     return '     ' + moduleMsg(msg, true);
   },
   [LogType.warn] (msg: string) {
-    return '\n' + chalk.yellow.bold('warn ') + moduleMsg(msg, true);
+    return chalk.yellow.bold('warn ') + moduleMsg(msg, true);
   },
   [LogType.ok] (msg: string) {
     return chalk.green.bold('ok   ') + moduleMsg(msg, true);

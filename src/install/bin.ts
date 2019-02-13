@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2018 Guy Bedford (http://guybedford.com)
+ *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -54,10 +54,8 @@ case "$(uname -s)" in
     BASE_DIR=/$(cygpath -w "$BASE_DIR")
     ;;
   *)
-    JSPM_LOADER=$(dirname "$JSPM_LOADER")
-    ;;
 esac
-NODE_OPTIONS="--experimental-modules --loader $JSPM_LOADER" node "$BASE_DIR/${binModulePath}" "$@"
+NODE_OPTIONS="--experimental-modules --no-warnings --loader $JSPM_LOADER" node "$BASE_DIR/${binModulePath}" "$@"
 ret=$?
 exit $ret
 `;
