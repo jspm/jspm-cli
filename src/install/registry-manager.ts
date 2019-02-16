@@ -30,6 +30,7 @@ import { Logger, input, confirm } from '../project';
 import { resolveSource, downloadSource } from '../install/source';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
 import { convertCJSPackage, convertCJSConfig } from '../compile/cjs-convert';
+import { runBinaryBuild } from './binary-build';
 
 const VerifyState = {
   NOT_INSTALLED: 0,
@@ -608,6 +609,8 @@ export default class RegistryManager {
         }
 
         await writeJSONStyled(pjsonPath, Object.assign(pjson, serializePackageConfig(config)), style || defaultStyle);
+        
+        await runBinaryBuild(this.util.log, dir, pjson.name, pjson.scripts);
 
         // run package conversion
         // (on any subfolder containing a "mode": "cjs")

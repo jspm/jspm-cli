@@ -442,18 +442,14 @@ export function processPackageConfig (pcfg: PackageConfig, partial = false, regi
     if (processed.mode === 'cjs' && !processed.skipESMConversion)
       delete processed.mode;
     if (typeof pcfg.bin === 'string') {
-      let binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
-      if (!binPath.endsWith('.js'))
-        binPath += '.js';
+      const binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
       processed.bin = { [pcfg.name]: binPath };
     }
     else if (typeof pcfg.bin === 'object') {
       processed.bin = {};
       for (let p in pcfg.bin) {
         const mapped = pcfg.bin[p];
-        let binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
-        //if (!binPath.endsWith('.js'))
-        //  binPath += '.js';
+        const binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
         processed.bin[p] = binPath;
       }
     }

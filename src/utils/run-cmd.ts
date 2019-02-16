@@ -18,7 +18,8 @@ import process = require('process');
 import { isWindows, PATH, PATHS_SEP } from './common';
 import path = require('path');
 
-export async function runCmd (script: string, cwd: string): Promise<number> {
+export async function runCmd (script: string, cwd: string, pipe: true): Promise<childProcess.ChildProcess>
+export async function runCmd (script: string, cwd = process.env.PWD || process.cwd(), pipe = false): Promise<childProcess.ChildProcess | number> {
   const env = Object.create(null);
   
   const pathArr = [];
@@ -29,9 +30,10 @@ export async function runCmd (script: string, cwd: string): Promise<number> {
 
   Object.assign(env, process.env);
   env[PATH] = pathArr.join(PATHS_SEP);
-
   const sh = isWindows ? process.env.comspec || 'cmd' : 'sh';
   const shFlag = isWindows ? '/d /s /c' : '-c';
-  const proc = childProcess.spawn(sh, [shFlag, script], { cwd, env, stdio: 'inherit', windowsVerbatimArguments: true });
-  return new Promise<number>((resolve, reject) => proc.on('close', resolve).on('error', reject));
+  const ps = childProcess.spawn(sh, [shFlag, script], { cwd, env, stdio: pipe ? 'pipe' : 'inherit', windowsVerbatimArguments: true });
+  if (pipe)
+    return ps;
+  return new Promise<number>((resolve, reject) => ps.on('close', resolve).on('error', reject));
 }

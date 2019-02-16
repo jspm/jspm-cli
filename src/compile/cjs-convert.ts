@@ -23,16 +23,30 @@ import { writeJSONStyled, readJSONStyled, defaultStyle } from '../config/config-
 import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM } from './dew-resolve';
 import { builtins } from '@jspm/resolve';
 
-const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/node-builtins', '^1.0.0');
+const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/core', '^1.0.0');
 
-const convertWorker: any = workerFarm(<any>{
-  workerOptions: {
-    execArgv: process.execArgv.concat(['--max_old_space_size=4096'])
-  },
-  maxConcurrentWorkers: Math.max(require('os').cpus().length / 2, 4),
-  maxConcurrentCallsPerWorker: 1,
-  autoStart: true
-}, require.resolve('./dew-worker'));
+let convertWorker: any;
+let initCnt = 0;
+
+export function init () {
+  if (initCnt++ === 0) {
+    convertWorker = workerFarm(<any>{
+      workerOptions: {
+        execArgv: process.execArgv.concat(['--max_old_space_size=4096'])
+      },
+      maxConcurrentWorkers: Math.max(require('os').cpus().length / 2, 4),
+      maxConcurrentCallsPerWorker: 1,
+      autoStart: true
+    }, require.resolve('./dew-worker'));
+  }
+}
+
+export async function dispose () {
+  if (--initCnt <= 0) {
+    initCnt = 0;
+    await new Promise((resolve, reject) => (<any>workerFarm).end(convertWorker, err => err ? reject(err) : resolve()));
+  }
+}
 
 /*
  * Internal map dew handling
@@ -50,7 +64,7 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
     return;
   if (!pcfg.peerDependencies)
     pcfg.peerDependencies = {};
-  pcfg.peerDependencies['@jspm/node-builtins'] = nodeBuiltinsTarget;
+  pcfg.peerDependencies['@jspm/core'] = nodeBuiltinsTarget;
   if (pcfg.main) {
     if (pcfg.map && pcfg.map['./' + pcfg.main]) {
       if (!newMap)
@@ -80,7 +94,7 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
     newMap = newMap || {};
     newMap[pcfg.name + '/'] = './';
   }
-  // we actually want the bin to remain to the ESM wrapper
+  // TODO: bin may need resolution
   /*if (pcfg.bin) {
     let newBin;
     for (const bin of Object.keys(pcfg.bin)) {

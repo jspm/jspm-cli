@@ -117,12 +117,15 @@ export async function exec (args = [], projectPath = process.cwd()) {
   const node = process.argv[0];
   const loaderPath =  require.resolve('@jspm/resolve').replace(/resolve\.js$/, 'loader.mjs');
 
-  const ps = spawn(node, args, {
-    stdio: 'inherit',
-    env: Object.assign({}, process.env, {
-      NODE_OPTIONS: `${process.env.NODE_OPTIONS ? process.env.NODE_OPTIONS + ' ' : ''}--experimental-modules --no-warnings --loader ${(isWindows ? '/' : '') + loaderPath}`
-    })
+  const env = Object.assign({}, process.env, {
+    NODE_OPTIONS: `${process.env.NODE_OPTIONS ? process.env.NODE_OPTIONS + ' ' : ''}--experimental-modules --no-warnings --loader ${(isWindows ? '/' : '') + loaderPath}`
   });
+  /* if (pipe) {
+    Object.assign(env, {
+      FORCE_COLOR: 1,
+      NPM_CONFIG_COLOR: 'always'
+    }); */
+  const ps = spawn(node, args, { stdio: 'inherit', env });
   return new Promise<number>((resolve, reject) => {
     ps.on('exit', code => resolve(code));
     ps.on('error', err => reject(err));

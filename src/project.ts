@@ -25,6 +25,7 @@ import RegistryManager, { Registry } from './install/registry-manager';
 import Cache from './utils/cache';
 import globalConfig from './config/global-config-file';
 import FetchClass from './install/fetch';
+import { dispose as cjsConvertDispose, init as cjsConvertInit } from './compile/cjs-convert';
 
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
@@ -72,8 +73,6 @@ export interface ProjectConfiguration {
   registries?: {[name: string]: Registry};
   cli?: boolean;
 }
-
-
 
 function applyDefaultConfiguration (userConfig: ProjectConfiguration) {
   const config: ProjectConfiguration = Object.assign({}, userConfig);
@@ -205,6 +204,7 @@ export class Project {
     // load registries upfront
     // (strictly we should save registry configuration when a new registry appears)
     this.registryManager.loadEndpoints();
+    cjsConvertInit();
 
     this.installer = new Installer(this);
   }
@@ -221,7 +221,8 @@ export class Project {
   dispose () {
     return Promise.all([
       this.config.dispose(),
-      this.registryManager.dispose()
+      this.registryManager.dispose(),
+      cjsConvertDispose()
     ]);
   }
 

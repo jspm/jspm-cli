@@ -871,7 +871,7 @@ export class Installer {
     if (!install.parent || install.type === DepType.peer) {
       this.installTree.resolve[install.name] = exactResolution;
       // only write in targets when primary range is empty
-      const existingRange = this.primaryRanges[install.name]
+      const existingRange = this.primaryRanges[install.name];
       if (!existingRange || this.updatePrimaryRanges === true) {
         if (typeof target !== 'string') {
           if (target.range.isExact || this.opts.exact)
@@ -889,10 +889,12 @@ export class Installer {
         this.changed = true;
         const existingPrimaryAndNotDev = this.primaryRanges[install.name] && 
             (this.primaryRanges[install.name].type === DepType.peer || this.primaryRanges[install.name].type === DepType.primary);
-        this.primaryRanges[install.name] = {
-          type: existingPrimaryAndNotDev ? this.primaryRanges[install.name].type : install.parent ? this.primaryType : install.type,
-          target
-        };
+        // peerDependencies install as devDependencies
+        const type = existingPrimaryAndNotDev ? this.primaryRanges[install.name].type
+            : install.type === DepType.peer ? DepType.dev
+            : install.parent ? this.primaryType
+            : install.type;
+        this.primaryRanges[install.name] = { type, target };
       }
     }
     else {

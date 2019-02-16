@@ -84,7 +84,7 @@ export default class Cache {
     await promiseRetry(async retry => {
       const locked = await new Promise((resolve, reject) => lockfile.check(resolved, { realpath: false }, (err, locked) => err ? reject(err) : resolve(locked)));
       if (locked)
-        retry(new Error(`Lock already acquired`));
+        retry(new Error(`Operation timeout.`));
     }, {
       retries: 2 + Math.floor(timeout / 3000),
       factor: 1.5707,
@@ -106,7 +106,7 @@ export default class Cache {
       return result;
     let timer;
     let timeoutPromise = new Promise((_resolve, reject) => {
-      timer = setTimeout(() => reject(new JspmError('Operation timed out.')));
+      timer = setTimeout(() => reject(new JspmError('Operation timeout.')));
     });
     try {
       let value = <T>await Promise.race([timeoutPromise, createTask()]);

@@ -109,7 +109,7 @@ function transformDew (ast, source, resolveMap) {
     plugins: [[dewTransformPlugin, {
       resolve: name => resolveMap[name],
       resolveWildcard: name => resolveMap[name],
-      requireResolveModule: '@jspm/core/resolve',
+      requireResolveModule: '@jspm/core/resolve.js',
       wildcardExtensions: ['.js', '.json', '.node'],
       esmDependencies: resolved => isESM(resolved),
       filename: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url).pathname`,
@@ -126,6 +126,8 @@ interface DewResult {
 
 const hashbangRegEx = /#!\s*([^\s]+)\s*([^\s]+)?/;
 
+const largeHexArrayRegEx = /\[\s*(0x[0-9a-f]+,\s*){100000}/;
+
 async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, localMaps, deps, name): Promise<DewResult> {
   const dewPath = filePath.endsWith('.js') ? filePath.substr(0, filePath.length - 3) + '.dew.js' : filePath + '.dew.js';
   const result = {
@@ -133,11 +135,40 @@ async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, lo
     hashbang: false
   };
   try {
-    const source = await new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
+    let source = await new Promise<string>((resolve, reject) => fs.readFile(filePath, (err, source) => err ? reject(err) : resolve(source.toString())));
 
     const hashbangMatch = source.match(hashbangRegEx);
     if (hashbangMatch)
       result.hashbang = true;
+
+    // <CHEATS>
+    {
+      // Babel stalls on large hex arrays
+      if (source.match(largeHexArrayRegEx)) {
+        const dewTransform = `var exports = {}, module = { exports: exports }, _dewExec = false;
+export function dew() {
+  if (_dewExec) return module.exports;
+    _dewExec = true;
+${source};
+  return module.exports;
+}`;
+        await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve()));
+        return result;
+      }
+      // bindings customization
+      if (name === 'bindings') {
+        // stack file name detection
+        let stackFileNameIndex = source.indexOf('Error.prepareStackTrace = function (e, st)');
+        if (stackFileNameIndex !== -1) {
+          stackFileNameIndex = source.indexOf('st[i].getFileName()', stackFileNameIndex);
+          if (stackFileNameIndex !== -1) {
+            stackFileNameIndex += 19;
+            source = source.substr(0, stackFileNameIndex) + '.substr(7 + (process.platform === \'win32\'))' + source.substr(stackFileNameIndex);
+          }
+        }
+      }
+    }
+    // </CHEATS>
 
     var { ast, requires } = tryParseCjs(source);
     

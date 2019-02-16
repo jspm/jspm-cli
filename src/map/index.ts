@@ -63,7 +63,7 @@ class Mapper {
       this.dependencies[dep] = serializePackageName(project.config.jspm.installed.resolve[dep]);
     }
 
-    this._nodeBuiltinsPkg = 'jspm_packages/' + this.dependencies['@jspm/node-builtins'].replace(':', '/');
+    this._nodeBuiltinsPkg = 'jspm_packages/' + this.dependencies['@jspm/core'].replace(':', '/') + '/nodelibs';
 
     this.env = env;
     this.cachedPackagePaths = {};
@@ -72,7 +72,7 @@ class Mapper {
   get nodeBuiltinsPkg () {
     if (this._nodeBuiltinsPkg)
       return this._nodeBuiltinsPkg;
-    throw new Error('Unable to locate @jspm/node-builtins dependency. Make sure this is properly installed.');
+    throw new Error('Unable to locate @jspm/core dependency. Make sure this is properly installed.');
   }
 
   async createMapAll () {
@@ -85,13 +85,13 @@ class Mapper {
 
     const populationPromises: Promise<void>[] = [];
     for (const depName of Object.keys(this.dependencies)) {
-      if (depName === '@jspm/node-builtins')
+      if (depName === '@jspm/core')
         continue;
       populationPromises.push(this.populatePackage(depName, this.dependencies[depName], undefined, packageMap));
     }
 
     // when peerDependencies are fixed as primaries
-    // then the version below here must be from project.config.jspm.installed.resolve['@jspm/node-builtins']
+    // then the version below here must be from project.config.jspm.installed.resolve['@jspm/core']
     for (const name of Object.keys(jspmBuiltins)) {
       if (name in packages)
         continue;
