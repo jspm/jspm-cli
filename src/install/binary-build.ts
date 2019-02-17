@@ -20,7 +20,7 @@ import { JspmUserError, highlight, bold } from '../utils/common';
 import fs = require('graceful-fs');
 import { runCmd } from '../utils/run-cmd';
 
-const nodePreGypRegEx = /^node-pre-gyp install( --fallback-to-build)?$/;
+const nodePreGypRegEx = /^node-pre-gyp install(\s*--fallback-to-build|\s*--library=static_library)+?$/;
 const nodeGypRegEx = /node-gyp rebuild/;
 const prebuildRegEx = /^prebuild-install \|\| node-gyp rebuild$/;
 

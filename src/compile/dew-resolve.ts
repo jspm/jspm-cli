@@ -48,8 +48,9 @@ export function relativeResolve (require: string, filePath: string, pkgBasePath:
   if (localMaps[resolvedPkgPath || pkgPath])
     return toDew(name + '/' + (resolvedPkgPath || pkgPath));
 
+  // local resolved that doesn't exist -> not found
   if (!resolvedPkgPath)
-    return toDew(require);
+    return null;
 
   let relPath = path.relative(fileDir, path.resolve(pkgBasePath, resolvedPkgPath)).replace(/\\/g, '/');
   if (relPath === '')
