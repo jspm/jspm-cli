@@ -60,7 +60,7 @@ export async function dispose () {
  */
 export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
   let newMap;
-  if (pcfg.mode === 'esm')
+  if (pcfg.type === 'module')
     return;
   if (!pcfg.peerDependencies)
     pcfg.peerDependencies = {};
@@ -148,7 +148,7 @@ function convertMappingToDew (mapping: string | Conditional, plain: boolean): st
  * 
  *    Extensionless files that are valid JS are overwritten with their ESM entry
  * 
- * -  We skip files that are in subfolders of "mode": "esm" (up to next cancelling subfolder), or files that are in the skipESMConversion array
+ * -  We skip files that are in subfolders of "type": "module" (up to next cancelling subfolder), or files that are in the skipESMConversion array
  *    Such files will simply break if loaded as entries or dew requires. There might possibly be a way to skip the ".js" entry, but keep the ".dew". Perhaps this goes with entry point lock downs -> "sealed": true kind of thing.
  */
 export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: ProcessedPackageConfig, defaultRegistry: string) {
@@ -172,13 +172,13 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
       const parsed = JSON.parse(pjson);
       if (typeof parsed.main === 'string')
         folderMains[boundary] = parsed.main.startsWith('./') ? parsed.main.substr(2) : parsed.main;
-      var mode = parsed.mode;
+      var type = parsed.type;
     }
     catch (e) {
       continue;
     }
-    // esm mode boundary -> filter out from the file pool
-    if (mode === 'esm')
+    // module type scope -> filter out from the file pool
+    if (type === 'module')
       filePool = filePool.filter(file => !file.startsWith(boundary) || file[boundary.length] !== '/');
     // cjs mode boundary -> add to the conversion list
     else
@@ -190,7 +190,7 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
       });
   }
 
-  if (pcfg.mode !== 'esm')
+  if (pcfg.type !== 'module')
     for (const file of filePool)
       convertFiles[file] = true;
 
@@ -318,7 +318,7 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
   /*
    * Config resolution
    * As well as setting up aliases, we must also now update the config main and map to reference exact files
-   * This is because "esm" is designed to skip automatic extension adding and directory indices
+   * This is because "module" is designed to skip automatic extension adding and directory indices
    * In addition, a ".json" main needs a special wrapper
    */
   let changed = false;

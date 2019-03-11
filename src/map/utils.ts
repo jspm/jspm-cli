@@ -13,31 +13,31 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-import { PackageMap } from ".";
+import { ImportMap } from ".";
 import path = require('path');
 import { alphabetize } from "../utils/common";
-export { createPackageMap, resolveIfNotPlainOrUrl } from './common';
+export { parseImportMap, resolveImportMap, resolveIfNotPlainOrUrl } from './common';
 
-export function extend (packageMap: PackageMap, extendMap: PackageMap) {
-  if (extendMap.packages) {
-    packageMap.packages = packageMap.packages || {};
-    Object.assign(packageMap.packages, extendMap.packages);
+export function extend (importMap: ImportMap, extendMap: ImportMap) {
+  if (extendMap.imports) {
+    importMap.imports = importMap.imports || {};
+    Object.assign(importMap.imports, extendMap.imports);
   }
   if (extendMap.scopes) {
-    packageMap.scopes = packageMap.scopes || {};
+    importMap.scopes = importMap.scopes || {};
     for (const scope of Object.keys(extendMap.scopes)) {
-      packageMap.scopes[scope] = packageMap.scopes[scope] || { packages: {} };
-      const packages = extendMap.scopes[scope].packages;
-      if (!packages)
+      importMap.scopes[scope] = importMap.scopes[scope] || {};
+      const imports = extendMap.scopes[scope];
+      if (!imports)
         continue;
-      for (const pkg of Object.keys(packages))
-        packageMap.scopes[scope].packages[pkg] = packages[pkg];
+      for (const pkg of Object.keys(imports))
+        importMap.scopes[scope][pkg] = imports[pkg];
     }
   }
-  clean(packageMap);
+  clean(importMap);
 }
 
-export function getMatch (path, matchObj) {
+export function getScopeMatch (path, matchObj) {
   let sepIndex = path.length;
   do {
     const segment = path.slice(0, sepIndex);
@@ -46,44 +46,60 @@ export function getMatch (path, matchObj) {
   } while ((sepIndex = path.lastIndexOf('/', sepIndex - 1)) !== -1)
 }
 
+export function getImportMatch (path, matchObj) {
+  if (path in matchObj)
+    return path;
+  let sepIndex = path.length;
+  do {
+    const segment = path.slice(0, sepIndex + 1);
+    if (segment in matchObj)
+      return segment;
+  } while ((sepIndex = path.lastIndexOf('/', sepIndex - 1)) !== -1)
+}
+
+export function flattenScopes (importMap: ImportMap) {
+  for (const scope of Object.keys(importMap.scopes)) {
+    const imports = importMap.scopes[scope];
+    for (const pkgName of Object.keys(imports)) {
+      const existing = importMap.imports[pkgName];
+      const newTarget = imports[pkgName];
+      let newTargetResolved = path.relative('.', path.resolve(scope, newTarget)).replace(/\\/g, '/');
+      if (!newTargetResolved.startsWith('../'))
+        newTargetResolved = './' + newTargetResolved;
+      if (existing && existing !== newTargetResolved)
+        throw new Error('Cannot collapse scopes due to conflict.');
+      importMap.imports[pkgName] = newTargetResolved;
+    }
+  }
+  delete importMap.scopes;
+}
+
 // any plain maps in scopes which match base maps can be removed
 // then removes empty properties and alphabetizes
-export function clean (packageMap: PackageMap) {
-  for (const scope of Object.keys(packageMap.scopes)) {
-    const packages = packageMap.scopes[scope].packages;
-    for (const pkgName of Object.keys(packages)) {
+export function clean (importMap: ImportMap) {
+  for (const scope of Object.keys(importMap.scopes)) {
+    const imports = importMap.scopes[scope];
+    for (const pkgName of Object.keys(imports)) {
       if (pkgName.startsWith('./') || pkgName.startsWith('../'))
         continue;
-      let baseMap = packageMap.packages[pkgName];
+      let baseMap = importMap.imports[pkgName];
       if (!baseMap)
         continue;
-      let map = packages[pkgName];
-      if (typeof baseMap === 'string') {
-        if (typeof map !== 'string')
-          continue;
-        // TODO: handle URL-like
-        if (path.join(pkgName, baseMap) === path.join(scope, pkgName, map))
-          delete packages[pkgName];
-      }
-      else {
-        if (typeof map === 'string')
-          continue;
-        if (baseMap.main !== map.main)
-          continue;
-        if (baseMap.path === path.join(scope, map.path).replace(/\\/g, '/'))
-          delete packages[pkgName];
-      }
+      let map = imports[pkgName];
+      // TODO: handle URL-like
+      if (path.join(pkgName, baseMap) === path.join(scope, pkgName, map))
+        delete imports[pkgName];
     }
   }
   
-  packageMap.packages = alphabetize(packageMap.packages);
+  importMap.imports = alphabetize(importMap.imports);
 
-  packageMap.scopes = alphabetize(packageMap.scopes);
-  outer: for (const scope of Object.keys(packageMap.scopes)) {
-    for (let _p in packageMap.scopes[scope].packages) {
-      packageMap.scopes[scope].packages = alphabetize(packageMap.scopes[scope].packages);
+  importMap.scopes = alphabetize(importMap.scopes);
+  outer: for (const scope of Object.keys(importMap.scopes)) {
+    for (let _p in importMap.scopes[scope]) {
+      importMap.scopes[scope] = alphabetize(importMap.scopes[scope]);
       continue outer;
     }
-    delete packageMap.scopes[scope];
+    delete importMap.scopes[scope];
   }
 }

@@ -613,7 +613,7 @@ export default class RegistryManager {
         await runBinaryBuild(this.util.log, dir, pjson.name, pjson.scripts);
 
         // run package conversion
-        // (on any subfolder containing a "mode": "cjs")
+        // (on any subfolder containing a "type": "commonjs")
         await convertCJSPackage(this.util.log, dir, config.name, config, this.defaultRegistry);
 
         var mtime = await new Promise((resolve, reject) => fs.stat(pjsonPath, (err, stats) => err ? reject(err) : resolve(stats.mtimeMs)));

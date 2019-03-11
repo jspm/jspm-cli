@@ -157,13 +157,13 @@ ${bold('Build')}
     --watch                         Watch build files after build for rebuild on change     
     --banner <file|source>          Include the given banner at the top of the build file  
 
-${bold('Package Name Maps Generation')}
-  jspm map -o packagemap.json       Generates a package name map for all dependencies
-    --production                    Generate a package name map with production resolutions
-  jspm map <module>+                Generate a package name map for specific modules only
-  jspm map -i in.json -o out.json   Combine the generated output with an existing package map
-  jspm map -j https://site.com/     Generate a package name map to a specific jspm_packages URL
-  jspm map --cdn                    Generate a package name mape against the jspm CDN
+${bold('Import Maps Generation')}
+  jspm map -o importmap.json        Generates an import map for all dependencies
+    --production                    Generate a import map with production resolutions
+  jspm map <module>+                Generate a import map for specific modules only
+  jspm map -i in.json -o out.json   Combine the generated output with an existing import map
+  jspm map -j https://site.com/     Generate a import map to a specific jspm_packages URL
+  jspm map --cdn                    Generate a import map against the jspm CDN
 
 ${bold('Inspect')}
   jspm trace <entry>+               Return the JSON resolution graph for a given module
@@ -235,7 +235,7 @@ ${bold('Configure')}
       case 'm':
       case 'map': {
         let options;
-        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn'], ['out', 'in', 'jspmPackages']));
+        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn', 'compat'], ['out', 'in', 'jspmPackages']));
 
         let inputMap, style = defaultStyle;
         if (options.in)
@@ -248,7 +248,7 @@ ${bold('Configure')}
           extend(map, inputMap);
 
         if (args.length)
-          map = await api.filterMap(project, map, args);
+          map = await api.filterMap(project, map, args, options.compat);
 
         if (options.cdn && !options.jspmPackages) {
           if (options.production)

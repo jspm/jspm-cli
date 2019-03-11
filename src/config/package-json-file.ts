@@ -28,7 +28,7 @@ export default class PackageJson extends ConfigFile {
   jspmAware: boolean;
   name: string;
   version: string;
-  esm: boolean;
+  type: string;
   src: string;
   dist: string;
   main: string;
@@ -91,7 +91,7 @@ export default class PackageJson extends ConfigFile {
         'overrides'
       ]],
       'scripts',
-      'mode',
+      'type',
       ['hooks', [
         'preinstall',
         'postinstall'
@@ -102,8 +102,7 @@ export default class PackageJson extends ConfigFile {
     this.lock();
     this.read();
 
-    const mode = this.getValue(['mode'], 'string');
-    this.esm = mode === 'esm' || this.getValue(['esm']) === true && mode !== 'cjs';
+    this.type = this.getValue(['type'], 'string');
 
     this.dir = path.dirname(this.fileName);
 
@@ -242,9 +241,9 @@ export default class PackageJson extends ConfigFile {
     if (this.main)
       this.setValue(['main'], this.main);
     
-    if (this.esm) {
-      this.remove(['esm']);
-      this.setValue(['mode'], 'esm');
+    if (this.type) {
+      this.remove(['type']);
+      this.setValue(['type'], this.type);
     }
 
     const dependencies = {};

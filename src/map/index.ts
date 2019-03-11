@@ -17,7 +17,7 @@ import { Project } from "../project";
 import path = require('path');
 import { DepType, serializePackageName } from "../install/package";
 import { readJSON, highlight, JspmUserError, isWindows, bold } from "../utils/common";
-import { clean, createPackageMap, getMatch } from "./utils";
+import { clean, parseImportMap, resolveImportMap, getScopeMatch, getImportMatch, flattenScopes } from "./utils";
 const { builtins, applyMap } = require('@jspm/resolve');
 import { URL } from 'url';
 import { resolveIfNotPlainOrUrl } from "./common";
@@ -31,15 +31,13 @@ const nodeCoreBrowserUnimplemented = {
 };
 
 export interface Packages {
-  [name: string]: string | { path?: string, main?: string };
+  [name: string]: string;
 };
 export interface Scopes {
-  [path: string]: {
-    packages: Packages;
-  };
+  [path: string]: Packages;
 };
-export interface PackageMap {
-  packages?: Packages;
+export interface ImportMap {
+  imports?: Packages;
   scopes?: Scopes;
 }
 
@@ -63,7 +61,7 @@ class Mapper {
       this.dependencies[dep] = serializePackageName(project.config.jspm.installed.resolve[dep]);
     }
 
-    this._nodeBuiltinsPkg = 'jspm_packages/' + this.dependencies['@jspm/core'].replace(':', '/') + '/nodelibs';
+    this._nodeBuiltinsPkg = './jspm_packages/' + this.dependencies['@jspm/core'].replace(':', '/') + '/nodelibs';
 
     this.env = env;
     this.cachedPackagePaths = {};
@@ -76,10 +74,10 @@ class Mapper {
   }
 
   async createMapAll () {
-    const packages: Packages = {};
+    const imports: Packages = {};
     const scopes: Scopes = {};
-    const packageMap: PackageMap = {
-      packages,
+    const packageMap: ImportMap = {
+      imports,
       scopes
     };
 
@@ -93,9 +91,9 @@ class Mapper {
     // when peerDependencies are fixed as primaries
     // then the version below here must be from project.config.jspm.installed.resolve['@jspm/core']
     for (const name of Object.keys(jspmBuiltins)) {
-      if (name in packages)
+      if (name in imports)
         continue;
-      packages[name] = path.relative(name, `${this.nodeBuiltinsPkg}/${nodeCoreBrowserUnimplemented[name] ? '@empty' : name}.js`).replace(/\\/g, '/');
+      imports[name] = this.nodeBuiltinsPkg + '/' + (nodeCoreBrowserUnimplemented[name] ? '@empty' : name) + '.js';
     }
 
     await Promise.all(populationPromises);
@@ -105,26 +103,23 @@ class Mapper {
     return packageMap;
   }
 
-  async populatePackage (depName: string, pkgName: string, scopeParent: string, packageMap: PackageMap, seen: Record<string, boolean> = {}) {
+  async populatePackage (depName: string, pkgName: string, scopeParent: string, packageMap: ImportMap, seen: Record<string, boolean> = {}) {
     // no need to duplicate base-level dependencies
     if (scopeParent && this.dependencies[depName] === pkgName)
       return;
 
-    const pkgPath = `jspm_packages/${pkgName.replace(':', '/')}`;
-    const packages = scopeParent ? (packageMap.scopes[scopeParent] = (packageMap.scopes[scopeParent] || { packages: {} })).packages : packageMap.packages;
-    const curPkg = packages[depName] = {
-      path: scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath,
-      main: undefined
-    };
+    const pkgPath = `./jspm_packages/${pkgName.replace(':', '/')}`;
+    const packages = scopeParent ? (packageMap.scopes[scopeParent] = (packageMap.scopes[scopeParent] || {})) : packageMap.imports;
+    const curPkg = packages[depName + '/'] = (scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath) + '/';
     const pkg = this.project.config.jspm.installed.dependencies[pkgName];
   
     const pathsPromise = (async () => {
       const { name, main, paths, map } = await this.getPackageConfig(pkgName);
 
       if (main)
-        curPkg.main = main;
+        packages[depName] = curPkg + main;
       for (const subpath of Object.keys(paths)) {
-        const relPath = path.relative((scopeParent ? scopeParent + '/' : '') + depName + '/' + subpath, pkgPath).replace(/\\/g, '/');
+        const relPath = scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath;
         packages[depName + '/' + subpath] = relPath + '/' + paths[subpath];
       }
 
@@ -132,18 +127,21 @@ class Mapper {
         return;
       seen[pkgName + '|map'] = true;
 
-      const scopedPackages = (packageMap.scopes[pkgPath] = (packageMap.scopes[pkgPath] || { packages: {} })).packages;
+      const scopedPackages = (packageMap.scopes[pkgPath] = (packageMap.scopes[pkgPath] || {}));
 
-      scopedPackages[name] = { path: '.', main };
+      // scopedPackages[name + '/'] = { path: '.', main };
       for (const subpath of Object.keys(paths)) {
-        scopedPackages[name + '/' + subpath] = path.relative(name + '/' + subpath, paths[subpath]).replace(/\\/g, '/');
+        let target = path.relative(name, name + '/' + paths[subpath]).replace(/\\/g, '/');
+        if (!target.startsWith('../'))
+          target = './' + target;
+        scopedPackages[name + '/' + subpath] = target;
       }
 
       for (const target of Object.keys(map)) {
         let mapped = map[target];
 
-        let mainEntry = true;
-        let onlyMain = false;
+        let hasMain = true;
+        let hasSubpaths = true;
 
         if (mapped.startsWith('./')) {
           mapped = pkgPath + mapped.substr(1);
@@ -155,23 +153,19 @@ class Mapper {
           }
           else if (jspmBuiltins[mapped]) {
             mapped = `${this.nodeBuiltinsPkg}/${mapped}.js`;
-            onlyMain = true;
+            hasSubpaths = false;
           }
         }
 
         if (mapped.endsWith('/')) {
           mapped = mapped.substr(0, mapped.length - 1);
-          mainEntry = false;
+          hasMain = false;
         }
-        
-        const relPath = path.relative(onlyMain ? pkgPath + '/' + target : pkgPath, mapped).replace(/\\/g, '/');
 
-        if (onlyMain)
-          scopedPackages[target] = relPath;
-        else if (mainEntry)
-          scopedPackages[target] = { main: '../' + relPath.substr(relPath.lastIndexOf('/') + 1), path: relPath };
-        else
-          scopedPackages[target] = { path: relPath };
+        if (hasMain)
+          scopedPackages[target] = path.relative(pkgPath + '/' + target, mapped).replace(/\\/g, '/');
+        if (hasSubpaths)
+          scopedPackages[target + '/'] = path.relative(pkgPath, mapped).replace(/\\/g, '/');
       }
     })();
 
@@ -183,7 +177,7 @@ class Mapper {
     for (const depName of Object.keys(pkg.resolve)) {
       if (depName === '@jspm/node-builtins')
         continue;
-      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath, packageMap, seen));
+      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath.substr(2), packageMap, seen));
     }
     await Promise.all(populationPromises);
   }
@@ -236,22 +230,17 @@ function cdnReplace (path) {
   return path.replace(/jspm_packages\/(\w+)\//, 'jspm_packages/$1:');
 }
 
-export function renormalizeMap (map: PackageMap, jspmPackagesURL: string, cdn: boolean) {
+export function renormalizeMap (map: ImportMap, jspmPackagesURL: string, cdn: boolean) {
   if (jspmPackagesURL.endsWith('/'))
     jspmPackagesURL = jspmPackagesURL.substr(0, jspmPackagesURL.length - 1);
-  const newMap: PackageMap = {};
-  if (map.packages) {
+  const newMap: ImportMap = {};
+  if (map.imports) {
     const packages = Object.create(null);
-    newMap.packages = packages;
-    for (const pkgName of Object.keys(map.packages)) {
-      const pkg = map.packages[pkgName];
+    newMap.imports = packages;
+    for (const pkgName of Object.keys(map.imports)) {
+      const pkg = map.imports[pkgName];
       if (typeof pkg === 'string')
-        newMap.packages[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
-      else
-        newMap.packages[pkgName] = {
-          path: jspmPackagesURL + (cdn ? cdnReplace(pkg.path) : pkg).substr(13),
-          main: pkg.main
-        };
+        newMap.imports[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
     }
   }
   if (map.scopes) {
@@ -265,15 +254,15 @@ export function renormalizeMap (map: PackageMap, jspmPackagesURL: string, cdn: b
 
       const isScopedPackage = scopeName.indexOf('/', scopeName.indexOf('/', 14) + 1) !== -1;
 
-      for (const pkgName of Object.keys(scope.packages)) {
-        let pkg = scope.packages[pkgName];
+      for (const pkgName of Object.keys(scope.imports)) {
+        let pkg = scope.imports[pkgName];
         if (typeof pkg === 'string') {
           if (cdn && pkg.startsWith('../')) {
             // exception is within-scope backtracking
             if (!(isScopedPackage && pkg.startsWith('../') && !pkg.startsWith('../../')))
               pkg = pkg.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
           }
-          newScope.packages[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
+          newScope[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
         }
         else {
           pkg = Object.assign({}, pkg);
@@ -281,7 +270,7 @@ export function renormalizeMap (map: PackageMap, jspmPackagesURL: string, cdn: b
             if (!(isScopedPackage && pkg.path.startsWith('../') && !pkg.path.startsWith('../../')))
               pkg.path = pkg.path.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
           }
-          newScope.packages[pkgName] = pkg;
+          newScope[pkgName] = pkg;
         }
       }
       newMap.scopes[jspmPackagesURL + (cdn ? cdnReplace(scopeName) : scopeName).substr(13)] = newScope;
@@ -297,19 +286,21 @@ export async function map (project: Project, env: any) {
 
 class MapResolver {
   project: Project;
-  packages: Packages;
+  imports: Packages;
   scopes: Record<string, {
     originalName: string;
-    packages: Packages;
+    imports: Packages;
   }>;
-  usedMap: PackageMap;
+  usedMap: ImportMap;
   trace: Record<string, Record<string, string>>
+  compat: boolean;
   mapResolve: (id: string, parentUrl: string) => string;
 
-  constructor (project: Project, map: PackageMap) {
+  constructor (project: Project, map: ImportMap, compat = false) {
     let baseDir = project.projectPath;
     this.project = project;
-    this.packages = map.packages;
+    this.imports = map.imports;
+    this.compat = compat;
 
     this.scopes = Object.create(null);
     if (baseDir[baseDir.length - 1] !== '/')
@@ -322,12 +313,13 @@ class MapResolver {
         resolvedScopeName = resolvedScopeName.substr(0, resolvedScopeName.length - 1);
       this.scopes[resolvedScopeName] = {
         originalName: scopeName,
-        packages: map.scopes[scopeName].packages || {}
+        imports: map.scopes[scopeName] || {}
       };
     }
     this.trace = Object.create(null);
-    this.usedMap = { packages: {}, scopes: {} };
-    this.mapResolve = createPackageMap(map, baseURL);
+    this.usedMap = { imports: {}, scopes: {} };
+    const parsed = parseImportMap(map, baseURL);
+    this.mapResolve = (specifier, parent) => resolveImportMap(specifier, parent, parsed);
   }
 
   async resolveAll (id: string, parentUrl: string, seen?: Record<string, boolean>) {
@@ -369,18 +361,36 @@ class MapResolver {
 
     resolved = this.mapResolve(id, parentUrl);
     if (resolved) {
-      const scopeMatch = getMatch(parentUrl, this.scopes);
+      const scopeMatch = getScopeMatch(parentUrl, this.scopes);
       if (scopeMatch) {
-        const match = getMatch(id, this.scopes[scopeMatch].packages);
+        const match = getImportMatch(id, this.scopes[scopeMatch].imports);
         if (match) {
           const scopeName = this.scopes[scopeMatch].originalName;
-          (this.usedMap.scopes[scopeName] = this.usedMap.scopes[scopeName] || { packages: {} }).packages[match] = this.scopes[scopeMatch].packages[match];
+          const scope = this.usedMap.scopes[scopeName] = this.usedMap.scopes[scopeName] || {};
+          let target = this.scopes[scopeMatch].imports[match];
+          if (this.compat) {
+            if (match.endsWith('/'))
+              scope[id] = target + id.substr(match.length);
+            else
+              scope[id] = target;
+          }
+          else {
+            scope[match] = target;
+          }
           return resolved;
         }
       }
-      const match = getMatch(id, this.packages);
+      const match = getImportMatch(id, this.imports);
       if (match) {
-        this.usedMap.packages[match] = this.packages[match];
+        if (this.compat) {
+          if (match.endsWith('/'))
+            this.usedMap.imports[id] = this.imports[match] + id.substr(match.length);
+          else
+            this.usedMap.imports[id] = this.imports[match];
+        }
+        else {
+          this.usedMap.imports[match] = this.imports[match];
+        }
         return resolved;
       }
       throw new Error('Internal error');
@@ -422,8 +432,8 @@ class MapResolver {
   }
 }
 
-export async function filterMap (project: Project, map: PackageMap, modules: string[]): Promise<PackageMap> {
-  const mapResolve = new MapResolver(project, map);
+export async function filterMap (project: Project, map: ImportMap, modules: string[], compat = false): Promise<ImportMap> {
+  const mapResolve = new MapResolver(project, map, compat);
   let baseURL = new URL('file:' + project.projectPath).href;
   if (baseURL[baseURL.length - 1] !== '/')
     baseURL += '/';
@@ -432,10 +442,14 @@ export async function filterMap (project: Project, map: PackageMap, modules: str
     await mapResolve.resolveAll(module, baseURL);
 
   clean(mapResolve.usedMap);
+
+  if (compat)
+    flattenScopes(mapResolve.usedMap);
+
   return mapResolve.usedMap;
 }
 
-export async function trace (project: Project, map: PackageMap, baseDir: string, modules: string[]): Promise<Record<string, Record<string, string>>> {
+export async function trace (project: Project, map: ImportMap, baseDir: string, modules: string[]): Promise<Record<string, Record<string, string>>> {
   const mapResolve = new MapResolver(project, map);
   let baseURL = new URL('file:' + baseDir).href;
   if (baseURL[baseURL.length - 1] !== '/')

@@ -296,7 +296,7 @@ export interface ProcessedPackageConfig {
   registry?: string;
   name?: string;
   version?: string;
-  mode?: string;
+  type?: string;
   main?: string;
   skipESMConversion?: boolean | string[];
   namedExports?: Record<string, string[]>;
@@ -320,7 +320,7 @@ export interface PackageConfig {
   registry?: string;
   name?: string;
   version?: string;
-  mode?: string;
+  type?: string;
   main?: string;
   skipESMConversion?: boolean | string[];
   namedExports?: Record<string, string[]>;
@@ -409,7 +409,7 @@ export function serializePackageTargetCanonical (name: string, target: PackageTa
  * 
  * partial is for npm partial package meta where we mustn't fill out things that will come in full package.json parse
  */
-const validKeys = ['peerDependencies', 'mode', 'map', 'bin', 'namedExports', 'skipESMConversion', 'registry', 'dependencies', 'peerDependencies', 'optionalDependencies', 'map', 'main'];
+const validKeys = ['peerDependencies', 'type', 'map', 'bin', 'namedExports', 'skipESMConversion', 'registry', 'dependencies', 'peerDependencies', 'optionalDependencies', 'map', 'main'];
 export function validateOverride (pcfg: PackageConfig, name: string) {
   for (let p in pcfg) {
     if (validKeys.indexOf(p) === -1)
@@ -431,16 +431,16 @@ export function processPackageConfig (pcfg: PackageConfig, partial = false, regi
     delete processed.map;
   }
   else {
-    if (typeof pcfg.mode === 'string')
-      processed.mode = pcfg.mode;
+    if (typeof pcfg.type === 'string')
+      processed.type = pcfg.type;
     else
-      processed.mode = 'cjs';
+      processed.type = 'commonjs';
     if (typeof pcfg.namedExports === 'object' && Object.keys(pcfg.namedExports).every(key => pcfg.namedExports[key] instanceof Array && pcfg.namedExports[key].every(value => typeof value === 'string')))
       processed.namedExports = pcfg.namedExports;
     if (pcfg.skipESMConversion === true || pcfg.skipESMConversion instanceof Array && pcfg.skipESMConversion.every(x => typeof x === 'string'))
       processed.skipESMConversion = pcfg.skipESMConversion;
-    if (processed.mode === 'cjs' && !processed.skipESMConversion)
-      delete processed.mode;
+    if (processed.type === 'commonjs' && !processed.skipESMConversion)
+      delete processed.type;
     if (typeof pcfg.bin === 'string') {
       const binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
       processed.bin = { [pcfg.name]: binPath };
@@ -609,8 +609,8 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     spcfg.bin = pcfg.bin;
   if (pcfg.skipESMConversion)
     spcfg.skipESMConversion = pcfg.skipESMConversion;
-  else if (pcfg.mode === 'cjs')
-    spcfg.mode = 'cjs';
+  else if (pcfg.type === 'commonjs')
+    spcfg.type = 'commonjs';
   if (pcfg.namedExports)
     spcfg.namedExports = pcfg.namedExports;
   if (pcfg.dependencies) {
@@ -628,7 +628,7 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     for (let p in pcfg.optionalDependencies)
       optionalDependencies[p] = serializePackageTargetCanonical(p, pcfg.optionalDependencies[p], defaultRegistry);
   }
-  spcfg.mode = pcfg.mode;
+  spcfg.type = pcfg.type;
   if (pcfg.main)
     spcfg.main = pcfg.main;
   if (pcfg.map)
@@ -717,8 +717,8 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
     }
   }
 
-  if (pcfg.skipESMConversion && pcfg.mode === 'cjs')
-    delete override.mode;
+  if (pcfg.skipESMConversion && pcfg.type === 'commonjs')
+    delete override.type;
 
   return {
     config: pcfg,
