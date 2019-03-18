@@ -296,11 +296,10 @@ class MapResolver {
   compat: boolean;
   mapResolve: (id: string, parentUrl: string) => string;
 
-  constructor (project: Project, map: ImportMap, compat = false) {
+  constructor (project: Project, map: ImportMap) {
     let baseDir = project.projectPath;
     this.project = project;
     this.imports = map.imports;
-    this.compat = compat;
 
     this.scopes = Object.create(null);
     if (baseDir[baseDir.length - 1] !== '/')
@@ -367,30 +366,13 @@ class MapResolver {
         if (match) {
           const scopeName = this.scopes[scopeMatch].originalName;
           const scope = this.usedMap.scopes[scopeName] = this.usedMap.scopes[scopeName] || {};
-          let target = this.scopes[scopeMatch].imports[match];
-          if (this.compat) {
-            if (match.endsWith('/'))
-              scope[id] = target + id.substr(match.length);
-            else
-              scope[id] = target;
-          }
-          else {
-            scope[match] = target;
-          }
+          scope[match] = this.scopes[scopeMatch].imports[match];
           return resolved;
         }
       }
       const match = getImportMatch(id, this.imports);
       if (match) {
-        if (this.compat) {
-          if (match.endsWith('/'))
-            this.usedMap.imports[id] = this.imports[match] + id.substr(match.length);
-          else
-            this.usedMap.imports[id] = this.imports[match];
-        }
-        else {
-          this.usedMap.imports[match] = this.imports[match];
-        }
+        this.usedMap.imports[match] = this.imports[match];
         return resolved;
       }
       throw new Error('Internal error');
@@ -432,8 +414,8 @@ class MapResolver {
   }
 }
 
-export async function filterMap (project: Project, map: ImportMap, modules: string[], compat = false): Promise<ImportMap> {
-  const mapResolve = new MapResolver(project, map, compat);
+export async function filterMap (project: Project, map: ImportMap, modules: string[], flatScope = false): Promise<ImportMap> {
+  const mapResolve = new MapResolver(project, map);
   let baseURL = new URL('file:' + project.projectPath).href;
   if (baseURL[baseURL.length - 1] !== '/')
     baseURL += '/';
@@ -443,7 +425,7 @@ export async function filterMap (project: Project, map: ImportMap, modules: stri
 
   clean(mapResolve.usedMap);
 
-  if (compat)
+  if (flatScope)
     flattenScopes(mapResolve.usedMap);
 
   return mapResolve.usedMap;

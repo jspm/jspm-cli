@@ -15,7 +15,7 @@
  */
 import { ImportMap } from ".";
 import path = require('path');
-import { alphabetize } from "../utils/common";
+import { alphabetize, JspmUserError, bold } from "../utils/common";
 export { parseImportMap, resolveImportMap, resolveIfNotPlainOrUrl } from './common';
 
 export function extend (importMap: ImportMap, extendMap: ImportMap) {
@@ -63,11 +63,14 @@ export function flattenScopes (importMap: ImportMap) {
     for (const pkgName of Object.keys(imports)) {
       const existing = importMap.imports[pkgName];
       const newTarget = imports[pkgName];
+      const trailingSlash = newTarget.endsWith('/');
       let newTargetResolved = path.relative('.', path.resolve(scope, newTarget)).replace(/\\/g, '/');
       if (!newTargetResolved.startsWith('../'))
         newTargetResolved = './' + newTargetResolved;
+      if (trailingSlash)
+        newTargetResolved += '/';
       if (existing && existing !== newTargetResolved)
-        throw new Error('Cannot collapse scopes due to conflict.');
+        throw new JspmUserError(`Cannot flatten scopes due to conflict for ${bold(pkgName)} between ${existing} and ${newTargetResolved}.`);
       importMap.imports[pkgName] = newTargetResolved;
     }
   }

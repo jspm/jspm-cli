@@ -235,7 +235,7 @@ ${bold('Configure')}
       case 'm':
       case 'map': {
         let options;
-        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn', 'compat'], ['out', 'in', 'jspmPackages']));
+        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn', 'flat-scope'], ['out', 'in', 'jspmPackages']));
 
         let inputMap, style = defaultStyle;
         if (options.in)
@@ -248,7 +248,7 @@ ${bold('Configure')}
           extend(map, inputMap);
 
         if (args.length)
-          map = await api.filterMap(project, map, args, options.compat);
+          map = await api.filterMap(project, map, args, options.flatScope);
 
         if (options.cdn && !options.jspmPackages) {
           if (options.production)
