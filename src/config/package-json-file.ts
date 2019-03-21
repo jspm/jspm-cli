@@ -34,7 +34,6 @@ export default class PackageJson extends ConfigFile {
   main: string;
   baseURL: string;
   packages: string;
-  configFile: string;
   dependencies: {
     [name: string]: {
       type: DepType,
@@ -49,7 +48,7 @@ export default class PackageJson extends ConfigFile {
     [name: string]: string;
   };
 
-  constructor (pjsonPath: string, project: Project) {
+  constructor (pjsonPath: string, project: Project, hasJspmConfig: boolean) {
     super(pjsonPath, [
       'name',
       'version',
@@ -59,9 +58,6 @@ export default class PackageJson extends ConfigFile {
         'dist',
         'baseURL',
         'packages'
-      ]],
-      ['configFiles', [
-        'jspm'
       ]],
       'dependencies',
       'devDependencies',
@@ -75,9 +71,6 @@ export default class PackageJson extends ConfigFile {
           'dist',
           'baseURL',
           'packages'
-        ]],
-        ['configFiles', [
-          'jspm'
         ]],
         'dependencies',
         'devDependencies',
@@ -102,7 +95,8 @@ export default class PackageJson extends ConfigFile {
     this.lock();
     this.read();
 
-    this.type = this.getValue(['type'], 'string');
+    // auto-inject "type": "module" for jspm projects
+    this.type = this.getValue(['type'], 'string') || hasJspmConfig && 'module';
 
     this.dir = path.dirname(this.fileName);
 
@@ -223,9 +217,6 @@ export default class PackageJson extends ConfigFile {
       this.packages = path.resolve(this.baseURL, 'jspm_packages');
     else
       this.packages = path.resolve(this.dir, packages);
-
-    let configFile = this.prefixedGetValue(['configFiles', 'jspm']);
-    this.configFile = path.resolve(this.dir, configFile || 'jspm.json');
   }
 
   write () {
@@ -299,11 +290,6 @@ export default class PackageJson extends ConfigFile {
     this.prefixedSetValue(['directories', 'packages'], this.toRelativePath(this.packages), baseURLPath + 'jspm_packages');
     this.prefixedSetValue(['directories', 'src'], this.toRelativePath(this.src) || '.', baseURLPath + 'src');
     this.prefixedSetValue(['directories', 'dist'], this.toRelativePath(this.dist), baseURLPath + 'dist');
-
-    this.prefixedSetValue(['configFiles', 'jspm'], this.toRelativePath(this.configFile), 'jspm.json');
-
-    let configDir = this.toRelativePath(path.dirname(this.configFile));
-    configDir = configDir + (configDir ? '/' : '');
 
     // always ensure we save as jspm aware
     if (!this.has(['jspm']) && !this.has(['registry'])) {

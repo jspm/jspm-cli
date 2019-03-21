@@ -18,7 +18,7 @@ import jspmRollup = require('rollup-plugin-jspm');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { ModuleFormat } from 'rollup';
-import { bold, winSepRegEx, JspmUserError } from '../utils/common';
+import { bold, winSepRegEx } from '../utils/common';
 import path = require('path');
 import { ok, info } from '../utils/ui';
 
@@ -29,7 +29,7 @@ export interface BuildOptions {
   env?: any;
   // minify: boolean;
   sourcemap?: boolean;
-  out?: string;
+  mjs?: boolean;
   dir?: 'string';
   format?: 'esm' | 'cjs' | 'amd' | 'system' | 'iife' | 'umd';
   external?: string[];
@@ -40,34 +40,48 @@ export interface BuildOptions {
   target?: boolean | string[];
 }
 
-export async function build (input: string | string[], opts: BuildOptions) {
+export async function build (input: string[] | Record<string,string>, opts: BuildOptions) {
   if (!opts.format)
     opts.format = 'esm';
-  
+
+  let ext = opts.mjs ? '.mjs' : '.js';
+
+  let inputObj;
+  if (input instanceof Array === false) {
+    inputObj = input;
+  }
+  else {
+    inputObj = {};
+    for (const module of <string[]>input) {
+      if ('mjs' in opts === false && module.endsWith('.mjs'))
+        ext = '.mjs';
+      let basename = path.basename(module);
+      basename = basename.substr(0, basename.lastIndexOf('.'));
+      let inputName = basename;
+      let i = 0;
+      while (inputName in inputObj)
+        inputName = basename + i++;
+      inputObj[inputName] = module;
+    }
+  }
+
   const rollupOptions: any = {
-    input,
+    input: inputObj,
+    dir: opts.dir,
     external: opts.external,
     onwarn: () => {},
     sourcemap: opts.sourcemap,
-    experimentalDynamicImport: true,
-    experimentalCodeSplitting: true,
     plugins: [jspmRollup({
       projectPath: opts.projectPath || process.cwd(),
+      externals: opts.external,
       env: opts.env
     })]
   };
 
-  if (opts.out)
-    rollupOptions.file = opts.out;
-  else
-    rollupOptions.dir = opts.dir;
-
   if (opts.watch) {
-    if (!opts.out)
-      throw new JspmUserError(`jspm build --watch is only supported for single file builds currently.`);
     rollupOptions.output = {
       exports: 'named',
-      file: opts.out,
+      dir: opts.dir,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
       indent: true,
@@ -81,7 +95,7 @@ export async function build (input: string | string[], opts: BuildOptions) {
       else if (event.code === 'BUNDLE_START')
         info(`Rebuilding...`);
       else if (event.code === 'BUNDLE_END')
-        ok(`Built into ${bold(opts.out)}`);
+        ok(`Built into ${bold(opts.dir)}`);
     });
     // pause indefinitely
     await new Promise((_resolve, _reject) => {});
@@ -93,6 +107,8 @@ export async function build (input: string | string[], opts: BuildOptions) {
     mkdirp.sync(opts.dir);
   }
   const { output } = await build.write({
+    entryFileNames: '[name]' + ext,
+    chunkFileNames: 'chunk-[hash]' + ext,
     exports: 'named',
     dir: opts.dir,
     format: <ModuleFormat>opts.format,

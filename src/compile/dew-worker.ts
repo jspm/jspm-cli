@@ -107,12 +107,11 @@ function transformDew (ast, source, resolveMap) {
       plugins: stage3Syntax
     },
     plugins: [[dewTransformPlugin, {
-      resolve: name => resolveMap[name],
-      resolveWildcard: name => resolveMap[name],
-      // was added for node-pre-gyp but not even used
-      // add back only if necessary and _nodeRequire.resolve
-      // doesn't work instead
-      // requireResolveModule: '@jspm/core/resolve.js',
+      resolve: (name, opts) => {
+        if ((opts.optional || opts.wildcard) && !resolveMap[name])
+          return null;
+        return resolveMap[name];
+      },
       wildcardExtensions: ['.js', '.json', '.node'],
       esmDependencies: resolved => isESM(resolved),
       filename: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url).pathname`,

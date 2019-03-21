@@ -438,13 +438,13 @@ ${bold('Configure')}
           'remove-dir',
           'node',
           'mjs',
-          'browser', 'bin', 'react-native', 'production', 'electron',
+          'node', 'bin', 'react-native', 'production', 'electron',
           'show-graph',
           'source-maps',
           'watch'// 'exclude-external', 'minify',
-        ], ['dir', 'out', 'format'], ['target', 'external', 'banner']);
-        if (options.browser)
-          (options.env = options.env || {}).browser = true;
+        ], ['out', 'format'], ['target', 'external', 'banner']);
+        if (options.node)
+          (options.env = options.env || {}).node = true;
         if (options.bin)
           (options.env = options.env || {}).bin = true;
         if (options['react-native'])

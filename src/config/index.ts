@@ -30,8 +30,9 @@ export default class ProjectConfig {
     let pjsonPath = path.resolve(projectPath, 'package.json');
 
     this.project = project;
-    this.pjson = new PackageJsonFile(pjsonPath, project);
-    this.jspm = new JspmFile(this.pjson.configFile);
+    const configFile = path.resolve(path.dirname(pjsonPath), 'jspm.json');
+    this.jspm = new JspmFile(configFile);
+    this.pjson = new PackageJsonFile(pjsonPath, project, this.jspm.exists);
 
     if (!this.jspm.exists()) {
       // check upgrade paths
