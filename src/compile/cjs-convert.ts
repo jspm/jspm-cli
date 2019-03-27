@@ -359,22 +359,25 @@ export function listAllFiles (dir: string): Promise<string[]> {
     function visitFileOrDir (fileOrDir) {
       cnt++;
       fileOrDir = path.resolve(fileOrDir);
-      fs.readdir(fileOrDir, (err, paths) => {
-        if (err) {
-          if (err.code === 'ENOTDIR') {
-            files.push(path.relative(dir, fileOrDir).replace(/\\/g, '/'));
-            if (--cnt === 0)
-              resolve(files);
-          }
-          else {
-            reject(err);
-          }
+      fs.lstat(fileOrDir, (err, stats) => {
+        if (err) return reject(err);
+        if (stats.isSymbolicLink()) {
+          if (--cnt === 0)
+            resolve(files);
+        }
+        else if (!stats.isDirectory()) {
+          files.push(path.relative(dir, fileOrDir).replace(/\\/g, '/'));
+          if (--cnt === 0)
+            resolve(files);
         }
         else {
-          cnt--;
-          if (paths.length === 0 && cnt === 0)
-            resolve(files);
-          paths.forEach(fileOrDirPath => visitFileOrDir(path.resolve(fileOrDir, fileOrDirPath)));
+          fs.readdir(fileOrDir, (err, paths) => {
+            if (err) return reject(err);
+            cnt--;
+            if (paths.length === 0 && cnt === 0)
+              resolve(files);
+            paths.forEach(fileOrDirPath => visitFileOrDir(path.resolve(fileOrDir, fileOrDirPath)));
+          });
         }
       });
     }

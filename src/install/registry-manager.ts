@@ -626,6 +626,7 @@ export default class RegistryManager {
           fs.writeFile(path.join(dir, '.jspm'), JSON.stringify({ mtime, hash }), err => err ? reject(err) : resolve())
         });
 
+
         this.verifiedCache[hash] = VerifyState.VERIFIED_VALID;
 
         return { config, override, dir, hash, changed: true };

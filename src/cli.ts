@@ -113,15 +113,13 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       case 'h':
       case 'help':
         ui.info(`
-${bold('Init')}
+${/*bold('Init')}
   jspm init <path>?                 Initialize or validate a jspm project in the current directory
 
-${bold('Install')}
+${*/bold('Install')}
   jspm install                      Install from package.json with jspm.json version lock
   jspm install <name[=target]>+
-    <pkg>                           Install a package
-    <pkg@version>                   Install a package to a version or version range
-    <pkgA> <pkgB>                   Install multiple packages at the same time
+    <pkg> <pkg@version>             Install a package or packages with optional version ranges
     <pkg> --edge                    Install to latest unstable version resolution
     <pkg> --lock                    Install without updating any existing resolutions
     <pkg> --latest                  Install all dependencies to their very latest versions
@@ -131,8 +129,7 @@ ${bold('Install')}
 
   jspm link <name>? <source>        Link a custom source into jspm_packages as a named package
   jspm unlink <name>?               Unlink a named package back to its original target
-  jspm update                       Update packages within package.json ranges
-  jspm update <name>+               Update the matching package install within its range
+  jspm update <name>+?              Update packages within package.json ranges
   jspm uninstall <name>+            Uninstall a top-level package
   jspm clean                        Clear unused and orphaned dependencies
   jspm checkout <name>+             Copy a package within jspm_packages for local modification
@@ -154,19 +151,17 @@ ${bold('Build')}
     --format [cjs|system|amd]       Set a custom output format for the build (defaults to esm)
     --remove-dir                    Clear the output directory before build
     --show-graph                    Show the build module graph summary
-    --watch                         Watch build files after build for rebuild on change     
-    --banner <file|source>          Include the given banner at the top of the build file  
+    --watch                         Watch build files after build for rebuild on change
+    --banner <file|source>          Include the given banner at the top of the build file
 
 ${bold('Import Maps Generation')}
   jspm map -o importmap.json        Generates an import map for all dependencies
     --production                    Generate a import map with production resolutions
   jspm map <module>+                Generate a import map for specific modules only
   jspm map -i in.json -o out.json   Combine the generated output with an existing import map
-  jspm map -j https://site.com/     Generate a import map to a specific jspm_packages URL
   jspm map --cdn                    Generate a import map against the jspm CDN
 
 ${bold('Inspect')}
-  jspm trace <entry>+               Return the JSON resolution graph for a given module
   jspm resolve <module>             Resolve a module name with the jspm resolver to a path
     <module> <parent>               Resolve a module name within the given parent
     <module> (--browser|--bin)      Resolve a module name in a different conditional env
@@ -183,17 +178,16 @@ ${bold('Configure')}
   `);
       break;
 
-      case 'init': {
-        const [generator, target = generator] = args[0] && args[0].split('=') || [undefined];
+      case 'init':
+        throw new JspmUserError(`${bold('jspm init')} has not yet been implemented.`);
+        /*const [generator, target = generator] = args[0] && args[0].split('=') || [undefined];
         const initPath = args[1] || '.';
         if (!generator) {
           throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
         }
         const generatorName = `jspm-init-${generator}`;
         const exitCode = await api.run(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
-        process.exit(exitCode);
-      }
-      break;
+        process.exit(exitCode);*/
 
       case 'r':
       case 'run': {
@@ -221,7 +215,7 @@ ${bold('Configure')}
         if (!args.length)
           throw new JspmUserError('Trace requires a list of module names to trace.');
 
-        const traced = await api.trace(project, map, options.out ? path.dirname(path.resolve(options.out)) : undefined, args);
+        const traced = await api.trace(project, map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), args);
 
         const output = await serializeJson(traced, defaultStyle);
 
@@ -235,7 +229,10 @@ ${bold('Configure')}
       case 'm':
       case 'map': {
         let options;
-        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn', 'flat-scope'], ['out', 'in', 'jspmPackages']));
+        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn', 'flat-scope', 'node'], ['out', 'in', 'jspmPackages']));
+
+        if (options.node)
+          throw new JspmUserError(`${bold('jspm map')} currently only supports generating package maps for the browser.`);
 
         let inputMap, style = defaultStyle;
         if (options.in)
@@ -252,7 +249,7 @@ ${bold('Configure')}
 
         if (options.cdn && !options.jspmPackages) {
           if (options.production)
-            throw new Error('The production jspm.io CDN has not yet been launched, only https://mapdev.jspm.io for now.');
+            throw new JspmUserError('The production jspm.io CDN has not yet been launched, only https://mapdev.jspm.io for now.');
           options.jspmPackages = options.production ? 'https://production.jspm.io' : 'https://mapdev.jspm.io';
         }
 

@@ -61,7 +61,8 @@ class Mapper {
       this.dependencies[dep] = serializePackageName(project.config.jspm.installed.resolve[dep]);
     }
 
-    this._nodeBuiltinsPkg = './jspm_packages/' + this.dependencies['@jspm/core'].replace(':', '/') + '/nodelibs';
+    if (this.dependencies['@jspm/core'])
+      this._nodeBuiltinsPkg = './jspm_packages/' + this.dependencies['@jspm/core'].replace(':', '/') + '/nodelibs';
 
     this.env = env;
     this.cachedPackagePaths = {};
@@ -177,7 +178,7 @@ class Mapper {
     for (const depName of Object.keys(pkg.resolve)) {
       if (depName === '@jspm/node-builtins')
         continue;
-      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath.substr(2), packageMap, seen));
+      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath.substr(2) + '/', packageMap, seen));
     }
     await Promise.all(populationPromises);
   }
@@ -252,7 +253,7 @@ export function renormalizeMap (map: ImportMap, jspmPackagesURL: string, cdn: bo
       let scopeRegistry = scopeName.substr(14);
       scopeRegistry = scopeRegistry.substr(0, scopeRegistry.indexOf('/'));
 
-      const isScopedPackage = scopeName.indexOf('/', scopeName.indexOf('/', 14) + 1) !== -1;
+      const isScopedPackage = scopeName.indexOf('/', scopeName.indexOf('/', 14) + 1) !== scopeName.length - 1;
 
       for (const pkgName of Object.keys(scope.imports)) {
         let pkg = scope.imports[pkgName];
@@ -308,8 +309,8 @@ class MapResolver {
 
     for (const scopeName of Object.keys(map.scopes)) {
       let resolvedScopeName = resolveIfNotPlainOrUrl(scopeName, baseURL) || scopeName.indexOf(':') !== -1 && scopeName || resolveIfNotPlainOrUrl('./' + scopeName, baseURL);
-      if (resolvedScopeName[resolvedScopeName.length - 1] === '/')
-        resolvedScopeName = resolvedScopeName.substr(0, resolvedScopeName.length - 1);
+      if (resolvedScopeName[resolvedScopeName.length - 1] !== '/')
+        resolvedScopeName += '/';
       this.scopes[resolvedScopeName] = {
         originalName: scopeName,
         imports: map.scopes[scopeName] || {}

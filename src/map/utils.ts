@@ -40,9 +40,10 @@ export function extend (importMap: ImportMap, extendMap: ImportMap) {
 export function getScopeMatch (path, matchObj) {
   let sepIndex = path.length;
   do {
-    const segment = path.slice(0, sepIndex);
-    if (segment in matchObj)
+    const segment = path.slice(0, sepIndex + 1);
+    if (segment in matchObj) {
       return segment;
+    }
   } while ((sepIndex = path.lastIndexOf('/', sepIndex - 1)) !== -1)
 }
 

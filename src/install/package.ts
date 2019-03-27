@@ -378,8 +378,9 @@ export function serializePackageTargetCanonical (name: string, target: PackageTa
   if (typeof target === 'string')
     return target;
   const registry = target.registry !== defaultRegistry ? target.registry + ':' : '';
+  const pkgName = target.name[0] === '@' && target.registry !== defaultRegistry ? target.name.substr(1) : target.name;
   if (registry || target.name !== name)
-    return registry + target.name + (target.range.isWildcard ? '' : '@' + target.version);
+    return registry + pkgName + (target.range.isWildcard ? '' : '@' + target.version);
   else
     return target.version || '*';
 }
@@ -422,6 +423,8 @@ export function processPackageConfig (pcfg: PackageConfig, partial = false, regi
   const processed: ProcessedPackageConfig = processPjsonConfig(pcfg);
   if (processed.peerDependencies)
     delete processed.peerDependencies;
+  if ((<any>processed).devDependencies)
+    delete (<any>processed).devDependencies;
   if (typeof pcfg.name === 'string')
     processed.name = pcfg.name;
   if (typeof pcfg.version === 'string')
@@ -717,8 +720,9 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
     }
   }
 
-  if (pcfg.skipESMConversion && pcfg.type === 'commonjs')
+  if (pcfg.skipESMConversion && pcfg.type === 'commonjs') {
     delete override.type;
+  }
 
   return {
     config: pcfg,
