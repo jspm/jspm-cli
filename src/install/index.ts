@@ -17,7 +17,7 @@
 import Config from '../config';
 import { Project } from '../api';
 import RegistryManager from './registry-manager';
-import { Semver } from 'sver';
+import { Semver, SemverRange } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx, validateOverride } from './package';
@@ -27,6 +27,7 @@ import ncp = require('ncp');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { writeBinScripts } from './bin';
+import globalOverrides from '../overrides';
 
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
@@ -447,6 +448,7 @@ export class Installer {
   */
 
   // most general override applies (greater containing range)
+  // we first check this.config.pjson.overrides, followed by globalOverrides
   private getOverride (pkg: ExactPackage | string, cut = false): ProcessedPackageConfig | void {
     if (typeof pkg === 'string') {
       const matchIndex = this.config.pjson.overrides.findIndex(({ target }) => target === pkg);
@@ -475,6 +477,24 @@ export class Installer {
       }
       if (cut && bestTargetIndex !== -1 && !bestIsFresh)
         this.config.pjson.overrides.splice(bestTargetIndex, 1);
+      if (!bestOverride) {
+        const pkgs = globalOverrides[pkg.registry];
+        if (pkgs) {
+          const versions = pkgs[pkg.name];
+          if (versions) {
+            let bestTargetRange: SemverRange;
+            for (const v in versions) {
+              const range = new SemverRange(v);
+              if (range.has(pkg.version)) {
+                if (!bestTarget || range.gt(bestTargetRange)) {
+                  bestTargetRange = range;
+                  bestOverride = processPackageConfig(versions[v]);
+                }
+              }
+            }
+          }
+        }
+      }
       return bestOverride;
     }
   }

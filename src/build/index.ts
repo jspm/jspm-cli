@@ -53,6 +53,10 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     inputObj = input;
   }
   else {
+    if (input.length === 0) {
+      warn(`No inputs provided to build.`);
+      return;
+    }
     inputObj = {};
     for (const module of <string[]>input) {
       if (opts.format === 'esm' && 'mjs' in opts === false && module.endsWith('.mjs'))
