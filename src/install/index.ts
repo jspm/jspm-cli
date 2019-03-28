@@ -597,8 +597,9 @@ export class Installer {
 
     let existingSourceInstall = this.sourceInstalls[sourceInstallId];
     // avoid circular (ok since a single install tree)
-    if (existingSourceInstall)
+    if (existingSourceInstall) {
       return;
+    }
 
     return this.sourceInstalls[sourceInstallId] = (async () => {
       // checked out packages stay unless a reset
@@ -607,7 +608,7 @@ export class Installer {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
         this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
         // override is undefined by definition of checked out.
-        return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName);
       }
 
       // handle linked packages
@@ -615,14 +616,14 @@ export class Installer {
         if (await this.setPackageToLinked(resolvedPkgName, path.resolve(this.project.projectPath, source.substr(5))))
           this.changed = true;
         const config = await this.readCheckedOutConfig(resolvedPkgName, override, true);
-        return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName);
       }
 
       let preloadedDepNames: string[], preloadDepsInstallPromise: Promise<void>;
       
       // kick off dependency installs now
       if (override) {
-        preloadDepsInstallPromise = this.installDependencies(resolvedPkg.registry, override, resolvedPkgName, preloadedDepNames);
+        preloadDepsInstallPromise = this.installDependencies(override, resolvedPkgName, preloadedDepNames);
         preloadDepsInstallPromise.catch(() => {});
       }
 
@@ -643,7 +644,7 @@ export class Installer {
       // then handle like checked out instead
       if (!installResult) {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName);
       }
 
       if (installResult.changed)
@@ -654,7 +655,7 @@ export class Installer {
 
       await Promise.all([
         // install dependencies, skipping already preloaded
-        this.installDependencies(resolvedPkg.registry, config, resolvedPkgName, preloadedDepNames),
+        this.installDependencies(config, resolvedPkgName, preloadedDepNames),
 
         // symlink to the global install
         (async () => {
@@ -820,11 +821,11 @@ export class Installer {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
         this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
         // override is undefined by definition of checked out.
-        return this.installDependencies(resolvedPkg.registry, config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName);
       }
 
       await Promise.all([
-        this.installDependencies(resolvedPkg.registry, config, resolvedPkgName),
+        this.installDependencies(config, resolvedPkgName),
         (async () => {
           if (isLink) {
             if (await this.setPackageToLinked(resolvedPkgName, linkPath))
@@ -840,7 +841,8 @@ export class Installer {
     })();
   }
 
-  private async installDependencies (registry: string, config: ProcessedPackageConfig, resolvedPkgName: string, preloadedDepNames?: string[]): Promise<void> {
+  private async installDependencies (config: ProcessedPackageConfig, resolvedPkgName: string, preloadedDepNames?: string[]): Promise<void> {
+    const registry = config.registry || this.project.defaultRegistry;
     const preLoad = preloadedDepNames !== undefined && preloadedDepNames.length !== 0;
     try {
       await Promise.all(depsToInstalls(registry, config, resolvedPkgName, preLoad === false && preloadedDepNames).map(install => {

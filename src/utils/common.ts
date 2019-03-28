@@ -15,7 +15,6 @@
  */
 import fs = require('graceful-fs');
 import path = require('path');
-import promiseRetry = require('promise-retry');
 import chalk from 'chalk';
 import os = require('os');
 
@@ -89,7 +88,7 @@ export interface RetryOptions {
   factor?: number,
   minTimeout?: number,
   maxTimeout?: number,
-  ranomize?: boolean
+  randomize?: boolean
 }
 
 export const invalidFileCharRegEx = /[<>:"/\|?*^\u0001-\u0031]/g;
@@ -151,39 +150,18 @@ export class JspmRetriableUserError extends JspmError {
   }
 }
 
-export function retry<T> (opts: RetryOptions, operation: (retryNumber: number) => Promise<T>, timeout?: number): Promise<T> {
-  if (!timeout)
-    return promiseRetry(async (retry, number) => {
-      try {
-        return operation(number);
-      }
-      catch (err) {
-        if (err && err.retriable)
-          retry(err);
-        throw err;
-      }
-    }, opts);
-  
-  return promiseRetry((retry, number) => {
-    let t;
-    return Promise.race([
-      new Promise((_resolve, reject) => {
-        t = setTimeout(() => reject(new JspmRetriableUserError('Operation timeout.')), timeout);
-      }),
-      (async () => {
-        let result = await operation(number);
-        clearTimeout(t);
-        return result;
-      })()
-    ])
-    .catch(err => {
-      clearTimeout(t);
-      if (err && err.retriable)
-        retry(err);
-      else
-        throw err;
-    });      
-  }, opts);
+export function retry<T> (operation: (retryNumber: number) => Promise<T>, retries = 0): Promise<T> {
+  async function doOp (attempt: number) {
+    try {
+      return await operation(attempt);
+    }
+    catch (err) {
+      if (err && err.retriable && attempt < retries)
+        return doOp(attempt + 1);
+      throw err;
+    }
+  }
+  return doOp(1);
 }
 
 export function readJSONSync (fileName: string): any {

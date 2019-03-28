@@ -53,6 +53,7 @@ export interface FetchOptions {
 
   // The following properties are node-fetch extensions
   follow?: number,
+  // when timeout is set, retries applies 3 times automatically
   timeout?: number,
   compress?: true,
   size?: 0,
@@ -189,20 +190,12 @@ export default class FetchClass {
     })();
   }
 
-  async fetch (url: string, options?: FetchOptions) {
-    if (!options || !options.retries)
-      return this.doFetch(url, options);
-    
-    return retry({
-      retries: options.retries,
-      minTimeout: 100,
-      maxTimeout: 1800,
-      factor: 3
-    }, async (retryNum) => {
-      if (retryNum)
+  fetch (url: string, options?: FetchOptions) {
+    return retry(async (retryNum) => {
+      if (retryNum > 1)
         this.debugLog(`Fetch of ${url} failed, retrying (attempt ${retryNum})`);
       return this.doFetch(url, options);
-    });
+    }, options && options.retries);
   }
 
   async doFetch (url: string, options?: FetchOptions) {
@@ -301,6 +294,7 @@ export default class FetchClass {
           case 'ENOTFOUND':
             if (err.toString().indexOf('getaddrinfo') === -1)
               break;
+          case 'EINVAL':
           case 'ECONNRESET':
           case 'ETIMEDOUT':
           case 'ESOCKETTIMEDOUT':

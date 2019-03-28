@@ -18,9 +18,11 @@ import jspmRollup = require('rollup-plugin-jspm');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { ModuleFormat } from 'rollup';
-import { bold, winSepRegEx } from '../utils/common';
+import { bold, winSepRegEx, highlight } from '../utils/common';
 import path = require('path');
-import { ok, info } from '../utils/ui';
+import { ok, info, warn } from '../utils/ui';
+import { utils } from '@jspm/resolve';
+import process = require('process');
 
 export interface BuildOptions {
   log: boolean;
@@ -53,7 +55,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   else {
     inputObj = {};
     for (const module of <string[]>input) {
-      if ('mjs' in opts === false && module.endsWith('.mjs'))
+      if (opts.format === 'esm' && 'mjs' in opts === false && module.endsWith('.mjs'))
         ext = '.mjs';
       let basename = path.basename(module);
       basename = basename.substr(0, basename.lastIndexOf('.'));
@@ -62,6 +64,22 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       while (inputName in inputObj)
         inputName = basename + i++;
       inputObj[inputName] = module;
+    }
+  }
+
+  // use .mjs if the output package boundary requires
+  if (opts.format === 'esm' && 'mjs' in opts === false && ext !== '.mjs') {
+    const outdir = path.resolve(opts.dir);
+    const boundary = utils.getPackageBoundarySync(outdir + '/');
+    if (boundary) {
+      const pjson = utils.readPackageConfigSync(boundary);
+      if (pjson.type !== 'module') {
+        let pjsonPath = path.relative(process.cwd(), boundary + '/package.json');
+        if (!pjsonPath.startsWith('..' + path.sep))
+          pjsonPath = '.' + path.sep + pjsonPath;
+        warn(`Output package scope at ${highlight(pjsonPath)} does not have a ${bold('"type": "module"')} boundary, so outputting mjs.`);
+        ext = '.mjs';
+      }
     }
   }
 
@@ -117,7 +135,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     banner: opts.banner
   });
   if (opts.log)
-    ok(`Built into ${bold(opts.dir + '/')}`);
+    ok(`Built into ${highlight(opts.dir + '/')}`);
 
   if (opts.showGraph && opts.log) {
     console.log('');
