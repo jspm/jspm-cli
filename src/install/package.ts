@@ -298,7 +298,7 @@ export interface ProcessedPackageConfig {
   version?: string;
   type?: string;
   main?: string;
-  skipESMConversion?: boolean | string[];
+  noModuleConversion?: boolean | string[];
   namedExports?: Record<string, string[]>;
   map?: MapConfig;
   bin?: {
@@ -322,7 +322,7 @@ export interface PackageConfig {
   version?: string;
   type?: string;
   main?: string;
-  skipESMConversion?: boolean | string[];
+  noModuleConversion?: boolean | string[];
   namedExports?: Record<string, string[]>;
   map?: MapConfig;
   bin?: string | {
@@ -410,7 +410,7 @@ export function serializePackageTargetCanonical (name: string, target: PackageTa
  * 
  * partial is for npm partial package meta where we mustn't fill out things that will come in full package.json parse
  */
-const validKeys = ['peerDependencies', 'type', 'map', 'bin', 'namedExports', 'skipESMConversion', 'registry', 'dependencies', 'peerDependencies', 'optionalDependencies', 'map', 'main'];
+const validKeys = ['peerDependencies', 'type', 'map', 'bin', 'namedExports', 'noModuleConversion', 'registry', 'dependencies', 'peerDependencies', 'optionalDependencies', 'map', 'main'];
 export function validateOverride (pcfg: PackageConfig, name: string) {
   for (let p in pcfg) {
     if (validKeys.indexOf(p) === -1)
@@ -440,9 +440,9 @@ export function processPackageConfig (pcfg: PackageConfig, partial = false, regi
       processed.type = 'commonjs';
     if (typeof pcfg.namedExports === 'object' && Object.keys(pcfg.namedExports).every(key => pcfg.namedExports[key] instanceof Array && pcfg.namedExports[key].every(value => typeof value === 'string')))
       processed.namedExports = pcfg.namedExports;
-    if (pcfg.skipESMConversion === true || pcfg.skipESMConversion instanceof Array && pcfg.skipESMConversion.every(x => typeof x === 'string'))
-      processed.skipESMConversion = pcfg.skipESMConversion;
-    if (processed.type === 'commonjs' && !processed.skipESMConversion)
+    if (pcfg.noModuleConversion === true || pcfg.noModuleConversion instanceof Array && pcfg.noModuleConversion.every(x => typeof x === 'string'))
+      processed.noModuleConversion = pcfg.noModuleConversion;
+    if (processed.type === 'commonjs' && !processed.noModuleConversion)
       delete processed.type;
     if (typeof pcfg.bin === 'string') {
       const binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
@@ -610,8 +610,8 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     spcfg.version = pcfg.version;
   if (pcfg.bin)
     spcfg.bin = pcfg.bin;
-  if (pcfg.skipESMConversion)
-    spcfg.skipESMConversion = pcfg.skipESMConversion;
+  if (pcfg.noModuleConversion)
+    spcfg.noModuleConversion = pcfg.noModuleConversion;
   else if (pcfg.type === 'commonjs')
     spcfg.type = 'commonjs';
   if (pcfg.namedExports)
@@ -689,11 +689,11 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
             pcfg.namedExports = baseVal;
           }
         }
-        else if (p === 'skipESMConversion') {
-          if (JSON.stringify(baseVal) === JSON.stringify(overridePcfg.skipESMConversion))
+        else if (p === 'noModuleConversion') {
+          if (JSON.stringify(baseVal) === JSON.stringify(overridePcfg.noModuleConversion))
             continue;
           override = override || {};
-          pcfg.skipESMConversion = override.skipESMConversion = overridePcfg.skipESMConversion;
+          pcfg.noModuleConversion = override.noModuleConversion = overridePcfg.noModuleConversion;
         }
         // dependencies
         else {
@@ -720,7 +720,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
     }
   }
 
-  if (pcfg.skipESMConversion && pcfg.type === 'commonjs') {
+  if (pcfg.noModuleConversion && pcfg.type === 'commonjs') {
     delete override.type;
   }
 

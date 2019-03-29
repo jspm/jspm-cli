@@ -778,9 +778,9 @@ export class Installer {
             this.project.log.warn(`The override for ${highlight(install.target)} is not being applied as it is linked. Rather edit the original package.json file directly instead of applying an override.`);
         }
 
-        registry = config.registry || install.parent && install.parent.substr(0, install.parent.indexOf(':'));
+        registry = config.registry || this.project.defaultRegistry;
         name = config.name || install.name;
-        version = config.version;      
+        version = config.version;
       }
       // install
       else {
@@ -800,7 +800,7 @@ export class Installer {
         
         ({ config, override, hash } = installResult);
 
-        registry = config.registry || install.parent && install.parent.substr(0, install.parent.indexOf(':'));
+        registry = config.registry || this.project.defaultRegistry;
         name = config.name || install.name;
         version = config.version;
         if (!version) {

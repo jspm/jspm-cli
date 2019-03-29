@@ -43,11 +43,6 @@ export default <Record<string, Record<string, Record<string, PackageConfig>>>>{
           ]
         }
       }
-    },
-    "@jspm/rollup-plugin-jspm": {
-      "master": {
-        "registry": "npm"
-      }
     }
   },
   "npm": {

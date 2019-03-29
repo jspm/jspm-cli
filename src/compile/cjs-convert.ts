@@ -148,12 +148,12 @@ function convertMappingToDew (mapping: string | Conditional, plain: boolean): st
  * 
  *    Extensionless files that are valid JS are overwritten with their ESM entry
  * 
- * -  We skip files that are in subfolders of "type": "module" (up to next cancelling subfolder), or files that are in the skipESMConversion array
+ * -  We skip files that are in subfolders of "type": "module" (up to next cancelling subfolder), or files that are in the noModuleConversion array
  *    Such files will simply break if loaded as entries or dew requires. There might possibly be a way to skip the ".js" entry, but keep the ".dew". Perhaps this goes with entry point lock downs -> "sealed": true kind of thing.
  */
 export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: ProcessedPackageConfig, defaultRegistry: string) {
   log.debug(`Converting CJS package ${pkgName}`);
-  if (pcfg.skipESMConversion === true)
+  if (pcfg.noModuleConversion === true)
     return;
 
   let filePool = await listAllFiles(dir);
@@ -209,8 +209,8 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
   else
     main = resolveDir('index', convertFiles, folderMains);
 
-  // dont convert the skipESMConversion files
-  const skipFiles = <string[]>pcfg.skipESMConversion;
+  // dont convert the noModuleConversion files
+  const skipFiles = <string[]>pcfg.noModuleConversion;
   if (skipFiles)
     Object.keys(convertFiles).forEach(file => {
       if (skipFiles.some(skipFile => 
