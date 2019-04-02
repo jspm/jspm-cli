@@ -18,6 +18,7 @@ import process = require('process');
 import { isWindows, PATH, PATHS_SEP } from './common';
 import path = require('path');
 
+export async function runCmd (script: string, cwd: string): Promise<number>
 export async function runCmd (script: string, cwd: string, pipe: true): Promise<childProcess.ChildProcess>
 export async function runCmd (script: string, cwd = process.env.PWD || process.cwd(), pipe = false): Promise<childProcess.ChildProcess | number> {
   const env = Object.create(null);

@@ -31,6 +31,7 @@ import { resolveSource, downloadSource } from '../install/source';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
 import { convertCJSPackage, convertCJSConfig } from '../compile/cjs-convert';
 import { runBinaryBuild } from './binary-build';
+import { Readable } from 'stream';
 
 const VerifyState = {
   NOT_INSTALLED: 0,
@@ -62,12 +63,19 @@ export interface SourceInfo {
   opts: any
 }
 
+export interface PublishOptions {
+  tag?: string;
+  access?: string;
+  otp?: string;
+}
+
 export interface RegistryEndpoint {
   configure?: () => Promise<void>;
   dispose: () => Promise<void>;
-  auth: (url: URL, credentials: Credentials, unauthorized?: boolean) => Promise<void | boolean>;
+  auth: (url: URL, method: string, credentials: Credentials, unauthorizedHeaders?: Record<string, string>) => Promise<void | boolean>;
   lookup: (pkgName: string, versionRange: SemverRange, lookup: LookupData) => Promise<void | boolean>;
   resolve?: (pkgName: string, version: string, lookup: LookupData) => Promise<void | boolean>;
+  publish?: (packagePath: string, pjson: any, tarStream: Readable, options: PublishOptions) => Promise<void>;
 }
 
 export interface RegistryEndpointConstructable {
@@ -238,14 +246,14 @@ export default class RegistryManager {
     await endpoint.configure();
   }
 
-  async auth (url: URL, credentials: Credentials, unauthorized = false) {
-    for (let { endpoint } of this.endpoints.values()) {
+  async auth (url: URL, method: string, credentials: Credentials, unauthorizedHeaders?: Record<string, string>): Promise<string> {
+    for (let [registry, { endpoint }] of this.endpoints.entries()) {
       if (!endpoint.auth)
         continue;
-      if (await endpoint.auth(url, credentials, unauthorized))
-        return true;
+      if (await endpoint.auth(url, method, credentials, unauthorizedHeaders))
+        return registry;
     }
-    return false;
+    return undefined;
   }
 
   async resolve (pkg: PackageName, override: ProcessedPackageConfig | void, edge = false): Promise<{
@@ -637,6 +645,21 @@ export default class RegistryManager {
     }
     finally {
       unlock();
+    }
+  }
+
+  async publish (packagePath: string, registry: string, pjson: any, tarStream: Readable, opts: PublishOptions) {
+    const { endpoint } = this.getEndpoint(registry);
+
+    if (!endpoint.publish)
+      throw new JspmUserError(`Registry ${highlight(pjson.registry)} does not support publishing.`);
+    
+    const logEnd = this.util.log.taskStart(`Publishing ${this.util.highlight(`${registry}:${pjson.name}@${pjson.version}`)}`);
+    try {
+      await endpoint.publish(packagePath, pjson, tarStream, opts);
+    }
+    finally {
+      logEnd();
     }
   }
 }

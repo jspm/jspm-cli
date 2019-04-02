@@ -909,14 +909,19 @@ export class Installer {
           }
         }
         this.changed = true;
-        const existingPrimaryAndNotDev = this.primaryRanges[install.name] && 
-            (this.primaryRanges[install.name].type === DepType.peer || this.primaryRanges[install.name].type === DepType.primary);
-        // peerDependencies install as devDependencies
-        const type = existingPrimaryAndNotDev ? this.primaryRanges[install.name].type
-            : install.type === DepType.peer ? DepType.dev
-            : install.parent ? this.primaryType
-            : install.type;
-        this.primaryRanges[install.name] = { type, target };
+        if (this.updatePrimaryRanges && !install.parent) {
+          this.primaryRanges[install.name] = { type: install.type, target };
+        }
+        else {
+          const existingPrimaryAndNotDev = this.primaryRanges[install.name] && 
+              (this.primaryRanges[install.name].type === DepType.peer || this.primaryRanges[install.name].type === DepType.primary);
+          // peerDependencies install as devDependencies
+          const type = existingPrimaryAndNotDev ? this.primaryRanges[install.name].type
+              : install.type === DepType.peer ? DepType.dev
+              : install.parent ? this.primaryType
+              : install.type;
+          this.primaryRanges[install.name] = { type, target };
+        }
       }
     }
     else {

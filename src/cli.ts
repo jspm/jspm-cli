@@ -18,7 +18,7 @@ import * as ui from './utils/ui';
 import fs = require('fs');
 import path = require('path');
 import * as api from './api';
-import { bold, highlight, JspmUserError, readModuleEnv } from './utils/common';
+import { bold, highlight, JspmUserError, readModuleEnv, highlight2 } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
@@ -26,6 +26,8 @@ import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { JSPM_GLOBAL_PATH } from './api';
 import { extend } from './map/utils';
 import { readJSONStyled, defaultStyle, serializeJson } from './config/config-file';
+import publish from './install/publish';
+import { getBin } from './install/bin';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 
@@ -104,7 +106,7 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       case 'v':
         // run project checks
         new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        ui.info(api.version + '\n' +
+        console.log(api.version + '\n' +
             (process.env.globalJspm === 'true' || process.env.localJspm === 'false'
             ? 'Running against global jspm install.'
             : 'Running against local jspm install.'));
@@ -112,70 +114,67 @@ export default async function cliHandler (projectPath: string, cmd: string, args
 
       case 'h':
       case 'help':
-        ui.info(`
-${/*bold('Init')}
+        console.log(`${/*bold('Init')}
   jspm init <path>?                 Initialize or validate a jspm project in the current directory
 
-${*/bold('Install')}
-  jspm install                      Install from package.json with jspm.json version lock
-  jspm install <name[=target]>+
-    <pkg> <pkg@version>             Install a package or packages with optional version ranges
-    <pkg> --edge                    Install to latest unstable version resolution
-    <pkg> --lock                    Install without updating any existing resolutions
-    <pkg> --latest                  Install all dependencies to their very latest versions
-    <pkg> (--dev|--peer|--optional) Install a dev, peer or optional dependency
-    <pkg> --override main=dist/x.js Install with a persisted package.json property override
-    <source> -o name=x              Install a custom source (git:|git+(https|..):|https:|file:)
+${*/bold('• Install')}
+  jspm install [<registry>:]<pkg>[@<version>]
+  jspm install git:<path> | git+https:<path> | https:<path> | file:<path>
+  jspm install
+    --edge                        Install to latest unstable resolution
+    --lock                        Do not update any existing installs
+    --latest                      Resolve all packages to latest versions
+    --dev|peer|optional           Install a dev, peer or optional dependency
+    --override (-o) main=x.js     Provide a package.json property override
 
-  jspm link <name>? <source>        Link a custom source into jspm_packages as a named package
-  jspm unlink <name>?               Unlink a named package back to its original target
-  jspm update <name>+?              Update packages within package.json ranges
-  jspm uninstall <name>+            Uninstall a top-level package
-  jspm clean                        Clear unused and orphaned dependencies
-  jspm checkout <name>+             Copy a package within jspm_packages for local modification
+  jspm update [<name>+]           Update packages within package.json ranges
+  jspm uninstall <name>+          Uninstall a top-level package
+  jspm clean                      Clear unused dependencies
+  jspm link [<name>] <source>     Link a custom source as a named package
+  jspm unlink [<name>]            Reinstall a package to its registry target
+  jspm checkout <name>+           Copy a package in jspm_packages to modify
 
-  Install Options:
-    --offline                       Run command offline using the jspm cache
-    --prefer-offline (-q)           Use cached lookups where possible for fastest install
+${bold('• Execute')}
+  jspm <file>                     Execute a module with jspm module resolution
+  jspm run <name>                 Run package.json "scripts"
+  jspm bin                        Output the direct jspm Node.js bin script
 
-${bold('Execute')}
-  jspm <file>                       Execute a module with jspm module resolution
-  jspm run <name>                   Run package.json "scripts" with the project bin env
+${bold('• Build')}
+  jspm build <entry>+ [-o <dir>]  Build the given module entry points
+    --source-maps                 Output source maps
+    --format cjs|system|amd       Set the output module format for the build
+    --remove-dir                  Clear the output directory before building
+    --show-graph                  Show the build module graph summary
+    --watch                       Watch build files for rebuild on change
+    --banner <file>|<source>      Provide a banner for the build files
 
-${bold('Build')}
-  jspm build <entry>+ -o <dir>      Build the given entry points into the output directory
+${bold('• Publish')}
+  jspm publish [<path>] [--otp <otp>] [--tag <tag>] [--public]
 
-  Build Options:
-    --source-maps                   Output source maps
-    --external <name>(=<alias>)*    Exclude dependencies from the build with optional aliases
-    --format [cjs|system|amd]       Set a custom output format for the build (defaults to esm)
-    --remove-dir                    Clear the output directory before build
-    --show-graph                    Show the build module graph summary
-    --watch                         Watch build files after build for rebuild on change
-    --banner <file|source>          Include the given banner at the top of the build file
+${bold('• Import Maps')}
+  jspm map -o importmap.json      Generates an import map for all dependencies
+  jspm map <module>+              Generate a import map for specific modules
+    --production                  Use production resolutions
+    --cdn                         Generate a import map against the jspm CDN
 
-${bold('Import Maps Generation')}
-  jspm map -o importmap.json        Generates an import map for all dependencies
-    --production                    Generate a import map with production resolutions
-  jspm map <module>+                Generate a import map for specific modules only
-  jspm map -i in.json -o out.json   Combine the generated output with an existing import map
-  jspm map --cdn                    Generate a import map against the jspm CDN
-
-${bold('Inspect')}
-  jspm resolve <module>             Resolve a module name with the jspm resolver to a path
-    <module> <parent>               Resolve a module name within the given parent
-    <module> (--browser|--bin)      Resolve a module name in a different conditional env
+${bold('• Inspect')}
+  jspm resolve <module>           Resolve a module name with the jspm resolver
+    <module> <parent>             Resolve a module name to the given parent
+    <module> --browser|bin        Resolve a module name to a conditional env
+  jspm trace <module>             Trace a module graph
 ${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
-${bold('Configure')}
-  jspm registry-config <name>       Run configuration prompts for a specific registry
-  jspm config <option> <setting>    Set jspm global config values in .jspm/config
-  jspm config --get <option>        Read a jspm global config value
+${bold('• Configure')}
+  jspm registry-config <name>     Run configuration prompts for a registry
+  jspm config <option> <setting>  Set jspm global config
+  jspm config --get <option>      Get a jspm global config value
   
-  Global Options:
-    --skip-prompts (-y)             Use default options for prompts, never asking for user input
-    --log [ok|warn|err|debug|none]  Set the log level
-    --project (-p) <path>           Set the jspm project directory
-  `);
+${bold('• Command Flags')}
+  --offline                     Run command offline using the jspm cache
+  --prefer-offline (-q)         Use cached lookups for fastest install
+  --skip-prompts (-y)           Use default options in prompts w/o user input
+  --log ok|warn|err|debug|none  Set the log level
+  --project (-p) <path>         Set the jspm project directory
+`);
       break;
 
       case 'init':
@@ -194,6 +193,22 @@ ${bold('Configure')}
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         const exitCode = await project.run(args[0], args.slice(1));
         process.exit(exitCode);
+      }
+      break;
+
+      case 'b':
+      case 'bin':
+        console.log(getBin());
+      break;
+
+      case 'publish': {
+        let options;
+        ({ args, options } = readOptions(args, ['public'], ['otp', 'tag']));
+        if (args.length > 1)
+          throw new JspmUserError('Publish only takes one path argument.');
+        projectPath = projectPath || args[0] && path.resolve(args[0]) || process.cwd();
+        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        await publish(project, options);
       }
       break;
 
@@ -344,6 +359,8 @@ ${bold('Configure')}
 
       case 'ug':
       case 'upgrade': {
+        // TODO: a single-major version upgrade of selected packages only
+        // (does not accept no arguments)
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         ui.warn('Still to be implemented.');
       }

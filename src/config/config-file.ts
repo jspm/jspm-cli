@@ -46,6 +46,7 @@ interface sourceStyle {
  */
 export default class ConfigFile {
   fileName: string;
+  _original: object;
   private ordering: OrderingArray;
   private style: sourceStyle = null;
   protected timestamp: number = null;
@@ -402,6 +403,7 @@ export default class ConfigFile {
     }
 
     this.properties = [];
+    this._original = deserializedObj;
     this.setObject([], deserializedObj, false, true);
     this.changed = false;
   }

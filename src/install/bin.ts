@@ -15,6 +15,7 @@
  */
 import fs = require('fs');
 import path = require('path');
+import { isWindows } from '../utils/common';
 
 export async function writeBinScripts (binDir: string, name: string, binModulePath: string) {
   await [new Promise((resolve, reject) => 
@@ -28,7 +29,9 @@ export async function writeBinScripts (binDir: string, name: string, binModulePa
   )];
 }
 
-const unixBin = (binModulePath: string) => `#!/bin/sh
+// self-install executable form disabled pending ESM support for
+// import ./resolve.js in loader.mjs in jspm_packages dew
+const _selfBuild = `#!/bin/sh
 BASE_DIR=$(dirname $(dirname $(realpath $0)))
 if [ -d $BASE_DIR/npm/@jspm/resolve* ]; then
   JSPM_LOADER=$(realpath $BASE_DIR/npm/@jspm/resolve*/loader.mjs)
@@ -55,6 +58,32 @@ case "$(uname -s)" in
     ;;
   *)
 esac
+NODE_OPTIONS="--experimental-modules --no-warnings --loader $JSPM_LOADER" node "$BASE_DIR/\${binModulePath}" "$@"
+ret=$?
+exit $ret
+`;
+
+const unixBin = (binModulePath: string) => `#!/bin/sh
+BASE_DIR=$(dirname $(dirname $(realpath $0)))
+JSPM_PATH=$(which jspm 2>/dev/null)
+if [ "$?" != "0" ] || [ -z "$JSPM_PATH" ]; then
+  echo "jspm not found, make sure it is installed."
+  exit 1
+fi
+JSPM_DIR=$(dirname $(dirname $(realpath "$JSPM_PATH")))
+if [ -d $JSPM_DIR/node_modules ]; then
+  JSPM_LOADER=$JSPM_DIR/node_modules/@jspm/resolve/loader.mjs
+else
+  echo "jspm loader not found, make sure it is installed."
+  exit 1
+fi
+case "$(uname -s)" in
+  CYGWIN*|MINGW32*|MINGW64*)
+    JSPM_LOADER=/$(cygpath -w "$JSPM_LOADER")
+    BASE_DIR=/$(cygpath -w "$BASE_DIR")
+    ;;
+  *)
+esac
 NODE_OPTIONS="--experimental-modules --no-warnings --loader $JSPM_LOADER" node "$BASE_DIR/${binModulePath}" "$@"
 ret=$?
 exit $ret
@@ -66,5 +95,13 @@ const winBin = (binModulePath: string) => `@setlocal
   @echo jspm not found in path, make sure it is installed globally.
   @exit /B 1
 )
-@NODE_OPTIONS="--experimental-modules --no-warnings --loader \"/%JSPM_PATH%node_modules\\jspm\\node_modules\\jspm-resolve\\loader.mjs\"" node "%~dp0\\..\\${binModulePath}" %*
+@NODE_OPTIONS="--experimental-modules --no-warnings --loader \"/%JSPM_PATH%node_modules\\jspm\\node_modules\\@jspm\\resolve\\loader.mjs\"" node "%~dp0\\..\\${binModulePath}" %*
 `;
+
+export function getBin () {
+  const loader = require.resolve('@jspm/resolve/loader.mjs');
+  if (isWindows)
+    return `@NODE_OPTIONS="--experimental-modules --no-warnings --loader ${loader}" node`;
+  else
+  return `NODE_OPTIONS="--experimental-modules --no-warnings --loader ${loader}" node`;
+}

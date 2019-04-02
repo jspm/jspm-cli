@@ -34,6 +34,7 @@ export default class PackageJson extends ConfigFile {
   main: string;
   baseURL: string;
   packages: string;
+  private: boolean;
   dependencies: {
     [name: string]: {
       type: DepType,
@@ -76,6 +77,7 @@ export default class PackageJson extends ConfigFile {
         'devDependencies',
         'peerDependencies',
         'optionalDependencies',
+        'private',
         'scripts',
         ['hooks', [
           'preinstall',
@@ -83,6 +85,7 @@ export default class PackageJson extends ConfigFile {
         ]],
         'overrides'
       ]],
+      'private',
       'scripts',
       'type',
       ['hooks', [
@@ -117,6 +120,7 @@ export default class PackageJson extends ConfigFile {
     this.version = this.prefixedGetValue(['version'], 'string');
     this.hooks = this.prefixedGetObject(['hooks'], true) || {};
     this.scripts = this.prefixedGetObject(['scripts'], false) || {};
+    this.private = this.prefixedGetValue(['private'], 'boolean');
 
     this.setBaseURL(this.prefixedGetValue(['directories', 'baseURL'], 'string') || '');
 
@@ -235,6 +239,10 @@ export default class PackageJson extends ConfigFile {
     if (this.type) {
       this.remove(['type']);
       this.setValue(['type'], this.type);
+    }
+
+    if (this.private !== undefined) {
+      this.prefixedSetValue(['private'], this.private);
     }
 
     const dependencies = {};

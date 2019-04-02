@@ -18,7 +18,7 @@ import { Readable as ReadableStream } from 'stream';
 import nodeFetch from 'node-fetch';
 import HttpsProxyAgent from 'https-proxy-agent';
 import { Agent as NodeAgent, AgentOptions } from 'https';
-import { hasProperties, retry } from '../utils/common';
+import { hasProperties, retry, bold } from '../utils/common';
 import { URL, parse as parseURL } from 'url';
 import { HttpsProxyAgentOptions } from './fetch';
 import { globalConfig } from '../config';
@@ -48,7 +48,7 @@ export interface FetchOptions {
   headers?: {
     [name: string]: string
   },
-  body?: void | Buffer | ReadableStream,
+  body?: void | ReadableStream,
   redirect?: 'manual' | 'error' | 'follow',
 
   // The following properties are node-fetch extensions
@@ -71,11 +71,11 @@ export interface Credentials {
     username: string,
     password: string
   }
-  authorization?: string,
   ca?: string | string[],
   cert?: string,
   proxy?: string | HttpsProxyAgentOptions,
-  strictSSL?: boolean
+  strictSSL?: boolean,
+  headers?: Record<string, string>
 };
 
 const agents: Agent[] = [];
@@ -103,9 +103,9 @@ export default class FetchClass {
     this.debugLog = project.log.debug.bind(project.log);
   }
 
-  getCredentials (url: string, unauthorized = false): Promise<Credentials> {
+  getCredentials (url: string, method: string, unauthorizedHeaders?: Record<string, string>): Promise<Credentials> {
     this.debugLog(`Getting credentials for ${url}`);
-    if (!unauthorized)
+    if (!unauthorizedHeaders)
       for (const urlBase in this.cachedCredentials) {
         if (url.startsWith(urlBase))
           return this.cachedCredentials[urlBase];
@@ -140,8 +140,9 @@ export default class FetchClass {
       
       // run auth hook for jspm registries, returning if matched
       // ...for some reason TypeScript needs double brackets here...
-      if ((await this.project.registryManager.auth(urlObj, credentials, unauthorized))) {
-        this.project.log.debug(`Authentication for ${urlBase} provided by jspm registry configuration.`);
+      let credentialsRegistry;
+      if (credentialsRegistry = await this.project.registryManager.auth(urlObj, method, credentials, unauthorizedHeaders)) {
+        this.project.log.debug(`Credentials for ${urlBase} provided by ${bold(credentialsRegistry)} registry.`);
         return credentials;
       }
 
@@ -168,7 +169,7 @@ export default class FetchClass {
       }
 
       if (creds) {
-        this.project.log.debug(`Authentication for ${urlBase} provided by local .netrc file.`);
+        this.project.log.debug(`Credentials for ${urlBase} provided by local .netrc file.`);
         credentials.basicAuth = {
           username: creds.password ? creds.login : 'Token',
           password: creds.password ? creds.password : creds.login
@@ -179,11 +180,11 @@ export default class FetchClass {
       // and then finally using auth directly from git
       const data = await gitCredentialNode.fill(urlObj.origin);
       if (data) {
-        this.project.log.debug(`Authentication for ${urlBase} provided by git credential manager.`);
+        this.project.log.debug(`Credentials for ${urlBase} provided by git credential manager.`);
         credentials.basicAuth = data;
       }
       else {
-        this.project.log.debug(`No authentication details found for ${urlBase}.`);
+        this.project.log.debug(`No credentials details found for ${urlBase}.`);
       }
 
       return credentials;
@@ -201,13 +202,14 @@ export default class FetchClass {
   async doFetch (url: string, options?: FetchOptions) {
     let requestUrl = url;
     let credentials: Credentials | false | void = options.credentials;
+    const method = options.method && options.method.toUpperCase() || 'GET';
     // we support credentials: false
     if (credentials == undefined)
-      credentials = await this.getCredentials(url);
+      credentials = await this.getCredentials(url, method);
     let agent;
     if (credentials) {
+      // TODO: support keepalive
       let agentOptions: AgentOptions | HttpsProxyAgentOptions = {
-        // test perf here
         keepAlive: false
       };
       if (credentials.ca)
@@ -217,8 +219,10 @@ export default class FetchClass {
       if (credentials.strictSSL === false)
         agentOptions.rejectUnauthorized = false;
   
-      if (credentials.proxy) {
-        // TODO: properly support http proxy case separately?
+      // TODO: properly support http proxy agent
+      if (credentials.proxy && url.startsWith('http:'))
+        this.debugLog(`Http proxy not supported for ${url}. Please post an issue.`);
+      if (credentials.proxy && url.startsWith('https:')) {
         if (typeof credentials.proxy === 'string') {
           const proxyURL = parseURL(credentials.proxy);
           (<ProxyAgentOptions>agentOptions).host = proxyURL.host;
@@ -229,20 +233,19 @@ export default class FetchClass {
         }
       }
   
-      if (credentials.authorization) {
-        const authHeader = { authorization: credentials.authorization };
+      if (credentials.headers) {
         if (!options) {
-          options = { headers: authHeader };
+          options = { headers: credentials.headers };
         }
         else {
           if (options.headers)
-            options.headers = Object.assign(authHeader, options.headers);
+            options.headers = Object.assign({}, credentials.headers, options.headers);
           else
-            options.headers = authHeader;
+            options.headers = credentials.headers;
         }
       }
   
-      if (hasProperties(agentOptions)) {
+      if (hasProperties(agentOptions) && url.startsWith('https:')) {
         let existingAgents;
         if (credentials.proxy)
           existingAgents = proxyAgents.get(credentials.proxy);
@@ -265,7 +268,7 @@ export default class FetchClass {
           }
         }
       }
-      this.debugLog(`Fetching ${url}${writeCredentialLog(credentials)}`);
+      this.debugLog(`${method} ${url}${writeCredentialLog(credentials)}`);
   
       if (credentials.basicAuth) {
         const urlObj = new URL(url);
@@ -276,11 +279,15 @@ export default class FetchClass {
       }
     }
     else {
-      this.debugLog(`Fetching ${requestUrl}`);
+      this.debugLog(`${method} ${requestUrl}`);
     }
     if (agent)
       options = Object.assign({ agent }, options);
-    
+
+    if (!options || !options.headers || !options.headers['user-agent']) {
+      const headers = Object.assign({ 'user-agent': `jspm/2.0` }, options && options.headers);
+      options = Object.assign({ headers }, options);
+    }
     try {
       var res = await nodeFetch(requestUrl, options);
     }
@@ -307,12 +314,11 @@ export default class FetchClass {
 
     // re-authorize once if reauthorizable authorization failure
     if ((res.status === 401 || res.status === 403) && options.reauthorize !== false) {
-      this.project.log.warn(`Invalid authorization requesting ${url}.`);
+      this.project.log.warn(`Invalid authorization for ${method} ${url}.`);
       options.reauthorize = false;
-      options.credentials = await this.getCredentials(url, true);
+      options.credentials = await this.getCredentials(url, method, res.headers.raw());
       return this.fetch(url, options);
     }
-  
     return res;
   }
 }
@@ -325,8 +331,8 @@ function writeCredentialLog (credentials: Credentials): string {
     outStr += ` over proxy ${credentials.proxy.host}`;
   if (credentials.basicAuth)
     outStr += ` with basic auth for "${credentials.basicAuth.username}", "${credentials.basicAuth.password}"`;
-  else if (credentials.authorization)
-    outStr += ` with authorization header`;
+  else if (credentials.headers)
+    outStr += ` with ${Object.keys(credentials.headers).join(', ')} header${Object.keys(credentials.headers).length > 1 ? 's' : ''}`;
   else
     outStr += ` without auth`;
   if (credentials.cert || credentials.ca || credentials.strictSSL === false) {
