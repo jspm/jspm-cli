@@ -111,9 +111,8 @@ const winBin = (binModulePath: string) => `@setlocal
 `;
 
 export function getBin () {
-  const loader = require.resolve('@jspm/resolve/loader.mjs');
+  let loader = require.resolve('@jspm/resolve/loader.mjs');
   if (isWindows)
-    return `@NODE_OPTIONS="--experimental-modules --no-warnings --loader ${loader}" node`;
-  else
+    loader = '/' + loader;
   return `NODE_OPTIONS="--experimental-modules --no-warnings --loader ${loader}" node`;
 }
