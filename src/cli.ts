@@ -17,8 +17,9 @@
 import * as ui from './utils/ui';
 import fs = require('fs');
 import path = require('path');
+import process = require('process');
 import * as api from './api';
-import { bold, highlight, JspmUserError, readModuleEnv, highlight2 } from './utils/common';
+import { bold, highlight, JspmUserError, readModuleEnv } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
@@ -121,59 +122,61 @@ ${*/bold('• Install')}
   jspm install [<registry>:]<pkg>[@<version>]
   jspm install git:<path> | git+https:<path> | https:<path> | file:<path>
   jspm install
-    --edge                        Install to latest unstable resolution
-    --lock                        Do not update any existing installs
-    --latest                      Resolve all packages to latest versions
-    --dev|peer|optional           Install a dev, peer or optional dependency
-    --override (-o) main=x.js     Provide a package.json property override
+    --edge                         Install to latest unstable resolution
+    --lock                         Do not update any existing installs
+    --latest                       Resolve all packages to latest versions
+    --dev|peer|optional            Install a dev, peer or optional dependency
+    --override (-o) main=x.js      Provide a package.json property override
 
-  jspm update [<name>+]           Update packages within package.json ranges
-  jspm uninstall <name>+          Uninstall a top-level package
-  jspm clean                      Clear unused dependencies
-  jspm link [<name>] <source>     Link a custom source as a named package
-  jspm unlink [<name>]            Reinstall a package to its registry target
-  jspm checkout <name>+           Copy a package in jspm_packages to modify
+  jspm update [<name>+]            Update packages within package.json ranges
+  jspm uninstall <name>+           Uninstall a top-level package
+  jspm clean                       Clear unused dependencies
+  jspm link [<name>] <source>      Link a custom source as a named package
+  jspm unlink [<name>]             Reinstall a package to its registry target
+  jspm checkout <name>+            Copy a package in jspm_packages to modify
 
 ${bold('• Execute')}
-  jspm <file>                     Execute a module with jspm module resolution
-  jspm run <name>                 Run package.json "scripts"
-  jspm bin                        Output the direct jspm Node.js bin script
+  jspm <file>                      Execute a module with jspm module resolution
+  jspm run <name>                  Run package.json "scripts"
+  jspm bin                         Output the direct jspm Node.js bin script
 
 ${bold('• Build')}
-  jspm build <entry>+ [-o <dir>]  Build the given module entry points
-    --source-maps                 Output source maps
-    --format cjs|system|amd       Set the output module format for the build
-    --remove-dir                  Clear the output directory before building
-    --show-graph                  Show the build module graph summary
-    --watch                       Watch build files for rebuild on change
-    --banner <file>|<source>      Provide a banner for the build files
+  jspm build <entry>+ [-o <dir>]   Build the given module entry points
+    --source-maps                  Output source maps
+    --format cjs|system|amd        Set the output module format for the build
+    --remove-dir                   Clear the output directory before building
+    --show-graph                   Show the build module graph summary
+    --watch                        Watch build files for rebuild on change
+    --banner <file>|<source>       Provide a banner for the build files
+    --external <name>              Treat the given dependency as an external
+    --inline-deps                  Do not treat "dependencies" as external
 
 ${bold('• Publish')}
   jspm publish [<path>] [--otp <otp>] [--tag <tag>] [--public]
 
 ${bold('• Import Maps')}
-  jspm map -o importmap.json      Generates an import map for all dependencies
-  jspm map <module>+              Generate a import map for specific modules
-    --production                  Use production resolutions
-    --cdn                         Generate a import map against the jspm CDN
+  jspm map -o importmap.json       Generates an import map for all dependencies
+  jspm map <module>+               Generate a import map for specific modules
+    --production                   Use production resolutions
+    --cdn                          Generate a import map against the jspm CDN
 
 ${bold('• Inspect')}
-  jspm resolve <module>           Resolve a module name with the jspm resolver
-    <module> <parent>             Resolve a module name to the given parent
-    <module> --browser|bin        Resolve a module name to a conditional env
-  jspm trace <module>             Trace a module graph
+  jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
+    --browser|bin                  Resolve a module name in a conditional env
+    --relative                     Output the path relative to the current cwd
+  jspm trace <module>              Trace a module graph
 ${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
 ${bold('• Configure')}
-  jspm registry-config <name>     Run configuration prompts for a registry
-  jspm config <option> <setting>  Set jspm global config
-  jspm config --get <option>      Get a jspm global config value
+  jspm registry-config <name>      Run configuration prompts for a registry
+  jspm config <option> <setting>   Set jspm global config
+  jspm config --get <option>       Get a jspm global config value
   
 ${bold('• Command Flags')}
-  --offline                     Run command offline using the jspm cache
-  --prefer-offline (-q)         Use cached lookups for fastest install
-  --skip-prompts (-y)           Use default options in prompts w/o user input
-  --log ok|warn|err|debug|none  Set the log level
-  --project (-p) <path>         Set the jspm project directory
+  --offline                        Run command offline using the jspm cache
+  --prefer-offline (-q)            Use cached lookups for fastest install
+  --skip-prompts (-y)              Use default options w/o user input
+  --log ok|warn|err|debug|none     Set the log level
+  --project (-p) <path>            Set the jspm project directory
 `);
       break;
 
@@ -287,7 +290,7 @@ ${bold('• Command Flags')}
       case 're':
       case 'resolve': {
         let options;
-        ({ args, options } = readOptions(args, ['format', 'browser', 'bin', 'react-native', 'production', 'electron']));
+        ({ args, options } = readOptions(args, ['format', 'browser', 'bin', 'react-native', 'production', 'electron', 'relative']));
 
         let env = readModuleEnv(options);
         
@@ -304,10 +307,13 @@ ${bold('• Command Flags')}
         
         const resolved = api.resolveSync(args[0], parent, env, true);
 
-        if (options.format)
-          ui.info(resolved.format || '<undefined>');
-        else
-          ui.info(resolved.resolved || '@empty');
+        if (options.format) {
+          console.log(resolved.format || '<undefined>');
+        }
+        else {
+          resolved.resolved = resolved.resolved || '@empty';
+          console.log(options.relative ? path.relative(process.cwd(), resolved.resolved) : resolved.resolved);
+        }
       }
       break;
 
@@ -450,12 +456,15 @@ ${bold('• Command Flags')}
       case 'build':
         let { options, args: buildArgs } = readOptions(args, [
           'remove-dir',
+          'inline-deps',
           'node',
           'mjs',
           'node', 'bin', 'react-native', 'production', 'electron',
           'show-graph',
           'source-maps',
-          'watch'// 'exclude-external', 'minify',
+          'watch',
+          'inline-deps'
+          // TODO: minify
         ], ['out', 'format'], ['target', 'external', 'banner']);
         if (options.node)
           (options.env = options.env || {}).node = true;
@@ -485,7 +494,7 @@ ${bold('• Command Flags')}
           options.external = Object.keys(external);
         }
         options.log = true;
-        options.dir = options.dir || 'dist';
+        options.out = options.out || 'dist';
         await api.build(buildArgs, options);
       break;
 

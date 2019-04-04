@@ -32,7 +32,7 @@ export interface BuildOptions {
   // minify: boolean;
   sourcemap?: boolean;
   mjs?: boolean;
-  dir?: 'string';
+  out?: 'string';
   format?: 'esm' | 'cjs' | 'amd' | 'system' | 'iife' | 'umd';
   external?: string[];
   globals?: { [id: string]: string };
@@ -40,6 +40,7 @@ export interface BuildOptions {
   showGraph?: boolean;
   watch?: boolean;
   target?: boolean | string[];
+  inlineDeps?: boolean;
 }
 
 export async function build (input: string[] | Record<string,string>, opts: BuildOptions) {
@@ -73,7 +74,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   // use .mjs if the output package boundary requires
   if (opts.format === 'esm' && 'mjs' in opts === false && ext !== '.mjs') {
-    const outdir = path.resolve(opts.dir);
+    const outdir = path.resolve(opts.out);
     const boundary = utils.getPackageBoundarySync(outdir + '/');
     if (boundary) {
       const pjson = utils.readPackageConfigSync(boundary);
@@ -89,12 +90,13 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   const rollupOptions: any = {
     input: inputObj,
-    dir: opts.dir,
+    dir: opts.out,
     external: opts.external,
     onwarn: () => {},
     sourcemap: opts.sourcemap,
     plugins: [jspmRollup({
       projectPath: opts.projectPath || process.cwd(),
+      inlineDeps: !!opts.inlineDeps,
       externals: opts.external,
       env: opts.env
     })]
@@ -103,7 +105,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   if (opts.watch) {
     rollupOptions.output = {
       exports: 'named',
-      dir: opts.dir,
+      dir: opts.out,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
       indent: true,
@@ -117,7 +119,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       else if (event.code === 'BUNDLE_START')
         info(`Rebuilding...`);
       else if (event.code === 'BUNDLE_END')
-        ok(`Built into ${bold(opts.dir)}`);
+        ok(`Built into ${bold(opts.out)}`);
     });
     // pause indefinitely
     await new Promise((_resolve, _reject) => {});
@@ -125,21 +127,21 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   const build = await rollup.rollup(rollupOptions);
   if (opts.removeDir) {
-    rimraf.sync(opts.dir);
-    mkdirp.sync(opts.dir);
+    rimraf.sync(opts.out);
+    mkdirp.sync(opts.out);
   }
   const { output } = await build.write({
     entryFileNames: '[name]' + ext,
     chunkFileNames: 'chunk-[hash]' + ext,
     exports: 'named',
-    dir: opts.dir,
+    dir: opts.out,
     format: <ModuleFormat>opts.format,
     sourcemap: opts.sourcemap,
     indent: true,
     banner: opts.banner
   });
   if (opts.log)
-    ok(`Built into ${highlight(opts.dir + '/')}`);
+    ok(`Built into ${highlight(opts.out + '/')}`);
 
   if (opts.showGraph && opts.log) {
     console.log('');
