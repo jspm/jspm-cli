@@ -125,6 +125,8 @@ jspm install http-server --dev
 jspm_packages/.bin/http-server
 ```
 
+> If running in Windows, use `jspm_packages/.bin/http-server.cmd` in the above.
+
 jspm supports many npm packages using the same jspm_packages resolution and ES module conversion that we run in the browser.
 It's all running through --experimental-modules, ES modules and the jspm resolver.
 
