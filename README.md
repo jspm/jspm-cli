@@ -335,8 +335,6 @@ Because the jspm plugin is just a `resolve` function in Rollup, it is very simpl
 
 ### 11. CDN Package Maps
 
-**WITH THE CURRENT UPDATE IN PROGRESS, THIS WONT WORK RIGHT NOW**
-
 Instead of building a import map against the local jspm_packages packages folder, the jspm CDN can be used instead as the import map target.
 
 To do this in the original import map example we just add the `--cdn` flag:

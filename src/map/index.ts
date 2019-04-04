@@ -240,8 +240,7 @@ export function renormalizeMap (map: ImportMap, jspmPackagesURL: string, cdn: bo
     newMap.imports = packages;
     for (const pkgName of Object.keys(map.imports)) {
       const pkg = map.imports[pkgName];
-      if (typeof pkg === 'string')
-        newMap.imports[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
+      newMap.imports[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\/)+jspm_packages/, jspmPackagesURL);
     }
   }
   if (map.scopes) {
@@ -249,30 +248,20 @@ export function renormalizeMap (map: ImportMap, jspmPackagesURL: string, cdn: bo
     newMap.scopes = scopes;
     for (const scopeName of Object.keys(map.scopes)) {
       const scope = map.scopes[scopeName];
-      const newScope = { packages: Object.create(null) };
+      const newScope = Object.create(null);
       let scopeRegistry = scopeName.substr(14);
       scopeRegistry = scopeRegistry.substr(0, scopeRegistry.indexOf('/'));
 
       const isScopedPackage = scopeName.indexOf('/', scopeName.indexOf('/', 14) + 1) !== scopeName.length - 1;
 
-      for (const pkgName of Object.keys(scope.imports)) {
-        let pkg = scope.imports[pkgName];
-        if (typeof pkg === 'string') {
-          if (cdn && pkg.startsWith('../')) {
-            // exception is within-scope backtracking
-            if (!(isScopedPackage && pkg.startsWith('../') && !pkg.startsWith('../../')))
-              pkg = pkg.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
-          }
-          newScope[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\.\/)+jspm_packages/, jspmPackagesURL);
+      for (const pkgName of Object.keys(scope)) {
+        let pkg = scope[pkgName];
+        if (cdn && pkg.startsWith('../')) {
+          // exception is within-scope backtracking
+          if (!(isScopedPackage && pkg.startsWith('../') && !pkg.startsWith('../../')))
+            pkg = pkg.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
         }
-        else {
-          pkg = Object.assign({}, pkg);
-          if (cdn && pkg.path.startsWith('../')) {
-            if (!(isScopedPackage && pkg.path.startsWith('../') && !pkg.path.startsWith('../../')))
-              pkg.path = pkg.path.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
-          }
-          newScope[pkgName] = pkg;
-        }
+        newScope[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\/)+jspm_packages/, jspmPackagesURL);
       }
       newMap.scopes[jspmPackagesURL + (cdn ? cdnReplace(scopeName) : scopeName).substr(13)] = newScope;
     }
