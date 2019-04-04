@@ -192,10 +192,10 @@ Since Lodash is not optimized for browser delivery we still want to do a modular
 To build with Rollup, we can use the `jspm build` command:
 
 ```
-jspm build test.js --inline-deps --production
+jspm build test.js --inline-deps
 ```
 
-> By default `jspm build` will build for the browser development environment. Use `--node` to build for Node.js resolution (not applying the package.json "browser" field).
+> By default `jspm build` will build for the browser development environment. Use `--node` to build for Node.js resolution (not applying the package.json "browser" field, or similarly `--production` for the production environment).
 
 By default, jspm will automatically treat any `"dependencies"` of the project as externals, so `--inline-deps` will ensure lodash and babel are bundled into our build files.
 
@@ -276,7 +276,7 @@ import('@babel/core').then(({ default: babel }) => {
 Now lets leave out the `--inline-deps` option:
 
 ```
-jspm build test.js --production
+jspm build test.js
 ```
 
 Even though we've now done a build, we can still generate a import map for the built application, and only the external packages used will be included:
