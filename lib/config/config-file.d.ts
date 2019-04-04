@@ -12,6 +12,7 @@ export declare type ConfigObject = ObjectProperty[];
 export declare type ValueType = 'array' | 'number' | 'boolean' | 'string';
 export default class ConfigFile {
     fileName: string;
+    _original: object;
     private ordering;
     private style;
     protected timestamp: number;

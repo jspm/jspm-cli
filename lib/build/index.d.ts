@@ -1,15 +1,16 @@
+import { ImportMap } from '../map';
 export interface BuildOptions {
     log: boolean;
     projectPath?: string;
-    removeDir?: boolean;
+    clearDir?: boolean;
     env?: any;
-    sourcemap?: boolean;
-    out?: string;
-    dir?: 'string';
-    format?: 'esm' | 'es6' | 'es' | 'cjs' | 'amd' | 'global' | 'system' | 'iife' | 'umd';
-    external?: {
-        [name: string]: string | true;
-    } | string[];
+    buildDeps?: boolean;
+    minify: boolean;
+    sourceMap?: boolean;
+    mjs?: boolean;
+    dir?: string;
+    format?: 'esm' | 'module' | 'cjs' | 'commonjs' | 'amd' | 'system' | 'iife' | 'umd';
+    external?: string[];
     globals?: {
         [id: string]: string;
     };
@@ -17,5 +18,7 @@ export interface BuildOptions {
     showGraph?: boolean;
     watch?: boolean;
     target?: boolean | string[];
+    hashEntries?: boolean;
+    mapBase?: string;
 }
-export declare function build(input: string | string[], opts: BuildOptions): Promise<void>;
+export declare function build(input: string[] | Record<string, string>, opts: BuildOptions): Promise<ImportMap>;

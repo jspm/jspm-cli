@@ -1,20 +1,15 @@
 import { Project } from "../project";
 export interface Packages {
-    [name: string]: string | {
-        path?: string;
-        main?: string;
-    };
+    [name: string]: string;
 }
 export interface Scopes {
-    [path: string]: {
-        packages: Packages;
-    };
+    [path: string]: Packages;
 }
-export interface PackageMap {
-    packages?: Packages;
+export interface ImportMap {
+    imports?: Packages;
     scopes?: Scopes;
 }
-export declare function renormalizeMap(map: PackageMap, jspmPackagesURL: string, cdn: boolean): PackageMap;
-export declare function map(project: Project, env: any): Promise<PackageMap>;
-export declare function filterMap(project: Project, map: PackageMap, modules: string[]): Promise<PackageMap>;
-export declare function trace(project: Project, map: PackageMap, baseDir: string, modules: string[]): Promise<Record<string, Record<string, string>>>;
+export declare function renormalizeMap(map: ImportMap, jspmPackagesURL: string, cdn: boolean): ImportMap;
+export declare function map(project: Project, env: any): Promise<ImportMap>;
+export declare function filterMap(project: Project, map: ImportMap, modules: string[], flatScope?: boolean): Promise<ImportMap>;
+export declare function trace(project: Project, map: ImportMap, baseDir: string, modules: string[], excludeDeps?: boolean): Promise<Record<string, Record<string, string>>>;

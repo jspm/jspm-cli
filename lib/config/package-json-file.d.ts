@@ -9,13 +9,13 @@ export default class PackageJson extends ConfigFile {
     jspmAware: boolean;
     name: string;
     version: string;
-    esm: boolean;
+    type: string;
     src: string;
     dist: string;
     main: string;
     baseURL: string;
     packages: string;
-    configFile: string;
+    private: boolean;
     dependencies: {
         [name: string]: {
             type: DepType;
@@ -33,7 +33,7 @@ export default class PackageJson extends ConfigFile {
     scripts: {
         [name: string]: string;
     };
-    constructor(pjsonPath: string, project: Project);
+    constructor(pjsonPath: string, project: Project, hasJspmConfig: boolean);
     dispose(): void;
     setBaseURL(baseURL: string): void;
     write(): boolean;

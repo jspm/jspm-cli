@@ -10,12 +10,13 @@ export declare const winSepRegEx: RegExp;
 export declare function bold(str: string): string;
 export declare function highlight(str: string): string;
 export declare function underline(str: string): string;
+export declare function isURL(str: string, absolute?: boolean): boolean;
 export interface RetryOptions {
     retries?: number;
     factor?: number;
     minTimeout?: number;
     maxTimeout?: number;
-    ranomize?: boolean;
+    randomize?: boolean;
 }
 export declare const invalidFileCharRegEx: RegExp;
 export declare function encodeInvalidFileChars(str: any): any;
@@ -39,7 +40,7 @@ export declare class JspmRetriableUserError extends JspmError {
     retriable: true;
     constructor(msg: string, code?: string, childErr?: JspmError | Error);
 }
-export declare function retry<T>(opts: RetryOptions, operation: (retryNumber: number) => Promise<T>, timeout?: number): Promise<T>;
+export declare function retry<T>(operation: (retryNumber: number) => Promise<T>, retries?: number): Promise<T>;
 export declare function readJSONSync(fileName: string): any;
 export declare function toFileURL(path: string): string;
 export declare function fromFileURL(url: string): string;

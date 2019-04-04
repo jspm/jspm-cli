@@ -5,6 +5,7 @@ import Cache from '../utils/cache';
 import globalConfig from '../config/global-config-file';
 import { Logger, input, confirm } from '../project';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
+import { Readable } from 'stream';
 export interface LookupData {
     meta: any;
     redirect?: string;
@@ -25,12 +26,18 @@ export interface SourceInfo {
     source: string;
     opts: any;
 }
+export interface PublishOptions {
+    tag?: string;
+    access?: string;
+    otp?: string;
+}
 export interface RegistryEndpoint {
     configure?: () => Promise<void>;
     dispose: () => Promise<void>;
-    auth: (url: URL, credentials: Credentials, unauthorized?: boolean) => Promise<void | boolean>;
+    auth: (url: URL, method: string, credentials: Credentials, unauthorizedHeaders?: Record<string, string>) => Promise<void | boolean>;
     lookup: (pkgName: string, versionRange: SemverRange, lookup: LookupData) => Promise<void | boolean>;
     resolve?: (pkgName: string, version: string, lookup: LookupData) => Promise<void | boolean>;
+    publish?: (packagePath: string, pjson: any, tarStream: Readable, options: PublishOptions) => Promise<void>;
 }
 export interface RegistryEndpointConstructable {
     new (utils: EndpointUtils, config: any): RegistryEndpoint;
@@ -105,7 +112,7 @@ export default class RegistryManager {
     };
     dispose(): Promise<void[]>;
     configure(registryName: string): Promise<void>;
-    auth(url: URL, credentials: Credentials, unauthorized?: boolean): Promise<boolean>;
+    auth(url: URL, method: string, credentials: Credentials, unauthorizedHeaders?: Record<string, string>): Promise<string>;
     resolve(pkg: PackageName, override: ProcessedPackageConfig | void, edge?: boolean): Promise<{
         pkg: ExactPackage;
         target: PackageName;
@@ -122,4 +129,5 @@ export default class RegistryManager {
         hash: string;
         changed: boolean;
     }>;
+    publish(packagePath: string, registry: string, pjson: any, tarStream: Readable, opts: PublishOptions): Promise<void>;
 }

@@ -6,7 +6,6 @@ export interface InstallOptions {
     lock?: boolean;
     latest?: boolean;
     dedupe?: boolean;
-    optional?: boolean;
     reset?: boolean;
     exact?: boolean;
 }

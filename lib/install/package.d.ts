@@ -69,9 +69,9 @@ export interface ProcessedPackageConfig {
     registry?: string;
     name?: string;
     version?: string;
-    mode?: string;
+    type?: string;
     main?: string;
-    skipESMConversion?: boolean | string[];
+    noModuleConversion?: boolean | string[];
     namedExports?: Record<string, string[]>;
     map?: MapConfig;
     bin?: {
@@ -91,9 +91,9 @@ export interface PackageConfig {
     registry?: string;
     name?: string;
     version?: string;
-    mode?: string;
+    type?: string;
     main?: string;
-    skipESMConversion?: boolean | string[];
+    noModuleConversion?: boolean | string[];
     namedExports?: Record<string, string[]>;
     map?: MapConfig;
     bin?: string | {
@@ -115,7 +115,8 @@ export interface PackageConfig {
     };
 }
 export declare function serializePackageTargetCanonical(name: string, target: PackageTarget | string, defaultRegistry?: string): string;
-export declare function processPackageConfig(pcfg: PackageConfig, partial?: boolean): ProcessedPackageConfig;
+export declare function validateOverride(pcfg: PackageConfig, name: string): boolean;
+export declare function processPackageConfig(pcfg: PackageConfig, partial?: boolean, registry?: string): ProcessedPackageConfig;
 export declare function processPackageTarget(depName: string, depTarget: string, defaultRegistry?: string, rangeConversion?: boolean): string | PackageTarget;
 export declare function serializePackageConfig(pcfg: ProcessedPackageConfig, defaultRegistry?: string): PackageConfig;
 export declare function overridePackageConfig(pcfg: ProcessedPackageConfig, overridePcfg: ProcessedPackageConfig): {

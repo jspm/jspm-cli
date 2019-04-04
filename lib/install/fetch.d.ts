@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { Readable as ReadableStream } from 'stream';
 import { AgentOptions } from 'https';
 import { HttpsProxyAgentOptions } from './fetch';
@@ -17,7 +16,7 @@ export interface FetchOptions {
     headers?: {
         [name: string]: string;
     };
-    body?: void | Buffer | ReadableStream;
+    body?: void | ReadableStream;
     redirect?: 'manual' | 'error' | 'follow';
     follow?: number;
     timeout?: number;
@@ -32,11 +31,11 @@ export interface Credentials {
         username: string;
         password: string;
     };
-    authorization?: string;
     ca?: string | string[];
     cert?: string;
     proxy?: string | HttpsProxyAgentOptions;
     strictSSL?: boolean;
+    headers?: Record<string, string>;
 }
 export declare type Fetch = typeof FetchClass.prototype.fetch;
 export declare type GetCredentials = typeof FetchClass.prototype.getCredentials;
@@ -48,7 +47,7 @@ export default class FetchClass {
     netrc: any;
     debugLog: (msg: string) => void;
     constructor(project: Project);
-    getCredentials(url: string, unauthorized?: boolean): Promise<Credentials>;
+    getCredentials(url: string, method: string, unauthorizedHeaders?: Record<string, string>): Promise<Credentials>;
     fetch(url: string, options?: FetchOptions): any;
     doFetch(url: string, options?: FetchOptions): any;
 }

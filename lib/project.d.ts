@@ -55,7 +55,7 @@ export declare class Project {
     checkedGlobalBin: boolean;
     constructor(projectPath: string, options: ProjectConfiguration);
     checkGlobalBin(): void;
-    dispose(): Promise<[void, void[]]>;
+    dispose(): Promise<[void, void[], void]>;
     save(): Promise<boolean>;
     update(selectors: string[], opts: InstallOptions): Promise<void>;
     install(installs: Install[], opts?: InstallOptions): Promise<void>;
