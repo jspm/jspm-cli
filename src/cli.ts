@@ -25,7 +25,7 @@ import globalConfig from './config/global-config-file';
 import { DepType } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { JSPM_GLOBAL_PATH } from './api';
-import { extend } from './map/utils';
+import { extend, flattenScopes } from './map/utils';
 import { readJSONStyled, defaultStyle, serializeJson } from './config/config-file';
 import publish from './install/publish';
 import { getBin } from './install/bin';
@@ -264,6 +264,8 @@ ${bold('• Command Flags')}
 
         if (args.length)
           map = await api.filterMap(project, map, args, options.flatScope);
+        else if (options.flatScope)
+          flattenScopes(map);
 
         if (options.cdn && !options.jspmPackages) {
           if (options.production)

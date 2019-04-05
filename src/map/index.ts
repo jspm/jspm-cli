@@ -89,8 +89,6 @@ class Mapper {
       populationPromises.push(this.populatePackage(depName, this.dependencies[depName], undefined, packageMap));
     }
 
-    // when peerDependencies are fixed as primaries
-    // then the version below here must be from project.config.jspm.installed.resolve['@jspm/core']
     for (const name of Object.keys(jspmBuiltins)) {
       if (name in imports)
         continue;
@@ -109,9 +107,12 @@ class Mapper {
     if (scopeParent && this.dependencies[depName] === pkgName)
       return;
 
-    const pkgPath = `./jspm_packages/${pkgName.replace(':', '/')}`;
+    const pkgPath = `jspm_packages/${pkgName.replace(':', '/')}`;
     const packages = scopeParent ? (packageMap.scopes[scopeParent] = (packageMap.scopes[scopeParent] || {})) : packageMap.imports;
-    const curPkg = packages[depName + '/'] = (scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath) + '/';
+    let pkgRelative = (scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath);
+    if (!pkgRelative.startsWith('../'))
+      pkgRelative = './' + pkgRelative;
+    const curPkg = packages[depName + '/'] = pkgRelative + '/';
     const pkg = this.project.config.jspm.installed.dependencies[pkgName];
   
     const pathsPromise = (async () => {
@@ -120,7 +121,9 @@ class Mapper {
       if (main)
         packages[depName] = curPkg + main;
       for (const subpath of Object.keys(paths)) {
-        const relPath = scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath;
+        let relPath = scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath;
+        if (!relPath.startsWith('../'))
+          relPath = './' + relPath;
         packages[depName + '/' + subpath] = relPath + '/' + paths[subpath];
       }
 
@@ -128,9 +131,9 @@ class Mapper {
         return;
       seen[pkgName + '|map'] = true;
 
-      const scopedPackages = (packageMap.scopes[pkgPath] = (packageMap.scopes[pkgPath] || {}));
+      const scopedPackages = (packageMap.scopes[pkgPath + '/'] = (packageMap.scopes[pkgPath + '/'] || {}));
 
-      // scopedPackages[name + '/'] = { path: '.', main };
+      // scopedPackages[name + '/']
       for (const subpath of Object.keys(paths)) {
         let target = path.relative(name, name + '/' + paths[subpath]).replace(/\\/g, '/');
         if (!target.startsWith('../'))
@@ -140,9 +143,6 @@ class Mapper {
 
       for (const target of Object.keys(map)) {
         let mapped = map[target];
-
-        let hasMain = true;
-        let hasSubpaths = true;
 
         if (mapped.startsWith('./')) {
           mapped = pkgPath + mapped.substr(1);
@@ -154,19 +154,13 @@ class Mapper {
           }
           else if (jspmBuiltins[mapped]) {
             mapped = `${this.nodeBuiltinsPkg}/${mapped}.js`;
-            hasSubpaths = false;
           }
         }
 
-        if (mapped.endsWith('/')) {
-          mapped = mapped.substr(0, mapped.length - 1);
-          hasMain = false;
-        }
-
-        if (hasMain)
-          scopedPackages[target] = path.relative(pkgPath + '/' + target, mapped).replace(/\\/g, '/');
-        if (hasSubpaths)
-          scopedPackages[target + '/'] = path.relative(pkgPath, mapped).replace(/\\/g, '/');
+        let output = path.relative(pkgPath + '/', mapped).replace(/\\/g, '/');
+        if (!output.startsWith('../'))
+          output = './' + output;
+        scopedPackages[target] = output;
       }
     })();
 
@@ -176,9 +170,7 @@ class Mapper {
   
     const populationPromises: Promise<void>[] = [pathsPromise];
     for (const depName of Object.keys(pkg.resolve)) {
-      if (depName === '@jspm/node-builtins')
-        continue;
-      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath.substr(2) + '/', packageMap, seen));
+      populationPromises.push(this.populatePackage(depName, serializePackageName(pkg.resolve[depName]), pkgPath + '/', packageMap, seen));
     }
     await Promise.all(populationPromises);
   }
@@ -201,17 +193,24 @@ class Mapper {
       const map = {};
       // const deps = {};
       if (pjson.map) {
+        if (name)
+          map[name + '/'] = './';
         if (main) {
           const mapped = applyMap('./' + main, pjson.map, this.env);
           if (mapped)
             main = mapped === '@empty' ? `${this.nodeBuiltinsPkg}/@empty.js` : mapped;
+          if (name)
+             map[name] = './' + main;
         }
 
         for (const target of Object.keys(pjson.map)) {
           if (target.startsWith('./')) {
             const mapped = applyMap(target, pjson.map, this.env);
-            if (mapped)
+            if (mapped) {
               paths[target.substr(2)] = mapped === '@empty' ? `${this.nodeBuiltinsPkg}/@empty.js` : mapped;
+              if (name)
+                map[name + '/' + target.substr(2)] = mapped === '@empty' ? `${this.nodeBuiltinsPkg}/@empty.js` : './' + mapped;
+            }
           }
           else {
             const mapped = applyMap(target, pjson.map, this.env);

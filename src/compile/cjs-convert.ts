@@ -90,10 +90,6 @@ export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
       newMap[isRel ? toDew(match) : toDewPlain(match)] = convertMappingToDew(mapping, !isRel);
     }
   }
-  if (pcfg.name) {
-    newMap = newMap || {};
-    newMap[pcfg.name + '/'] = './';
-  }
   // TODO: bin may need resolution
   /*if (pcfg.bin) {
     let newBin;
