@@ -79,9 +79,15 @@ function tryParseCjs (source) {
           },
           CallExpression (path) {
             if (t.isIdentifier(path.node.callee, { name: 'require' })) {
-              let arg = path.node.arguments[0];
-              const req = resolvePartialWildcardString(arg, false);
+              const req = resolvePartialWildcardString(path.node.arguments[0], false);
               if (req !== '*')
+                requires.add(req);
+            }
+            else if (t.isMemberExpression(path.node.callee) &&
+                     t.isIdentifier(path.node.callee.object, { name: 'require' }) &&
+                     t.isIdentifier(path.node.callee.property, { name: 'resolve' })) {
+              const req = resolvePartialWildcardString(path.node.arguments[0], false);
+              if (req.indexOf('*') !== -1)
                 requires.add(req);
             }
           }

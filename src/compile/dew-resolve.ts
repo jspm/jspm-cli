@@ -46,7 +46,7 @@ export function relativeResolve (require: string, filePath: string, pkgBasePath:
 
   // local maps need to be "plain" to support package maps
   if (localMaps[resolvedPkgPath || pkgPath])
-    return toDew(name + '/' + (resolvedPkgPath || pkgPath));
+    return toDew('~/' + (resolvedPkgPath || pkgPath));
 
   // local resolved that doesn't exist -> not found
   if (!resolvedPkgPath)
