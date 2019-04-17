@@ -212,7 +212,7 @@ ${source};
       return { err: true };
     if (filePath.endsWith('.js')) {
       try {
-        const dewTransform = `export function dew () {\n  throw new Error("Error converting CommonJS file ${name + filePath.substr(pkgBasePath.length)}, please post a jspm bug with this message.\\n${JSON.stringify(err.stack || err.toString()).slice(1, -1)}");\n}\n`;
+        const dewTransform = `export function dew () {\n  throw new Error("Error converting CommonJS file ${JSON.stringify(name + filePath.substr(pkgBasePath.length)).slice(1, -1)}, please post a jspm bug with this message.\\n${JSON.stringify(err.stack || err.toString()).slice(1, -1)}");\n}\n`;
         await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve(result)));
       }
       catch (e) {

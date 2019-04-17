@@ -19,7 +19,7 @@ import fs = require('fs');
 import path = require('path');
 import process = require('process');
 import * as api from './api';
-import { bold, highlight, JspmUserError, readModuleEnv } from './utils/common';
+import { bold, highlight, JspmUserError, readModuleEnv, isWindows } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
@@ -29,6 +29,7 @@ import { extend, flattenScopes } from './map/utils';
 import { readJSONStyled, defaultStyle, serializeJson } from './config/config-file';
 import publish from './install/publish';
 import { getBin } from './install/bin';
+import { spawn } from 'child_process';
 
 const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+)=/i;
 
@@ -118,7 +119,7 @@ export default async function cliHandler (projectPath: string, cmd: string, args
         console.log(`${/*bold('Init')}
   jspm init <path>?                 Initialize or validate a jspm project in the current directory
 
-${*/bold('• Install')}
+${*/bold('📦  Install')}
   jspm install [<registry>:]<pkg>[@<version>]
   jspm install git:<path> | git+https:<path> | https:<path> | file:<path>
   jspm install
@@ -135,43 +136,45 @@ ${*/bold('• Install')}
   jspm unlink [<name>]             Reinstall a package to its registry target
   jspm checkout <name>+            Copy a package in jspm_packages to modify
 
-${bold('• Execute')}
+${bold('🔥  Execute')}
   jspm <file>                      Execute a module with jspm module resolution
   jspm run <name>                  Run package.json "scripts"
-  jspm bin                         Output the direct jspm Node.js bin script
+  jspm bin <name> [-g]             Run an installed bin script
+    --cmd                          Output the bin script command w/o executing
+    --path [-g]                    Output the bin path
 
-${bold('• Build')}
+${bold('🏭  Build')}
   jspm build <entry>+ [-o <dir>]   Build the given module entry points
     --source-maps                  Output source maps
     --format cjs|system|amd        Set the output module format for the build
-    --remove-dir                   Clear the output directory before building
+    --clear-dir                    Clear the output directory before building
     --show-graph                   Show the build module graph summary
     --watch                        Watch build files for rebuild on change
     --banner <file>|<source>       Provide a banner for the build files
     --external <name>              Treat the given dependency as an external
     --inline-deps                  Do not treat "dependencies" as external
+${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
+${bold('🔎  Inspect')}
+  jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
+    --browser|bin                  Resolve a module name in a conditional env
+    --relative                     Output the path relative to the current cwd
+  jspm trace <module>              Trace a module graph
 
-${bold('• Publish')}
-  jspm publish [<path>] [--otp <otp>] [--tag <tag>] [--public]
-
-${bold('• Import Maps')}
+${bold('🔗  Import Maps')}
   jspm map -o importmap.json       Generates an import map for all dependencies
   jspm map <module>+               Generate a import map for specific modules
     --production                   Use production resolutions
     --cdn                          Generate a import map against the jspm CDN
 
-${bold('• Inspect')}
-  jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
-    --browser|bin                  Resolve a module name in a conditional env
-    --relative                     Output the path relative to the current cwd
-  jspm trace <module>              Trace a module graph
-${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
-${bold('• Configure')}
+${bold('🚢  Publish')}
+  jspm publish [<path>] [--otp <otp>] [--tag <tag>] [--public]
+
+${bold('🔧  Configure')}
   jspm registry-config <name>      Run configuration prompts for a registry
   jspm config <option> <setting>   Set jspm global config
   jspm config --get <option>       Get a jspm global config value
   
-${bold('• Command Flags')}
+${bold('Command Flags')}
   --offline                        Run command offline using the jspm cache
   --prefer-offline (-q)            Use cached lookups for fastest install
   --skip-prompts (-y)              Use default options w/o user input
@@ -200,8 +203,52 @@ ${bold('• Command Flags')}
       break;
 
       case 'b':
-      case 'bin':
-        console.log(getBin());
+      case 'bin': {
+        let options;
+        ({ args, options } = readOptions(args, ['path', 'cmd']));
+        if (options.path && options.cmd)
+          throw new JspmUserError(`--path is incompatible with --cmd in ${bold('jspm bin')} command.`);
+        const binPath = path.join(projectPath, 'jspm_packages', '.bin');
+        if (options.path) {
+          if (args.length)
+            throw new JspmUserError(`${bold('jspm bin --path')} doesn't take any arguments.`);
+          // jspm bin --path -> log bin path
+          console.log(binPath);
+        }
+        else {
+          if (args.length === 0) {
+            // jspm bin --cmd -> show Node exec command
+            if (options.cmd) {
+              console.log(getBin());
+            }
+            // jspm bin -> Node zero arguments form
+            else {
+              const exitCode = await api.exec([]);
+              process.exit(exitCode);
+            }
+          }
+          else {
+            if (args.length > 1)
+              throw new JspmUserError(`${bold('jspm bin')} only supports a single script name.`);
+            let execPath = path.join(binPath, args[0]);
+            if (isWindows)
+              execPath += '.cmd';
+            // jspm bin --cmd x -> display exec path
+            if (options.cmd) {
+              console.log(execPath);
+            }
+            // jspm bin x -> run exec path
+            else {
+              const ps = spawn(execPath, args, { stdio: 'inherit' });
+              const exitCode = await new Promise<number>((resolve, reject) => {
+                ps.on('exit', code => resolve(code));
+                ps.on('error', err => reject(err));
+              });
+              process.exit(exitCode);
+            }
+          }
+        }
+      }
       break;
 
       case 'publish': {
@@ -292,7 +339,7 @@ ${bold('• Command Flags')}
       case 're':
       case 'resolve': {
         let options;
-        ({ args, options } = readOptions(args, ['format', 'browser', 'bin', 'react-native', 'production', 'electron', 'relative']));
+        ({ args, options } = readOptions(args, ['format', 'browser', 'react-native', 'production', 'electron', 'relative']));
 
         let env = readModuleEnv(options);
         
@@ -455,9 +502,9 @@ ${bold('• Command Flags')}
       break;
 
       case 'b':
-      case 'build':
+      case 'build': {
         let { options, args: buildArgs } = readOptions(args, [
-          'remove-dir',
+          'clear-dir',
           'inline-deps',
           'node',
           'mjs',
@@ -498,6 +545,7 @@ ${bold('• Command Flags')}
         options.log = true;
         options.out = options.out || 'dist';
         await api.build(buildArgs, options);
+      }
       break;
 
       case 're':

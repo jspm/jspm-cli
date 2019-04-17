@@ -15,6 +15,7 @@
  */
 import fs = require('fs');
 import path = require('path');
+import os = require('os');
 import { isWindows } from '../utils/common';
 
 export async function writeBinScripts (binDir: string, name: string, binModulePath: string) {
@@ -70,7 +71,11 @@ if [ "$?" != "0" ] || [ -z "$JSPM_PATH" ]; then
   echo "jspm not found, make sure it is installed."
   exit 1
 fi
-JSPM_DIR=$(dirname $(dirname $(realpath "$JSPM_PATH")))
+if [ $(realpath "$JSPM_PATH") = $JSPM_PATH ] && [ -d $(dirname "$JSPM_PATH")/node_modules/jspm ]; then
+  JSPM_DIR=$(dirname "$JSPM_PATH")/node_modules/jspm
+else
+  JSPM_DIR=$(dirname $(dirname $(realpath "$JSPM_PATH")))
+fi
 if [ -d $JSPM_DIR/node_modules ]; then
   JSPM_LOADER=$JSPM_DIR/node_modules/@jspm/resolve/loader.mjs
 else
@@ -101,7 +106,11 @@ const winBin = (binModulePath: string) => `@setlocal
 
 export function getBin () {
   let loader = require.resolve('@jspm/resolve/loader.mjs');
-  if (isWindows)
+  if (isWindows) {
     loader = '/' + loader;
+    // TODO: check this works
+    if (os.release().match(/^(CYGWIN|MINGW32|MINGW64)/))
+      return `set NODE_OPTIONS=--experimental-modules --loader ${loader} && node`;
+  }
   return `NODE_OPTIONS="--experimental-modules --no-warnings --loader ${loader}" node`;
 }

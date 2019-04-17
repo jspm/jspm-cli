@@ -21,14 +21,15 @@ import { ModuleFormat } from 'rollup';
 import { bold, winSepRegEx, highlight } from '../utils/common';
 import path = require('path');
 import { ok, info, warn } from '../utils/ui';
-import { utils } from '@jspm/resolve';
+import { utils, sync as resolveSync } from '@jspm/resolve';
 import process = require('process');
 
 export interface BuildOptions {
   log: boolean;
   projectPath?: string;
-  removeDir?: boolean;
+  clearDir?: boolean;
   env?: any;
+  buildDeps?: boolean;
   // minify: boolean;
   sourcemap?: boolean;
   mjs?: boolean;
@@ -126,7 +127,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   }
 
   const build = await rollup.rollup(rollupOptions);
-  if (opts.removeDir) {
+  if (opts.clearDir) {
     rimraf.sync(opts.out);
     mkdirp.sync(opts.out);
   }

@@ -15,7 +15,7 @@
  */
 import { ImportMap } from ".";
 import path = require('path');
-import { alphabetize, JspmUserError, bold } from "../utils/common";
+import { alphabetize, JspmUserError, bold, hasProperties } from "../utils/common";
 export { parseImportMap, resolveImportMap, resolveIfNotPlainOrUrl } from './common';
 
 export function extend (importMap: ImportMap, extendMap: ImportMap) {
@@ -106,4 +106,9 @@ export function clean (importMap: ImportMap) {
     }
     delete importMap.scopes[scope];
   }
+
+  if (!hasProperties(importMap.imports))
+    delete importMap.imports;
+  if (!hasProperties(importMap.scopes))
+    delete importMap.scopes;
 }

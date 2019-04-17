@@ -342,6 +342,9 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
     await writeJSONStyled(path.resolve(dir, 'package.json'), Object.assign(pjson, serializePackageConfig(pcfg, defaultRegistry)), style || defaultStyle);
   }
 
+  // update the package to be "type": "module" now that it is converted
+  pcfg.type = 'module';
+
   log.debug(`Completed dew conversion, writing dew aliases for ${pkgName}...`);
   await Promise.all(aliasPromises);
 }

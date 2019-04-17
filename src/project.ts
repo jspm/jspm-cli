@@ -147,6 +147,8 @@ export class Project {
   checkedGlobalBin: boolean;
 
   constructor (projectPath: string, options: ProjectConfiguration) {
+    if (projectPath === JSPM_GLOBAL_PATH)
+      this.checkGlobalBin();
     this.projectPath = projectPath;
 
     if (!hasGit)
