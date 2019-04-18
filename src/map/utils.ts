@@ -15,7 +15,8 @@
  */
 import { ImportMap } from ".";
 import path = require('path');
-import { alphabetize, JspmUserError, bold, hasProperties } from "../utils/common";
+import { alphabetize, JspmUserError, bold, hasProperties, isURL } from "../utils/common";
+import { isNullOrUndefined } from "util";
 export { parseImportMap, resolveImportMap, resolveIfNotPlainOrUrl } from './common';
 
 export function extend (importMap: ImportMap, extendMap: ImportMap) {
@@ -35,6 +36,7 @@ export function extend (importMap: ImportMap, extendMap: ImportMap) {
     }
   }
   clean(importMap);
+  return importMap;
 }
 
 export function getScopeMatch (path, matchObj) {
@@ -56,6 +58,47 @@ export function getImportMatch (path, matchObj) {
     if (segment in matchObj)
       return segment;
   } while ((sepIndex = path.lastIndexOf('/', sepIndex - 1)) !== -1)
+}
+
+export function rebaseMap (map: ImportMap, fromPath: string, toPath: string) {
+  fromPath = fromPath.replace(/\\/g, '/');
+  toPath = toPath.replace(/\\/g, '/');
+  const newMap: ImportMap = {};
+  if (map.imports) {
+    const imports = Object.create(null);
+    newMap.imports = imports;
+    for (const pkgName of Object.keys(map.imports)) {
+      const pkg = map.imports[pkgName];
+      let rebased = isURL(pkg, true) ? pkg : path.relative(toPath, path.resolve(fromPath, pkg)).replace(/\\/g, '/');
+      console.log(rebased);
+      if (!rebased.startsWith('../'))
+        rebased = './' + rebased;
+      imports[pkgName] = rebased;
+    }
+  }
+  if (map.scopes) {
+    const scopes = Object.create(null);
+    newMap.scopes = scopes;
+    for (const scopeName of Object.keys(map.scopes)) {
+      const scope = map.scopes[scopeName];
+      const newScope = Object.create(null);
+      if (isURL(scopeName, true)) {
+        newMap.scopes[scopeName] = Object.assign(newScope, scope);
+      }
+      else {
+        const resolvedScope = path.relative(toPath, path.resolve(fromPath, scopeName)).replace(/\\/g, '/') + '/';
+        for (const pkgName of Object.keys(scope)) {
+          const pkg = scope[pkgName];
+          let rebased = isURL(pkg, true) ? pkg : path.relative(toPath, path.resolve(fromPath, pkg)).replace(/\\/g, '/');
+          if (!rebased.startsWith('../'))
+            rebased = './' + rebased;
+          newScope[pkgName] = rebased;
+        }
+        newMap.scopes[resolvedScope] = newScope;
+      }
+    }
+  }
+  return newMap;
 }
 
 export function flattenScopes (importMap: ImportMap) {
@@ -81,34 +124,45 @@ export function flattenScopes (importMap: ImportMap) {
 // any plain maps in scopes which match base maps can be removed
 // then removes empty properties and alphabetizes
 export function clean (importMap: ImportMap) {
-  for (const scope of Object.keys(importMap.scopes)) {
-    const imports = importMap.scopes[scope];
-    for (const pkgName of Object.keys(imports)) {
-      if (pkgName.startsWith('./') || pkgName.startsWith('../'))
-        continue;
-      let baseMap = importMap.imports[pkgName];
-      if (!baseMap)
-        continue;
-      let map = imports[pkgName];
-      // TODO: handle URL-like
-      if (path.join(pkgName, baseMap) === path.join(scope, pkgName, map))
-        delete imports[pkgName];
+  if (importMap.scopes) {
+    for (const scope of Object.keys(importMap.scopes)) {
+      const imports = importMap.scopes[scope];
+      for (const pkgName of Object.keys(imports)) {
+        if (pkgName.startsWith('./') || pkgName.startsWith('../'))
+          continue;
+        let baseMap = importMap.imports[pkgName];
+        if (!baseMap)
+          continue;
+        let map = imports[pkgName];
+        // TODO: handle URL-like
+        if (path.join(pkgName, baseMap) === path.join(scope, pkgName, map))
+          delete imports[pkgName];
+      }
     }
+    importMap.scopes = alphabetize(importMap.scopes);
+
+    outer: for (const scope of Object.keys(importMap.scopes)) {
+      for (let _p in importMap.scopes[scope]) {
+        importMap.scopes[scope] = alphabetize(importMap.scopes[scope]);
+        continue outer;
+      }
+      delete importMap.scopes[scope];
+    }  
   }
   
-  importMap.imports = alphabetize(importMap.imports);
-
-  importMap.scopes = alphabetize(importMap.scopes);
-  outer: for (const scope of Object.keys(importMap.scopes)) {
-    for (let _p in importMap.scopes[scope]) {
-      importMap.scopes[scope] = alphabetize(importMap.scopes[scope]);
-      continue outer;
-    }
-    delete importMap.scopes[scope];
+  if (importMap.imports) {
+    importMap.imports = alphabetize(importMap.imports);
   }
-
+  
   if (!hasProperties(importMap.imports))
     delete importMap.imports;
   if (!hasProperties(importMap.scopes))
     delete importMap.scopes;
+}
+
+export function validateImportMap (fileName, json) {
+  for (const key of Object.keys(json)) {
+    if (key !== 'scopes' && key !== 'imports')
+      throw new JspmUserError(`${fileName} is not a valid import map as it contains the invalid key ${bold('"' + key + '"')}.`);
+  }
 }

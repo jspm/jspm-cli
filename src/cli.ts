@@ -25,7 +25,7 @@ import globalConfig from './config/global-config-file';
 import { DepType } from './install/package';
 import { readOptions, readValue, readPropertySetters } from './utils/opts';
 import { JSPM_GLOBAL_PATH } from './api';
-import { extend, flattenScopes } from './map/utils';
+import { extend, flattenScopes, validateImportMap, rebaseMap } from './map/utils';
 import { readJSONStyled, defaultStyle, serializeJson } from './config/config-file';
 import publish from './install/publish';
 import { getBin } from './install/bin';
@@ -144,22 +144,22 @@ ${bold('🔥  Execute')}
     --path [-g]                    Output the bin path
 
 ${bold('🏭  Build')}
-  jspm build <entry>+ [-o <dir>]   Build the given module entry points
-    --source-maps                  Output source maps
-    --format cjs|system|amd        Set the output module format for the build
+  jspm build <entry>+ [-d <outdir>] [-o <buildmap.json>]
+    --format commonjs|system|amd   Set the output module format for the build
+    --external <name>|<map.json>   Define build external boundary and aliases
+    --hash-entries                 Use hash file names for the entry points
+    --exclude-deps                 Treat project dependencies as externals
     --clear-dir                    Clear the output directory before building
-    --show-graph                   Show the build module graph summary
-    --watch                        Watch build files for rebuild on change
+    --source-maps                  Output source maps
     --banner <file>|<source>       Provide a banner for the build files
-    --external <name>              Treat the given dependency as an external
-    --inline-deps                  Do not treat "dependencies" as external
-${/*jspm inspect (TODO)               Inspect the installation constraints of a given dependency */''}
+    --watch                        Watch build files for rebuild on change
+${/*jspm inspect (TODO)            Inspect the installation constraints of a given dependency */''}
 ${bold('🔎  Inspect')}
   jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
     --browser|bin                  Resolve a module name in a conditional env
     --relative                     Output the path relative to the current cwd
   jspm trace <module>              Trace a module graph
-
+${/*jspm trace --format graph|text|csv|json (TODO)     Different output formats for trace*/''}
 ${bold('🔗  Import Maps')}
   jspm map -o importmap.json       Generates an import map for all dependencies
   jspm map <module>+               Generate a import map for specific modules
@@ -307,7 +307,7 @@ ${bold('Command Flags')}
         let map = await api.map(project, options);
 
         if (inputMap)
-          extend(map, inputMap);
+          map = extend(extend({}, inputMap), map);
 
         if (args.length)
           map = await api.filterMap(project, map, args, options.flatScope);
@@ -315,9 +315,7 @@ ${bold('Command Flags')}
           flattenScopes(map);
 
         if (options.cdn && !options.jspmPackages) {
-          if (options.production)
-            throw new JspmUserError('The production jspm.io CDN has not yet been launched, only https://mapdev.jspm.io for now.');
-          options.jspmPackages = options.production ? 'https://production.jspm.io' : 'https://mapdev.jspm.io';
+          options.jspmPackages = options.production ? 'https://cdn.jspm.io' : 'https://dev-cdn.jspm.io';
         }
 
         const jspmPackagesURL = options.jspmPackages ? options.jspmPackages : options.out ?  path.relative(path.dirname(path.resolve(options.out)), path.resolve(projectPath, 'jspm_packages')).replace(/\\/g, '/') : 'jspm_packages';
@@ -505,16 +503,16 @@ ${bold('Command Flags')}
       case 'build': {
         let { options, args: buildArgs } = readOptions(args, [
           'clear-dir',
-          'inline-deps',
-          'node',
           'mjs',
           'node', 'bin', 'react-native', 'production', 'electron',
           'show-graph',
           'source-maps',
           'watch',
-          'inline-deps'
+          'exclude-deps',
+          'hash-entries',
+          'out' // out can also be boolean
           // TODO: minify
-        ], ['out', 'format'], ['target', 'external', 'banner']);
+        ], ['dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
         if (options.node)
           (options.env = options.env || {}).node = true;
         if (options.bin)
@@ -526,25 +524,92 @@ ${bold('Command Flags')}
         if (options.electron)
           (options.env = options.env || {}).electron = true;
         options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
+        options.dir = options.dir || 'dist';
+
+        let inputMap, style;
+        if (options.in)
+          ({ json: inputMap, style } = await readJSONStyled(options.in));
+
+        if (options.map) {
+          let buildMap, buildMapStyle;
+          ({ json: buildMap, style: buildMapStyle } = await readJSONStyled(options.map));
+          if (buildMap) {
+            if (!style)
+              style = buildMapStyle;
+            validateImportMap(path.relative(process.cwd(), path.resolve(options.map)), buildMap);
+            options.map = buildMap;
+          }
+          else {
+            throw new JspmUserError(`Import map ${path.relative(process.cwd(), path.resolve(options.map))} for build not found.`);
+          }
+        }
         if (options.external) {
-          const external = {};
-          options.external.split(' ').forEach(pair => {
-            const aliasIndex = pair.indexOf('=');
-            if (aliasIndex !== -1) {
-              const externalName = pair.substr(0, aliasIndex);
-              const aliasName = pair.substr(aliasIndex + 1);
-              external[externalName] = aliasName;
+          let externalMap, externalStyle;
+          const externalsPath = path.resolve(options.external)
+          try {
+            ({ json: externalMap, style: externalStyle } = await readJSONStyled(externalsPath));
+          }
+          catch (e) {
+            if (e.code !== 'ENOENT')
+              throw e;
+          }
+          if (externalMap) {
+            if (!style)
+              style = externalStyle;
+            validateImportMap(path.relative(process.cwd(), externalsPath), externalMap);
+            // scoped externals not currently supported, but could be (if thats even useful)
+            options.external = rebaseMap(externalMap, path.dirname(externalsPath), path.resolve(options.dir)).imports;            
+          }
+          else {
+            const external = {};
+            options.external.split(' ').forEach(pair => {
+              const aliasIndex = pair.indexOf('=');
+              if (aliasIndex !== -1) {
+                const externalName = pair.substr(0, aliasIndex);
+                const aliasName = pair.substr(aliasIndex + 1);
+                external[externalName] = aliasName;
+              }
+              else {
+                external[pair] = true;
+              }
+            });
+            if (Object.keys(external).length === 0)
+              throw new JspmUserError(`${bold('jspm build --external')} requires an argument for externals.`);
+            options.external = external;
+          }
+        }
+        if (options.excludeDeps) {
+          options.external = options.external || {};
+          project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+          for (const dep in project.config.pjson.dependencies) {
+            const depType = project.config.pjson.dependencies[dep].type;
+            if (typeof depType === 'number' && depType !== DepType.dev) {
+              options.external[dep] = true;
             }
-            else {
-              external[pair] = true;
-            }
-          });
-          // TODO: aliasing
-          options.external = Object.keys(external);
+          }
         }
         options.log = true;
-        options.out = options.out || 'dist';
-        await api.build(buildArgs, options);
+        // -o with no arguments hides log due to using stdout
+        if ('out' in options && !options.out && !options.showGraph)
+          options.log = false;
+        if (options.out)
+          options.mapBase = path.dirname(path.resolve(options.out));
+        let outMap = await api.build(buildArgs, options);
+
+        if (inputMap)
+          outMap = extend(inputMap, outMap);
+
+        if (options.flatScope)
+          flattenScopes(outMap);
+
+        const output = await serializeJson(outMap, style || defaultStyle);
+
+        if ('out' in options) {
+          if (options.out)
+            fs.writeFileSync(path.resolve(options.out), output);
+          else
+            process.stdout.write(output);
+        }
       }
       break;
 

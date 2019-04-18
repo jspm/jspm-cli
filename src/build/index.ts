@@ -21,8 +21,9 @@ import { ModuleFormat } from 'rollup';
 import { bold, winSepRegEx, highlight } from '../utils/common';
 import path = require('path');
 import { ok, info, warn } from '../utils/ui';
-import { utils, sync as resolveSync } from '@jspm/resolve';
+import { utils, fs as jspmResolveFs } from '@jspm/resolve';
 import process = require('process');
+import { ImportMap } from '../map';
 
 export interface BuildOptions {
   log: boolean;
@@ -33,22 +34,31 @@ export interface BuildOptions {
   // minify: boolean;
   sourcemap?: boolean;
   mjs?: boolean;
-  out?: 'string';
-  format?: 'esm' | 'cjs' | 'amd' | 'system' | 'iife' | 'umd';
+  dir?: string;
+  format?: 'esm' | 'module' | 'cjs' | 'commonjs' | 'amd' | 'system' | 'iife' | 'umd';
   external?: string[];
   globals?: { [id: string]: string };
   banner?: string;
   showGraph?: boolean;
   watch?: boolean;
   target?: boolean | string[];
-  inlineDeps?: boolean;
+  hashEntries?: boolean;
+  mapBase?: string;
 }
 
-export async function build (input: string[] | Record<string,string>, opts: BuildOptions) {
+export async function build (input: string[] | Record<string,string>, opts: BuildOptions): Promise<ImportMap> {
+  // esm / cjs as internal default while not yet widely used in Rollup ecosystem
   if (!opts.format)
     opts.format = 'esm';
+  if (opts.format === 'module')
+    opts.format = 'esm';
+  if (opts.format === 'commonjs')
+    opts.format = 'cjs';
 
   let ext = opts.mjs ? '.mjs' : '.js';
+
+  if (opts.dir && opts.dir.endsWith('/'))
+    opts.dir = opts.dir.slice(0, -1);
 
   let inputObj;
   if (input instanceof Array === false) {
@@ -64,7 +74,8 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       if (opts.format === 'esm' && 'mjs' in opts === false && module.endsWith('.mjs'))
         ext = '.mjs';
       let basename = path.basename(module);
-      basename = basename.substr(0, basename.lastIndexOf('.'));
+      if (basename.indexOf('.') !== -1)
+        basename = basename.substr(0, basename.lastIndexOf('.'));
       let inputName = basename;
       let i = 0;
       while (inputName in inputObj)
@@ -75,10 +86,10 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   // use .mjs if the output package boundary requires
   if (opts.format === 'esm' && 'mjs' in opts === false && ext !== '.mjs') {
-    const outdir = path.resolve(opts.out);
-    const boundary = utils.getPackageBoundarySync(outdir + '/');
+    const outdir = path.resolve(opts.dir);
+    const boundary = utils.getPackageBoundarySync.call(jspmResolveFs, outdir + '/');
     if (boundary) {
-      const pjson = utils.readPackageConfigSync(boundary);
+      const pjson = utils.readPackageConfigSync.call(jspmResolveFs, boundary);
       if (pjson.type !== 'module') {
         let pjsonPath = path.relative(process.cwd(), boundary + '/package.json');
         if (!pjsonPath.startsWith('..' + path.sep))
@@ -91,13 +102,11 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   const rollupOptions: any = {
     input: inputObj,
-    dir: opts.out,
-    external: opts.external,
+    dir: opts.dir,
     onwarn: () => {},
     sourcemap: opts.sourcemap,
     plugins: [jspmRollup({
       projectPath: opts.projectPath || process.cwd(),
-      inlineDeps: !!opts.inlineDeps,
       externals: opts.external,
       env: opts.env
     })]
@@ -105,8 +114,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   if (opts.watch) {
     rollupOptions.output = {
-      exports: 'named',
-      dir: opts.out,
+      dir: opts.dir,
       format: <ModuleFormat>opts.format,
       sourcemap: opts.sourcemap,
       indent: true,
@@ -120,7 +128,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       else if (event.code === 'BUNDLE_START')
         info(`Rebuilding...`);
       else if (event.code === 'BUNDLE_END')
-        ok(`Built into ${bold(opts.out)}`);
+        ok(`Built into ${bold(opts.dir)}`);
     });
     // pause indefinitely
     await new Promise((_resolve, _reject) => {});
@@ -128,21 +136,20 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   const build = await rollup.rollup(rollupOptions);
   if (opts.clearDir) {
-    rimraf.sync(opts.out);
-    mkdirp.sync(opts.out);
+    rimraf.sync(opts.dir);
+    mkdirp.sync(opts.dir);
   }
   const { output } = await build.write({
-    entryFileNames: '[name]' + ext,
+    entryFileNames: '[name]' + (opts.hashEntries ? '-[hash]' : '') + ext,
     chunkFileNames: 'chunk-[hash]' + ext,
-    exports: 'named',
-    dir: opts.out,
+    dir: opts.dir,
     format: <ModuleFormat>opts.format,
     sourcemap: opts.sourcemap,
     indent: true,
     banner: opts.banner
   });
   if (opts.log)
-    ok(`Built into ${highlight(opts.out + '/')}`);
+    ok(`Built into ${highlight(opts.dir + '/')}`);
 
   if (opts.showGraph && opts.log) {
     console.log('');
@@ -150,7 +157,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     for (const chunk of output) {
       const entry = <rollup.OutputChunk>chunk;
       const deps = entry.imports;
-      console.log(`${bold(name)}${deps.length ? ' imports ' : ''}${deps.sort().join(', ')}:`);
+      console.log(`${bold(entry.name)}${deps.length ? ' imports ' : ''}${deps.sort().join(', ')}:`);
 
       const modules = Object.keys(entry.modules).sort((m1, m2) => m1 > m2 ? 1 : -1);
       for (let module of modules) {
@@ -159,4 +166,15 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       console.log('');
     }
   }
+
+  const imports = Object.create(null);
+  const mapBase = opts.mapBase || process.cwd();
+  for (const [index, key] of Object.keys(inputObj).entries()) {
+    const resolvedFile = path.resolve(opts.dir, output[index].fileName);
+    let relMap = path.relative(mapBase, resolvedFile).replace(/\\/g, '/');
+    if (!relMap.startsWith('../'))
+      relMap = './' + relMap;
+    imports[inputObj[key]] = relMap;
+  }
+  return { imports };
 }

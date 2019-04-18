@@ -199,6 +199,7 @@ ${source};
             relPath = './' + filePath.substr(filePath.lastIndexOf('/') + 1);
           else if (!relPath.startsWith('../'))
             relPath = './' + relPath;
+          relPath = toDew(relPath);
           requires.add(relPath);
           return relPath;
         });

@@ -83,6 +83,18 @@ export function underline (str: string): string {
   return chalk.underline(str);
 }
 
+export function isURL (str: string, absolute = false) {
+  if (absolute && str.startsWith('/'))
+    return true;
+  try {
+    new URL(str);
+  }
+  catch (e) {
+    return false;
+  }
+  return true;
+}
+
 export interface RetryOptions {
   retries?: number,
   factor?: number,

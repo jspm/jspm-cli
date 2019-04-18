@@ -48,20 +48,7 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
     }
   }
 
-  // de-sugar any coupled single-letter flags
-  // -abc -> -a -b -c
-  const args = [];
   inArgs.forEach(arg => {
-    if (arg[0] === '-' && arg.length > 1 && arg[1] !== '-') {
-      for (let i = 1; i < arg.length; i++)
-        args.push('-' + arg[i]);
-    }
-    else {
-      args.push(arg);
-    }
-  });
-
-  args.forEach(arg => {
     let flag;
     // option flag -> suck up args
     if (flag = getFlagMatch(arg, optFlagsGreedy)) {
@@ -70,16 +57,58 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
       options.options[dashedToCamelCase(curOptionFlag)] = [];
     }
     else if (flag = getFlagMatch(arg, optFlags)) {
-      curOptionFlag = flag;
       curOptionFlagGreedy = false;
-      options.options[dashedToCamelCase(curOptionFlag)] = [];
+      let opts = options.options[dashedToCamelCase(flag)] = [];
+      if (arg.length > 2) {
+        opts.push(arg.substr(2));
+        curOptionFlag = undefined;
+      }
+      else {
+        curOptionFlag = flag;
+      }
     }
-    // normal boolean flag
-    else if (flag = getFlagMatch(arg, boolFlags)) {
+    // single boolean flag
+    else if (arg.startsWith('--') && (flag = getFlagMatch(arg, boolFlags))) {
+      curOptionFlag = undefined;
+      curOptionFlagGreedy = false;
       options.options[dashedToCamelCase(flag)] = true;
     }
-    // value argument
     else {
+      // boolean flag, possibly multiple (-asdf)
+      if (arg[0] === '-' && arg.length > 1 && arg[1] !== '-') {
+        let valid = true;
+        let boolOpts = {};
+        for (let i = 1; i < arg.length; i++) {
+          if (flag = getFlagMatch('-' + arg[i], optFlagsGreedy)) {
+            if (flag !== getFlagMatch('-' + arg[i], boolFlags)) {
+              valid = false;
+              break;
+            }
+            options.options[dashedToCamelCase(flag)] = true;
+          }
+          else if (flag = getFlagMatch('-' + arg[i], optFlags)) {
+            if (flag !== getFlagMatch('-' + arg[i], boolFlags)) {
+              valid = false;
+              break;
+            }
+            options.options[dashedToCamelCase(flag)] = '';
+          }
+          // boolean flag
+          else if (flag = getFlagMatch('-' + arg[i], boolFlags)) {
+            valid = true;
+            options.options[dashedToCamelCase(flag)] = true;
+          }
+          else {
+            valid = false;
+          }
+        }
+        if (valid) {
+          Object.assign(options.options, boolOpts);
+          return;
+        }
+      }
+
+      // value argument
       if (curOptionFlag) {
         options.options[dashedToCamelCase(curOptionFlag)].push(arg);
         if (!curOptionFlagGreedy)
