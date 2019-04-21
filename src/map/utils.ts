@@ -16,7 +16,6 @@
 import { ImportMap } from ".";
 import path = require('path');
 import { alphabetize, JspmUserError, bold, hasProperties, isURL } from "../utils/common";
-import { isNullOrUndefined } from "util";
 export { parseImportMap, resolveImportMap, resolveIfNotPlainOrUrl } from './common';
 
 export function extend (importMap: ImportMap, extendMap: ImportMap) {
@@ -60,7 +59,9 @@ export function getImportMatch (path, matchObj) {
   } while ((sepIndex = path.lastIndexOf('/', sepIndex - 1)) !== -1)
 }
 
-export function rebaseMap (map: ImportMap, fromPath: string, toPath: string) {
+export function rebaseMap (map: ImportMap, fromPath: string, toPath: string, absolute = false) {
+  const prefix = absolute ? '/' : './';
+
   fromPath = fromPath.replace(/\\/g, '/');
   toPath = toPath.replace(/\\/g, '/');
   const newMap: ImportMap = {};
@@ -70,9 +71,10 @@ export function rebaseMap (map: ImportMap, fromPath: string, toPath: string) {
     for (const pkgName of Object.keys(map.imports)) {
       const pkg = map.imports[pkgName];
       let rebased = isURL(pkg, true) ? pkg : path.relative(toPath, path.resolve(fromPath, pkg)).replace(/\\/g, '/');
-      console.log(rebased);
       if (!rebased.startsWith('../'))
-        rebased = './' + rebased;
+        rebased = prefix + rebased;
+      else if (absolute)
+        throw new JspmUserError(`Unable to reference mapping ${pkgName} at ${rebased}. The base for the import map must a higher path than its mappings.`);
       imports[pkgName] = rebased;
     }
   }
@@ -86,15 +88,21 @@ export function rebaseMap (map: ImportMap, fromPath: string, toPath: string) {
         newMap.scopes[scopeName] = Object.assign(newScope, scope);
       }
       else {
-        const resolvedScope = path.relative(toPath, path.resolve(fromPath, scopeName)).replace(/\\/g, '/') + '/';
+        const resolvedScope = path.resolve(fromPath, scopeName);
+        let rebasedScope = path.relative(toPath, resolvedScope).replace(/\\/g, '/') + '/';
         for (const pkgName of Object.keys(scope)) {
           const pkg = scope[pkgName];
-          let rebased = isURL(pkg, true) ? pkg : path.relative(toPath, path.resolve(fromPath, pkg)).replace(/\\/g, '/');
+          let rebased = isURL(pkg, true) ? pkg : path.relative(resolvedScope, path.resolve(resolvedScope, pkg)).replace(/\\/g, '/');
           if (!rebased.startsWith('../'))
             rebased = './' + rebased;
           newScope[pkgName] = rebased;
         }
-        newMap.scopes[resolvedScope] = newScope;
+        if (absolute) {
+          if (rebasedScope.startsWith('../'))
+            throw new JspmUserError(`Unable to reference scope ${scopeName} at ${newScope}. The base for the import map must a higher path than its mappings.`);
+          rebasedScope = prefix + rebasedScope;
+        }
+        newMap.scopes[rebasedScope] = newScope;
       }
     }
   }

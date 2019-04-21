@@ -163,6 +163,8 @@ ${/*jspm trace --format graph|text|csv|json (TODO)     Different output formats 
 ${bold('🔗  Import Maps')}
   jspm map -o importmap.json       Generates an import map for all dependencies
   jspm map <module>+               Generate a import map for specific modules
+    --flat-scope                   Flatten scopes for Chrome compatibility
+    --map-base                     Output absolute paths relative to map base
     --production                   Use production resolutions
     --cdn                          Generate a import map against the jspm CDN
 
@@ -294,7 +296,7 @@ ${bold('Command Flags')}
       case 'm':
       case 'map': {
         let options;
-        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'cdn', 'flat-scope', 'node'], ['out', 'in', 'jspmPackages']));
+        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'cdn', 'flat-scope', 'node'], ['out', 'in', 'jspmPackages', 'map-base']));
 
         if (options.node)
           throw new JspmUserError(`${bold('jspm map')} currently only supports generating package maps for the browser.`);
@@ -314,9 +316,8 @@ ${bold('Command Flags')}
         else if (options.flatScope)
           flattenScopes(map);
 
-        if (options.cdn && !options.jspmPackages) {
+        if (options.cdn && !options.jspmPackages)
           options.jspmPackages = options.production ? 'https://cdn.jspm.io' : 'https://dev-cdn.jspm.io';
-        }
 
         const jspmPackagesURL = options.jspmPackages ? options.jspmPackages : options.out ?  path.relative(path.dirname(path.resolve(options.out)), path.resolve(projectPath, 'jspm_packages')).replace(/\\/g, '/') : 'jspm_packages';
         if (jspmPackagesURL !== 'jspm_packages')
@@ -325,6 +326,9 @@ ${bold('Command Flags')}
         // we dont want input map items filtered so always add them back
         if (inputMap)
           extend(map, inputMap);
+
+        if (options.mapBase)
+          map = rebaseMap(map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), path.resolve(options.mapBase), true);
 
         const output = await serializeJson(map, style);
         if (options.out)
@@ -512,7 +516,7 @@ ${bold('Command Flags')}
           'hash-entries',
           'out' // out can also be boolean
           // TODO: minify
-        ], ['dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
+        ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
         if (options.node)
           (options.env = options.env || {}).node = true;
         if (options.bin)
@@ -589,12 +593,21 @@ ${bold('Command Flags')}
           }
         }
         options.log = true;
+        let absoluteMap = false;
         // -o with no arguments hides log due to using stdout
         if ('out' in options && !options.out && !options.showGraph)
           options.log = false;
-        if (options.out)
+        if (options.mapBase) {
+          options.mapBase = path.resolve(options.mapBase);
+          absoluteMap = true;
+        }
+        else if (options.out) {
           options.mapBase = path.dirname(path.resolve(options.out));
+        }
         let outMap = await api.build(buildArgs, options);
+
+        if (absoluteMap)
+          outMap = rebaseMap(outMap, options.mapBase, options.mapBase, true);
 
         if (inputMap)
           outMap = extend(inputMap, outMap);

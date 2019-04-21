@@ -59,7 +59,7 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
     else if (flag = getFlagMatch(arg, optFlags)) {
       curOptionFlagGreedy = false;
       let opts = options.options[dashedToCamelCase(flag)] = [];
-      if (arg.length > 2) {
+      if (arg.length > 2 && arg[1] !== '-') {
         opts.push(arg.substr(2));
         curOptionFlag = undefined;
       }
@@ -69,6 +69,7 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
     }
     // single boolean flag
     else if (arg.startsWith('--') && (flag = getFlagMatch(arg, boolFlags))) {
+      console.log(flag);
       curOptionFlag = undefined;
       curOptionFlagGreedy = false;
       options.options[dashedToCamelCase(flag)] = true;

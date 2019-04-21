@@ -231,6 +231,7 @@ function cdnReplace (path) {
 }
 
 export function renormalizeMap (map: ImportMap, jspmPackagesURL: string, cdn: boolean) {
+  // TODO: map base support here
   if (jspmPackagesURL.endsWith('/'))
     jspmPackagesURL = jspmPackagesURL.substr(0, jspmPackagesURL.length - 1);
   const newMap: ImportMap = {};
