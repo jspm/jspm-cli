@@ -242,7 +242,7 @@ ${bold('Command Flags')}
             }
             // jspm bin x -> run exec path
             else {
-              const ps = spawn(execPath, args, { stdio: 'inherit' });
+              const ps = spawn(execPath, args.slice(1), { stdio: 'inherit' });
               const exitCode = await new Promise<number>((resolve, reject) => {
                 ps.on('exit', code => resolve(code));
                 ps.on('error', err => reject(err));
