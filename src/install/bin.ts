@@ -109,6 +109,7 @@ function isCygwin () {
   if (typeof _isCygwin === 'boolean')
     return _isCygwin;
   try {
+    console.log(require('child_process').execSync('uname -s', { stdio: 'none' }));
     if (require('child_process').execSync('uname -s', { stdio: 'none' }).toString().match(/^(CYGWIN|MINGW32|MINGW64)/))
       return _isCygwin = true;
   }

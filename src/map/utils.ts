@@ -15,8 +15,21 @@
  */
 import { ImportMap } from ".";
 import path = require('path');
-import { alphabetize, JspmUserError, bold, hasProperties, isURL } from "../utils/common";
+import { alphabetize, JspmUserError, bold, hasProperties, isURL, isWindows } from "../utils/common";
 export { parseImportMap, resolveImportMap, resolveIfNotPlainOrUrl } from './common';
+
+export function getPackageBase (url: string, jspmProjectPath: string) {
+  const resolvedPath = url.substr(isWindows ? 8 : 7).replace(/\//g, path.sep);
+  if (!resolvedPath.startsWith(jspmProjectPath + path.sep))
+    return;
+  if (!resolvedPath.slice(jspmProjectPath.length).startsWith('/jspm_packages/'))
+    return jspmProjectPath;
+  const pkg = resolvedPath.slice(resolvedPath.indexOf(path.sep, jspmProjectPath.length + 16) + 1);
+  if (pkg[0] === '@')
+    return pkg.substr(0, pkg.indexOf('/', pkg.indexOf('/') + 1));
+  else
+    return pkg.substr(0, pkg.indexOf('/'));
+}
 
 export function extend (importMap: ImportMap, extendMap: ImportMap) {
   if (extendMap.imports) {

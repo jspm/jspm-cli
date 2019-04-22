@@ -158,7 +158,8 @@ ${bold('🔎  Inspect')}
   jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
     --browser|bin                  Resolve a module name in a conditional env
     --relative                     Output the path relative to the current cwd
-  jspm trace <module>              Trace a module graph
+  jspm trace <module>+             Trace a module graph
+  jspm trace --deps <module>+      Trace the dependencies of modules
 ${/*jspm trace --format graph|text|csv|json (TODO)     Different output formats for trace*/''}
 ${bold('🔗  Import Maps')}
   jspm map -o importmap.json       Generates an import map for all dependencies
@@ -274,7 +275,7 @@ ${bold('Command Flags')}
       case 't':
       case 'trace': {
         let options;
-        ({ args, options } = readOptions(args, ['bin', 'react-native', 'production', 'electron', 'node'], ['out', 'in']));
+        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps'], ['out', 'in']));
 
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         const map = await api.map(project, options);
@@ -282,7 +283,20 @@ ${bold('Command Flags')}
         if (!args.length)
           throw new JspmUserError('Trace requires a list of module names to trace.');
 
-        const traced = await api.trace(project, map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), args);
+        const traced = await api.trace(project, map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), args, options.deps);
+
+        if (options.deps) {
+          const deps = new Set();
+          for (const map of Object.values(traced)) {
+            for (const dep of Object.keys(map)) {
+              if (map[dep] in traced === false)
+                deps.add(dep);
+            }
+          }
+          for (const dep of deps)
+            console.log(dep);
+          return;
+        }
 
         const output = await serializeJson(traced, defaultStyle);
 

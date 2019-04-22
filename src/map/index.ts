@@ -17,7 +17,7 @@ import { Project } from "../project";
 import path = require('path');
 import { DepType, serializePackageName } from "../install/package";
 import { readJSON, highlight, JspmUserError, isWindows, bold } from "../utils/common";
-import { clean, parseImportMap, resolveImportMap, getScopeMatch, getImportMatch, flattenScopes } from "./utils";
+import { clean, parseImportMap, resolveImportMap, getScopeMatch, getImportMatch, flattenScopes, getPackageBase } from "./utils";
 const { builtins, applyMap } = require('@jspm/resolve');
 import { URL } from 'url';
 import { resolveIfNotPlainOrUrl } from "./common";
@@ -311,7 +311,7 @@ class MapResolver {
     this.mapResolve = (specifier, parent) => resolveImportMap(specifier, parent, parsed);
   }
 
-  async resolveAll (id: string, parentUrl: string, seen?: Record<string, boolean>) {
+  async resolveAll (id: string, parentUrl: string, excludeDeps = false, seen?: Record<string, boolean>) {
     let toplevel = false;
     if (seen === undefined) {
       toplevel = true;
@@ -319,6 +319,13 @@ class MapResolver {
     }
 
     const resolved = this.resolve(id, parentUrl, toplevel);
+
+    if (excludeDeps) {
+      const parentBoundary = getPackageBase(parentUrl, this.project.projectPath);
+      const resolvedBoundary = getPackageBase(resolved, this.project.projectPath);
+      if (!resolvedBoundary || resolvedBoundary !== parentBoundary)
+        return resolved;
+    }
 
     if (seen[resolved])
       return resolved;
@@ -332,7 +339,7 @@ class MapResolver {
       throw new JspmUserError(`Loading ${highlight(id)} from ${bold(decodeURI(parentUrl.substr(7 + +isWindows).replace(/\//g, path.sep)))}`, err.code, err);
     }
     
-    const resolvedDeps = await Promise.all(deps.map(dep => this.resolveAll(dep, resolved, seen)));
+    const resolvedDeps = await Promise.all(deps.map(dep => this.resolveAll(dep, resolved, excludeDeps, seen)));
 
     if (deps.length) {
       const trace = this.trace[resolved] = Object.create(null);
@@ -421,14 +428,14 @@ export async function filterMap (project: Project, map: ImportMap, modules: stri
   return mapResolve.usedMap;
 }
 
-export async function trace (project: Project, map: ImportMap, baseDir: string, modules: string[]): Promise<Record<string, Record<string, string>>> {
+export async function trace (project: Project, map: ImportMap, baseDir: string, modules: string[], excludeDeps = false): Promise<Record<string, Record<string, string>>> {
   const mapResolve = new MapResolver(project, map);
   let baseURL = new URL('file:' + baseDir).href;
   if (baseURL[baseURL.length - 1] !== '/')
     baseURL += '/';
 
   for (const module of modules)
-    await mapResolve.resolveAll(module, baseURL);
+    await mapResolve.resolveAll(module, baseURL, excludeDeps);
 
   return mapResolve.trace;
 }
