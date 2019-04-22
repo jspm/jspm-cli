@@ -15,6 +15,7 @@
  */
 import * as rollup from 'rollup';
 import jspmRollup = require('rollup-plugin-jspm');
+import terserPlugin = require('rollup-plugin-terser');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { ModuleFormat } from 'rollup';
@@ -31,8 +32,8 @@ export interface BuildOptions {
   clearDir?: boolean;
   env?: any;
   buildDeps?: boolean;
-  // minify: boolean;
-  sourcemap?: boolean;
+  minify: boolean;
+  sourceMap?: boolean;
   mjs?: boolean;
   dir?: string;
   format?: 'esm' | 'module' | 'cjs' | 'commonjs' | 'amd' | 'system' | 'iife' | 'umd';
@@ -104,7 +105,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     input: inputObj,
     dir: opts.dir,
     onwarn: () => {},
-    sourcemap: opts.sourcemap,
+    sourcemap: opts.sourceMap,
     plugins: [jspmRollup({
       projectPath: opts.projectPath || process.cwd(),
       externals: opts.external,
@@ -112,11 +113,17 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     })]
   };
 
+  if (opts.minify) {
+    rollupOptions.plugins.push(terserPlugin.terser({
+      sourcemap: opts.sourceMap
+    }));
+  }
+
   if (opts.watch) {
     rollupOptions.output = {
       dir: opts.dir,
       format: <ModuleFormat>opts.format,
-      sourcemap: opts.sourcemap,
+      sourcemap: opts.sourceMap,
       indent: true,
       banner: opts.banner
     };
@@ -144,7 +151,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     chunkFileNames: 'chunk-[hash]' + ext,
     dir: opts.dir,
     format: <ModuleFormat>opts.format,
-    sourcemap: opts.sourcemap,
+    sourcemap: opts.sourceMap,
     indent: true,
     banner: opts.banner
   });

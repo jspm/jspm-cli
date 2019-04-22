@@ -29,6 +29,7 @@
     "rimraf": "^2.6.3",
     "rollup": "^1.8.0",
     "rollup-plugin-jspm": "git+ssh://git@github.com/jspm/rollup-plugin-jspm.git#master",
+    "rollup-plugin-terser": "^4.0.4",
     "semver": "^5.7.0",
     "spdx-license-list": "^6.0.0",
     "sver": "^1.8.2",

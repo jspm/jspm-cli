@@ -150,7 +150,7 @@ ${bold('🏭  Build')}
     --hash-entries                 Use hash file names for the entry points
     --exclude-deps                 Treat project dependencies as externals
     --clear-dir                    Clear the output directory before building
-    --source-maps                  Output source maps
+    --source-map                   Output source maps
     --banner <file>|<source>       Provide a banner for the build files
     --watch                        Watch build files for rebuild on change
 ${/*jspm inspect (TODO)            Inspect the installation constraints of a given dependency */''}
@@ -524,12 +524,12 @@ ${bold('Command Flags')}
           'mjs',
           'node', 'bin', 'react-native', 'production', 'electron',
           'show-graph',
-          'source-maps',
+          'source-map',
           'watch',
           'exclude-deps',
           'hash-entries',
-          'out' // out can also be boolean
-          // TODO: minify
+          'out', // out can also be boolean
+          'minify'
         ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
         if (options.node)
           (options.env = options.env || {}).node = true;
