@@ -10,7 +10,7 @@ Optionally lock down jspm for the project:
 
   ```
     cd my-project
-    npm install jspm --save-dev
+    npm install jspm@0.16x --save-dev
   ```
 
 > It is advisable to locally install to lock the version of jspm. 

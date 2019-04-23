@@ -9,3 +9,4 @@ test/outputs
 coverage
 docs/_book
 docs/book.json
+package-lock.json
