@@ -3,7 +3,6 @@ node_modules
 lib
 sandbox
 package-lock.json
-docs/_book
-docs/book.json
 test/fixtures/install-basic/jspm_packages
 test/fixtures/install-basic/jspm.json
+todo.txt

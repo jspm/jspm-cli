@@ -6,10 +6,10 @@
   "types": "lib/api.d.ts",
   "dependencies": {
     "@babel/core": "^7.4.0",
-    "@jspm/github": "git+ssh://git@github.com/jspm/github.git#2.0",
-    "@jspm/npm": "git+ssh://git@github.com/jspm/npm.git#2.0",
-    "@jspm/resolve": "git+ssh://git@github.com/jspm/jspm-resolve.git#master",
-    "babel-plugin-transform-cjs-dew": "git+ssh://git@github.com/jspm/babel-plugin-transform-cjs-dew.git#master",
+    "@jspm/github": "^1.0.0",
+    "@jspm/npm": "^1.0.0",
+    "@jspm/resolve": "^1.0.0",
+    "babel-plugin-transform-cjs-dew": "^1.0.0",
     "buffer-peek-stream": "^1.0.1",
     "chalk": "^2.4.2",
     "git-credential-node": "^1.1.0",
@@ -28,7 +28,7 @@
     "proper-lockfile": "^2.0.1",
     "rimraf": "^2.6.3",
     "rollup": "^1.8.0",
-    "rollup-plugin-jspm": "git+ssh://git@github.com/jspm/rollup-plugin-jspm.git#master",
+    "rollup-plugin-jspm": "^1.0.0",
     "rollup-plugin-terser": "^4.0.4",
     "semver": "^5.7.0",
     "spdx-license-list": "^6.0.0",
@@ -46,11 +46,7 @@
   },
   "files": [
     "bin",
-    "lib",
-    "LICENSE",
-    "CONTRIBUTORS",
-    "README.md",
-    "docs"
+    "lib"
   ],
   "license": "Apache-2.0",
   "devDependencies": {
