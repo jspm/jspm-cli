@@ -86,6 +86,8 @@ export function rebaseMap (map: ImportMap, fromPath: string, toPath: string, abs
       let rebased = isURL(pkg, true) ? pkg : path.relative(toPath, path.resolve(fromPath, pkg)).replace(/\\/g, '/');
       if (!rebased.startsWith('../'))
         rebased = prefix + rebased;
+      if (pkg.endsWith('/'))
+        rebased += '/';
       else if (absolute)
         throw new JspmUserError(`Unable to reference mapping ${pkgName} at ${rebased}. The base for the import map must a higher path than its mappings.`);
       imports[pkgName] = rebased;
@@ -108,6 +110,8 @@ export function rebaseMap (map: ImportMap, fromPath: string, toPath: string, abs
           let rebased = isURL(pkg, true) ? pkg : path.relative(resolvedScope, path.resolve(resolvedScope, pkg)).replace(/\\/g, '/');
           if (!rebased.startsWith('../'))
             rebased = './' + rebased;
+          if (pkg.endsWith('/'))
+            rebased += '/';
           newScope[pkgName] = rebased;
         }
         if (absolute) {
