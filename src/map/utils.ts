@@ -127,6 +127,8 @@ export function rebaseMap (map: ImportMap, fromPath: string, toPath: string, abs
 }
 
 export function flattenScopes (importMap: ImportMap) {
+  if (!importMap.scopes)
+    return;
   for (const scope of Object.keys(importMap.scopes)) {
     const imports = importMap.scopes[scope];
     for (const pkgName of Object.keys(imports)) {
