@@ -698,7 +698,7 @@ ${bold('Command Flags')}
         try {
           isFile = fs.statSync(cmd).isFile();
         }
-        catch {}
+        catch (e) {}
         if (isFile) {
           const exitCode = await api.exec([cmd, ...args]);
           process.exit(exitCode);
