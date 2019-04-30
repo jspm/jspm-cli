@@ -391,17 +391,16 @@ class MapResolver {
     if (err)
       throw new JspmUserError(`Syntax error analyzing ${bold(filePath)}`, 'ANALYSIS_ERROR');
     const deps = [];
-    const dynamicImportRegEx = /('[^'\\]+'|"[^"\\]+")\)/g;
+    const stringRegEx = /^\s*('[^'\\]+'|"[^"\\]+")\s*$/g;
     for (const { s, e, d } of imports) {
       if (d === -2)
         continue;
       // dynamic import
       if (d !== -1) {
-        const match = source.substr(d).match(dynamicImportRegEx);
+        const importExpression = source.slice(e, d);
         // we don't yet support partial dynamic import traces
-        if (match) {
-          deps.push(match[0].slice(1, match[0].length - 2));
-        }
+        if (importExpression.match(stringRegEx))
+          deps.push(JSON.parse(importExpression));
       }
       else {
         deps.push(source.slice(s, e));

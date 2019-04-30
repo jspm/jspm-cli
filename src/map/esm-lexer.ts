@@ -31,6 +31,7 @@ let i, charCode, str,
   lastTokenIndex,
   lastOpenTokenIndex,
   lastTokenIndexStack,
+  dynamicImportStack,
   braceDepth,
   templateDepth,
   templateStack,
@@ -45,6 +46,7 @@ function baseParse () {
   templateDepth = 0;
   templateStack = [];
   lastTokenIndexStack = [];
+  dynamicImportStack = [];
   i = -1;
 
   /*
@@ -99,7 +101,7 @@ function baseParse () {
         if (!lastTokenCode || isExpressionKeyword(lastTokenIndex) ||
             isExpressionPunctuator(lastTokenCode) ||
             lastTokenCode === 41/*)*/ && isParenKeyword(lastOpenTokenIndex) ||
-            lastTokenCode === 125/*}*/ && isExpressionTerminator(lastOpenTokenIndex))
+            lastTokenCode === 125/*}*/ && isExpressionTerminator(lastOpenTokenIndex)) {
           // TODO: perf improvement
           // it may be possible to precompute isParenKeyword and isExpressionTerminator checks
           // when they are added to the token stack, not here
@@ -108,6 +110,7 @@ function baseParse () {
           // when leaving a brace or paren, this stack would be cleared automatically (if a match)
           // this check then becomes curDepth === regexTokenDepth for the lastTokenCode )|} case
           regularExpression();
+        }
         lastTokenIndex = i;
       }
     }
@@ -123,10 +126,13 @@ function baseParse () {
 function parseNext () {
   switch (charCode) {
     case 123/*{*/:
+      // dynamic import followed by { is not a dynamic import (so remove)
+      // this is a sneaky way to get around { import () {} } v { import () } block / object ambiguity without a parser (assuming source is valid)
+      if (oImports.length && oImports[oImports.length - 1].d === lastTokenIndex)
+        oImports.pop();
       braceDepth++;
     // fallthrough
     case 40/*(*/:
-      
       lastTokenIndexStack.push(lastTokenIndex);
       return;
     
@@ -143,6 +149,12 @@ function parseNext () {
       if (!lastTokenIndexStack)
         syntaxError();
       lastOpenTokenIndex = lastTokenIndexStack.pop();
+      if (dynamicImportStack.length && lastOpenTokenIndex == dynamicImportStack[dynamicImportStack.length - 1]) {
+        let imptIndex = oImports.length;
+        while (oImports[--imptIndex] && oImports[imptIndex].e > lastOpenTokenIndex);
+        imptIndex++;
+        oImports[imptIndex].d = lastTokenIndex + 1;
+      }
       return;
 
     case 39/*'*/:
@@ -166,16 +178,20 @@ function parseNext () {
       switch (charCode) {
         // dynamic import
         case 40/*(*/:
-          // dynamic import indicated by positive d
-          lastTokenIndexStack.push(i + 5);
-          oImports.push({ s: start, e: start + 6, d: i + 1 });
+          lastTokenIndexStack.push(start);
+          if (str.charCodeAt(lastTokenIndex) === 46/*.*/)
+            return;
+          // dynamic import indicated by positive d, which will be set to closing paren index
+          dynamicImportStack.push(start);
+          oImports.push({ s: start, e: i + 1, d: undefined });
           return;
         // import.meta
         case 46/*.*/:
+          charCode = str.charCodeAt(++i);
           commentWhitespace();
           // import.meta indicated by d === -2
-          if (readToWsOrPunctuator(i + 1) === 'meta')
-            oImports.push({ s: start, e: i + 5, d: -2 });
+          if (readToWsOrPunctuator(i) === 'meta' && str.charCodeAt(lastTokenIndex) !== 46/*.*/)
+            oImports.push({ s: start, e: i + 4, d: -2 });
           return;
       }
       // import statement (only permitted at base-level)
@@ -206,13 +222,15 @@ function parseNext () {
         case 102/*f*/:
           charCode = str.charCodeAt(i += 8);
           commentWhitespace();
-          if (charCode === 42/***/)
+          if (charCode === 42/***/) {
+            charCode = str.charCodeAt(++i);
             commentWhitespace();
+          }
           oExports.push(readToWsOrPunctuator(i));
           return;
 
         case 99/*c*/:
-          if (readToWsOrPunctuator(i) === 'class') {
+          if (readToWsOrPunctuator(i + 1) === 'lass') {
             charCode = str.charCodeAt(i += 5);
             commentWhitespace();
             oExports.push(readToWsOrPunctuator(i));
@@ -272,8 +290,10 @@ function parseNext () {
         case 42/***/:
           charCode = str.charCodeAt(++i);
           commentWhitespace();
-          if (str.slice(i, i += 4) === 'from')
+          if (charCode === 102 && str.slice(i + 1, i + 4) === 'rom') {
+            charCode = str.charCodeAt(i += 4);
             readSourceString();
+          }
       }
     }
   }
@@ -437,7 +457,7 @@ export function readPrecedingKeyword (endIndex) {
   while (nextChar && nextChar > 96/*a*/ && nextChar < 123/*z*/)
     nextChar = str.charCodeAt(--startIndex);
   // must be preceded by punctuator or whitespace
-  if (nextChar && !isBrOrWs(nextChar) && !isPunctuator(nextChar))
+  if (nextChar && !isBrOrWs(nextChar) && !isPunctuator(nextChar) || nextChar === 46/*.*/)
     return '';
   return str.slice(startIndex + 1, endIndex + 1);
 }
