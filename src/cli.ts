@@ -104,6 +104,8 @@ export default async function cliHandler (projectPath: string, cmd: string, args
 
     switch (cmd) {
       case undefined:
+      case '-v':
+      case '--version':
       case 'version':
       case 'v':
         // run project checks
