@@ -287,7 +287,7 @@ class MapResolver {
   mapResolve: (id: string, parentUrl: string) => string;
 
   constructor (project: Project, map: ImportMap) {
-    let baseDir = project.projectPath;
+    let baseDir = project.config.pjson.baseURL;
     this.project = project;
     this.imports = map.imports;
 
