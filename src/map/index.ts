@@ -181,7 +181,7 @@ class Mapper {
       return await cached;
     
     return await (this.cachedPackagePaths[pkgName] = (async () => {
-      const pjson = await readJSON(`${this.project.projectPath}/jspm_packages/${pkgName.replace(':', '/')}/package.json`);
+      const pjson = await readJSON(`${this.project.config.pjson.packages}/${pkgName.replace(':', '/')}/package.json`);
 
       if (!pjson)
         throw new JspmUserError(`Package ${highlight(pkgName)} is not installed correctly. Run jspm install.`);
