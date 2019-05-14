@@ -296,14 +296,16 @@ class MapResolver {
       baseDir += '/';
     const baseURL = new URL('file:' + baseDir).href;
 
-    for (const scopeName of Object.keys(map.scopes)) {
-      let resolvedScopeName = resolveIfNotPlainOrUrl(scopeName, baseURL) || scopeName.indexOf(':') !== -1 && scopeName || resolveIfNotPlainOrUrl('./' + scopeName, baseURL);
-      if (resolvedScopeName[resolvedScopeName.length - 1] !== '/')
-        resolvedScopeName += '/';
-      this.scopes[resolvedScopeName] = {
-        originalName: scopeName,
-        imports: map.scopes[scopeName] || {}
-      };
+    if (map.scopes !== undefined) {
+      for (const scopeName of Object.keys(map.scopes)) {
+        let resolvedScopeName = resolveIfNotPlainOrUrl(scopeName, baseURL) || scopeName.indexOf(':') !== -1 && scopeName || resolveIfNotPlainOrUrl('./' + scopeName, baseURL);
+        if (resolvedScopeName[resolvedScopeName.length - 1] !== '/')
+          resolvedScopeName += '/';
+        this.scopes[resolvedScopeName] = {
+          originalName: scopeName,
+          imports: map.scopes[scopeName] || {}
+        };
+      }
     }
     this.trace = Object.create(null);
     this.usedMap = { imports: {}, scopes: {} };
