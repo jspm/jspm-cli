@@ -72,6 +72,9 @@ if [ "$?" != "0" ] || [ -z "$JSPM_PATH" ]; then
   exit 1
 fi
 JSPM_DIR=$(dirname $(dirname $(readlink $JSPM_PATH || $JSPM_PATH)))
+case $JSPM_DIR in /*) ;; *)
+  JSPM_DIR="$(dirname $JSPM_PATH)/$JSPM_DIR"
+esac
 JSPM_LOADER=$JSPM_DIR/node_modules/@jspm/resolve/loader.mjs
 if [ ! -f $JSPM_LOADER ]; then
   echo "jspm loader not found, make sure it is installed."
