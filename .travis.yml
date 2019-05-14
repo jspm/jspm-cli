@@ -4,6 +4,7 @@ sudo: false
 env:
   global:
     - COVERAGE=false
+    - GIT_TERMINAL_PROMPT=0
 matrix:
   include:
     - node_js: '10'
