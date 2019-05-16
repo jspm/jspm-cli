@@ -277,7 +277,7 @@ ${bold('Command Flags')}
       case 't':
       case 'trace': {
         let options;
-        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps'], ['out', 'in']));
+        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps', 'no-relative-deps'], ['out', 'in']));
 
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         const map = await api.map(project, options);
@@ -291,7 +291,7 @@ ${bold('Command Flags')}
           const deps = new Set();
           for (const map of Object.values(traced)) {
             for (const dep of Object.keys(map)) {
-              if (map[dep] in traced === false)
+              if (map[dep] in traced === false && (!options.noRelativeDeps || options.noRelativeDeps && dep.startsWith(".") === false))
                 deps.add(dep);
             }
           }
