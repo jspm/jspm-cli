@@ -176,7 +176,12 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   const imports = Object.create(null);
   const mapBase = opts.mapBase || process.cwd();
-  for (const [index, key] of Object.keys(inputObj).entries()) {
+  
+  // Make sure the rollup output array is in the same order as input array
+  const inputObjKeys = Object.keys(inputObj);
+  output.sort((a, b) => inputObjKeys.indexOf(a.name) - inputObjKeys.indexOf(b.name));
+  
+  for (const [index, key] of inputObjKeys.entries()) {
     const resolvedFile = path.resolve(opts.dir, output[index].fileName);
     let relMap = path.relative(mapBase, resolvedFile).replace(/\\/g, '/');
     if (!relMap.startsWith('../'))
