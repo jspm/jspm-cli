@@ -291,7 +291,7 @@ ${bold('Command Flags')}
           const deps = new Set();
           for (const map of Object.values(traced)) {
             for (const dep of Object.keys(map)) {
-              if (map[dep] in traced === false && !isURL(dep))
+              if (map[dep] in traced === false && !isURL(dep) && !dep.startsWith('./') && !dep.startsWith('../')) 
                 deps.add(dep);
             }
           }
