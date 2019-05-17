@@ -20,6 +20,8 @@ import * as fs from 'graceful-fs';
 import * as dewTransformPlugin from 'babel-plugin-transform-cjs-dew';
 import { relativeResolve, toDew, isESM } from "./dew-resolve";
 
+const throwDewErrors = process.env.THROW_DEW_ERRORS;
+
 const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'optionalCatchBinding', 'objectRestSpread', 'numericSeparator', 'dynamicImport', 'importMeta'];
 
 function tryParseCjs (source) {
@@ -28,6 +30,8 @@ function tryParseCjs (source) {
   const { ast } = babel.transform(source, {
     ast: true,
     babelrc: false,
+    babelrcRoots: false,
+    configFile: false,
     highlightCode: false,
     compact: false,
     sourceType: 'script',
@@ -105,6 +109,8 @@ function tryParseCjs (source) {
 function transformDew (ast, source, resolveMap) {
   const { code: dewTransform } = babel.transformFromAst(ast, source, {
     babelrc: false,
+    babelrcRoots: false,
+    configFile: false,
     highlightCode: false,
     compact: false,
     sourceType: 'script',
@@ -212,6 +218,8 @@ ${source};
     if (err instanceof SyntaxError && err.toString().indexOf('sourceType: "module"') !== -1)
       return { err: true };
     if (filePath.endsWith('.js')) {
+      if (throwDewErrors)
+        throw err;
       try {
         const dewTransform = `export function dew () {\n  throw new Error("Error converting CommonJS file ${JSON.stringify(name + filePath.substr(pkgBasePath.length)).slice(1, -1)}, please post a jspm bug with this message.\\n${JSON.stringify(err.stack || err.toString()).slice(1, -1)}");\n}\n`;
         await new Promise((resolve, reject) => fs.writeFile(dewPath, dewTransform, err => err ? reject(err) : resolve(result)));
@@ -236,6 +244,8 @@ async function createJsonDew (filePath) {
       dewTransform = `export function dew () {\n  return exports;\n}\nvar exports = ${JSON.stringify(parsed)};\n`;
     }
     catch (err) {
+      if (throwDewErrors)
+        throw err;
       dewTransform = `export function dew () {\n  throw new SyntaxError(${JSON.stringify(err.message)});\n}\n`;
     }
 
