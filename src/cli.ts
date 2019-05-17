@@ -19,7 +19,7 @@ import fs = require('fs');
 import path = require('path');
 import process = require('process');
 import * as api from './api';
-import { bold, highlight, JspmUserError, readModuleEnv, isWindows } from './utils/common';
+import { bold, highlight, JspmUserError, readModuleEnv, isWindows, isURL } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
@@ -291,7 +291,7 @@ ${bold('Command Flags')}
           const deps = new Set();
           for (const map of Object.values(traced)) {
             for (const dep of Object.keys(map)) {
-              if (map[dep] in traced === false)
+              if (map[dep] in traced === false && !isURL(dep))
                 deps.add(dep);
             }
           }
