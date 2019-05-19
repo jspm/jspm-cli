@@ -15,7 +15,7 @@ Use `jspm help` to see the full up-to-date list of commands.
 
 If you are interested in contributing to the project, [please read the contributors' guide](https://github.com/jspm/project/blob/master/CONTRIBUTING.md).
 
-For a list of community projects and tools, see the [Integrations Page](https://jspm.org/guide/integrations).
+For a list of community projects and tools, see the [Integrations Page](https://jspm.org/docs/integrations).
 
 ### Documentation
 
