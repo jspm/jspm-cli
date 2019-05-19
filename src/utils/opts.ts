@@ -20,7 +20,7 @@ import { bold, JspmUserError } from './common';
 // optFlags is array of flags that have option values
 // optFlags suck up arguments until next flag
 // returns { options: { [flag]: true / false, ..., [optFlag]: value, ...}, args: [all non-flag args] }
-export function readOptions (inArgs: string[], boolFlags: string[], optFlags: string[] = [], optFlagsGreedy: string[] = [], flagsFirst = false) {
+export function readOptions (inArgs: string[], boolFlags: string[], optFlags: string[] = [], optFlagsGreedy: string[] = []) {
   // output options object
   let options:{
     args: string[],

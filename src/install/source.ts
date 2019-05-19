@@ -102,6 +102,7 @@ async function gitResolve (log: Logger, fetch: FetchClass, source: string, timeo
     }
 
     try {
+      log.debug(`ls-remote ${url}${credentials.basicAuth ? ' (with basic auth)' : ''}`);
       var stdout = await execGit(`ls-remote ${url} HEAD refs/tags/* refs/heads/*`, execOpts);
     }
     catch (err) {
@@ -281,7 +282,7 @@ async function fetchRemoteTarball (log: Logger, fetch: FetchClass, source: strin
     validationPromise,
     // Unpack contents as a tar archive and save to targetDir
     new Promise((resolve, reject) => {
-      stream.pipe(tar.extract(outDir, {
+      stream.pipe(tar.extract(outDir, <any>{
         // all dirs and files should be readable
         dmode: 0o555,
         fmode: 0o444,
@@ -340,7 +341,7 @@ async function extractLocalTarball (log: Logger, _fetch: FetchClass, source: str
     validationPromise,
     // Unpack contents as a tar archive and save to targetDir
     new Promise((resolve, reject) => {
-      extractStream.pipe(tar.extract(outDir, {
+      extractStream.pipe(tar.extract(outDir, <any>{
         // all dirs and files should be readable
         dmode: 0o555,
         fmode: 0o444,

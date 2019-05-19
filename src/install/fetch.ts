@@ -20,7 +20,6 @@ import HttpsProxyAgent from 'https-proxy-agent';
 import { Agent as NodeAgent, AgentOptions } from 'https';
 import { hasProperties, retry, bold } from '../utils/common';
 import { URL, parse as parseURL } from 'url';
-import { HttpsProxyAgentOptions } from './fetch';
 import { globalConfig } from '../config';
 import gitCredentialNode = require('git-credential-node');
 import { Project } from '../project';
@@ -103,7 +102,7 @@ export default class FetchClass {
     this.debugLog = project.log.debug.bind(project.log);
   }
 
-  getCredentials (url: string, method: string, unauthorizedHeaders?: Record<string, string>): Promise<Credentials> {
+  getCredentials (url: string, method?: string, unauthorizedHeaders?: Record<string, string>): Promise<Credentials> {
     this.debugLog(`Getting credentials for ${url}`);
     if (!unauthorizedHeaders)
       for (const urlBase in this.cachedCredentials) {
