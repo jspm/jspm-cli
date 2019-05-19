@@ -102,6 +102,27 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       }
     }
 
+    if (process.env.JSPM_OFFLINE) {
+      offline = true;
+    }
+    if (process.env.JSPM_PREFER_OFFLINE) {
+      preferOffline = true;
+    }
+    if (process.env.JSPM_PROJECT) {
+      setProjectPath = true;
+      projectPath = process.env.JSPM_PROJECT;
+    }
+    if (process.env.JSPM_LOG) {
+      const logLevelString = process.env.JSPM_LOG;
+      const logLevel = ui.LogType[logLevelString];
+      if (typeof logLevel === 'number')
+        ui.setLogLevel(logLevel);
+    }
+    if (process.env.JSPM_SKIP_PROMPTS && process.env.JSPM_SKIP_PROMPTS !== '0' && process.env.JSPM_SKIP_PROMPTS !== 'false') {
+      ui.setUseDefaults(true);
+      userInput = true;
+    }
+
     switch (cmd) {
       case undefined:
       case '-v':
