@@ -5,6 +5,7 @@ env:
   global:
     - COVERAGE=false
     - JSPM_SKIP_PROMPTS=true
+    - JSPM_LOG=debug
 matrix:
   include:
     - node_js: '10'
