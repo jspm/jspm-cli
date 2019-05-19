@@ -15,7 +15,6 @@
  */
 import fs = require('fs');
 import path = require('path');
-import os = require('os');
 import { isWindows } from '../utils/common';
 
 export async function writeBinScripts (binDir: string, name: string, binModulePath: string) {

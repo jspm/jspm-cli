@@ -210,9 +210,13 @@ ${bold('Command Flags')}
       case 'b':
       case 'bin': {
         let options;
-        ({ args, options } = readOptions(args, ['path', 'cmd']));
-        if (options.path && options.cmd)
-          throw new JspmUserError(`--path is incompatible with --cmd in ${bold('jspm bin')} command.`);
+        if (args[0] === '--path' || args[0] === '--cmd' || args[0] === '-pc' || args[0] === '-cp') {
+          ({ options } = readOptions([args[0]], ['path', 'cmd']));
+          args = args.slice(1);
+        }
+        else {
+          options = {};
+        }
         const binPath = path.join(projectPath, 'jspm_packages', '.bin');
         if (options.path) {
           if (args.length)
@@ -233,13 +237,13 @@ ${bold('Command Flags')}
             }
           }
           else {
-            if (args.length > 1)
-              throw new JspmUserError(`${bold('jspm bin')} only supports a single script name.`);
             let execPath = path.join(binPath, args[0]);
             if (isWindows)
               execPath += '.cmd';
             // jspm bin --cmd x -> display exec path
             if (options.cmd) {
+              if (args.length > 1)
+                throw new JspmUserError(`${bold('jspm bin --cmd')} only supports a single script name.`);
               console.log(execPath);
             }
             // jspm bin x -> run exec path
