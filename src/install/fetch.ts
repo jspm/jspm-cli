@@ -178,14 +178,15 @@ export default class FetchClass {
       }
     
       // and then finally using auth directly from git
-      const data = await gitCredentialNode.fill(urlObj.origin);
-      if (data) {
-        this.project.log.debug(`Credentials for ${urlBase} provided by git credential manager.`);
-        credentials.basicAuth = data;
+      try {
+        const data = await gitCredentialNode.fill(urlObj.origin);
+        if (data) {
+          this.project.log.debug(`Credentials for ${urlBase} provided by git credential manager.`);
+          credentials.basicAuth = data;
+        }
       }
-      else {
-        this.project.log.debug(`No credentials details found for ${urlBase}.`);
-      }
+      catch (e) {}
+      this.project.log.debug(`No credentials details found for ${urlBase}.`);
 
       return credentials;
     })();
