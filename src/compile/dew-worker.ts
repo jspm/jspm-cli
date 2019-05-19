@@ -20,7 +20,7 @@ import * as fs from 'graceful-fs';
 import * as dewTransformPlugin from 'babel-plugin-transform-cjs-dew';
 import { relativeResolve, toDew, isESM } from "./dew-resolve";
 
-const throwDewErrors = process.env.THROW_DEW_ERRORS;
+const throwDewErrors = false; // process.env.JSPM_THROW_DEW_ERRORS;
 
 const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'optionalCatchBinding', 'objectRestSpread', 'numericSeparator', 'dynamicImport', 'importMeta'];
 
