@@ -711,7 +711,7 @@ ${bold('Command Flags')}
           return;
         }
 
-        throw new JspmUserError(`Command or file ${bold(cmd)} does not exist.`);
+        throw new JspmUserError(`Command or file ${bold([cmd, ...args].join(' '))} does not exist.`);
     }
   }
   catch (err) {
