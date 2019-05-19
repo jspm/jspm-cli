@@ -77,16 +77,16 @@ const format = {
     return moduleMsg(msg + (opt ? ' [' + opt + ']' : '') + ': ');
   },
   [LogType.err] (msg: string) {
-    return chalk.red.bold('err (jspm) ') + moduleMsg(msg, false, false);
+    return chalk.red.bold('err ') + '(jspm) ' + moduleMsg(msg, false, false);
   },
   [LogType.info] (msg: string) {
     return '     ' + moduleMsg(msg, true);
   },
   [LogType.warn] (msg: string) {
-    return chalk.yellow.bold('warn (jspm) ') + moduleMsg(msg, true);
+    return chalk.yellow.bold('warn ') + '(jspm) ' + moduleMsg(msg, true);
   },
   [LogType.ok] (msg: string) {
-    return chalk.green.bold('ok (jspm) ') + moduleMsg(msg, true);
+    return chalk.green.bold('ok ') + moduleMsg(msg, true);
   },
   [LogType.debug] (msg: string) {
     return moduleMsg(msg, true);

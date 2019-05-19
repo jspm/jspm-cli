@@ -16,7 +16,7 @@
 import { Project } from "../project";
 import path = require('path');
 import { DepType, serializePackageName } from "../install/package";
-import { readJSON, highlight, JspmUserError, isWindows, bold } from "../utils/common";
+import { readJSON, highlight, JspmUserError, isWindows, bold, isURL } from "../utils/common";
 import { clean, parseImportMap, resolveImportMap, getScopeMatch, getImportMatch, flattenScopes, getPackageBase } from "./utils";
 const { builtins, applyMap } = require('@jspm/resolve');
 import { URL } from 'url';
@@ -320,9 +320,17 @@ class MapResolver {
       seen = Object.create(null);
     }
 
-    const resolved = this.resolve(id, parentUrl, toplevel);
+    let resolved;
+    try {
+      resolved = this.resolve(id, parentUrl, toplevel);
+    }
+    catch (e) {
+      if (excludeDeps && (isURL(id) || !id.startsWith('./') && !id.startsWith('../')))
+        return '@external';
+      throw e;
+    }
 
-    if (excludeDeps) {
+    if (excludeDeps && !toplevel) {
       const parentBoundary = getPackageBase(parentUrl, this.project.projectPath);
       const resolvedBoundary = getPackageBase(resolved, this.project.projectPath);
       if (!resolvedBoundary || resolvedBoundary !== parentBoundary)
@@ -393,16 +401,17 @@ class MapResolver {
     if (err)
       throw new JspmUserError(`Syntax error analyzing ${bold(filePath)}`, 'ANALYSIS_ERROR');
     const deps = [];
-    const stringRegEx = /^\s*('[^'\\]+'|"[^"\\]+")\s*$/g;
+    const stringRegEx = /^\s*('[^"'\\]+'|"[^'"\\]+")\s*$/g;
     for (const { s, e, d } of imports) {
       if (d === -2)
         continue;
       // dynamic import
       if (d !== -1) {
-        const importExpression = source.slice(e, d);
+        let importExpression = source.slice(e, d);
         // we don't yet support partial dynamic import traces
-        if (importExpression.match(stringRegEx))
-          deps.push(JSON.parse(importExpression));
+        if (importExpression.match(stringRegEx)) {
+          deps.push(JSON.parse('"' + importExpression.slice(1, -1) + '"'));
+        }
       }
       else {
         deps.push(source.slice(s, e));

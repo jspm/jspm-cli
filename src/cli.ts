@@ -281,15 +281,17 @@ ${bold('Command Flags')}
       case 't':
       case 'trace': {
         let options;
-        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps'], ['out', 'in']));
+        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps', 'exclude-deps'], ['out']));
 
         project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        const map = await api.map(project, options);
+
+        // NB: local map should be included in this in the exclude case still
+        const map = (options.excludeDeps || options.deps) ? {} : await api.map(project, options);
 
         if (!args.length)
           throw new JspmUserError('Trace requires a list of module names to trace.');
 
-        const traced = await api.trace(project, map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), args, options.deps);
+        const traced = await api.trace(project, map, process.cwd(), args, options.excludeDeps || options.deps);
 
         if (options.deps) {
           const deps = new Set();
