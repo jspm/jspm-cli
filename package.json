@@ -6,7 +6,7 @@
   "types": "lib/api.d.ts",
   "dependencies": {
     "@babel/core": "^7.4.0",
-    "@jspm/github": "^1.0.1",
+    "@jspm/github": "^1.0.2",
     "@jspm/npm": "^1.0.1",
     "@jspm/resolve": "^1.0.0",
     "babel-plugin-transform-cjs-dew": "^1.0.0",
