@@ -181,13 +181,15 @@ export default class FetchClass {
         const data = await gitCredentialNode.fill(urlObj.origin);
         if (data) {
           this.project.log.debug(`Credentials for ${urlBase} provided by git credential manager.`);
+          console.log(data);
           credentials.basicAuth = data;
+          return credentials;
         }
       }
-      catch (e) {}
+      catch (e) {
+        this.project.log.debug('Git credentials error: ' + e.toString());
+      }
       this.project.log.debug(`No credentials details found for ${urlBase}.`);
-
-      return credentials;
     })();
   }
 
