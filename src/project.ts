@@ -147,8 +147,6 @@ export class Project {
   checkedGlobalBin: boolean;
 
   constructor (projectPath: string, options: ProjectConfiguration) {
-    if (projectPath === JSPM_GLOBAL_PATH)
-      this.checkGlobalBin();
     this.projectPath = projectPath;
 
     if (!hasGit)
@@ -159,6 +157,9 @@ export class Project {
     // is this running as a CLI or API?
     this.cli = config.cli;
     this.log = this.cli ? new CLILogger() : new APILogger();
+
+    if (projectPath === JSPM_GLOBAL_PATH)
+      this.checkGlobalBin();
 
     // if (process.env.globalJspm === 'true')
     //  this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
