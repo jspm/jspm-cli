@@ -143,6 +143,7 @@ const hashbangRegEx = /#!\s*([^\s]+)\s*([^\s]+)?/;
 const largeHexArrayRegEx = /\[\s*(0x[0-9a-f]+,\s*){100000}/;
 
 async function tryCreateDew (filePath, pkgBasePath, files, main, folderMains, localMaps, deps, name): Promise<DewResult> {
+  const validJsExt = filePath.endsWith('.js') || filePath.endsWith('.mjs');
   const dewPath = filePath.endsWith('.js') ? filePath.substr(0, filePath.length - 3) + '.dew.js' : filePath + '.dew.js';
   const result = {
     err: undefined,
@@ -185,6 +186,9 @@ ${source};
     // </CHEATS>
 
     var { ast, requires } = tryParseCjs(source);
+
+    if (!ast.program.body.length && !validJsExt)
+      return { err: true };
     
     const resolveMap = {};
     for (const require of requires) {
@@ -217,7 +221,7 @@ ${source};
   catch (err) {
     if (err instanceof SyntaxError && err.toString().indexOf('sourceType: "module"') !== -1)
       return { err: true };
-    if (filePath.endsWith('.js')) {
+    if (validJsExt) {
       if (throwDewErrors)
         throw err;
       try {
