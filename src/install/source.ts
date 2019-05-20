@@ -283,9 +283,9 @@ async function fetchRemoteTarball (log: Logger, fetch: FetchClass, source: strin
     // Unpack contents as a tar archive and save to targetDir
     new Promise((resolve, reject) => {
       stream.pipe(tar.extract(outDir, <any>{
-        // all dirs and files should be readable
+        // all dirs and files should be readable and writeable
         dmode: 0o555,
-        fmode: 0o444,
+        fmode: 0o666,
         strip: 1,
         filter: function(_, header) {
           return header.type !== 'file' && header.type !== 'directory'
@@ -344,7 +344,7 @@ async function extractLocalTarball (log: Logger, _fetch: FetchClass, source: str
       extractStream.pipe(tar.extract(outDir, <any>{
         // all dirs and files should be readable
         dmode: 0o555,
-        fmode: 0o444,
+        fmode: 0o666,
         strip: 1,
         filter: function(_, header) {
           return header.type !== 'file' && header.type !== 'directory'
