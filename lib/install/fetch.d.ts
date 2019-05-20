@@ -1,6 +1,5 @@
 import { Readable as ReadableStream } from 'stream';
 import { AgentOptions } from 'https';
-import { HttpsProxyAgentOptions } from './fetch';
 import { Project } from '../project';
 export declare type HttpsProxyAgentOptions = string | ProxyAgentOptions;
 export interface ProxyAgentOptions extends AgentOptions {
@@ -27,7 +26,7 @@ export interface FetchOptions {
     retries?: number;
 }
 export interface Credentials {
-    basicAuth: {
+    basicAuth?: {
         username: string;
         password: string;
     };
@@ -47,7 +46,7 @@ export default class FetchClass {
     netrc: any;
     debugLog: (msg: string) => void;
     constructor(project: Project);
-    getCredentials(url: string, method: string, unauthorizedHeaders?: Record<string, string>): Promise<Credentials>;
+    getCredentials(url: string, method?: string, unauthorizedHeaders?: Record<string, string>): Promise<Credentials>;
     fetch(url: string, options?: FetchOptions): any;
     doFetch(url: string, options?: FetchOptions): any;
 }
