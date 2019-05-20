@@ -95,7 +95,7 @@ async function gitResolve (log: Logger, fetch: FetchClass, source: string, timeo
     const execOpts = { timeout, killSignal: 'SIGKILL', maxBuffer: 100 * 1024 * 1024 };
 
     let credentials = await fetch.getCredentials(url);
-    if (credentials.basicAuth) {
+    if (credentials && credentials.basicAuth) {
       let urlObj = new URL(url);
       ({ username: urlObj.username, password: urlObj.password } = credentials.basicAuth);
       url = urlObj.href;
