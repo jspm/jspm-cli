@@ -41,6 +41,8 @@ export interface ProxyAgentOptions extends AgentOptions {
   };
 };
 
+const emptyCredentials = Object.freeze(Object.create(null));
+
 export interface FetchOptions {
   // These properties are part of the Fetch Standard
   method?: string,
@@ -66,7 +68,7 @@ export interface FetchOptions {
 };
 
 export interface Credentials {
-  basicAuth: {
+  basicAuth?: {
     username: string,
     password: string
   }
@@ -190,6 +192,7 @@ export default class FetchClass {
         this.project.log.debug('Git credentials error: ' + e.toString());
       }
       this.project.log.debug(`No credentials details found for ${urlBase}.`);
+      return emptyCredentials;
     })();
   }
 
@@ -203,85 +206,82 @@ export default class FetchClass {
 
   async doFetch (url: string, options?: FetchOptions) {
     let requestUrl = url;
-    let credentials: Credentials | false | void = options.credentials;
     const method = options.method && options.method.toUpperCase() || 'GET';
+    let credentials: Credentials;
+    if (options && options.credentials)
+      credentials = options.credentials;
     // we support credentials: false
     if (credentials == undefined)
       credentials = await this.getCredentials(url, method);
     let agent;
-    if (credentials) {
-      // TODO: support keepalive
-      let agentOptions: AgentOptions | HttpsProxyAgentOptions = {
-        keepAlive: false
-      };
-      if (credentials.ca)
-        agentOptions.ca = credentials.ca;
-      if (credentials.cert)
-        agentOptions.cert = credentials.cert;
-      if (credentials.strictSSL === false)
-        agentOptions.rejectUnauthorized = false;
-  
-      // TODO: properly support http proxy agent
-      if (credentials.proxy && url.startsWith('http:'))
-        this.debugLog(`Http proxy not supported for ${url}. Please post an issue.`);
-      if (credentials.proxy && url.startsWith('https:')) {
-        if (typeof credentials.proxy === 'string') {
-          const proxyURL = parseURL(credentials.proxy);
-          (<ProxyAgentOptions>agentOptions).host = proxyURL.host;
-          (<ProxyAgentOptions>agentOptions).port = parseInt(proxyURL.port);
-        }
-        else {
-          Object.assign(agentOptions, credentials.proxy);
-        }
+    // TODO: support keepalive
+    let agentOptions: AgentOptions | HttpsProxyAgentOptions = {
+      keepAlive: false
+    };
+    if (credentials.ca)
+      agentOptions.ca = credentials.ca;
+    if (credentials.cert)
+      agentOptions.cert = credentials.cert;
+    if (credentials.strictSSL === false)
+      agentOptions.rejectUnauthorized = false;
+
+    // TODO: properly support http proxy agent
+    if (credentials.proxy && url.startsWith('http:'))
+      this.debugLog(`Http proxy not supported for ${url}. Please post an issue.`);
+    if (credentials.proxy && url.startsWith('https:')) {
+      if (typeof credentials.proxy === 'string') {
+        const proxyURL = parseURL(credentials.proxy);
+        (<ProxyAgentOptions>agentOptions).host = proxyURL.host;
+        (<ProxyAgentOptions>agentOptions).port = parseInt(proxyURL.port);
       }
-  
-      if (credentials.headers) {
-        if (!options) {
-          options = { headers: credentials.headers };
-        }
-        else {
-          if (options.headers)
-            options.headers = Object.assign({}, credentials.headers, options.headers);
-          else
-            options.headers = credentials.headers;
-        }
+      else {
+        Object.assign(agentOptions, credentials.proxy);
       }
-  
-      if (hasProperties(agentOptions) && url.startsWith('https:')) {
-        let existingAgents;
-        if (credentials.proxy)
-          existingAgents = proxyAgents.get(credentials.proxy);
+    }
+
+    if (credentials.headers) {
+      if (!options) {
+        options = { headers: credentials.headers };
+      }
+      else {
+        if (options.headers)
+          options.headers = Object.assign({}, credentials.headers, options.headers);
         else
-          existingAgents = agents;
-  
-        if (existingAgents)
-          agent = agents.find(agent => {
-            return !Object.keys(agentOptions).some(opt => agent.options[opt] !== agentOptions[opt]);
-          });
-        
-        if (!agent) {
-          if (credentials.proxy) {
-            if (!existingAgents)
-              proxyAgents.set(credentials.proxy, existingAgents = []);
-            existingAgents.push(agent = new HttpsProxyAgent(Object.assign({}, credentials.proxy)));
-          }
-          else {
-            agents.push(agent = <Agent>(new NodeAgent(agentOptions)));
-          }
-        }
+          options.headers = credentials.headers;
       }
-      this.debugLog(`${method} ${url}${writeCredentialLog(credentials)}`);
-  
-      if (credentials.basicAuth) {
-        const urlObj = new URL(url);
-        if (!urlObj.username && !urlObj.password) {
-          ({ username: urlObj.username, password: urlObj.password } = credentials.basicAuth);
-          requestUrl = urlObj.href;
+    }
+
+    if (hasProperties(agentOptions) && url.startsWith('https:')) {
+      let existingAgents;
+      if (credentials.proxy)
+        existingAgents = proxyAgents.get(credentials.proxy);
+      else
+        existingAgents = agents;
+
+      if (existingAgents)
+        agent = agents.find(agent => {
+          return !Object.keys(agentOptions).some(opt => agent.options[opt] !== agentOptions[opt]);
+        });
+      
+      if (!agent) {
+        if (credentials.proxy) {
+          if (!existingAgents)
+            proxyAgents.set(credentials.proxy, existingAgents = []);
+          existingAgents.push(agent = new HttpsProxyAgent(Object.assign({}, credentials.proxy)));
+        }
+        else {
+          agents.push(agent = <Agent>(new NodeAgent(agentOptions)));
         }
       }
     }
-    else {
-      this.debugLog(`${method} ${requestUrl}`);
+    this.debugLog(`${method} ${url}${writeCredentialLog(credentials)}`);
+
+    if (credentials.basicAuth) {
+      const urlObj = new URL(url);
+      if (!urlObj.username && !urlObj.password) {
+        ({ username: urlObj.username, password: urlObj.password } = credentials.basicAuth);
+        requestUrl = urlObj.href;
+      }
     }
     if (agent)
       options = Object.assign({ agent }, options);
