@@ -39,7 +39,6 @@ export class GlobalConfig extends ConfigFile {
       ['registries', [
         ['github', [
           'auth',
-          'remote',
           'maxRepoSize'
         ]],
         ['npm', []]
