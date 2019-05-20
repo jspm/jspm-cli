@@ -183,9 +183,11 @@ export default class FetchClass {
         const data = await gitCredentialNode.fill(urlObj.origin);
         if (data) {
           this.project.log.debug(`Credentials for ${urlBase} provided by git credential manager.`);
-          console.log(data);
-          credentials.basicAuth = data;
-          return credentials;
+          // for some reason, on TravisCI we get "Username: " as username and "Password: " as password
+          if (data.username !== 'Username: ') {
+            credentials.basicAuth = data;
+            return credentials;
+          }
         }
       }
       catch (e) {
