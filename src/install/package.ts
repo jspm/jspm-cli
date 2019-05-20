@@ -420,6 +420,12 @@ export function validateOverride (pcfg: PackageConfig, name: string) {
 }
 
 export function processPackageConfig (pcfg: PackageConfig, partial = false, registry = ''): ProcessedPackageConfig {
+
+  // Override with jspm section if it exists.
+  if (typeof pcfg.jspm === 'object') {
+    Object.assign(pcfg, pcfg.jspm);
+  }
+
   const processed: ProcessedPackageConfig = processPjsonConfig(pcfg);
   if (processed.peerDependencies)
     delete processed.peerDependencies;
