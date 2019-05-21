@@ -179,7 +179,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   
   // Make sure the rollup output array is in the same order as input array
   const inputObjKeys = Object.keys(inputObj);
-  const filteredOutput = output.filter(out => inputObjKeys.indexOf(out.name) !== -1);
+  const filteredOutput = output.filter(out => out.isEntry);
   filteredOutput.sort((a, b) => inputObjKeys.indexOf(a.name) - inputObjKeys.indexOf(b.name));
   
   for (const [index, key] of inputObjKeys.entries()) {
