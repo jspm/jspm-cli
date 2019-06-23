@@ -100,4 +100,32 @@ suite('jspm install', () => {
     assert.equal(pjson.dependencies['mkdirp'], '~0.5.1');
     assert.equal(Object.keys(pjson.overrides).find(name => name.indexOf('mkdirp') !== -1), undefined);
   });
+
+  test('alias', async () => {
+    await curJob;
+    curJob = cliRun(projectPath, 'install', ['locash=lodash@4.17.4']);
+    await curJob;
+    assert.equal(fs.realpathSync(path.join(jspmPackagesPath, 'npm/lodash@4.17.4')), path.join(JSPM_CACHE_DIR, 'packages/787d655d1f11092371160584df7a9592feef6c3ddd0cc4d2b415a3773fef3812'));
+    const lock = readLockfile();
+    const pjson = readPjson();
+    assert.equal(lock.resolve['locash'], 'npm:lodash@4.17.4');
+    assert.ok(lock.dependencies['npm:lodash@4.17.4']);
+    assert.equal(lock.dependencies['npm:lodash@4.17.4'].resolve, undefined);
+    assert.equal(lock.dependencies['npm:lodash@4.17.4'].source, 'https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae');
+    assert.equal(pjson.dependencies['locash'], 'lodash@4.17.4');
+  });
+
+  test('alias with version', async () => {
+    await curJob;
+    curJob = cliRun(projectPath, 'install', ['lodash@4=lodash@4.17.4']);
+    await curJob;
+    assert.equal(fs.realpathSync(path.join(jspmPackagesPath, 'npm/lodash@4.17.4')), path.join(JSPM_CACHE_DIR, 'packages/787d655d1f11092371160584df7a9592feef6c3ddd0cc4d2b415a3773fef3812'));
+    const lock = readLockfile();
+    const pjson = readPjson();
+    assert.equal(lock.resolve['lodash@4'], 'npm:lodash@4.17.4');
+    assert.ok(lock.dependencies['npm:lodash@4.17.4']);
+    assert.equal(lock.dependencies['npm:lodash@4.17.4'].resolve, undefined);
+    assert.equal(lock.dependencies['npm:lodash@4.17.4'].source, 'https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae');
+    assert.equal(pjson.dependencies['lodash@4'], 'lodash@4.17.4');
+  });
 });

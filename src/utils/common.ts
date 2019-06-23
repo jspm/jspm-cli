@@ -272,6 +272,7 @@ export function md5 (input: string): string {
 }
 
 export const validPkgNameRegEx = /^(@[-_\.a-z\d]+\/)?[-_\.a-z\d]+$/i;
+export const validAlaisRegEx = /^(@[-_\.a-z\d]+\/)?[-_\.a-z\d]+(@[-_\.a-z\d]+)?$/i;
 
 const simpleIdentifierRegEx = /^[a-zA-Z_$][0-9a-zA-Z_$]*$/;
 export function isValidIdentifier (name: string) {
