@@ -48,6 +48,7 @@ export default class PackageJson extends ConfigFile {
   scripts: {
     [name: string]: string;
   };
+  configFile: string;
 
   constructor (pjsonPath: string, project: Project, hasJspmConfig: boolean) {
     super(pjsonPath, [
