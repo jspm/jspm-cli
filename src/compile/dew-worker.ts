@@ -25,7 +25,7 @@ const throwDewErrors = false; // process.env.JSPM_THROW_DEW_ERRORS;
 const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'optionalCatchBinding', 'objectRestSpread', 'numericSeparator', 'dynamicImport', 'importMeta'];
 
 function tryParseCjs (source) {
-  const requires = new Set();
+  const requires = new Set<string>();
   let hasProcess, hasBuffer;
   const { ast } = babel.transform(source, {
     ast: true,

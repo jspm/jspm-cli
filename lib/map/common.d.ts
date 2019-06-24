@@ -1,3 +1,4 @@
+/// <reference types="node" />
 export declare const hasSelf: boolean;
 declare const envGlobal: Window | NodeJS.Global;
 export { envGlobal as global };

@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { SemverRange } from 'sver';
 import { PackageName, ExactPackage, PackageConfig, ProcessedPackageConfig } from './package';
 import { JspmUserError, bold, highlight, underline } from '../utils/common';

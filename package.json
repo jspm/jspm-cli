@@ -54,6 +54,6 @@
     "@types/node": "^8.10.45",
     "@types/tar-fs": "^1.16.1",
     "mocha": "^4.0.1",
-    "typescript": "^2.7.0-dev.20171126"
+    "typescript": "^3.5.2"
   }
 }

@@ -18,7 +18,7 @@ import jspmRollup = require('rollup-plugin-jspm');
 import terserPlugin = require('rollup-plugin-terser');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
-import { ModuleFormat } from 'rollup';
+import { ModuleFormat, OutputChunk } from 'rollup';
 import { bold, winSepRegEx, highlight } from '../utils/common';
 import path = require('path');
 import { ok, info, warn } from '../utils/ui';
@@ -183,7 +183,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   
   // Make sure the rollup output array is in the same order as input array
   const inputObjKeys = Object.keys(inputObj);
-  const filteredOutput = output.filter(out => out.isEntry);
+  const filteredOutput = <OutputChunk[]>output.filter(out => (<OutputChunk>out).isEntry);
   filteredOutput.sort((a, b) => inputObjKeys.indexOf(a.name) - inputObjKeys.indexOf(b.name));
   
   for (const [index, key] of inputObjKeys.entries()) {

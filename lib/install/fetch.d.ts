@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Readable as ReadableStream } from 'stream';
 import { AgentOptions } from 'https';
 import { Project } from '../project';

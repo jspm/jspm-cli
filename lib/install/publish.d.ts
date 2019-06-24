@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Project } from '../api';
 import { Readable } from 'stream';
 interface PublishOptions {
