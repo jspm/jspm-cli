@@ -7,8 +7,11 @@
     "custom": "git://github.com/guybedford/require-css",
     "jquery": "3.2.1",
     "jspm": "link:../../../",
+    "locash": "lodash@4.17.4",
     "lodash": "4.17.4",
-    "mkdirp": "~0.5.1"
+    "lodash@4": "lodash@4.17.4",
+    "mkdirp": "~0.5.1",
+    "require-css": "github:guybedford/require-css@~0.1.10"
   },
   "devDependencies": {
     "@jspm/core": "^1.0.4"

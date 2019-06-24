@@ -61,8 +61,12 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   if (opts.dir && opts.dir.endsWith('/'))
     opts.dir = opts.dir.slice(0, -1);
 
+  const isRecord = (x: typeof input): x is Record<string, string> => {
+    return x instanceof Array.isArray === false
+  }
+
   let inputObj;
-  if (input instanceof Array === false) {
+  if (isRecord(input)) {
     inputObj = input;
   }
   else {

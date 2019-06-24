@@ -50,5 +50,6 @@ export declare function readJSON(file: string): Promise<any>;
 export declare function sha256(input: string): string;
 export declare function md5(input: string): string;
 export declare const validPkgNameRegEx: RegExp;
+export declare const validAliasRegEx: RegExp;
 export declare function isValidIdentifier(name: string): RegExpMatchArray;
 export declare function alphabetize<T>(obj: T): T;
