@@ -31,7 +31,7 @@ import publish from './install/publish';
 import { getBin } from './install/bin';
 import { spawn } from 'child_process';
 
-const installEqualRegEx = /^(@?([-_\.a-z\d]+\/)?[\-\_\.a-z\d]+(@[-_\.a-z\d]+)?)=/i;
+const installEqualRegEx = /^([@\-_\.a-z\d\/]+)=/i;
 
 function readTargetEquals (installArg: string) {
   let name: string | undefined, target: string;
