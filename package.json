@@ -41,6 +41,7 @@
     "jspm": "bin/jspm"
   },
   "scripts": {
+    "build": "tsc -p .",
     "test": "mocha -u tdd --timeout 60000",
     "gitbook": "gitbook build docs"
   },

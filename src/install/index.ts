@@ -21,7 +21,7 @@ import { Semver, SemverRange } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx, validateOverride } from './package';
-import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows, validAlaisRegEx } from '../utils/common';
+import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx } from '../utils/common';
 import fs = require('graceful-fs');
 import ncp = require('ncp');
 import rimraf = require('rimraf');
@@ -419,7 +419,7 @@ export class Installer {
         if (typeof install.target !== 'string') {
           const idx = install.target.name.lastIndexOf(':') + 1;
           const substr = install.target.name.substr(idx);
-          if (substr.match(validAlaisRegEx))
+          if (substr.match(validAliasRegEx))
             install.name = substr;
           else
             install.name = substr.split('/').pop();
@@ -428,7 +428,7 @@ export class Installer {
           install.name = getResourceName(install.target, this.project.projectPath);
         }
       }
-      if (!install.name.match(validAlaisRegEx))
+      if (!install.name.match(validAliasRegEx))
         throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
       if (typeof install.target === 'string')
         return this.resourceInstall(<ResourceInstall>install);
