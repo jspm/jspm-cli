@@ -1,3 +1,7 @@
+jspm 2.0.0-beta.5 (24/06/2019)
+- Support install aliases with "@" characters (https://github.com/jspm/jspm-cli/pull/2480, by @Hypercubed)
+- Fixup Rollup builds to correctly match up chunks in import map generation (https://github.com/jspm/jspm-cli/pull/2477, by @jbanety)
+
 jspm 2.0.0-beta.4 (20/05/2019)
 - Support GitHub installs without login by default (https://github.com/jspm/jspm-cli/issues/2429) 
 - Fix a bug with dynamic import tracing in `jspm trace` and `jspm map` (https://github.com/jspm/jspm-cli/issues/2475)
