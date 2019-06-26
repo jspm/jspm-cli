@@ -1,3 +1,6 @@
+jspm 2.0.0-beta.6 (26/06/2019)
+- Fixup isArray check in build (https://github.com/jspm/jspm-cli/pull/2482)
+
 jspm 2.0.0-beta.5 (24/06/2019)
 - Support install aliases with "@" characters (https://github.com/jspm/jspm-cli/pull/2480, by @Hypercubed)
 - Fixup Rollup builds to correctly match up chunks in import map generation (https://github.com/jspm/jspm-cli/pull/2477, by @jbanety)
