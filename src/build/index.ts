@@ -62,7 +62,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
     opts.dir = opts.dir.slice(0, -1);
 
   const isRecord = (x: typeof input): x is Record<string, string> => {
-    return x instanceof Array.isArray === false
+    return Array.isArray(x) === false;
   }
 
   let inputObj;
