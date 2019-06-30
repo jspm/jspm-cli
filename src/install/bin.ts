@@ -63,7 +63,7 @@ const winBin = (binModulePath: string) => `@setlocal
   @echo jspm not found in path, make sure it is installed globally.
   @exit /B 1
 )
-@set NODE_OPTIONS=--experimental-modules --no-warnings --loader /%JSPM_PATH%node_modules\\jspm\\node_modules\\@jspm\\resolve\\loader.mjs
+@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "%JSPM_PATH%node_modules\\jspm\\node_modules\\@jspm\\resolve\\loader.mjs"
 @node "%~dp0\\..\\${binModulePath}" %*
 `;
 
