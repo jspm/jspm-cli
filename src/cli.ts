@@ -48,21 +48,23 @@ function readTargetEquals (installArg: string) {
   return { name, target };
 }
 
-export default async function cliHandler (projectPath: string, cmd: string, args: string | string[]) {
+export default async function cliHandler (projectPaths: string[], cmd: string, args: string[]) {
+  if (typeof projectPaths === 'string')
+    projectPaths = [projectPaths];
   if (typeof args === 'string')
-    args = args.split(' ');
+    args = (<string>args).split(' ');
   
   let setProjectPath = false;
-  let project: api.Project;
+  const projects: api.Project[] = [];
   try {
     let userInput = true, offline = false, preferOffline = false;
     // first read global options
-    for (let i = 0; i < args.length; i++) {
+    outer: for (let i = 0; i < args.length; i++) {
       const arg = args[i];
       switch (arg) {
         case '-y':
         case '--skip-prompts':
-          (<string[]>args).splice(i--, 1);
+          args.splice(i--, 1);
           ui.setUseDefaults(true);
           userInput = false;
         break;
@@ -75,32 +77,32 @@ export default async function cliHandler (projectPath: string, cmd: string, args
             return process.exit(1);
           }
           ui.setLogLevel(logLevel);
-          (<string[]>args).splice(i, 2);
+          args.splice(i, 2);
           i -= 2;
         break;
         case '-g':
           setProjectPath = true;
-          projectPath = api.JSPM_GLOBAL_PATH;
-          (<string[]>args).splice(i, 1);
+          projectPaths = [api.JSPM_GLOBAL_PATH];
+          args.splice(i, 1);
         break;
         case '-p':
         case '--project':
           setProjectPath = true;
-          projectPath = args[i + 1];
-          (<string[]>args).splice(i, 2);
-          i -= 2;
-        break;
+          projectPaths = args.splice(i).slice(1);
+          break outer;
         case '-q':
         case '--prefer-offline':
           preferOffline = true;
-          (<string[]>args).splice(i--, 1);
+          args.splice(i--, 1);
         break;
         case '--offline':
           offline = true;
-          (<string[]>args).splice(i--, 1);
+          args.splice(i--, 1);
         break;
       }
     }
+
+    const multiProject = projectPaths.length > 1;
 
     if (process.env.JSPM_OFFLINE) {
       offline = true;
@@ -110,7 +112,7 @@ export default async function cliHandler (projectPath: string, cmd: string, args
     }
     if (process.env.JSPM_PROJECT) {
       setProjectPath = true;
-      projectPath = process.env.JSPM_PROJECT;
+      projectPaths = (process.env.JSPM_PROJECT.match(/("[^"]+"|'[^']+'|[^ ]+)( |$)/g) || []).map(item => item.trim());
     }
     if (process.env.JSPM_LOG) {
       const logLevelString = process.env.JSPM_LOG;
@@ -129,8 +131,6 @@ export default async function cliHandler (projectPath: string, cmd: string, args
       case '--version':
       case 'version':
       case 'v':
-        // run project checks
-        new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
         console.log(api.version + '\n' +
             (process.env.globalJspm === 'true' || process.env.localJspm === 'false'
             ? 'Running against global jspm install.'
@@ -205,7 +205,8 @@ ${bold('Command Flags')}
   --prefer-offline (-q)            Use cached lookups for fastest install
   --skip-prompts (-y)              Use default options w/o user input
   --log ok|warn|err|debug|none     Set the log level
-  --project (-p) <path>            Set the jspm project directory
+  --project (-p) <projectPath>     Set the jspm command project directory
+  -p <projectPathA> <projectPathB> Apply a command to multiple jspm projects
 `);
       break;
 
@@ -222,59 +223,64 @@ ${bold('Command Flags')}
 
       case 'r':
       case 'run': {
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        const exitCode = await project.run(args[0], args.slice(1));
+        let exitCode = 0;
+        for (const projectPath of projectPaths) {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          exitCode = await project.run(args[0], args.slice(1));
+          if (exitCode !== 0) break;
+        }
         process.exit(exitCode);
       }
       break;
 
       case 'b':
       case 'bin': {
-        let options;
-        if (args[0] === '--path' || args[0] === '--cmd' || args[0] === '-pc' || args[0] === '-cp') {
-          ({ options } = readOptions([args[0]], ['path', 'cmd']));
-          args = args.slice(1);
-        }
-        else {
-          options = {};
-        }
-        const binPath = path.join(projectPath, 'jspm_packages', '.bin');
-        if (options.path) {
-          if (args.length)
-            throw new JspmUserError(`${bold('jspm bin --path')} doesn't take any arguments.`);
-          // jspm bin --path -> log bin path
-          console.log(binPath);
-        }
-        else {
-          if (args.length === 0) {
-            // jspm bin --cmd -> show Node exec command
-            if (options.cmd) {
-              console.log(getBin());
-            }
-            // jspm bin -> Node zero arguments form
-            else {
-              const exitCode = await api.exec([]);
-              process.exit(exitCode);
-            }
+        for (const projectPath of projectPaths) {
+          let options;
+          if (args[0] === '--path' || args[0] === '--cmd' || args[0] === '-pc' || args[0] === '-cp') {
+            ({ options } = readOptions([args[0]], ['path', 'cmd']));
+            args = args.slice(1);
           }
           else {
-            let execPath = path.join(binPath, args[0]);
-            if (isWindows)
-              execPath += '.cmd';
-            // jspm bin --cmd x -> display exec path
-            if (options.cmd) {
-              if (args.length > 1)
-                throw new JspmUserError(`${bold('jspm bin --cmd')} only supports a single script name.`);
-              console.log(execPath);
+            options = {};
+          }
+          const binPath = path.join(projectPath, 'jspm_packages', '.bin');
+          if (options.path) {
+            if (args.length)
+              throw new JspmUserError(`${bold('jspm bin --path')} doesn't take any arguments.`);
+            // jspm bin --path -> log bin path
+            console.log(binPath);
+          }
+          else {
+            if (args.length === 0) {
+              // jspm bin --cmd -> show Node exec command
+              if (options.cmd) {
+                console.log(getBin());
+              }
+              // jspm bin -> Node zero arguments form
+              else {
+                const exitCode = await api.exec([]);
+                process.exit(exitCode);
+              }
             }
-            // jspm bin x -> run exec path
             else {
-              const ps = spawn(execPath, args.slice(1), { stdio: 'inherit' });
-              const exitCode = await new Promise<number>((resolve, reject) => {
-                ps.on('exit', code => resolve(code));
-                ps.on('error', err => reject(err));
-              });
-              process.exit(exitCode);
+              let execPath = path.join(binPath, args[0]);
+              if (isWindows)
+                execPath += '.cmd';
+              // jspm bin --cmd x -> display exec path
+              if (options.cmd) {
+                console.log(execPath);
+              }
+              // jspm bin x -> run exec path
+              else {
+                const ps = spawn(execPath, args.slice(1), { stdio: 'inherit' });
+                const exitCode = await new Promise<number>((resolve, reject) => {
+                  ps.on('exit', code => resolve(code));
+                  ps.on('error', err => reject(err));
+                });
+                process.exit(exitCode);
+              }
             }
           }
         }
@@ -286,9 +292,11 @@ ${bold('Command Flags')}
         ({ args, options } = readOptions(args, ['public'], ['otp', 'tag']));
         if (args.length > 1)
           throw new JspmUserError('Publish only takes one path argument.');
-        projectPath = projectPath || args[0] && path.resolve(args[0]) || process.cwd();
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        await publish(project, options);
+        for (const projectPath of projectPaths) {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          await publish(project, options);
+        }
       }
       break;
 
@@ -303,81 +311,85 @@ ${bold('Command Flags')}
       case 'trace': {
         let options;
         ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps', 'exclude-deps'], ['out']));
+        for (const projectPath of projectPaths) {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
 
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+          // NB: local map should be included in this in the exclude case still
+          const map = (options.excludeDeps || options.deps) ? {} : await api.map(project, options);
 
-        // NB: local map should be included in this in the exclude case still
-        const map = (options.excludeDeps || options.deps) ? {} : await api.map(project, options);
+          if (!args.length)
+            throw new JspmUserError('Trace requires a list of module names to trace.');
 
-        if (!args.length)
-          throw new JspmUserError('Trace requires a list of module names to trace.');
+          const traced = await api.trace(project, map, process.cwd(), args, options.excludeDeps || options.deps);
 
-        const traced = await api.trace(project, map, process.cwd(), args, options.excludeDeps || options.deps);
-
-        if (options.deps) {
-          const deps = new Set();
-          for (const map of Object.values(traced)) {
-            for (const dep of Object.keys(map)) {
-              if (map[dep] in traced === false && !isURL(dep) && !dep.startsWith('./') && !dep.startsWith('../')) 
-                deps.add(dep);
+          if (options.deps) {
+            const deps = new Set();
+            for (const map of Object.values(traced)) {
+              for (const dep of Object.keys(map)) {
+                if (map[dep] in traced === false && !isURL(dep) && !dep.startsWith('./') && !dep.startsWith('../')) 
+                  deps.add(dep);
+              }
             }
+            for (const dep of deps)
+              console.log(dep);
+            return;
           }
-          for (const dep of deps)
-            console.log(dep);
-          return;
+
+          const output = await serializeJson(traced, defaultStyle);
+
+          if (options.out)
+            await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
+          else
+            process.stdout.write(output);
         }
-
-        const output = await serializeJson(traced, defaultStyle);
-
-        if (options.out)
-          await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
-        else
-          process.stdout.write(output);
       }
       break;
 
       case 'm':
       case 'map': {
-        let options;
-        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'cdn', 'flat-scope', 'node'], ['out', 'in', 'jspmPackages', 'map-base']));
+        for (const projectPath of projectPaths) {
+          let options;
+          ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'cdn', 'flat-scope', 'node'], ['out', 'in', 'jspmPackages', 'map-base']));
 
-        if (options.node)
-          throw new JspmUserError(`${bold('jspm map')} currently only supports generating package maps for the browser.`);
+          if (options.node)
+            throw new JspmUserError(`${bold('jspm map')} currently only supports generating package maps for the browser.`);
 
-        let inputMap, style = defaultStyle;
-        if (options.in)
-          ({ json: inputMap, style } = await readJSONStyled(options.in));
+          let inputMap, style = defaultStyle;
+          if (options.in)
+            ({ json: inputMap, style } = await readJSONStyled(options.in));
 
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        let map = await api.map(project, options);
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          let map = await api.map(project, options);
 
-        if (inputMap)
-          map = extend(extend({}, inputMap), map);
+          if (inputMap)
+            map = extend(extend({}, inputMap), map);
 
-        if (args.length)
-          map = await api.filterMap(project, map, args, options.flatScope);
-        else if (options.flatScope)
-          flattenScopes(map);
+          if (args.length)
+            map = await api.filterMap(project, map, args, options.flatScope);
+          else if (options.flatScope)
+            flattenScopes(map);
 
-        if (options.cdn && !options.jspmPackages)
-          options.jspmPackages = options.production ? 'https://cdn.jspm.io' : 'https://dev-cdn.jspm.io';
+          if (options.cdn && !options.jspmPackages)
+            options.jspmPackages = options.production ? 'https://cdn.jspm.io' : 'https://dev-cdn.jspm.io';
 
-        const jspmPackagesURL = options.jspmPackages ? options.jspmPackages : options.out ?  path.relative(path.dirname(path.resolve(options.out)), path.resolve(projectPath, 'jspm_packages')).replace(/\\/g, '/') : 'jspm_packages';
-        if (jspmPackagesURL !== 'jspm_packages')
-          map = api.renormalizeMap(map, jspmPackagesURL, options.cdn);
+          const jspmPackagesURL = options.jspmPackages ? options.jspmPackages : options.out ?  path.relative(path.dirname(path.resolve(options.out)), path.resolve(projectPath, 'jspm_packages')).replace(/\\/g, '/') : 'jspm_packages';
+          if (jspmPackagesURL !== 'jspm_packages')
+            map = api.renormalizeMap(map, jspmPackagesURL, options.cdn);
 
-        // we dont want input map items filtered so always add them back
-        if (inputMap)
-          extend(map, inputMap);
+          // we dont want input map items filtered so always add them back
+          if (inputMap)
+            extend(map, inputMap);
 
-        if (options.mapBase)
-          map = rebaseMap(map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), path.resolve(options.mapBase), true);
+          if (options.mapBase)
+            map = rebaseMap(map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), path.resolve(options.mapBase), true);
 
-        const output = await serializeJson(map, style);
-        if (options.out)
-          await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
-        else
-          process.stdout.write(output);
+          const output = await serializeJson(map, style);
+          if (options.out)
+            await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
+          else
+            process.stdout.write(output);
+        }
       }
       break;
 
@@ -387,46 +399,57 @@ ${bold('Command Flags')}
         ({ args, options } = readOptions(args, ['format', 'browser', 'react-native', 'production', 'electron', 'relative']));
 
         let env = readModuleEnv(options);
-        
-        let parent;
-        if (args[1]) {
-          let parentFormat;
-          ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env, true));
-          if (parentFormat === 'builtin')
-            parent = undefined;
-        }
-        else if (setProjectPath) {
-          parent = projectPath + path.sep;
-        }
-        
-        const resolved = api.resolveSync(args[0], parent, env, true);
 
-        if (options.format) {
-          console.log(resolved.format || '<undefined>');
-        }
-        else {
-          resolved.resolved = resolved.resolved || '@empty';
-          console.log(options.relative ? path.relative(process.cwd(), resolved.resolved) : resolved.resolved);
+        for (const projectPath of projectPaths) {
+          let parent;
+          if (args[1]) {
+            let parentFormat;
+            ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env, true));
+            if (parentFormat === 'builtin')
+              parent = undefined;
+          }
+          else if (setProjectPath) {
+            parent = projectPath + path.sep;
+          }
+          
+          const resolved = api.resolveSync(args[0], parent, env, true);
+
+          if (options.format) {
+            console.log(resolved.format || '<undefined>');
+          }
+          else {
+            resolved.resolved = resolved.resolved || '@empty';
+            console.log(options.relative ? path.relative(process.cwd(), resolved.resolved) : resolved.resolved);
+          }
         }
       }
       break;
 
       case 'cl':
       case 'clean':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        await project.clean();
+        await Promise.all(projectPaths.map(async projectPath => {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          await project.clean();
+        }));
       break;
 
       case 'co':
       case 'checkout':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        await project.checkout(args);
+        await Promise.all(projectPaths.map(async projectPath => {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          await project.checkout(args);
+        }));
       break;
 
       case 'un':
       case 'uninstall':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        await project.uninstall(args);
+        await Promise.all(projectPaths.map(async projectPath => {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          await project.uninstall(args);  
+        }));
       break;
 
       case 'l':
@@ -436,32 +459,33 @@ ${bold('Command Flags')}
           // TODO 'force', 'verify'
         ], [], ['override']));
 
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        await Promise.all(projectPaths.map(async projectPath => {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
         
-        if (args.length === 2) {
-          await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
-        }
-        else if (args.length === 1) {
-          const linkSource = 'file:' + path.resolve(args[0]);
-          const target = await project.registryManager.resolveSource(linkSource, project.projectPath, project.projectPath);
-          await project.install([{
-            name: undefined,
-            parent: undefined,
-            target,
-            type: DepType.primary
-          }], options);
-        }
-        else if (args.length !== 1) {
-          throw new JspmUserError(`Link command takes at most two arguments - an optional package name and a path.`);
-        }
+          if (args.length === 2) {
+            await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
+          }
+          else if (args.length === 1) {
+            const linkSource = 'file:' + path.resolve(args[0]);
+            const target = await project.registryManager.resolveSource(linkSource, project.projectPath, project.projectPath);
+            await project.install([{
+              name: undefined,
+              parent: undefined,
+              target,
+              type: DepType.primary
+            }], options);
+          }
+          else if (args.length !== 1) {
+            throw new JspmUserError(`Link command takes at most two arguments - an optional package name and a path.`);
+          }  
+        }));
       }
       break;
 
       case 'ug':
       case 'upgrade': {
-        // TODO: a single-major version upgrade of selected packages only
-        // (does not accept no arguments)
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        // TODO: a single-major version upgrade of selected packages
         ui.warn('Still to be implemented.');
       }
       break;
@@ -476,195 +500,206 @@ ${bold('Command Flags')}
           'reset', // TODO 'force', 'verify'
           'latest'
           ], [], ['override']);
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-        await project.update(selectors, options);
+        await Promise.all(projectPaths.map(async projectPath => {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
+          await project.update(selectors, options);
+        }));
       }
       break;
 
       case 'i':
       case 'install': {
         let { options, args: installArgs } = readOptions(args, [
-            // install options
-            'reset', 'force',
-            // install type
-            'save-dev', 'dev', 'optional', 'peer',
-            // constraint options
-            'exact', 'edge',
-            // resolver options
-            'latest', 'lock',
-            ], [], ['override']);
+          // install options
+          'reset', 'force',
+          // install type
+          'save-dev', 'dev', 'optional', 'peer',
+          // constraint options
+          'exact', 'edge',
+          // resolver options
+          'latest', 'lock',
+          ], [], ['override']);
 
         if (options.force)
           throw new JspmUserError(`${highlight('--force')} flag is yet to be implemented. Use ${bold('jspm cc && jspm install')} for now, although this is only necessary if you have upgraded jspm or modified a globally linked dependency file.`);
-        
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+          
+        await Promise.all(projectPaths.map(async projectPath => {
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+          projects.push(project);
 
-        if (options.saveDev) {
-          project.log.warn(`The ${bold(`--save-dev`)} install flag in jspm is just ${bold(`--dev`)}.`);
-          options.dev = true;
-        }
+          if (options.saveDev) {
+            project.log.warn(`The ${bold(`--save-dev`)} install flag in jspm is just ${bold(`--dev`)}.`);
+            options.dev = true;
+          }
 
-        let type;
-        if (options.dev)
-          type = DepType.dev;
-        else if (options.peer)
-          type = DepType.peer;
-        else if (options.optional)
-          type = DepType.optional;
-        else
-          type = DepType.primary;
-
-        if (typeof options.override === 'string') {
-          options.override = readPropertySetters(options.override, true);
-          if (options.override && installArgs.length > 1)
-            throw new JspmUserError(`An override can only be specified through ${highlight(`-o`)} when installing a single dependency at a time.`);
-        }
-
-        if (projectPath === JSPM_GLOBAL_PATH && !options.lock) {
-          options.latest = true;
-          options.dedupe = false;
-        }
-
-        const installTargets = installArgs.map(arg => {
-          /*
-           * Assignment target install
-           *   jspm install x=y@1.2.3
-           */
-          let { name, target } = readTargetEquals(arg);
-
-          // when name is undefined, install will auto-populate from target
-          if (options.override)
-            return { name, parent: undefined, target, type, override: options.override };
+          let type;
+          if (options.dev)
+            type = DepType.dev;
+          else if (options.peer)
+            type = DepType.peer;
+          else if (options.optional)
+            type = DepType.optional;
           else
-            return { name, parent: undefined, target, type };
-        });
-    
-        await project.install(installTargets, options);
-        // TODO: look through install cache of install state for checked out and linked
-        // and log that list so that the user is aware of it
-        // await project.logInstallStates();
+            type = DepType.primary;
+
+          if (typeof options.override === 'string') {
+            options.override = readPropertySetters(options.override, true);
+            if (options.override && installArgs.length > 1)
+              throw new JspmUserError(`An override can only be specified through ${highlight(`-o`)} when installing a single dependency at a time.`);
+          }
+
+          if (projectPath === JSPM_GLOBAL_PATH && !options.lock) {
+            options.latest = true;
+            options.dedupe = false;
+          }
+
+          const installTargets = installArgs.map(arg => {
+            /*
+            * Assignment target install
+            *   jspm install x=y@1.2.3
+            */
+            let { name, target } = readTargetEquals(arg);
+
+            // when name is undefined, install will auto-populate from target
+            if (options.override)
+              return { name, parent: undefined, target, type, override: options.override };
+            else
+              return { name, parent: undefined, target, type };
+          });
+      
+          await project.install(installTargets, options);
+          // TODO: look through install cache of install state for checked out and linked
+          // and log that list so that the user is aware of it
+          // await project.logInstallStates();
+        }));
       }
       break;
 
       case 'b':
       case 'build': {
-        let { options, args: buildArgs } = readOptions(args, [
-          'clear-dir',
-          'mjs',
-          'node', 'bin', 'react-native', 'production', 'electron',
-          'show-graph',
-          'source-map',
-          'watch',
-          'exclude-deps',
-          'hash-entries',
-          'out', // out can also be boolean
-          'minify'
-        ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
-        if (options.node)
-          (options.env = options.env || {}).node = true;
-        if (options.bin)
-          (options.env = options.env || {}).bin = true;
-        if (options['react-native'])
-          (options.env = options.env || {})['react-native'] = true;
-        if (options.production)
-          (options.env = options.env || {}).production = true;
-        if (options.electron)
-          (options.env = options.env || {}).electron = true;
-        options.basePath = projectPath ? path.resolve(projectPath) : process.cwd();
-        options.dir = options.dir || 'dist';
+        for (const projectPath of projectPaths) {
+          let { options, args: buildArgs } = readOptions(args, [
+            'clear-dir',
+            'mjs',
+            'node', 'bin', 'react-native', 'production', 'electron',
+            'show-graph',
+            'source-map',
+            'watch',
+            'exclude-deps',
+            'hash-entries',
+            'out', // out can also be boolean
+            'minify'
+          ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
+          if (options.out && projectPaths.length > 1)
+              throw new JspmUserError(`${bold('jspm build --out')} does not support execution in multiple projects.`);
+          if (options.node)
+            (options.env = options.env || {}).node = true;
+          if (options.bin)
+            (options.env = options.env || {}).bin = true;
+          if (options['react-native'])
+            (options.env = options.env || {})['react-native'] = true;
+          if (options.production)
+            (options.env = options.env || {}).production = true;
+          if (options.electron)
+            (options.env = options.env || {}).electron = true;
+          options.basePath = path.resolve(projectPath);
+          options.dir = options.dir || 'dist';
 
-        let inputMap, style;
-        if (options.in)
-          ({ json: inputMap, style } = await readJSONStyled(options.in));
+          let inputMap, style;
+          if (options.in)
+            ({ json: inputMap, style } = await readJSONStyled(options.in));
 
-        if (options.map) {
-          let buildMap, buildMapStyle;
-          ({ json: buildMap, style: buildMapStyle } = await readJSONStyled(options.map));
-          if (buildMap) {
-            if (!style)
-              style = buildMapStyle;
-            validateImportMap(path.relative(process.cwd(), path.resolve(options.map)), buildMap);
-            options.map = buildMap;
-          }
-          else {
-            throw new JspmUserError(`Import map ${path.relative(process.cwd(), path.resolve(options.map))} for build not found.`);
-          }
-        }
-        if (options.external) {
-          let externalMap, externalStyle;
-          const externalsPath = path.resolve(options.external)
-          try {
-            ({ json: externalMap, style: externalStyle } = await readJSONStyled(externalsPath));
-          }
-          catch (e) {
-            if (e.code !== 'ENOENT')
-              throw e;
-          }
-          if (externalMap) {
-            if (!style)
-              style = externalStyle;
-            validateImportMap(path.relative(process.cwd(), externalsPath), externalMap);
-            // scoped externals not currently supported, but could be (if thats even useful)
-            options.external = rebaseMap(externalMap, path.dirname(externalsPath), path.resolve(options.dir)).imports;            
-          }
-          else {
-            const external = {};
-            options.external.split(' ').forEach(pair => {
-              const aliasIndex = pair.indexOf('=');
-              if (aliasIndex !== -1) {
-                const externalName = pair.substr(0, aliasIndex);
-                const aliasName = pair.substr(aliasIndex + 1);
-                external[externalName] = aliasName;
-              }
-              else {
-                external[pair] = true;
-              }
-            });
-            if (Object.keys(external).length === 0)
-              throw new JspmUserError(`${bold('jspm build --external')} requires an argument for externals.`);
-            options.external = external;
-          }
-        }
-        if (options.excludeDeps) {
-          options.external = options.external || {};
-          project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
-          for (const dep in project.config.pjson.dependencies) {
-            const depType = project.config.pjson.dependencies[dep].type;
-            if (typeof depType === 'number' && depType !== DepType.dev) {
-              options.external[dep] = true;
+          if (options.map) {
+            let buildMap, buildMapStyle;
+            ({ json: buildMap, style: buildMapStyle } = await readJSONStyled(options.map));
+            if (buildMap) {
+              if (!style)
+                style = buildMapStyle;
+              validateImportMap(path.relative(process.cwd(), path.resolve(options.map)), buildMap);
+              options.map = buildMap;
+            }
+            else {
+              throw new JspmUserError(`Import map ${path.relative(process.cwd(), path.resolve(options.map))} for build not found.`);
             }
           }
-        }
-        options.log = true;
-        let absoluteMap = false;
-        // -o with no arguments hides log due to using stdout
-        if ('out' in options && !options.out && !options.showGraph)
-          options.log = false;
-        if (options.mapBase) {
-          options.mapBase = path.resolve(options.mapBase);
-          absoluteMap = true;
-        }
-        else if (options.out) {
-          options.mapBase = path.dirname(path.resolve(options.out));
-        }
-        let outMap = await api.build(buildArgs, options);
+          if (options.external) {
+            let externalMap, externalStyle;
+            const externalsPath = path.resolve(options.external)
+            try {
+              ({ json: externalMap, style: externalStyle } = await readJSONStyled(externalsPath));
+            }
+            catch (e) {
+              if (e.code !== 'ENOENT')
+                throw e;
+            }
+            if (externalMap) {
+              if (!style)
+                style = externalStyle;
+              validateImportMap(path.relative(process.cwd(), externalsPath), externalMap);
+              // scoped externals not currently supported, but could be (if thats even useful)
+              options.external = rebaseMap(externalMap, path.dirname(externalsPath), path.resolve(options.dir)).imports;            
+            }
+            else {
+              const external = {};
+              options.external.split(' ').forEach(pair => {
+                const aliasIndex = pair.indexOf('=');
+                if (aliasIndex !== -1) {
+                  const externalName = pair.substr(0, aliasIndex);
+                  const aliasName = pair.substr(aliasIndex + 1);
+                  external[externalName] = aliasName;
+                }
+                else {
+                  external[pair] = true;
+                }
+              });
+              if (Object.keys(external).length === 0)
+                throw new JspmUserError(`${bold('jspm build --external')} requires an argument for externals.`);
+              options.external = external;
+            }
+          }
+          if (options.excludeDeps) {
+            options.external = options.external || {};
+            const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
+            projects.push(project);
+            for (const dep in project.config.pjson.dependencies) {
+              const depType = project.config.pjson.dependencies[dep].type;
+              if (typeof depType === 'number' && depType !== DepType.dev) {
+                options.external[dep] = true;
+              }
+            }
+          }
+          options.log = true;
+          let absoluteMap = false;
+          // -o with no arguments hides log due to using stdout
+          if ('out' in options && !options.out && !options.showGraph)
+            options.log = false;
+          if (options.mapBase) {
+            options.mapBase = path.resolve(options.mapBase);
+            absoluteMap = true;
+          }
+          else if (options.out) {
+            options.mapBase = path.dirname(path.resolve(options.out));
+          }
+          let outMap = await api.build(buildArgs, options);
 
-        if (absoluteMap)
-          outMap = rebaseMap(outMap, options.mapBase, options.mapBase, true);
+          if (absoluteMap)
+            outMap = rebaseMap(outMap, options.mapBase, options.mapBase, true);
 
-        if (inputMap)
-          outMap = extend(inputMap, outMap);
+          if (inputMap)
+            outMap = extend(inputMap, outMap);
 
-        if (options.flatScope)
-          flattenScopes(outMap);
+          if (options.flatScope)
+            flattenScopes(outMap);
 
-        const output = await serializeJson(outMap, style || defaultStyle);
+          const output = await serializeJson(outMap, style || defaultStyle);
 
-        if ('out' in options) {
-          if (options.out)
-            fs.writeFileSync(path.resolve(options.out), output);
-          else
-            process.stdout.write(output);
+          if ('out' in options) {
+            if (options.out)
+              fs.writeFileSync(path.resolve(options.out), output);
+            else
+              process.stdout.write(output);
+          }
         }
       }
       break;
@@ -675,11 +710,13 @@ ${bold('Command Flags')}
           throw new JspmUserError(`Unknown command ${bold(cmd)}.`);
         args = args.splice(1);
       case 'rc':
-      case 'registry-config':
+      case 'registry-config': {
         if (args.length !== 1)
           throw new JspmUserError(`Only one argument expected for the registry name to configure.`);
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        const project = new api.Project(projectPaths[0], { offline, preferOffline, userInput, cli: true });
+        projects.push(project);
         await project.registryConfig(args[0]);
+      }
       break;
 
       case 'c':
@@ -717,7 +754,8 @@ ${bold('Command Flags')}
 
       case 'cc':
       case 'clear-cache':
-        project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true });
+        const project = new api.Project(projectPaths[0], { offline, preferOffline, userInput, cli: true });
+        projects.push(project);
         await project.clearCache();
       break;
 
@@ -740,18 +778,17 @@ ${bold('Command Flags')}
   catch (err) {
     if (process.env.globalJspm !== undefined) {
       if (err && err.hideStack)
-        (project ? project.log.err.bind(project.log) : ui.err)(err.message || err);
+        (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err.message || err);
       else
-        (project ? project.log.err : ui.err)(err && err.stack || err);
+        (projects.length ? projects[0].log.err : ui.err)(err && err.stack || err);
     }
     throw err;
   }
   finally {
-    if (project)
-      await project.dispose();
+    await Promise.all(projects.map(project => project.dispose()));
   }
 }
 
 if (process.env.globalJspm !== undefined)
-  cliHandler(path.dirname(process.env.jspmConfigPath), process.argv[2], process.argv.slice(3))
+  cliHandler([path.dirname(process.env.jspmConfigPath)], process.argv[2], process.argv.slice(3))
   .then(() => process.exit(), _err => process.exit(1));
