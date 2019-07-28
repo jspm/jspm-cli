@@ -17,6 +17,7 @@
     "https-proxy-agent": "^2.1.0",
     "liftoff": "^2.3.0",
     "micromatch": "^3.1.10",
+    "mkdirp": "^0.5.1",
     "nan": "^2.13.2",
     "ncp": "^2.0.0",
     "netrc": "^0.1.4",
