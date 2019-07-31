@@ -109,10 +109,7 @@ class Mapper {
 
     const pkgPath = `jspm_packages/${pkgName.replace(':', '/')}`;
     const packages = scopeParent ? (packageMap.scopes[scopeParent] = (packageMap.scopes[scopeParent] || {})) : packageMap.imports;
-    let pkgRelative = (scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath);
-    if (!pkgRelative.startsWith('../'))
-      pkgRelative = './' + pkgRelative;
-    const curPkg = packages[depName + '/'] = pkgRelative + '/';
+    const curPkg = packages[depName + '/'] = './' + pkgPath + '/';
     const pkg = this.project.config.jspm.installed.dependencies[pkgName];
   
     const pathsPromise = (async () => {
@@ -120,12 +117,8 @@ class Mapper {
 
       if (main)
         packages[depName] = curPkg + main;
-      for (const subpath of Object.keys(paths)) {
-        let relPath = scopeParent ? path.relative(scopeParent, pkgPath).replace(/\\/g, '/') : pkgPath;
-        if (!relPath.startsWith('../'))
-          relPath = './' + relPath;
-        packages[depName + '/' + subpath] = relPath + '/' + paths[subpath];
-      }
+      for (const subpath of Object.keys(paths))
+        packages[depName + '/' + subpath] = './' + pkgPath + '/' + paths[subpath];
 
       if (seen[pkgName + '|map'])
         return;
@@ -134,12 +127,8 @@ class Mapper {
       const scopedPackages = (packageMap.scopes[pkgPath + '/'] = (packageMap.scopes[pkgPath + '/'] || {}));
 
       // scopedPackages[name + '/']
-      for (const subpath of Object.keys(paths)) {
-        let target = path.relative(name, name + '/' + paths[subpath]).replace(/\\/g, '/');
-        if (!target.startsWith('../'))
-          target = './' + target;
-        scopedPackages[name + '/' + subpath] = target;
-      }
+      for (const subpath of Object.keys(paths))
+        scopedPackages[name + '/' + subpath] = './' + name + '/' + paths[subpath];
 
       for (const target of Object.keys(map)) {
         let mapped = map[target];
@@ -156,11 +145,7 @@ class Mapper {
             mapped = `${this.nodeBuiltinsPkg}/${mapped}.js`;
           }
         }
-
-        let output = path.relative(pkgPath + '/', mapped).replace(/\\/g, '/');
-        if (!output.startsWith('../'))
-          output = './' + output;
-        scopedPackages[target] = output;
+        scopedPackages[target] = './' + mapped;
       }
     })();
 
@@ -252,15 +237,8 @@ export function renormalizeMap (map: ImportMap, jspmPackagesURL: string, cdn: bo
       let scopeRegistry = scopeName.substr(14);
       scopeRegistry = scopeRegistry.substr(0, scopeRegistry.indexOf('/'));
 
-      const isScopedPackage = scopeName.indexOf('/', scopeName.indexOf('/', 14) + 1) !== scopeName.length - 1;
-
       for (const pkgName of Object.keys(scope)) {
-        let pkg = scope[pkgName];
-        if (cdn && pkg.startsWith('../')) {
-          // exception is within-scope backtracking
-          if (!(isScopedPackage && pkg.startsWith('../') && !pkg.startsWith('../../')))
-            pkg = pkg.replace(/^((\.\.\/)+)(.+)$/, `$1${scopeRegistry}:$3`);
-        }
+        const pkg = scope[pkgName];
         newScope[pkgName] = (cdn ? cdnReplace(pkg) : pkg).replace(/^(\.\/)+jspm_packages/, jspmPackagesURL);
       }
       newMap.scopes[jspmPackagesURL + (cdn ? cdnReplace(scopeName) : scopeName).substr(13)] = newScope;

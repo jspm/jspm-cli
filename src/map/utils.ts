@@ -99,28 +99,28 @@ export function rebaseMap (map: ImportMap, fromPath: string, toPath: string, abs
     for (const scopeName of Object.keys(map.scopes)) {
       const scope = map.scopes[scopeName];
       const newScope = Object.create(null);
-      if (isURL(scopeName, true)) {
-        newMap.scopes[scopeName] = Object.assign(newScope, scope);
-      }
-      else {
+      let rebasedScope = scopeName;
+      if (!isURL(scopeName, true)) {
         const resolvedScope = path.resolve(fromPath, scopeName);
-        let rebasedScope = path.relative(toPath, resolvedScope).replace(/\\/g, '/') + '/';
-        for (const pkgName of Object.keys(scope)) {
-          const pkg = scope[pkgName];
-          let rebased = isURL(pkg, true) ? pkg : path.relative(resolvedScope, path.resolve(resolvedScope, pkg)).replace(/\\/g, '/');
-          if (!rebased.startsWith('../'))
-            rebased = './' + rebased;
-          if (pkg.endsWith('/'))
-            rebased += '/';
-          newScope[pkgName] = rebased;
-        }
+        rebasedScope = path.relative(toPath, resolvedScope).replace(/\\/g, '/') + '/';
         if (absolute) {
           if (rebasedScope.startsWith('../'))
-            throw new JspmUserError(`Unable to reference scope ${scopeName} at ${newScope}. The base for the import map must a higher path than its mappings.`);
+            throw new JspmUserError(`Unable to reference scope ${scopeName} at ${resolvedScope}. The base for the import map must a higher path than its mappings.`);
           rebasedScope = prefix + rebasedScope;
         }
-        newMap.scopes[rebasedScope] = newScope;
       }
+      for (const pkgName of Object.keys(scope)) {
+        const pkg = scope[pkgName];
+        let rebased = isURL(pkg, true) ? pkg : path.relative(toPath, path.resolve(fromPath, pkg)).replace(/\\/g, '/');
+        if (pkg.endsWith('/'))
+          rebased += '/';
+        if (!rebased.startsWith('../'))
+          rebased = prefix + rebased;
+        else if (absolute)
+          throw new JspmUserError(`Unable to reference mapping ${pkgName} at ${rebased} in scope ${scopeName}. The base for the import map must a higher path than its mappings.`);
+        newScope[pkgName] = rebased;
+      }
+      newMap.scopes[rebasedScope] = newScope;
     }
   }
   return newMap;
@@ -134,15 +134,9 @@ export function flattenScopes (importMap: ImportMap) {
     for (const pkgName of Object.keys(imports)) {
       const existing = importMap.imports[pkgName];
       const newTarget = imports[pkgName];
-      const trailingSlash = newTarget.endsWith('/');
-      let newTargetResolved = path.relative('.', path.resolve(scope, newTarget)).replace(/\\/g, '/');
-      if (!newTargetResolved.startsWith('../'))
-        newTargetResolved = './' + newTargetResolved;
-      if (trailingSlash)
-        newTargetResolved += '/';
-      if (existing && existing !== newTargetResolved)
-        throw new JspmUserError(`Cannot flatten scopes due to conflict for ${bold(pkgName)} between ${existing} and ${newTargetResolved}.`);
-      importMap.imports[pkgName] = newTargetResolved;
+      if (existing && existing !== newTarget)
+        throw new JspmUserError(`Cannot flatten scopes due to conflict for ${bold(pkgName)} between ${existing} and ${newTarget}.`);
+      importMap.imports[pkgName] = newTarget;
     }
   }
   delete importMap.scopes;
@@ -155,14 +149,8 @@ export function clean (importMap: ImportMap) {
     for (const scope of Object.keys(importMap.scopes)) {
       const imports = importMap.scopes[scope];
       for (const pkgName of Object.keys(imports)) {
-        if (pkgName.startsWith('./') || pkgName.startsWith('../'))
-          continue;
-        let baseMap = importMap.imports[pkgName];
-        if (!baseMap)
-          continue;
-        let map = imports[pkgName];
-        // TODO: handle URL-like
-        if (path.join(pkgName, baseMap) === path.join(scope, pkgName, map))
+        // renormalization in check?
+        if (importMap.imports[pkgName] === imports[pkgName])
           delete imports[pkgName];
       }
     }
