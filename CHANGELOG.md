@@ -1,3 +1,8 @@
+jspm 2.0.0-beta.7 (31/07/2019)
+- Breaking change to scope normalization resolving base-relative not scope-relative (https://github.com/jspm/jspm-cli/pull/2493)
+- Ensure mkdirp is an explicit dependency (https://github.com/jspm/jspm-cli/pull/2492, @vcuhar)
+- Fixup Windows bin path escaping (https://github.com/jspm/jspm-cli/commit/34c329d40541)
+
 jspm 2.0.0-beta.6 (26/06/2019)
 - Fixup isArray check in build (https://github.com/jspm/jspm-cli/pull/2482)
 
@@ -14,7 +19,6 @@ jspm 2.0.0-beta.4 (20/05/2019)
 - Fix --deps to only list dependencies (https://github.com/jspm/jspm-cli/pull/2472, @jbanety)
 - Fix builds of multiple entry points by fixing Rollup output matching (https://github.com/jspm/jspm-cli/issues/2468, @jbanety)
 - Support for global CLI options like `--offline` etc through `JSPM_OFFLINE` etc environment variables (https://github.com/jspm/jspm-cli/commit/c3f2fe585c82d56af96c95bfb4580f77feaece52)
-- 
 
 jspm 2.0 changelogs started as of 2.0.0-beta.4.
 
