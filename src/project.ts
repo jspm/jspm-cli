@@ -72,6 +72,7 @@ export interface ProjectConfiguration {
   strictSSL?: boolean;
   registries?: {[name: string]: Registry};
   cli?: boolean;
+  multiProject?: boolean;
 }
 
 function applyDefaultConfiguration (userConfig: ProjectConfiguration) {
@@ -156,7 +157,7 @@ export class Project {
 
     // is this running as a CLI or API?
     this.cli = config.cli;
-    this.log = this.cli ? new CLILogger() : new APILogger();
+    this.log = this.cli ? new CLILogger(options.multiProject ? projectPath : null) : new APILogger();
 
     if (projectPath === JSPM_GLOBAL_PATH)
       this.checkGlobalBin();
@@ -267,9 +268,9 @@ export class Project {
     }
     // NB install state change logging!
     if (changed)
-      this.log.ok('Install complete.');
+      this.log.ok(`Install complete.`);
     else
-      this.log.ok('Already installed.');
+      this.log.ok(`Already installed.`);
   }
 
   async uninstall (names: string[]) {
@@ -469,7 +470,9 @@ class APILogger extends events.EventEmitter implements Logger {
 class CLILogger implements Logger {
   tasks: string[];
   lastTask: string;
-  constructor () {
+  label: string;
+  constructor (label?: string) {
+    this.label = label ? `[${label}] ` : '';
     this.tasks = [];
     this.lastTask = undefined;
   }
@@ -477,7 +480,7 @@ class CLILogger implements Logger {
     log('');
   }
   msg (msg: string) {
-    log(msg);
+    log(this.label + msg);
   }
   errMsg (msg: string | Error | JspmUserError) {
     if (msg instanceof Error) {
@@ -486,7 +489,7 @@ class CLILogger implements Logger {
       else
         msg = msg.stack || msg && msg.toString();
     }
-    logErr(msg);
+    logErr(this.label + msg);
   }
   err (msg: string | Error | JspmUserError) {
     if (msg instanceof Error) {
@@ -495,28 +498,28 @@ class CLILogger implements Logger {
       else
         msg = msg.stack || msg && msg.toString();
     }
-    log(msg, LogType.err);
+    log(this.label + msg, LogType.err);
   }
   debug (msg: string) {
-    log(msg, LogType.debug);
+    log(this.label + msg, LogType.debug);
   }
   info (msg: string) {
-    log(msg, LogType.info);
+    log(this.label + msg, LogType.info);
   }
   warn (msg: string) {
-    log(msg, LogType.warn);
+    log(this.label + msg, LogType.warn);
   }
   ok (msg: string) {
-    log(msg, LogType.ok);
+    log(this.label + msg, LogType.ok);
   }
   taskStart (name: string) {
     this.tasks.push(name);
-    log(this.tasks[this.tasks.length - 1], LogType.status);
+    log(this.label + this.tasks[this.tasks.length - 1], LogType.status);
     if (this.tasks.length === 1)
       startSpinner();
     // allow debug log state to expand status
     if (logLevel === LogType.debug && this.lastTask)
-      log(this.lastTask, LogType.debug);
+      log(this.label + this.lastTask, LogType.debug);
     this.lastTask = name;
     return this.taskEnd.bind(this, name);
   }
@@ -526,11 +529,11 @@ class CLILogger implements Logger {
       return;
     this.tasks.splice(taskIndex, 1);
     if (this.tasks.length)
-      log(this.tasks[this.tasks.length - 1], LogType.status);
+      log(this.label + this.tasks[this.tasks.length - 1], LogType.status);
     else
       stopSpinner();
     if (logLevel === LogType.debug && this.lastTask && this.lastTask !== this.tasks[this.tasks.length - 1]) {
-      log(this.lastTask, LogType.debug);
+      log(this.label + this.lastTask, LogType.debug);
       this.lastTask = undefined;
     }
   }
