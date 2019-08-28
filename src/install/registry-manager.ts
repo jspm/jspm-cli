@@ -19,7 +19,7 @@ import { Semver, SemverRange } from 'sver';
 import fs = require('graceful-fs');
 import path = require('path');
 import mkdirp = require('mkdirp');
-import { PackageName, ExactPackage, PackageConfig, ProcessedPackageConfig, parsePackageName,
+import { PackageName, ExactPackage, PackageConfig, parsePackageName,
     processPackageConfig, overridePackageConfig, serializePackageConfig } from './package';
 import { readJSON, JspmError, JspmUserError, sha256, md5, encodeInvalidFileChars, bold, isWindows,
     winSepRegEx, highlight, underline, hasProperties } from '../utils/common';
@@ -256,11 +256,11 @@ export default class RegistryManager {
     return undefined;
   }
 
-  async resolve (pkg: PackageName, override: ProcessedPackageConfig | void, edge = false): Promise<{
+  async resolve (pkg: PackageName, override: PackageConfig | void, edge = false): Promise<{
     pkg: ExactPackage,
     target: PackageName,
     source: string,
-    override: ProcessedPackageConfig | void,
+    override: PackageConfig | void,
     deprecated: string
   }> {
     let registry = pkg.registry || this.defaultRegistry;
@@ -517,16 +517,16 @@ export default class RegistryManager {
   // moving to a tmp location can be done during the verificationFailure call, to diff and determine route forward
   // if deciding to checkout, "ensureInstall" operation is cancelled by returning true
   // build support will be added to build into a newly prefixed folder, with build as a boolean argument
-  async ensureInstall (source: string, override: ProcessedPackageConfig | void, verificationFailure: (dir: string) => Promise<boolean>, fullVerification: boolean = false): Promise<{
-    config: ProcessedPackageConfig,
-    override: ProcessedPackageConfig | void,
+  async ensureInstall (source: string, override: PackageConfig | void, verificationFailure: (dir: string) => Promise<boolean>, fullVerification: boolean = false): Promise<{
+    config: PackageConfig,
+    override: PackageConfig | void,
     dir: string,
     hash: string,
     changed: boolean
   }> {
     let sourceHash = sha256(source);
 
-    var { config = undefined, hash = undefined }: { config: ProcessedPackageConfig, hash: string }
+    var { config = undefined, hash = undefined }: { config: PackageConfig, hash: string }
         = await this.cache.getUnlocked(sourceHash, this.timeouts.download) || {};
 
     if (config) {
@@ -552,7 +552,7 @@ export default class RegistryManager {
       // could have been a write while we were getting the lock
       if (!config) {
         var { config = undefined, hash = undefined }: {
-          config: ProcessedPackageConfig,
+          config: PackageConfig,
           hash: string
         } = await this.cache.get(sourceHash) || {};
         if (config) {

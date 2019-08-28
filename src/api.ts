@@ -46,14 +46,14 @@ else {
   });
 }
 
-export async function resolve (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
+export async function resolve (name: string, parent?: string, targets?: any) {
   const jspmResolve = require('@jspm/resolve');
-  return jspmResolve(name, parent, { env, relativeFallback });
+  return jspmResolve(name, parent, { targets });
 }
 
-export function resolveSync (name: string, parent?: string, env?: any, relativeFallback?: boolean) {
+export function resolveSync (name: string, parent?: string, targets?: any) {
   const jspmResolve = require('@jspm/resolve');
-  return jspmResolve.sync(name, parent, { env, relativeFallback });
+  return jspmResolve.sync(name, parent, { targets });
 }
 
 export const JSPM_GLOBAL_PATH = path.resolve(JSPM_CONFIG_DIR, 'global');

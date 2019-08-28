@@ -22,7 +22,6 @@ import { ModuleFormat, OutputChunk } from 'rollup';
 import { bold, winSepRegEx, highlight } from '../utils/common';
 import path = require('path');
 import { ok, info, warn } from '../utils/ui';
-import { utils, fs as jspmResolveFs } from '@jspm/resolve';
 import process = require('process');
 import { ImportMap } from '../map';
 

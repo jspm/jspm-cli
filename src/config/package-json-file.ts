@@ -15,7 +15,7 @@
  */
 import ConfigFile, { ValueType } from './config-file';
 import * as path from 'path';
-import { ProcessedPackageConfig, DepType, PackageTarget, processPackageTarget, serializePackageConfig,
+import { PackageConfig, DepType, PackageTarget, processPackageTarget, serializePackageConfig,
     serializePackageTargetCanonical, resourceInstallRegEx, parsePackageName, processPackageConfig } from '../install/package';
 import { Project } from '../project';
 
@@ -41,7 +41,7 @@ export default class PackageJson extends ConfigFile {
       target: string | PackageTarget
     }
   };
-  overrides: { target: PackageTarget | string, override: ProcessedPackageConfig, fresh: boolean }[];
+  overrides: { target: PackageTarget | string, override: PackageConfig, fresh: boolean }[];
   hooks: {
     [hook: string]: string
   };

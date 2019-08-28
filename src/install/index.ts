@@ -19,7 +19,7 @@ import { Project } from '../api';
 import RegistryManager from './registry-manager';
 import { Semver, SemverRange } from 'sver';
 import path = require('path');
-import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, ProcessedPackageConfig, DepType, Dependencies,
+import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx, validateOverride } from './package';
 import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx } from '../utils/common';
 import fs = require('graceful-fs');
@@ -78,7 +78,7 @@ export class Installer {
     [name: string]: Promise<void>
   };
   private sourceInstalls: {
-    [name: string]: Promise<ProcessedPackageConfig | void>
+    [name: string]: Promise<PackageConfig | void>
   };
 
   offline: boolean;
@@ -451,7 +451,7 @@ export class Installer {
 
   // most general override applies (greater containing range)
   // we first check this.config.pjson.overrides, followed by globalOverrides
-  private getOverride (pkg: ExactPackage | string, cut = false): ProcessedPackageConfig | void {
+  private getOverride (pkg: ExactPackage | string, cut = false): PackageConfig | void {
     if (typeof pkg === 'string') {
       const matchIndex = this.config.pjson.overrides.findIndex(({ target }) => target === pkg);
       const match = this.config.pjson.overrides[matchIndex];
@@ -462,7 +462,7 @@ export class Installer {
     else {
       let bestTargetIndex = -1;
       let bestTarget: PackageTarget | void;
-      let bestOverride: ProcessedPackageConfig | void;
+      let bestOverride: PackageConfig | void;
       let bestIsFresh: boolean;
       for (let i = 0; i < this.config.pjson.overrides.length; i++) {
         let { target, override, fresh } = this.config.pjson.overrides[i];
@@ -503,11 +503,11 @@ export class Installer {
 
   // get an override and remove it from the override list in the process
   // this way an override saved back does not result in duplication
-  private cutOverride (pkg: ExactPackage | string): ProcessedPackageConfig | void {
+  private cutOverride (pkg: ExactPackage | string): PackageConfig | void {
     return this.getOverride(pkg, true);
   }
 
-  private setOverride (pkgTarget: PackageTarget | string, override: ProcessedPackageConfig) {
+  private setOverride (pkgTarget: PackageTarget | string, override: PackageConfig) {
     this.config.pjson.overrides.push({
       target: pkgTarget,
       override,
@@ -528,7 +528,7 @@ export class Installer {
   
       // install information
       let target = install.target;
-      let override: ProcessedPackageConfig | void = install.override && validateOverride(install.override, install.name) && processPackageConfig(install.override);
+      let override: PackageConfig | void = install.override && validateOverride(install.override, install.name) && processPackageConfig(install.override);
       let source: string;
   
       let resolvedPkg: ExactPackage;
@@ -566,7 +566,7 @@ export class Installer {
         pkg: ExactPackage,
         target: PackageName,
         source: string,
-        override: ProcessedPackageConfig | void,
+        override: PackageConfig | void,
         deprecated: string
       };
       try {
@@ -612,7 +612,7 @@ export class Installer {
     })();
   }
 
-  private sourceInstall (resolvedPkg: ExactPackage, source: string, override: ProcessedPackageConfig | void, deprecated: string | void): Promise<ProcessedPackageConfig | void> | void {
+  private sourceInstall (resolvedPkg: ExactPackage, source: string, override: PackageConfig | void, deprecated: string | void): Promise<PackageConfig | void> | void {
     const resolvedPkgName = serializePackageName(resolvedPkg);
 
     const sourceInstallId = `${resolvedPkgName}|${source}`;
@@ -699,7 +699,7 @@ export class Installer {
     })();
   }
 
-  private async createBins (config: ProcessedPackageConfig, resolvedPkgName: string) {
+  private async createBins (config: PackageConfig, resolvedPkgName: string) {
     // NB we should create a queue based on precedence to ensure deterministic ordering
     // when there are namespace collissions, but this problem will likely not be hit for a while
     if (config.bin) {
@@ -726,7 +726,7 @@ export class Installer {
       return;
 
     return this.installs[installId] = (async () => {
-      let override = (install.override as ProcessedPackageConfig) || this.cutOverride(install.target);
+      let override = (install.override as PackageConfig) || this.cutOverride(install.target);
 
       // handle lock lookups for resourceInstall
       const existingResolution = this.installTree.getResolution(install);
@@ -862,7 +862,7 @@ export class Installer {
     })();
   }
 
-  private async installDependencies (config: ProcessedPackageConfig, resolvedPkgName: string, preloadedDepNames?: string[]): Promise<void> {
+  private async installDependencies (config: PackageConfig, resolvedPkgName: string, preloadedDepNames?: string[]): Promise<void> {
     const registry = config.registry || this.project.defaultRegistry;
     const preLoad = preloadedDepNames !== undefined && preloadedDepNames.length !== 0;
     try {
@@ -961,7 +961,7 @@ export class Installer {
     };
   }
 
-  private async readCheckedOutConfig (resolvedPkgName: string, override: ProcessedPackageConfig | void, linked = false): Promise<ProcessedPackageConfig> {
+  private async readCheckedOutConfig (resolvedPkgName: string, override: PackageConfig | void, linked = false): Promise<PackageConfig> {
     const registryIndex = resolvedPkgName.indexOf(':');
     const registry = resolvedPkgName.substr(0, registryIndex);
     const pkgPath = path.join(this.config.pjson.packages, registry, resolvedPkgName.substr(registryIndex + 1));

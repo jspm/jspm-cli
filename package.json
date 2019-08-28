@@ -8,7 +8,7 @@
     "@babel/core": "^7.4.0",
     "@jspm/github": "^1.0.3",
     "@jspm/npm": "^1.0.1",
-    "@jspm/resolve": "^1.0.0",
+    "@jspm/resolve": "github:jspm/jspm-resolve#master",
     "babel-plugin-transform-cjs-dew": "^1.0.0",
     "buffer-peek-stream": "^1.0.1",
     "chalk": "^2.4.2",
@@ -55,6 +55,6 @@
     "@types/node": "^8.10.45",
     "@types/tar-fs": "^1.16.1",
     "mocha": "^4.0.1",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }

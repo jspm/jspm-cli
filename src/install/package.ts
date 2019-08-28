@@ -19,9 +19,7 @@
 import { encodeInvalidFileChars, hasProperties, bold, JspmUserError, highlight } from '../utils/common';
 import { Semver, SemverRange } from 'sver';
 import convertRange = require('sver/convert-range');
-const { processPjsonConfig } = require('@jspm/resolve');
 import crypto = require('crypto');
-export { processPjsonConfig }
 import { sourceProtocols } from './source';
 
 /*
@@ -138,7 +136,7 @@ export interface ResolveRecord {
   }
 }
 
-const baseConfig = processPackageConfig({});
+const baseConfig = emptyPackageConfig();
 
 export class ResolveTree {
   resolve: {
@@ -284,23 +282,27 @@ export class ResolveTree {
  * Package Configuration
  */
 
-export interface Conditional {
-  [condition: string]: string | Conditional
-}
+interface ExportsTargetCondition {
+  [condition: string]: string | null | ExportsTargetCondition;
+};
 
-export interface MapConfig {
-  [name: string]: string | Conditional
-}
+type ExportsTarget = string | null | ExportsTargetCondition | (string | null | ExportsTargetCondition)[];
 
-export interface ProcessedPackageConfig {
+export interface PackageConfig {
   registry?: string;
   name?: string;
   version?: string;
   type?: string;
-  main?: string;
-  noModuleConversion?: boolean | string[];
+  entries: {
+    [target: string]: ExportsTarget
+  };
+  exports?: {
+    [path: string]: ExportsTarget
+  };
+  map?: {
+    [name: string]: ExportsTarget
+  };
   namedExports?: Record<string, string[]>;
-  map?: MapConfig;
   bin?: {
     [name: string]: string;
   };
@@ -315,35 +317,6 @@ export interface ProcessedPackageConfig {
   };
 }
 
-// package configuration + sugars
-export interface PackageConfig {
-  registry?: string;
-  name?: string;
-  version?: string;
-  type?: string;
-  main?: string;
-  noModuleConversion?: boolean | string[];
-  namedExports?: Record<string, string[]>;
-  map?: MapConfig;
-  bin?: string | {
-    [name: string]: string
-  };
-  dependencies?: {
-    [name: string]: string
-  };
-  peerDependencies?: {
-    [name: string]: string
-  };
-  optionalDependencies?: {
-    [name: string]: string
-  };
-
-  'react-native'?: string;
-  electron?: string;
-  browser?: string | {
-    [name: string]: string | boolean
-  };
-}
 
 // Target is assumed pre-canonicalized
 // Note target validation should be performed separately
@@ -419,8 +392,84 @@ export function validateOverride (pcfg: PackageConfig, name: string) {
   return true;
 }
 
-export function processPackageConfig (pcfg: PackageConfig, partial = false, registry = ''): ProcessedPackageConfig {
-  const processed: ProcessedPackageConfig = processPjsonConfig(pcfg);
+function emptyPackageConfig (): PackageConfig {
+  return { entries: Object.create(null) };
+}
+
+export function processPackageConfig (pcfg: PackageConfig, partial = false, registry = ''): PackageConfig {
+  const processed: PackageConfig = {
+    name: typeof pcfg.main === 'string' ? pcfg.main : undefined,
+    entries: 
+    main: typeof pjson.main === 'string' ? stripLeadingDotsAndTrailingSlash(pjson.main) : undefined,
+    map: typeof pjson.map === 'object' ? pjson.map : undefined,
+    type: pjson.type === 'module' || pjson.type === 'commonjs' ? pjson.type : undefined,
+    dependencies: pjson.dependencies,
+    devDependencies: pjson.devDependencies,
+    peerDependencies: pjson.peerDependencies,
+    optionalDependencies: pjson.optionalDependencies
+  };
+
+    let name;
+    if (typeof pjson.name === 'string') {
+      try {
+        validatePlain(pjson.name);
+        name = pjson.name;
+      }
+      catch (e) {}
+    }
+    const pcfg = {
+      
+    };
+  
+    let mainMap;
+  
+    if (typeof pjson['react-native'] === 'string')
+      (mainMap = mainMap || {})['react-native'] = stripLeadingDotsAndTrailingSlash(pjson['react-native']);
+  
+    if (typeof pjson.electron === 'string')
+      (mainMap = mainMap || {}).electron = stripLeadingDotsAndTrailingSlash(pjson.electron);
+  
+    if (typeof pjson.browser === 'string')
+      (mainMap = mainMap || {}).browser = stripLeadingDotsAndTrailingSlash(pjson.browser);
+  
+    if (typeof pjson.peerDependencies === 'object')
+      pcfg.peerDependencies = pjson.peerDependencies;
+  
+    if (mainMap) {
+      if (!pcfg.map)
+        pcfg.map = {};
+      if (pcfg.main === undefined)
+        pcfg.main = 'index.js';
+      if (!pcfg.map['./' + pcfg.main])
+        pcfg.map['./' + pcfg.main] = mainMap;
+    }
+  
+    if (typeof pjson.browser === 'object') {
+      if (!pcfg.map)
+        pcfg.map = {};
+      for (let p in pjson.browser) {
+        let mapping = pjson.browser[p];
+        if (mapping === false)
+          mapping = '@empty';
+        if (p[0] === '.' && p[1] === '/' && !p.endsWith('.js'))
+          p += '.js';
+        if (mainMap && pcfg.map[p] === mainMap) {
+          mainMap.browser = mapping;
+          continue;
+        }
+        if (pcfg.map[p] !== undefined)
+          continue;
+        pcfg.map[p] = {
+          browser: mapping
+        };
+      }
+    }
+  
+    return pcfg;
+  }
+
+
+  const processed: PackageConfig = processPjsonConfig(pcfg);
   if (processed.peerDependencies)
     delete processed.peerDependencies;
   if ((<any>processed).devDependencies)
@@ -600,7 +649,7 @@ function overrideMapConfig (map: MapConfig, overrideMap: MapConfig) {
 }
 
 // recanonicalize the output of a processed package config
-export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultRegistry?: string): PackageConfig {
+export function serializePackageConfig (pcfg: PackageConfig, defaultRegistry?: string): PackageConfig {
   const spcfg: PackageConfig = {};
   if (pcfg.registry)
     spcfg.registry = pcfg.registry;
@@ -610,8 +659,6 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
     spcfg.version = pcfg.version;
   if (pcfg.bin)
     spcfg.bin = pcfg.bin;
-  if (pcfg.noModuleConversion)
-    spcfg.noModuleConversion = pcfg.noModuleConversion;
   else if (pcfg.type === 'commonjs')
     spcfg.type = 'commonjs';
   if (pcfg.namedExports)
@@ -632,18 +679,18 @@ export function serializePackageConfig (pcfg: ProcessedPackageConfig, defaultReg
       optionalDependencies[p] = serializePackageTargetCanonical(p, pcfg.optionalDependencies[p], defaultRegistry);
   }
   spcfg.type = pcfg.type;
-  if (pcfg.main)
+  if (pcfg.entries.main)
     spcfg.main = pcfg.main;
   if (pcfg.map)
     spcfg.map = pcfg.map;
   return spcfg;
 }
 
-export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcfg: ProcessedPackageConfig): {
-  config: ProcessedPackageConfig,
-  override: ProcessedPackageConfig | void
+export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: PackageConfig): {
+  config: PackageConfig,
+  override: PackageConfig | void
 } {
-  let override: ProcessedPackageConfig;
+  let override: PackageConfig;
   for (let p in overridePcfg) {
     const val = overridePcfg[p];
     if (typeof val === 'object') {
@@ -652,7 +699,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
         if (pcfg[p] != null) {
           pcfg[p] = val;
           if (!override)
-            override = {};
+            override = emptyPackageConfig();
           override[p] = null;
         }
       }
@@ -665,7 +712,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
             pcfg.map = map;
           if (mapOverride) {
             if (!override)
-              override = {};
+              override = emptyPackageConfig();
             override.map = mapOverride;
           }
         }
@@ -673,7 +720,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
           for (let q in overridePcfg.bin) {
             if (baseVal[q] === overridePcfg.bin[q])
               continue;
-            override = override || {};
+            override = override || emptyPackageConfig();
             override.bin = override.bin || {};
             baseVal[q] = override.bin[q] = overridePcfg.bin[q];
             pcfg.bin = baseVal;
@@ -683,17 +730,11 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
           for (let q in overridePcfg.namedExports) {
             if (JSON.stringify(baseVal[q]) === JSON.stringify(overridePcfg.namedExports[q]))
               continue;
-            override = override || {};
+            override = override || emptyPackageConfig();
             override.namedExports = override.namedExports || {};
             baseVal[q] = override.namedExports[q] = overridePcfg.namedExports[q];
             pcfg.namedExports = baseVal;
           }
-        }
-        else if (p === 'noModuleConversion') {
-          if (JSON.stringify(baseVal) === JSON.stringify(overridePcfg.noModuleConversion))
-            continue;
-          override = override || {};
-          pcfg.noModuleConversion = override.noModuleConversion = overridePcfg.noModuleConversion;
         }
         // dependencies
         else {
@@ -703,7 +744,7 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
             if (typeof newVal === 'string' ? baseVal[q] !== newVal : !newVal.eq(baseVal[q])) {
               if (depsOverride === undefined) {
                 if (!override)
-                  override = {};
+                  override = emptyPackageConfig();
                 override[p] = depsOverride = {};
               }
               baseVal[q] = depsOverride[q] = newVal;
@@ -715,13 +756,9 @@ export function overridePackageConfig (pcfg: ProcessedPackageConfig, overridePcf
     // undefined is not an override (use null)
     else if (pcfg[p] !== val && val !== undefined) {
       if (!override)
-        override = {};
+        override = emptyPackageConfig();
       pcfg[p] = override[p] = val;
     }
-  }
-
-  if (pcfg.noModuleConversion && pcfg.type === 'commonjs') {
-    delete override.type;
   }
 
   return {

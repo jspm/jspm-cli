@@ -126,8 +126,8 @@ function transformDew (ast, source, resolveMap) {
       },
       wildcardExtensions: ['.js', '.json', '.node'],
       esmDependencies: resolved => isESM(resolved),
-      filename: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url).pathname`,
-      dirname: `import.meta.url.startsWith('file:') ? decodeURI(import.meta.url.slice(0, import.meta.url.lastIndexOf('/')).slice(7 + (typeof process !== 'undefined' && process.platform === 'win32'))) : new URL(import.meta.url.slice(0, import.meta.url.lastIndexOf('/'))).pathname`
+      filename: `(p => p.slice(p.includes(':') && !p.lastIndexOf('/', p.indexOf(':'))))(decodeURI(new URL(import.meta.url).pathname))`,
+      dirname: `(p => p.slice(p.includes(':') && !p.lastIndexOf('/', p.indexOf(':')), -1))(decodeURI(new URL('.', import.meta.url).pathname))`
     }]]
   });
   return dewTransform;

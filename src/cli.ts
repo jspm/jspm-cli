@@ -404,7 +404,7 @@ ${bold('Command Flags')}
           let parent;
           if (args[1]) {
             let parentFormat;
-            ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env, true));
+            ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env));
             if (parentFormat === 'builtin')
               parent = undefined;
           }
@@ -412,7 +412,7 @@ ${bold('Command Flags')}
             parent = projectPath + path.sep;
           }
           
-          const resolved = api.resolveSync(args[0], parent, env, true);
+          const resolved = api.resolveSync(args[0], parent, env);
 
           if (options.format) {
             console.log(resolved.format || '<undefined>');

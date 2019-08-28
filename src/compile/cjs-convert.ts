@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 import * as workerFarm from 'worker-farm';
-import { ProcessedPackageConfig, Conditional, serializePackageConfig, PackageTarget } from '../install/package';
+import { PackageConfig, serializePackageConfig, PackageTarget } from '../install/package';
 import { Logger } from '../project';
 import { JspmUserError } from '../utils/common';
 import * as fs from 'graceful-fs';
@@ -58,7 +58,7 @@ export async function dispose () {
  * - External maps also dew - "map": { "x": "y/z" } -> "map": { "x": "y/z", "x/index.dew.js": "y/z.dew.js" }
  *   plus handling for subpath - "map": { "x/y": "z" } -> "map": { "x/y": "./z", "x/y.dew.js": "./z.dew.js" }
  */
-export function convertCJSConfig (pcfg: ProcessedPackageConfig) {
+export function convertCJSConfig (pcfg: PackageConfig) {
   let newMap;
   if (pcfg.type === 'module')
     return;
@@ -147,10 +147,8 @@ function convertMappingToDew (mapping: string | Conditional, plain: boolean): st
  * -  We skip files that are in subfolders of "type": "module" (up to next cancelling subfolder), or files that are in the noModuleConversion array
  *    Such files will simply break if loaded as entries or dew requires. There might possibly be a way to skip the ".js" entry, but keep the ".dew". Perhaps this goes with entry point lock downs -> "sealed": true kind of thing.
  */
-export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: ProcessedPackageConfig, defaultRegistry: string) {
+export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: PackageConfig, defaultRegistry: string) {
   log.debug(`Converting CJS package ${pkgName}`);
-  if (pcfg.noModuleConversion === true)
-    return;
 
   let filePool = await listAllFiles(dir);
   
@@ -206,14 +204,14 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
     main = resolveDir('index', convertFiles, folderMains);
 
   // dont convert the noModuleConversion files
-  const skipFiles = <string[]>pcfg.noModuleConversion;
+  /* const skipFiles = <string[]>pcfg.noModuleConversion;
   if (skipFiles)
     Object.keys(convertFiles).forEach(file => {
       if (skipFiles.some(skipFile => 
         file.startsWith(skipFile) && (file.length === skipFile.length || file[skipFile.length] === '/' || file[skipFile.length - 1] === '/')
       ))
         convertFiles[file] = false;
-    });
+    });*/
 
   // we are now left with just those files that need .dew.js conversion
   // the worker will also write over the original file with the ESM wrapper
@@ -383,7 +381,7 @@ export function listAllFiles (dir: string): Promise<string[]> {
   });
 }
 
-function getLocalMaps (pcfg: ProcessedPackageConfig) {
+function getLocalMaps (pcfg: PackageConfig) {
   const localMaps: Record<string, boolean> = Object.create(null);
   if (pcfg.map) {
     for (const target of Object.keys(pcfg.map)) {

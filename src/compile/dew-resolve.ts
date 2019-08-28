@@ -15,7 +15,7 @@
  */
 import * as path from 'path';
 import { validPkgNameRegEx } from '../utils/common';
-import { ProcessedPackageConfig } from '../install/package';
+import { PackageConfig } from '../install/package';
 import { builtins } from '@jspm/resolve';
 
 export function relativeResolve (require: string, filePath: string, pkgBasePath: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, localMaps: Record<string, boolean>, deps: Record<string, boolean>, name: string) {
@@ -99,7 +99,7 @@ export function toDew (path: string) {
   return path + '.dew.js';
 }
 
-export function pcfgToDeps (pcfg: ProcessedPackageConfig, optional = false) {
+export function pcfgToDeps (pcfg: PackageConfig, optional = false) {
   const deps: Record<string, boolean> = {};
   if (pcfg.dependencies)
     Object.keys(pcfg.dependencies).forEach(key => deps[key] = true);
