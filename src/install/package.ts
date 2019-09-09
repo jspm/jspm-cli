@@ -282,11 +282,11 @@ export class ResolveTree {
  * Package Configuration
  */
 
-interface ExportsTargetCondition {
+export interface ExportsTargetCondition {
   [condition: string]: string | null | any | ExportsTargetCondition;
 };
 
-type ExportsTarget = string | null | any | ExportsTargetCondition | (string | null | any | ExportsTargetCondition)[];
+export type ExportsTarget = string | null | any | ExportsTargetCondition | (string | null | any | ExportsTargetCondition)[];
 
 export interface PackageConfig {
   registry?: string;
@@ -466,28 +466,12 @@ export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: Packag
       else {
         if (baseVal === undefined)
           baseVal = {};
-        if (p === 'dependencies' || p === 'devDependencies' || p === 'peerDependencies' || p === 'optionalDependencies') {
-          let depsOverride;
-          for (let q in val) {
-            const newVal = val[q];
-            if (baseVal[q] !== newVal) {
-              if (depsOverride === undefined) {
-                if (!override)
-                  override = emptyPackageConfig();
-                override[p] = depsOverride = {};
-              }
-              baseVal[q] = depsOverride[q] = newVal;
-            }
-          }
-        }
-        else {
-          for (let q in overridePcfg.namedExports) {
-            if (JSON.stringify(baseVal[q]) === JSON.stringify(overridePcfg.namedExports[q]))
-              continue;
+        for (let q in val) {
+          if (JSON.stringify(baseVal[q]) !== JSON.stringify(val[q])) {
             override = override || emptyPackageConfig();
-            override.namedExports = override.namedExports || {};
-            baseVal[q] = override.namedExports[q] = overridePcfg.namedExports[q];
-            pcfg.namedExports = baseVal;
+            override[p] = override[p] || {};
+            baseVal[q] = override[p][q] = overridePcfg[p][q];
+            pcfg[p] = baseVal;
           }
         }
       }

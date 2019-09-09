@@ -621,7 +621,7 @@ export default class RegistryManager {
 
         // run package conversion
         // (on any subfolder containing a "type": "commonjs")
-        await convertCJSPackage(this.util.log, dir, config.name, config, this.defaultRegistry);
+        await convertCJSPackage(this.util.log, dir, config.name, config);
 
         var mtime = await new Promise((resolve, reject) => fs.stat(pjsonPath, (err, stats) => err ? reject(err) : resolve(stats.mtimeMs)));
         

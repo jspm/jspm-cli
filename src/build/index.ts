@@ -19,11 +19,12 @@ import terserPlugin = require('rollup-plugin-terser');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { ModuleFormat, OutputChunk } from 'rollup';
-import { bold, winSepRegEx, highlight } from '../utils/common';
+import { bold, winSepRegEx, highlight, readJSONSync } from '../utils/common';
 import path = require('path');
 import { ok, info, warn } from '../utils/ui';
 import process = require('process');
 import { ImportMap } from '../map';
+import { stat } from 'fs';
 
 export interface BuildOptions {
   log: boolean;
@@ -44,6 +45,29 @@ export interface BuildOptions {
   target?: boolean | string[];
   hashEntries?: boolean;
   mapBase?: string;
+}
+
+async function getPackageScope (resolved, statCache = {}) {
+  const rootSeparatorIndex = resolved.indexOf('/');
+  let separatorIndex;
+  while ((separatorIndex = resolved.lastIndexOf('/')) > rootSeparatorIndex) {
+    resolved = resolved.slice(0, separatorIndex);
+    if (resolved.endsWith('/node_modules') || resolved.endsWith('/jspm_packages'))
+      return;
+    const checkPath = resolved + '/package.json';
+    const stats = checkPath in statCache ? statCache[checkPath] : await new Promise((resolve, reject) =>
+      stat(checkPath, (err, stats) => {
+        if (err) {
+          if (err.code !== 'ENOENT' && err.code !== 'ENOTDIR')
+            return reject(err);
+          stats = null;
+        }
+        resolve(statCache[checkPath] = stats);
+      })
+    );
+    if (stats)
+      return resolved;
+  }
 }
 
 export async function build (input: string[] | Record<string,string>, opts: BuildOptions): Promise<ImportMap> {
@@ -91,9 +115,9 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   // use .mjs if the output package boundary requires
   if (opts.format === 'esm' && 'mjs' in opts === false && ext !== '.mjs') {
     const outdir = path.resolve(opts.dir);
-    const boundary = utils.getPackageBoundarySync.call(jspmResolveFs, outdir + '/');
+    const boundary = getPackageScope(outdir + '/');
     if (boundary) {
-      const pjson = utils.readPackageConfigSync.call(jspmResolveFs, boundary);
+      const pjson = readJSONSync(boundary + '/package.json');
       if (pjson.type !== 'module') {
         let pjsonPath = path.relative(process.cwd(), boundary + '/package.json');
         if (!pjsonPath.startsWith('..' + path.sep))

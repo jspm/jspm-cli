@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 import * as workerFarm from 'worker-farm';
-import { PackageConfig, serializePackageConfig, PackageTarget } from '../install/package';
+import { PackageConfig, ExportsTarget } from '../install/package';
 import { Logger } from '../project';
 import { JspmUserError } from '../utils/common';
 import * as fs from 'graceful-fs';
@@ -23,7 +23,7 @@ import { writeJSONStyled, readJSONStyled, defaultStyle } from '../config/config-
 import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM } from './dew-resolve';
 import { builtins } from '@jspm/resolve';
 
-const nodeBuiltinsTarget = new PackageTarget('npm', '@jspm/core', '^1.0.0');
+const nodeBuiltinsTarget = 'npm:@jspm/core@^1.0.0';
 
 let convertWorker: any;
 let initCnt = 0;
@@ -105,7 +105,7 @@ export function convertCJSConfig (pcfg: PackageConfig) {
   if (newMap)
     pcfg.map = newMap;
 }
-function convertMappingToDew (mapping: string | Conditional, plain: boolean): string | Conditional {
+function convertMappingToDew (mapping: ExportsTarget, plain: boolean): string | ExportsTarget {
   if (typeof mapping === 'string') {
     if (mapping === '@empty')
       return '@empty.dew';
@@ -147,7 +147,7 @@ function convertMappingToDew (mapping: string | Conditional, plain: boolean): st
  * -  We skip files that are in subfolders of "type": "module" (up to next cancelling subfolder), or files that are in the noModuleConversion array
  *    Such files will simply break if loaded as entries or dew requires. There might possibly be a way to skip the ".js" entry, but keep the ".dew". Perhaps this goes with entry point lock downs -> "sealed": true kind of thing.
  */
-export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: PackageConfig, defaultRegistry: string) {
+export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: PackageConfig) {
   log.debug(`Converting CJS package ${pkgName}`);
 
   let filePool = await listAllFiles(dir);
@@ -337,7 +337,7 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
     let { json: pjson, style } = await readJSONStyled(path.resolve(dir, 'package.json'));
       if (!pjson)
         pjson = {};
-    await writeJSONStyled(path.resolve(dir, 'package.json'), Object.assign(pjson, serializePackageConfig(pcfg, defaultRegistry)), style || defaultStyle);
+    await writeJSONStyled(path.resolve(dir, 'package.json'), Object.assign(pjson, pcfg), style || defaultStyle);
   }
 
   // update the package to be "type": "module" now that it is converted
