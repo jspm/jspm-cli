@@ -512,7 +512,7 @@ export enum DepType {
 };
 
 export interface DepMap {
-  [name: string]: string | PackageTarget
+  [name: string]: string
 }
 
 export interface Dependencies {

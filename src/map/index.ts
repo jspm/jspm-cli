@@ -23,6 +23,7 @@ import { resolveIfNotPlainOrUrl } from "./common";
 import fs = require('graceful-fs');
 import { analyzeModuleSyntax } from "./esm-lexer";
 
+const builtins = {};
 const jspmBuiltins = Object.assign({ '@empty.dew': true }, builtins);
 
 const nodeCoreBrowserUnimplemented = {

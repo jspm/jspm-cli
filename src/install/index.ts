@@ -1309,14 +1309,12 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent?: s
     Object.keys(deps.dependencies).forEach(name => {
       if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
         return;
-      let target = deps.dependencies[name];
+      const target = deps.dependencies[name];
       if (target) {
-        if (typeof target !== 'string' && !target.registry)
-          target = target.fromRegistry(defaultRegistry);
         installs.push({
           name,
           parent,
-          target,
+          target: processPackageTarget(name, target, defaultRegistry, true),
           type: DepType.secondary
         });
       }
@@ -1325,14 +1323,12 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent?: s
     Object.keys(deps.peerDependencies).forEach(name => {
       if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
         return;
-      let target = deps.peerDependencies[name];
+      const target = deps.peerDependencies[name];
       if (target) {
-        if (typeof target !== 'string' && !target.registry)
-          target = target.fromRegistry(defaultRegistry);
         installs.push({
           name,
           parent,
-          target,
+          target: processPackageTarget(name, target, defaultRegistry, true),
           type: DepType.peer
         });
       }
@@ -1341,14 +1337,12 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent?: s
     Object.keys(deps.optionalDependencies).forEach(name => {
       if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
         return;
-      let target = deps.optionalDependencies[name];
+      const target = deps.optionalDependencies[name];
       if (target) {
-        if (typeof target !== 'string' && !target.registry)
-          target = target.fromRegistry(defaultRegistry);
         installs.push({
           name,
           parent,
-          target,
+          target: processPackageTarget(name, target, defaultRegistry, true),
           type: DepType.secondary
         });
       }
