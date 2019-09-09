@@ -20,7 +20,7 @@ import fs = require('graceful-fs');
 import path = require('path');
 import mkdirp = require('mkdirp');
 import { PackageName, ExactPackage, PackageConfig, parsePackageName,
-    processPackageConfig, overridePackageConfig, serializePackageConfig } from './package';
+    processPackageConfig, overridePackageConfig } from './package';
 import { readJSON, JspmError, JspmUserError, sha256, md5, encodeInvalidFileChars, bold, isWindows,
     winSepRegEx, highlight, underline, hasProperties } from '../utils/common';
 import { readJSONStyled, writeJSONStyled, defaultStyle } from '../config/config-file';
@@ -402,7 +402,7 @@ export default class RegistryManager {
 
     let resolvedOverride;
     if (resolved.override) {
-      resolvedOverride = processPackageConfig(resolved.override, true, override && override.registry);
+      resolvedOverride = processPackageConfig(resolved.override);
       if (override)
         ({ config: override } = overridePackageConfig(resolvedOverride, override));
       else
@@ -594,8 +594,7 @@ export default class RegistryManager {
           pjson = {};
 
         if (!config) {
-          let pjsonConfig = processPackageConfig(pjson);
-          const serializedConfig = serializePackageConfig(pjsonConfig, this.defaultRegistry);
+          const pjsonConfig = processPackageConfig(pjson);
           if (override)
             ({ config, override } = overridePackageConfig(pjsonConfig, override));
           else
@@ -603,7 +602,7 @@ export default class RegistryManager {
           convertCJSConfig(config);
           hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           await Promise.all([
-            this.cache.set(sourceHash, { config: serializedConfig, hash }),
+            this.cache.set(sourceHash, { config: pjsonConfig, hash }),
             // move the tmp folder to the known hash now
             (async () => {
               const toDir = path.join(this.cacheDir, 'packages', hash);
@@ -616,7 +615,7 @@ export default class RegistryManager {
           pjsonPath = path.resolve(dir, 'package.json');
         }
 
-        await writeJSONStyled(pjsonPath, Object.assign(pjson, serializePackageConfig(config)), style || defaultStyle);
+        await writeJSONStyled(pjsonPath, Object.assign(pjson, config), style || defaultStyle);
         
         await runBinaryBuild(this.util.log, dir, pjson.name, pjson.scripts);
 

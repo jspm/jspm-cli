@@ -159,7 +159,7 @@ export class ResolveTree {
       else
         resolveMap.resolve = {};
       if (resolveMap.override)
-        resolveMap.override = overridePackageConfig(baseConfig, processPackageConfig(resolveMap.override)).override;
+        resolveMap.override = overridePackageConfig(baseConfig, <PackageConfig>(resolveMap.override)).override;
     });
 
     this.resolve = resolve;
@@ -283,20 +283,21 @@ export class ResolveTree {
  */
 
 interface ExportsTargetCondition {
-  [condition: string]: string | null | ExportsTargetCondition;
+  [condition: string]: string | null | any | ExportsTargetCondition;
 };
 
-type ExportsTarget = string | null | ExportsTargetCondition | (string | null | ExportsTargetCondition)[];
+type ExportsTarget = string | null | any | ExportsTargetCondition | (string | null | any | ExportsTargetCondition)[];
 
 export interface PackageConfig {
   registry?: string;
   name?: string;
   version?: string;
   type?: string;
-  entries: {
-    [target: string]: ExportsTarget
-  };
-  exports?: {
+  'react-native'?: string;
+  electron?: string;
+  browser?: any;
+  main?: string;
+  exports?: ExportsTarget | {
     [path: string]: ExportsTarget
   };
   map?: {
@@ -307,45 +308,18 @@ export interface PackageConfig {
     [name: string]: string;
   };
   dependencies?: {
-    [name: string]: PackageTarget | string;
+    [name: string]: string;
+  };
+  devDependencies?: {
+    [name: string]: string;
   };
   peerDependencies?: {
-    [name: string]: PackageTarget | string;
+    [name: string]: string;
   };
   optionalDependencies?: {
-    [name: string]: PackageTarget | string;
+    [name: string]: string;
   };
 }
-
-
-// Target is assumed pre-canonicalized
-// Note target validation should be performed separately
-/* export function parseTarget (depTarget: string, defaultRegistry: string): PackageName | string {
-  let registry, name, version;
-  const registryIndex = depTarget.indexOf(':');
-  if (registryIndex === -1) {
-    registry = defaultRegistry;
-  }
-  // we allow :x to mean registry relative (dependencies: { a: ":b" })
-  else if (registryIndex === 0) {
-    registry = defaultRegistry;
-  }
-  else {
-    registry = depTarget.substr(0, registryIndex);
-    if (registry in sourceProtocols)
-      return depTarget;
-  }
-  const versionIndex = depTarget.lastIndexOf('@');
-  if (versionIndex > registryIndex + 1) {
-    name = depTarget.substring(registryIndex + 1, versionIndex);
-    version = depTarget.substr(versionIndex + 1);
-  }
-  else {
-    name = depTarget.substr(registryIndex + 1);
-    version = '*';
-  }
-  return { registry, name, version };
-} */
 
 export function serializePackageTargetCanonical (name: string, target: PackageTarget | string, defaultRegistry = '') {
   if (typeof target === 'string')
@@ -393,138 +367,20 @@ export function validateOverride (pcfg: PackageConfig, name: string) {
 }
 
 function emptyPackageConfig (): PackageConfig {
-  return { entries: Object.create(null) };
+  return Object.create(null);
 }
 
-export function processPackageConfig (pcfg: PackageConfig, partial = false, registry = ''): PackageConfig {
-  const processed: PackageConfig = {
-    name: typeof pcfg.main === 'string' ? pcfg.main : undefined,
-    entries: 
-    main: typeof pjson.main === 'string' ? stripLeadingDotsAndTrailingSlash(pjson.main) : undefined,
-    map: typeof pjson.map === 'object' ? pjson.map : undefined,
-    type: pjson.type === 'module' || pjson.type === 'commonjs' ? pjson.type : undefined,
-    dependencies: pjson.dependencies,
-    devDependencies: pjson.devDependencies,
-    peerDependencies: pjson.peerDependencies,
-    optionalDependencies: pjson.optionalDependencies
-  };
-
-    let name;
-    if (typeof pjson.name === 'string') {
-      try {
-        validatePlain(pjson.name);
-        name = pjson.name;
-      }
-      catch (e) {}
-    }
-    const pcfg = {
-      
-    };
-  
-    let mainMap;
-  
-    if (typeof pjson['react-native'] === 'string')
-      (mainMap = mainMap || {})['react-native'] = stripLeadingDotsAndTrailingSlash(pjson['react-native']);
-  
-    if (typeof pjson.electron === 'string')
-      (mainMap = mainMap || {}).electron = stripLeadingDotsAndTrailingSlash(pjson.electron);
-  
-    if (typeof pjson.browser === 'string')
-      (mainMap = mainMap || {}).browser = stripLeadingDotsAndTrailingSlash(pjson.browser);
-  
-    if (typeof pjson.peerDependencies === 'object')
-      pcfg.peerDependencies = pjson.peerDependencies;
-  
-    if (mainMap) {
-      if (!pcfg.map)
-        pcfg.map = {};
-      if (pcfg.main === undefined)
-        pcfg.main = 'index.js';
-      if (!pcfg.map['./' + pcfg.main])
-        pcfg.map['./' + pcfg.main] = mainMap;
-    }
-  
-    if (typeof pjson.browser === 'object') {
-      if (!pcfg.map)
-        pcfg.map = {};
-      for (let p in pjson.browser) {
-        let mapping = pjson.browser[p];
-        if (mapping === false)
-          mapping = '@empty';
-        if (p[0] === '.' && p[1] === '/' && !p.endsWith('.js'))
-          p += '.js';
-        if (mainMap && pcfg.map[p] === mainMap) {
-          mainMap.browser = mapping;
-          continue;
-        }
-        if (pcfg.map[p] !== undefined)
-          continue;
-        pcfg.map[p] = {
-          browser: mapping
-        };
-      }
-    }
-  
-    return pcfg;
-  }
-
-
-  const processed: PackageConfig = processPjsonConfig(pcfg);
-  if (processed.peerDependencies)
+export function processPackageConfig (pcfg: any) {
+  if (typeof pcfg.jspm !== 'object')
+    return <PackageConfig>pcfg;
+  const processed: PackageConfig = Object.assign({}, pcfg);
+  if (pcfg.jspm.dependencies || pcfg.jspm.devDependencies || pcfg.jspm.peerDependencies || pcfg.jspm.optionalDependencies) {
+    delete processed.dependencies;
+    delete processed.devDependencies;
     delete processed.peerDependencies;
-  if ((<any>processed).devDependencies)
-    delete (<any>processed).devDependencies;
-  if (typeof pcfg.name === 'string')
-    processed.name = pcfg.name;
-  if (typeof pcfg.version === 'string')
-    processed.version = pcfg.version;
-  if (partial) {
-    delete processed.main;
-    delete processed.map;
+    delete processed.optionalDependencies;
   }
-  else {
-    if (typeof pcfg.type === 'string')
-      processed.type = pcfg.type;
-    else
-      processed.type = 'commonjs';
-    if (typeof pcfg.namedExports === 'object' && Object.keys(pcfg.namedExports).every(key => pcfg.namedExports[key] instanceof Array && pcfg.namedExports[key].every(value => typeof value === 'string')))
-      processed.namedExports = pcfg.namedExports;
-    if (pcfg.noModuleConversion === true || pcfg.noModuleConversion instanceof Array && pcfg.noModuleConversion.every(x => typeof x === 'string'))
-      processed.noModuleConversion = pcfg.noModuleConversion;
-    if (processed.type === 'commonjs' && !processed.noModuleConversion)
-      delete processed.type;
-    if (typeof pcfg.bin === 'string') {
-      const binPath = pcfg.bin.startsWith('./') ? pcfg.bin.substr(2) : pcfg.bin;
-      processed.bin = { [pcfg.name]: binPath };
-    }
-    else if (typeof pcfg.bin === 'object') {
-      processed.bin = {};
-      for (let p in pcfg.bin) {
-        const mapped = pcfg.bin[p];
-        const binPath = mapped.startsWith('./') ? mapped.substr(2) : mapped;
-        processed.bin[p] = binPath;
-      }
-    }
-  }
-  registry = registry || pcfg.registry;
-  if (registry)
-    processed.registry = registry;
-  if (pcfg.dependencies) {
-    const dependencies = processed.dependencies = {};
-    for (const name in pcfg.dependencies)
-      dependencies[name] = processPackageTarget(name, pcfg.dependencies[name], registry || '', true);
-  }
-  if (pcfg.peerDependencies) {
-    const peerDependencies = processed.peerDependencies = {};
-    for (const name in pcfg.peerDependencies)
-      peerDependencies[name] = processPackageTarget(name, pcfg.peerDependencies[name], registry || '', true);
-  }
-  if (pcfg.optionalDependencies) {
-    const optionalDependencies = processed.optionalDependencies = {};
-    for (const name in pcfg.optionalDependencies)
-      optionalDependencies[name] = processPackageTarget(name, pcfg.optionalDependencies[name], registry || '', true);
-  }
-  return processed;
+  return Object.assign(processed, pcfg.jspm);
 }
 
 /*
@@ -590,102 +446,6 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   return new PackageTarget(registry, name, version);
 }
 
-function overrideConditional (conditional: Conditional, overrideConditional: Conditional) {
-  let override: Conditional;
-  // new map properties take priority first
-  const newConditional: Conditional = {};
-  for (let c in overrideConditional) {
-    const existingCondition = conditional[c];
-    const extendCondition = overrideConditional[c];
-    if (!existingCondition || (typeof existingCondition === 'string'
-        ? existingCondition !== extendCondition
-        : typeof extendCondition === 'object' && JSON.stringify(existingCondition) !== JSON.stringify(extendCondition)))
-      newConditional[c] = (override = override || {})[c] = extendCondition;
-  }
-  if (!newConditional.default) {
-    for (let c in conditional) {
-      if (c in newConditional)
-        continue;
-      newConditional[c] = conditional[c];
-    }
-  }
-  return {
-    conditional: newConditional,
-    override
-  };
-}
-
-function overrideMapConfig (map: MapConfig, overrideMap: MapConfig) {
-  let override: MapConfig;
-  for (let m in overrideMap) {
-    const existingVal = map[m];
-    let extendVal = overrideMap[m];
-    if (existingVal == undefined || typeof extendVal === 'string') {
-      if (map[m] !== extendVal)
-        map[m] = (override = override || {})[m] = extendVal;
-    }
-    else if (extendVal == undefined) {
-      if (existingVal != undefined) {
-        (override = {})[m] = extendVal;
-        delete map[m];
-      }
-    }
-    else if (extendVal.default && Object.keys(extendVal).length === 1) {
-      if (existingVal !== extendVal.default)
-        map[m] = (override = override || {})[m] = extendVal.default;
-    }
-    else {
-      // new map properties take priority first
-      let newMapOverride;
-      ({ conditional: map[m], override: newMapOverride } = overrideConditional(typeof existingVal === 'string' ? { default: existingVal } : existingVal, extendVal));
-      if (newMapOverride)
-        (override = override || {})[m] = newMapOverride;
-    }
-  }
-  return {
-    map,
-    override
-  };
-}
-
-// recanonicalize the output of a processed package config
-export function serializePackageConfig (pcfg: PackageConfig, defaultRegistry?: string): PackageConfig {
-  const spcfg: PackageConfig = {};
-  if (pcfg.registry)
-    spcfg.registry = pcfg.registry;
-  if (pcfg.name)
-    spcfg.name = pcfg.name;
-  if (pcfg.version)
-    spcfg.version = pcfg.version;
-  if (pcfg.bin)
-    spcfg.bin = pcfg.bin;
-  else if (pcfg.type === 'commonjs')
-    spcfg.type = 'commonjs';
-  if (pcfg.namedExports)
-    spcfg.namedExports = pcfg.namedExports;
-  if (pcfg.dependencies) {
-    const dependencies = spcfg.dependencies = {};
-    for (let p in pcfg.dependencies)
-      dependencies[p] = serializePackageTargetCanonical(p, pcfg.dependencies[p], defaultRegistry);
-  }
-  if (pcfg.peerDependencies) {
-    const peerDependencies = spcfg.peerDependencies = {};
-    for (let p in pcfg.peerDependencies)
-      peerDependencies[p] = serializePackageTargetCanonical(p, pcfg.peerDependencies[p], defaultRegistry);
-  }
-  if (pcfg.optionalDependencies) {
-    const optionalDependencies = spcfg.optionalDependencies = {};
-    for (let p in pcfg.optionalDependencies)
-      optionalDependencies[p] = serializePackageTargetCanonical(p, pcfg.optionalDependencies[p], defaultRegistry);
-  }
-  spcfg.type = pcfg.type;
-  if (pcfg.entries.main)
-    spcfg.main = pcfg.main;
-  if (pcfg.map)
-    spcfg.map = pcfg.map;
-  return spcfg;
-}
-
 export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: PackageConfig): {
   config: PackageConfig,
   override: PackageConfig | void
@@ -706,42 +466,11 @@ export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: Packag
       else {
         if (baseVal === undefined)
           baseVal = {};
-        if (p === 'map') {
-          const { map, override: mapOverride } = overrideMapConfig(baseVal,  val);
-          if (map)
-            pcfg.map = map;
-          if (mapOverride) {
-            if (!override)
-              override = emptyPackageConfig();
-            override.map = mapOverride;
-          }
-        }
-        else if (p === 'bin') {
-          for (let q in overridePcfg.bin) {
-            if (baseVal[q] === overridePcfg.bin[q])
-              continue;
-            override = override || emptyPackageConfig();
-            override.bin = override.bin || {};
-            baseVal[q] = override.bin[q] = overridePcfg.bin[q];
-            pcfg.bin = baseVal;
-          }
-        }
-        else if (p === 'namedExports') {
-          for (let q in overridePcfg.namedExports) {
-            if (JSON.stringify(baseVal[q]) === JSON.stringify(overridePcfg.namedExports[q]))
-              continue;
-            override = override || emptyPackageConfig();
-            override.namedExports = override.namedExports || {};
-            baseVal[q] = override.namedExports[q] = overridePcfg.namedExports[q];
-            pcfg.namedExports = baseVal;
-          }
-        }
-        // dependencies
-        else {
+        if (p === 'dependencies' || p === 'devDependencies' || p === 'peerDependencies' || p === 'optionalDependencies') {
           let depsOverride;
           for (let q in val) {
             const newVal = val[q];
-            if (typeof newVal === 'string' ? baseVal[q] !== newVal : !newVal.eq(baseVal[q])) {
+            if (baseVal[q] !== newVal) {
               if (depsOverride === undefined) {
                 if (!override)
                   override = emptyPackageConfig();
@@ -749,6 +478,16 @@ export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: Packag
               }
               baseVal[q] = depsOverride[q] = newVal;
             }
+          }
+        }
+        else {
+          for (let q in overridePcfg.namedExports) {
+            if (JSON.stringify(baseVal[q]) === JSON.stringify(overridePcfg.namedExports[q]))
+              continue;
+            override = override || emptyPackageConfig();
+            override.namedExports = override.namedExports || {};
+            baseVal[q] = override.namedExports[q] = overridePcfg.namedExports[q];
+            pcfg.namedExports = baseVal;
           }
         }
       }

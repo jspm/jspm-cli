@@ -15,7 +15,7 @@
  */
 import ConfigFile, { ValueType } from './config-file';
 import * as path from 'path';
-import { PackageConfig, DepType, PackageTarget, processPackageTarget, serializePackageConfig,
+import { PackageConfig, DepType, PackageTarget, processPackageTarget,
     serializePackageTargetCanonical, resourceInstallRegEx, parsePackageName, processPackageConfig } from '../install/package';
 import { Project } from '../project';
 
@@ -286,9 +286,7 @@ export default class PackageJson extends ConfigFile {
         return targetA.name > targetB.name ? 1 : -1;
       return targetA.range.gt(targetB.range) ? 1 : -1;
     })
-    .forEach(({ target, override }) => {
-      overrides[target.toString()] = serializePackageConfig(override, typeof target !== 'string' ? target.registry : undefined);
-    });
+    .forEach(({ target, override }) => overrides[target.toString()] = override);
 
     this.prefixedSetObject(['overrides'], overrides, !this.jspmPrefix || !this.has(['overrides']));
 
