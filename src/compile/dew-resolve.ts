@@ -16,7 +16,46 @@
 import * as path from 'path';
 import { validPkgNameRegEx } from '../utils/common';
 import { PackageConfig } from '../install/package';
-import { builtins } from '@jspm/resolve';
+
+export const builtins = new Set([
+  '@empty',
+  '@empty.dew',
+  'assert',
+  'buffer',
+  'child_process',
+  'cluster',
+  'console',
+  'constants',
+  'crypto',
+  'dgram',
+  'dns',
+  'domain',
+  'events',
+  'fs',
+  'http',
+  'http2',
+  'https',
+  'module',
+  'net',
+  'os',
+  'path',
+  'process',
+  'punycode',
+  'querystring',
+  'readline',
+  'repl',
+  'stream',
+  'string_decoder',
+  'sys',
+  'timers',
+  'tls',
+  'tty',
+  'url',
+  'util',
+  'vm',
+  'worker_threads',
+  'zlib'
+]);
 
 export function relativeResolve (require: string, filePath: string, pkgBasePath: string, files: Record<string, boolean>, main: string, folderMains: Record<string, string>, localMaps: Record<string, boolean>, deps: Record<string, boolean>, name: string) {
   const fileDir = path.resolve(filePath, '..');
@@ -111,7 +150,7 @@ export function pcfgToDeps (pcfg: PackageConfig, optional = false) {
 }
 
 export function isESM (resolved: string, deps?: Record<string, boolean>) {
-  return resolved.endsWith('.node') || builtins[resolved] && !(deps && deps[resolved]);
+  return resolved.endsWith('.node') || builtins.has(resolved) && !(deps && deps[resolved]);
 }
 
 export function getMatch (path: string, matchObj: Record<string, any>): string {

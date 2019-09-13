@@ -115,7 +115,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   // use .mjs if the output package boundary requires
   if (opts.format === 'esm' && 'mjs' in opts === false && ext !== '.mjs') {
     const outdir = path.resolve(opts.dir);
-    const boundary = getPackageScope(outdir + '/');
+    const boundary = await getPackageScope(outdir + '/');
     if (boundary) {
       const pjson = readJSONSync(boundary + '/package.json');
       if (pjson.type !== 'module') {

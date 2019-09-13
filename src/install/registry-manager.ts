@@ -28,7 +28,7 @@ import globalConfig from '../config/global-config-file';
 import { Logger, input, confirm } from '../project';
 import { resolveSource, downloadSource } from '../install/source';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
-import { convertCJSPackage, convertCJSConfig } from '../compile/cjs-convert';
+import { transformPackage, transformConfig } from '../compile/transform';
 import { runBinaryBuild } from './binary-build';
 import { Readable } from 'stream';
 
@@ -534,7 +534,7 @@ export default class RegistryManager {
         ({ config, override } = overridePackageConfig(config, override));
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
       }
-      convertCJSConfig(config);
+      transformConfig(config);
       var dir = path.join(this.cacheDir, 'packages', hash);
       const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
       if (verifyState > VerifyState.INVALID)
@@ -560,7 +560,7 @@ export default class RegistryManager {
             ({ config, override } = overridePackageConfig(config, override));
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           }
-          convertCJSConfig(config);
+          transformConfig(config);
           var dir = path.join(this.cacheDir, 'packages', hash);
           const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
           if (verifyState > VerifyState.INVALID)
@@ -598,7 +598,7 @@ export default class RegistryManager {
             ({ config, override } = overridePackageConfig(pjsonConfig, override));
           else
             config = pjsonConfig;
-          convertCJSConfig(config);
+          transformConfig(config);
           hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           await Promise.all([
             this.cache.set(sourceHash, { config: pjsonConfig, hash }),
@@ -618,9 +618,9 @@ export default class RegistryManager {
         
         await runBinaryBuild(this.util.log, dir, pjson.name, pjson.scripts);
 
-        // run package conversion
+        // run package conversion into _esm
         // (on any subfolder containing a "type": "commonjs")
-        await convertCJSPackage(this.util.log, dir, config.name, config);
+        await transformPackage(this.util.log, dir, config.name, config);
 
         var mtime = await new Promise((resolve, reject) => fs.stat(pjsonPath, (err, stats) => err ? reject(err) : resolve(stats.mtimeMs)));
         

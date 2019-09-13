@@ -446,12 +446,34 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   return new PackageTarget(registry, name, version);
 }
 
+// only override properties we care about
+const overrideProperties = new Set([
+  'registry',
+  'name',
+  'version',
+  'type',
+  'react-native',
+  'electron',
+  'browser',
+  'main',
+  'exports',
+  'map',
+  'namedExports',
+  'bin',
+  'dependencies',
+  'devDependencies',
+  'peerDependencies',
+  'optionalDependencies'
+]);
+
 export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: PackageConfig): {
   config: PackageConfig,
   override: PackageConfig | void
 } {
   let override: PackageConfig;
   for (let p in overridePcfg) {
+    if (!overrideProperties.has(p))
+      continue;
     const val = overridePcfg[p];
     if (typeof val === 'object') {
       let baseVal = pcfg[p];
@@ -466,11 +488,19 @@ export function overridePackageConfig (pcfg: PackageConfig, overridePcfg: Packag
       else {
         if (baseVal === undefined)
           baseVal = {};
+        if (typeof baseVal !== 'object') {
+          if (p === 'bin') {
+            baseVal = { [pcfg.name]: baseVal };
+          }
+          else {
+            throw new Error(`Unable to override "${p}" primitive "${baseVal.toString()}" with object "${JSON.stringify(val)}".`);
+          }
+        }
         for (let q in val) {
           if (JSON.stringify(baseVal[q]) !== JSON.stringify(val[q])) {
             override = override || emptyPackageConfig();
             override[p] = override[p] || {};
-            baseVal[q] = override[p][q] = overridePcfg[p][q];
+            baseVal[q] = override[p][q] = val[q];
             pcfg[p] = baseVal;
           }
         }

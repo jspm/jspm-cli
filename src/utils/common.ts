@@ -193,7 +193,7 @@ export function readJSONSync (fileName: string): any {
     return JSON.parse(pjson);
   }
   catch (e) {
-    throw 'Error parsing package.json file ' + fileName;
+    throw new JspmUserError('Error parsing package.json file ' + fileName);
   }
 }
 

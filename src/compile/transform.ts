@@ -21,7 +21,7 @@ import * as fs from 'graceful-fs';
 import * as path from 'path';
 import { writeJSONStyled, readJSONStyled, defaultStyle } from '../config/config-file';
 import { resolveFile, resolveDir, toDew, toDewPlain, pcfgToDeps, isESM } from './dew-resolve';
-import { builtins } from '@jspm/resolve';
+import { builtins } from './dew-resolve';
 
 const nodeBuiltinsTarget = 'npm:@jspm/core@^1.0.0';
 
@@ -46,6 +46,13 @@ export async function dispose () {
     initCnt = 0;
     await new Promise((resolve, reject) => (<any>workerFarm).end(convertWorker, err => err ? reject(err) : resolve()));
   }
+}
+
+export function transformConfig (pcfg: PackageConfig) {
+  return;
+}
+
+export async function transformPackage (log: Logger, dir: string, pkgName: string, pcfg: PackageConfig) {
 }
 
 /*
@@ -150,16 +157,19 @@ function convertMappingToDew (mapping: ExportsTarget, plain: boolean): string | 
 export async function convertCJSPackage (log: Logger, dir: string, pkgName: string, pcfg: PackageConfig) {
   log.debug(`Converting CJS package ${pkgName}`);
 
-  let filePool = await listAllFiles(dir);
-  
+  let { files, symlinks } = await listAllFiles(dir);
+
+  const assets: { [filename: string]: boolean } = Object.create(null);
   const convertFiles: { [filename: string]: boolean } = Object.create(null);
-  for (const file of filePool)
+  for (const file of files)
     convertFiles[file] = false;
+  for (const file of symlinks)
+    assets[file] = false;
 
   // determine which files match the cjs conversion boundary
   // since we are loading package.json files, at the same time record folder mains
   const folderMains: { [dir: string]: string } = Object.create(null);
-  for (const pjsonFile of filePool.filter(file => file.endsWith('/package.json')).sort((a, b) => a.split('/').length < b.split('/').length ? 1 : -1)) {
+  for (const pjsonFile of files.filter(file => file.endsWith('/package.json')).sort((a, b) => a.split('/').length < b.split('/').length ? 1 : -1)) {
     const boundary = pjsonFile.substr(0, pjsonFile.lastIndexOf('/'));
     const pjson = await new Promise<string>((resolve, reject) => fs.readFile(path.resolve(dir, pjsonFile), (err, source) => err ? reject(err) : resolve(source.toString())));
     try {
@@ -173,10 +183,10 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
     }
     // module type scope -> filter out from the file pool
     if (type === 'module')
-      filePool = filePool.filter(file => !file.startsWith(boundary) || file[boundary.length] !== '/');
+      files = files.filter(file => !file.startsWith(boundary) || file[boundary.length] !== '/');
     // cjs mode boundary -> add to the conversion list
     else
-      filePool = filePool.filter(file => {
+      files = files.filter(file => {
         const filtered = file.startsWith(boundary) && file[boundary.length] === '/';
         if (filtered)
           convertFiles[file] = true;
@@ -185,7 +195,7 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
   }
 
   if (pcfg.type !== 'module')
-    for (const file of filePool)
+    for (const file of files)
       convertFiles[file] = true;
 
   // populate index.js, index.json as folder mains
@@ -347,9 +357,12 @@ export async function convertCJSPackage (log: Logger, dir: string, pkgName: stri
   await Promise.all(aliasPromises);
 }
 
-export function listAllFiles (dir: string): Promise<string[]> {
+export function listAllFiles (dir: string): Promise<{
+  files: string[],
+  symlinks: string[]
+}> {
   dir = path.resolve(dir);
-  const files = [];
+  const files = [], symlinks = [];
   return new Promise((resolve, reject) => {
     let cnt = 0;
     visitFileOrDir(dir);
@@ -359,20 +372,21 @@ export function listAllFiles (dir: string): Promise<string[]> {
       fs.lstat(fileOrDir, (err, stats) => {
         if (err) return reject(err);
         if (stats.isSymbolicLink()) {
+          symlinks.push(path.relative(dir, fileOrDir).replace(/\\/g, '/'));
           if (--cnt === 0)
-            resolve(files);
+            resolve({ files, symlinks });
         }
         else if (!stats.isDirectory()) {
           files.push(path.relative(dir, fileOrDir).replace(/\\/g, '/'));
           if (--cnt === 0)
-            resolve(files);
+            resolve({ files, symlinks });
         }
         else {
           fs.readdir(fileOrDir, (err, paths) => {
             if (err) return reject(err);
             cnt--;
             if (paths.length === 0 && cnt === 0)
-              resolve(files);
+              resolve({ files, symlinks });
             paths.forEach(fileOrDirPath => visitFileOrDir(path.resolve(fileOrDir, fileOrDirPath)));
           });
         }

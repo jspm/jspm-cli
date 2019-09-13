@@ -780,7 +780,7 @@ ${bold('Command Flags')}
       if (err && err.hideStack)
         (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err.message || err);
       else
-        (projects.length ? projects[0].log.err : ui.err)(err && err.stack || err);
+        (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err && err.stack || err);
     }
     throw err;
   }

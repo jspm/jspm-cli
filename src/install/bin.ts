@@ -36,11 +36,12 @@ if [ "$?" != "0" ] || [ -z "$JSPM_PATH" ]; then
   echo "jspm not found, make sure it is installed."
   exit 1
 fi
-JSPM_DIR=$(dirname $(dirname $(readlink $JSPM_PATH || $JSPM_PATH)))
-case $JSPM_DIR in /*) ;; *)
-  JSPM_DIR="$(dirname $JSPM_PATH)/$JSPM_DIR"
-esac
-JSPM_LOADER=$JSPM_DIR/node_modules/@jspm/resolve/loader.mjs
+if [ -f "$(readlink $JSPM_PATH)" ]; then
+  JSPM_DIR=$(dirname $(dirname $(readlink $JSPM_PATH)))
+else
+  JSPM_DIR=$(dirname $JSPM_PATH)
+fi
+JSPM_LOADER=$JSPM_DIR/node_modules/jspm/node_modules/@jspm/resolve/loader.mjs
 if [ ! -f $JSPM_LOADER ]; then
   echo "jspm loader not found, make sure it is installed."
   exit 1
@@ -48,11 +49,11 @@ fi
 case "$(uname -s)" in
   CYGWIN*|MINGW32*|MINGW64*)
     JSPM_LOADER=/$(cygpath -w "$JSPM_LOADER")
-    BASE_DIR=/$(cygpath -w "$BASE_DIR")
+    BASE_DIR=/$(cygpath -aw "$BASE_DIR")
     ;;
   *)
 esac
-NODE_OPTIONS="--experimental-modules --no-warnings --loader $JSPM_LOADER" node "$BASE_DIR/${binModulePath}" "$@"
+NODE_OPTIONS="--experimental-modules --no-warnings --loader $JSPM_LOADER" node "$BASE_DIR/${binModulePath.replace(/\\/g, '/')}" "$@"
 ret=$?
 exit $ret
 `;
@@ -63,12 +64,12 @@ const winBin = (binModulePath: string) => `@setlocal
   @echo jspm not found in path, make sure it is installed globally.
   @exit /B 1
 )
-@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "//%JSPM_PATH%node_modules\\jspm\\node_modules\\@jspm\\resolve\\loader.mjs"
+@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_PATH:\\=/%node_modules/jspm/node_modules/@jspm/resolve/loader.mjs"
 @node "%~dp0\\..\\${binModulePath}" %*
 `;
 
 let _isCygwin;
-function isCygwin () {
+export function isCygwin () {
   if (typeof _isCygwin === 'boolean')
     return _isCygwin;
   try {
@@ -81,7 +82,7 @@ function isCygwin () {
 
 export function getBin () {
   let loader = require.resolve('@jspm/resolve/loader.mjs');
-  if (isWindows) {
+  if (isWindows && !isCygwin()) {
     loader = '//' + loader;
     return `set NODE_OPTIONS=--experimental-modules --no-warnings --loader ${loader} && node`;
   }

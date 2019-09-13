@@ -25,7 +25,7 @@ import RegistryManager, { Registry } from './install/registry-manager';
 import Cache from './utils/cache';
 import globalConfig from './config/global-config-file';
 import FetchClass from './install/fetch';
-import { dispose as cjsConvertDispose, init as cjsConvertInit } from './compile/cjs-convert';
+import { dispose as cjsConvertDispose, init as cjsConvertInit } from './compile/transform';
 
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
