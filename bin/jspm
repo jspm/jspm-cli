@@ -30,20 +30,24 @@ if (cwdArgIndex !== -1)
 // lookup the jspm project path
 const projectPath = getJspmProjectPath(process.cwd() + path.sep);
 process.env.jspmConfigPath = projectPath ? projectPath + path.sep + 'package.json' : '';
-const localBinaryPath = projectPath && path.join(projectPath, 'jspm_packages', '.bin', 'jspm', process.platform === 'win32' ? '.cmd' : '');
 
-// local jspm install
-if (projectPath && process.env.globalJspm !== '0' && fs.existsSync(localBinaryPath)) {
-  process.env.globalJspm = '0';
-  const ps = require('child_process').spawn(localBinaryPath, args.slice(1), { stdio: 'inherit' });
+// check if we are using the local binary
+const curJspmPath = path.resolve(__dirname, '..');
+const usingLocalBinary = projectPath && curJspmPath.startsWith(projectPath) && curJspmPath.slice(projectPath.length + 1).split(path.sep).length <= 4;
+
+const tryLocalBinary = projectPath && !usingLocalBinary && path.join(projectPath, 'jspm_packages', '.bin', 'jspm' + (process.platform === 'win32' ? '.cmd' : ''));
+
+// we should use a different binary
+if (tryLocalBinary && fs.existsSync(tryLocalBinary)) {
+  const ps = require('child_process').spawn(tryLocalBinary, args, { stdio: 'inherit' });
   ps.on('exit', code => process.exit(code));
   ps.on('error', err => {
     console.error(err);
     process.exit(1);
   });
 }
-// global jspm install
+// current jspm
 else {
-  process.env.globalJspm = '1';
+  process.env.globalJspm = usingLocalBinary ? '0' : '1';
   require('../lib/cli');
 }

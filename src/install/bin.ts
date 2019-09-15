@@ -32,7 +32,7 @@ export async function writeBinScripts (binDir: string, name: string, binModulePa
 const unixBin = (binModulePath: string) => `#!/bin/sh
 BASE_DIR=$(dirname $(dirname $0))
 if [ -z "$(which jspm 2>/dev/null)" ]; then
-  echo "jspm not found, make sure it is installed."
+  echo "jspm not found in path, make sure it is installed."
   exit 1
 fi
 JSPM_LOADER=$(jspm resolve @jspm/resolve/loader.mjs jspm -p . $(dirname $(which jspm))/)
@@ -51,10 +51,10 @@ exit $ret
 const winBin = (binModulePath: string) => `@setlocal
 @for %%X in (jspm) do @(set JSPM_PATH=%%~dp$PATH:X)
 @if "%JSPM_PATH%"=="" (
-  @echo jspm not found in path, make sure it is installed globally.
+  @echo jspm not found in path, make sure it is installed.
   @exit /B 1
 )
-@for /F %%X in ('jspm resolve @jspm/resolve/loader.mjs jspm -p $JSPM_PATH$\\..\\..\\..\\ %JSPM_PATH%\') do @(set JSPM_LOADER=%%X)
+@for /F %%X in ('jspm resolve @jspm/resolve/loader.mjs jspm -p . %JSPM_PATH%\\') do @(set JSPM_LOADER=%%X)
 @set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_LOADER:\\=/%"
 @node "%~dp0\\..\\${binModulePath}" %*
 `;
@@ -72,9 +72,9 @@ export function isCygwin () {
 }
 
 export function getBin () {
-  let loader = path.dirname(require.resolve('@jspm/resolve')) + 'loader.mjs';
+  let loader = path.dirname(require.resolve('@jspm/resolve')) + '/loader.mjs';
   if (isWindows)
-    loader = '/' + loader;
+    loader = '/' + loader.replace(/\\/g, '/');
   if (isWindows && !isCygwin())
     return `set NODE_OPTIONS=--experimental-modules --no-warnings --loader ${loader} && node`
   else
