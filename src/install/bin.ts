@@ -31,21 +31,11 @@ export async function writeBinScripts (binDir: string, name: string, binModulePa
 
 const unixBin = (binModulePath: string) => `#!/bin/sh
 BASE_DIR=$(dirname $(dirname $0))
-JSPM_PATH=$(which jspm 2>/dev/null)
-if [ "$?" != "0" ] || [ -z "$JSPM_PATH" ]; then
+if [ -z "$(which jspm 2>/dev/null)" ]; then
   echo "jspm not found, make sure it is installed."
   exit 1
 fi
-if [ -f "$(readlink $JSPM_PATH)" ]; then
-  JSPM_DIR=$(dirname $(dirname $(readlink $JSPM_PATH)))
-else
-  JSPM_DIR=$(dirname $JSPM_PATH)
-fi
-JSPM_LOADER=$JSPM_DIR/node_modules/jspm/node_modules/@jspm/resolve/loader.mjs
-if [ ! -f $JSPM_LOADER ]; then
-  echo "jspm loader not found, make sure it is installed."
-  exit 1
-fi
+JSPM_LOADER=$(jspm resolve @jspm/resolve/loader.mjs jspm -p . $(dirname $(which jspm))/)
 case "$(uname -s)" in
   CYGWIN*|MINGW32*|MINGW64*)
     JSPM_LOADER=/$(cygpath -w "$JSPM_LOADER")
@@ -64,6 +54,7 @@ const winBin = (binModulePath: string) => `@setlocal
   @echo jspm not found in path, make sure it is installed globally.
   @exit /B 1
 )
+@for /F %%X in ('jspm resolve @jspm/resolve/loader.mjs jspm -p $JSPM_PATH$\\..\\..\\..\\ %JSPM_PATH%\') do @(set JSPM_LOADER=%%X)
 @set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_PATH:\\=/%node_modules/jspm/node_modules/@jspm/resolve/loader.mjs"
 @node "%~dp0\\..\\${binModulePath}" %*
 `;

@@ -162,7 +162,7 @@ export class Project {
     if (projectPath === JSPM_GLOBAL_PATH)
       this.checkGlobalBin();
 
-    // if (process.env.globalJspm === 'true')
+    // if (process.env.globalJspm === '1')
     //  this.log.warn(`Running jspm globally, it is advisable to locally install jspm via ${bold(`npm install jspm --save-dev`)}.`);
 
     this.defaultRegistry = config.defaultRegistry;

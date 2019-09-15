@@ -630,7 +630,7 @@ export class Installer {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
         this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
         // override is undefined by definition of checked out.
-        return this.installDependencies(config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName, source);
       }
 
       // handle linked packages
@@ -638,14 +638,14 @@ export class Installer {
         if (await this.setPackageToLinked(resolvedPkgName, path.resolve(this.project.projectPath, source.substr(5))))
           this.changed = true;
         const config = await this.readCheckedOutConfig(resolvedPkgName, override, true);
-        return this.installDependencies(config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName, source);
       }
 
       let preloadedDepNames: string[], preloadDepsInstallPromise: Promise<void>;
       
       // kick off dependency installs now
       if (override) {
-        preloadDepsInstallPromise = this.installDependencies(override, resolvedPkgName, preloadedDepNames);
+        preloadDepsInstallPromise = this.installDependencies(override, resolvedPkgName, source, preloadedDepNames);
         preloadDepsInstallPromise.catch(() => {});
       }
 
@@ -666,7 +666,7 @@ export class Installer {
       // then handle like checked out instead
       if (!installResult) {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        return this.installDependencies(config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName, source);
       }
 
       if (installResult.changed)
@@ -677,7 +677,7 @@ export class Installer {
 
       await Promise.all([
         // install dependencies, skipping already preloaded
-        this.installDependencies(config, resolvedPkgName, preloadedDepNames),
+        this.installDependencies(config, resolvedPkgName, source, preloadedDepNames),
 
         // symlink to the global install
         (async () => {
@@ -734,7 +734,7 @@ export class Installer {
         const existingResolutionName = serializePackageName(existingResolution);
         const existingResolved = this.installTree.dependencies[existingResolutionName];
 
-        if (existingResolved && existingResolved.source) {
+        if (existingResolved && existingResolved.source && existingResolved.source === install.target) {
           this.project.log.debug(`${install.name} matched against existing install`);
           this.setResolution(install, install.target, existingResolution, existingResolved.source);
           override = await this.sourceInstall(existingResolution, existingResolved.source, override, undefined);
@@ -814,8 +814,8 @@ export class Installer {
       if (this.project.userInput) {
         if (!registry) registry = 'npm';        
         if (!version)
-          version = await this.project.input(`Enter the ${bold('version')} to ${isLink ? `link as` : `install ${install.target} as`}`, 'master', {
-            info: 'All installs in jspm need to be assigned a registry, name and version for flat installation.',
+          version = await this.project.input(`Enter the ${bold('version')} to ${isLink ? 'link' : 'install'}`, 'master', {
+            info: `Version not available for ${install.target}.`,
             validate: (input: string) => {
               if (!input)
                 return 'A version must be provided.';
@@ -842,11 +842,11 @@ export class Installer {
         const config = await this.readCheckedOutConfig(resolvedPkgName, override);
         this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
         // override is undefined by definition of checked out.
-        return this.installDependencies(config, resolvedPkgName);
+        return this.installDependencies(config, resolvedPkgName, source);
       }
 
       await Promise.all([
-        this.installDependencies(config, resolvedPkgName),
+        this.installDependencies(config, resolvedPkgName, source),
         (async () => {
           if (isLink) {
             if (await this.setPackageToLinked(resolvedPkgName, linkPath))
@@ -862,11 +862,11 @@ export class Installer {
     })();
   }
 
-  private async installDependencies (config: PackageConfig, resolvedPkgName: string, preloadedDepNames?: string[]): Promise<void> {
+  private async installDependencies (config: PackageConfig, resolvedPkgName: string, source: string, preloadedDepNames?: string[]): Promise<void> {
     const registry = config.registry || this.project.defaultRegistry;
     const preLoad = preloadedDepNames !== undefined && preloadedDepNames.length !== 0;
     try {
-      await Promise.all(depsToInstalls(registry, config, resolvedPkgName, preLoad === false && preloadedDepNames).map(install => {
+      await Promise.all(depsToInstalls.call(this, registry, config, resolvedPkgName, source, preLoad === false && preloadedDepNames).map(install => {
         if (preLoad && preloadedDepNames)
           preloadedDepNames.push(install.name);
         if (typeof install.target === 'string')
@@ -1202,7 +1202,7 @@ export class Installer {
         return;
       
       this.secondaryRanges[parent] = this.secondaryRanges[parent] || {};
-      this.secondaryRanges[parent][name] = rangeTarget;
+      this.secondaryRanges[parent][name] = processPackageTarget(name, rangeTarget, this.project.defaultRegistry, true);
     });
   }
 
@@ -1303,7 +1303,7 @@ export class Installer {
   }
 }
 
-function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent?: string, skipDepsNames?: string[]): Install[] {
+function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: string, parentSource: string, skipDepsNames?: string[]): Install[] {
   let installs = [];
   if (deps.dependencies)
     Object.keys(deps.dependencies).forEach(name => {
@@ -1347,13 +1347,23 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent?: s
         });
       }
     });
+  // if any install is a link: install, and the parent is also a link: install, resolve the link relatively
+  if (parentSource.startsWith('link:')) {
+    const parentLinkPath = path.resolve(this.project.projectPath, parentSource.slice(5));
+    for (const install of installs) {
+      if (typeof install.target === 'string' && install.target.startsWith('link:')) {
+        const resolvedLinkPath = path.resolve(parentLinkPath, install.target.slice(5));
+        install.target = 'link:' + path.relative(this.project.projectPath, resolvedLinkPath).replace(/\\/g, '/') + '/';
+      }
+    }
+  }
   return installs;
 }
 
 function getResourceName (source: string, projectPath: string): string {
   // if the resource is a folder, check the package.json file
   if (source.startsWith('file:') || source.startsWith('link:')) {
-    const pjsonPath = path.resolve(projectPath, source.substr(5), 'package.json');
+    const pjsonPath = path.join(projectPath, source.substr(5), 'package.json');
     let pjsonSource;
     try {
       pjsonSource = fs.readFileSync(pjsonPath).toString();

@@ -176,6 +176,65 @@ export function retry<T> (operation: (retryNumber: number) => Promise<T>, retrie
   return doOp(1);
 }
 
+let _statCache: Record<string, fs.Stats | null> = {};
+
+export function getJspmProjectPath (modulePath, statCache = _statCache) {
+  const jspmPackagesIndex = modulePath.lastIndexOf(path.sep + 'jspm_packages' + path.sep);
+  if (jspmPackagesIndex !== -1 && modulePath.lastIndexOf(path.sep + 'node_modules' + path.sep, jspmPackagesIndex) === -1)
+    return modulePath.slice(0, jspmPackagesIndex);
+  let separatorIndex = modulePath.lastIndexOf(path.sep);
+  const rootSeparatorIndex = modulePath.indexOf(path.sep);
+  do {
+    const dir = modulePath.slice(0, separatorIndex);
+    if (dir.endsWith(path.sep + 'node_modules'))
+      return;
+    const checkPath = dir + path.sep + 'jspm.json';
+    if (checkPath in statCache) {
+      if (statCache[checkPath])
+        return dir;
+    }
+    else {
+      try {
+        if (statCache[checkPath] = fs.statSync(checkPath))
+          return dir;
+      }
+      catch (err) {
+        if (err.code !== 'ENOENT' && err.code !== 'ENOTDIR')
+          throw err;
+        statCache[checkPath] = null;
+      }
+    }
+    separatorIndex = modulePath.lastIndexOf(path.sep, separatorIndex - 1);
+  }
+  while (separatorIndex > rootSeparatorIndex);
+}
+
+export function getPackageScope (resolved, statCache = _statCache) {
+  const rootSeparatorIndex = resolved.indexOf(path.sep);
+  let separatorIndex;
+  while ((separatorIndex = resolved.lastIndexOf(path.sep)) > rootSeparatorIndex) {
+    resolved = resolved.slice(0, separatorIndex);
+    if (resolved.endsWith(path.sep + 'node_modules') || resolved.endsWith(path.sep + 'jspm_packages'))
+      return;
+    const checkPath = resolved + path.sep + 'package.json';
+    if (checkPath in statCache) {
+      if (statCache[checkPath])
+        return resolved;
+    }
+    else {
+      try {
+        if (statCache[checkPath] = fs.statSync(checkPath))
+          return resolved;
+      }
+      catch (err) {
+        if (err.code !== 'ENOENT' && err.code !== 'ENOTDIR')
+          throw err;
+        statCache[checkPath] = null;
+      }
+    }
+  }
+}
+
 export function readJSONSync (fileName: string): any {
   let pjson;
   try {

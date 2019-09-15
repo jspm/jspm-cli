@@ -27,7 +27,7 @@ export { build } from './build';
 if (process.env.globalJspm !== undefined) {
   process.once('unhandledRejection', err => {
     log('Internal Error: Unhandled promise rejection.', LogType.err);
-    logErr(err.stack || err);
+    logErr((<any>err).stack || err);
     process.exit(1);
   });
   process.once('SIGINT', () => {

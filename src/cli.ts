@@ -131,10 +131,7 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
       case '--version':
       case 'version':
       case 'v':
-        console.log(api.version + '\n' +
-            (process.env.globalJspm === 'true' || process.env.localJspm === 'false'
-            ? 'Running against global jspm install.'
-            : 'Running against local jspm install.'));
+        console.log(api.version + '\n' + (process.env.globalJspm === '1' ? 'Running against global jspm install.' : 'Running against local jspm install.'));
       break;
 
       case 'h':
@@ -399,12 +396,19 @@ ${bold('Command Flags')}
         ({ args, options } = readOptions(args, ['format', 'browser', 'react-native', 'production', 'electron', 'relative']));
 
         let env = readModuleEnv(options);
+        let err = undefined;
 
         for (const projectPath of projectPaths) {
           let parent;
           if (args[1]) {
             let parentFormat;
-            ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env));
+            try {
+              ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? path.resolve(projectPath) + path.sep : undefined, env));
+            }
+            catch (e) {
+              err = e;
+              continue;
+            }
             if (parentFormat === 'builtin')
               parent = undefined;
           }
@@ -412,7 +416,15 @@ ${bold('Command Flags')}
             parent = projectPath + path.sep;
           }
           
-          const resolved = api.resolveSync(args[0], parent, env);
+          try {
+            var resolved = api.resolveSync(args[0], parent, env);
+          }
+          catch (e) {
+            err = e;
+            continue;
+          }
+
+          err = undefined;
 
           if (options.format) {
             console.log(resolved.format || '<undefined>');
@@ -422,6 +434,8 @@ ${bold('Command Flags')}
             console.log(options.relative ? path.relative(process.cwd(), resolved.resolved) : resolved.resolved);
           }
         }
+        if (err)
+          throw err;
       }
       break;
 
