@@ -55,7 +55,7 @@ const winBin = (binModulePath: string) => `@setlocal
   @exit /B 1
 )
 @for /F %%X in ('jspm resolve @jspm/resolve/loader.mjs jspm -p $JSPM_PATH$\\..\\..\\..\\ %JSPM_PATH%\') do @(set JSPM_LOADER=%%X)
-@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_PATH:\\=/%node_modules/jspm/node_modules/@jspm/resolve/loader.mjs"
+@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_LOADER:\\=/%"
 @node "%~dp0\\..\\${binModulePath}" %*
 `;
 
@@ -72,10 +72,11 @@ export function isCygwin () {
 }
 
 export function getBin () {
-  let loader = require.resolve('@jspm/resolve/loader.mjs');
-  if (isWindows && !isCygwin()) {
-    loader = '//' + loader;
-    return `set NODE_OPTIONS=--experimental-modules --no-warnings --loader ${loader} && node`;
-  }
-  return `NODE_OPTIONS=--experimental-modules --no-warnings --loader ${loader} node`;
+  let loader = path.dirname(require.resolve('@jspm/resolve')) + 'loader.mjs';
+  if (isWindows)
+    loader = '/' + loader;
+  if (isWindows && !isCygwin())
+    return `set NODE_OPTIONS=--experimental-modules --no-warnings --loader ${loader} && node`
+  else
+    return `NODE_OPTIONS="--experimental-modules --no-warnings --loader ${loader}" node`;
 }
