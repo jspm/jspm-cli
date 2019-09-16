@@ -438,11 +438,11 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   }
   const targetNameLen = name.split('/').length;
   if (targetNameLen > 2)
-    throw new JspmUserError(`Invalid package target name ${bold(name)}`);
+    throw new JspmUserError(`Invalid package target ${bold(depTarget)}`);
   if (targetNameLen === 2 && name[0] !== '@')
     name = '@' + name;
   if (targetNameLen === 1 && name[0] === '@')
-    throw new JspmUserError(`Invalid package target name ${bold(name)}`);
+    throw new JspmUserError(`Invalid package target ${bold(depTarget)}`);
   return new PackageTarget(registry, name, version);
 }
 

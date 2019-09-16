@@ -16,9 +16,8 @@
  */
 const path = require('path');
 const fs = require('fs');
-const { getJspmProjectPath } = require('../lib/utils/common');
+const { getPackageScope } = require('../lib/utils/common');
 
-// respect any -p / --project flag
 // the first project only gets to determine the jspm version
 const args = process.argv.slice(2);
 let cwdArgIndex = args.indexOf('-p');
@@ -27,27 +26,29 @@ if (cwdArgIndex === -1)
 if (cwdArgIndex !== -1)
   process.chdir(args[cwdArgIndex + 1]);
 
-// lookup the jspm project path
-const projectPath = getJspmProjectPath(process.cwd() + path.sep);
-process.env.jspmConfigPath = projectPath ? projectPath + path.sep + 'package.json' : '';
+const projectPath = getPackageScope(process.cwd() + path.sep);
 
-// check if we are using the local binary
-const curJspmPath = path.resolve(__dirname, '..');
-const usingLocalBinary = projectPath && curJspmPath.startsWith(projectPath) && curJspmPath.slice(projectPath.length + 1).split(path.sep).length <= 4;
+let usingLocalBinary, tryLocalBinary;
+if (projectPath) {
+  process.env.jspmConfigPath = path.join(projectPath, 'package.json');
+  const curJspmPath = path.resolve(__dirname, '..');
+  usingLocalBinary = curJspmPath.startsWith(projectPath) && curJspmPath.slice(projectPath.length + 1).split(path.sep).length <= 4;
+  tryLocalBinary = !usingLocalBinary && path.join(projectPath, 'jspm_packages', '.bin', 'jspm' + (process.platform === 'win32' ? '.cmd' : ''));
+}
+else {
+  process.env.jspmConfigPath = '';
+}
 
-const tryLocalBinary = projectPath && !usingLocalBinary && path.join(projectPath, 'jspm_packages', '.bin', 'jspm' + (process.platform === 'win32' ? '.cmd' : ''));
-
-// we should use a different binary
 if (tryLocalBinary && fs.existsSync(tryLocalBinary)) {
   const ps = require('child_process').spawn(tryLocalBinary, args, { stdio: 'inherit' });
+  process.env.globalJspm = '0';
   ps.on('exit', code => process.exit(code));
   ps.on('error', err => {
     console.error(err);
     process.exit(1);
   });
 }
-// current jspm
 else {
-  process.env.globalJspm = usingLocalBinary ? '0' : '1';
+  process.env.globalJspm = process.env.globalJspm || (usingLocalBinary ? '0' : '1');
   require('../lib/cli');
 }

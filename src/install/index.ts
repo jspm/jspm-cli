@@ -23,46 +23,46 @@ import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serial
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, resourceInstallRegEx, validateOverride } from './package';
 import { readJSON, JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx } from '../utils/common';
 import fs = require('graceful-fs');
-import ncp = require('ncp');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { writeBinScripts } from './bin';
 import globalOverrides from '../overrides';
+import { isCheckoutSource, gitCheckout } from './source';
 
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 
 export interface InstallOptions {
-  verify?: boolean, // verify all internal caches (--force)
-  edge?: boolean, // allow installing prerelease ranges
-  lock?: boolean, // existing dependency installs remain locked, new ones get deduped
-  latest?: boolean, // all dependencies loaded to latest version with no deduping
-  dedupe?: boolean,
-  // optional?: boolean, // install optional dependencies
-  reset?: boolean, // resets checked out and linked packages
-  exact?: boolean, // install to exact version
-}
+  edge?: boolean; // allow installing prerelease ranges
+  lock?: boolean; // existing dependency installs remain locked, new ones get deduped
+  latest?: boolean; // all dependencies loaded to latest version with no deduping
+  dedupe?: boolean;
+  // optional?: boolean; // install optional dependencies
+  force?: boolean; // resets checked out and linked packages, force checks internal caches
+  exact?: boolean; // install to exact version
+};
 
 export interface Install {
-  name: string,
-  parent: string | void,
-  target: PackageTarget | string,
-  type: DepType,
-  override?: PackageConfig | void
-}
+  name: string;
+  parent: string | void;
+  target: PackageTarget | string;
+  type: DepType;
+  override?: PackageConfig | void;
+};
 
 interface PackageInstall extends Install {
-  target: PackageTarget
-}
+  target: PackageTarget;
+};
 
 interface ResourceInstall extends Install {
-  target: string
-}
+  target: string;
+};
 
 interface PackageInstallState {
-  exists: boolean,
-  hash: string | void,
-  linkPath: string | void
-}
+  exists: boolean;
+  hash: string | void;
+  linkPath: string | void;
+  gitRemotes: string[] | void;
+};
 
 export class Installer {
   binFolderChecked: boolean;
@@ -194,11 +194,10 @@ export class Installer {
           throw new JspmUserError(`Unable to detect an install range for ${bold(install.name)} in ${highlight(install.parent)}.`);
       }
     });
-
+    opts.latest = true;
     return this.install(updateInstalls, opts);
   }
 
-  // could support override here for link to non-link: sources
   async link (pkg: string, source: string, opts: InstallOptions) {
     const linkSource = await this.registryManager.resolveSource(source, this.project.projectPath, this.project.projectPath);
 
@@ -312,21 +311,32 @@ export class Installer {
       const packageInstallState = await this.getPackageInstallState(checkoutName);
       let stopReason = '';
       if (!packageInstallState.exists)
-        stopReason = 'not installed';
+        stopReason = 'is not installed';
       else if (packageInstallState.linkPath)
-        stopReason = 'already linked';
+        stopReason = 'is already linked';
       // skip if already checked out
       else if (!packageInstallState.hash)
         return this.project.log.ok(`Package ${highlight(checkoutName)} is already checked out.`);
-      
-        if (stopReason)
-        throw new JspmUserError(`Unable to checkout ${highlight(checkoutName)} as it is ${stopReason}.`);
 
-      const checkoutPath = path.join(this.config.pjson.packages, checkoutName.substr(0, registryIndex), checkoutName.substr(registryIndex + 1));
-      const installPath = await new Promise((resolve, reject) => fs.readlink(checkoutPath, (err, path) => err ? reject(err) : resolve(path)));
+      let repo;
+      if (!stopReason) {
+        const checkoutPath = path.join(this.config.pjson.packages, checkoutName.substr(0, registryIndex), checkoutName.substr(registryIndex + 1));
+        const config = await this.readPackageConfig(checkoutPath);
+        if (!config) {
+          stopReason = `has no package configuration. Use "jspm link ${checkoutName} clone:..." instead`;
+        }
+        else {
+          repo = config.repository && config.repository.url;
+          if (!repo)
+            stopReason = `has no repository configuration. Use "${bold(`jspm link ${checkoutName} clone:...`)}" instead`;
+        }
+      }
+      if (stopReason)
+        throw new JspmUserError(`Unable to checkout ${highlight(checkoutName)} as it ${stopReason}.`);
 
-      await new Promise((resolve, reject) => fs.unlink(checkoutPath, err => err ? reject(err) : resolve()));
-      await new Promise((resolve, reject) => ncp(installPath, checkoutPath, err => err ? reject(err) : resolve()));
+      if (repo.startsWith('git://'))
+        repo = repo.slice(6).replace('/', ':');
+      await this.link(checkoutName, 'clone:' + repo, {});
       this.project.log.ok(`Checked out package ${highlight(checkoutName)} for local modifications.`);
     }));
   }
@@ -348,7 +358,6 @@ export class Installer {
         this.changed = true;
       }
     });
-
     await this.clean();
     this.busy = false;
     return this.config.save();
@@ -372,7 +381,8 @@ export class Installer {
     // no installs, install from package.json
     if (installs.length === 0) {
       // maintain existing package.json ranges
-      this.updatePrimaryRanges = false;
+      if (!this.opts.latest)
+        this.updatePrimaryRanges = false;
       installs = Object.keys(this.primaryRanges).map(dep => {
         const entry = this.primaryRanges[dep];
         return {
@@ -442,12 +452,6 @@ export class Installer {
     this.busy = false;
     return configChanged || this.changed;
   }
-
-  /*
-  private async installPeer (_install: Install) {
-    throw new Error('Todo');
-  }
-  */
 
   // most general override applies (greater containing range)
   // we first check this.config.pjson.overrides, followed by globalOverrides
@@ -533,13 +537,15 @@ export class Installer {
   
       let resolvedPkg: ExactPackage;
 
+      const existingPkg = this.installTree.getResolution(install);
+
       // if a lock install, use existing resolution
       if (this.opts.lock)
-        resolvedPkg = this.installTree.getResolution(install);
+        resolvedPkg = existingPkg;
 
       // if a non-latest secondary install, use existing resolution or find the best match in the tree
-      if (install.type === DepType.secondary && !this.opts.latest)
-        resolvedPkg = this.installTree.getResolution(install) || this.installTree.getBestMatch(target);
+      else if (install.type === DepType.secondary && !this.opts.latest)
+        resolvedPkg = existingPkg || this.installTree.getBestMatch(target);
       
       if (resolvedPkg) {
         const existingResolutionName = serializePackageName(resolvedPkg);
@@ -558,6 +564,30 @@ export class Installer {
         // otherwise specifically lookup this exact version
         else {
           target = new PackageTarget(resolvedPkg.registry, resolvedPkg.name, resolvedPkg.version);
+        }
+      }
+      // update install of 
+      else if (existingPkg && this.opts.latest) {
+        const existingPkgName = serializePackageName(existingPkg);
+        const existingResolved = this.installTree.dependencies[serializePackageName(existingPkgName)];
+        if (isCheckoutSource(existingResolved.source)) {
+          resolvedPkg = existingPkg;
+          // check the checkout source exists
+          const pkgPath = path.join(this.config.pjson.packages, existingPkgName.replace(':', path.sep));
+          let config = await this.readPackageConfig(pkgPath);
+          if (config && config.version !== existingPkg.version) {
+            resolvedPkg = {
+              registry: resolvedPkg.registry,
+              name: resolvedPkg.name,
+              version: config.version,
+              semver: new Semver(config.version)
+            };
+            await new Promise((resolve, reject) =>
+              fs.rename(pkgPath, path.join(this.config.pjson.packages, serializePackageName(resolvedPkg).replace(':', path.sep)), err => err ? reject(err) : resolve())
+            );
+            this.setResolution(install, target, resolvedPkg, existingResolved.source);
+          }
+          return;
         }
       }
 
@@ -619,40 +649,32 @@ export class Installer {
 
     let existingSourceInstall = this.sourceInstalls[sourceInstallId];
     // avoid circular (ok since a single install tree)
-    if (existingSourceInstall) {
+    if (existingSourceInstall)
       return;
-    }
 
     return this.sourceInstalls[sourceInstallId] = (async () => {
-      // checked out packages stay unless a reset
-      // and use the configuration from the package.json directly
-      if (!this.opts.reset && await this.isPackageCheckedOut(resolvedPkgName)) {
-        const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
-        // override is undefined by definition of checked out.
+      if (isCheckoutSource(source)) {
+        if (source.startsWith('file:')) {
+          if (await this.setPackageToSymlink(resolvedPkgName, path.resolve(this.project.projectPath, source.slice(5))))
+            this.changed = true;
+        }
+        else if (source.startsWith('clone:')) {
+          if (await this.setPackageToClone(resolvedPkgName, source.slice(6)))
+            this.changed = true;
+        }
+        const pkgPath = path.join(this.config.pjson.packages, resolvedPkgName.replace(':', path.sep));
+        let config = await this.readPackageConfig(pkgPath);
+        if (override) {
+          ({ config, override } = overridePackageConfig(config, override));
+          if (override)
+            this.project.log.warn(`The override for ${highlight(resolvedPkgName)} is not being applied as it is a checked-out package. Rather edit the original package.json file directly instead of applying an override.`);
+        }
         return this.installDependencies(config, resolvedPkgName, source);
-      }
-
-      // handle linked packages
-      if (source.startsWith('link:')) {
-        if (await this.setPackageToLinked(resolvedPkgName, path.resolve(this.project.projectPath, source.substr(5))))
-          this.changed = true;
-        const config = await this.readCheckedOutConfig(resolvedPkgName, override, true);
-        return this.installDependencies(config, resolvedPkgName, source);
-      }
-
-      let preloadedDepNames: string[], preloadDepsInstallPromise: Promise<void>;
-      
-      // kick off dependency installs now
-      if (override) {
-        preloadDepsInstallPromise = this.installDependencies(override, resolvedPkgName, source, preloadedDepNames);
-        preloadDepsInstallPromise.catch(() => {});
       }
 
       // install
       try {
-        var installResult = await this.registryManager.ensureInstall(source, override,
-            this.opts.reset ? async () => false : this.createCheckoutPrompt(resolvedPkgName), this.opts.verify);
+        var installResult = await this.registryManager.ensureInstall(source, override, this.opts.force);
       }
       catch (e) {
         const errMsg = `Unable to install ${highlight(resolvedPkgName)}.`;
@@ -660,13 +682,6 @@ export class Installer {
           throw new JspmUserError(errMsg, undefined, e);
         else
           throw new JspmError(errMsg, undefined, e);
-      }
-      
-      // install result is undefined when verification fails and we have a checkout
-      // then handle like checked out instead
-      if (!installResult) {
-        const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        return this.installDependencies(config, resolvedPkgName, source);
       }
 
       if (installResult.changed)
@@ -677,7 +692,7 @@ export class Installer {
 
       await Promise.all([
         // install dependencies, skipping already preloaded
-        this.installDependencies(config, resolvedPkgName, source, preloadedDepNames),
+        this.installDependencies(config, resolvedPkgName, source),
 
         // symlink to the global install
         (async () => {
@@ -690,9 +705,7 @@ export class Installer {
           }
         })(),
 
-        this.createBins(config, resolvedPkgName),
-
-        preloadDepsInstallPromise
+        this.createBins(config, resolvedPkgName)
       ]);
 
       return override;
@@ -759,26 +772,21 @@ export class Installer {
           throw new JspmError(errMsg, undefined, e);
       }
 
-      const isLink = source.startsWith('link:');
-
       let config, hash, linkPath;
       let registry, name, version;
 
       // link
+      const isLink = isCheckoutSource(source);
       if (isLink) {
-        linkPath = path.resolve(this.project.projectPath, source.substr(5));
-
-        try {
-          var json = await readJSON(path.join(linkPath, 'package.json'));
-        }
-        catch (e) {}
-        config = processPackageConfig(json || {});
+        if (source.startsWith('clone:'))
+          throw new JspmUserError(`Clone source ${highlight(source)} cannot be installed directly.`);
+        linkPath = path.resolve(this.project.projectPath, source.slice(5));
+        config = await this.readPackageConfig(linkPath);
         if (override) {
           ({ config, override } = overridePackageConfig(config, override));
           if (override)
-            this.project.log.warn(`The override for ${highlight(install.target)} is not being applied as it is linked. Rather edit the original package.json file directly instead of applying an override.`);
+            this.project.log.warn(`The override for ${highlight(install.target)} is not being applied as it is a checked-out package. Rather edit the original package.json file directly instead of applying an override.`);
         }
-
         registry = config.registry || this.project.defaultRegistry;
         name = config.name || install.name;
         version = config.version;
@@ -786,7 +794,7 @@ export class Installer {
       // install
       else {
         try {
-          var installResult = await this.registryManager.ensureInstall(source, override, async () => false, this.opts.verify);
+          var installResult = await this.registryManager.ensureInstall(source, override, this.opts.force);
         }
         catch (e) {
           const errMsg = `Unable to install ${source}.`;
@@ -837,19 +845,11 @@ export class Installer {
       if (override)
         this.setOverride(install.target, override);
 
-      // if checked out, skip the actual resource install
-      if (!this.opts.reset && await this.isPackageCheckedOut(resolvedPkgName)) {
-        const config = await this.readCheckedOutConfig(resolvedPkgName, override);
-        this.project.log.info(`Skipping reinstall for ${highlight(resolvedPkgName)} as there is a custom folder checked out in its place. Use the ${bold('--reset')} install flag to revert to the original source.`);
-        // override is undefined by definition of checked out.
-        return this.installDependencies(config, resolvedPkgName, source);
-      }
-
       await Promise.all([
         this.installDependencies(config, resolvedPkgName, source),
         (async () => {
           if (isLink) {
-            if (await this.setPackageToLinked(resolvedPkgName, linkPath))
+            if (await this.setPackageToSymlink(resolvedPkgName, linkPath))
               this.changed = true;
           }
           else {
@@ -948,33 +948,11 @@ export class Installer {
     return path.join(this.config.pjson.packages, resolvedPkgName.substr(0, registryIndex), resolvedPkgName.substr(registryIndex + 1));
   }
 
-  private createCheckoutPrompt (resolvedPkgName: string) {
-    const registryIndex = resolvedPkgName.indexOf(':');
-    const localPackagePath = path.join(this.config.pjson.packages, resolvedPkgName.substr(0, registryIndex), resolvedPkgName.substr(registryIndex + 1));
-    return async (dir: string) => {
-      let checkout = await this.project.confirm(`The global package ${resolvedPkgName} has been modified, do you want to checkout the package now for custom modification, or revert?`, true)
-      if (checkout) {
-        await new Promise((resolve, reject) => ncp(dir, localPackagePath, err => err ? reject(err) : resolve()));
-        await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
-      }
-      return checkout;
-    };
-  }
-
-  private async readCheckedOutConfig (resolvedPkgName: string, override: PackageConfig | void, linked = false): Promise<PackageConfig> {
-    const registryIndex = resolvedPkgName.indexOf(':');
-    const registry = resolvedPkgName.substr(0, registryIndex);
-    const pkgPath = path.join(this.config.pjson.packages, registry, resolvedPkgName.substr(registryIndex + 1));
-    
-    var json = await readJSON(path.join(pkgPath, 'package.json'));
-    let config = processPackageConfig(json || {});
-
-    if (override) {
-      ({ config, override } = overridePackageConfig(config, override));
-      if (override)
-        this.project.log.warn(`The override for ${highlight(resolvedPkgName)} is not being applied as it is ${linked ? 'linked' : 'checked out'}. Rather edit the original package.json file directly instead of applying an override.`);
-    }
-    return config;
+  private async readPackageConfig (pkgPath: string): Promise<any | void> {
+    const json = await readJSON(path.join(pkgPath, 'package.json'));
+    if (!json)
+      return;
+    return processPackageConfig(json);
   }
 
   // upgrades any packages in the installing or installed tree to the newly added resolution
@@ -1013,7 +991,7 @@ export class Installer {
     if (packageInstallState.hash === hash)
       return false;
     
-    const { exists, linkPath } = packageInstallState;
+    const { exists, linkPath, hash: curHash } = packageInstallState;
     packageInstallState.exists = true;
     packageInstallState.hash = hash;
     packageInstallState.linkPath = undefined;
@@ -1021,13 +999,13 @@ export class Installer {
     const localPackagePath = path.join(this.config.pjson.packages, pkgName.replace(':', path.sep));
 
     if (exists) {
-      if (hash === undefined && linkPath === undefined) {
-        this.project.log.info(`Removing checked out package ${pkgName}.`);
+      if (curHash === undefined && linkPath === undefined) {
+        this.project.log.info(`Removing checked out package ${highlight(pkgName)}.`);
         await new Promise((resolve, reject) => rimraf(localPackagePath, err => err ? reject(err) : resolve()));
       }
       else {
         if (linkPath !== undefined)
-          this.project.log.info(`Replacing custom symlink for ${pkgName}.`);
+          this.project.log.info(`Replacing custom symlink for ${highlight(pkgName)}.`);
         await new Promise((resolve, reject) => fs.unlink(localPackagePath, err => err ? reject(err) : resolve()));
       }
     }
@@ -1043,7 +1021,30 @@ export class Installer {
     return true;
   }
 
-  private async setPackageToLinked (pkgName: string, linkPath: string): Promise<boolean> {
+  private async setPackageToClone (pkgName: string, gitTarget: string): Promise<boolean> {
+    const packageInstallState = await this.getPackageInstallState(pkgName);
+    if (packageInstallState.gitRemotes) {
+      if (!packageInstallState.gitRemotes.includes(gitTarget))
+        this.project.log.info(`Checked out package ${highlight(pkgName)} is not currently actual clone of ${highlight(gitTarget)}.`);
+      return false;
+    }
+    const localPackagePath = path.join(this.config.pjson.packages, pkgName.replace(':', path.sep));
+    if (packageInstallState.exists) {
+      if (packageInstallState.hash === undefined && packageInstallState.linkPath === undefined) {
+        this.project.log.info(`Removing checked out package ${highlight(pkgName)}.`);
+        await new Promise((resolve, reject) => rimraf(localPackagePath, err => err ? reject(err) : resolve()));
+      }
+      else {
+        if (packageInstallState.linkPath !== undefined)
+          this.project.log.info(`Removing custom symlink for ${highlight(pkgName)}.`);
+        await new Promise((resolve, reject) => fs.unlink(localPackagePath, err => err ? reject(err) : resolve()));
+      }
+    }
+    await gitCheckout(this.project.log, gitTarget, null, false, localPackagePath, 0);
+    return true;
+  }
+
+  private async setPackageToSymlink (pkgName: string, linkPath: string): Promise<boolean> {
     const packageInstallState = await this.getPackageInstallState(pkgName);
 
     if (packageInstallState.linkPath === linkPath)
@@ -1077,13 +1078,7 @@ export class Installer {
   }
 
   private async packageExists (pkgName: string): Promise<boolean> {
-    const packageInstallState = await this.getPackageInstallState(pkgName);
-    return packageInstallState.exists;
-  }
-
-  private async isPackageCheckedOut (pkgName: string): Promise<boolean> {
-    const packageInstallState = await this.getPackageInstallState(pkgName);
-    return packageInstallState.exists && packageInstallState.hash === undefined && packageInstallState.linkPath === undefined;
+    return (await this.getPackageInstallState(pkgName)).exists;
   }
 
   private async getPackageInstallState (pkgName: string): Promise<PackageInstallState> {
@@ -1096,7 +1091,8 @@ export class Installer {
     packageInstallState = {
       exists: false,
       hash: undefined,
-      linkPath: undefined
+      linkPath: undefined,
+      gitRemotes: undefined
     };
 
     const symlinkPath = await new Promise<string>((resolve, reject) => {
@@ -1123,8 +1119,10 @@ export class Installer {
       });
     });
 
-    if (!symlinkPath)
+    if (!symlinkPath) {
+      packageInstallState.gitRemotes = await checkGitTarget(pkgPath);
       return this.jspmPackageInstallStateCache[pkgName] = packageInstallState;
+    }
     
     packageInstallState.exists = true;
 
@@ -1135,6 +1133,8 @@ export class Installer {
         return this.jspmPackageInstallStateCache[pkgName] = packageInstallState;
       }
     }
+
+    packageInstallState.gitRemotes = await checkGitTarget(pkgPath);
 
     if (symlinkPath !== pkgPath)
       packageInstallState.linkPath = symlinkPath;
@@ -1165,7 +1165,7 @@ export class Installer {
   
       let config;
       if (await this.packageExists(parent)) {
-        config = await this.readCheckedOutConfig(parent, undefined);
+        config = await this.readPackageConfig(path.join(this.config.pjson.packages, parent.replace(':', path.sep)));
       }
       else {
         // no source -> ignore
@@ -1176,22 +1176,17 @@ export class Installer {
         try {
           // we dont verify, reset or alter overrides here because we want to be minimally invasive outside of the direct install tree
           const override = this.getOverride(parseExactPackageName(parent));
-          var installResult = await this.registryManager.ensureInstall(parentDepObj.source, override, this.createCheckoutPrompt(parent), false);
+          var installResult = await this.registryManager.ensureInstall(parentDepObj.source, override, false);
         }
         catch (e) {
           return;
         }
   
-        if (!installResult) {
-          config = await this.readCheckedOutConfig(parent, undefined);
-        }
         // we dont persist the updated override or check the jspm_packages symlink, because we dont want to
         // alter in any way installed packages not directly on the install tree -> aiming for principle of least surprise to user
-        else {
-          if (installResult.changed)
-            this.changed = true;
-          ({ config } = installResult);
-        }
+        if (installResult.changed)
+          this.changed = true;
+        ({ config } = installResult);
       }
   
       const rangeTarget = config.dependencies && config.dependencies[name] ||
@@ -1251,7 +1246,17 @@ export class Installer {
     // depthCheck returns true to keep going (files being ignored),
     //   false to add the dir to the flat list
     const removeNonPackageDirs = async dir => {
-      let files = await new Promise<string[]>((resolve, reject) => fs.readdir(dir, (err, files) => err ? reject(err) : resolve(files)));
+      let files = await new Promise<string[]>((resolve, reject) => fs.readdir(dir, (err, files) => {
+        if (err) {
+          if (err.code === 'ENOENT')
+            resolve([]);
+          else
+            reject(err);
+        }
+        else {
+          resolve(files);
+        }
+      }));
       let deletedAll = true;
       let relPath = path.relative(this.config.pjson.packages, dir);
       let pkgBase = relPath.replace(path.sep, ':');
@@ -1291,7 +1296,7 @@ export class Installer {
         // ignore rogue files
         else {}
       }));
-      if (deletedAll)
+      if (deletedAll && dir !== this.config.pjson.packages)
         await new Promise((resolve, reject) => fs.rmdir(dir, err => err ? reject(err) : resolve()));
       return deletedAll;
     }
@@ -1347,13 +1352,16 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: st
         });
       }
     });
-  // if any install is a link: install, and the parent is also a link: install, resolve the link relatively
-  if (parentSource.startsWith('link:')) {
+  // if any install is a file: install, and the parent is also a file: install, resolve the link relatively
+  if (parentSource.startsWith('file:')) {
     const parentLinkPath = path.resolve(this.project.projectPath, parentSource.slice(5));
     for (const install of installs) {
-      if (typeof install.target === 'string' && install.target.startsWith('link:')) {
+      if (typeof install.target === 'string' && install.target.startsWith('file:')) {
         const resolvedLinkPath = path.resolve(parentLinkPath, install.target.slice(5));
-        install.target = 'link:' + path.relative(this.project.projectPath, resolvedLinkPath).replace(/\\/g, '/') + '/';
+        let relPath = path.relative(this.project.projectPath, resolvedLinkPath).replace(/\\/g, '/');
+        if (!relPath.startsWith('../'))
+          relPath = './' + relPath;
+        install.target = 'file:' + relPath;
       }
     }
   }
@@ -1362,8 +1370,8 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: st
 
 function getResourceName (source: string, projectPath: string): string {
   // if the resource is a folder, check the package.json file
-  if (source.startsWith('file:') || source.startsWith('link:')) {
-    const pjsonPath = path.join(projectPath, source.substr(5), 'package.json');
+  if (source.startsWith('file:') || source.startsWith('clone:')) {
+    const pjsonPath = path.join(projectPath, source.slice(5), 'package.json');
     let pjsonSource;
     try {
       pjsonSource = fs.readFileSync(pjsonPath).toString();
@@ -1383,7 +1391,10 @@ function getResourceName (source: string, projectPath: string): string {
         return pjson.name;
     }
 
-    source = source.substr(0, 5) + path.resolve(projectPath, source.substr(5));
+    if (source.startsWith('clone:'))
+      throw new JspmUserError(`Use ${bold('jspm checkout [name]')} or ${bold(`jspm link [name] ${source}`)} to setup a git clone install.`);
+
+    source = source.slice(0, 5) + path.resolve(projectPath, source.slice(5));
   }
 
   // get name simply from end of resource name
@@ -1407,4 +1418,29 @@ function getResourceName (source: string, projectPath: string): string {
     else
       return source.substring(pathIndex + 1, refIndex);
   }
+}
+
+// best-effort attempt to determine a git repo remote
+async function checkGitTarget (packagePath: string): Promise<string[] | void> {
+	const gitCfg = await new Promise<string | void>(resolve => 
+		fs.readFile(path.join(packagePath, '.git', 'config'), (err, source) => err ? resolve() : resolve(source.toString()))
+  );
+	if (!gitCfg)
+		return;
+
+	const remotes = [];
+	let remoteName;
+	for (const line of gitCfg.split('\n')) {
+		if (remoteName) {
+			const [, remoteUrl] = line.match(/^\s*url\s*=\s*(.+)/) || [];
+			if (remoteUrl) {
+        if (remotes.indexOf(remoteUrl) === -1)
+          remotes.push(remoteUrl);
+				remoteName = undefined;
+				continue;
+			}
+		}
+		[, remoteName] = line.match(/^\s*\[remote\s*"([^"]+)"\s*\]/) || [];
+	}
+	return remotes;
 }

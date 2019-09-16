@@ -284,10 +284,10 @@ export class Project {
     this.log.ok('Uninstalled successfully.');
   }
 
-  async checkout (names: string[]) {
-    const taskEnd = this.log.taskStart('Checking out...');
+  async checkout (targets: string[]) {
+    const taskEnd = this.log.taskStart(`Checking out...`);
     try {
-      await this.installer.checkout(names);
+      await this.installer.checkout(targets);
     }
     finally {
       taskEnd();

@@ -703,13 +703,8 @@ export function detectStyle (string: string): jsonStyle {
 }
 
 export function serializeJson (json, style: jsonStyle) {
-  let jsonString = JSON.stringify(json, null, style.tab);
-
-  if (style.trailingNewline)
-    jsonString += style.newline;
-
-  return jsonString
+  return JSON.stringify(json, null, style.tab)
       .replace(/([^\\])""/g, '$1' + style.quote + style.quote) // empty strings
       .replace(/([^\\])"/g, '$1' + style.quote)
-      .replace(/\n/g, style.newline);
+      .replace(/\n/g, style.newline) + (style.trailingNewline ? style.newline : '');
 }

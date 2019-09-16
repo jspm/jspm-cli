@@ -29,8 +29,13 @@ import path = require('path');
 
 const gitProtocol = {
   resolve: gitResolve,
-  download: gitCheckout
+  download: gitSourceCheckout
 };
+
+// checkout sources are sources that are not global cache links
+export function isCheckoutSource (source: string) {
+  return source.startsWith('file:') || source.startsWith('clone:');
+}
 
 export const sourceProtocols: {
   [protocol: string]: {
@@ -50,9 +55,10 @@ export const sourceProtocols: {
     download: fetchRemoteTarball
   },
   'file': {
-    download: extractLocalTarball
+    // download: extractLocalTarball
   },
-  'link': {}
+  'clone': {
+  }
 };
 
 function getProtocolHandler (source: string) {
@@ -166,14 +172,7 @@ async function gitResolve (log: Logger, fetch: FetchClass, source: string, timeo
 }
 
 const gitRefRegEx = /^[a-f0-9]{6,}$/;
-async function gitCheckout (log: Logger, _fetch: FetchClass, source: string, outDir: string, timeout: number) {
-  const execOpts = {
-    cwd: outDir,
-    timeout,
-    killSignal: 'SIGKILL',
-    maxBuffer: 100 * 1024 * 1024
-  };
-
+async function gitSourceCheckout (log: Logger, _fetch: FetchClass, source: string, outDir: string, timeout: number) {
   let gitSource = source.startsWith('git:') ? source : source.substr(4);
   let gitRefIndex = gitSource.lastIndexOf('#');
   if (gitRefIndex === -1)
@@ -183,7 +182,16 @@ async function gitCheckout (log: Logger, _fetch: FetchClass, source: string, out
   if (!gitRef.match(gitRefRegEx))
     throw new JspmUserError(`Invalid source ${source}. Git source reference ${gitRef} must be a hash reference.`);
 
-  const local = source.startsWith('file:') ? '-l ' : '';
+  const local = source.startsWith('git+file:');
+  await gitCheckout(log, gitSource, gitRef, local, outDir, timeout);
+}
+
+export async function gitCheckout (log: Logger, target: string, targetRef: string | void, local: boolean, outDir: string, timeout: number) {
+  const execOpts = {
+    timeout,
+    killSignal: 'SIGKILL',
+    maxBuffer: 100 * 1024 * 1024
+  };
 
   // this will work for tags and branches, but we want to encourage commit references for uniqueness so dont want to reward this use case unfortunately
   // await execGit(`clone ${local}--depth=1 ${source.replace(/(['"()])/g, '\\\$1')} --branch ${ref.replace(/(['"()])/g, '\\\$1')} ${outDir}`, execOpts);
@@ -192,15 +200,15 @@ async function gitCheckout (log: Logger, _fetch: FetchClass, source: string, out
 
   // do a full clone for the commit reference case
   // credentials used by git will be standard git credential manager which should be relied on
-  const logEnd = log.taskStart('Cloning ' + highlight(source));
+  const logEnd = log.taskStart('Cloning ' + highlight(target));
   try {
-    await execGit(`clone ${gitRef ? '-n ' : ''}${local}${gitSource.replace(/(['"()])/g, '\\\$1')} ${outDir}`, execOpts);
-    if (gitRef)
-      await execGit(`checkout ${gitRef.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+    await execGit(`clone ${targetRef ? '-n ' : ''}${local ? '-l ' : ''}${target.replace(/(['"()])/g, '\\\$1')} ${outDir}`, execOpts);
+    if (targetRef)
+      await execGit(`checkout ${targetRef.replace(/(['"()])/g, '\\\$1')}`, execOpts);
   }
   catch (err) {
-    if (err.toString().indexOf('Repository not found') !== -1)
-      throw new JspmUserError(`Unable to find repo ${highlight(source)}. It may not exist, or authorization may be required.`);
+    if (err.toString().indexOf('Repository not found') !== -1 || err.toString().indexOf('Could not read from remote repository') !== -1)
+      throw new JspmUserError(`Unable to find repo ${highlight(target)}. It may not exist, or authorization may be required.`);
     throw err;
   }
   finally {

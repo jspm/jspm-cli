@@ -427,7 +427,7 @@ export default class RegistryManager {
   }
 
   async resolveSource (source: string, packagePath: string, projectPath: string): Promise<string> {
-    if (source.startsWith('link:') || source.startsWith('file:') || source.startsWith('git+file:')) {
+    if (source.startsWith('file:')) {
       let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
       let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
       
@@ -443,19 +443,20 @@ export default class RegistryManager {
 
       // if a file: install and it is a directory then it is a link: install
       if (source.startsWith('file:')) {
+        let validDir = false;
         try {
           const stats = fs.statSync(sourcePath);
-          if (stats.isDirectory())
-            sourceProtocol = 'link:';
+          validDir = stats.isDirectory();
         }
         catch (e) {
-          if (e && e.code === 'ENOENT')
-            throw new JspmUserError(`Path ${sourcePath} is not a valid file or directory.`);
-          throw e;
+          if (e && e.code !== 'ENOENT' && e.code !== 'ENOTDIR')
+            throw e;
         }
+        if (!validDir)
+          throw new JspmUserError(`Path ${sourcePath} is not a valid directory to install.`);
       }
 
-      sourcePath = path.relative(projectPath, sourcePath) + '/';
+      sourcePath = path.relative(projectPath, sourcePath);
 
       if (isWindows)
         sourcePath = sourcePath.replace(winSepRegEx, '/');
@@ -469,54 +470,43 @@ export default class RegistryManager {
 
   async verifyInstallDir (dir: string, verifyHash: string, fullVerification: boolean): Promise<number> {
     const cachedState = this.verifiedCache[verifyHash];
-
-    if (cachedState !== undefined && (cachedState !== VerifyState.HASH_VALID || !fullVerification))
+    if (cachedState !== undefined)
       return cachedState;
 
-    const installFile = path.resolve(dir, '.jspm');
-    const jspmJson = await readJSON(installFile);
+    try {
+      var checkMtime: number = (await new Promise<fs.stats>((resolve, reject) =>
+        fs.stat(dir, (err, stats) => err ? reject(err) : resolve(stats))
+      )).mtimeMs;
+    }
+    catch (e) {
+      if (e.code !== 'EISDIR' && e.code !== 'ENOENT')
+        throw e;
+    }
 
-    if (!jspmJson)
+    if (!checkMtime)
       return this.verifiedCache[verifyHash] = VerifyState.NOT_INSTALLED;
-
-    if (typeof jspmJson.mtime !== 'number' || jspmJson.hash !== verifyHash)
-      return this.verifiedCache[verifyHash] = VerifyState.INVALID;
 
     // if not doing full verification for perf, stop here
     if (!fullVerification)
       return this.verifiedCache[verifyHash] = VerifyState.HASH_VALID;
 
-    // mtime check (skipping .jspm file)
+    // mtime check for full verification
     let failure = false;
-    await dirWalk(dir, async (filePath, stats) => {
-      if (filePath === installFile)
-        return;
-      if (stats.mtimeMs > jspmJson.mtime) {
+    await dirWalk(dir, async (_filePath, stats) => {
+      if (stats.mtimeMs > checkMtime) {
         failure = true;
         return true;
       }
     });
 
     return this.verifiedCache[verifyHash] = failure ? VerifyState.INVALID : VerifyState.VERIFIED_VALID;
-
-    /*
-    let fileHashes = await Promise.all(fileList.map(getFileHash));
-    let installedDirHash = sha256(fileHashes.sort().join(''));
-
-    // hash match -> update the mtime in the install file so we dont check next time
-    if (installedDirHash === dirHash) {
-      await new Promise((resolve, reject) => {
-        fs.writeFile(installFile, mtime + '\n' + hash + '\n' + dirHash, err => err ? reject(err) : resolve())
-      });
-      return true;
-    }*/
   }
 
   // on verification failure, we remove the directory and redownload
   // moving to a tmp location can be done during the verificationFailure call, to diff and determine route forward
   // if deciding to checkout, "ensureInstall" operation is cancelled by returning true
   // build support will be added to build into a newly prefixed folder, with build as a boolean argument
-  async ensureInstall (source: string, override: PackageConfig | void, verificationFailure: (dir: string) => Promise<boolean>, fullVerification: boolean = false): Promise<{
+  async ensureInstall (source: string, override: PackageConfig | void, fullVerification: boolean = false): Promise<{
     config: PackageConfig,
     override: PackageConfig | void,
     dir: string,
@@ -535,12 +525,12 @@ export default class RegistryManager {
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
       }
       transformConfig(config);
-      var dir = path.join(this.cacheDir, 'packages', hash);
+      const dir = path.join(this.cacheDir, 'packages', hash);
       const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
       if (verifyState > VerifyState.INVALID)
         return { config, override, dir, hash, changed: false };
-      else if (verifyState !== VerifyState.NOT_INSTALLED && await verificationFailure(dir))
-        return;
+      else if (verifyState !== VerifyState.NOT_INSTALLED)
+        await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
     }
 
     if (this.offline)
@@ -561,84 +551,75 @@ export default class RegistryManager {
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           }
           transformConfig(config);
-          var dir = path.join(this.cacheDir, 'packages', hash);
+          const dir = path.join(this.cacheDir, 'packages', hash);
           const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
           if (verifyState > VerifyState.INVALID)
             return { config, override, dir, hash, changed: false };
-          else if (verifyState !== VerifyState.NOT_INSTALLED && await verificationFailure(dir))
-            return;
+          else if (verifyState !== VerifyState.NOT_INSTALLED)
+            await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
         }
       }
-
-      // if we dont know the config then we dont know the canonical override (and hence hash)
-      // so we download to a temporary folder first
-      if (!config)
-        dir = path.join(this.cacheDir, 'tmp', sha256(Math.random().toString()));
-
-      await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
-      await new Promise((resolve, reject) => mkdirp(dir, err => err ? reject(err) : resolve()));
 
       if (this.offline)
         throw new JspmUserError(`Source ${source} is not available offline.`);
 
-      // if source is linked, can return the linked dir directly
-      await downloadSource(this.util.log, this.fetch, source, dir, this.timeouts.download);
-
-      const logEnd = this.util.log.taskStart('Finalizing ' + highlight(source));
+      // download to a temp folder first
+      const dlDir = path.join(this.cacheDir, 'tmp', sha256(Math.random().toString()));
+      await new Promise((resolve, reject) => rimraf(dlDir, err => err ? reject(err) : resolve()));
+      await new Promise((resolve, reject) => mkdirp(dlDir, err => err ? reject(err) : resolve()));
 
       try {
-        let pjsonPath = path.resolve(dir, 'package.json');
-        let { json: pjson, style } = await readJSONStyled(pjsonPath);
-        if (!pjson)
-          pjson = {};
+        await downloadSource(this.util.log, this.fetch, source, dlDir, this.timeouts.download);
 
-        if (!config) {
-          const pjsonConfig = processPackageConfig(pjson);
-          if (override)
-            ({ config, override } = overridePackageConfig(pjsonConfig, override));
-          else
-            config = pjsonConfig;
-          transformConfig(config);
-          hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
-          await Promise.all([
-            this.cache.set(sourceHash, { config: pjsonConfig, hash }),
-            // move the tmp folder to the known hash now
-            (async () => {
-              const toDir = path.join(this.cacheDir, 'packages', hash);
-              await new Promise((resolve, reject) => rimraf(toDir, err => err ? reject(err) : resolve()));
-              await new Promise((resolve, reject) => {
-                fs.rename(dir, dir = toDir, err => err ? reject(err) : resolve());
-              });
-            })()
-          ]);
-          pjsonPath = path.resolve(dir, 'package.json');
+        const logEnd = this.util.log.taskStart('Finalizing ' + highlight(source));
+
+        try {
+          const pjsonPath = path.resolve(dlDir, 'package.json');
+          let { json: pjson, style } = await readJSONStyled(pjsonPath);
+          if (!pjson)
+            pjson = {};
+
+          if (!config) {
+            const pjsonConfig = processPackageConfig(pjson);
+            if (override)
+              ({ config, override } = overridePackageConfig(pjsonConfig, override));
+            else
+              config = pjsonConfig;
+            transformConfig(config);
+            hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
+            await this.cache.set(sourceHash, { config: pjsonConfig, hash });
+          }
+
+          await writeJSONStyled(pjsonPath, Object.assign(pjson, config), style || defaultStyle);
+          
+          await runBinaryBuild(this.util.log, dlDir, pjson.name, pjson.scripts);
+
+          // run package conversion into _esm
+          // (on any subfolder containing a "type": "commonjs")
+          await transformPackage(this.util.log, dlDir, config.name, config);
+
+          // move the tmp folder to the known hash on successful completion only
+          const dir = path.join(this.cacheDir, 'packages', hash);
+          try {
+            await new Promise((resolve, reject) => fs.rename(dlDir, dir, err => err ? reject(err) : resolve()));
+          }
+          catch (e) {
+            await new Promise((resolve, reject) => rimraf(dlDir, err => err ? reject(err) : resolve()));
+            await new Promise((resolve, reject) => fs.rename(dlDir, dir, err => err ? reject(err) : resolve()));
+          }
+
+          this.verifiedCache[hash] = VerifyState.VERIFIED_VALID;
+
+          return { config, override, dir, hash, changed: true };
         }
-
-        await writeJSONStyled(pjsonPath, Object.assign(pjson, config), style || defaultStyle);
-        
-        await runBinaryBuild(this.util.log, dir, pjson.name, pjson.scripts);
-
-        // run package conversion into _esm
-        // (on any subfolder containing a "type": "commonjs")
-        await transformPackage(this.util.log, dir, config.name, config);
-
-        var mtime = await new Promise((resolve, reject) => fs.stat(pjsonPath, (err, stats) => err ? reject(err) : resolve(stats.mtimeMs)));
-        
-        // todo: diffs for invalid?
-        // const fileHashes = await calculateFileHashes(dir);
-        // will be useful for avoiding mistaken mtime bumps when viewing
-
-        await new Promise((resolve, reject) => {
-          fs.writeFile(path.join(dir, '.jspm'), JSON.stringify({ mtime, hash }), err => err ? reject(err) : resolve())
-        });
-
-
-        this.verifiedCache[hash] = VerifyState.VERIFIED_VALID;
-
-        return { config, override, dir, hash, changed: true };
+        finally {
+          logEnd();
+        }
       }
-      finally {
-        logEnd();
+      catch (e) {
+        // clear the temp directory on error
+        await new Promise((resolve, reject) => rimraf(dlDir, err => err ? reject(err) : resolve()));
+        throw e;
       }
     }
     finally {

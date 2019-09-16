@@ -1,4 +1,5 @@
 .vscode
+jspm_packages
 node_modules
 lib
 sandbox

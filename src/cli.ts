@@ -139,7 +139,7 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
         console.log(`${/*bold('Init')}
   jspm init <path>?                 Initialize or validate a jspm project in the current directory
 
-${*/bold('📦  Install')}
+${*/''}${bold('Install')}
   jspm install [<registry>:]<pkg>[@<version>]
   jspm install git:<path> | git+https:<path> | https:<path> | file:<path>
   jspm install
@@ -148,22 +148,23 @@ ${*/bold('📦  Install')}
     --latest                       Resolve all packages to latest versions
     --dev|peer|optional            Install a dev, peer or optional dependency
     --override (-o) main=x.js      Provide a package.json property override
+    --force                        Clears any custom folders / cache changes
 
   jspm update [<name>+]            Update packages within package.json ranges
   jspm uninstall <name>+           Uninstall a top-level package
   jspm clean                       Clear unused dependencies
   jspm link [<name>] <source>      Link a custom source as a named package
-  jspm unlink [<name>]             Reinstall a package to its registry target
-  jspm checkout <name>+            Copy a package in jspm_packages to modify
+  jspm unlink [<name>+]            Reinstall packages to original source target
+  jspm checkout [<name>] <gitpath> Clone and link a Git repo into jspm_packages
 
-${bold('🔥  Execute')}
+${bold('Execute')}
   jspm <file>                      Execute a module with jspm module resolution
   jspm run <name>                  Run package.json "scripts"
   jspm bin <name> [-g]             Run an installed bin script
     --cmd                          Output the bin script command w/o executing
     --path [-g]                    Output the bin path
 
-${bold('🏭  Build')}
+${bold('Build')}
   jspm build <entry>+ [-d <outdir>] [-o <buildmap.json>]
     --format commonjs|system|amd   Set the output module format for the build
     --external <name>|<map.json>   Define build external boundary and aliases
@@ -174,14 +175,14 @@ ${bold('🏭  Build')}
     --banner <file>|<source>       Provide a banner for the build files
     --watch                        Watch build files for rebuild on change
 ${/*jspm inspect (TODO)            Inspect the installation constraints of a given dependency */''}
-${bold('🔎  Inspect')}
+${bold('Inspect')}
   jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
     --browser|bin                  Resolve a module name in a conditional env
     --relative                     Output the path relative to the current cwd
   jspm trace <module>+             Trace a module graph
   jspm trace --deps <module>+      Trace the dependencies of modules
 ${/*jspm trace --format graph|text|csv|json (TODO)     Different output formats for trace*/''}
-${bold('🔗  Import Maps')}
+${bold('Import Maps')}
   jspm map -o importmap.json       Generates an import map for all dependencies
   jspm map <module>+               Generate a import map for specific modules
     --flat-scope                   Flatten scopes for Chrome compatibility
@@ -189,10 +190,10 @@ ${bold('🔗  Import Maps')}
     --production                   Use production resolutions
     --cdn                          Generate a import map against the jspm CDN
 
-${bold('🚢  Publish')}
+${bold('Publish')}
   jspm publish [<path>] [--otp <otp>] [--tag <tag>] [--public]
 
-${bold('🔧  Configure')}
+${bold('Configure')}
   jspm registry-config <name>      Run configuration prompts for a registry
   jspm config <option> <setting>   Set jspm global config
   jspm config --get <option>       Get a jspm global config value
@@ -428,10 +429,12 @@ ${bold('Command Flags')}
 
           if (options.format) {
             console.log(resolved.format || '<undefined>');
+            break;
           }
           else {
             resolved.resolved = resolved.resolved || '@empty';
             console.log(options.relative ? path.relative(process.cwd(), resolved.resolved) : resolved.resolved);
+            break;
           }
         }
         if (err)
@@ -450,6 +453,8 @@ ${bold('Command Flags')}
 
       case 'co':
       case 'checkout':
+        if (args.length === 0)
+          throw new JspmUserError(`No package to checkout provided to ${bold('jspm checkout')}.`);
         await Promise.all(projectPaths.map(async projectPath => {
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
           projects.push(project);
@@ -470,8 +475,7 @@ ${bold('Command Flags')}
       case 'link': {
         let options;
         ({ options, args } = readOptions(args, [
-          // TODO 'force', 'verify'
-        ], [], ['override']));
+        ], ['force'], ['override']));
 
         await Promise.all(projectPaths.map(async projectPath => {
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
@@ -511,7 +515,7 @@ ${bold('Command Flags')}
         // the name given here is not a "TARGET" but a "SELECTOR"
         let { options, args: selectors } = readOptions(args, [
           // install options
-          'reset', // TODO 'force', 'verify'
+          'force',
           'latest'
           ], [], ['override']);
         await Promise.all(projectPaths.map(async projectPath => {
@@ -526,7 +530,7 @@ ${bold('Command Flags')}
       case 'install': {
         let { options, args: installArgs } = readOptions(args, [
           // install options
-          'reset', 'force',
+          'force',
           // install type
           'save-dev', 'dev', 'optional', 'peer',
           // constraint options
