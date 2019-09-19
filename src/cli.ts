@@ -30,6 +30,7 @@ import { readJSONStyled, defaultStyle, serializeJson } from './config/config-fil
 import publish from './install/publish';
 import { getBin } from './install/bin';
 import { spawn } from 'child_process';
+import { resolveSource } from './install/source';
 
 const installEqualRegEx = /^([@\-_\.a-z\d\/]+)=/i;
 
@@ -486,7 +487,7 @@ ${bold('Command Flags')}
           }
           else if (args.length === 1) {
             const linkSource = 'file:' + path.resolve(args[0]);
-            const target = await project.registryManager.resolveSource(linkSource, project.projectPath, project.projectPath);
+            const target = await resolveSource(linkSource, project.projectPath, project.projectPath);
             await project.install([{
               name: undefined,
               parent: undefined,
@@ -538,9 +539,6 @@ ${bold('Command Flags')}
           // resolver options
           'latest', 'lock',
           ], [], ['override']);
-
-        if (options.force)
-          throw new JspmUserError(`${highlight('--force')} flag is yet to be implemented. Use ${bold('jspm cc && jspm install')} for now, although this is only necessary if you have upgraded jspm or modified a globally linked dependency file.`);
           
         await Promise.all(projectPaths.map(async projectPath => {
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });

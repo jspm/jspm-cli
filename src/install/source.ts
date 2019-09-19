@@ -17,29 +17,68 @@ import { Logger } from '../project';
 import FetchClass from './fetch';
 import { URL } from 'url';
 import crypto = require('crypto');
-import { JspmError, JspmUserError, bold, highlight } from '../utils/common';
+import { JspmError, JspmUserError, bold, highlight, isWindows, winSepRegEx } from '../utils/common';
 import zlib = require('zlib');
 import peek = require('buffer-peek-stream');
 import fs = require('graceful-fs');
 import tar = require('tar-fs');
 import Stream = require('stream');
-import execGit = require('@jspm/github/exec-git');
-import rimraf = require('rimraf');
+import execGit from '../utils/exec-git';
 import path = require('path');
 
 const gitProtocol = {
-  resolve: gitResolve,
-  download: gitSourceCheckout
+  download: gitCheckout
 };
 
 // checkout sources are sources that are not global cache links
 export function isCheckoutSource (source: string) {
-  return source.startsWith('file:') || source.startsWith('clone:');
+  return source.startsWith('file:') || source.startsWith('git');
+}
+
+export function readGitSource (source: string) {
+  let url = source.startsWith('git:') ? source : source.substr(4);
+  if (url.startsWith('ssh://'))
+    url = url.slice(6).replace('/', ':');
+  else if (url.startsWith('ssh:/'))
+    url = url.slice(5).replace('/', ':');
+  else if (url.startsWith('ssh:'))
+    url = url.slice(4).replace('/', ':');
+  let ref;
+  const gitRefIndex = url.lastIndexOf('#');
+  if (gitRefIndex !== -1) {
+    url = url.substr(0, gitRefIndex);
+    ref = url.slice(gitRefIndex + 1);
+  }
+  return { url, ref };
+}
+
+export async function resolveSource (source: string, packagePath: string, projectPath: string): Promise<string> {
+  if (source.startsWith('file:')) {
+    let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
+    let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
+    
+    // relative file path installs that are not for the top-level project are relative to their package real path
+    if (packagePath !== process.cwd()) {
+      if ((isWindows && (source[0] === '/' || source[0] === '\\')) ||
+          sourcePath[0] === '.' && (sourcePath[1] === '/' || sourcePath[1] === '\\' || (
+          sourcePath[1] === '.' && (sourcePath[2] === '/' || sourcePath[2] === '\\')))) {
+        const realPackagePath = await new Promise<string>((resolve, reject) => fs.realpath(packagePath, (err, realpath) => err ? reject(err) : resolve(realpath)));
+        sourcePath = path.resolve(realPackagePath, sourcePath);
+      }
+    }
+
+    sourcePath = path.relative(projectPath, sourcePath);
+
+    if (isWindows)
+      sourcePath = sourcePath.replace(winSepRegEx, '/');
+    
+    source = sourceProtocol + sourcePath;
+  }
+  return source;
 }
 
 export const sourceProtocols: {
   [protocol: string]: {
-    resolve?: (log: Logger, fetch: FetchClass, source: string, timeout: number) => Promise<string>,
     download?: (log: Logger, fetch: FetchClass, source: string, outDir: string, timeout: number) => Promise<void>
   }
 } = {
@@ -54,11 +93,7 @@ export const sourceProtocols: {
   'http': {
     download: fetchRemoteTarball
   },
-  'file': {
-    // download: extractLocalTarball
-  },
-  'clone': {
-  }
+  'file': {}
 };
 
 function getProtocolHandler (source: string) {
@@ -67,16 +102,9 @@ function getProtocolHandler (source: string) {
   const protocolHandler = sourceProtocols[protocol];
 
   if (!protocolHandler)
-    throw new JspmUserError(`No handler available for source protocol ${bold(protocol)} processing ${source}.`);
+    throw new Error(`No handler available for source protocol ${bold(protocol)} processing ${source}.`);
   
   return protocolHandler;
-}
-
-export async function resolveSource (log: Logger, fetch: FetchClass, source: string, timeout: number): Promise<string> {
-  const protocolHandler = getProtocolHandler(source);
-  if (!protocolHandler.resolve)
-    return source;
-  return protocolHandler.resolve(log, fetch, source, timeout);
 }
 
 export function downloadSource (log: Logger, fetch: FetchClass, source: string, outDir: string, timeout: number): Promise<void> {
@@ -86,136 +114,42 @@ export function downloadSource (log: Logger, fetch: FetchClass, source: string, 
   return protocolHandler.download(log, fetch, source, outDir, timeout);
 }
 
-async function gitResolve (log: Logger, fetch: FetchClass, source: string, timeout: number): Promise<string> {
-  let url = source.startsWith('git:') ? source : source.substr(4);
-  const gitRefIndex = url.lastIndexOf('#');
-  let gitRef = '';
-  if (gitRefIndex !== -1) {
-    gitRef = url.substr(gitRefIndex + 1);
-    url = url.substr(0, gitRefIndex);
-  }
+async function gitCheckout (log: Logger, fetch: FetchClass, source: string, outDir: string, timeout: number) {
+  let { url, ref } = readGitSource(source);
 
-  const logEnd = log.taskStart(`Resolving git source ${highlight(source)}`);
+  const local = url.startsWith('file:');
 
-  try {
-    const execOpts = { timeout, killSignal: 'SIGKILL', maxBuffer: 100 * 1024 * 1024 };
-
-    let credentials = await fetch.getCredentials(url);
-    if (credentials.basicAuth) {
-      let urlObj = new URL(url);
-      ({ username: urlObj.username, password: urlObj.password } = credentials.basicAuth);
-      url = urlObj.href;
-    }
-
-    try {
-      log.debug(`ls-remote ${url}${credentials.basicAuth ? ' (with basic auth)' : ''}`);
-      var stdout = await execGit(`ls-remote ${url} HEAD refs/tags/* refs/heads/*`, execOpts);
-    }
-    catch (err) {
-      const str = err.toString();
-      // not found
-      if (str.indexOf('not found') !== -1)
-        throw new JspmUserError(`Git source ${highlight(source)} not found.`);
-      // invalid credentials
-      if (str.indexOf('Invalid username or password') !== -1 || str.indexOf('fatal: could not read Username') !== -1)
-        throw new JspmUserError(`git authentication failed resolving ${highlight(source)}.
-    Make sure that git is locally configured with the correct permissions.`);
-      throw err;
-    }
-
-    let refs = stdout.split('\n');
-    let hashMatch;
-    for (let ref of refs) {
-      if (!ref)
-        continue;
-
-      let hash = ref.substr(0, ref.indexOf('\t'));
-      let refName = ref.substr(hash.length + 1);
-
-      if (!gitRef && refName === 'HEAD') {
-        hashMatch = hash;
-        break;
-      }
-      else if (refName.substr(0, 11) === 'refs/heads/') {
-        if (gitRef === refName.substr(11)) {
-          hashMatch = hash;
-          break;
-        }
-      }
-      else if (refName.substr(0, 10) === 'refs/tags/') {
-        if (refName.substr(refName.length - 3, 3) === '^{}') {
-          if (gitRef === refName.substr(10, refName.length - 13)) {
-            hashMatch = hash;
-            break;
-          }
-        }
-        else if (gitRef === refName.substr(10)) {
-          hashMatch = hash;
-          break;
-        }
-      }
-    }
-
-    if (!hashMatch)
-      throw new JspmUserError(`Unable to resolve the ${highlight(gitRef || 'head')} git reference for ${source}.`);
-    
-    url += '#' + hashMatch;
-
-    if (!source.startsWith('git:'))
-      return 'git+' + url;
-    else
-      return url;
-  }
-  finally {
-    logEnd();
-  }
-}
-
-const gitRefRegEx = /^[a-f0-9]{6,}$/;
-async function gitSourceCheckout (log: Logger, _fetch: FetchClass, source: string, outDir: string, timeout: number) {
-  let gitSource = source.startsWith('git:') ? source : source.substr(4);
-  let gitRefIndex = gitSource.lastIndexOf('#');
-  if (gitRefIndex === -1)
-    throw new JspmUserError(`Invalid source ${source}. Git sources must have an exact trailing # ref.`);
-  let gitRef = gitSource.substr(gitRefIndex + 1);
-  gitSource = gitSource.substr(0, gitRefIndex);
-  if (!gitRef.match(gitRefRegEx))
-    throw new JspmUserError(`Invalid source ${source}. Git source reference ${gitRef} must be a hash reference.`);
-
-  const local = source.startsWith('git+file:');
-  await gitCheckout(log, gitSource, gitRef, local, outDir, timeout);
-}
-
-export async function gitCheckout (log: Logger, target: string, targetRef: string | void, local: boolean, outDir: string, timeout: number) {
   const execOpts = {
     timeout,
     killSignal: 'SIGKILL',
     maxBuffer: 100 * 1024 * 1024
   };
 
-  // this will work for tags and branches, but we want to encourage commit references for uniqueness so dont want to reward this use case unfortunately
-  // await execGit(`clone ${local}--depth=1 ${source.replace(/(['"()])/g, '\\\$1')} --branch ${ref.replace(/(['"()])/g, '\\\$1')} ${outDir}`, execOpts);
+  if (url.startsWith('http')) {
+    const credentials = await fetch.getCredentials(url);
+    if (credentials.basicAuth) {
+      let urlObj = new URL(url);
+      ({ username: urlObj.username, password: urlObj.password } = credentials.basicAuth);
+      url = urlObj.href;
+    }
+  }
 
-  // TODO: better sanitize against source injections here
-
-  // do a full clone for the commit reference case
-  // credentials used by git will be standard git credential manager which should be relied on
-  const logEnd = log.taskStart('Cloning ' + highlight(target));
+  const logEnd = log.taskStart('Cloning ' + highlight(source));
   try {
-    await execGit(`clone ${targetRef ? '-n ' : ''}${local ? '-l ' : ''}${target.replace(/(['"()])/g, '\\\$1')} ${outDir}`, execOpts);
-    if (targetRef)
-      await execGit(`checkout ${targetRef.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+    await execGit(`clone ${ref ? '-n ' : ''}${local ? '-l ' : ''}${url.replace(/(['"()])/g, '\\\$1')} ${outDir}`, execOpts);
+    if (ref)
+      await execGit(`checkout ${ref.replace(/(['"()])/g, '\\\$1')}`, Object.assign(execOpts, { cwd: outDir }));
   }
   catch (err) {
+    if (err.toString().indexOf('is not a valid repository name') !== -1)
+      throw new JspmUserError(`${highlight(source)} is an invalid GitHub package name. Ensure it does not include any non-standard characters or leading @.`);
     if (err.toString().indexOf('Repository not found') !== -1 || err.toString().indexOf('Could not read from remote repository') !== -1)
-      throw new JspmUserError(`Unable to find repo ${highlight(target)}. It may not exist, or authorization may be required.`);
+      throw new JspmUserError(`Unable to find repo ${highlight(source)}. It may not exist, or authorization may be required.`);
     throw err;
   }
   finally {
     logEnd();
   }
-  // once clone is successful, then we can remove the git directory
-  await new Promise((resolve, reject) => rimraf(path.join(outDir, '.git'), err => err ? reject(err) : resolve()));
 }
 
 async function fetchRemoteTarball (log: Logger, fetch: FetchClass, source: string, outDir: string) {
@@ -445,4 +379,33 @@ function readSource (log: Logger, source: string): Source {
     }
     return { url, hash, hashType };
   }
+}
+
+// best-effort attempt to determine a git repo remote
+export async function checkGitReference (packagePath: string): Promise<string[] | void> {
+	const gitCfg = await new Promise<string | void>(resolve => 
+		fs.readFile(path.join(packagePath, '.git', 'config'), (err, source) => err ? resolve() : resolve(source.toString()))
+  );
+	if (!gitCfg)
+		return;
+
+	const remotes = [];
+	let remoteName;
+	for (const line of gitCfg.split('\n')) {
+		if (remoteName) {
+			const [, remoteUrl] = line.match(/^\s*url\s*=\s*(.+)/) || [];
+			if (remoteUrl) {
+        if (remotes.indexOf(remoteUrl) === -1)
+          remotes.push(remoteUrl);
+				remoteName = undefined;
+				continue;
+			}
+		}
+		[, remoteName] = line.match(/^\s*\[remote\s*"([^"]+)"\s*\]/) || [];
+	}
+	return remotes;
+}
+
+export async function setGitReference (repoPath: string, force: boolean): Promise<boolean> {
+
 }

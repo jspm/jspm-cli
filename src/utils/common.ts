@@ -178,6 +178,25 @@ export function retry<T> (operation: (retryNumber: number) => Promise<T>, retrie
 
 let _statCache: Record<string, fs.Stats | null> = {};
 
+export async function isDir (checkPath, statCache = _statCache): Promise<boolean> {
+  const cached = statCache[checkPath];
+  if (cached !== undefined) {
+    return cached ? cached.isDirectory() : false;
+  }
+  try {
+    const stats = await new Promise<fs.Stats>((resolve, reject) => fs.stat(checkPath, (err, stats) => err ? reject(err) : resolve(stats)));
+    statCache[checkPath] = stats;
+    return stats.isDirectory();
+  }
+  catch (e) {
+    if (e.code === 'ENOENT') {
+      statCache[checkPath] = null;
+      return false;
+    }
+    throw e;
+  }
+}
+
 export function getJspmProjectPath (modulePath, statCache = _statCache) {
   const jspmPackagesIndex = modulePath.lastIndexOf(path.sep + 'jspm_packages' + path.sep);
   if (jspmPackagesIndex !== -1 && modulePath.lastIndexOf(path.sep + 'node_modules' + path.sep, jspmPackagesIndex) === -1)
@@ -195,8 +214,8 @@ export function getJspmProjectPath (modulePath, statCache = _statCache) {
     }
     else {
       try {
-        if (statCache[checkPath] = fs.statSync(checkPath))
-          return dir;
+        statCache[checkPath] = fs.statSync(checkPath);
+        return dir;
       }
       catch (err) {
         if (err.code !== 'ENOENT' && err.code !== 'ENOTDIR')
@@ -223,8 +242,8 @@ export function getPackageScope (resolved, statCache = _statCache) {
     }
     else {
       try {
-        if (statCache[checkPath] = fs.statSync(checkPath))
-          return resolved;
+        statCache[checkPath] = fs.statSync(checkPath);
+        return resolved;
       }
       catch (err) {
         if (err.code !== 'ENOENT' && err.code !== 'ENOTDIR')

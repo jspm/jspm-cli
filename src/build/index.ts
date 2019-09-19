@@ -24,7 +24,6 @@ import path = require('path');
 import { ok, info, warn } from '../utils/ui';
 import process = require('process');
 import { ImportMap } from '../map';
-import { stat } from 'fs';
 
 export interface BuildOptions {
   log: boolean;

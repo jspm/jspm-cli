@@ -18,19 +18,18 @@ import { Semver, SemverRange } from 'sver';
 import fs = require('graceful-fs');
 import path = require('path');
 import mkdirp = require('mkdirp');
-import { PackageName, ExactPackage, PackageConfig, parsePackageName,
-    processPackageConfig, overridePackageConfig } from './package';
-import { readJSON, JspmError, JspmUserError, sha256, md5, encodeInvalidFileChars, bold, isWindows,
-    winSepRegEx, highlight, underline, hasProperties } from '../utils/common';
+import { PackageName, ExactPackage, PackageConfig, parsePackageName, processPackageConfig, overridePackageConfig } from './package';
+import { JspmError, JspmUserError, sha256, md5, encodeInvalidFileChars, bold, highlight, underline, hasProperties, readJSON } from '../utils/common';
 import { readJSONStyled, writeJSONStyled, defaultStyle } from '../config/config-file';
 import Cache from '../utils/cache';
 import globalConfig from '../config/global-config-file';
 import { Logger, input, confirm } from '../project';
-import { resolveSource, downloadSource } from '../install/source';
+import { downloadSource, isCheckoutSource, readGitSource } from '../install/source';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
 import { transformPackage, transformConfig } from '../compile/transform';
 import { runBinaryBuild } from './binary-build';
 import { Readable } from 'stream';
+import { setGlobalHead, isGitRepo } from './git';
 
 const VerifyState = {
   NOT_INSTALLED: 0,
@@ -426,55 +425,21 @@ export default class RegistryManager {
     };
   }
 
-  async resolveSource (source: string, packagePath: string, projectPath: string): Promise<string> {
-    if (source.startsWith('file:')) {
-      let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
-      let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
-      
-      // relative file path installs that are not for the top-level project are relative to their package real path
-      if (packagePath !== process.cwd()) {
-        if ((isWindows && (source[0] === '/' || source[0] === '\\')) ||
-            sourcePath[0] === '.' && (sourcePath[1] === '/' || sourcePath[1] === '\\' || (
-            sourcePath[1] === '.' && (sourcePath[2] === '/' || sourcePath[2] === '\\')))) {
-          const realPackagePath = await new Promise<string>((resolve, reject) => fs.realpath(packagePath, (err, realpath) => err ? reject(err) : resolve(realpath)));
-          sourcePath = path.resolve(realPackagePath, sourcePath);
-        }
-      }
-
-      // if a file: install and it is a directory then it is a link: install
-      if (source.startsWith('file:')) {
-        let validDir = false;
-        try {
-          const stats = fs.statSync(sourcePath);
-          validDir = stats.isDirectory();
-        }
-        catch (e) {
-          if (e && e.code !== 'ENOENT' && e.code !== 'ENOTDIR')
-            throw e;
-        }
-        if (!validDir)
-          throw new JspmUserError(`Path ${sourcePath} is not a valid directory to install.`);
-      }
-
-      sourcePath = path.relative(projectPath, sourcePath);
-
-      if (isWindows)
-        sourcePath = sourcePath.replace(winSepRegEx, '/');
-      
-      source = sourceProtocol + sourcePath;
-    }
-    if (this.offline)
-      return source;
-    return resolveSource(this.util.log, this.fetch, source, this.timeouts.resolve);
-  }
-
-  async verifyInstallDir (dir: string, verifyHash: string, fullVerification: boolean): Promise<number> {
+  async verifyInstallDir (dir: string, verifyHash: string, source: string, mtime: number | void, fullVerification: boolean): Promise<number> {
     const cachedState = this.verifiedCache[verifyHash];
     if (cachedState !== undefined)
       return cachedState;
 
+    // git sources are verified from git source, not based on mtime
+    if (isCheckoutSource(source)) {
+      const { url, ref } = readGitSource(source);
+      if (isGitRepo(dir) && await setGlobalHead(dir, url, ref))
+        return this.verifiedCache[verifyHash] = VerifyState.VERIFIED_VALID;
+      return this.verifiedCache[verifyHash] = VerifyState.INVALID;
+    }
+
     try {
-      var checkMtime: number = (await new Promise<fs.stats>((resolve, reject) =>
+      var baseMtime: number = (await new Promise<fs.stats>((resolve, reject) =>
         fs.stat(dir, (err, stats) => err ? reject(err) : resolve(stats))
       )).mtimeMs;
     }
@@ -483,8 +448,11 @@ export default class RegistryManager {
         throw e;
     }
 
-    if (!checkMtime)
+    if (!baseMtime)
       return this.verifiedCache[verifyHash] = VerifyState.NOT_INSTALLED;
+
+    if (baseMtime !== mtime)
+      return this.verifiedCache[verifyHash] = VerifyState.INVALID;
 
     // if not doing full verification for perf, stop here
     if (!fullVerification)
@@ -493,7 +461,7 @@ export default class RegistryManager {
     // mtime check for full verification
     let failure = false;
     await dirWalk(dir, async (_filePath, stats) => {
-      if (stats.mtimeMs > checkMtime) {
+      if (stats.mtimeMs > mtime) {
         failure = true;
         return true;
       }
@@ -506,17 +474,16 @@ export default class RegistryManager {
   // moving to a tmp location can be done during the verificationFailure call, to diff and determine route forward
   // if deciding to checkout, "ensureInstall" operation is cancelled by returning true
   // build support will be added to build into a newly prefixed folder, with build as a boolean argument
-  async ensureInstall (source: string, override: PackageConfig | void, fullVerification: boolean = false): Promise<{
-    config: PackageConfig,
-    override: PackageConfig | void,
-    dir: string,
-    hash: string,
-    changed: boolean
+  async ensureGlobalInstall (source: string, override: PackageConfig | void, fullVerification: boolean = false): Promise<{
+    config: PackageConfig;
+    override: PackageConfig | void;
+    hash: string;
+    changed: boolean;
   }> {
-    let sourceHash = sha256(source);
+    const checkoutSource = isCheckoutSource(source);
+    const sourceHash = sha256(source);
 
-    var { config = undefined, hash = undefined }: { config: PackageConfig, hash: string }
-        = await this.cache.getUnlocked(sourceHash, this.timeouts.download) || {};
+    var { config, hash, mtime }: { config: PackageConfig, hash: string, mtime: number } = await this.cache.getUnlocked(sourceHash, this.timeouts.download) || {};
 
     if (config) {
       config = processPackageConfig(<any>config);
@@ -524,11 +491,15 @@ export default class RegistryManager {
         ({ config, override } = overridePackageConfig(config, override));
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
       }
-      transformConfig(config);
+      if (!checkoutSource)
+        transformConfig(config);
       const dir = path.join(this.cacheDir, 'packages', hash);
-      const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
-      if (verifyState > VerifyState.INVALID)
-        return { config, override, dir, hash, changed: false };
+      const verifyState = await this.verifyInstallDir(dir, hash, source, mtime, fullVerification);
+      if (verifyState > VerifyState.INVALID) {
+        if (checkoutSource)
+          config = processPackageConfig(await readJSON(path.join(dir, 'package.json')));
+        return { config, override, hash, changed: false };
+      }
       else if (verifyState !== VerifyState.NOT_INSTALLED)
         await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
     }
@@ -540,9 +511,10 @@ export default class RegistryManager {
     try {
       // could have been a write while we were getting the lock
       if (!config) {
-        var { config = undefined, hash = undefined }: {
+        var { config, hash, mtime }: {
           config: PackageConfig,
-          hash: string
+          hash: string,
+          mtime: number
         } = await this.cache.get(sourceHash) || {};
         if (config) {
           config = processPackageConfig(<any>config);
@@ -550,11 +522,12 @@ export default class RegistryManager {
             ({ config, override } = overridePackageConfig(config, override));
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           }
-          transformConfig(config);
+          if (!checkoutSource)
+            transformConfig(config);
           const dir = path.join(this.cacheDir, 'packages', hash);
-          const verifyState = await this.verifyInstallDir(dir, hash, fullVerification);
+          const verifyState = await this.verifyInstallDir(dir, hash, source, mtime, fullVerification);
           if (verifyState > VerifyState.INVALID)
-            return { config, override, dir, hash, changed: false };
+            return { config, override, hash, changed: false };
           else if (verifyState !== VerifyState.NOT_INSTALLED)
             await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
         }
@@ -585,18 +558,24 @@ export default class RegistryManager {
               ({ config, override } = overridePackageConfig(pjsonConfig, override));
             else
               config = pjsonConfig;
-            transformConfig(config);
+            if (!checkoutSource)
+              transformConfig(config);
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
-            await this.cache.set(sourceHash, { config: pjsonConfig, hash });
           }
 
-          await writeJSONStyled(pjsonPath, Object.assign(pjson, config), style || defaultStyle);
-          
-          await runBinaryBuild(this.util.log, dlDir, pjson.name, pjson.scripts);
+          if (override) {
+            if (checkoutSource)
+              throw new Error('Internal error: override should not be provided for checkout source.');
+            await writeJSONStyled(path.join(dlDir, 'package.json'), Object.assign(pjson, config), style || defaultStyle);
+          }
 
-          // run package conversion into _esm
-          // (on any subfolder containing a "type": "commonjs")
-          await transformPackage(this.util.log, dlDir, config.name, config);
+          if (!checkoutSource) {
+            await runBinaryBuild(this.util.log, dlDir, config.name, config.scripts);
+
+            // run package conversion into _esm
+            // (on any subfolder containing a "type": "commonjs")
+            await transformPackage(this.util.log, dlDir, config.name, config);
+          }
 
           // move the tmp folder to the known hash on successful completion only
           const dir = path.join(this.cacheDir, 'packages', hash);
@@ -604,13 +583,19 @@ export default class RegistryManager {
             await new Promise((resolve, reject) => fs.rename(dlDir, dir, err => err ? reject(err) : resolve()));
           }
           catch (e) {
-            await new Promise((resolve, reject) => rimraf(dlDir, err => err ? reject(err) : resolve()));
+            await new Promise((resolve, reject) => rimraf(dir, err => err ? reject(err) : resolve()));
             await new Promise((resolve, reject) => fs.rename(dlDir, dir, err => err ? reject(err) : resolve()));
           }
 
+          const mtime: number = (await new Promise<fs.stats>((resolve, reject) =>
+            fs.stat(dir, (err, stats) => err ? reject(err) : resolve(stats))
+          )).mtimeMs;
+
+          await this.cache.set(sourceHash, { config, hash, mtime });
+
           this.verifiedCache[hash] = VerifyState.VERIFIED_VALID;
 
-          return { config, override, dir, hash, changed: true };
+          return { config, override, hash, changed: true };
         }
         finally {
           logEnd();

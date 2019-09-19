@@ -16,11 +16,12 @@
 
 // collection of package handling helpers
 
-import { encodeInvalidFileChars, hasProperties, bold, JspmUserError, highlight } from '../utils/common';
+import { encodeInvalidFileChars, hasProperties, bold, JspmUserError, highlight, readJSON } from '../utils/common';
 import { Semver, SemverRange } from 'sver';
 import convertRange = require('sver/convert-range');
 import crypto = require('crypto');
 import { sourceProtocols } from './source';
+import path = require('path');
 
 /*
  * Package name handling
@@ -281,6 +282,12 @@ export class ResolveTree {
 /*
  * Package Configuration
  */
+export async function readPackageConfig (pkgPath: string) {
+  const json = await readJSON(path.join(pkgPath, 'package.json'));
+  if (!json)
+    return;
+  return processPackageConfig(json);
+}
 
 export interface ExportsTargetCondition {
   [condition: string]: string | null | any | ExportsTargetCondition;
@@ -319,6 +326,7 @@ export interface PackageConfig {
   optionalDependencies?: {
     [name: string]: string;
   };
+  scripts: Record<string, string>;
 }
 
 export function serializePackageTargetCanonical (name: string, target: PackageTarget | string, defaultRegistry = '') {

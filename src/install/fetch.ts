@@ -16,7 +16,7 @@
 
 import { Readable as ReadableStream } from 'stream';
 import nodeFetch from 'node-fetch';
-import HttpsProxyAgent from 'https-proxy-agent';
+import HttpsProxyAgent = require('https-proxy-agent');
 import { Agent as NodeAgent, AgentOptions } from 'https';
 import { hasProperties, retry, bold } from '../utils/common';
 import { URL, parse as parseURL } from 'url';
@@ -140,12 +140,13 @@ export default class FetchClass {
         return credentials;
       
       // run auth hook for jspm registries, returning if matched
-      // ...for some reason TypeScript needs double brackets here...
       let credentialsRegistry;
       if (credentialsRegistry = await this.project.registryManager.auth(urlObj, method, credentials, unauthorizedHeaders)) {
         this.project.log.debug(`Credentials for ${urlBase} provided by ${bold(credentialsRegistry)} registry.`);
         return credentials;
       }
+
+      // handle github auth
 
       // fallback to reading netrc
       if (this.netrc === undefined) {
@@ -334,7 +335,7 @@ function writeCredentialLog (credentials: Credentials): string {
   else if (credentials.proxy)
     outStr += ` over proxy ${credentials.proxy.host}`;
   if (credentials.basicAuth)
-    outStr += ` with basic auth for "${credentials.basicAuth.username}", "${credentials.basicAuth.password}"`;
+    outStr += ` with basic auth for "${credentials.basicAuth.username}"`;
   else if (credentials.headers)
     outStr += ` with ${Object.keys(credentials.headers).join(', ')} header${Object.keys(credentials.headers).length > 1 ? 's' : ''}`;
   else

@@ -146,6 +146,7 @@ export class Project {
   fetch: FetchClass;
   cacheDir: string;
   checkedGlobalBin: boolean;
+  globalPackagesPath: string;
 
   constructor (projectPath: string, options: ProjectConfiguration) {
     this.projectPath = projectPath;
@@ -202,6 +203,7 @@ export class Project {
       fetch: this.fetch,
       registries: config.registries
     });
+    this.globalPackagesPath = path.join(config.cacheDir, 'packages');
 
     // load registries upfront
     // (strictly we should save registry configuration when a new registry appears)

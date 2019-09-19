@@ -278,7 +278,7 @@ function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 
 
 function moduleMsg (msg: string, tab?, wrap?) {
   if (tab)
-    msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0), tab ? 5 : 0).substr(5);
+    msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0), tab ? 7 : 0).substr(5);
   else if (wrap)
     msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0));
   else
