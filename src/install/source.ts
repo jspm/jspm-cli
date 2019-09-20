@@ -35,14 +35,21 @@ export function isCheckoutSource (source: string) {
   return source.startsWith('file:') || source.startsWith('git');
 }
 
+function defaultToGitUser (sshTarget: string) {
+  const atIndex = sshTarget.indexOf('@');
+  if (atIndex === -1)
+    return 'git@' + sshTarget.replace('/', ':');
+  return (sshTarget.lastIndexOf('/', atIndex) === -1 ? 'git@' : '') + sshTarget.replace('/', ':');
+}
+
 export function readGitSource (source: string) {
   let url = source.startsWith('git:') ? source : source.substr(4);
   if (url.startsWith('ssh://'))
-    url = url.slice(6).replace('/', ':');
+    url = defaultToGitUser(url.slice(6));
   else if (url.startsWith('ssh:/'))
-    url = url.slice(5).replace('/', ':');
+    url = defaultToGitUser(url.slice(5));
   else if (url.startsWith('ssh:'))
-    url = url.slice(4).replace('/', ':');
+    url = defaultToGitUser(url.slice(4));
   let ref;
   const gitRefIndex = url.lastIndexOf('#');
   if (gitRefIndex !== -1) {
@@ -52,7 +59,7 @@ export function readGitSource (source: string) {
   return { url, ref };
 }
 
-export async function resolveSource (source: string, packagePath: string, projectPath: string): Promise<string> {
+export function resolveCheckoutSource (source: string, packagePath: string, projectPath: string): string {
   if (source.startsWith('file:')) {
     let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
     let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
@@ -62,16 +69,13 @@ export async function resolveSource (source: string, packagePath: string, projec
       if ((isWindows && (source[0] === '/' || source[0] === '\\')) ||
           sourcePath[0] === '.' && (sourcePath[1] === '/' || sourcePath[1] === '\\' || (
           sourcePath[1] === '.' && (sourcePath[2] === '/' || sourcePath[2] === '\\')))) {
-        const realPackagePath = await new Promise<string>((resolve, reject) => fs.realpath(packagePath, (err, realpath) => err ? reject(err) : resolve(realpath)));
+        const realPackagePath = fs.realpathSync(packagePath);
         sourcePath = path.resolve(realPackagePath, sourcePath);
       }
     }
-
     sourcePath = path.relative(projectPath, sourcePath);
-
     if (isWindows)
       sourcePath = sourcePath.replace(winSepRegEx, '/');
-    
     source = sourceProtocol + sourcePath;
   }
   return source;

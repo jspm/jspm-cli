@@ -19,7 +19,7 @@ import path = require('path');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { isCheckoutSource, readGitSource } from "./source";
-import { highlight, JspmUserError, bold, JspmError } from "../utils/common";
+import { highlight, bold, JspmError } from "../utils/common";
 import { writeBinScripts } from "./bin";
 import { Project } from "../project";
 import fs = require('fs');
@@ -64,6 +64,26 @@ export async function install (project: Project, source: string, override: Packa
   };
 }
 
+export async function setPackageToOrphanedCheckout (project: Project, pkgName: string, orphanedPkgName: string, force: boolean) {
+  const pkgPath = path.join(project.config.pjson.packages, pkgName.replace(':', path.sep));
+  const orphanedCheckoutPath = path.join(project.config.pjson.packages, orphanedPkgName.replace(':', path.sep));
+  {
+    const { linkPath, exists } = await getPackageLinkState(pkgPath);
+    if (exists)
+      await clearPackage(project, pkgName, pkgPath, linkPath, force);
+    else
+      await new Promise((resolve, reject) => mkdirp(path.dirname(pkgPath), err => err ? reject(err) : resolve()));
+  }
+  {
+    const { linkPath, exists } = await getPackageLinkState(orphanedCheckoutPath);
+    if (linkPath || !exists)
+      return;
+  }
+  await new Promise((resolve, reject) =>
+    fs.rename(pkgPath, orphanedCheckoutPath, err => err ? reject(err) : resolve())
+  );
+}
+
 export async function createBins (project: Project, config: PackageConfig, resolvedPkgName: string) {
   // NB we should create a queue based on precedence to ensure deterministic ordering
   // when there are namespace collissions, but this problem will likely not be hit for a while
@@ -76,7 +96,7 @@ export async function createBins (project: Project, config: PackageConfig, resol
   }
 }
 
-async function clearPackage (project: Project, pkgName: string, pkgPath: string, linkPath: string | void, force: boolean) {
+async function clearPackage (project: Project, pkgName: string, pkgPath: string, linkPath: string | undefined, force: boolean) {
   if (linkPath === undefined) {
     if (!force)
       throw new JspmError(`Unable to write package ${highlight(pkgName)} as it is already a custom checked-out package. Add the ${bold('-f')} flag to force removal.`);
@@ -84,7 +104,8 @@ async function clearPackage (project: Project, pkgName: string, pkgPath: string,
     await new Promise((resolve, reject) => rimraf(pkgPath, err => err ? reject(err) : resolve()));
   }
   else {
-    project.log.info(`Replacing custom symlink for ${highlight(pkgName)}.`);
+    if (!linkPath.startsWith(project.cacheDir))
+      project.log.info(`Replacing custom symlink for ${highlight(pkgName)}.`);
     await new Promise((resolve, reject) => fs.unlink(pkgPath, err => err ? reject(err) : resolve()));
   }
 }

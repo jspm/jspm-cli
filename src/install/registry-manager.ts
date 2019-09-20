@@ -211,7 +211,7 @@ export default class RegistryManager {
         if (e && e.code === 'MODULE_NOT_FOUND') {
           if (e.message && e.message.indexOf(registry.handler) !== -1) {
             this.util.log.warn(`Registry module '${registry.handler}' not found loading package ${bold(name)}.
-  This may be from a previous jspm version and can be removed with ${bold(`jspm config --unset registries.${name}`)}.`);
+This may be from a previous jspm version and can be removed with ${bold(`jspm config --unset registries.${name}`)}.`);
             return;
           }
           else {
@@ -406,6 +406,9 @@ export default class RegistryManager {
       else
         override = resolvedOverride;
     }
+
+    if (isCheckoutSource(resolved.source))
+      throw new Error(`Internal Error: Registries cannot resolve to checkout sources. Resolving ${pkg.name} in ${pkg.registry}, via ${this.registries[pkg.registry].handler}`);
 
     return {
       pkg: <ExactPackage>{

@@ -67,7 +67,13 @@ export async function setLocalHead (project: Project, gitPath: string, localGitP
       throw new JspmUserError(`Unable to clean repo state for ${gitPath}.`);
   }
 
-  await execGit(`remote add tmp-jspm ${localGitPath.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  try {
+    await execGit(`remote add tmp-jspm ${localGitPath.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  }
+  catch (e) {
+    if (e.toString().indexOf('already exists') === -1)
+      throw e;
+  }
   try {
     await execGit(`fetch tmp-jspm`, execOpts);
 

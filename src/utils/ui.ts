@@ -76,20 +76,23 @@ const format = {
   q (msg: string, opt?: string) {
     return moduleMsg(msg + (opt ? ' [' + opt + ']' : '') + ': ');
   },
+  // [LogType.stack] (msg: string) {
+
+  // },
   [LogType.err] (msg: string) {
-    return chalk.red.bold('err ') + '(jspm) ' + moduleMsg(msg, false, false);
+    return chalk.red.bold('err ') + '(jspm) ' + moduleMsg(msg, 0);
   },
   [LogType.info] (msg: string) {
-    return '     ' + moduleMsg(msg, true);
+    return '     ' + moduleMsg(msg, 5);
   },
   [LogType.warn] (msg: string) {
-    return chalk.yellow.bold('warn ') + '(jspm) ' + moduleMsg(msg, true);
+    return chalk.yellow.bold('warn ') + '(jspm) ' + moduleMsg(msg, 12);
   },
   [LogType.ok] (msg: string) {
-    return chalk.green.bold('ok ') + moduleMsg(msg, true);
+    return chalk.green.bold('ok ') + moduleMsg(msg, 3);
   },
   [LogType.debug] (msg: string) {
-    return moduleMsg(msg, true);
+    return moduleMsg(msg, 0);
   }
 };
 
@@ -97,14 +100,23 @@ const spinner = ora({
   text: '',
   color: 'yellow',
   spinner: {
-    interval: 200,
+    interval: 20,
     frames: [
       ".   ",
+      ".   ",
+      "..  ",
       "..  ",
       "... ",
+      "... ",
+      " ...",
       " ...",
       "  ..",
+      "  ..",
       "   .",
+      "   .",
+      "    ",
+      "    ",
+      "    ",
       "    "
     ]
   }
@@ -206,7 +218,7 @@ export function log (msg: string, type = LogType.info) {
 };
 
 const ansiControlCodeRegEx = /(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]/g;
-function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 0, skipFirstLineIndent = false) {
+function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 0) {
   let leftSpaces = '';
   let i;
 
@@ -245,12 +257,11 @@ function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 
     if (text[i] === '\n') {
       lastSpace = i;
       output.push(
-        (output.length === 0 && skipFirstLineIndent ? '' : leftSpaces) + 
+        leftSpaces + 
         (underlineNext ? '\x1b[4m' : '') +
         text.substring(lastBreak, i) + 
         (underline ? ((underlineNext = true), '\x1b[24m') : ((underlineNext = false), '')) +
         '\n');
-      lastSpace = i;
       lastBreak = i + 1;
       skipLength = 0;
     }
@@ -260,7 +271,7 @@ function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 
           (i - lastBreak - skipLength) % columns === 0 &&
           lastSpace > lastBreak) {
       output.push(
-        (output.length === 0 && skipFirstLineIndent ? '' : leftSpaces) + 
+        leftSpaces + 
         (underlineNext ? '\x1b[4m' : '') +
         text.substring(lastBreak, lastSpace) + 
         (underline ? ((underlineNext = true), '\x1b[24m') : ((underlineNext = false), '')) +
@@ -270,17 +281,15 @@ function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 
     }
   }
   output.push(
-    (output.length === 0 && skipFirstLineIndent ? '' : leftSpaces) + 
+    leftSpaces + 
     (underlineNext ? '\x1b[4m' : '') +
     text.substr(lastBreak));
   return output.join('');
 }
 
-function moduleMsg (msg: string, tab?, wrap?) {
-  if (tab)
-    msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0), tab ? 7 : 0).substr(5);
-  else if (wrap)
-    msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0));
+function moduleMsg (msg: string, tab: number | undefined = 0) {
+  if (tab !== undefined)
+    msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0), tab, 0).slice(tab);
   else
     msg.replace(/(\r?\n)/g, '$1     ');
 

@@ -399,9 +399,31 @@ export function processPackageConfig (pcfg: any) {
  * Support for these could be provided by a custom npm conversion if necessary
  * but let's see how far we get avoiding this
  */
+const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
 export function processPackageTarget (depName: string, depTarget: string, defaultRegistry = '', rangeConversion = false): string | PackageTarget {
-  let registry, name, version;
   const registryIndex = depTarget.indexOf(':');
+  /*
+   * File install sugar cases:
+   *   ./local -> file:./local
+   *   /local -> file:/local
+   *   ~/file -> file:~/file
+   */
+  if (depTarget.match(fileInstallRegEx))
+    return 'file:' + depTarget;
+  
+  /*
+   * Plain target install
+   * Should ideally support a/b/c -> file:a/b/c resource sugar, but for now omitted
+   */
+  if (!depTarget.match(resourceInstallRegEx)) {
+    // a/b -> github:a/b sugar
+    if (registryIndex === -1 && depTarget.indexOf('/') !== -1 && depTarget[0] !== '@')
+      return 'git+ssh://github.com/' + depTarget;
+    else if (depTarget.startsWith('github:'))
+      return 'git+ssh://github.com/' + depTarget.slice(7 + Number(depTarget[7] === '@'));
+  }
+
+  let registry, name, version;
   if (registryIndex < 1) {
     registry = defaultRegistry;
   }
@@ -421,16 +443,7 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   }
   else {
     name = depTarget.substr(registryIndex + 1);
-    // support github:asdf/asdf#version version method as well
-    // for npm compatibility
-    const hashIndex = name.indexOf('#');
-    if (hashIndex === -1) {
-      version = '*';
-    }
-    else {
-      name = name.substr(0, hashIndex);
-      version = name.substr(hashIndex + 1);
-    }
+    version = '*';
   }
   if (rangeConversion) {
     if (!SemverRange.isValid(version)) {
