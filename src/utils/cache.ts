@@ -61,6 +61,7 @@ export default class Cache {
     const resolved = path.resolve(this.basePath, cachePath);
     await new Promise((resolve, reject) => mkdirp(path.dirname(resolved), err => err ? reject(err) : resolve()));
     const unlock = await new Promise<(cb: (err) => void) => void>((resolve, reject) => lockfile.lock(resolved, {
+      stale: 30000,
       // exponential backoff of 5 checks from 200ms up to 3s
       // followed by a constant timeout check of 3 seconds
       // to an absolute maximum of the given timeout

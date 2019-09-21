@@ -176,6 +176,18 @@ export function retry<T> (operation: (retryNumber: number) => Promise<T>, retrie
   return doOp(1);
 }
 
+let _isCygwin;
+export function isCygwin () {
+  if (typeof _isCygwin === 'boolean')
+    return _isCygwin;
+  try {
+    if (require('child_process').execSync('uname -s', { stdio: 'pipe' }).toString().match(/^(CYGWIN|MINGW32|MINGW64)/))
+      return _isCygwin = true;
+  }
+  catch (e) {}
+  return _isCygwin = false;
+}
+
 let _statCache: Record<string, fs.Stats | null> = {};
 
 export async function isDir (checkPath, statCache = _statCache): Promise<boolean> {

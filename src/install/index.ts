@@ -63,13 +63,13 @@ export class Installer {
   private installTree: ResolveTree;
   private primaryType: DepType;
 
-  private installs: {
+  private installs: Record<string, Promise<void>>;
+  private sources: {
     [packageName: string]: {
       source: string;
-      promise: Promise<PackageConfig | void>
+      promise: Promise<PackageConfig | void>;
     };
   };
-
   private resourceInstalls: Record<string, Promise<void>>;
 
   offline: boolean;
@@ -97,6 +97,7 @@ export class Installer {
     this.binFolderChecked = false;
     
     this.installs = {};
+    this.sources = {};
     this.resourceInstalls = {};
 
     this.primaryType = undefined;
@@ -470,13 +471,8 @@ export class Installer {
     });
   }
 
+  // test: jspm install global-modules@1.0.0 / jspm install global-prefix@1.0.2
   private async packageInstall (install: PackageInstall, parents: string[]): Promise<void> {
-    // circular installs
-    const installId = `${install.type === DepType.peer ? undefined : install.parent}|${install.name}`;
-    if (parents.includes(installId))
-      return;
-    parents = [...parents, installId];
-    
     this.project.log.debug(`Installing ${install.name}${install.parent ? ` for ${install.parent}` : ``}`);
 
     // install information
@@ -502,7 +498,7 @@ export class Installer {
 
       // if we found an existing resolution, use it if we have enough information
       if (existingResolved && existingResolved.source) {
-        this.project.log.debug(`${install.name} matched against existing install`);
+        this.project.log.debug(`${install.name} matched against lockfile to ${existingResolved.source}`);
         target = this.setResolution(install, target, resolvedPkg, existingResolved.source);
         override = this.cutOverride(resolvedPkg);
         override = await this.sourceInstall(resolvedPkg, existingResolved.source, override, undefined, parents);
@@ -572,31 +568,28 @@ export class Installer {
   private sourceInstall (resolvedPkg: ExactPackage, source: string, override: PackageConfig | void, deprecated: string | void, parents: string[]): Promise<PackageConfig | void> | void {
     const resolvedPkgName = serializePackageName(resolvedPkg);
 
-    const existingSource = this.installs[resolvedPkgName] && this.installs[resolvedPkgName];
+    // handle circular installs
+    if (parents.includes(resolvedPkgName))
+      return;
+
+    const existingSource = this.sources[resolvedPkgName];
     if (existingSource) {
-      if (existingSource.source === source) {
-        if (parents.includes(resolvedPkgName))
-          return;
+      if (existingSource.source === source)
         return existingSource.promise;
-      }
       if (!isCheckoutSource(existingSource.source))
         throw new Error('Internal error - conflicting sources.');
       this.project.log.info(`Package ${highlight(resolvedPkgName)} is currently checked out as ${existingSource.source}.`);
       return existingSource.promise;
     }
 
-    return (this.installs[resolvedPkgName] = {
+    return (this.sources[resolvedPkgName] = {
       source,
       promise: (async () => {
         let config, writePackage;
-
-        let preloadedDepNames: string[] = [], preloadDepsInstallPromise: Promise<void>;
         
-        // kick off dependency installs now
-        if (override) {
-          preloadDepsInstallPromise = this.installDependencies(override, resolvedPkgName, source, parents, preloadedDepNames);
-          preloadDepsInstallPromise.catch(() => {});
-        }
+        // initiate preloads
+        if (override)
+          this.installDependencies(override, resolvedPkgName, source, parents).catch(() => {});
   
         // install
         try {
@@ -611,12 +604,11 @@ export class Installer {
         }
   
         // allow a source install to be intercepted by a resource install
-        if (this.installs[resolvedPkgName].source !== source)
-          return this.installs[resolvedPkgName].promise;
+        if (this.sources[resolvedPkgName].source !== source)
+          return this.sources[resolvedPkgName].promise;
   
         // install dependencies, skipping already preloaded
         await this.installDependencies(config, resolvedPkgName, source, parents);
-        await preloadDepsInstallPromise;
   
         if (await writePackage(resolvedPkgName)) {
           this.changed = true;
@@ -648,7 +640,7 @@ export class Installer {
       const existingResolved = existingResolution && this.installTree.dependencies[existingPkg];
       if (existingResolved && existingResolved.source && existingResolved.source === resource.target) {
         if (!isCheckoutSource(resource.target)) {
-          this.project.log.debug(`${resource.name} matched against existing install`);
+          this.project.log.debug(`${resource.name} matched against lockfile`);
           this.setResolution(resource, resource.target, existingResolution, existingResolved.source);
           override = await this.sourceInstall(existingResolution, existingResolved.source, override, undefined, parents);
           // if (override)
@@ -700,8 +692,15 @@ export class Installer {
   
       const resolvedPkgName = `${registry}:${name}@${version}`;
       const resolvedPkg = parseExactPackageName(resolvedPkgName);
+
+      // this is only for new primary installs
+      resource.name = resource.name || name;
+
+      // circular installs
+      if (parents.includes(resolvedPkgName))
+        return;
   
-      const existingSource = this.installs[resolvedPkgName] && this.installs[resolvedPkgName];
+      const existingSource = this.sources[resolvedPkgName];
       if (existingSource) {
         if (existingSource.source === source)
           return <Promise<void>>existingSource.promise;
@@ -711,7 +710,7 @@ export class Installer {
         return <Promise<void>>existingSource.promise;
       }
   
-      return <Promise<void>>(this.installs[resolvedPkgName] = {
+      return <Promise<void>>(this.sources[resolvedPkgName] = {
         source,
         promise: <Promise<PackageConfig | void>>(async () => {
           // upgrade promise could possibly return a boolean to indicate if any packages are locked to the old version
@@ -725,15 +724,6 @@ export class Installer {
             // -> move the existing checkout folder to the new location
             await setPackageToOrphanedCheckout(this.project, resolvedPkgName, existingPkg, this.opts.force);
           }
-  
-          // save resolution
-          resource.name = resource.name || name;
-  
-          // circular installs
-          const installId = `${resource.type === DepType.peer ? undefined : resource.parent}|${resource.name}`;
-          if (parents.includes(installId))
-            return config;
-          parents = [...parents, installId];
   
           this.setResolution(resource, resource.target, resolvedPkg, source);
           // if (override)
@@ -753,17 +743,18 @@ export class Installer {
     })();
   }
 
-  private async installDependencies (config: PackageConfig, resolvedPkgName: string, source: string, parents: string[], preloadedDepNames?: string[]): Promise<void> {
+  private async installDependencies (config: PackageConfig, resolvedPkgName: string, source: string, parents: string[]): Promise<void> {
     const registry = config.registry || this.project.defaultRegistry;
-    const preLoad = preloadedDepNames !== undefined && preloadedDepNames.length !== 0;
     try {
-      await Promise.all(depsToInstalls.call(this, registry, config, resolvedPkgName, source, preLoad === false && preloadedDepNames).map(install => {
-        if (preLoad && preloadedDepNames)
-          preloadedDepNames.push(install.name);
+      await Promise.all(depsToInstalls.call(this, registry, config, resolvedPkgName, source).map(install => {
+        const installId = `${install.type === DepType.peer ? undefined : install.parent}|${install.name}`;
+        if (this.installs[installId])
+          return this.installs[installId];
+
         if (typeof install.target === 'string')
-          return this.resourceInstall(<ResourceInstall>install, parents);
+          return this.installs[installId] = this.resourceInstall(<ResourceInstall>install, [...parents, resolvedPkgName]);
         else
-          return this.packageInstall(<PackageInstall>install, parents);
+          return this.installs[installId] = this.packageInstall(<PackageInstall>install, [...parents, resolvedPkgName]);
       }));
     }
     catch (e) {
@@ -1033,12 +1024,10 @@ export class Installer {
   }
 }
 
-function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: string, parentSource: string, skipDepsNames?: string[]): Install[] {
+function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: string, parentSource: string): Install[] {
   let installs = [];
   if (deps.dependencies)
     Object.keys(deps.dependencies).forEach(name => {
-      if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
-        return;
       const target = deps.dependencies[name];
       if (target) {
         installs.push({
@@ -1051,8 +1040,6 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: st
     });
   if (deps.peerDependencies)
     Object.keys(deps.peerDependencies).forEach(name => {
-      if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
-        return;
       const target = deps.peerDependencies[name];
       if (target) {
         installs.push({
@@ -1065,8 +1052,6 @@ function depsToInstalls (defaultRegistry: string, deps: Dependencies, parent: st
     });
   if (deps.optionalDependencies)
     Object.keys(deps.optionalDependencies).forEach(name => {
-      if (skipDepsNames && skipDepsNames.indexOf(name) !== -1)
-        return;
       const target = deps.optionalDependencies[name];
       if (target) {
         installs.push({

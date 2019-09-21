@@ -17,7 +17,7 @@ import chalk from 'chalk';
 import readline = require('readline');
 import stream = require('stream');
 import ora = require('ora');
-import { isWindows } from './common';
+import { isWindows, isCygwin } from './common';
 
 let logging = true;
 let logBuffer = '';
@@ -100,7 +100,7 @@ const spinner = ora({
   text: '',
   color: 'yellow',
   spinner: {
-    interval: 20,
+    interval: isCygwin() ? 10 : 50,
     frames: [
       ".   ",
       ".   ",

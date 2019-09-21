@@ -15,7 +15,7 @@
  */
 import fs = require('fs');
 import path = require('path');
-import { isWindows } from '../utils/common';
+import { isWindows, isCygwin } from '../utils/common';
 
 export async function writeBinScripts (binDir: string, name: string, binModulePath: string) {
   await [new Promise((resolve, reject) => 
@@ -58,18 +58,6 @@ const winBin = (binModulePath: string) => `@setlocal
 @set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_LOADER:\\=/%"
 @node "%~dp0\\..\\${binModulePath}" %*
 `;
-
-let _isCygwin;
-export function isCygwin () {
-  if (typeof _isCygwin === 'boolean')
-    return _isCygwin;
-  try {
-    if (require('child_process').execSync('uname -s', { stdio: 'pipe' }).toString().match(/^(CYGWIN|MINGW32|MINGW64)/))
-      return _isCygwin = true;
-  }
-  catch (e) {}
-  return _isCygwin = false;
-}
 
 export function getBin () {
   let loader = path.dirname(require.resolve('@jspm/resolve')) + '/loader.mjs';
