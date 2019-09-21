@@ -576,10 +576,12 @@ export class Installer {
     if (existingSource) {
       if (existingSource.source === source)
         return existingSource.promise;
-      if (!isCheckoutSource(existingSource.source))
-        throw new Error('Internal error - conflicting sources.');
-      this.project.log.info(`Package ${highlight(resolvedPkgName)} is currently checked out as ${existingSource.source}.`);
-      return existingSource.promise;
+      if (isCheckoutSource(existingSource.source)) {
+        this.project.log.info(`Package ${highlight(resolvedPkgName)} is currently checked out as ${existingSource.source}.`);
+        return existingSource.promise;
+      }
+      if (!isCheckoutSource(source))
+        throw new Error(`Internal error - conflicting source installs ${source} against existing ${existingSource.source}.`);
     }
 
     return (this.sources[resolvedPkgName] = {
@@ -704,10 +706,10 @@ export class Installer {
       if (existingSource) {
         if (existingSource.source === source)
           return <Promise<void>>existingSource.promise;
-        if (!isCheckoutSource(existingSource.source))
-          throw new Error('Internal error - conflicting sources.');
-        this.project.log.info(`Package ${highlight(resolvedPkgName)} is currently checked out as ${existingSource.source}.`);
-        return <Promise<void>>existingSource.promise;
+        if (isCheckoutSource(existingSource.source)) {
+          this.project.log.warn(`Conflicting checkouts for ${highlight(resolvedPkgName)}. Checking out as ${existingSource.source}, but ${resource.parent} installs as ${source}.`);
+          return <Promise<void>>existingSource.promise;
+        }
       }
   
       return <Promise<void>>(this.sources[resolvedPkgName] = {
