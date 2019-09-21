@@ -18,6 +18,7 @@ import * as path from 'path';
 import { PackageConfig, DepType, PackageTarget, processPackageTarget,
     serializePackageTargetCanonical, resourceInstallRegEx, parsePackageName, processPackageConfig } from '../install/package';
 import { Project } from '../project';
+import { bold } from '../utils/common';
 
 export default class PackageJson extends ConfigFile {
   private jspmPrefix: boolean;
@@ -99,8 +100,9 @@ export default class PackageJson extends ConfigFile {
     this.lock();
     this.read();
 
-    // auto-inject "type": "module" for jspm projects
-    this.type = this.getValue(['type'], 'string') || hasJspmConfig && 'module';
+    this.type = this.getValue(['type'], 'string');
+    if (hasJspmConfig && !this.type)
+      this.project.log.info(`Current project has no package.json ${bold('"type"')} field. It is advisable to explicitly set this to ${bold('"module"')} or ${bold('"commonjs"')}.`);
 
     this.dir = path.dirname(this.fileName);
 

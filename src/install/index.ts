@@ -26,7 +26,7 @@ import fs = require('graceful-fs');
 import rimraf = require('rimraf');
 import globalOverrides from '../overrides';
 import { isCheckoutSource, resolveCheckoutSource } from './source';
-import { install, setPackageToOrphanedCheckout } from './installer';
+import { install, setPackageToOrphanedCheckout, getPackageLinkState } from './installer';
 
 export interface InstallOptions {
   edge?: boolean; // allow installing prerelease ranges
@@ -641,12 +641,19 @@ export class Installer {
       const existingPkg = existingResolution && serializePackageName(existingResolution);
       const existingResolved = existingResolution && this.installTree.dependencies[existingPkg];
       if (existingResolved && existingResolved.source && existingResolved.source === resource.target) {
-        if (!isCheckoutSource(resource.target)) {
+        if (isCheckoutSource(resource.target)) {
+          if (!this.opts.latest) {
+            const { linkPath, exists } = await getPackageLinkState(path.join(this.config.pjson.packages, existingPkg.replace(':', path.sep)));
+            if (exists && !linkPath)
+              return;
+          }
+        }
+        else {
           this.project.log.debug(`${resource.name} matched against lockfile`);
           this.setResolution(resource, resource.target, existingResolution, existingResolved.source);
           override = await this.sourceInstall(existingResolution, existingResolved.source, override, undefined, parents);
-          // if (override)
-          //  this.setOverride(resource.target, override);
+          if (override)
+            this.setOverride(resource.target, override);
           return;
         }
       }

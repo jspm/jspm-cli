@@ -1,7 +1,10 @@
-const exec = require('child_process').exec;
-const os = require('os');
+import child_process = require('child_process');
+import os = require('os');
+import rimraf = require('rimraf');
 
-type execFn = (command, opts) => Promise<string | void>;
+const { exec } = child_process;
+
+type execFn = (command, opts) => Promise<string | Buffer | void>;
 
 class Pool {
   count: number;
@@ -72,12 +75,18 @@ if (process.platform === 'win32') {
   };
 }
 else {
-  execute = (command, execOpt) => new Promise((resolve, reject) => {
+  execute = (command, execOpt, ignoreLock = false) => new Promise((resolve, reject) => {
     exec('git ' + command, execOpt, (err, stdout, stderr) => {
-      if (err)
+      if (err) {
+        if (ignoreLock) {
+          const errStr = (stderr || err).toString();
+          if (errStr.indexOf('.git/index.lock') !== -1) {
+            console.log("TODO: Git lock file removal.");
+          }
+        }
         reject(stderr || err);
-      else
-        resolve(stdout);
+      }
+      resolve(stdout);
     });
   });
 }

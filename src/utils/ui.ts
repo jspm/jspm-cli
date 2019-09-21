@@ -242,7 +242,7 @@ function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 
         skipLength = 1;
       }
       else {
-        skipLength = controlCodeMatch[0].length;
+        skipLength = controlCodeMatch[0].length - 1;
         if (controlCodeMatch[0] === '\u001b[4m')
           underline = true;
         else if (controlCodeMatch[0] === '\u001b[24m')

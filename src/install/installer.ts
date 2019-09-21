@@ -128,7 +128,7 @@ async function setPackageToSymlink (project: Project, pkgName: string, _source: 
 
 export async function getPackageLinkState (pkgPath: string): Promise<{
   exists: boolean,
-  linkPath: string | void
+  linkPath: string | undefined
 }> {
   try {
     return {
