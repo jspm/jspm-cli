@@ -37,7 +37,8 @@ export function isCheckoutSource (source: string) {
 
 function defaultToGitUser (sshTarget: string) {
   const atIndex = sshTarget.indexOf('@');
-  if (atIndex === -1)
+  const lastSlashIndex = sshTarget.lastIndexOf('/');
+  if (atIndex === -1 || atIndex > lastSlashIndex)
     return 'git@' + sshTarget.replace('/', ':');
   return (sshTarget.lastIndexOf('/', atIndex) === -1 ? 'git@' : '') + sshTarget.replace('/', ':');
 }
@@ -51,15 +52,15 @@ export function readGitSource (source: string) {
   else if (url.startsWith('ssh:'))
     url = defaultToGitUser(url.slice(4));
   let ref;
-  const gitRefIndex = url.lastIndexOf('#');
+  let gitRefIndex = url.lastIndexOf('#');
   if (gitRefIndex !== -1) {
-    url = url.substr(0, gitRefIndex);
     ref = url.slice(gitRefIndex + 1);
+    url = url.substr(0, gitRefIndex);
   }
   return { url, ref };
 }
 
-export function resolveCheckoutSource (source: string, packagePath: string, projectPath: string): string {
+export function normalizeResourceTarget (source: string, packagePath: string, projectPath: string): string {
   if (source.startsWith('file:')) {
     let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
     let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
@@ -77,6 +78,11 @@ export function resolveCheckoutSource (source: string, packagePath: string, proj
     if (isWindows)
       sourcePath = sourcePath.replace(winSepRegEx, '/');
     source = sourceProtocol + sourcePath;
+  }
+  else if (source.startsWith('git')) {
+    if (source.endsWith('#master'))
+      source = source.slice(0, -7);
+    return source;
   }
   return source;
 }
@@ -146,9 +152,9 @@ async function gitCheckout (log: Logger, fetch: FetchClass, source: string, outD
   }
   catch (err) {
     if (err.toString().indexOf('is not a valid repository name') !== -1)
-      throw new JspmUserError(`${highlight(source)} is an invalid GitHub package name. Ensure it does not include any non-standard characters or leading @.`);
+      throw new JspmUserError(`${highlight(url)} is an invalid GitHub package name. Ensure it does not include any non-standard characters or invalid @. Note '#' should be used for versions in git repos.`);
     if (err.toString().indexOf('Repository not found') !== -1 || err.toString().indexOf('Could not read from remote repository') !== -1)
-      throw new JspmUserError(`Unable to find repo ${highlight(source)}. It may not exist, or authorization may be required.`);
+      throw new JspmUserError(`Unable to find repo ${highlight(url)}. It may not exist, or authorization may be required.`);
     throw err;
   }
   finally {

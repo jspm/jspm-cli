@@ -15,7 +15,7 @@
  */
 import fs = require('fs');
 import execGit from '../utils/exec-git';
-import { JspmUserError } from '../utils/common';
+import { JspmUserError, highlight, bold } from '../utils/common';
 import { Project } from '../project';
 
 export function isGitRepo (gitPath: string) {
@@ -32,12 +32,12 @@ export async function setGlobalHead (gitPath: string, remote: string, ref: strin
     cwd: gitPath
   };
   const output = await execGit('status --porcelain', execOpts);
-  if (output && output.trim().length)
+  if (output && output.toString().trim().length)
     return false;
   await execGit(`remote set-url origin ${remote.replace(/(['"()])/g, '\\\$1')}`, execOpts);
   await execGit(`checkout ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
-  const headRef = await getHead(gitPath);
-  if (!headRef.startsWith('ref: refs/heads/'))
+  const headRef = toRef(await getHead(gitPath))
+  if (headRef === ref)
     return true;
   
   // if a branch ref, update from remote
@@ -46,29 +46,55 @@ export async function setGlobalHead (gitPath: string, remote: string, ref: strin
   return true;
 }
 
-export async function setLocalHead (project: Project, gitPath: string, localGitPath: string, ref: string = 'master', force: boolean): Promise<boolean> {
+export async function checkCleanClone (pkgName: string, gitPath: string, remote: string, ref: string = 'master'): Promise<string | undefined> {
+  const fixMsg = 'Use the -f flag to fix (local branches will be preserved).';
   const execOpts = {
     killSignal: 'SIGKILL',
     maxBuffer: 100 * 1024 * 1024,
     cwd: gitPath
   };
   const output = await execGit('status --porcelain', execOpts);
-  if (output && output.trim().length) {
+  if (output && output.toString().trim().length)
+    return `${highlight(pkgName)} has unsaved local git changes:\n${output.toString().trim().replace(/\?\?/g, '-')}`;
+  const headRef = toRef(await getHead(gitPath));
+  if (headRef !== ref)
+    return `${highlight(pkgName)} is currently on the ${bold(headRef)} branch instead of ${bold(ref)}. ${fixMsg}`;
+  try {
+    const curOrigin = (await execGit(`remote get-url origin`, execOpts)).toString().trim();
+    if (curOrigin !== remote)
+      return `${highlight(pkgName)} has a different ${bold('origin')} ${curOrigin} than expected ${remote}. ${fixMsg}`;
+  }
+  catch (e) {
+    if (e.toString().indexOF('No such remote') !== -1)
+      return `${highlight(pkgName)} does not have an ${bold('origin')} branch. ${fixMsg}`;
+    throw e;
+  }
+  return;
+}
+
+export async function setLocalHead (project: Project, pkgName: string, localGitPath: string, globalGitPath: string, ref: string = 'master', force: boolean): Promise<boolean> {
+  const execOpts = {
+    killSignal: 'SIGKILL',
+    maxBuffer: 100 * 1024 * 1024,
+    cwd: localGitPath
+  };
+  const output = await execGit('status --porcelain', execOpts);
+  if (output && output.toString().trim().length) {
     if (!force) {
-      project.log.warn(`Local git repo ${gitPath} is not in a clean state to update. Commit the recent changes or use the -f flag to force reset.`);
-      return false;
+      project.log.warn(`${pkgName} has unsaved local git changes. Commit the recent changes first.`);
+      return;
     }
     else {
-      project.log.warn(`Resetting local git repo ${gitPath}.`);
+      project.log.warn(`Resetting local git repo ${highlight(pkgName)}.`);
     }
     await execGit(`reset --hard ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+    await execGit(`clean -f -d`, execOpts);
     const output = await execGit('status --porcelain', execOpts);
-    if (output && output.trim().length)
-      throw new JspmUserError(`Unable to clean repo state for ${gitPath}.`);
+    if (output && output.toString().trim().length)
+      throw new JspmUserError(`${highlight(pkgName)} Unable to clean repo state for ${pkgName}.`);
   }
-
   try {
-    await execGit(`remote add tmp-jspm ${localGitPath.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+    await execGit(`remote add tmp-jspm ${globalGitPath.replace(/(['"()])/g, '\\\$1')}`, execOpts);
   }
   catch (e) {
     if (e.toString().indexOf('already exists') === -1)
@@ -77,21 +103,23 @@ export async function setLocalHead (project: Project, gitPath: string, localGitP
   try {
     await execGit(`fetch tmp-jspm`, execOpts);
 
-    const localHead = await getHead(localGitPath);
+    const globalHead = await getHead(globalGitPath);
+    await execGit(`checkout ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
     
-    // commit tag -> checkout directly
-    if (!localHead.startsWith('ref: refs/heads/')) {
-      await execGit(`checkout ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
-    }
-    // branch -> fetch + reset
-    else {
+    // branch -> reset
+    if (globalHead.startsWith('ref: refs/heads/'))
       await execGit(`reset --hard tmp-jspm/${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
-    }
   }
   finally {
     await execGit(`remote remove tmp-jspm`, execOpts);
   }
   return true;
+}
+
+function toRef (headRef: string): string {
+  if (headRef.startsWith('ref: refs/heads/'))
+    return headRef.slice(16);
+  return headRef;
 }
 
 export async function getHead (gitPath: string): Promise<string> {

@@ -19,7 +19,7 @@ import path = require('path');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { isCheckoutSource, readGitSource } from "./source";
-import { highlight, bold, JspmError } from "../utils/common";
+import { highlight, bold } from "../utils/common";
 import { writeBinScripts } from "./bin";
 import { Project } from "../project";
 import fs = require('fs');
@@ -69,10 +69,13 @@ export async function setPackageToOrphanedCheckout (project: Project, pkgName: s
   const orphanedCheckoutPath = path.join(project.config.pjson.packages, orphanedPkgName.replace(':', path.sep));
   {
     const { linkPath, exists } = await getPackageLinkState(pkgPath);
-    if (exists)
-      await clearPackage(project, pkgName, pkgPath, linkPath, force);
-    else
+    if (exists) {
+      if (!(await clearPackage(project, pkgName, pkgPath, linkPath, force)))
+        return false;
+    }
+    else {
       await new Promise((resolve, reject) => mkdirp(path.dirname(pkgPath), err => err ? reject(err) : resolve()));
+    }
   }
   {
     const { linkPath, exists } = await getPackageLinkState(orphanedCheckoutPath);
@@ -96,17 +99,23 @@ export async function createBins (project: Project, config: PackageConfig, resol
   }
 }
 
-async function clearPackage (project: Project, pkgName: string, pkgPath: string, linkPath: string | undefined, force: boolean) {
+async function clearPackage (project: Project, pkgName: string, pkgPath: string, linkPath: string | undefined, force: boolean): Promise<boolean> {
   if (linkPath === undefined) {
-    if (!force)
-      throw new JspmError(`Unable to write package ${highlight(pkgName)} as it is already a custom checked-out package. Add the ${bold('-f')} flag to force removal.`);
-    project.log.info(`Removing checked out package ${highlight(pkgName)}.`);
-    await new Promise((resolve, reject) => rimraf(pkgPath, err => err ? reject(err) : resolve()));
+    if (!force) {
+      project.log.warn(`Skipping registry install of package ${highlight(pkgName)} as it is a custom checked-out package. Add the ${bold('-f')} flag to force removal if necessary.`);
+      return false;
+    }
+    else {
+      project.log.info(`Removing checked out package ${highlight(pkgName)}.`);
+      await new Promise((resolve, reject) => rimraf(pkgPath, err => err ? reject(err) : resolve()));
+      return true;
+    }
   }
   else {
     if (!linkPath.startsWith(project.cacheDir))
       project.log.info(`Replacing custom symlink for ${highlight(pkgName)}.`);
     await new Promise((resolve, reject) => fs.unlink(pkgPath, err => err ? reject(err) : resolve()));
+    return true;
   }
 }
 
@@ -117,10 +126,13 @@ async function setPackageToSymlink (project: Project, pkgName: string, _source: 
   if (linkPath === symlinkPath + path.sep)
     return false;
 
-  if (exists)
-    await clearPackage(project, pkgName, pkgPath, linkPath, force);
-  else
+  if (exists) {
+    if (!(await clearPackage(project, pkgName, pkgPath, linkPath, force)))
+      return false;
+  }
+  else {
     await new Promise((resolve, reject) => mkdirp(path.dirname(pkgPath), err => err ? reject(err) : resolve()));
+  }
 
   await new Promise((resolve, reject) => fs.symlink(path.relative(path.dirname(pkgPath), symlinkPath), pkgPath, 'junction', err => err ? reject(err) : resolve()));
   return true;
@@ -150,14 +162,17 @@ async function setPackageToClone (project: Project, pkgName: string, source: str
 
   if (isGitRepo(pkgPath)) {
     const { ref } = readGitSource(source);
-    return await setLocalHead(project, pkgPath, globalClone, ref, force);
+    return await setLocalHead(project, pkgName, pkgPath, globalClone, ref, force);
   }
   else {
     const { exists, linkPath } = await getPackageLinkState(pkgPath);
-    if (exists)
-      await clearPackage(project, pkgName, pkgPath, linkPath, force);
-    else
+    if (exists) {
+      if (!(await clearPackage(project, pkgName, pkgPath, linkPath, force)))
+        return false;
+    }
+    else {
       await new Promise((resolve, reject) => mkdirp(path.dirname(pkgPath), err => err ? reject(err) : resolve()));
+    }
     
     // otherwise just do a full copy of the global clone
     await new Promise((resolve, reject) => ncp(globalClone, pkgPath, err => err ? reject(err) : resolve()));

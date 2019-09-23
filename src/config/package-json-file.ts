@@ -42,6 +42,10 @@ export default class PackageJson extends ConfigFile {
       target: string | PackageTarget
     }
   };
+  private _dependencies: Record<string, string>;
+  private _devDependencies: Record<string, string>;
+  private _optionalDependencies: Record<string, string>;
+  private _peerDependencies: Record<string, string>;
   overrides: { target: PackageTarget | string, override: PackageConfig, fresh: boolean }[];
   hooks: {
     [hook: string]: string
@@ -141,36 +145,32 @@ export default class PackageJson extends ConfigFile {
     
     this.dependencies = {};
     
-    const optionalDependencies = this.readDependencies('optionalDependencies');
-    if (optionalDependencies)
-      Object.keys(optionalDependencies).forEach(dep => {
+    if (this._optionalDependencies = this.readDependencies('optionalDependencies'))
+      Object.keys(this._optionalDependencies).forEach(dep => {
         this.dependencies[dep] = {
           type: DepType.optional,
-          target: processPackageTarget(dep, optionalDependencies[dep], this.project.defaultRegistry, false)
+          target: processPackageTarget(dep, this._optionalDependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const devDependencies = this.readDependencies('devDependencies');
-    if (devDependencies)
-      Object.keys(devDependencies).forEach(dep => {
+    if (this._devDependencies = this.readDependencies('devDependencies'))
+      Object.keys(this._devDependencies).forEach(dep => {
         this.dependencies[dep] = {
           type: DepType.dev,
-          target: processPackageTarget(dep, devDependencies[dep], this.project.defaultRegistry, false)
+          target: processPackageTarget(dep, this._devDependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const dependencies = this.readDependencies('dependencies');
-    if (dependencies)
-      Object.keys(dependencies).forEach(dep => {
+    if (this._dependencies = this.readDependencies('dependencies'))
+      Object.keys(this._dependencies).forEach(dep => {
         this.dependencies[dep] = {
           type: DepType.primary,
-          target: processPackageTarget(dep, dependencies[dep], this.project.defaultRegistry, false)
+          target: processPackageTarget(dep, this._dependencies[dep], this.project.defaultRegistry, false)
         };
       });
-    const peerDependencies = this.readDependencies('peerDependencies');
-    if (peerDependencies)
-      Object.keys(peerDependencies).forEach(dep => {
+    if (this._peerDependencies = this.readDependencies('peerDependencies'))
+      Object.keys(this._peerDependencies).forEach(dep => {
         this.dependencies[dep] = {
           type: DepType.peer,
-          target: processPackageTarget(dep, peerDependencies[dep], this.project.defaultRegistry, false)
+          target: processPackageTarget(dep, this._peerDependencies[dep], this.project.defaultRegistry, false)
         };
       });
     
@@ -252,24 +252,35 @@ export default class PackageJson extends ConfigFile {
     const peerDependencies = {};
     const devDependencies = {};
     const optionalDependencies = {};
-    Object.keys(this.dependencies).forEach(dep => {
-      const entry = this.dependencies[dep];
-      const defaultRegistry = this.project.defaultRegistry;
-      switch (entry.type) {
+    for (const dep of Object.keys(this.dependencies)) {
+      const { type, target } = this.dependencies[dep];
+      switch (type) {
         case DepType.primary:
-          dependencies[dep] = serializePackageTargetCanonical(dep, entry.target, defaultRegistry);
+          if (target.toString() === this._dependencies[dep])
+            dependencies[dep] = this._dependencies[dep];
+          else
+            dependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.peer:
-          peerDependencies[dep] = serializePackageTargetCanonical(dep, entry.target, defaultRegistry);
+          if (target.toString() === this._peerDependencies[dep])
+            dependencies[dep] = this._peerDependencies[dep];
+          else
+            peerDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.dev:
-          devDependencies[dep] = serializePackageTargetCanonical(dep, entry.target, defaultRegistry);
+          if (target.toString() === this._devDependencies[dep])
+            dependencies[dep] = this._devDependencies[dep];
+          else
+            devDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.optional:
-          optionalDependencies[dep] = serializePackageTargetCanonical(dep, entry.target, defaultRegistry);
+          if (target.toString() === this._optionalDependencies[dep])
+            dependencies[dep] = this._optionalDependencies[dep];
+          else
+            optionalDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
       }
-    });
+    }
 
     this.writeDependencies('dependencies', dependencies);
     this.writeDependencies('peerDependencies', peerDependencies);

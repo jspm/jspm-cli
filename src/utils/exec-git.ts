@@ -1,15 +1,14 @@
 import child_process = require('child_process');
 import os = require('os');
-import rimraf = require('rimraf');
 
 const { exec } = child_process;
 
-type execFn = (command, opts) => Promise<string | Buffer | void>;
+type execFn = (command, opts) => Promise<string | Buffer | undefined>;
 
 class Pool {
   count: number;
   queue: execFn[];
-  promises: Promise<string | void>[];
+  promises: Promise<string | undefined>[];
   constructor (count) {
     this.count = count;
     this.queue = [];

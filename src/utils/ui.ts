@@ -80,16 +80,16 @@ const format = {
 
   // },
   [LogType.err] (msg: string) {
-    return chalk.red.bold('err ') + '(jspm) ' + moduleMsg(msg, 0);
+    return chalk.red.bold('err ') + moduleMsg(msg, 0);
   },
   [LogType.info] (msg: string) {
     return '     ' + moduleMsg(msg, 5);
   },
   [LogType.warn] (msg: string) {
-    return chalk.yellow.bold('warn ') + '(jspm) ' + moduleMsg(msg, 12);
+    return chalk.yellow.bold('warn ') + moduleMsg(msg, 5);
   },
   [LogType.ok] (msg: string) {
-    return chalk.green.bold('ok ') + moduleMsg(msg, 3);
+    return chalk.green.bold('ok ') + moduleMsg(msg, 5);
   },
   [LogType.debug] (msg: string) {
     return moduleMsg(msg, 0);

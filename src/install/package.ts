@@ -32,8 +32,6 @@ export interface PackageName {
   version: string;
 };
 
-export const resourceInstallRegEx = /^(?:file|https?|git|git\+(?:file|ssh|https)?):/;
-
 const packageRegEx = /^([a-z]+):([@\-_\.a-zA-Z\d][-_\.a-zA-Z\d]*(?:\/[-_\.a-zA-Z\d]+)*)(?:@([^@]+))?$/;
 
 // this function should also handle the encoding part
@@ -407,21 +405,10 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
    *   ./local -> file:./local
    *   /local -> file:/local
    *   ~/file -> file:~/file
+   * (Should ideally support a/b/c -> file:a/b/c resource sugar, but for now omitted)
    */
   if (depTarget.match(fileInstallRegEx))
     return 'file:' + depTarget;
-  
-  /*
-   * Plain target install
-   * Should ideally support a/b/c -> file:a/b/c resource sugar, but for now omitted
-   */
-  if (!depTarget.match(resourceInstallRegEx)) {
-    // a/b -> github:a/b sugar
-    if (registryIndex === -1 && depTarget.indexOf('/') !== -1 && depTarget[0] !== '@')
-      return 'git+ssh://github.com/' + depTarget;
-    else if (depTarget.startsWith('github:'))
-      return 'git+ssh://github.com/' + depTarget.slice(7 + Number(depTarget[7] === '@'));
-  }
 
   let registry, name, version;
   if (registryIndex < 1) {
@@ -429,6 +416,7 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   }
   else {
     registry = depTarget.substr(0, registryIndex);
+    // resource install opt-out
     if (registry in sourceProtocols)
       return depTarget;
   }
@@ -457,6 +445,18 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   else if (!(version[0] === '^' && SemverRange.isValid(version)) && version !== '*') {
     version = encodeInvalidFileChars(version);
   }
+
+
+  /*
+   * GitHub installs target install sugars:
+   * a/b -> git+ssh://github.com/a/b
+   * github:a/b -> git+ssh://github.com/a/b
+   */
+  if (registryIndex === -1 && name.indexOf('/') !== -1 && name[0] !== '@')
+    return 'git+ssh://github.com/' + name + (version === '*' ? '' : '#' + version);
+  else if (registry === 'github')
+    return 'git+ssh://github.com/' + name.slice(Number(name[7] === '@')) + (version === '*' ? '' : '#' + version);
+
   const targetNameLen = name.split('/').length;
   if (targetNameLen > 2)
     throw new JspmUserError(`Invalid package target ${bold(depTarget)}`);
