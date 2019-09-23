@@ -580,6 +580,10 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
             await transformPackage(this.util.log, dlDir, config.name, config);
           }
 
+          // to bump the directory mtime reliably, we create a temporary file and delete it again
+          await new Promise((resolve, reject) => fs.writeFile(path.join(dlDir, '.jspm'), '', err => err ? reject(err) : resolve()));
+          await new Promise((resolve, reject) => fs.unlink(path.join(dlDir, '.jspm'), err => err ? reject(err) : resolve()));
+
           // move the tmp folder to the known hash on successful completion only
           const dir = path.join(this.cacheDir, 'packages', hash);
           try {

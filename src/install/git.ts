@@ -65,7 +65,7 @@ export async function checkCleanClone (pkgName: string, gitPath: string, remote:
       return `${highlight(pkgName)} has a different ${bold('origin')} ${curOrigin} than expected ${remote}. ${fixMsg}`;
   }
   catch (e) {
-    if (e.toString().indexOF('No such remote') !== -1)
+    if (e.toString().indexOf('No such remote') !== -1)
       return `${highlight(pkgName)} does not have an ${bold('origin')} branch. ${fixMsg}`;
     throw e;
   }
