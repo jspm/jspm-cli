@@ -256,25 +256,25 @@ export default class PackageJson extends ConfigFile {
       const { type, target } = this.dependencies[dep];
       switch (type) {
         case DepType.primary:
-          if (target.toString() === this._dependencies[dep])
+          if (this._dependencies && target.toString() === this._dependencies[dep])
             dependencies[dep] = this._dependencies[dep];
           else
             dependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.peer:
-          if (target.toString() === this._peerDependencies[dep])
+          if (this._peerDependencies && target.toString() === this._peerDependencies[dep])
             dependencies[dep] = this._peerDependencies[dep];
           else
             peerDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.dev:
-          if (target.toString() === this._devDependencies[dep])
+          if (this._devDependencies && target.toString() === this._devDependencies[dep])
             dependencies[dep] = this._devDependencies[dep];
           else
             devDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.optional:
-          if (target.toString() === this._optionalDependencies[dep])
+          if (this._optionalDependencies && target.toString() === this._optionalDependencies[dep])
             dependencies[dep] = this._optionalDependencies[dep];
           else
             optionalDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);

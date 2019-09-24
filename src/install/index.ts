@@ -376,11 +376,7 @@ export class Installer {
     // install in parallel
     await Promise.all(installs.map(install => {
       if (typeof install.target === 'string')
-        install.target = processPackageTarget(
-          install.name || getResourceName(install.target, this.project.projectPath),
-          (install.target.indexOf(':') === -1 ? ':' : '') + install.target,
-          this.project.defaultRegistry
-        );
+        install.target = processPackageTarget(install.name || getResourceName(install.target, this.project.projectPath), install.target, this.project.defaultRegistry);
 
       // auto-generate name from target if necessary
       if (!install.name) {
@@ -399,6 +395,7 @@ export class Installer {
 
       if (install.name && !install.name.match(validAliasRegEx))
         throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
+      this.installs.add('|' + install.name);
       if (typeof install.target === 'string')
         return this.resourceInstall(<ResourceInstall>install);
       else
@@ -597,8 +594,9 @@ export class Installer {
       let config, writePackage;
       
       // initiate preloads
+      let preloadPromise: Promise<void>
       if (override)
-        this.installDependencies(override, resolvedPkgName, source).catch(() => {});
+        preloadPromise = this.installDependencies(override, resolvedPkgName, source).catch(() => {});
 
       // install
       try {
@@ -618,6 +616,7 @@ export class Installer {
 
       // install dependencies, skipping already preloaded
       await this.installDependencies(config, resolvedPkgName, source);
+      await preloadPromise;
 
       if (await writePackage(resolvedPkgName)) {
         this.changed = true;
@@ -760,9 +759,10 @@ export class Installer {
     const registry = config.registry || this.project.defaultRegistry;
     try {
       await Promise.all(depsToInstalls.call(this, registry, config, resolvedPkgName, source).map(install => {
-        if (this.installs.has(resolvedPkgName))
+        const installId = (install.type === DepType.peer ? '' : resolvedPkgName) + '|' + install.name;
+        if (this.installs.has(installId))
           return;
-        this.installs.add(resolvedPkgName);
+        this.installs.add(installId);
 
         if (typeof install.target === 'string')
           return this.resourceInstall(<ResourceInstall>install);
@@ -967,7 +967,7 @@ export class Installer {
     // now that we have the package list, remove everything not in it
     Object.keys(this.installTree.dependencies).forEach(dep => {
       if (packageList.indexOf(dep) === -1) {
-        this.project.log.info(`Orphaned ${highlight(dep)}.`);
+        this.project.log.info(`Removed ${highlight(dep)}.`);
         delete this.installTree.dependencies[dep];
       }
     });
