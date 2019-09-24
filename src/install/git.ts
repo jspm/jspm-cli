@@ -55,7 +55,7 @@ export async function checkCleanClone (pkgName: string, gitPath: string, remote:
   };
   const output = await execGit('status --porcelain', execOpts);
   if (output && output.toString().trim().length)
-    return `${highlight(pkgName)} has unsaved local git changes:\n${output.toString().trim().replace(/\?\?/g, '-')}`;
+    return `${highlight(pkgName)} has unsaved local git changes (use -f to clear):\n${output.toString().trim().replace(/\?\?/g, '-')}`;
   const headRef = toRef(await getHead(gitPath));
   if (headRef !== ref)
     return `${highlight(pkgName)} is currently on the ${bold(headRef)} branch instead of ${bold(ref)}. ${fixMsg}`;
@@ -81,17 +81,19 @@ export async function setLocalHead (project: Project, pkgName: string, localGitP
   const output = await execGit('status --porcelain', execOpts);
   if (output && output.toString().trim().length) {
     if (!force) {
-      project.log.warn(`${pkgName} has unsaved local git changes. Commit the recent changes first.`);
+      project.log.warn(`${highlight(pkgName)} has unsaved local git changes (use -f to clear):\n${output.toString().trim().replace(/\?\?/g, '-')}`);
       return;
     }
     else {
-      project.log.warn(`Resetting local git repo ${highlight(pkgName)}.`);
+      project.log.info(`Resetting local git repo ${highlight(pkgName)}.`);
     }
     await execGit(`reset --hard ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
     await execGit(`clean -f -d`, execOpts);
-    const output = await execGit('status --porcelain', execOpts);
-    if (output && output.toString().trim().length)
-      throw new JspmUserError(`${highlight(pkgName)} Unable to clean repo state for ${pkgName}.`);
+    {
+      const output = await execGit('status --porcelain', execOpts);
+      if (output && output.toString().trim().length)
+        throw new JspmUserError(`${highlight(pkgName)} Unable to clean repo state for ${pkgName}.`);
+    }
   }
   try {
     await execGit(`remote add tmp-jspm ${globalGitPath.replace(/(['"()])/g, '\\\$1')}`, execOpts);

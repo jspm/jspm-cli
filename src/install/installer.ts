@@ -102,7 +102,7 @@ export async function createBins (project: Project, config: PackageConfig, resol
 async function clearPackage (project: Project, pkgName: string, pkgPath: string, linkPath: string | undefined, force: boolean): Promise<boolean> {
   if (linkPath === undefined) {
     if (!force) {
-      project.log.warn(`Skipping registry install of package ${highlight(pkgName)} as it is a custom checked-out package. Add the ${bold('-f')} flag to force removal if necessary.`);
+      project.installer.checkoutWarnings.push(pkgName);
       return false;
     }
     else {
