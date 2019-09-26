@@ -15,7 +15,6 @@
  */
 export const version = require('../package.json').version;
 import { JSPM_CONFIG_DIR } from './utils/common';
-import { log, LogType, logErr } from './utils/ui';
 
 export * from './project';
 
@@ -23,28 +22,6 @@ export { map, filterMap, renormalizeMap, trace } from './map';
 import { exec as execFunc, run as runFunc } from './exec';
 import path = require('path');
 export { build } from './build';
-
-if (process.env.globalJspm !== undefined) {
-  process.once('unhandledRejection', err => {
-    log('Internal Error: Unhandled promise rejection.', LogType.err);
-    logErr((<any>err).stack || err);
-    process.exit(1);
-  });
-  process.once('SIGINT', () => {
-    log('jspm process terminated.');
-    process.exit(1);
-  });
-  process.once('SIGTERM', () => {
-    log('jspm process terminated.');
-    process.exit(1);
-  });
-}
-else {
-  process.on('unhandledRejection', err => {
-    console.error('Internal Error: Unhandled promise rejection.');
-    throw err;
-  });
-}
 
 export async function resolve (name: string, parent?: string, targets?: any) {
   const jspmResolve = require('@jspm/resolve');

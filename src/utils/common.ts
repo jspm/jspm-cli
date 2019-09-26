@@ -209,37 +209,6 @@ export async function isDir (checkPath, statCache = _statCache): Promise<boolean
   }
 }
 
-export function getJspmProjectPath (modulePath, statCache = _statCache) {
-  const jspmPackagesIndex = modulePath.lastIndexOf(path.sep + 'jspm_packages' + path.sep);
-  if (jspmPackagesIndex !== -1 && modulePath.lastIndexOf(path.sep + 'node_modules' + path.sep, jspmPackagesIndex) === -1)
-    return modulePath.slice(0, jspmPackagesIndex);
-  let separatorIndex = modulePath.lastIndexOf(path.sep);
-  const rootSeparatorIndex = modulePath.indexOf(path.sep);
-  do {
-    const dir = modulePath.slice(0, separatorIndex);
-    if (dir.endsWith(path.sep + 'node_modules'))
-      return;
-    const checkPath = dir + path.sep + 'jspm.json';
-    if (checkPath in statCache) {
-      if (statCache[checkPath])
-        return dir;
-    }
-    else {
-      try {
-        statCache[checkPath] = fs.statSync(checkPath);
-        return dir;
-      }
-      catch (err) {
-        if (err.code !== 'ENOENT' && err.code !== 'ENOTDIR')
-          throw err;
-        statCache[checkPath] = null;
-      }
-    }
-    separatorIndex = modulePath.lastIndexOf(path.sep, separatorIndex - 1);
-  }
-  while (separatorIndex > rootSeparatorIndex);
-}
-
 export function getPackageScope (resolved, statCache = _statCache) {
   const rootSeparatorIndex = resolved.indexOf(path.sep);
   let separatorIndex;

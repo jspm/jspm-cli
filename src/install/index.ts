@@ -603,7 +603,7 @@ export class Installer {
         ({ config, override, writePackage } = await install(this.project, source, override, this.opts.force));
       }
       catch (e) {
-        const errMsg = `Unable to install ${highlight(resolvedPkgName)}.`;
+        const errMsg = `Unable to install package ${highlight(resolvedPkgName)}.`;
         if (e instanceof JspmUserError)
           throw new JspmUserError(errMsg, undefined, e);
         else
@@ -757,22 +757,23 @@ export class Installer {
 
   private async installDependencies (config: PackageConfig, resolvedPkgName: string, source: string): Promise<void> {
     const registry = config.registry || this.project.defaultRegistry;
-    try {
-      await Promise.all(depsToInstalls.call(this, registry, config, resolvedPkgName, source).map(install => {
-        const installId = (install.type === DepType.peer ? '' : resolvedPkgName) + '|' + install.name;
-        if (this.installs.has(installId))
-          return;
-        this.installs.add(installId);
+    await Promise.all(depsToInstalls.call(this, registry, config, resolvedPkgName, source).map(async install => {
+      const installId = (install.type === DepType.peer ? '' : resolvedPkgName) + '|' + install.name;
+      if (this.installs.has(installId))
+        return;
+      this.installs.add(installId);
 
+      const name = install.name;
+      try {
         if (typeof install.target === 'string')
-          return this.resourceInstall(<ResourceInstall>install);
+          await this.resourceInstall(<ResourceInstall>install);
         else
-          return this.packageInstall(<PackageInstall>install);
-      }));
-    }
-    catch (e) {
-      throw new JspmError(`Installing ${highlight(resolvedPkgName)}.`, undefined, e);
-    }
+          await this.packageInstall(<PackageInstall>install);
+      }
+      catch (e) {
+        throw new JspmError(`  installing dependency ${bold(name)} of ${highlight(resolvedPkgName)}.`, undefined, e);
+      }
+    })); 
   }
 
   private setResolution (install: Install, target: string, resolution: PackageName, source: string): string;

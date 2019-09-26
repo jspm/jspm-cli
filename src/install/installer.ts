@@ -19,7 +19,7 @@ import path = require('path');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { isCheckoutSource, readGitSource } from "./source";
-import { highlight, bold } from "../utils/common";
+import { highlight, JspmUserError, isDir } from "../utils/common";
 import { writeBinScripts } from "./bin";
 import { Project } from "../project";
 import fs = require('fs');
@@ -40,8 +40,10 @@ export async function install (project: Project, source: string, override: Packa
     if (source.startsWith('file:')) {
       const dir = path.resolve(project.projectPath, source.slice(5));
       const config = await readPackageConfig(dir);
+      if (!config && !(await isDir(dir)))
+        throw new JspmUserError(`Local folder is not an existing directory to install.`);
       return {
-        config,
+        config: config || {},
         override: undefined,
         async writePackage (packageName: string) {
           const changed = setPackageToSymlink(project, packageName, source, dir, fullVerification);

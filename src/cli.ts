@@ -30,7 +30,6 @@ import { readJSONStyled, defaultStyle, serializeJson } from './config/config-fil
 import publish from './install/publish';
 import { getBin } from './install/bin';
 import { spawn } from 'child_process';
-import { resolveSource } from './install/source';
 
 const installEqualRegEx = /^([@\-_\.a-z\d\/]+)=/i;
 
@@ -132,7 +131,7 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
       case '--version':
       case 'version':
       case 'v':
-        console.log(api.version + '\n' + (process.env.globalJspm === '1' ? 'Running against global jspm install.' : 'Running against local jspm install.'));
+        console.log(api.version + '\n' + (process.env.JSPM_BIN === 'local' ? 'Running against local jspm install.' : 'Running against global jspm install.'));
       break;
 
       case 'h':
@@ -792,19 +791,13 @@ ${bold('Command Flags')}
     }
   }
   catch (err) {
-    if (process.env.globalJspm !== undefined) {
-      if (err && err.hideStack)
-        (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err.message || err);
-      else
-        (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err && err.stack || err);
-    }
+    if (err && err.hideStack)
+      (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err.message || err);
+    else
+      (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err && err.stack || err);
     throw err;
   }
   finally {
     await Promise.all(projects.map(project => project.dispose()));
   }
 }
-
-if (process.env.globalJspm !== undefined)
-  cliHandler([path.dirname(process.env.jspmConfigPath)], process.argv[2], process.argv.slice(3))
-  .then(() => process.exit(), _err => process.exit(1));

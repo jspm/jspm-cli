@@ -62,8 +62,8 @@ export function readGitSource (source: string) {
 
 export function normalizeResourceTarget (source: string, packagePath: string, projectPath: string): string {
   if (source.startsWith('file:')) {
-    let sourceProtocol = source.substr(0, source[0] === 'g' ? 9 : 5);
-    let sourcePath = path.resolve(source.substr(source[0] === 'g' ? 9 : 5));
+    let sourceProtocol = source.substr(0, 5);
+    let sourcePath = path.resolve(source.substr(5));
     
     // relative file path installs that are not for the top-level project are relative to their package real path
     if (packagePath !== process.cwd()) {

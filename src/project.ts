@@ -346,9 +346,8 @@ export class Project {
   */
 
   async init (basePath: string) {
-    if (basePath)
-      process.env.jspmConfigPath = path.resolve(basePath, 'package.json');
-    let relBase = path.relative(process.cwd(), path.dirname(process.env.jspmConfigPath || ''));
+    this.projectPath = basePath;
+    let relBase = path.relative(process.cwd(), path.dirname(this.projectPath || ''));
     if (relBase !== '')
       this.log.msg(`Initializing package at ${highlight(relBase)}\nUse ${bold(`jspm init .`)} to intialize into the current folder.`);
     

@@ -14,8 +14,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-const path = require('path');
-const fs = require('fs');
+const { sep } = require('path');
 const { getPackageScope } = require('../lib/utils/common');
 
 // the first project only gets to determine the jspm version
@@ -26,29 +25,21 @@ if (cwdArgIndex === -1)
 if (cwdArgIndex !== -1)
   process.chdir(args[cwdArgIndex + 1]);
 
-const projectPath = getPackageScope(process.cwd() + path.sep);
+const projectPath = getPackageScope(process.cwd() + sep) || process.cwd();
+const { default: cli } = require('../lib/cli');
 
-let usingLocalBinary, tryLocalBinary;
-if (projectPath) {
-  process.env.jspmConfigPath = path.join(projectPath, 'package.json');
-  const curJspmPath = path.resolve(__dirname, '..');
-  usingLocalBinary = curJspmPath.startsWith(projectPath) && curJspmPath.slice(projectPath.length + 1).split(path.sep).length <= 4;
-  tryLocalBinary = !usingLocalBinary && path.join(projectPath, 'jspm_packages', '.bin', 'jspm' + (process.platform === 'win32' ? '.cmd' : ''));
-}
-else {
-  process.env.jspmConfigPath = '';
-}
+process.once('unhandledRejection', err => {
+  console.error(err);
+  process.exit(1);
+});
+process.once('SIGINT', () => {
+  console.log('jspm process terminated.');
+  process.exit(1);
+});
+process.once('SIGTERM', () => {
+  console.log('jspm process terminated.');
+  process.exit(1);
+});
 
-if (tryLocalBinary && fs.existsSync(tryLocalBinary)) {
-  const ps = require('child_process').spawn(tryLocalBinary, args, { stdio: 'inherit' });
-  process.env.globalJspm = '0';
-  ps.on('exit', code => process.exit(code));
-  ps.on('error', err => {
-    console.error(err);
-    process.exit(1);
-  });
-}
-else {
-  process.env.globalJspm = process.env.globalJspm || (usingLocalBinary ? '0' : '1');
-  require('../lib/cli');
-}
+cli([projectPath], process.argv[2], process.argv.slice(3))
+.then(() => process.exit(), _err => process.exit(1));

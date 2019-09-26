@@ -80,7 +80,7 @@ const format = {
 
   // },
   [LogType.err] (msg: string) {
-    return chalk.red.bold('err ') + moduleMsg(msg, 0);
+    return moduleMsg(chalk.red.bold('err  ') + msg, 0);
   },
   [LogType.info] (msg: string) {
     return '     ' + moduleMsg(msg, 5);
@@ -89,7 +89,7 @@ const format = {
     return chalk.yellow.bold('warn ') + moduleMsg(msg, 5);
   },
   [LogType.ok] (msg: string) {
-    return chalk.green.bold('ok ') + moduleMsg(msg, 5);
+    return chalk.green.bold('ok   ') + moduleMsg(msg, 5);
   },
   [LogType.debug] (msg: string) {
     return moduleMsg(msg, 0);
@@ -287,15 +287,8 @@ function wordWrap (text: string, columns: number, leftIndent = 0, rightIndent = 
   return output.join('');
 }
 
-function moduleMsg (msg: string, tab: number | undefined = 0) {
-  if (tab !== undefined)
-    msg = wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0), tab, 0).slice(tab);
-  else
-    msg.replace(/(\r?\n)/g, '$1     ');
-
-  // formatting
-  // msg.replace(/\t/g, '  ');
-  return msg;
+function moduleMsg (msg: string, tab = 0) {
+  return wordWrap(msg, process.stdout.columns + (isWindows ? -1 : 0), tab, 0).slice(tab);
 }
 
 export interface ConfirmOptions {
