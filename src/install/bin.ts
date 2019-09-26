@@ -30,7 +30,6 @@ export async function writeBinScripts (binDir: string, name: string, binModulePa
 }
 
 const localUnixBin = (binModulePath: string) => `#!/bin/sh
-BASE_DIR="$(dirname $(dirname $0))"
 PACKAGE_SCOPE="$PWD"
 while [  ! -f "$PACKAGE_SCOPE/package.json" ]; do
   NEXT_PACKAGE_SCOPE="$(dirname "$PACKAGE_SCOPE")"
@@ -64,6 +63,7 @@ if [ -z "$JSPM_LOADER" ]; then
   exit 1
 fi
 
+BASE_DIR="$(dirname $(dirname $0))"
 case "$(uname -s)" in
   CYGWIN*|MINGW32*|MINGW64*)
     JSPM_LOADER="file:///$(cygpath -w "$JSPM_LOADER")"
@@ -99,11 +99,11 @@ if [ "$JSPM_DIR" == "." ]; then
   echo "jspm not found in path, make sure it is installed."
   exit 1
 fi
-JSPM_LOADER="$JSPM_DIR/node_modules/jspm/node_modules/@jspm/resolve/loader.mjs"
+JSPM_LOADER=("$(dirname $JSPM_DIR)/npm/@jspm/resolve@*/loader.mjs")
 if [ ! -f "$JSPM_LOADER" ]; then
-  JSPM_LOADER="$JSPM_DIR/node_modules/@jspm/resolve/loader.mjs"
+  JSPM_LOADER="$JSPM_DIR/node_modules/jspm/node_modules/@jspm/resolve/loader.mjs"
   if [ ! -f "$JSPM_LOADER" ]; then
-    JSPM_LOADER=("$(dirname $JSPM_DIR)/npm/@jspm/resolve@*/loader.mjs")
+    JSPM_LOADER="$JSPM_DIR/node_modules/@jspm/resolve/loader.mjs"
     if [ ! -f "$JSPM_LOADER" ]; then
       echo "jspm resolver not found."
       exit 1
@@ -123,27 +123,105 @@ ret=$?
 exit $ret
 `;
 
-// TODO: update win bins to use same logic as above
+// Note cannot set locals in loops in batch files!
 const localWinBin = (binModulePath: string) => `@setlocal
-@for %%X in (jspm) do @(set JSPM_PATH=%%~dp$PATH:X)
-@if "%JSPM_PATH%"=="" (
-  @echo jspm not found in path, make sure it is installed.
+@set PACKAGE_SCOPE="%cd%"
+:scopeloop
+@if not exist %PACKAGE_SCOPE%\\package.json (
+  @for %%n in (%PACKAGE_SCOPE%\\..) do @(
+    @if "%%~fn"=="%PACKAGE_SCOPE%" (
+      @set PACKAGE_SCOPE=""
+      @goto scopedone
+    )
+    @set PACKAGE_SCOPE=%%~fn
+    @goto scopeloop
+  )
+)
+:scopedone
+
+@set JSPM_LOADER=""
+@for /d %%n in ("%PACKAGE_SCOPE%\\jspm_packages\\npm\\@jspm\\resolve@*") do @(
+  @set JSPM_LOADER=%%~fn\\loader.mjs
+)
+@if "%JSPM_LOADER%" == "" (
+  @for %%X in (jspm) do @(
+    @for /d %%n in ("%%~dp$PATH:X..\\npm\\@jspm\\resolve@*") do @(
+      @set JSPM_LOADER=%%~fn\\loader.mjs
+    )
+  )
+)
+@if not exist "%JSPM_LOADER%" (
+  @for %%X in (jspm) do @(
+    @set JSPM_LOADER=%%~dp$PATH:Xnode_modules\\jspm\\node_modules\\@jspm\\resolve\\loader.mjs
+  )
+)
+@if not exist "%JSPM_LOADER%" (
+  @for %%X in (jspm) do @(
+    @set JSPM_LOADER=%%~dp$PATH:Xnode_modules\\@jspm\\resolve\\loader.mjs
+  )
+)
+@if not exist "%JSPM_LOADER%" (
+  @echo jspm resolver not found.
   @exit /B 1
 )
-@for /F %%X in ('jspm resolve @jspm/resolve/loader.mjs jspm -p . %JSPM_PATH%\\') do @(set JSPM_LOADER=%%X)
-@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_LOADER:\\=/%"
+@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "file:///%JSPM_LOADER:\\=/%"
 @set JSPM_BIN=local
 @node "%~dp0\\..\\${binModulePath}" %*
 `;
 
 const globalWinBin = (binModulePath: string) => `@setlocal
+@set PACKAGE_SCOPE="%cd%"
+:scopeloop
+@if not exist %PACKAGE_SCOPE%\\package.json (
+  @for %%n in (%PACKAGE_SCOPE%\\..) do @(
+    @if "%%~fn"=="%PACKAGE_SCOPE%" (
+      @set PACKAGE_SCOPE=""
+      @goto scopedone
+    )
+    @set PACKAGE_SCOPE=%%~fn
+    @goto scopeloop
+  )
+)
+:scopedone
+
+@if exist "%PACKAGE_SCOPE%/jspm_packages/.bin/%~nx0" (
+  "%PACKAGE_SCOPE%/jspm_packages/.bin/%~nx0"
+)
+LOCAL_BIN="$PACKAGE_SCOPE/jspm_packages/.bin/$(basename $0)"
+if [ ! -z $PACKAGE_SCOPE ] && [ -f "$LOCAL_BIN" ]; then
+  $LOCAL_BIN
+  ret=$?
+  exit $ret
+fi
+
+@set JSPM_LOADER=""
+@for %%X in (jspm) do @(
+  @for /d %%n in ("%%~dp$PATH:X..\\npm\\@jspm\\resolve@*") do @(
+    @set JSPM_LOADER=%%~fn\\loader.mjs
+  )
+)
+@if "%JSPM_LOADER%" == "" (
+  @for %%X in (jspm) do @(
+    @set JSPM_LOADER=%%~dp$PATH:Xnode_modules\\jspm\\node_modules\\@jspm\\resolve\\loader.mjs
+  )
+)
+@if not exist "%JSPM_LOADER%" (
+  @for %%X in (jspm) do @(
+    @set JSPM_LOADER=%%~dp$PATH:Xnode_modules\\@jspm\\resolve\\loader.mjs
+  )
+)
+@if not exist "%JSPM_LOADER%" (
+  @echo jspm resolver not found.
+  @exit /B 1
+)
+
 @for %%X in (jspm) do @(set JSPM_PATH=%%~dp$PATH:X)
 @if "%JSPM_PATH%"=="" (
   @echo jspm not found in path, make sure it is installed.
   @exit /B 1
 )
-@for /F %%X in ('jspm resolve @jspm/resolve/loader.mjs jspm -p . %JSPM_PATH%\\') do @(set JSPM_LOADER=%%X)
-@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "/%JSPM_LOADER:\\=/%"
+
+@set NODE_OPTIONS=--experimental-modules --no-warnings --loader "file:///%JSPM_LOADER:\\=/%"
 @set JSPM_BIN=global
 @node "%~dp0\\..\\${binModulePath}" %*
 `;

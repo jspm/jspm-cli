@@ -14,20 +14,24 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-const { sep } = require('path');
-const { getPackageScope } = require('../lib/utils/common');
+if (!process.env.JSPM_BIN) {
+  const { sep } = require('path');
+  const { getPackageScope } = require('../lib/utils/common');
+  const { existsSync } = require('fs');
+  const scope = getPackageScope(process.cwd() + sep);
+  const localBinary = scope + sep + 'jspm_packages' + sep + '.bin' + sep + 'jspm' + (process.platform === 'win32' ? '.cmd' : '');
+  if (scope && existsSync(localBinary)) {
+    const ps = require('child_process').spawn(localBinary, process.argv.slice(2), { stdio: 'inherit' });
+    ps.on('exit', code => process.exit(code));
+    ps.on('error', err => {
+      console.error(err);
+      process.exit(1);
+    });
+    return;
+  }
+}
 
-// the first project only gets to determine the jspm version
-const args = process.argv.slice(2);
-let cwdArgIndex = args.indexOf('-p');
-if (cwdArgIndex === -1)
-  cwdArgIndex = args.indexOf('--project');
-if (cwdArgIndex !== -1)
-  process.chdir(args[cwdArgIndex + 1]);
-
-const projectPath = getPackageScope(process.cwd() + sep) || process.cwd();
 const { default: cli } = require('../lib/cli');
-
 process.once('unhandledRejection', err => {
   console.error(err);
   process.exit(1);
@@ -41,5 +45,5 @@ process.once('SIGTERM', () => {
   process.exit(1);
 });
 
-cli([projectPath], process.argv[2], process.argv.slice(3))
+cli([], process.argv[2], process.argv.slice(3))
 .then(() => process.exit(), _err => process.exit(1));

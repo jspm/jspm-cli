@@ -19,7 +19,7 @@ import fs = require('fs');
 import path = require('path');
 import process = require('process');
 import * as api from './api';
-import { bold, highlight, JspmUserError, readModuleEnv, isWindows, isURL } from './utils/common';
+import { bold, highlight, JspmUserError, readModuleEnv, isWindows, isURL, getPackageScope } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
@@ -100,6 +100,9 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
           args.splice(i--, 1);
         break;
       }
+    }
+    if (!projectPaths.length) {
+      projectPaths = [getPackageScope(process.cwd() + path.sep)];
     }
 
     const multiProject = projectPaths.length > 1;
