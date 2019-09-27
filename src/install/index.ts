@@ -396,10 +396,15 @@ export class Installer {
       if (install.name && !install.name.match(validAliasRegEx))
         throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
       this.installs.add('|' + install.name);
-      if (typeof install.target === 'string')
+      if (typeof install.target === 'string') {
+        if (install.type !== DepType.dev) {
+          this.project.log.warn(`Dependency ${bold(install.name)} is installed to checkout source ${highlight(install.target)} but it is not a ${bold('devDependency')}. It is advisable to only install such non-reproducible sources in devDependencies.`)
+        }
         return this.resourceInstall(<ResourceInstall>install);
-      else
+      }
+      else{
         return this.packageInstall(<PackageInstall>install);
+      }
     }));
 
     for (const pkgName of this.checkoutWarnings) {

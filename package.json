@@ -11,7 +11,6 @@
     "git-credential-node": "^1.1.0",
     "graceful-fs": "^4.2.2",
     "https-proxy-agent": "^2.2.2",
-    "jspm": "file:./",
     "liftoff": "^2.5.0",
     "micromatch": "^3.1.10",
     "mkdirp": "~0.5.1",
@@ -53,6 +52,7 @@
     "@types/node": "^8.10.54",
     "@types/tar-fs": "^1.16.1",
     "babel-plugin-transform-cjs-dew": "github:jspm/babel-plugin-transform-cjs-dew",
+    "jspm": "file:./",
     "mocha": "^4.1.0",
     "rollup-plugin-jspm": "github:jspm/rollup-plugin-jspm",
     "typescript": "^3.6.3"
