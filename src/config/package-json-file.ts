@@ -16,9 +16,10 @@
 import ConfigFile, { ValueType } from './config-file';
 import * as path from 'path';
 import { PackageConfig, DepType, PackageTarget, processPackageTarget,
-    serializePackageTargetCanonical, resourceInstallRegEx, parsePackageName, processPackageConfig } from '../install/package';
+    serializePackageTargetCanonical, parsePackageName, processPackageConfig } from '../install/package';
 import { Project } from '../project';
 import { bold } from '../utils/common';
+import { normalizeResourceTarget } from '../install/source';
 
 export default class PackageJson extends ConfigFile {
   private jspmPrefix: boolean;
@@ -178,14 +179,8 @@ export default class PackageJson extends ConfigFile {
     this.overrides = [];
     if (overrides) {
       Object.keys(overrides).forEach(name => {
-        let target;
-        if (name.match(resourceInstallRegEx)) {
-          target = name;
-        }
-        else {
-          const pkgName = parsePackageName(name);
-          target = new PackageTarget(pkgName.registry, pkgName.name, pkgName.version);
-        }
+        const pkgName = parsePackageName(name);
+        const target = new PackageTarget(pkgName.registry, pkgName.name, pkgName.version);
         this.overrides.push({
           target,
           override: processPackageConfig(overrides[name]),
@@ -248,6 +243,15 @@ export default class PackageJson extends ConfigFile {
       this.prefixedSetValue(['private'], this.private);
     }
 
+    const matchesPreviousTarget = (dependencies: Record<string, string>, name: string, previousTarget: string | PackageTarget) => {
+      if (!dependencies)
+        return false;
+      const target = processPackageTarget(name, dependencies[name], this.project.defaultRegistry);
+      if (typeof target === 'string')
+        return normalizeResourceTarget(target, this.project.projectPath, this.project.projectPath) === previousTarget.toString();
+      return target.toString() === previousTarget.toString();
+    };
+
     const dependencies = {};
     const peerDependencies = {};
     const devDependencies = {};
@@ -256,26 +260,26 @@ export default class PackageJson extends ConfigFile {
       const { type, target } = this.dependencies[dep];
       switch (type) {
         case DepType.primary:
-          if (this._dependencies && target.toString() === this._dependencies[dep])
+          if (matchesPreviousTarget(this._dependencies, dep, target))
             dependencies[dep] = this._dependencies[dep];
           else
             dependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.peer:
-          if (this._peerDependencies && target.toString() === this._peerDependencies[dep])
-            dependencies[dep] = this._peerDependencies[dep];
+            if (matchesPreviousTarget(this._peerDependencies, dep, target))
+            peerDependencies[dep] = this._peerDependencies[dep];
           else
             peerDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.dev:
-          if (this._devDependencies && target.toString() === this._devDependencies[dep])
-            dependencies[dep] = this._devDependencies[dep];
+            if (matchesPreviousTarget(this._devDependencies, dep, target))
+            devDependencies[dep] = this._devDependencies[dep];
           else
             devDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
         case DepType.optional:
-          if (this._optionalDependencies && target.toString() === this._optionalDependencies[dep])
-            dependencies[dep] = this._optionalDependencies[dep];
+            if (matchesPreviousTarget(this._optionalDependencies, dep, target))
+            optionalDependencies[dep] = this._optionalDependencies[dep];
           else
             optionalDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
         break;
