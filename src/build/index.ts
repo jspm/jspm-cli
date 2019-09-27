@@ -19,7 +19,7 @@ import terserPlugin = require('rollup-plugin-terser');
 import rimraf = require('rimraf');
 import mkdirp = require('mkdirp');
 import { ModuleFormat, OutputChunk } from 'rollup';
-import { bold, winSepRegEx, highlight, readJSONSync, getPackageScope } from '../utils/common';
+import { bold, winSepRegEx, highlight, readJSONSync, getPackageScope, JspmUserError } from '../utils/common';
 import path = require('path');
 import { ok, info, warn } from '../utils/ui';
 import process = require('process');
@@ -70,8 +70,7 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   }
   else {
     if (input.length === 0) {
-      warn(`No inputs provided to build.`);
-      return;
+      throw new JspmUserError(`No inputs provided to build.`);
     }
     inputObj = {};
     for (const module of <string[]>input) {

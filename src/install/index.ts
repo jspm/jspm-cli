@@ -129,13 +129,16 @@ export class Installer {
       throw new JspmUserError('Installer can only install a single top-level install operation at once.');    
   }
 
-  async update (selectors: string[], opts: InstallOptions) {
+  async update (selectors: string[], opts: InstallOptions, primaryTypeChange?: DepType) {
     let updateInstalls: Install[] = [];
     selectors.forEach(selector => {
       let matches = this.installTree.select(selector);
       if (!matches.length)
         throw new JspmUserError(`Package ${bold(selector)} is not an installed package.`);
       if (matches.length > 1) {
+        if (matches.some(match => !match.parent))
+          matches = matches.filter(match => !match.parent);
+
         // if a secondary, ensure that they all coalesce to the same package
         let primary = false;
         let exactNames = [];
@@ -175,7 +178,7 @@ export class Installer {
         const parentRanges = this.primaryRanges[install.name];
         if (!parentRanges)
           throw new JspmUserError(`Unable to detect an install range for ${bold(install.name)}.`);
-        install.type = parentRanges.type;
+        install.type = primaryTypeChange !== undefined ? primaryTypeChange : parentRanges.type;
         install.target = parentRanges.target;
       }
       else {
@@ -185,7 +188,8 @@ export class Installer {
           throw new JspmUserError(`Unable to detect an install range for ${bold(install.name)} in ${highlight(install.parent)}.`);
       }
     });
-    opts.latest = true;
+    if (!opts.lock)
+      opts.latest = true;
     return this.install(updateInstalls, opts);
   }
 

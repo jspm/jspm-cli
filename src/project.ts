@@ -31,6 +31,7 @@ import { dispose as cjsConvertDispose, init as cjsConvertInit } from './compile/
 import { Install, InstallOptions, Installer } from './install';
 import { runCmd } from './utils/run-cmd';
 import { JSPM_GLOBAL_PATH } from './api';
+import { DepType } from './install/package';
 
 export type Hook = 'preinstall' | 'postinstall';
 
@@ -239,10 +240,10 @@ export class Project {
   /*
    * Main API methods
    */
-  async update (selectors: string[], opts: InstallOptions) {
+  async update (selectors: string[], opts: InstallOptions, updateDepType?: DepType) {
     const taskEnd = this.log.taskStart('Updating...');
     try {
-      var changed = await this.installer.update(selectors, opts);
+      var changed = await this.installer.update(selectors, opts, updateDepType);
     }
     finally {
       taskEnd();

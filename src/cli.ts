@@ -30,6 +30,7 @@ import { readJSONStyled, defaultStyle, serializeJson } from './config/config-fil
 import publish from './install/publish';
 import { getBin } from './install/bin';
 import { spawn } from 'child_process';
+import { normalizeResourceTarget } from './install/source';
 
 const installEqualRegEx = /^([@\-_\.a-z\d\/]+)=/i;
 
@@ -172,7 +173,7 @@ ${bold('Build')}
     --format commonjs|system|amd   Set the output module format for the build
     --external <name>|<map.json>   Define build external boundary and aliases
     --hash-entries                 Use hash file names for the entry points
-    --exclude-deps                 Treat project dependencies as externals
+    --include-deps                 Don't set project dependencies as externals
     --clear-dir                    Clear the output directory before building
     --source-map                   Output source maps
     --banner <file>|<source>       Provide a banner for the build files
@@ -311,17 +312,17 @@ ${bold('Command Flags')}
       case 't':
       case 'trace': {
         let options;
-        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps', 'exclude-deps'], ['out']));
+        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps', 'include-deps'], ['out']));
         for (const projectPath of projectPaths) {
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
 
           // NB: local map should be included in this in the exclude case still
-          const map = (options.excludeDeps || options.deps) ? {} : await api.map(project, options);
+          const map = (!options.includeDeps || options.deps) ? {} : await api.map(project, options);
 
           if (!args.length)
             throw new JspmUserError('Trace requires a list of module names to trace.');
 
-          const traced = await api.trace(project, map, process.cwd(), args, options.excludeDeps || options.deps);
+          const traced = await api.trace(project, map, process.cwd(), args, !options.includeDeps || options.deps);
 
           if (options.deps) {
             const deps = new Set();
@@ -489,7 +490,7 @@ ${bold('Command Flags')}
           }
           else if (args.length === 1) {
             const linkSource = 'file:' + path.resolve(args[0]);
-            const target = await resolveSource(linkSource, project.projectPath, project.projectPath);
+            const target = normalizeResourceTarget(linkSource, project.projectPath, project.projectPath);
             await project.install([{
               name: undefined,
               parent: undefined,
@@ -519,12 +520,26 @@ ${bold('Command Flags')}
         let { options, args: selectors } = readOptions(args, [
           // install options
           'force',
-          'latest'
+          'lock',
+          'dev',
+          'save-dev',
+          'peer',
+          'optional',
+          'primary'
           ], [], ['override']);
+        let depType: DepType;
+        if (options.dev || options.saveDev)
+          depType = DepType.dev;
+        else if (options.peer)
+          depType = DepType.peer;
+        else if (options.optional)
+          depType = DepType.optional;
+        else if (options.primary)
+          depType = DepType.primary;
         await Promise.all(projectPaths.map(async projectPath => {
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
           projects.push(project);
-          await project.update(selectors, options);
+          await project.update(selectors, options, depType);
         }));
       }
       break;
@@ -676,7 +691,7 @@ ${bold('Command Flags')}
               options.external = external;
             }
           }
-          if (options.excludeDeps) {
+          if (!options.includeDeps) {
             options.external = options.external || {};
             const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
             projects.push(project);

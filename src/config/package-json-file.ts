@@ -244,7 +244,7 @@ export default class PackageJson extends ConfigFile {
     }
 
     const matchesPreviousTarget = (dependencies: Record<string, string>, name: string, previousTarget: string | PackageTarget) => {
-      if (!dependencies)
+      if (!dependencies || !dependencies[name])
         return false;
       const target = processPackageTarget(name, dependencies[name], this.project.defaultRegistry);
       if (typeof target === 'string')
