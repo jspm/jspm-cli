@@ -173,6 +173,7 @@ ${bold('Build')}
     --format commonjs|system|amd   Set the output module format for the build
     --external <name>|<map.json>   Define build external boundary and aliases
     --hash-entries                 Use hash file names for the entry points
+    --optimize                     Enable JS build optimization
     --include-deps                 Don't set project dependencies as externals
     --clear-dir                    Clear the output directory before building
     --source-map                   Output source maps
@@ -619,6 +620,7 @@ ${bold('Command Flags')}
             'show-graph',
             'source-map',
             'watch',
+            'optimize',
             'exclude-deps',
             'hash-entries',
             'out', // out can also be boolean

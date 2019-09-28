@@ -398,7 +398,7 @@ export function processPackageConfig (pcfg: any) {
  * but let's see how far we get avoiding this
  */
 const fileInstallRegEx = /^(\.[\/\\]|\.\.[\/\\]|\/|\\|~[\/\\])/;
-export function processPackageTarget (depName: string, depTarget: string, defaultRegistry = '', rangeConversion = false): string | PackageTarget {
+export function processPackageTarget (depName: string | null, depTarget: string, defaultRegistry = '', rangeConversion = false): string | PackageTarget {
   const registryIndex = depTarget.indexOf(':');
   /*
    * File install sugar cases:
@@ -426,8 +426,14 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
     version = depTarget.substr(versionIndex + 1);
   }
   else if (registryIndex === -1) {
-    name = depName;
-    version = depTarget.substr(registryIndex + 1);
+    if (depName) {
+      name = depName;
+      version = depTarget.substr(registryIndex + 1);
+    }
+    else {
+      name = depTarget.split('/').pop();
+      version = '*';
+    }
   }
   else {
     name = depTarget.substr(registryIndex + 1);
@@ -455,7 +461,7 @@ export function processPackageTarget (depName: string, depTarget: string, defaul
   if (registryIndex === -1 && name.indexOf('/') !== -1 && name[0] !== '@')
     return 'git+ssh://github.com/' + name + (version === '*' ? '' : '#' + version);
   else if (registry === 'github')
-    return 'git+ssh://github.com/' + name.slice(Number(name[7] === '@')) + (version === '*' ? '' : '#' + version);
+    return 'git+ssh://github.com/' + name.slice(Number(name[0] === '@')) + (version === '*' ? '' : '#' + version);
 
   const targetNameLen = name.split('/').length;
   if (targetNameLen > 2)

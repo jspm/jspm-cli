@@ -21,7 +21,7 @@ import { Semver, SemverRange } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, validateOverride, readPackageConfig } from './package';
-import { JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx, isDir } from '../utils/common';
+import { JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx, isDir, validPkgNameRegEx } from '../utils/common';
 import fs = require('graceful-fs');
 import rimraf = require('rimraf');
 import globalOverrides from '../overrides';
@@ -379,23 +379,24 @@ export class Installer {
 
     // install in parallel
     await Promise.all(installs.map(install => {
-      if (typeof install.target === 'string')
-        install.target = processPackageTarget(install.name || getResourceName(install.target, this.project.projectPath), install.target, this.project.defaultRegistry);
-
       // auto-generate name from target if necessary
       if (!install.name) {
         if (typeof install.target !== 'string') {
-          const idx = install.target.name.lastIndexOf(':') + 1;
-          const substr = install.target.name.substr(idx);
-          if (substr.match(validAliasRegEx))
-            install.name = substr;
-          else
-            install.name = substr.split('/').pop();
+          install.name = install.target.name;
         }
         else {
-          // install.name = getResourceName(install.target, this.project.projectPath);
+          const urlIndex = install.target.indexOf(':');
+          let targetName = install.target;
+          if (urlIndex !== -1)
+            targetName = targetName.slice(urlIndex + 1);
+          install.name = targetName.match(validAliasRegEx) ? targetName : targetName.split('/').pop();
+          if (install.name.indexOf('/') !== -1 && install.name.lastIndexOf('/') == install.name.indexOf('/') && install.name[0] !== '@')
+            install.name = '@' + install.name;
         }
       }
+
+      if (typeof install.target === 'string')
+        install.target = processPackageTarget(null, install.target, this.project.defaultRegistry);
 
       if (install.name && !install.name.match(validAliasRegEx))
         throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);

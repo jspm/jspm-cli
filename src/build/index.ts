@@ -44,6 +44,7 @@ export interface BuildOptions {
   target?: boolean | string[];
   hashEntries?: boolean;
   mapBase?: string;
+  optimize: boolean;
 }
 
 export async function build (input: string[] | Record<string,string>, opts: BuildOptions): Promise<ImportMap> {
@@ -112,7 +113,8 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       projectPath: opts.projectPath || process.cwd(),
       externals: opts.external,
       env: opts.env
-    })]
+    })],
+    treeshake: opts.optimize ? true : false
   };
 
   if (opts.minify) {
