@@ -31,7 +31,7 @@ if (!process.env.JSPM_BIN) {
   }
 }
 
-const { default: cli } = require('../lib/cli');
+const { default: cli } = require('../dist/cli');
 process.once('unhandledRejection', err => {
   console.error(err);
   process.exit(1);

@@ -8,3 +8,5 @@ test/fixtures/install-basic/jspm_packages
 test/fixtures/install-basic/jspm.json
 todo.txt
 scripts
+dist
+lib
