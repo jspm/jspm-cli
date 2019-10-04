@@ -590,7 +590,7 @@ ${bold('Command Flags')}
             'hash-entries',
             'out', // out can also be boolean
             'minify'
-          ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
+          ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in', 'custom-plugins'], ['external', 'banner']);
           if (options.out && projectPaths.length > 1)
               throw new JspmUserError(`${bold('jspm build --out')} does not support execution in multiple projects.`);
           if (options.node)
@@ -680,6 +680,16 @@ ${bold('Command Flags')}
           }
           else if (options.out) {
             options.mapBase = path.dirname(path.resolve(options.out));
+          }
+
+          if (options.customPlugins) {
+            const pluginsFile = path.resolve(options.customPlugins);
+            if (!fs.existsSync(pluginsFile))
+              throw new JspmUserError(`Custom plugins file ${path.relative(process.cwd(), pluginsFile)} for build not found.`);
+            const customPlugins = require(pluginsFile);
+            if (typeof customPlugins !== "function")
+              hrow new JspmUserError(`Custom plugins file ${path.relative(process.cwd(), pluginsFile)} for build is invalid.`);
+            options.customPlugins = customPlugins(options, buildArgs);
           }
           let outMap = await api.build(buildArgs, options);
 
