@@ -45,6 +45,7 @@ export interface BuildOptions {
   target?: boolean | string[];
   hashEntries?: boolean;
   mapBase?: string;
+  customPlugins?: [];
 }
 
 export async function build (input: string[] | Record<string,string>, opts: BuildOptions): Promise<ImportMap> {
@@ -116,6 +117,10 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
       env: opts.env
     })]
   };
+
+  if (opts.customPlugins) {
+    rollupOptions.plugins = rollupOptions.plugins.concat(opts.customPlugins);
+  }
 
   if (opts.minify) {
     rollupOptions.plugins.push(terserPlugin.terser({
