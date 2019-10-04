@@ -688,7 +688,7 @@ ${bold('Command Flags')}
               throw new JspmUserError(`Custom plugins file ${path.relative(process.cwd(), pluginsFile)} for build not found.`);
             const customPlugins = require(pluginsFile);
             if (typeof customPlugins !== "function")
-              hrow new JspmUserError(`Custom plugins file ${path.relative(process.cwd(), pluginsFile)} for build is invalid.`);
+              throw new JspmUserError(`Custom plugins file ${path.relative(process.cwd(), pluginsFile)} for build is invalid.`);
             options.customPlugins = customPlugins(options, buildArgs);
           }
           let outMap = await api.build(buildArgs, options);
