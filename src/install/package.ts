@@ -420,6 +420,12 @@ export function validateOverride (pcfg: PackageConfig, name: string) {
 }
 
 export function processPackageConfig (pcfg: PackageConfig, partial = false, registry = ''): ProcessedPackageConfig {
+  if (pcfg.jspm && (pcfg.jspm.dependencies || pcfg.jspm.devDependencies || pcfg.jspm.peerDependencies || pcfg.jspm.optionalDependencies)) {
+    pcfg.dependencies = pcfg.jspm.dependencies || {};
+    pcfg.devDependencies = pcfg.jspm.devDependencies || {};
+    pcfg.peerDependencies = pcfg.jspm.peerDependencies || {};
+    pcfg.optionalDependencies = pcfg.jspm.optionalDependencies || {};
+  }
   const processed: ProcessedPackageConfig = processPjsonConfig(pcfg);
   if (processed.peerDependencies)
     delete processed.peerDependencies;
