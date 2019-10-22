@@ -22,7 +22,7 @@ import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, validateOverride, readPackageConfig } from './package';
 import { JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx, isDir, validPkgNameRegEx } from '../utils/common';
-import fs = require('graceful-fs');
+import * as fs from 'fs';
 import rimraf = require('rimraf');
 import globalOverrides from '../overrides';
 import { isCheckoutSource, normalizeResourceTarget, readGitSource } from './source';
@@ -731,7 +731,7 @@ export class Installer {
         if (existingSource.source === source)
           return;
         if (isCheckoutSource(existingSource.source)) {
-          this.project.log.warn(`Conflicting checkouts for ${highlight(resolvedPkgName)}. Checking out as ${existingSource.source}, but ${resource.parent} installs as ${source}.`);
+          this.project.log.warn(`Conflicting checkouts for ${highlight(resolvedPkgName)}. Checking out as ${existingSource.source}, but ${resource.parent} installed as ${source}.`);
           return;
         }
       }

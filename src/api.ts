@@ -13,7 +13,11 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-export const version = require('../package.json').version;
+import * as fs from 'fs';
+import gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(fs);
+
+export const version = require('.././package.json').version;
 import { JSPM_CONFIG_DIR } from './utils/common';
 
 export * from './project';
@@ -22,6 +26,7 @@ export { map, filterMap, renormalizeMap, trace } from './map';
 import { exec as execFunc, run as runFunc } from './exec';
 import path = require('path');
 export { build } from './build';
+export { buildPackage } from './build/package-build';
 
 export async function resolve (name: string, parent?: string, targets?: any) {
   const jspmResolve = require('@jspm/resolve');

@@ -9,18 +9,21 @@
     "node-gyp": "^4.0.0",
     "worker-farm": "^1.7.0"
   },
+  "directories": {
+    "publish": "dist",
+    "build": "dist"
+  },
   "bin": {
-    "jspm": "bin/jspm"
+    "jspm": "./bin/jspm"
   },
   "scripts": {
     "compile": "tsc -p .",
-    "build": "jspm build ./lib/cli.js ./lib/api.js ./lib/compile/dew-worker.js -f cjs --node -d dist --clear-dir",
+    "build": "jspm build --node",
     "test": "mocha -u tdd --timeout 60000",
     "gitbook": "gitbook build docs"
   },
   "files": [
-    "bin",
-    "lib"
+    "lib/api.d.ts"
   ],
   "license": "Apache-2.0",
   "devDependencies": {
@@ -48,7 +51,7 @@
     "promise-retry": "^1.1.1",
     "proper-lockfile": "^2.0.1",
     "rimraf": "^2.7.1",
-    "rollup": "^1.21.4",
+    "rollup": "^1.23.0",
     "rollup-plugin-jspm": "github:jspm/rollup-plugin-jspm",
     "rollup-plugin-terser": "^4.0.4",
     "semver": "^5.7.1",

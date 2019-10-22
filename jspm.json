@@ -26,7 +26,7 @@
     "promise-retry": "npm:promise-retry@1.1.1",
     "proper-lockfile": "npm:proper-lockfile@2.0.1",
     "rimraf": "npm:rimraf@2.7.1",
-    "rollup": "npm:rollup@1.21.4",
+    "rollup": "npm:rollup@1.23.0",
     "rollup-plugin-jspm": "npm:rollup-plugin-jspm@1.1.0",
     "rollup-plugin-terser": "npm:rollup-plugin-terser@4.0.4",
     "semver": "npm:semver@5.7.1",
@@ -190,6 +190,9 @@
     },
     "npm:@types/estree@0.0.39": {
       "source": "https://registry.npmjs.org/@types/estree/-/estree-0.0.39.tgz#sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw=="
+    },
+    "npm:@types/node@12.7.11": {
+      "source": "https://registry.npmjs.org/@types/node/-/node-12.7.11.tgz#sha512-Otxmr2rrZLKRYIybtdG/sgeO+tHY20GxeDjcGmUnmmlCWyEnv2a2x1ZXBo3BTec4OiTXMQCiazB8NMBf0iRlFw=="
     },
     "npm:@types/node@12.7.8": {
       "source": "https://registry.npmjs.org/@types/node/-/node-12.7.8.tgz#sha512-FMdVn84tJJdV+xe+53sYiZS4R5yn1mAIxfj+DVoNiQjTYz1+OYmjwEZr1ev9nU0axXwda0QDbYl06QHanRVH3A=="
@@ -2066,6 +2069,14 @@
         "@types/estree": "npm:@types/estree@0.0.39",
         "acorn": "npm:acorn@7.1.0",
         "@types/node": "npm:@types/node@12.7.8"
+      }
+    },
+    "npm:rollup@1.23.0": {
+      "source": "https://registry.npmjs.org/rollup/-/rollup-1.23.0.tgz#sha512-/p72Z3NbHWV+Vi1p2X+BmPA3WqlZxpUqCy6E8U4crMohZnI+j9Ob8ZAfFyNfddT0LxgnJM0olO4mg+noH4SFbg==",
+      "resolve": {
+        "@types/estree": "npm:@types/estree@0.0.39",
+        "acorn": "npm:acorn@7.1.0",
+        "@types/node": "npm:@types/node@12.7.11"
       }
     },
     "npm:safe-buffer@5.1.2": {

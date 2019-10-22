@@ -209,6 +209,56 @@ export async function isDir (checkPath, statCache = _statCache): Promise<boolean
   }
 }
 
+export function dirWalk (dir: string, visit: (filePath: string, stats) => void | boolean | Promise<void | boolean>) {
+  return new Promise((resolve, reject) => {
+    let errored = false;
+    let cnt = 0;
+    visitFileOrDir(path.resolve(dir));
+    function handleError (err) {
+      if (!errored) {
+        errored = true;
+        reject(err);
+      }
+    }
+    function visitFileOrDir (fileOrDir) {
+      cnt++;
+      fs.stat(fileOrDir, async (err, stats) => {
+        if (err || errored)
+          return handleError(err);
+        let recurse = true;
+        try {
+          if (await visit(fileOrDir, stats))
+            recurse = false;
+        }
+        catch (err) {
+          return handleError(err);
+        }
+        if (stats.isDirectory() && recurse) {
+          fs.readdir(fileOrDir, (err, paths) => {
+            if (err || errored)
+              return handleError(err);
+            cnt--;
+            if (paths.length === 0 && !errored && cnt === 0)
+              return resolve();
+            paths.forEach(fileOrDirPath => visitFileOrDir(path.resolve(fileOrDir, fileOrDirPath)));
+          });
+        }
+        else if (!errored && --cnt === 0) {
+          resolve();
+        }
+      });
+    }
+  });
+}
+
+export function getUniqueName (name: string, suffix: string, existingNames: Record<string, any>) {
+  let uniqueName = name + suffix;
+  let counter = 0;
+  while (uniqueName in existingNames)
+    uniqueName = name + ++counter + suffix;
+  return uniqueName;
+}
+
 export function getPackageScope (resolved, statCache = _statCache) {
   const rootSeparatorIndex = resolved.indexOf(path.sep);
   let separatorIndex;

@@ -17,7 +17,7 @@
 import path = require('path');
 import * as api from '../api';
 import { JspmUserError, highlight, bold } from '../utils/common';
-import fs = require('graceful-fs');
+import * as fs from 'fs';
 import { runCmd } from '../utils/run-cmd';
 
 const nodePreGypRegEx = /^node-pre-gyp install(\s*--fallback-to-build|\s*--library=static_library)+?$/;

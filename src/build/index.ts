@@ -58,7 +58,8 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   let ext = opts.mjs ? '.mjs' : '.js';
 
-  if (opts.dir && opts.dir.endsWith('/'))
+  opts.dir = opts.dir || 'dist';
+  if (opts.dir.endsWith('/'))
     opts.dir = opts.dir.slice(0, -1);
 
   const isRecord = (x: typeof input): x is Record<string, string> => {
@@ -147,8 +148,8 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
 
   const build = await rollup.rollup(rollupOptions);
   if (opts.clearDir) {
-    rimraf.sync(opts.dir);
-    mkdirp.sync(opts.dir);
+    await new Promise((resolve, reject) => rimraf(opts.dir + '/*', err => err ? reject(err) : resolve()));
+    await new Promise((resolve, reject) => mkdirp(opts.dir, err => err ? reject(err) : resolve()));
   }
   const { output } = await build.write({
     entryFileNames: '[name]' + (opts.hashEntries ? '-[hash]' : '') + ext,
@@ -187,11 +188,15 @@ export async function build (input: string[] | Record<string,string>, opts: Buil
   filteredOutput.sort((a, b) => inputObjKeys.indexOf(a.name) - inputObjKeys.indexOf(b.name));
   
   for (const [index, key] of inputObjKeys.entries()) {
+    const resolvedInput = path.resolve(inputObj[key]);
     const resolvedFile = path.resolve(opts.dir, filteredOutput[index].fileName);
     let relMap = path.relative(mapBase, resolvedFile).replace(/\\/g, '/');
     if (!relMap.startsWith('../'))
       relMap = './' + relMap;
-    imports[inputObj[key]] = relMap;
+    let relInput = path.relative(mapBase, resolvedInput).replace(/\\/g, '/');
+    if (!relInput.startsWith('../'))
+      relInput = './' + relInput;
+    imports[relInput] = relMap;
   }
   return { imports };
 }

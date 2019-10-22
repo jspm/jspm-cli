@@ -13,12 +13,12 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-
+import * as api from './api';
 import * as ui from './utils/ui';
 import fs = require('fs');
 import path = require('path');
 import process = require('process');
-import * as api from './api';
+import './utils/common.js';
 import { bold, highlight, JspmUserError, readModuleEnv, isWindows, isURL, getPackageScope } from './utils/common';
 import globalConfig from './config/global-config-file';
 
@@ -639,7 +639,8 @@ ${bold('Command Flags')}
           if (options.electron)
             (options.env = options.env || {}).electron = true;
           options.basePath = path.resolve(projectPath);
-          options.dir = options.dir || 'dist';
+
+          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
 
           let inputMap, style;
           if (options.in)
@@ -673,7 +674,7 @@ ${bold('Command Flags')}
                 style = externalStyle;
               validateImportMap(path.relative(process.cwd(), externalsPath), externalMap);
               // scoped externals not currently supported, but could be (if thats even useful)
-              options.external = rebaseMap(externalMap, path.dirname(externalsPath), path.resolve(options.dir)).imports;            
+              options.external = rebaseMap(externalMap, path.dirname(externalsPath), path.resolve(options.dir || 'dist')).imports;
             }
             else {
               const external = {};
@@ -695,7 +696,6 @@ ${bold('Command Flags')}
           }
           if (!options.includeDeps) {
             options.external = options.external || {};
-            const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
             projects.push(project);
             for (const dep in project.config.pjson.dependencies) {
               const depType = project.config.pjson.dependencies[dep].type;
@@ -716,7 +716,8 @@ ${bold('Command Flags')}
           else if (options.out) {
             options.mapBase = path.dirname(path.resolve(options.out));
           }
-          let outMap = await api.build(buildArgs, options);
+
+          let outMap = await (buildArgs.length === 0 ? api.buildPackage(project, options) : api.build(buildArgs, options));
 
           if (absoluteMap)
             outMap = rebaseMap(outMap, options.mapBase, options.mapBase, true);

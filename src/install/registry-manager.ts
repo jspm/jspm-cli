@@ -19,7 +19,7 @@ import fs = require('graceful-fs');
 import path = require('path');
 import mkdirp = require('mkdirp');
 import { PackageName, ExactPackage, PackageConfig, parsePackageName, processPackageConfig, overridePackageConfig } from './package';
-import { JspmError, JspmUserError, sha256, md5, encodeInvalidFileChars, bold, highlight, underline, hasProperties, readJSON } from '../utils/common';
+import { JspmError, JspmUserError, sha256, md5, encodeInvalidFileChars, bold, highlight, underline, hasProperties, readJSON, dirWalk } from '../utils/common';
 import { readJSONStyled, writeJSONStyled, defaultStyle } from '../config/config-file';
 import Cache from '../utils/cache';
 import globalConfig from '../config/global-config-file';
@@ -633,45 +633,4 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
       logEnd();
     }
   }
-}
-
-function dirWalk (dir: string, visit: (filePath: string, stats, files?: string[]) => void | boolean | Promise<void | boolean>) {
-  return new Promise((resolve, reject) => {
-    let errored = false;
-    let cnt = 0;
-    visitFileOrDir(path.resolve(dir));
-    function handleError (err) {
-      if (!errored) {
-        errored = true;
-        reject(err);
-      }
-    }
-    function visitFileOrDir (fileOrDir) {
-      cnt++;
-      fs.stat(fileOrDir, async (err, stats) => {
-        if (err || errored)
-          return handleError(err);
-        try {
-          if (await visit(fileOrDir, stats))
-            return resolve();
-        }
-        catch (err) {
-          return handleError(err);
-        }
-        if (stats.isDirectory()) {
-          fs.readdir(fileOrDir, (err, paths) => {
-            if (err || errored)
-              return handleError(err);
-            cnt--;
-            if (paths.length === 0 && !errored && cnt === 0)
-              return resolve();
-            paths.forEach(fileOrDirPath => visitFileOrDir(path.resolve(fileOrDir, fileOrDirPath)));
-          });
-        }
-        else if (!errored && --cnt === 0) {
-          resolve();
-        }
-      });
-    }
-  });
 }
