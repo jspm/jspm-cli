@@ -27,8 +27,8 @@ if (!process.env.JSPM_BIN) {
       console.error(err);
       process.exit(1);
     });
+    return;
   }
-  return;
 }
 
 const { default: cli } = require('../lib/cli');

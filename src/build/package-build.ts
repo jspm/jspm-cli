@@ -93,7 +93,7 @@ export async function buildPackage (project: Project, opts: BuildOptions) {
   if (typeof outPjson.bin === 'object') {
     for (var p in outPjson.bin) {
       tryRenormalize(outPjson.bin, p);
-      const binPath = path.resolve(outPjson.bin[p]);
+      const binPath = path.resolve(opts.dir, outPjson.bin[p]);
       let source;
       try {
         source = fs.readFileSync(binPath);
@@ -162,4 +162,3 @@ export async function buildPackage (project: Project, opts: BuildOptions) {
   await writeJSONStyled(path.resolve(opts.dir, 'package.json'), outPjson, style);
   return map;
 }
-

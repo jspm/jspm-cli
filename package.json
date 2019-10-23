@@ -38,7 +38,7 @@
     "git-credential-node": "^1.1.0",
     "graceful-fs": "^4.2.2",
     "https-proxy-agent": "^2.2.2",
-    "jspm": "file:./",
+    "jspm": "file:./dist",
     "micromatch": "^3.1.10",
     "mkdirp": "~0.5.1",
     "mocha": "^4.1.0",

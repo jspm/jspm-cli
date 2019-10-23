@@ -1312,7 +1312,7 @@
       }
     },
     "npm:jspm@2.0.0-beta.7": {
-      "source": "file:",
+      "source": "file:dist",
       "resolve": {
         "jspm": "npm:jspm@2.0.0-beta.7",
         "@jspm/resolve": "npm:@jspm/resolve@1.0.0",
