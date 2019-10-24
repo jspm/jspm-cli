@@ -8,4 +8,4 @@ env:
     - JSPM_CI=1
 script:
   - npm run compile
-  - npm run test
+  - npx jspm run test
