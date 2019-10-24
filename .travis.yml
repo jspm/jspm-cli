@@ -1,10 +1,12 @@
 ---
 language: node_js
+node_js:
+  - '10'
 sudo: false
 env:
   global:
     - JSPM_SKIP_PROMPTS=true
     - JSPM_LOG=debug
-matrix:
-  include:
-    - node_js: '12'
+before_install:
+  - npm install
+  - npm run compile
