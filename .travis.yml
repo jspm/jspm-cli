@@ -2,11 +2,10 @@
 language: node_js
 node_js:
   - '10'
-sudo: false
 env:
   global:
     - JSPM_SKIP_PROMPTS=true
     - JSPM_LOG=debug
-before_install:
-  - npm install
+script:
   - npm run compile
+  - npm run test
