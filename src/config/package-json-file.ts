@@ -174,6 +174,12 @@ export default class PackageJson extends ConfigFile {
           target: processPackageTarget(dep, this._peerDependencies[dep], this.project.defaultRegistry, false)
         };
       });
+
+    for (let dep of Object.values(this.dependencies)) {
+      if (typeof dep.target === 'string' && dep.target.startsWith('file:')) {
+        dep.target = 'file:' + path.resolve(this.project.projectPath, dep.target.slice(5));
+      }
+    }
     
     const overrides = this.prefixedGetObject(['overrides']);
     this.overrides = [];

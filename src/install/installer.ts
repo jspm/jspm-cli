@@ -96,7 +96,7 @@ export async function createBins (project: Project, config: PackageConfig, resol
     const binDir = path.join(project.config.pjson.packages, '.bin');
     await new Promise((resolve, reject) => mkdirp(binDir, err => err ? reject(err) : resolve(binDir)));
     await Promise.all(Object.keys(config.bin).map(p => 
-      writeBinScripts(binDir, p, resolvedPkgName.replace(':', path.sep) + path.sep + config.bin[p])
+      writeBinScripts(binDir, p, resolvedPkgName.replace(':', path.sep) + path.sep + config.bin[p], false)
     ));
   }
 }

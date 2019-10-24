@@ -36,7 +36,7 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
   function getFlagMatch (arg, flags) {
     if (arg.startsWith('--')) {
       for (const flag of flags) {
-        if (arg.slice(2).startsWith(flag) && arg[flag.length + 2] === '=')
+        if (arg.slice(2).startsWith(flag) && (arg.length === flag.length + 2 || arg[flag.length + 2] === '='))
           return flag;
       }
     }

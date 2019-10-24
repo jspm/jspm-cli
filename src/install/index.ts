@@ -21,7 +21,7 @@ import { Semver, SemverRange } from 'sver';
 import path = require('path');
 import { PackageName, PackageTarget, ExactPackage, parseExactPackageName, serializePackageName, PackageConfig, DepType, Dependencies,
     ResolveTree, processPackageConfig, overridePackageConfig, processPackageTarget, validateOverride, readPackageConfig } from './package';
-import { JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx, isDir, validPkgNameRegEx } from '../utils/common';
+import { JspmUserError, bold, highlight, JspmError, isWindows, validAliasRegEx, isDir } from '../utils/common';
 import * as fs from 'fs';
 import rimraf = require('rimraf');
 import globalOverrides from '../overrides';
@@ -381,22 +381,16 @@ export class Installer {
     await Promise.all(installs.map(install => {
       // auto-generate name from target if necessary
       if (!install.name) {
-        if (typeof install.target !== 'string') {
+        if (typeof install.target !== 'string')
           install.name = install.target.name;
-        }
-        else {
-          const urlIndex = install.target.indexOf(':');
-          let targetName = install.target;
-          if (urlIndex !== -1)
-            targetName = targetName.slice(urlIndex + 1);
-          install.name = targetName.match(validAliasRegEx) ? targetName : targetName.split('/').pop();
-          if (install.name.indexOf('/') !== -1 && install.name.lastIndexOf('/') == install.name.indexOf('/') && install.name[0] !== '@')
-            install.name = '@' + install.name;
-        }
       }
 
-      if (typeof install.target === 'string')
+      if (typeof install.target === 'string') {
         install.target = processPackageTarget(null, install.target, this.project.defaultRegistry);
+        if (typeof install.target === 'string' && install.target.startsWith('file:')) {
+          install.target = 'file:' + path.resolve(install.target.slice(5));
+        }
+      }
 
       if (install.name && !install.name.match(validAliasRegEx))
         throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
@@ -414,7 +408,7 @@ export class Installer {
 
     for (const pkgName of this.checkoutWarnings) {
       if (!isCheckoutSource(this.sources[pkgName].source))
-        this.project.log.warn(`${highlight(pkgName)} is currently checked out, use -f to force install from registry.`);
+        this.project.log.warn(`${highlight(pkgName)} is currently checked out, but the lockfile expects the registry source, use -f to force install from registry.`);
     }
 
     await this.clean();
@@ -663,8 +657,10 @@ export class Installer {
               const invalidMsg = await checkCleanClone(existingPkg, pkgPath, url, ref);
               if (invalidMsg && !this.opts.force)
                 this.project.log.warn(invalidMsg);
-              if (!invalidMsg || !this.opts.force)
+              if (!invalidMsg || !this.opts.force) {
+                this.setResolution(resource, resource.target, existingResolution, existingResolved.source);
                 return;
+              }
             }
           }
         }
@@ -731,7 +727,7 @@ export class Installer {
         if (existingSource.source === source)
           return;
         if (isCheckoutSource(existingSource.source)) {
-          this.project.log.warn(`Conflicting checkouts for ${highlight(resolvedPkgName)}. Checking out as ${existingSource.source}, but ${resource.parent} installed as ${source}.`);
+          this.project.log.warn(`Conflicting checkouts for ${highlight(resolvedPkgName)}. Checking out as ${existingSource.source}, but ${resource.parent ? resource.parent + ' ' : ''}installed as ${source}.`);
           return;
         }
       }

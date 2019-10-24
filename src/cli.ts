@@ -490,12 +490,10 @@ ${bold('Command Flags')}
             await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
           }
           else if (args.length === 1) {
-            const linkSource = 'file:' + path.resolve(args[0]);
-            const target = normalizeResourceTarget(linkSource, project.projectPath, project.projectPath);
             await project.install([{
               name: undefined,
               parent: undefined,
-              target,
+              target: 'file:' + path.resolve(args[0]),
               type: DepType.primary
             }], options);
           }
@@ -557,7 +555,6 @@ ${bold('Command Flags')}
           // resolver options
           'latest', 'lock',
           ], [], ['override']);
-          
         await Promise.all(projectPaths.map(async projectPath => {
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
           projects.push(project);

@@ -63,10 +63,10 @@ export function readGitSource (source: string) {
 export function normalizeResourceTarget (source: string, packagePath: string, projectPath: string): string {
   if (source.startsWith('file:')) {
     let sourceProtocol = source.substr(0, 5);
-    let sourcePath = path.resolve(source.substr(5));
+    let sourcePath = path.resolve(projectPath, source.substr(5));
     
     // relative file path installs that are not for the top-level project are relative to their package real path
-    if (packagePath !== process.cwd()) {
+    if (packagePath !== projectPath) {
       if ((isWindows && (source[0] === '/' || source[0] === '\\')) ||
           sourcePath[0] === '.' && (sourcePath[1] === '/' || sourcePath[1] === '\\' || (
           sourcePath[1] === '.' && (sourcePath[2] === '/' || sourcePath[2] === '\\')))) {
@@ -414,8 +414,4 @@ export async function checkGitReference (packagePath: string): Promise<string[] 
 		[, remoteName] = line.match(/^\s*\[remote\s*"([^"]+)"\s*\]/) || [];
 	}
 	return remotes;
-}
-
-export async function setGitReference (repoPath: string, force: boolean): Promise<boolean> {
-
 }

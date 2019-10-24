@@ -61,13 +61,13 @@ suite('jspm install', () => {
 
   test('GitHub install', async () => {
     await curJob;
-    curJob = cliRun(projectPath, 'install', 'github:guybedford/require-css');
+    curJob = cliRun(projectPath, 'install', ['github:guybedford/require-css', '--dev']);
     await curJob;
   });
 
   test('Resource install', async () => {
     await curJob;
-    curJob = cliRun(projectPath, 'install', 'custom=git://github.com/guybedford/require-css');
+    curJob = cliRun(projectPath, 'install', ['custom=git://github.com/guybedford/require-css', '--dev']);
     await curJob;
   });
 
@@ -76,12 +76,10 @@ suite('jspm install', () => {
     curJob = cliRun(projectPath, 'install', []);
     await curJob;
     const lock = readLockfile();
-    const pjson = readPjson();
     assert.equal(lock.dependencies['npm:lodash@4.17.4'].source, 'https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae');
-    assert.equal(lock.dependencies['npm:require-css@master'].source, 'git://github.com/guybedford/require-css#214fadff4f9f5c650ebc5256e6fd88e9c602b010');
-    assert.ok(pjson.overrides['git://github.com/guybedford/require-css']);
+    assert.equal(lock.dependencies['npm:require-css@0.1.10'].source, 'git+ssh://github.com/guybedford/require-css');
   });
-  
+
   test('linking', async () => {
     await curJob;
     curJob = cliRun(projectPath, 'link', ['.']);
@@ -94,7 +92,7 @@ suite('jspm install', () => {
     await curJob;
     const pjson = readPjson();
     assert.equal(pjson.dependencies['mkdirp'], '~0.5.1');
-    assert.equal(Object.keys(pjson.overrides).find(name => name.indexOf('mkdirp') !== -1), undefined);
+    assert.ok(!pjson.overrides);
   });
 
   test('alias', async () => {

@@ -35,14 +35,25 @@ export async function setGlobalHead (gitPath: string, remote: string, ref: strin
   if (output && output.toString().trim().length)
     return false;
   await execGit(`remote set-url origin ${remote.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  await execGit(`fetch origin`, execOpts);
   await execGit(`checkout ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
   const headRef = toRef(await getHead(gitPath))
   if (headRef === ref)
     return true;
-  
-  // if a branch ref, update from remote
-  await execGit(`fetch origin ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
-  await execGit(`reset --hard origin ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  // determine if it is a branch or tag
+  const refOutput = await execGit(`show-ref ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  if (refOutput && refOutput.toString().indexOf('refs/tags') !== -1) {
+    // only way to ensure tag is recent is to delete it first!
+    await execGit(`tag -d ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+    await execGit(`fetch origin "+refs/tags/${ref.replace(/(['"()])/g, '\\\$1')}:refs/tags/${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+    await execGit(`reset --hard refs/tags/${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  }
+  else if (refOutput && refOutput.toString().indexOf('refs/heads') !== -1) {
+    await execGit(`reset --hard origin/${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  }
+  else {
+    await execGit(`reset --hard ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  }
   return true;
 }
 
@@ -52,7 +63,7 @@ export async function checkCleanClone (pkgName: string, gitPath: string, remote:
     killSignal: 'SIGKILL',
     maxBuffer: 100 * 1024 * 1024,
     cwd: gitPath
-  };
+  };  
   const output = await execGit('status --porcelain', execOpts);
   if (output && output.toString().trim().length)
     return `${highlight(pkgName)} has unsaved local git changes (use -f to clear):\n${output.toString().trim().replace(/\?\?/g, '-')}`;
