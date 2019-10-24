@@ -25,6 +25,10 @@ import { analyzeModuleSyntax } from "./esm-lexer";
 import jspmResolve = require('@jspm/resolve');
 const { builtins: jspmBuiltins } = jspmResolve;
 
+function applyMap (_map: string, _val: Object, _env?: Object): string {
+  return 'asdf';
+}
+
 const nodeCoreBrowserUnimplemented = {
   child_process: true, cluster: true, dgram: true, dns: true, fs: true, module: true, net: true, readline: true, repl: true, tls: true
 };
