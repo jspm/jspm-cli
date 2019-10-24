@@ -5,7 +5,7 @@
     "chalk": "^2.4.2",
     "jquery": "3.2.1",
     "jquery@3.2.1": "jquery@3.2.1",
-    "jspm": "file:C:\\Users\\Guy\\Projects\\jspm-cli",
+    "jspm": "file:../../..",
     "locash": "lodash@4.17.4",
     "lodash": "4.17.4",
     "lodash@4": "lodash@4.17.4",

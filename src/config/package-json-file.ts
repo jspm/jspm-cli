@@ -269,25 +269,25 @@ export default class PackageJson extends ConfigFile {
           if (matchesPreviousTarget(this._dependencies, dep, target))
             dependencies[dep] = this._dependencies[dep];
           else
-            dependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
+            dependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.projectPath, this.project.defaultRegistry);
         break;
         case DepType.peer:
             if (matchesPreviousTarget(this._peerDependencies, dep, target))
             peerDependencies[dep] = this._peerDependencies[dep];
           else
-            peerDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
+            peerDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.projectPath, this.project.defaultRegistry);
         break;
         case DepType.dev:
             if (matchesPreviousTarget(this._devDependencies, dep, target))
             devDependencies[dep] = this._devDependencies[dep];
           else
-            devDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
+            devDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.projectPath, this.project.defaultRegistry);
         break;
         case DepType.optional:
             if (matchesPreviousTarget(this._optionalDependencies, dep, target))
             optionalDependencies[dep] = this._optionalDependencies[dep];
           else
-            optionalDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.defaultRegistry);
+            optionalDependencies[dep] = serializePackageTargetCanonical(dep, target, this.project.projectPath, this.project.defaultRegistry);
         break;
       }
     }

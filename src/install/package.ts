@@ -16,7 +16,7 @@
 
 // collection of package handling helpers
 
-import { encodeInvalidFileChars, hasProperties, bold, JspmUserError, highlight, readJSON } from '../utils/common';
+import { encodeInvalidFileChars, hasProperties, bold, JspmUserError, highlight, readJSON, winSepRegEx } from '../utils/common';
 import { Semver, SemverRange } from 'sver';
 import convertRange = require('sver/convert-range');
 import crypto = require('crypto');
@@ -327,9 +327,18 @@ export interface PackageConfig {
   scripts: Record<string, string>;
 }
 
-export function serializePackageTargetCanonical (name: string, target: PackageTarget | string, defaultRegistry = '') {
-  if (typeof target === 'string')
+export function serializePackageTargetCanonical (name: string, target: PackageTarget | string, projectPath: string, defaultRegistry = '') {
+  if (typeof target === 'string') {
+    if (target.startsWith('file:')) {
+
+      const resolved = path.resolve(projectPath, target.slice(5));
+      let relResolved = path.relative(projectPath, resolved).replace(winSepRegEx, '/');
+      if (!relResolved.startsWith('../'))
+        relResolved = './' + relResolved;
+      return 'file:' + relResolved;
+    }
     return target;
+  }
   const registry = target.registry !== defaultRegistry ? target.registry + ':' : '';
   const pkgName = target.name[0] === '@' && target.registry !== defaultRegistry ? target.name.substr(1) : target.name;
   if (registry || target.name !== name)
