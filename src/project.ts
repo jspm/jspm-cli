@@ -25,7 +25,6 @@ import RegistryManager, { Registry } from './install/registry-manager';
 import Cache from './utils/cache';
 import globalConfig from './config/global-config-file';
 import FetchClass from './install/fetch';
-import { dispose as cjsConvertDispose, init as cjsConvertInit } from './compile/transform';
 
 // import { ExactPackage, PackageName, clearPackageCache } from './utils/package';
 import { Install, InstallOptions, Installer } from './install';
@@ -211,7 +210,6 @@ export class Project {
     // load registries upfront
     // (strictly we should save registry configuration when a new registry appears)
     this.registryManager.loadEndpoints();
-    cjsConvertInit();
 
     this.installer = new Installer(this);
   }
@@ -228,8 +226,7 @@ export class Project {
   dispose () {
     return Promise.all([
       this.config.dispose(),
-      this.registryManager.dispose(),
-      cjsConvertDispose()
+      this.registryManager.dispose()
     ]);
   }
 

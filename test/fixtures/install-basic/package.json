@@ -1,26 +1,23 @@
 {
   "name": "app",
   "dependencies": {
-    "@guybedford/require-css": "github:guybedford/require-css@~0.1.10",
+    "@guybedford/require-css": "git+ssh://github.com/guybedford/require-css",
     "babel-core": "^6.26.3",
     "chalk": "^2.4.2",
     "custom": "git://github.com/guybedford/require-css",
     "jquery": "3.2.1",
-    "jspm": "link:../../../",
+    "jquery@3.2.1": "jquery@3.2.1",
+    "jspm": "file:../../../",
     "locash": "lodash@4.17.4",
     "lodash": "4.17.4",
     "lodash@4": "lodash@4.17.4",
+    "lodash@4.17.4": "lodash@4.17.4",
     "mkdirp": "~0.5.1",
-    "require-css": "github:guybedford/require-css@~0.1.10"
+    "require-css": "github:guybedford/require-css@0.1.10"
   },
   "devDependencies": {
-    "@jspm/core": "^1.0.4"
+    "@jspm/core": "^1.0.4",
+    "rollup": "^1.25.2"
   },
-  "type": "module",
-  "overrides": {
-    "git://github.com/guybedford/require-css": {
-      "registry": "npm",
-      "version": "master"
-    }
-  }
+  "type": "module"
 }

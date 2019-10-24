@@ -18,21 +18,6 @@ import path = require('path');
 import chalk from 'chalk';
 import os = require('os');
 
-export function readModuleEnv (opts) {
-  let env;
-  if (opts.browser)
-    (env = env || {}).browser = true;
-  if (opts.bin)
-    (env = env || {}).bin = true;
-  if (opts['react-native'])
-    (env = env || {})['react-native'] = true;
-  if (opts.production)
-    (env = env || {}).production = true;
-  if (opts.electron)
-    (env = env || {}).electron = true;
-  return env;
-}
-
 export const HOME_DIR = os.homedir();
 
 export const JSPM_LEGACY_CONFIG_DIR = path.resolve(process.env.JSPM_GLOBAL_PATH || process.env.LOCALAPPDATA || process.env.HOME || process.env.HOMEPATH, '.jspm');

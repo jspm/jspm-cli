@@ -19,7 +19,7 @@ import fs = require('fs');
 import path = require('path');
 import process = require('process');
 import './utils/common.js';
-import { bold, highlight, JspmUserError, readModuleEnv, isWindows, isURL, getPackageScope } from './utils/common';
+import { bold, highlight, JspmUserError, isWindows, isURL, getPackageScope } from './utils/common';
 import globalConfig from './config/global-config-file';
 
 import { DepType } from './install/package';
@@ -182,7 +182,7 @@ ${bold('Build')}
 ${/*jspm inspect (TODO)            Inspect the installation constraints of a given dependency */''}
 ${bold('Inspect')}
   jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
-    --browser|bin                  Resolve a module name in a conditional env
+    --env=browser                  Resolve a module name in a conditional env
     --relative                     Output the path relative to the current cwd
   jspm trace <module>+             Trace a module graph
   jspm trace --deps <module>+      Trace the dependencies of modules
@@ -399,9 +399,9 @@ ${bold('Command Flags')}
       case 're':
       case 'resolve': {
         let options;
-        ({ args, options } = readOptions(args, ['format', 'browser', 'react-native', 'production', 'electron', 'relative']));
+        ({ args, options } = readOptions(args, ['format'], ['env']));
 
-        let env = readModuleEnv(options);
+        let env = (options.env || '').split(',');
         let err = undefined;
 
         for (const projectPath of projectPaths) {
@@ -616,7 +616,6 @@ ${bold('Command Flags')}
           let { options, args: buildArgs } = readOptions(args, [
             'clear-dir',
             'mjs',
-            'node', 'bin', 'react-native', 'production', 'electron',
             'show-graph',
             'source-map',
             'watch',
@@ -625,19 +624,11 @@ ${bold('Command Flags')}
             'hash-entries',
             'out', // out can also be boolean
             'minify'
-          ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
+          ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */ 'in', 'env'], ['external', 'banner']);
+          if (options.env)
+            options.env = options.env.split(',');
           if (options.out && projectPaths.length > 1)
               throw new JspmUserError(`${bold('jspm build --out')} does not support execution in multiple projects.`);
-          if (options.node)
-            (options.env = options.env || {}).node = true;
-          if (options.bin)
-            (options.env = options.env || {}).bin = true;
-          if (options['react-native'])
-            (options.env = options.env || {})['react-native'] = true;
-          if (options.production)
-            (options.env = options.env || {}).production = true;
-          if (options.electron)
-            (options.env = options.env || {}).electron = true;
           options.basePath = path.resolve(projectPath);
 
           const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });

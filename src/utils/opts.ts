@@ -34,12 +34,11 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
   let curOptionFlag, curOptionFlagGreedy;
 
   function getFlagMatch (arg, flags) {
-    let index;
-
     if (arg.startsWith('--')) {
-      index = flags.indexOf(arg.substr(2));
-      if (index !== -1)
-        return flags[index];
+      for (const flag of flags) {
+        if (arg.slice(2).startsWith(flag) && arg[flag.length + 2] === '=')
+          return flag;
+      }
     }
     else if (arg.startsWith('-')) {
       return flags.filter(function(f) {
@@ -59,7 +58,13 @@ export function readOptions (inArgs: string[], boolFlags: string[], optFlags: st
     else if (flag = getFlagMatch(arg, optFlags)) {
       curOptionFlagGreedy = false;
       let opts = options.options[dashedToCamelCase(flag)] = [];
-      if (arg.length > 2 && arg[1] !== '-') {
+      if (arg[1] === '=') {
+        options.options[dashedToCamelCase(flag)].push(arg.slice(2));
+      }
+      else if (arg[flag.length + 2] === '=') {
+        options.options[dashedToCamelCase(flag)].push(arg.slice(flag.length + 3));
+      }
+      else if (arg.length > 2 && arg[1] !== '-') {
         opts.push(arg.substr(2));
         curOptionFlag = undefined;
       }

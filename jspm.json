@@ -1,12 +1,10 @@
 {
   "resolve": {
-    "@babel/core": "npm:@babel/core@7.6.2",
     "@jspm/core": "npm:@jspm/core@1.0.4",
     "@jspm/npm": "npm:@jspm/npm@1.0.1",
     "@jspm/resolve": "npm:@jspm/resolve@1.0.0",
     "@types/node": "npm:@types/node@8.10.54",
     "@types/tar-fs": "npm:@types/tar-fs@1.16.1",
-    "babel-plugin-transform-cjs-dew": "npm:babel-plugin-transform-cjs-dew@1.0.2",
     "buffer-peek-stream": "npm:buffer-peek-stream@1.0.1",
     "chalk": "npm:chalk@2.4.2",
     "git-credential-node": "npm:git-credential-node@1.1.0",
@@ -35,8 +33,7 @@
     "sver": "npm:sver@1.8.3",
     "tar-fs": "npm:tar-fs@2.0.0",
     "typescript": "npm:typescript@3.6.3",
-    "which": "npm:which@1.3.1",
-    "worker-farm": "npm:worker-farm@1.7.0"
+    "which": "npm:which@1.3.1"
   },
   "dependencies": {
     "npm:@babel/code-frame@7.5.5": {
@@ -1312,7 +1309,7 @@
       }
     },
     "npm:jspm@2.0.0-beta.7": {
-      "source": "file:dist",
+      "source": "file:",
       "resolve": {
         "jspm": "npm:jspm@2.0.0-beta.7",
         "@jspm/resolve": "npm:@jspm/resolve@1.0.0",

@@ -26,7 +26,6 @@ import globalConfig from '../config/global-config-file';
 import { Logger, input, confirm } from '../project';
 import { downloadSource, isCheckoutSource, readGitSource } from '../install/source';
 import FetchClass, { Fetch, GetCredentials, Credentials } from './fetch';
-import { transformPackage, transformConfig } from '../compile/transform';
 import { runBinaryBuild } from './binary-build';
 import { Readable } from 'stream';
 import { setGlobalHead, isGitRepo } from './git';
@@ -494,8 +493,6 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
         ({ config, override } = overridePackageConfig(config, override));
         hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
       }
-      if (!checkoutSource)
-        transformConfig(config);
       const dir = path.join(this.cacheDir, 'packages', hash);
       const verifyState = await this.verifyInstallDir(dir, hash, source, mtime, fullVerification);
       if (verifyState > VerifyState.INVALID) {
@@ -525,8 +522,6 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
             ({ config, override } = overridePackageConfig(config, override));
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           }
-          if (!checkoutSource)
-            transformConfig(config);
           const dir = path.join(this.cacheDir, 'packages', hash);
           const verifyState = await this.verifyInstallDir(dir, hash, source, mtime, fullVerification);
           if (verifyState > VerifyState.INVALID)
@@ -561,8 +556,6 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
               ({ config, override } = overridePackageConfig(pjsonConfig, override));
             else
               config = pjsonConfig;
-            if (!checkoutSource)
-              transformConfig(config);
             hash = sourceHash + (override ? md5(JSON.stringify(override)) : '');
           }
 
@@ -574,10 +567,6 @@ This may be from a previous jspm version and can be removed with ${bold(`jspm co
 
           if (!checkoutSource) {
             await runBinaryBuild(this.util.log, dlDir, config.name, config.scripts);
-
-            // run package conversion into _esm
-            // (on any subfolder containing a "type": "commonjs")
-            await transformPackage(this.util.log, dlDir, config.name, config);
           }
 
           // to bump the directory mtime reliably, we create a temporary file and delete it again

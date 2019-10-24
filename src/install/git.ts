@@ -42,7 +42,7 @@ export async function setGlobalHead (gitPath: string, remote: string, ref: strin
   
   // if a branch ref, update from remote
   await execGit(`fetch origin ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
-  await execGit(`reset --hard origin/${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
+  await execGit(`reset --hard origin ${ref.replace(/(['"()])/g, '\\\$1')}`, execOpts);
   return true;
 }
 

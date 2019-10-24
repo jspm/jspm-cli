@@ -67,12 +67,8 @@ suite('jspm install', () => {
 
   test('Resource install', async () => {
     await curJob;
-    curJob = cliRun(projectPath, 'install', 'custom=git://github.com/guybedford/require-css -o registry=npm version=master');
+    curJob = cliRun(projectPath, 'install', 'custom=git://github.com/guybedford/require-css');
     await curJob;
-    const pjson = readPjson();
-    assert.ok(pjson.overrides['git://github.com/guybedford/require-css']);
-    assert.equal(pjson.overrides['git://github.com/guybedford/require-css'].registry, 'npm');
-    assert.equal(pjson.overrides['git://github.com/guybedford/require-css'].version, 'master');
   });
 
   test('lock install', async () => {

@@ -6,8 +6,7 @@
   "types": "lib/api.d.ts",
   "dependencies": {
     "@jspm/core": "git+ssh://github.com/jspm/core",
-    "node-gyp": "^4.0.0",
-    "worker-farm": "^1.7.0"
+    "node-gyp": "^4.0.0"
   },
   "directories": {
     "publish": "dist",
@@ -27,18 +26,16 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/core": "^7.6.2",
     "@jspm/npm": "github:jspm/npm",
     "@jspm/resolve": "github:jspm/jspm-resolve",
     "@types/node": "^8.10.54",
     "@types/tar-fs": "^1.16.1",
-    "babel-plugin-transform-cjs-dew": "github:jspm/babel-plugin-transform-cjs-dew",
     "buffer-peek-stream": "^1.0.1",
     "chalk": "^2.4.2",
     "git-credential-node": "^1.1.0",
     "graceful-fs": "^4.2.2",
     "https-proxy-agent": "^2.2.2",
-    "jspm": "file:./dist",
+    "jspm": "file:./",
     "micromatch": "^3.1.10",
     "mkdirp": "~0.5.1",
     "mocha": "^4.1.0",

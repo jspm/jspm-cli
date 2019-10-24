@@ -22,7 +22,8 @@ import { URL } from 'url';
 import { resolveIfNotPlainOrUrl } from "./common";
 import fs = require('graceful-fs');
 import { analyzeModuleSyntax } from "./esm-lexer";
-import { builtins as jspmBuiltins } from '../compile/dew-resolve';
+import jspmResolve = require('@jspm/resolve');
+const { builtins: jspmBuiltins } = jspmResolve;
 
 const nodeCoreBrowserUnimplemented = {
   child_process: true, cluster: true, dgram: true, dns: true, fs: true, module: true, net: true, readline: true, repl: true, tls: true
