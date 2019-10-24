@@ -11,7 +11,7 @@
     "lodash@4": "lodash@4.17.4",
     "lodash@4.17.4": "lodash@4.17.4",
     "mkdirp": "~0.5.1",
-    "undefined": "babel-core@^6.26.3"
+    "undefined": "mkdirp@~0.5.1"
   },
   "devDependencies": {
     "@guybedford/require-css": "git+ssh://github.com/guybedford/require-css",

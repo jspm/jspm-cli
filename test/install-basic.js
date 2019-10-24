@@ -77,7 +77,7 @@ suite('jspm install', () => {
     await curJob;
     const lock = readLockfile();
     assert.equal(lock.dependencies['npm:lodash@4.17.4'].source, 'https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae');
-    assert.equal(lock.dependencies['npm:require-css@0.1.10'].source, 'git+ssh://github.com/guybedford/require-css');
+    assert.equal(lock.dependencies['npm:require-css@0.1.10'].source, (process.env.JSPM_CI ? 'git+https:' : 'git+ssh:') + '//github.com/guybedford/require-css');
   });
 
   test('linking', async () => {
