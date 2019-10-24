@@ -5,7 +5,7 @@
   "main": "lib/api.js",
   "types": "lib/api.d.ts",
   "dependencies": {
-    "@jspm/core": "git+ssh://github.com/jspm/core",
+    "@jspm/core": "github:jspm/core",
     "node-gyp": "^4.0.0"
   },
   "directories": {
