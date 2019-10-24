@@ -4,8 +4,8 @@ node_js:
   - '10'
 env:
   global:
-    - JSPM_SKIP_PROMPTS=true
     - JSPM_LOG=debug
+    - JSPM_CI=1
 script:
   - npm run compile
   - npm run test

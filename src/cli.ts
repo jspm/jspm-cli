@@ -123,9 +123,9 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
       if (typeof logLevel === 'number')
         ui.setLogLevel(logLevel);
     }
-    if (process.env.JSPM_SKIP_PROMPTS && process.env.JSPM_SKIP_PROMPTS !== '0' && process.env.JSPM_SKIP_PROMPTS !== 'false') {
+    if (process.env.JSPM_CI || process.env.JSPM_SKIP_PROMPTS && process.env.JSPM_SKIP_PROMPTS !== '0' && process.env.JSPM_SKIP_PROMPTS !== 'false') {
       ui.setUseDefaults(true);
-      userInput = true;
+      userInput = false;
     }
 
     switch (cmd) {

@@ -455,8 +455,8 @@ export function processPackageTarget (depName: string | null, depTarget: string,
 
   /*
    * GitHub installs target install sugars:
-   * a/b -> git+ssh://github.com/a/b
-   * github:a/b -> git+ssh://github.com/a/b
+   * a/b -> git+https://github.com/a/b
+   * github:a/b -> git+https://github.com/a/b
    */
   if (registryIndex === -1 && name.indexOf('/') !== -1 && name[0] !== '@')
     return 'git+ssh://github.com/' + name + (version === '*' ? '' : '#' + version);
