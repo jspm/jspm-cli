@@ -7,5 +7,4 @@ env:
     - JSPM_LOG=debug
 matrix:
   include:
-    - node_js: '10'
     - node_js: '12'
