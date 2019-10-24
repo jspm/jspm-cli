@@ -30,7 +30,6 @@ import { readJSONStyled, defaultStyle, serializeJson } from './config/config-fil
 import publish from './install/publish';
 import { getBin } from './install/bin';
 import { spawn } from 'child_process';
-import { normalizeResourceTarget } from './install/source';
 
 const installEqualRegEx = /^([@\-_\.a-z\d\/]+)=/i;
 

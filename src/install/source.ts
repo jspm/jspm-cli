@@ -22,7 +22,6 @@ import zlib = require('zlib');
 import peek = require('buffer-peek-stream');
 import fs = require('graceful-fs');
 import tar = require('tar-fs');
-import Stream = require('stream');
 import execGit from '../utils/exec-git';
 import path = require('path');
 
@@ -249,6 +248,7 @@ async function fetchRemoteTarball (log: Logger, fetch: FetchClass, source: strin
   ]);
 }
 
+/*
 async function extractLocalTarball (log: Logger, _fetch: FetchClass, source: string, outDir: string) {
   const { url, hashType, hash } = readSource(log, source);
 
@@ -307,6 +307,7 @@ async function extractLocalTarball (log: Logger, _fetch: FetchClass, source: str
     })
   ]);
 }
+*/
 
 const base64RegEx = /[a-z0-9+/]*={0,2}$/i;
 const hexRegEx = /[a-f0-9]*$/g;
