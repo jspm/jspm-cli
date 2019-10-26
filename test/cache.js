@@ -6,8 +6,8 @@ suite('Simple locking', () => {
 
   test('Lock', async () => {
     let step = 0;
-    let unlock = await core.lock('test', 1000);
-    let unlock2Promise = core.lock('test', 1000);
+    let unlock = await core.lock('test', 2000);
+    let unlock2Promise = core.lock('test', 2000);
     unlock2Promise.catch(() => {});
     let ps = [];
     for (let i = 0; i < 10; i++) {
@@ -19,7 +19,7 @@ suite('Simple locking', () => {
       ps.push(promise);
     }
 
-    let unlock3Promise = core.lock('test', 1000);
+    let unlock3Promise = core.lock('test', 2000);
     unlock3Promise.catch(() => {});
 
     assert.equal(step++, 0);
@@ -52,7 +52,7 @@ suite('Simple locking', () => {
 
     let unlock = await core.lock('test2', 1);
 
-    let lt2 = core.getUnlocked('test2', 1000)
+    let lt2 = core.getUnlocked('test2', 2000)
     .then(() => {
       assert.equal(++step > 0 && step < 3, true);
     }, () => {});
