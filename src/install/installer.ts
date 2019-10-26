@@ -114,8 +114,11 @@ async function clearPackage (project: Project, pkgName: string, pkgPath: string,
     }
   }
   else {
-    if (!linkPath.startsWith(project.cacheDir))
+    if (!linkPath.startsWith(project.cacheDir)) {
+      console.log(linkPath);
+      console.log(project.cacheDir);
       project.log.info(`Replacing custom symlink for ${highlight(pkgName)}.`);
+    }
     await new Promise((resolve, reject) => fs.unlink(pkgPath, err => err ? reject(err) : resolve()));
     return true;
   }
