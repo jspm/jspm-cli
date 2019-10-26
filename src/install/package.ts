@@ -468,9 +468,9 @@ export function processPackageTarget (depName: string | null, depTarget: string,
    * github:a/b -> git+https://github.com/a/b
    */
   if (registryIndex === -1 && name.indexOf('/') !== -1 && name[0] !== '@')
-    return (process.env.JSPM_CI ? 'git+https:' : 'git+ssh:') + '//github.com/' + name + (version === '*' ? '' : '#' + version);
+    return 'git+ssh://github.com/' + name + (version === '*' ? '' : '#' + version);
   else if (registry === 'github')
-    return (process.env.JSPM_CI ? 'git+https:' : 'git+ssh:') + '//github.com/' + name.slice(Number(name[0] === '@')) + (version === '*' ? '' : '#' + version);
+    return 'git+ssh://github.com/' + name.slice(Number(name[0] === '@')) + (version === '*' ? '' : '#' + version);
 
   const targetNameLen = name.split('/').length;
   if (targetNameLen > 2)

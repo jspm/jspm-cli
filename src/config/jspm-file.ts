@@ -33,15 +33,6 @@ export default class JspmCfg extends ConfigFile {
     this.lock();
     this.read();
     this.installed = new ResolveTree(this.getObject(['resolve']), this.getObject(['dependencies']));
-
-    // when running on CI, all git+ssh:// installs are written into git+https:// installs
-    if (process.env.JSPM_CI) {
-      for (const dep of Object.values(this.installed.dependencies)) {
-        if (dep.source.startsWith('git+ssh:')) {
-          dep.source = 'git+https:' + dep.source.slice(8);
-        }
-      }
-    }
   }
 
   dispose () {

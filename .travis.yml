@@ -5,6 +5,7 @@ node_js:
 env:
   global:
     - JSPM_CI=1
+    - JSPM_HTTPS_GIT=1
 script:
   - npm run compile
   - npm run test

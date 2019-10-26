@@ -124,6 +124,9 @@ export function downloadSource (log: Logger, fetch: FetchClass, source: string, 
 }
 
 async function gitCheckout (log: Logger, fetch: FetchClass, source: string, outDir: string, timeout: number) {
+  if (process.env.JSPM_HTTPS_GIT && source.startsWith('git+ssh'))
+    source = 'git+https' + source.slice(7);
+
   let { url, ref } = readGitSource(source);
 
   const local = url.startsWith('file:');
