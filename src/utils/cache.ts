@@ -49,9 +49,9 @@ export default class Cache {
     if (path.relative(this.basePath, resolved).indexOf(path.sep) !== -1)
       await new Promise((resolve, reject) => mkdirp(path.dirname(resolved), err => err ? reject(err) : resolve()));
     await new Promise((resolve, reject) => fs.writeFile(resolved, JSON.stringify(value), err => err ? reject(err) : resolve()));
-    await new Promise((resolve, reject) => lockfile.unlock(resolved, {
+    await lockfile.unlock(resolved, {
       realpath: false
-    }, err => err ? reject(err) : resolve()));
+    });
   }
   async del (cachePath: string) {
     const resolved = path.resolve(this.basePath, cachePath);
@@ -60,7 +60,7 @@ export default class Cache {
   async lock (cachePath: string, timeout = 3000): Promise<() => Promise<void>> {
     const resolved = path.resolve(this.basePath, cachePath);
     await new Promise((resolve, reject) => mkdirp(path.dirname(resolved), err => err ? reject(err) : resolve()));
-    const unlock = await new Promise<(cb: (err) => void) => void>((resolve, reject) => lockfile.lock(resolved, {
+    const unlock = await lockfile.lock(resolved, {
       stale: 30000,
       // exponential backoff of 5 checks from 200ms up to 3s
       // followed by a constant timeout check of 3 seconds
@@ -72,10 +72,8 @@ export default class Cache {
         minTimeout: 200,
         maxTimeout: 3000
       }
-    }, (err, unlock) => err ? reject(err) : resolve(unlock)));
-    return () => {
-      return new Promise((resolve, reject) => unlock(err => err ? reject(err) : resolve()));
-    };
+    });
+    return unlock;
   }
   // get, but only if unlocked, waiting on unlock
   // in fs terms between instances for specific unused scenarios this can be racy on a small margin,
@@ -83,7 +81,7 @@ export default class Cache {
   async getUnlocked (cachePath, timeout = 3000): Promise<any> {
     const resolved = path.resolve(this.basePath, cachePath);      
     await promiseRetry(async retry => {
-      const locked = await new Promise((resolve, reject) => lockfile.check(resolved, { realpath: false }, (err, locked) => err ? reject(err) : resolve(locked)));
+      const locked = await lockfile.check(resolved, { realpath: false });
       if (locked)
         retry(new Error(`Operation timeout.`));
     }, {
