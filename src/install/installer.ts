@@ -147,7 +147,7 @@ export async function getPackageLinkState (pkgPath: string): Promise<{
   try {
     return {
       exists: true,
-      linkPath: path.resolve(path.dirname(pkgPath), await new Promise((resolve, reject) => fs.readlink(pkgPath, (err, link) => err ? reject(err) : resolve(link))));
+      linkPath: path.resolve(path.dirname(pkgPath), await new Promise((resolve, reject) => fs.readlink(pkgPath, (err, link) => err ? reject(err) : resolve(link))))
     };
   }
   catch (e) {

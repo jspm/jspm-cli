@@ -4,7 +4,7 @@ node_js:
   - '12'
 env:
   global:
-    - JSPM_OPTIONS="--skip-prompts --log=debug"
+    - JSPM_OPTIONS="--skip-prompts"
 script:
   - npm run compile
   - npm run test
