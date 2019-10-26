@@ -114,11 +114,8 @@ async function clearPackage (project: Project, pkgName: string, pkgPath: string,
     }
   }
   else {
-    if (!linkPath.startsWith(project.cacheDir)) {
-      console.log(linkPath);
-      console.log(project.cacheDir);
+    if (!linkPath.startsWith(project.cacheDir))
       project.log.info(`Replacing custom symlink for ${highlight(pkgName)}.`);
-    }
     await new Promise((resolve, reject) => fs.unlink(pkgPath, err => err ? reject(err) : resolve()));
     return true;
   }
@@ -150,7 +147,7 @@ export async function getPackageLinkState (pkgPath: string): Promise<{
   try {
     return {
       exists: true,
-      linkPath: await new Promise((resolve, reject) => fs.readlink(pkgPath, (err, link) => err ? reject(err) : resolve(link)))
+      linkPath: path.resolve(path.dirname(pkgPath), await new Promise((resolve, reject) => fs.readlink(pkgPath, (err, link) => err ? reject(err) : resolve(link))));
     };
   }
   catch (e) {
