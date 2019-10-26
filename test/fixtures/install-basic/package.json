@@ -13,10 +13,10 @@
     "mkdirp": "~0.5.1"
   },
   "devDependencies": {
-    "@guybedford/require-css": "git+ssh://github.com/guybedford/require-css",
+    "@guybedford/require-css": "git+https://github.com/guybedford/require-css",
     "@jspm/core": "^1.0.4",
     "custom": "git://github.com/guybedford/require-css",
-    "require-css": "git+ssh://github.com/guybedford/require-css",
+    "require-css": "git+https://github.com/guybedford/require-css",
     "rollup": "^1.25.2"
   },
   "type": "module"

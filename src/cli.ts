@@ -59,6 +59,9 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
   try {
     let userInput = true, offline = false, preferOffline = false;
     // first read global options
+    const globalOpts = process.env.JSPM_OPTIONS ? process.env.JSPM_OPTIONS.split(' ') : [];
+    if (globalOpts)
+      args.splice(0, 0, ...globalOpts);
     outer: for (let i = 0; i < args.length; i++) {
       let arg = args[i];
       if (arg.startsWith('--log=')) {
@@ -110,27 +113,6 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
     }
 
     const multiProject = projectPaths.length > 1;
-
-    if (process.env.JSPM_OFFLINE) {
-      offline = true;
-    }
-    if (process.env.JSPM_PREFER_OFFLINE) {
-      preferOffline = true;
-    }
-    if (process.env.JSPM_PROJECT) {
-      setProjectPath = true;
-      projectPaths = (process.env.JSPM_PROJECT.match(/("[^"]+"|'[^']+'|[^ ]+)( |$)/g) || []).map(item => item.trim());
-    }
-    if (process.env.JSPM_LOG) {
-      const logLevelString = process.env.JSPM_LOG;
-      const logLevel = ui.LogType[logLevelString];
-      if (typeof logLevel === 'number')
-        ui.setLogLevel(logLevel);
-    }
-    if (process.env.JSPM_CI || process.env.JSPM_SKIP_PROMPTS && process.env.JSPM_SKIP_PROMPTS !== '0' && process.env.JSPM_SKIP_PROMPTS !== 'false') {
-      ui.setUseDefaults(true);
-      userInput = false;
-    }
 
     switch (cmd) {
       case undefined:
