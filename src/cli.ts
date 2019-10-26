@@ -60,7 +60,11 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
     let userInput = true, offline = false, preferOffline = false;
     // first read global options
     outer: for (let i = 0; i < args.length; i++) {
-      const arg = args[i];
+      let arg = args[i];
+      if (arg.startsWith('--log=')) {
+        args.splice(i + 1, 0, arg.slice(6));
+        arg = '--log';
+      }
       switch (arg) {
         case '-y':
         case '--skip-prompts':
@@ -78,12 +82,12 @@ export default async function cliHandler (projectPaths: string[], cmd: string, a
           }
           ui.setLogLevel(logLevel);
           args.splice(i, 2);
-          i -= 2;
+          i--;
         break;
         case '-g':
           setProjectPath = true;
           projectPaths = [api.JSPM_GLOBAL_PATH];
-          args.splice(i, 1);
+          args.splice(i--, 1);
         break;
         case '-p':
         case '--project':

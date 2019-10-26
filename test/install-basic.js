@@ -15,6 +15,11 @@ function readPjson () {
   return JSON.parse(fs.readFileSync(path.join(projectPath, 'package.json')));
 }
 
+try {
+  fs.unlinkSync(path.resolve(__dirname, './fixtures/install-basic/jspm.json'));
+}
+catch {}
+
 suite('jspm install', () => {
   let curJob;
   rimraf.sync('projectPath');

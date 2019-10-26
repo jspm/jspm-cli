@@ -379,12 +379,6 @@ export class Installer {
 
     // install in parallel
     await Promise.all(installs.map(install => {
-      // auto-generate name from target if necessary
-      if (!install.name) {
-        if (typeof install.target !== 'string')
-          install.name = install.target.name;
-      }
-
       if (typeof install.target === 'string') {
         install.target = processPackageTarget(null, install.target, this.project.defaultRegistry);
         if (typeof install.target === 'string' && install.target.startsWith('file:')) {
@@ -392,9 +386,18 @@ export class Installer {
         }
       }
 
-      if (install.name && !install.name.match(validAliasRegEx))
-        throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
-      this.installs.add('|' + install.name);
+      // auto-generate name from target if necessary
+      if (!install.name) {
+        if (typeof install.target !== 'string')
+          install.name = install.target.name;
+      }
+
+      if (install.name) {
+        if (!install.name.match(validAliasRegEx))
+          throw new JspmUserError(`Invalid name ${bold(install.name)} for install to ${highlight(install.target.toString())}`);
+        this.installs.add('|' + install.name);
+      }
+
       if (typeof install.target === 'string') {
         if (install.type !== DepType.dev) {
           this.project.log.warn(`Dependency ${bold(install.name)} is installed to checkout source ${highlight(install.target)} but it is not a ${bold('devDependency')}. It is advisable to only install such non-reproducible sources in devDependencies.`)
@@ -680,7 +683,7 @@ export class Installer {
     }
 
     let config, writePackage: (packageName: string) => Promise<boolean>, upgradePromise: Promise<void>, resolvedPkg: ExactPackage;
-    const resolvedPkgName = await (this.resourceInstalls[source] = (async () => {
+    const resolvedPkgName = await (this.resourceInstalls[source] = (async (): Promise<string> => {
       this.project.log.debug(`Installing resource ${resource.name}${resource.parent ? ` for ${resource.parent}` : ``} to ${source}.`);
   
       try {
@@ -720,20 +723,19 @@ export class Installer {
       }
 
       const resolvedPkgName = `${registry}:${name}@${version}`;
+      resolvedPkg = parseExactPackageName(resolvedPkgName);
 
       const existingSource = this.sources[resolvedPkgName];
       if (existingSource) {
         // a resource target can be source-installed
         if (existingSource.source === source)
-          return;
+          return resolvedPkgName;
         if (isCheckoutSource(existingSource.source)) {
           this.project.log.warn(`Conflicting checkouts for ${highlight(resolvedPkgName)}. Checking out as ${existingSource.source}, but ${resource.parent ? resource.parent + ' ' : ''}installed as ${source}.`);
-          return;
+          return resolvedPkgName;
         }
       }
       this.sources[resolvedPkgName] = { source, notedCheckout: false };
-
-      resolvedPkg = parseExactPackageName(resolvedPkgName);
 
       // upgrade promise could possibly return a boolean to indicate if any packages are locked to the old version
       // setPackageToOrphanedCheckout should throw for this case if existingPkg is a checkout on the filesystem

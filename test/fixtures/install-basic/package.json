@@ -10,8 +10,7 @@
     "lodash": "4.17.4",
     "lodash@4": "lodash@4.17.4",
     "lodash@4.17.4": "lodash@4.17.4",
-    "mkdirp": "~0.5.1",
-    "undefined": "mkdirp@~0.5.1"
+    "mkdirp": "~0.5.1"
   },
   "devDependencies": {
     "@guybedford/require-css": "git+ssh://github.com/guybedford/require-css",
