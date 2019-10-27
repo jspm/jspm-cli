@@ -125,7 +125,7 @@ async function setPackageToSymlink (project: Project, pkgName: string, _source: 
   const pkgPath = path.join(project.config.pjson.packages, pkgName.replace(':', path.sep));
   const { linkPath, exists } = await getPackageLinkState(pkgPath);
 
-  if (linkPath === symlinkPath + path.sep)
+  if (linkPath === symlinkPath)
     return false;
 
   if (exists) {

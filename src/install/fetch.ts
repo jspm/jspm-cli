@@ -204,7 +204,7 @@ export default class FetchClass {
       if (retryNum > 1)
         this.debugLog(`Fetch of ${url} failed, retrying (attempt ${retryNum})`);
       return this.doFetch(url, options);
-    }, options && options.retries);
+    }, options && options.retries || 3);
   }
 
   async doFetch (url: string, options?: FetchOptions) {
