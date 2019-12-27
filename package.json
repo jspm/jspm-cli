@@ -43,7 +43,8 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "test": "mocha -u tdd --timeout 60000",
+    "test": "tsc -p . && mocha -u tdd --timeout 60000",
+    "prepack": "tsc -p .",
     "gitbook": "gitbook build docs"
   },
   "files": [
@@ -52,7 +53,7 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/node": "^8.10.45",
+    "@types/node": "^10.17.13",
     "@types/tar-fs": "^1.16.1",
     "mocha": "^4.0.1",
     "typescript": "^3.5.2"

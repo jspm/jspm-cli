@@ -3,7 +3,7 @@
   "dependencies": {
     "@guybedford/require-css": "github:guybedford/require-css@~0.1.10",
     "babel-core": "^6.26.3",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "custom": "git://github.com/guybedford/require-css",
     "jquery": "3.2.1",
     "jspm": "link:../../../",
