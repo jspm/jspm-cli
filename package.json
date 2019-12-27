@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "description": "Universal ES Module Package Manager",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "main": "lib/api.js",
   "types": "lib/api.d.ts",
   "dependencies": {
@@ -30,7 +30,7 @@
     "rimraf": "^2.6.3",
     "rollup": "^1.11.3",
     "rollup-plugin-jspm": "^1.1.0",
-    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-terser": "^5.1.3",
     "semver": "^5.7.0",
     "spdx-license-list": "^6.0.0",
     "sver": "^1.8.2",

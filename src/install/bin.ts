@@ -68,6 +68,7 @@ const winBin = (binModulePath: string) => `@setlocal
 `;
 
 let _isCygwin;
+// @ts-ignore
 function isCygwin () {
   if (typeof _isCygwin === 'boolean')
     return _isCygwin;

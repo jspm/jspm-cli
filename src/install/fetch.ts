@@ -16,7 +16,7 @@
 
 import { Readable as ReadableStream } from 'stream';
 import nodeFetch from 'node-fetch';
-import HttpsProxyAgent from 'https-proxy-agent';
+import * as HttpsProxyAgent from 'https-proxy-agent';
 import { Agent as NodeAgent, AgentOptions } from 'https';
 import { hasProperties, retry, bold } from '../utils/common';
 import { URL, parse as parseURL } from 'url';
