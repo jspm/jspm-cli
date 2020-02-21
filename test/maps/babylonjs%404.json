@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babylonjs": "https://cdn.jspm.io/npm:babylonjs@4.0.3/babylon.js"
+  }
+}

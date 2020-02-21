@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lit-html": "https://cdn.jspm.io/npm:lit-html@1.1.2/lit-html.js"
+  }
+}

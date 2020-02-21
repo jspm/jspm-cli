@@ -3,9 +3,10 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "typeRoots": ["node_modules/@types"],
-    "module": "CommonJS",
-    "target": "esnext",
+    "module": "esnext",
+    "target": "es2017",
     "noImplicitAny": false,
+    "strictNullChecks": true,
     "sourceMap": true,
     "outDir": "lib",
     "declaration": true

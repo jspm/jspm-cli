@@ -1,0 +1,94 @@
+{
+  "imports": {
+    "@babel/core": "https://cdn.jspm.io/npm:@babel/core@7.8.4/lib/index.js",
+    "buffer": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/buffer.js",
+    "path": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/path.js",
+    "process": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://cdn.jspm.io/npm:@babel/code-frame@7.8.3/": {
+      "@babel/highlight/": "https://cdn.jspm.io/npm:@babel/highlight@7.8.3/"
+    },
+    "https://cdn.jspm.io/npm:@babel/core@7.8.4/": {
+      "@babel/code-frame/": "https://cdn.jspm.io/npm:@babel/code-frame@7.8.3/",
+      "@babel/core/": "https://cdn.jspm.io/npm:@babel/core@7.8.4/",
+      "@babel/generator/": "https://cdn.jspm.io/npm:@babel/generator@7.8.4/",
+      "@babel/helpers/": "https://cdn.jspm.io/npm:@babel/helpers@7.8.4/",
+      "@babel/parser/": "https://cdn.jspm.io/npm:@babel/parser@7.8.4/",
+      "@babel/template/": "https://cdn.jspm.io/npm:@babel/template@7.8.3/",
+      "@babel/traverse/": "https://cdn.jspm.io/npm:@babel/traverse@7.8.4/",
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/",
+      "convert-source-map/": "https://cdn.jspm.io/npm:convert-source-map@1.7.0/",
+      "debug/": "https://cdn.jspm.io/npm:debug@4.1.1/",
+      "gensync/": "https://cdn.jspm.io/npm:gensync@1.0.0-beta.1/",
+      "lodash/": "https://cdn.jspm.io/npm:lodash@4.17.15/",
+      "semver/": "https://cdn.jspm.io/npm:semver@5.7.1/",
+      "source-map/": "https://cdn.jspm.io/npm:source-map@0.5.7/"
+    },
+    "https://cdn.jspm.io/npm:@babel/generator@7.8.4/": {
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/",
+      "jsesc/": "https://cdn.jspm.io/npm:jsesc@2.5.2/",
+      "lodash/": "https://cdn.jspm.io/npm:lodash@4.17.15/",
+      "source-map/": "https://cdn.jspm.io/npm:source-map@0.5.7/"
+    },
+    "https://cdn.jspm.io/npm:@babel/helper-function-name@7.8.3/": {
+      "@babel/helper-get-function-arity/": "https://cdn.jspm.io/npm:@babel/helper-get-function-arity@7.8.3/",
+      "@babel/template/": "https://cdn.jspm.io/npm:@babel/template@7.8.3/",
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/"
+    },
+    "https://cdn.jspm.io/npm:@babel/helper-get-function-arity@7.8.3/": {
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/"
+    },
+    "https://cdn.jspm.io/npm:@babel/helper-split-export-declaration@7.8.3/": {
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/"
+    },
+    "https://cdn.jspm.io/npm:@babel/helpers@7.8.4/": {
+      "@babel/template/": "https://cdn.jspm.io/npm:@babel/template@7.8.3/",
+      "@babel/traverse/": "https://cdn.jspm.io/npm:@babel/traverse@7.8.4/",
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/"
+    },
+    "https://cdn.jspm.io/npm:@babel/highlight@7.8.3/": {
+      "chalk/": "https://cdn.jspm.io/npm:chalk@2.4.2/",
+      "esutils/": "https://cdn.jspm.io/npm:esutils@2.0.3/",
+      "js-tokens/": "https://cdn.jspm.io/npm:js-tokens@4.0.0/"
+    },
+    "https://cdn.jspm.io/npm:@babel/template@7.8.3/": {
+      "@babel/code-frame/": "https://cdn.jspm.io/npm:@babel/code-frame@7.8.3/",
+      "@babel/parser/": "https://cdn.jspm.io/npm:@babel/parser@7.8.4/",
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/"
+    },
+    "https://cdn.jspm.io/npm:@babel/traverse@7.8.4/": {
+      "@babel/code-frame/": "https://cdn.jspm.io/npm:@babel/code-frame@7.8.3/",
+      "@babel/generator/": "https://cdn.jspm.io/npm:@babel/generator@7.8.4/",
+      "@babel/helper-function-name/": "https://cdn.jspm.io/npm:@babel/helper-function-name@7.8.3/",
+      "@babel/helper-split-export-declaration/": "https://cdn.jspm.io/npm:@babel/helper-split-export-declaration@7.8.3/",
+      "@babel/parser/": "https://cdn.jspm.io/npm:@babel/parser@7.8.4/",
+      "@babel/types/": "https://cdn.jspm.io/npm:@babel/types@7.8.3/",
+      "debug/": "https://cdn.jspm.io/npm:debug@4.1.1/",
+      "globals/": "https://cdn.jspm.io/npm:globals@11.12.0/",
+      "lodash/": "https://cdn.jspm.io/npm:lodash@4.17.15/"
+    },
+    "https://cdn.jspm.io/npm:@babel/types@7.8.3/": {
+      "esutils/": "https://cdn.jspm.io/npm:esutils@2.0.3/",
+      "lodash/": "https://cdn.jspm.io/npm:lodash@4.17.15/",
+      "to-fast-properties/": "https://cdn.jspm.io/npm:to-fast-properties@2.0.0/"
+    },
+    "https://cdn.jspm.io/npm:ansi-styles@3.2.1/": {
+      "color-convert/": "https://cdn.jspm.io/npm:color-convert@1.9.3/"
+    },
+    "https://cdn.jspm.io/npm:chalk@2.4.2/": {
+      "ansi-styles/": "https://cdn.jspm.io/npm:ansi-styles@3.2.1/",
+      "escape-string-regexp/": "https://cdn.jspm.io/npm:escape-string-regexp@1.0.5/",
+      "supports-color/": "https://cdn.jspm.io/npm:supports-color@5.5.0/"
+    },
+    "https://cdn.jspm.io/npm:color-convert@1.9.3/": {
+      "color-name/": "https://cdn.jspm.io/npm:color-name@1.1.3/"
+    },
+    "https://cdn.jspm.io/npm:convert-source-map@1.7.0/": {
+      "safe-buffer/": "https://cdn.jspm.io/npm:safe-buffer@5.1.2/"
+    },
+    "https://cdn.jspm.io/npm:debug@4.1.1/": {
+      "ms/": "https://cdn.jspm.io/npm:ms@2.1.2/"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "imports": {
+    "material-ui/AppBar": "https://cdn.jspm.io/npm:material-ui@0.20.2/AppBar",
+    "material-ui/DatePicker": "https://cdn.jspm.io/npm:material-ui@0.20.2/DatePicker",
+    "material-ui/styles/MuiThemeProvider": "https://cdn.jspm.io/npm:material-ui@0.20.2/styles/MuiThemeProvider",
+    "react-dom/": "https://cdn.jspm.io/npm:react-dom@16.12.0/",
+    "react/": "https://cdn.jspm.io/npm:react@16.12.0/"
+  },
+  "scopes": {
+    "https://cdn.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/": "https://cdn.jspm.io/npm:core-js@2.6.11/"
+    },
+    "https://cdn.jspm.io/npm:css-in-js-utils@2.0.1/": {
+      "hyphenate-style-name/": "https://cdn.jspm.io/npm:hyphenate-style-name@1.0.3/"
+    },
+    "https://cdn.jspm.io/npm:inline-style-prefixer@3.0.8/": {
+      "bowser/": "https://cdn.jspm.io/npm:bowser@1.9.4/",
+      "css-in-js-utils/": "https://cdn.jspm.io/npm:css-in-js-utils@2.0.1/"
+    },
+    "https://cdn.jspm.io/npm:material-ui@0.20.2/": {
+      "babel-runtime/": "https://cdn.jspm.io/npm:babel-runtime@6.26.0/",
+      "inline-style-prefixer/": "https://cdn.jspm.io/npm:inline-style-prefixer@3.0.8/",
+      "keycode/": "https://cdn.jspm.io/npm:keycode@2.2.0/",
+      "lodash.merge/": "https://cdn.jspm.io/npm:lodash.merge@4.6.2/",
+      "lodash.throttle/": "https://cdn.jspm.io/npm:lodash.throttle@4.1.1/",
+      "prop-types/": "https://cdn.jspm.io/npm:prop-types@15.7.2/",
+      "react-event-listener/": "https://cdn.jspm.io/npm:react-event-listener@0.6.6/",
+      "react-transition-group/": "https://cdn.jspm.io/npm:react-transition-group@1.2.1/",
+      "recompose/": "https://cdn.jspm.io/npm:recompose@0.26.0/",
+      "simple-assign/": "https://cdn.jspm.io/npm:simple-assign@0.1.0/",
+      "warning/": "https://cdn.jspm.io/npm:warning@3.0.0/"
+    },
+    "https://cdn.jspm.io/npm:react-dom@16.12.0/": {
+      "object-assign/": "https://cdn.jspm.io/npm:object-assign@4.1.1/",
+      "scheduler/": "https://cdn.jspm.io/npm:scheduler@0.18.0/"
+    },
+    "https://cdn.jspm.io/npm:react-event-listener@0.6.6/": {
+      "@babel/runtime/": "https://cdn.jspm.io/npm:@babel/runtime@7.8.4/",
+      "prop-types/": "https://cdn.jspm.io/npm:prop-types@15.7.2/",
+      "warning/": "https://cdn.jspm.io/npm:warning@4.0.3/"
+    },
+    "https://cdn.jspm.io/npm:react-transition-group@1.2.1/": {
+      "chain-function/": "https://cdn.jspm.io/npm:chain-function@1.0.1/",
+      "prop-types/": "https://cdn.jspm.io/npm:prop-types@15.7.2/",
+      "warning/": "https://cdn.jspm.io/npm:warning@3.0.0/"
+    },
+    "https://cdn.jspm.io/npm:react@16.12.0/": {
+      "object-assign/": "https://cdn.jspm.io/npm:object-assign@4.1.1/"
+    },
+    "https://cdn.jspm.io/npm:recompose@0.26.0/": {
+      "fbjs/": "https://cdn.jspm.io/npm:fbjs@0.8.17/"
+    }
+  }
+}

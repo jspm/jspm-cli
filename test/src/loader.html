@@ -1,0 +1,10 @@
+<!doctype html>
+<script>
+  window.injectAndRunImportMap = map => {
+    document.body.appendChild(Object.assign(document.createElement('script'), {
+      type: 'importmap',
+      innerHTML: JSON.stringify(map)
+    }));
+    return specifier => import(specifier);
+  };
+</script>

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2014-2019 Guy Bedford (http://guybedford.com)
+ *   Copyright 2020 Guy Bedford
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -13,782 +13,293 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
+import { TraceMap } from './tracemap.js';
+import chalk from 'chalk';
+import * as fs from 'fs';
+import { pathToFileURL } from 'url';
+import ora from 'ora';
+import { logStream } from './log.js';
+import { clearCache } from './fetch.js';
 
-import * as ui from './utils/ui';
-import fs = require('fs');
-import path = require('path');
-import process = require('process');
-import * as api from './api';
-import { bold, highlight, JspmUserError, readModuleEnv, isWindows, isURL } from './utils/common';
-import globalConfig from './config/global-config-file';
+function writeUsage (cmd?: string) {
+  switch (cmd) {
+  case 'install': return console.log(`
+  jspm install [name]
+  
+  Options:
+    --import-map/-i            Set the path to the import map file
+  `);
+  case 'build': return console.log(`
+  jspm build x.js y.js
 
-import { DepType } from './install/package';
-import { readOptions, readValue, readPropertySetters } from './utils/opts';
-import { JSPM_GLOBAL_PATH } from './api';
-import { extend, flattenScopes, validateImportMap, rebaseMap } from './map/utils';
-import { readJSONStyled, defaultStyle, serializeJson } from './config/config-file';
-import publish from './install/publish';
-import { getBin } from './install/bin';
-import { spawn } from 'child_process';
-
-const installEqualRegEx = /^([@\-_\.a-z\d\/]+)=/i;
-
-function readTargetEquals (installArg: string) {
-  let name: string | undefined, target: string;
-
-  const match = installArg.match(installEqualRegEx);
-  if (match) {
-    name = match[1];
-    target = installArg.substr(name.length + 1);
+  Options
+    --debug [trace|install]    Enable the given debug log types
+  `);
   }
-  else {
-    target = installArg;
-  }
+  if (cmd) console.log(`Unknown command ${cmd}`);
+  const dirname = eval('__dirname');
+  const version = JSON.parse(fs.readFileSync(dirname + '/../package.json').toString()).version;
+  console.log(`
+  > https://jspm.io/cli#v${version} ▪ Browser package management
+  
+  Manage and optimize JS import maps workflows:
 
-  return { name, target };
+    jspm install [pkgName]?    Install a package into an import map
+    jspm optimize [module]+?   Optimize local browser modules
+
+    Options
+      --out/-o                 Set the output path
+      --import-map/-m          Set the path to the existing import map
+      --debug/-d [type,..]?    Display debugging logs
+
+  Use jspm help [install|optimize] for more info.
+`);
 }
 
-export default async function cliHandler (projectPaths: string[], cmd: string, args: string[]) {
-  if (typeof projectPaths === 'string')
-    projectPaths = [projectPaths];
-  if (typeof args === 'string')
-    args = (<string>args).split(' ');
-  
-  let setProjectPath = false;
-  const projects: api.Project[] = [];
-  try {
-    let userInput = true, offline = false, preferOffline = false;
-    // first read global options
-    outer: for (let i = 0; i < args.length; i++) {
-      const arg = args[i];
-      switch (arg) {
-        case '-y':
-        case '--skip-prompts':
-          args.splice(i--, 1);
-          ui.setUseDefaults(true);
-          userInput = false;
-        break;
-        case '-l':
-        case '--log':
-          const logLevelString = args[i + 1];
-          const logLevel = ui.LogType[logLevelString];
-          if (typeof logLevel !== 'number') {
-            ui.warn(`${bold(logLevelString)} is not a valid log level.`);
-            return process.exit(1);
-          }
-          ui.setLogLevel(logLevel);
-          args.splice(i, 2);
-          i -= 2;
-        break;
-        case '-g':
-          setProjectPath = true;
-          projectPaths = [api.JSPM_GLOBAL_PATH];
-          args.splice(i, 1);
-        break;
-        case '-p':
-        case '--project':
-          setProjectPath = true;
-          projectPaths = args.splice(i).slice(1);
-          break outer;
-        case '-q':
-        case '--prefer-offline':
-          preferOffline = true;
-          args.splice(i--, 1);
-        break;
-        case '--offline':
-          offline = true;
-          args.splice(i--, 1);
-        break;
-      }
-    }
-
-    const multiProject = projectPaths.length > 1;
-
-    if (process.env.JSPM_OFFLINE) {
-      offline = true;
-    }
-    if (process.env.JSPM_PREFER_OFFLINE) {
-      preferOffline = true;
-    }
-    if (process.env.JSPM_PROJECT) {
-      setProjectPath = true;
-      projectPaths = (process.env.JSPM_PROJECT.match(/("[^"]+"|'[^']+'|[^ ]+)( |$)/g) || []).map(item => item.trim());
-    }
-    if (process.env.JSPM_LOG) {
-      const logLevelString = process.env.JSPM_LOG;
-      const logLevel = ui.LogType[logLevelString];
-      if (typeof logLevel === 'number')
-        ui.setLogLevel(logLevel);
-    }
-    if (process.env.JSPM_SKIP_PROMPTS && process.env.JSPM_SKIP_PROMPTS !== '0' && process.env.JSPM_SKIP_PROMPTS !== 'false') {
-      ui.setUseDefaults(true);
-      userInput = true;
-    }
-
-    switch (cmd) {
-      case undefined:
-      case '-v':
-      case '--version':
-      case 'version':
-      case 'v':
-        console.log(api.version + '\n' +
-            (process.env.globalJspm === 'true' || process.env.localJspm === 'false'
-            ? 'Running against global jspm install.'
-            : 'Running against local jspm install.'));
-      break;
-
-      case 'h':
-      case 'help':
-        console.log(`${/*bold('Init')}
-  jspm init <path>?                 Initialize or validate a jspm project in the current directory
-
-${*/bold('📦  Install')}
-  jspm install [<registry>:]<pkg>[@<version>]
-  jspm install git:<path> | git+https:<path> | https:<path> | file:<path>
-  jspm install
-    --edge                         Install to latest unstable resolution
-    --lock                         Do not update any existing installs
-    --latest                       Resolve all packages to latest versions
-    --dev|peer|optional            Install a dev, peer or optional dependency
-    --override (-o) main=x.js      Provide a package.json property override
-
-  jspm update [<name>+]            Update packages within package.json ranges
-  jspm uninstall <name>+           Uninstall a top-level package
-  jspm clean                       Clear unused dependencies
-  jspm link [<name>] <source>      Link a custom source as a named package
-  jspm unlink [<name>]             Reinstall a package to its registry target
-  jspm checkout <name>+            Copy a package in jspm_packages to modify
-
-${bold('🔥  Execute')}
-  jspm <file>                      Execute a module with jspm module resolution
-  jspm run <name>                  Run package.json "scripts"
-  jspm bin <name> [-g]             Run an installed bin script
-    --cmd                          Output the bin script command w/o executing
-    --path [-g]                    Output the bin path
-
-${bold('🏭  Build')}
-  jspm build <entry>+ [-d <outdir>] [-o <buildmap.json>]
+/*
+CLI TODO:
+  jspm optimize <entry>+ [-d <outdir>] [-o <buildmap.json>]
     --format commonjs|system|amd   Set the output module format for the build
     --external <name>|<map.json>   Define build external boundary and aliases
     --hash-entries                 Use hash file names for the entry points
-    --exclude-deps                 Treat project dependencies as externals
+    --optimize                     Enable JS build optimization
+    --include-deps                 Don't set project dependencies as externals
     --clear-dir                    Clear the output directory before building
     --source-map                   Output source maps
     --banner <file>|<source>       Provide a banner for the build files
     --watch                        Watch build files for rebuild on change
-${/*jspm inspect (TODO)            Inspect the installation constraints of a given dependency */''}
-${bold('🔎  Inspect')}
+
   jspm resolve <module> [<parent>] Resolve a module name with the jspm resolver
-    --browser|bin                  Resolve a module name in a conditional env
     --relative                     Output the path relative to the current cwd
   jspm trace <module>+             Trace a module graph
   jspm trace --deps <module>+      Trace the dependencies of modules
-${/*jspm trace --format graph|text|csv|json (TODO)     Different output formats for trace*/''}
-${bold('🔗  Import Maps')}
-  jspm map -o importmap.json       Generates an import map for all dependencies
-  jspm map <module>+               Generate a import map for specific modules
-    --flat-scope                   Flatten scopes for Chrome compatibility
-    --map-base                     Output absolute paths relative to map base
-    --production                   Use production resolutions
-    --cdn                          Generate a import map against the jspm CDN
+*/
 
-${bold('🚢  Publish')}
-  jspm publish [<path>] [--otp <otp>] [--tag <tag>] [--public]
-
-${bold('🔧  Configure')}
-  jspm registry-config <name>      Run configuration prompts for a registry
-  jspm config <option> <setting>   Set jspm global config
-  jspm config --get <option>       Get a jspm global config value
-  
-${bold('Command Flags')}
-  --offline                        Run command offline using the jspm cache
-  --prefer-offline (-q)            Use cached lookups for fastest install
-  --skip-prompts (-y)              Use default options w/o user input
-  --log ok|warn|err|debug|none     Set the log level
-  --project (-p) <projectPath>     Set the jspm command project directory
-  -p <projectPathA> <projectPathB> Apply a command to multiple jspm projects
-`);
+export async function cli (cmd: string | undefined, rawArgs: string[]) {
+  switch (cmd) {
+    case 'h':
+    case 'help':
+      writeUsage(rawArgs[1]);
       break;
 
-      case 'init':
-        throw new JspmUserError(`${bold('jspm init')} has not yet been implemented.`);
-        /*const [generator, target = generator] = args[0] && args[0].split('=') || [undefined];
-        const initPath = args[1] || '.';
-        if (!generator) {
-          throw new JspmUserError(`jspm init requires a provided ${bold('generator')} name.`);
-        }
-        const generatorName = `jspm-init-${generator}`;
-        const exitCode = await api.run(target || generatorName, [initPath, ...args.slice(2)], { latest: true, userInput, offline });
-        process.exit(exitCode);*/
-
-      case 'r':
-      case 'run': {
-        let exitCode = 0;
-        for (const projectPath of projectPaths) {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          exitCode = await project.run(args[0], args.slice(1));
-          if (exitCode !== 0) break;
-        }
-        process.exit(exitCode);
-      }
+    case 'cc':
+    case 'cache-clean':
+      clearCache();
+      console.log(`${chalk.bold.green('OK')}   Cache cleared.`);
       break;
 
-      case 'b':
-      case 'bin': {
-        for (const projectPath of projectPaths) {
-          let options;
-          if (args[0] === '--path' || args[0] === '--cmd' || args[0] === '-pc' || args[0] === '-cp') {
-            ({ options } = readOptions([args[0]], ['path', 'cmd']));
-            args = args.slice(1);
-          }
-          else {
-            options = {};
-          }
-          const binPath = path.join(projectPath, 'jspm_packages', '.bin');
-          if (options.path) {
-            if (args.length)
-              throw new JspmUserError(`${bold('jspm bin --path')} doesn't take any arguments.`);
-            // jspm bin --path -> log bin path
-            console.log(binPath);
-          }
-          else {
-            if (args.length === 0) {
-              // jspm bin --cmd -> show Node exec command
-              if (options.cmd) {
-                console.log(getBin());
-              }
-              // jspm bin -> Node zero arguments form
-              else {
-                const exitCode = await api.exec([]);
-                process.exit(exitCode);
-              }
-            }
-            else {
-              let execPath = path.join(binPath, args[0]);
-              if (isWindows)
-                execPath += '.cmd';
-              // jspm bin --cmd x -> display exec path
-              if (options.cmd) {
-                console.log(execPath);
-              }
-              // jspm bin x -> run exec path
-              else {
-                const ps = spawn(execPath, args.slice(1), { stdio: 'inherit' });
-                const exitCode = await new Promise<number>((resolve, reject) => {
-                  ps.on('exit', code => resolve(code));
-                  ps.on('error', err => reject(err));
-                });
-                process.exit(exitCode);
-              }
-            }
-          }
-        }
-      }
-      break;
-
-      case 'publish': {
-        let options;
-        ({ args, options } = readOptions(args, ['public'], ['otp', 'tag']));
-        if (args.length > 1)
-          throw new JspmUserError('Publish only takes one path argument.');
-        for (const projectPath of projectPaths) {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          await publish(project, options);
-        }
-      }
-      break;
-
-      /* case 'e':
-      case 'exec': {
-        const exitCode = await api.run(args);
-        process.exit(exitCode);
-      }
-      break;*/
-
-      case 't':
-      case 'trace': {
-        let options;
-        ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'node', 'deps', 'exclude-deps'], ['out']));
-        for (const projectPath of projectPaths) {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-
-          // NB: local map should be included in this in the exclude case still
-          const map = (options.excludeDeps || options.deps) ? {} : await api.map(project, options);
-
-          if (!args.length)
-            throw new JspmUserError('Trace requires a list of module names to trace.');
-
-          const traced = await api.trace(project, map, process.cwd(), args, options.excludeDeps || options.deps);
-
-          if (options.deps) {
-            const deps = new Set();
-            for (const map of Object.values(traced)) {
-              for (const dep of Object.keys(map)) {
-                if (map[dep] in traced === false && !isURL(dep) && !dep.startsWith('./') && !dep.startsWith('../')) 
-                  deps.add(dep);
-              }
-            }
-            for (const dep of deps)
-              console.log(dep);
-            return;
-          }
-
-          const output = await serializeJson(traced, defaultStyle);
-
-          if (options.out)
-            await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
-          else
-            process.stdout.write(output);
-        }
-      }
-      break;
-
-      case 'm':
-      case 'map': {
-        for (const projectPath of projectPaths) {
-          let options;
-          ({ args, options } = readOptions(args, ['react-native', 'production', 'electron', 'cdn', 'flat-scope', 'node'], ['out', 'in', 'jspmPackages', 'map-base']));
-
-          if (options.node)
-            throw new JspmUserError(`${bold('jspm map')} currently only supports generating package maps for the browser.`);
-
-          let inputMap, style = defaultStyle;
-          if (options.in)
-            ({ json: inputMap, style } = await readJSONStyled(options.in));
-
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          let map = await api.map(project, options);
-
-          if (inputMap)
-            map = extend(extend({}, inputMap), map);
-
-          if (args.length)
-            map = await api.filterMap(project, map, args, options.flatScope);
-          else if (options.flatScope)
-            flattenScopes(map);
-
-          if (options.cdn && !options.jspmPackages)
-            options.jspmPackages = options.production ? 'https://cdn.jspm.io' : 'https://dev-cdn.jspm.io';
-
-          const jspmPackagesURL = options.jspmPackages ? options.jspmPackages : options.out ?  path.relative(path.dirname(path.resolve(options.out)), path.resolve(projectPath, 'jspm_packages')).replace(/\\/g, '/') : 'jspm_packages';
-          if (jspmPackagesURL !== 'jspm_packages')
-            map = api.renormalizeMap(map, jspmPackagesURL, options.cdn);
-
-          // we dont want input map items filtered so always add them back
-          if (inputMap)
-            extend(map, inputMap);
-
-          if (options.mapBase)
-            map = rebaseMap(map, options.out ? path.dirname(path.resolve(options.out)) : process.cwd(), path.resolve(options.mapBase), true);
-
-          const output = await serializeJson(map, style);
-          if (options.out)
-            await new Promise((resolve, reject) => fs.writeFile(options.out, output, err => err ? reject(err) : resolve()));
-          else
-            process.stdout.write(output);
-        }
-      }
-      break;
-
-      case 're':
-      case 'resolve': {
-        let options;
-        ({ args, options } = readOptions(args, ['format', 'browser', 'react-native', 'production', 'electron', 'relative']));
-
-        let env = readModuleEnv(options);
-
-        for (const projectPath of projectPaths) {
-          let parent;
-          if (args[1]) {
-            let parentFormat;
-            ({ resolved: parent, format: parentFormat } = api.resolveSync(args[1], setProjectPath ? projectPath + path.sep : undefined, env, true));
-            if (parentFormat === 'builtin')
-              parent = undefined;
-          }
-          else if (setProjectPath) {
-            parent = projectPath + path.sep;
-          }
-          
-          const resolved = api.resolveSync(args[0], parent, env, true);
-
-          if (options.format) {
-            console.log(resolved.format || '<undefined>');
-          }
-          else {
-            resolved.resolved = resolved.resolved || '@empty';
-            console.log(options.relative ? path.relative(process.cwd(), resolved.resolved) : resolved.resolved);
-          }
-        }
-      }
-      break;
-
-      case 'cl':
-      case 'clean':
-        await Promise.all(projectPaths.map(async projectPath => {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          await project.clean();
-        }));
-      break;
-
-      case 'co':
-      case 'checkout':
-        await Promise.all(projectPaths.map(async projectPath => {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          await project.checkout(args);
-        }));
-      break;
-
-      case 'un':
-      case 'uninstall':
-        await Promise.all(projectPaths.map(async projectPath => {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          await project.uninstall(args);  
-        }));
-      break;
-
-      case 'l':
-      case 'link': {
-        let options;
-        ({ options, args } = readOptions(args, [
-          // TODO 'force', 'verify'
-        ], [], ['override']));
-
-        await Promise.all(projectPaths.map(async projectPath => {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-        
-          if (args.length === 2) {
-            await project.link(args[0], args[1].indexOf(':') === -1 ? 'file:' + args[1] : args[1], options);
-          }
-          else if (args.length === 1) {
-            const linkSource = 'file:' + path.resolve(args[0]);
-            const target = await project.registryManager.resolveSource(linkSource, project.projectPath, project.projectPath);
-            await project.install([{
-              name: undefined,
-              parent: undefined,
-              target,
-              type: DepType.primary
-            }], options);
-          }
-          else if (args.length !== 1) {
-            throw new JspmUserError(`Link command takes at most two arguments - an optional package name and a path.`);
-          }  
-        }));
-      }
-      break;
-
-      case 'ug':
-      case 'upgrade': {
-        // TODO: a single-major version upgrade of selected packages
-        ui.warn('Still to be implemented.');
-      }
-      break;
-
-      case 'un':
-      case 'up':
-      case 'unlink':
-      case 'update': {
-        // the name given here is not a "TARGET" but a "SELECTOR"
-        let { options, args: selectors } = readOptions(args, [
-          // install options
-          'reset', // TODO 'force', 'verify'
-          'latest'
-          ], [], ['override']);
-        await Promise.all(projectPaths.map(async projectPath => {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-          await project.update(selectors, options);
-        }));
-      }
-      break;
-
-      case 'i':
-      case 'install': {
-        let { options, args: installArgs } = readOptions(args, [
-          // install options
-          'reset', 'force',
-          // install type
-          'save-dev', 'dev', 'optional', 'peer',
-          // constraint options
-          'exact', 'edge',
-          // resolver options
-          'latest', 'lock',
-          ], [], ['override']);
-
-        if (options.force)
-          throw new JspmUserError(`${highlight('--force')} flag is yet to be implemented. Use ${bold('jspm cc && jspm install')} for now, although this is only necessary if you have upgraded jspm or modified a globally linked dependency file.`);
-          
-        await Promise.all(projectPaths.map(async projectPath => {
-          const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-          projects.push(project);
-
-          if (options.saveDev) {
-            project.log.warn(`The ${bold(`--save-dev`)} install flag in jspm is just ${bold(`--dev`)}.`);
-            options.dev = true;
-          }
-
-          let type;
-          if (options.dev)
-            type = DepType.dev;
-          else if (options.peer)
-            type = DepType.peer;
-          else if (options.optional)
-            type = DepType.optional;
-          else
-            type = DepType.primary;
-
-          if (typeof options.override === 'string') {
-            options.override = readPropertySetters(options.override, true);
-            if (options.override && installArgs.length > 1)
-              throw new JspmUserError(`An override can only be specified through ${highlight(`-o`)} when installing a single dependency at a time.`);
-          }
-
-          if (projectPath === JSPM_GLOBAL_PATH && !options.lock) {
-            options.latest = true;
-            options.dedupe = false;
-          }
-
-          const installTargets = installArgs.map(arg => {
-            /*
-            * Assignment target install
-            *   jspm install x=y@1.2.3
-            */
-            let { name, target } = readTargetEquals(arg);
-
-            // when name is undefined, install will auto-populate from target
-            if (options.override)
-              return { name, parent: undefined, target, type, override: options.override };
-            else
-              return { name, parent: undefined, target, type };
-          });
+    case 'up':
+    case 'update':
+      throw new Error('TODO: Update');
       
-          await project.install(installTargets, options);
-          // TODO: look through install cache of install state for checked out and linked
-          // and log that list so that the user is aware of it
-          // await project.logInstallStates();
-        }));
+    case 'upgrade':
+      throw new Error('TODO: Upgrade');
+
+    case 'u':
+    case 'uninstall':
+      throw new Error('TODO: Uninstall');
+  
+    case 'i':
+    case 'install': {
+      // TODO: Subpath handling in install (jspm install sver/convert-range.js)
+      // TODO: Flags
+      // lock | latest | clean | force | depcache | flatten | installExports
+      // flatten / clean only ones needing dev work?
+      // clean works based on tracking which paths were used, removing unused
+      // only applies to arguments install (jspm install --clean) and not any other
+      const { args, opts } = readFlags(rawArgs, {
+        boolFlags: ['flatten', 'debug'],
+        strFlags: ['import-map', 'out', 'debug'],
+        aliases: { m: 'import-map', o: 'out', d: 'debug' }
+      });
+
+      if (opts.out && !(<string>opts.out).endsWith('.importmap') && !(<string>opts.out).endsWith('.html')) {
+        throw new Error(`Import map file ${opts.out} must be a .importmap or .html file`); 
       }
-      break;
-
-      case 'b':
-      case 'build': {
-        for (const projectPath of projectPaths) {
-          let { options, args: buildArgs } = readOptions(args, [
-            'clear-dir',
-            'mjs',
-            'node', 'bin', 'react-native', 'production', 'electron',
-            'show-graph',
-            'source-map',
-            'watch',
-            'exclude-deps',
-            'hash-entries',
-            'out', // out can also be boolean
-            'minify'
-          ], ['map-base', 'dir', 'out', 'format', /* TODO: build map support 'map' */, 'in'], ['external', 'banner']);
-          if (options.out && projectPaths.length > 1)
-              throw new JspmUserError(`${bold('jspm build --out')} does not support execution in multiple projects.`);
-          if (options.node)
-            (options.env = options.env || {}).node = true;
-          if (options.bin)
-            (options.env = options.env || {}).bin = true;
-          if (options['react-native'])
-            (options.env = options.env || {})['react-native'] = true;
-          if (options.production)
-            (options.env = options.env || {}).production = true;
-          if (options.electron)
-            (options.env = options.env || {}).electron = true;
-          options.basePath = path.resolve(projectPath);
-          options.dir = options.dir || 'dist';
-
-          let inputMap, style;
-          if (options.in)
-            ({ json: inputMap, style } = await readJSONStyled(options.in));
-
-          if (options.map) {
-            let buildMap, buildMapStyle;
-            ({ json: buildMap, style: buildMapStyle } = await readJSONStyled(options.map));
-            if (buildMap) {
-              if (!style)
-                style = buildMapStyle;
-              validateImportMap(path.relative(process.cwd(), path.resolve(options.map)), buildMap);
-              options.map = buildMap;
-            }
-            else {
-              throw new JspmUserError(`Import map ${path.relative(process.cwd(), path.resolve(options.map))} for build not found.`);
-            }
-          }
-          if (options.external) {
-            let externalMap, externalStyle;
-            const externalsPath = path.resolve(options.external)
-            try {
-              ({ json: externalMap, style: externalStyle } = await readJSONStyled(externalsPath));
-            }
-            catch (e) {
-              if (e.code !== 'ENOENT')
-                throw e;
-            }
-            if (externalMap) {
-              if (!style)
-                style = externalStyle;
-              validateImportMap(path.relative(process.cwd(), externalsPath), externalMap);
-              // scoped externals not currently supported, but could be (if thats even useful)
-              options.external = rebaseMap(externalMap, path.dirname(externalsPath), path.resolve(options.dir)).imports;            
-            }
-            else {
-              const external = {};
-              options.external.split(' ').forEach(pair => {
-                const aliasIndex = pair.indexOf('=');
-                if (aliasIndex !== -1) {
-                  const externalName = pair.substr(0, aliasIndex);
-                  const aliasName = pair.substr(aliasIndex + 1);
-                  external[externalName] = aliasName;
-                }
-                else {
-                  external[pair] = true;
-                }
-              });
-              if (Object.keys(external).length === 0)
-                throw new JspmUserError(`${bold('jspm build --external')} requires an argument for externals.`);
-              options.external = external;
-            }
-          }
-          if (options.excludeDeps) {
-            options.external = options.external || {};
-            const project = new api.Project(projectPath, { offline, preferOffline, userInput, cli: true, multiProject });
-            projects.push(project);
-            for (const dep in project.config.pjson.dependencies) {
-              const depType = project.config.pjson.dependencies[dep].type;
-              if (typeof depType === 'number' && depType !== DepType.dev) {
-                options.external[dep] = true;
-              }
-            }
-          }
-          options.log = true;
-          let absoluteMap = false;
-          // -o with no arguments hides log due to using stdout
-          if ('out' in options && !options.out && !options.showGraph)
-            options.log = false;
-          if (options.mapBase) {
-            options.mapBase = path.resolve(options.mapBase);
-            absoluteMap = true;
-          }
-          else if (options.out) {
-            options.mapBase = path.dirname(path.resolve(options.out));
-          }
-          let outMap = await api.build(buildArgs, options);
-
-          if (absoluteMap)
-            outMap = rebaseMap(outMap, options.mapBase, options.mapBase, true);
-
-          if (inputMap)
-            outMap = extend(inputMap, outMap);
-
-          if (options.flatScope)
-            flattenScopes(outMap);
-
-          const output = await serializeJson(outMap, style || defaultStyle);
-
-          if ('out' in options) {
-            if (options.out)
-              fs.writeFileSync(path.resolve(options.out), output);
-            else
-              process.stdout.write(output);
-          }
+  
+      const mapFile = <string>opts.importMap || 'jspm.importmap';
+      let map: any;
+      if (!fs.existsSync(mapFile)) {
+        map = {};
+      }
+      else {
+        const source = fs.readFileSync(mapFile).toString();
+        // support HTML parsing
+        if (mapFile.endsWith('.html')) {
+          map = JSON.parse(source.slice(...findHtmlImportMap(source, mapFile)).trim() || '{}');
         }
-      }
-      break;
-
-      case 're':
-      case 'registry':
-        if (args[0] !== 'config')
-          throw new JspmUserError(`Unknown command ${bold(cmd)}.`);
-        args = args.splice(1);
-      case 'rc':
-      case 'registry-config': {
-        if (args.length !== 1)
-          throw new JspmUserError(`Only one argument expected for the registry name to configure.`);
-        const project = new api.Project(projectPaths[0], { offline, preferOffline, userInput, cli: true });
-        projects.push(project);
-        await project.registryConfig(args[0]);
-      }
-      break;
-
-      case 'c':
-      case 'config': {
-        let property, value;
-        const unsetIndex = args.indexOf('--unset');
-        const getIndex = args.indexOf('--get');
-        if (unsetIndex !== -1) {
-          if (args.length !== 2)
-            throw new JspmUserError(`Only one configuration property is expected to be unset.`);
-          if (unsetIndex === 1)
-            property = args[0];
-          else
-            property = args[1];
-          globalConfig.set(property, undefined);
-        }
-        else if (getIndex !== -1) {
-          if (args.length !== 2)
-            throw new JspmUserError(`Only one configuration property is expected to be read.`);
-          if (getIndex === 1)
-            property = args[0];
-          else
-            property = args[1];
-          console.log(globalConfig.get(property));
+        else if (mapFile.endsWith('.importmap')) {
+          map = JSON.parse((await fs.readFileSync(mapFile)).toString());
         }
         else {
-          property = args[0];
-          value = readValue(args.splice(1).join(' '));
-          if (property === undefined || value === undefined)
-            throw new JspmUserError(`jspm config requires a property and value via ${bold(`jspm config <property> <value>`)}`);
-          globalConfig.set(property, value);
+          throw new Error(`Import map file ${mapFile} must be a .importmap or .html file`);
         }
       }
-      break;
 
-      case 'cc':
-      case 'clear-cache':
-        const project = new api.Project(projectPaths[0], { offline, preferOffline, userInput, cli: true });
-        projects.push(project);
-        await project.clearCache();
-      break;
+      const traceMap = new TraceMap(map, new URL('.', pathToFileURL(mapFile)).href);
 
-      default:
-        // if the cmd is a valid file, then we execute it directly
-        let isFile = false;
-        try {
-          isFile = fs.statSync(cmd).isFile();
+      const spinner = ora({
+        text: `Installing${args.length ? ' ' + args.join(', ') : ''}...`,
+        color: 'yellow',
+        spinner: {
+          interval: isCygwin() ? 7 : 100,
+          frames: (<any>[".   ", ".   ", "..  ", "..  ", "... ", "... ", " ...", " ...", "  ..", "  ..", "   .", "   .", "    ", "    ", "    ", "    "].map(x => isCygwin() ? [x, x, x, x, x, x, x, x, x, x] : x)).flat()
         }
-        catch (e) {}
-        if (isFile) {
-          const exitCode = await api.exec([cmd, ...args]);
-          process.exit(exitCode);
-          return;
+      });
+      if (!opts.debug) {
+        spinner.start();
+      }
+      else {
+        (async () => {
+          const debugTypes = typeof opts.debug === 'string' ? opts.debug.split(',') : [];
+          for await (const log of logStream()) {
+            if (debugTypes.length === 0 || debugTypes.indexOf(log.type) !== -1) {
+              console.log(`${chalk.gray(log.type)}: ${log.message}`);
+            }
+          }
+        })().catch(e => console.error(e));
+      }
+      let changed: string[] | undefined;
+      try {
+        if (args.length === 0) {
+          // TODO: changed handling from install
+          // can skip map saving when no change
+          await traceMap.lockInstall({});
         }
-
-        throw new JspmUserError(`Command or file ${bold([cmd, ...args].join(' '))} does not exist.`);
-    }
+        else {
+          await traceMap.install(args.map(arg => {
+            const eqIndex = arg.indexOf('=');
+            if (eqIndex === -1) return arg;
+            return {
+              name: arg.slice(0, eqIndex),
+              target: arg.slice(eqIndex + 1)
+            };
+          }), {});
+        }
+      }
+      finally {
+        spinner.stop();
+      }
+      if (true) {
+        // TODO: Styled JSON read / write
+        const outFile = opts.out ? <string>opts.out : mapFile;
+        if (outFile.endsWith('.importmap')) {
+          fs.writeFileSync(outFile, traceMap.toString());
+        }
+        else if (outFile.endsWith('.html')) {
+          let outSource = fs.readFileSync(outFile).toString();
+          const [mapStart, mapEnd] = findHtmlImportMap(outSource, outFile);
+          outSource = outSource.slice(0, mapStart) + '\n' + traceMap.toString() + '\n' + outSource.slice(mapEnd);
+          fs.writeFileSync(outFile, outSource);
+        }
+        console.log(`${chalk.bold.green('OK')}   Successfully installed${changed && changed.length ? ' ' + changed.map(arg => chalk.bold(arg)).join(', ') : ''}.`);
+      }
+      else {
+        console.log(`${chalk.bold.green('OK')}   Already installed.`);
+      }
+      break;
   }
-  catch (err) {
-    if (process.env.globalJspm !== undefined) {
-      if (err && err.hideStack)
-        (projects.length ? projects[0].log.err.bind(projects[0].log) : ui.err)(err.message || err);
+  
+    case 'o':
+    case 'optimize':
+      throw new Error('TODO: Very simple ES module optimization based on import map fetch, "dependencies" as extenals. import map as input');
+    default:
+      if (cmd)
+        console.error(`Unknown command ${chalk.bold(cmd)}`);
       else
-        (projects.length ? projects[0].log.err : ui.err)(err && err.stack || err);
-    }
-    throw err;
-  }
-  finally {
-    await Promise.all(projects.map(project => project.dispose()));
-  }
+        writeUsage();
+      process.exit(1);
+  }  
 }
 
-if (process.env.globalJspm !== undefined)
-  cliHandler([path.dirname(process.env.jspmConfigPath)], process.argv[2], process.argv.slice(3))
-  .then(() => process.exit(), _err => process.exit(1));
+function readFlags (rawArgs: string[], { boolFlags = [], strFlags = [], aliases = {} }: { boolFlags: string[], strFlags: string[], aliases: Record<string, string> }) {
+  function toCamelCase (name) {
+    return name.split('-').map((part, i) => i === 0 ? part : part[0].toUpperCase() + part.slice(1)).join('');
+  }
+  const args: string[] = [], opts: Record<string, string | boolean> = {};
+  let skip = false;
+  for (const [index, arg] of rawArgs.entries()) {
+    if (skip) {
+      skip = false;
+    }
+    else if (arg.startsWith('--')) {
+      const eqIndex = arg.indexOf('=');
+      if (boolFlags.includes(arg.substr(2))) {
+        opts[toCamelCase(arg.substr(2))] = true;
+      }
+      else if (strFlags.includes(arg.slice(2, eqIndex === -1 ? arg.length : eqIndex))) {
+        if (eqIndex === -1) {
+          if (rawArgs.length === index + 1) {
+            console.error(`Flag value for ${chalk.bold(arg)} not specified`);
+            return process.exit(1);
+          }
+          opts[toCamelCase(arg.slice(2, arg.length))] = rawArgs[index + 1];
+          skip = true;
+        }
+        else {
+          opts[toCamelCase(arg.slice(2, eqIndex))] = arg.slice(eqIndex + 1);
+        }
+      }
+      else {
+        console.error(`Unknown flag ${chalk.bold(arg)}`);
+        return process.exit(1);
+      }
+    }
+    else if (arg.startsWith('-')) {
+      const hasEq = arg[2] === '=';
+      const alias = aliases[arg.slice(1, 2)];
+      const boolFlag = alias && (hasEq || arg.length === 2) && boolFlags.find(f => f === alias);
+      if (boolFlag) {
+        opts[toCamelCase(boolFlag)] = true;
+      }
+      else {
+        const strFlag = strFlags.find(f => f === alias);
+        if (strFlag) {
+          if (arg.length === 2) {
+            if (rawArgs.length === index + 1) {
+              console.error(`Flag value for ${chalk.bold(`--${strFlag}`)} not specified`);
+              return process.exit(1);
+            }
+            opts[toCamelCase(strFlag)] = rawArgs[index + 1];
+            skip = true;
+          }
+          else {
+            opts[toCamelCase(strFlag)] = arg.slice(2 + (hasEq ? 1 : 0));
+          }
+        }
+        else {
+          console.error(`Unknown flag ${chalk.bold(arg)}`);
+          return process.exit(1);
+        }
+      }
+    }
+    else {
+      args.push(arg);
+    }
+  }
+  return { args, opts };
+}
+
+function findHtmlImportMap (source: string, fileName: string) {
+  const importMapStart = source.indexOf('<script type="importmap');
+  if (importMapStart === -1)
+    throw new Error(`Unable to find an import map section in ${fileName}. You need to first manually include a <script type="importmap"> or <script type="importmap-shim"> section.`);
+  const importMapInner = source.indexOf('>', importMapStart);
+  const srcStart = source.indexOf('src=', importMapStart);
+  if (srcStart !== -1)
+    throw new Error(`${fileName} references an external import map. Rather install from/to this file directly.`);
+  const importMapEnd = source.indexOf('<', importMapInner);
+  return [importMapInner + 1, importMapEnd];
+}
+
+let _isCygwin;
+function isCygwin () {
+  if (typeof _isCygwin === 'boolean')
+    return _isCygwin;
+  try {
+    if (require('child_process').execSync('uname -s', { stdio: 'pipe' }).toString().match(/^(CYGWIN|MINGW32|MINGW64)/))
+      return _isCygwin = true;
+  }
+  catch (e) {}
+  return _isCygwin = false;
+}

@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "@tensorflow/tfjs": "https://cdn.jspm.io/npm:@tensorflow/tfjs@1.5.2/dist/index",
+    "@tensorflow/tfjs-core/": "https://cdn.jspm.io/npm:@tensorflow/tfjs-core@1.5.2/",
+    "buffer": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/buffer.js",
+    "crypto": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/crypto.js",
+    "process": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/process.js",
+    "seedrandom/": "https://cdn.jspm.io/npm:seedrandom@2.4.4/",
+    "string_decoder": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/string_decoder.js",
+    "util": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://cdn.jspm.io/npm:@tensorflow/tfjs-core@1.5.2/": {
+      "node-fetch/": "https://cdn.jspm.io/npm:node-fetch@2.1.2/",
+      "seedrandom/": "https://cdn.jspm.io/npm:seedrandom@2.4.3/"
+    },
+    "https://cdn.jspm.io/npm:@tensorflow/tfjs@1.5.2/": {
+      "@tensorflow/tfjs-converter/": "https://cdn.jspm.io/npm:@tensorflow/tfjs-converter@1.5.2/",
+      "@tensorflow/tfjs-core/": "https://cdn.jspm.io/npm:@tensorflow/tfjs-core@1.5.2/",
+      "@tensorflow/tfjs-data/": "https://cdn.jspm.io/npm:@tensorflow/tfjs-data@1.5.2/",
+      "@tensorflow/tfjs-layers/": "https://cdn.jspm.io/npm:@tensorflow/tfjs-layers@1.5.2/"
+    }
+  }
+}

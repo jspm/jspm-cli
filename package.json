@@ -1,60 +1,40 @@
 {
   "name": "jspm",
-  "description": "Universal ES Module Package Manager",
-  "version": "2.0.0-beta.7",
-  "main": "lib/api.js",
-  "types": "lib/api.d.ts",
-  "dependencies": {
-    "@babel/core": "^7.4.0",
-    "@jspm/github": "^1.0.3",
-    "@jspm/npm": "^1.0.1",
-    "@jspm/resolve": "^1.0.0",
-    "babel-plugin-transform-cjs-dew": "^1.0.0",
-    "buffer-peek-stream": "^1.0.1",
-    "chalk": "^2.4.2",
-    "git-credential-node": "^1.1.0",
-    "graceful-fs": "^4.1.15",
-    "https-proxy-agent": "^2.1.0",
-    "liftoff": "^2.3.0",
-    "micromatch": "^3.1.10",
-    "mkdirp": "^0.5.1",
-    "nan": "^2.13.2",
-    "ncp": "^2.0.0",
-    "netrc": "^0.1.4",
-    "node-fetch": "^2.3.0",
-    "node-gyp": "^4.0.0",
-    "node-pre-gyp": "^0.12.0",
-    "ora": "^1.3.0",
-    "promise-retry": "^1.1.1",
-    "proper-lockfile": "^2.0.1",
-    "rimraf": "^2.6.3",
-    "rollup": "^1.11.3",
-    "rollup-plugin-jspm": "^1.1.0",
-    "rollup-plugin-terser": "^4.0.4",
-    "semver": "^5.7.0",
-    "spdx-license-list": "^6.0.0",
-    "sver": "^1.8.2",
-    "tar-fs": "^2.0.0",
-    "which": "^1.3.0",
-    "worker-farm": "^1.6.0"
+  "description": "Browser package management",
+  "license": "Apache-2.0",
+  "version": "3.0.0-beta",
+  "scripts": {
+    "build-browser": "tsc -p .",
+    "build-node": "ncc build -t -m src/node.js -e sver -e es-module-lexer",
+    "watch-build-node": "ncc build -t -m src/node.js -s -e sver -e es-module-lexer -w",
+    "build": "npm run build-node && npm run build-browser",
+    "test": "npm run build && echo '>>>> Open: http://localhost:8080/test/test.html' && http-server",
+    "generate-maps": "node test/generate-maps.mjs"
   },
   "bin": {
-    "jspm": "bin/jspm"
+    "jspm": "dist/index.js"
   },
-  "scripts": {
-    "build": "tsc -p .",
-    "test": "mocha -u tdd --timeout 60000",
-    "gitbook": "gitbook build docs"
+  "main": "./dist/index.js",
+  "browser": "./lib/jspm-browser.js",
+  "dependencies": {
+    "@types/ora": "^3.2.0",
+    "es-module-lexer": "^0.3.17",
+    "sver": "^1.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "13",
+    "@zeit/ncc": "^0.21.1",
+    "chalk": "^3.0.0",
+    "http-server": "^0.12.1",
+    "make-fetch-happen": "^8.0.1",
+    "mocha": "^4.0.1",
+    "node-fetch": "^2.6.0",
+    "ora": "^4.0.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.0-beta"
   },
   "files": [
     "bin",
     "lib"
-  ],
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "@types/node": "^8.10.45",
-    "@types/tar-fs": "^1.16.1",
-    "mocha": "^4.0.1",
-    "typescript": "^3.5.2"
-  }
+  ]
 }

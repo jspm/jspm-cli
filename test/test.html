@@ -1,0 +1,69 @@
+<!doctype html>
+<script type="importmap">
+{
+  "imports": {
+    "buffer": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/buffer.js",
+    "es-module-lexer": "https://cdn.jspm.io/npm:es-module-lexer@0.3.17/dist/lexer.cjs",
+    "process": "https://cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/process.js",
+    "semver/": "https://cdn.jspm.io/npm:semver@6.3.0/",
+    "sver": "https://cdn.jspm.io/npm:sver@1.8.3/sver.js",
+    "sver/convert-range.js": "https://cdn.jspm.io/npm:sver@1.8.3/convert-range.js"
+  }
+}
+</script>
+<script type="module">
+  import runTests from './src/runner.js';
+  import { createMapLoader } from './src/loader.js';
+
+  (async () => {
+    const tests = eval(await (await fetch('./tests.js')).text());
+
+    runTests(await Promise.all(tests.map(async test => {
+      const [installs, specifiers] = typeof test === 'string' ? [test, test] : test;
+      return {
+        test: installs,
+        async run () {
+          const map = await (await fetch(`./maps/${encodeURIComponent(encodeURIComponent(installs))}.json`)).json();
+          const loader = createMapLoader(map);
+          for (const specifier of specifiers.split(' ')) {
+            const m = await loader.import(specifier);
+          }
+          loader.dispose();
+        }
+      };
+    })));
+  })();
+</script>
+<style>
+  * {
+    font-family: sans-serif;
+    letter-spacing: 0.05em;
+  }
+  body {
+    background-color: #fffaf0;
+    color: #324;
+  }
+  h1 {
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: rgb(223, 145, 0);
+    text-shadow: #fff 2px 2px 2px;
+  }
+  .status {
+    font-size: 1em;
+  }
+  ul.results {
+    list-style-type: none;
+    font-size: 0.8em;
+    padding-left: 1em;
+  }
+  ul.results li .err {
+    color: #720e0e;
+    font-style: italic;
+  }
+</style>
+<body>
+  <h1>jspm test runner</h1>
+</body>
