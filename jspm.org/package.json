@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "devDependencies": {
+    "http-server": "~0.11.1",
+    "jsdom": "^14.0.0",
+    "marked": "~0.6.2",
+    "mkdirp": "^1.0.3"
+  },
+  "scripts": {
+    "generate": "node generate.js",
+    "build-deps": "jspm build lit-html lit-html/directives/unsafe-html.js codemirror codemirror/mode/javascript/javascript.js -d public_html/sandbox_data -o public_html/sandbox-map.json --production --minify",
+    "build": "jspm build ./public_html/sandbox.js -e public_html/sandbox-map.json -d public_html/sandbox_data --production --minify"
+  },
+  "type": "module"
+}

@@ -14,8 +14,9 @@
  *   limitations under the License.
  */
 
-import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain } from './utils.js';
+import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled } from './utils.js';
 import { InstallOptions, Installer } from './installer.js';
+import { getScopeMatches, getMapMatch, analyze } from './installtree.js';
 
 export interface ImportMap {
   imports: Record<string, string | null>;
@@ -34,6 +35,13 @@ const Pool = (n = 1) => class PoolClass {
   next () { this.c--; this.q.pop() || (() => {}) }
 };
 
+export interface Trace {
+  [url: string]: {
+    deps: Record<string, URL | null>;
+    size: number;
+  };
+}
+
 export class TraceMap {
   private _baseUrl = envBaseUrl;
   private _map: ImportMap = {
@@ -43,13 +51,17 @@ export class TraceMap {
   };
   private _env = ['browser', 'production'];
   private _p = new (Pool(1));
+  private mapStyle = defaultStyle;
 
-  // resolve = resolve.bind(this);
-
-  constructor (map?: ImportMap | string, baseUrl?: string) {
-    if (typeof map === 'object') this.extend(map, true);
-    else baseUrl = map;
-    if (baseUrl) this._baseUrl = new URL(baseUrl + (baseUrl.endsWith('/') ? '' : '/'), envBaseUrl);
+  constructor (baseUrl: string | URL, map?: ImportMap | string) {
+    if (typeof map === 'string')
+      ({ json: map , style: this.mapStyle } = jsonParseStyled(map));
+    if (typeof map === 'object')
+      this.extend(map, true);
+    if (baseUrl) {
+      if (!(baseUrl instanceof URL))
+        this._baseUrl = new URL(baseUrl + (baseUrl.endsWith('/') ? '' : '/'), envBaseUrl);
+    }
   }
 
   set (map: ImportMap) {
@@ -123,7 +135,7 @@ export class TraceMap {
     if (Object.keys(this._map.imports).length) obj.imports = this._map.imports;
     if (Object.keys(this._map.scopes).length) obj.scopes = this._map.scopes;
     if (Object.keys(this._map.depcache).length) obj.depcache = this._map.depcache;
-    return JSON.stringify(obj, null, minify ? 0 : 2);
+    return jsonStringifyStyled(obj, minify ? Object.assign(this.mapStyle, { indent: '', tab: '', newline: '' }) : this.mapStyle);
   }
 
   rebase (newBaseUrl: string = this._baseUrl.href) {
@@ -164,7 +176,7 @@ export class TraceMap {
         if (scopeUrl.origin === this._baseUrl.origin && scopeUrl.href.startsWith(this._baseUrl.origin))
           scopeBaseUrl = '/';
         else if (scopeUrl.href.startsWith(scopeUrl.origin))
-          scopeBaseUrl = scopeUrl.origin;
+          scopeBaseUrl = scopeUrl.origin + '/';
         if (scopeBaseUrl) scopeBase = this._map.scopes[scopeBaseUrl] || {};
       }
       if (!scopeBase) continue;
@@ -191,18 +203,34 @@ export class TraceMap {
       if (this._map.depcache[dep].length === 0)
         delete this._map.depcache[dep];
     }
-    if (Object.keys(this._map.depcache).length === 0)
-      delete this._map.depcache;
     return this;
   }
 
   sort () {
-    this._map.scopes = alphabetize(this._map.scopes);
-    for (const scope of Object.keys(this._map.scopes))
-      this._map.scopes[scope] = alphabetize(this._map.scopes[scope]);
-    this._map.imports = alphabetize(this._map.imports);
-    this._map.depcache = alphabetize(this._map.depcache);
+    this._map = sort(this._map);
     return this;
+  }
+
+  async trace (specifiers: string[], system = false): Promise<Trace> {
+    const doTrace = async (specifier: string, parentUrl: URL, trace: Trace, curMap: Record<string, URL | null>): Promise<void> => {
+      const resolved = this.resolve(specifier, parentUrl);
+      curMap[specifier] = resolved;
+      if (resolved === null) return;
+      if (trace[resolved.href]) return;
+
+      const curTrace = trace[resolved.href] = {
+        deps: Object.create(null),
+        size: NaN
+      };
+      const { deps, size } = await analyze(resolved.href, parentUrl, system);
+      curTrace.size = size;
+      await Promise.all(deps.map(dep => doTrace(dep, resolved, trace, curTrace.deps)));
+    };
+
+    const map = Object.create(null);
+    const trace = Object.create(null);
+    await Promise.all(specifiers.map(specifier => doTrace(specifier, this._baseUrl, trace, map)));
+    return { map, trace };
   }
 
   // modules are resolvable module specifiers
@@ -314,10 +342,28 @@ export class TraceMap {
     this._env = [...env];
     await this.traceInstall({ clean: true });
   }
+
+  resolve (specifier: string, parentUrl: URL): URL | null {
+    return resolve(specifier, parentUrl, this._map, this._baseUrl);
+  }
 }
 
-// just the simple resolve operation, throwing for no resolution
-// this is necessary for the tracing that happens during install
-/*export async function resolve (this: ImportMap, specifier: string, parentUrl: URL, allowPeerImports = true): Promise<URL | null> {
-
-}*/
+export function resolve (specifier: string, parentUrl: URL, map: ImportMap, baseUrl: URL): URL | null {
+  if (!isPlain(specifier)) return new URL(specifier, parentUrl);
+  const scopeMatches = getScopeMatches(parentUrl, map.scopes, baseUrl);
+  for (const [scope] of scopeMatches) {
+    const mapMatch = getMapMatch(specifier, map.scopes[scope]);
+    if (mapMatch) {
+      const target = map.scopes[scope][mapMatch];
+      if (target === null) return null;
+      return new URL(target + specifier.slice(mapMatch.length), baseUrl);
+    }
+  }
+  const mapMatch = getMapMatch(specifier, map.imports);
+  if (mapMatch) {
+    const target = map.imports[mapMatch];
+    if (target === null) return null;
+    return new URL(target + specifier.slice(mapMatch.length), baseUrl);
+  }
+  throw new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`);
+}

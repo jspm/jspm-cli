@@ -3,6 +3,8 @@ import convertRange from 'sver/convert-range.js';
 const { SemverRange } = sver;
 import { ImportMap } from './tracemap';
 import { InstallOptions } from './installer';
+import lexer from 'es-module-lexer';
+import { fetch } from './fetch.js';
 
 export interface ExactPackage {
   registry: string;
@@ -107,6 +109,117 @@ export interface ResolutionMap {
   }
 }
 
+function createEsmAnalysis (imports: any, source: string) {
+  const deps: string[] = [];
+  // dynamic import -> deoptimize trace all dependencies (and all their exports)
+  if (imports.some(impt => impt.d >= 0)) {
+    console.error('TODO: Dynamic import tracing.');
+  }
+  for (const impt of imports) {
+    if (impt.d === -1)
+      deps.push(source.slice(impt.s, impt.e));
+  }
+  const size = source.length;
+  return { deps, size };
+}
+
+const registerRegEx = /^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*)*\s*System\s*\.\s*register\s*\(\s*(\[[^\]]*\])\s*,\s*function\s*\(\s*([^\)]+(\s*,[^\)]+)?)?\s*\)/;
+function createSystemAnalysis (source: string, url: string) {
+  const [, , , rawDeps, , contextId] = source.match(registerRegEx) || [];
+  if (!rawDeps) {
+    throw new Error(`Source ${url} is not a valid System.register module.`);
+  }
+  const deps = JSON.parse(rawDeps.replace(/'/g, '"'));
+  if (source.indexOf(`${contextId}.import`) !== -1)
+    console.error('TODO: Dynamic import tracing for system modules.');
+  const size = source.length;
+  return { deps, size };
+}
+
+export function getExportsTarget(target, env): string | null {
+  if (typeof target === 'string') {
+    return target;
+  }
+  else if (typeof target === 'object' && target !== null && !Array.isArray(target)) {
+    for (const condition in target) {
+      if (env.includes(condition)) {
+        const resolved = getExportsTarget(target[condition], env);
+        if (resolved)
+          return resolved;
+      }
+    }
+  }
+  else if (Array.isArray(target)) {
+    // TODO: Validation for arrays
+    for (const targetFallback of target) {
+      return targetFallback;
+    }
+  }
+  return null;
+}
+
+export async function exists (resolvedUrl: string): Promise<boolean> {
+  const res = await fetch(resolvedUrl);
+  switch (res.status) {
+    case 200:
+    case 304:
+      return true;
+    case 404:
+      return false;
+    default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
+  }
+}
+
+export async function analyze (resolvedUrl: string, parentUrl?: URL, system = false): Promise<{ deps: string[], size: number }> {
+  const res = await fetch(resolvedUrl);
+  switch (res.status) {
+    case 200:
+    case 304:
+      break;
+    case 404: throw new Error(`Module not found: ${resolvedUrl}${parentUrl ? `, imported from ${parentUrl.href}` : ''}`);
+    default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
+  }
+  let source = await res.text();
+  try {
+    const [imports] = await lexer.parse(source);
+    return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source);
+  }
+  catch (e) {
+    // fetch is _unstable_!!!
+    // so we retry the fetch first
+    const res = await fetch(resolvedUrl);
+    switch (res.status) {
+      case 200:
+      case 304:
+        break;
+      case 404: throw new Error(`Module not found: ${resolvedUrl}${parentUrl ? `, imported from ${parentUrl.href}` : ''}`);
+      default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
+    }
+    source = await res.text();
+    try {
+      const [imports] = await lexer.parse(source);
+      return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source);
+    }
+    catch (e) {
+      // TODO: better parser errors
+      if (e.message.startsWith('Parse error @:')) {
+        const pos = e.message.slice(14, e.message.indexOf('\n'));
+        let [line, col] = pos.split(':');
+        const lines = source.split('\n');
+        // console.log(source);
+        if (line > 1)
+          console.log('  ' + lines[line - 2]);
+        console.log('> ' + lines[line - 1]);
+        console.log('  ' + ' '.repeat(col - 1) + '^');
+        if (lines.length > 1)
+          console.log('  ' + lines[line]);
+        throw new Error(`Error parsing ${resolvedUrl}:${pos}`);
+      }
+      throw e;
+    }
+  }
+}
+
 export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: InstallOptions): [ResolutionMap, ImportMap] {
   const map: ImportMap = {
     imports: Object.create(null),
@@ -118,7 +231,8 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
     scopes: Object.create(null)
   };
 
-  function processMap (inMap: Record<string, string | null>, scope?: string, scopeUrl?: URL) {
+  function processMap (inMap: Record<string, string | null>, scope?: ExactPackage | boolean) {
+    const scopeUrl = scope === true ? esmCdnUrl + '/' : scope ? pkgToUrl(scope, esmCdnUrl) : undefined;
     for (const [impt, target] of Object.entries(inMap)) {
       const parsed = parsePkg(impt);
       if (parsed && target !== null) {
@@ -126,10 +240,9 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
         const targetUrl = new URL(target, baseUrl);
         const pkg = parseCdnPkg(targetUrl);
         if (pkg) {
-          const scopeHref = <string>(scopeUrl && scopeUrl.href);
-          let resolutions = (scope ? (installs.scopes[scopeHref] = installs.scopes[scopeHref] || Object.create(null)) : installs.imports)[pkgName];
+          let resolutions = (scopeUrl ? (installs.scopes[scopeUrl] = installs.scopes[scopeUrl] || Object.create(null)) : installs.imports)[pkgName];
           if (!resolutions || pkgEq(resolutions.pkg, pkg) || opts.clean) {
-            resolutions = resolutions || ((scope ? installs.scopes[scopeHref] : installs.imports)[pkgName] = {
+            resolutions = resolutions || ((scopeUrl ? installs.scopes[scopeUrl] : installs.imports)[pkgName] = {
               pkg,
               exports: Object.create(null)
             });
@@ -138,7 +251,7 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
           }
         }
       }
-      (scope ? (map.scopes[scope] = map.scopes[scope] || Object.create(null)) : map.imports)[impt] = target;
+      (scopeUrl ? (map.scopes[scopeUrl] = map.scopes[scopeUrl] || Object.create(null)) : map.imports)[impt] = target;
     }
   }
 
@@ -146,14 +259,14 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
 
   for (const scope of Object.keys(inMap.scopes)) {
     const scopeUrl = new URL(scope, baseUrl);
-    if (scopeUrl.href.startsWith(cdnUrl)) {
-      if (scopeUrl.href === cdnUrl) {
-        processMap(inMap.scopes[scope], scope, scopeUrl);
+    if (scopeUrl.href.startsWith(systemCdnUrl) || scopeUrl.href.startsWith(esmCdnUrl)) {
+      if (scopeUrl.href === esmCdnUrl || scopeUrl.href === systemCdnUrl) {
+        processMap(inMap.scopes[scope], true);
         continue;
       }
       const parsed = parseCdnPkg(scopeUrl);
       if (parsed && parsed.path === '/') {
-        processMap(inMap.scopes[scope], scope, scopeUrl);
+        processMap(inMap.scopes[scope], parsed);
         continue;
       }
       if (opts.clean) continue;
@@ -164,7 +277,7 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
   return [installs, map];
 }
 
-export function resolutionsToImportMap (installs: ResolutionMap): ImportMap {
+export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string): ImportMap {
   const outMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
@@ -172,14 +285,16 @@ export function resolutionsToImportMap (installs: ResolutionMap): ImportMap {
   };
   for (const [impt, { pkg, exports }] of Object.entries(installs.imports)) {
     for (const [subpath, target] of Object.entries(exports)) {
-      outMap.imports[impt + subpath.slice(1)] = pkgToUrl(pkg) + target.slice(1);
+      outMap.imports[impt + subpath.slice(1)] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
     }
   }
   for (const [scope, scopeEntry] of Object.entries(installs.scopes)) {
-    const outScope = outMap.scopes[scope] = Object.create(null);
+    if (!scope.startsWith(esmCdnUrl))
+      throw new Error('Internal error.');
+    const outScope = outMap.scopes[cdnUrl + scope.slice(esmCdnUrl.length)] = Object.create(null);
     for (const [impt, { pkg, exports }] of Object.entries(scopeEntry)) {
       for (const [subpath, target] of Object.entries(exports)) {
-        outScope[impt + subpath.slice(1)] = pkgToUrl(pkg) + target.slice(1);
+        outScope[impt + subpath.slice(1)] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
       }
     }
   }
@@ -200,49 +315,43 @@ export function parsePkg (specifier: string): { pkgName: string, subpath: string
 export function pkgToStr (pkg: ExactPackage) {
   return `${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
 }
-export const cdnUrl = 'https://cdn.jspm.io/';
+export const devCdnUrl = 'https://dev.jspm.io/';
+export const esmCdnUrl = 'https://ga.jspm.dev/';
+export const systemCdnUrl = 'https://ga.jspm.systems/';
 function pkgEq (pkgA: ExactPackage, pkgB: ExactPackage) {
   return pkgA.registry === pkgB.registry && pkgA.name === pkgB.name && pkgA.version === pkgB.version;
 }
-export function pkgToUrl (pkg: ExactPackage) {
+export function pkgToUrl (pkg: ExactPackage, cdnUrl: string) {
   return cdnUrl + pkgToStr(pkg);
 }
 const exactPkgRegEx = /^([a-z]+):((?:@[^/\\%@]+\/)?[^./\\%@][^/\\%@]*)@([^\/]+)(\/.*)?$/;
 export function parseCdnPkg (url: URL): ExactPackagePath | undefined {
   const href = url.href;
-  if (!href.startsWith(cdnUrl)) return;
-  const [, registry, name, version, path] = href.slice(cdnUrl.length).match(exactPkgRegEx) || [];
+  let registry, name, version, path;
+  if (href.startsWith(esmCdnUrl)) {
+    [, registry, name, version, path] = href.slice(esmCdnUrl.length).match(exactPkgRegEx) || [];
+  }
+  if (href.startsWith(systemCdnUrl)) {
+    [, registry, name, version, path] = href.slice(systemCdnUrl.length).match(exactPkgRegEx) || [];
+  }
   if (registry)
     return { registry, name, version, path };
 }
 
-const scopeCache = new WeakMap<Record<string, Record<string, string | null>>, { scopeKeys: string[], scopeUrls: string[] }>();
+const scopeCache = new WeakMap<Record<string, Record<string, string | null>>, [string, string][]>();
 export function getScopeMatches (parentUrl: URL, scopes: Record<string, Record<string, string | null>>, baseUrl: URL): [string, string][] {
   const parentUrlHref = parentUrl.href;
 
-  const cached = scopeCache.get(scopes);
-  let scopeKeys: string[], scopeUrls: string[];
-  if (cached) {
-    ({ scopeKeys, scopeUrls } = cached);
-  }
-  else {
-    // TODO: sorting / algorithmic optimization
-    scopeKeys = Object.keys(scopes);
-    scopeUrls = scopeKeys.map(scope => new URL(scope, baseUrl).href);
-    scopeCache.set(scopes, { scopeKeys, scopeUrls });
+  let scopeCandidates = scopeCache.get(scopes);
+  if (!scopeCandidates) {
+    scopeCandidates = Object.keys(scopes).map(scope => [scope, new URL(scope, baseUrl).href]);
+    scopeCandidates = scopeCandidates.sort(([, matchA], [, matchB]) => matchA.length < matchB.length ? 1 : -1);
+    scopeCache.set(scopes, scopeCandidates);
   }
 
-  const scopeMatches: [string, string][] = [];
-
-  let scopeIndex = scopeUrls.indexOf(parentUrlHref);
-  if (scopeIndex !== -1) scopeMatches.push([scopeKeys[scopeIndex], parentUrlHref]);
-
-  for (const [i, scopeUrl] of scopeUrls.entries()) {
-    if (!scopeUrl.endsWith('/')) continue;
-    if (parentUrlHref.startsWith(scopeUrl))
-      scopeMatches.push([scopeKeys[i], scopeUrl]);
-  }
-  return scopeMatches.sort(([,matchA], [,matchB]) => matchA.length > matchB.length ? 1 : -1);
+  return scopeCandidates.filter(([, scopeUrl]) => {
+    return scopeUrl === parentUrlHref || scopeUrl.endsWith('/') && parentUrlHref.startsWith(scopeUrl);
+  });
 }
 
 export function getMapMatch (specifier: string, map: Record<string, string | null>): string | undefined {

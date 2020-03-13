@@ -17,12 +17,10 @@
   "main": "./dist/index.js",
   "browser": "./lib/jspm-browser.js",
   "dependencies": {
-    "@types/ora": "^3.2.0",
     "es-module-lexer": "^0.3.17",
     "sver": "^1.8.3"
   },
   "devDependencies": {
-    "@types/node": "13",
     "@zeit/ncc": "^0.21.1",
     "chalk": "^3.0.0",
     "http-server": "^0.12.1",
@@ -31,6 +29,8 @@
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",
     "rimraf": "^3.0.2",
+    "rollup": "^1.32.0",
+    "terser": "^4.6.4",
     "typescript": "^3.8.0-beta"
   },
   "files": [

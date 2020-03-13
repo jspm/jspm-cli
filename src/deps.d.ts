@@ -5,3 +5,8 @@ declare module 'ora';
 declare module 'chalk';
 declare module 'make-fetch-happen';
 declare module 'rimraf';
+declare module 'rollup';
+declare module 'mkdirp';
+declare module '@babel/core';
+declare module 'babel-plugin-transform-cjs-dew';
+declare module 'terser';

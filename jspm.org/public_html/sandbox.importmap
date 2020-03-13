@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "sandbox": "./dist/sandbox-2ea402ee.js",
+    "buffer": "./dist/buffer-d4609171.js",
+    "codemirror": "./dist/codemirror-687fc6cd.js",
+    "codemirror/mode/javascript/javascript.js": "./dist/javascript-3c6c056c.js",
+    "lit-html": "./dist/lit-html-0dc2d7e3.js",
+    "lit-html/directives/unsafe-html.js": "./dist/unsafe-html-f214fec2.js",
+    "util": "./dist/util-c20d4421.js",
+    "zlib": "./dist/zlib-a889381e.js"
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en"><head><meta property="og:title" content="jspm.org - About"><meta property="og:image" content="https://jspm.org/jspm.png"><meta name="Description" content="What is jspm"><meta property="og:description" content="What is jspm"><meta property="og:url" content="https://jspm.org/introduction/about"><meta name="twitter:card" content="summary_large_image"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/style.css">
+<link rel="preload" as="font" href="/sourcesans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/sourcesans-light.woff2" type="font/woff2" crossorigin="anonymous">
+<script defer="" src="/script.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-40327700-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-40327700-2');
+</script>
+<title>About - jspm.org</title></head><body class="section-introduction page-about">
+<div class="topbar">
+  <ul class="toplinks">
+    <li><a href="/about/introduction">About</a></li>
+    <li><a href="/docs/guide">Guide</a></li>
+    <li><a href="/sandbox">Try Online</a></li>
+    <li class="github"><a target="_blank" href="https://github.com/jspm/jspm-cli" rel="noopener"></a></li>
+  </ul>
+  <div class="mobile-menu"></div>
+</div>
+<div class="sidebar">
+  <a style="display: block" href="/">
+    <div class="logobox" href="/"></div>
+    <h1 class="logo">jspm</h1>
+  </a>
+  <div class="toc">
+    <ul class="sections"><li class="introduction active"><a href="/introduction/about">Introduction</a><ul class="section-introduction"><li class="about active"><a href="/introduction/about">About</a><ul class="subsection"><li><a href="#what-is-jspm">What is jspm</a></li><li><a href="#browser-native-package-management">Browser-Native Package Management</a></li><li><a href="#nodejs-compatibility">Node.js Compatibility</a></li><li><a href="#optimization">Optimization</a></li><li><a href="#legacy-browser-workflows">Legacy Browser Workflows</a></li><li><a href="#cdn">CDN</a></li></ul></li></ul></li><li class="api-docs"><a href="/api-docs/cli">API Docs</a><ul class="section-api-docs"><li class="cli"><a href="/api-docs/cli">Command-Line API</a></li><li class="cdn"><a href="/api-docs/cdn">CDN Server API</a></li></ul></li>
+      <!-- Table of contents links will be added here -->
+      <li><a>Resources</a>
+      <ul class="subsection">
+        <li><a href="/sandbox">Sandbox</a></li>
+        <li><a target="_blank" href="https://github.com/jspm/jspm-cli" rel="noopener">GitHub</a></li>
+        <li><a target="_blank" href="https://github.com/jspm/project/blob/master/CONTRIBUTING.md" rel="noopener">Contributing</a></li>
+        <li><a target="_blank" href="https://gitter.im/jspm/jspm" rel="noopener">Gitter</a></li>
+        <li><a target="_blank" href="/docs/0.16/index.html" rel="noopener">jspm 0.16</a></li>
+        <li><a target="_blank" href="/docs/0.17-beta/index.html" rel="noopener">jspm 0.17</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="footer"><p>
+    Logo design by <a target="_blank" href="https://dribbble.com/luukdv" rel="noopener">Luuk de Vlieger</a>
+  </p></div>
+</div>
+<div class="content"><h1>jspm 2.0 Beta Release</h1>
+<p style="text-align: right; margin-top: -4em; margin-bottom: 4em; font-size: 0.9em;"><em>24 April 2019&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></p>
+
+<a name="what-is-jspm" class="anchor"></a><h2>What is jspm</h2>
+<p>jspm is designed to provide the npm-style JavaScript workflows of <em>install and require</em> directly in the browser. In the jspm 0.16 and 0.17 releases, these workflows were provided through the former WhatWG Loader API.</p>
+<p><a href="https://github.com/wicg/import-maps" target="_blank" rel="noopener">Import maps</a> are the new way of defining module resolution in the browser, which have just been implemented in Chrome 74 under the <em>Experimental Web Platform Features</em> flag, marking a major step in bringing package dependency resolution to the browser.</p>
+<p><em>The new jspm 2.0-beta release directly enables loading packages in the browser without a build step using import maps, while providing compatibility with the standard JavaScript workflows we know today.</em></p>
+<a name="browser-native-package-management" class="anchor"></a><h2>Browser-Native Package Management</h2>
+<p>When installing packages with jspm, CommonJS modules are converted into ES modules in the <code>jspm_packages</code> folder, allowing <a href="/docs/guide#browser-modules-with-import-maps">import maps to be generated for the browser</a> with the <code>jspm map</code> command. With the import map loaded in the browser, any installed packages can be imported as ES modules using bare specifier imports (<code><span class="keyword">import</span> <span class="string">'pkg'</span></code>), through the native <code>&lt;script type=<span class="string">"module"</span>&gt;</code> mechanism, while retaining full dependency resolution support without any build step being necessary, and most npm packages are supported in this way.</p>
+<p>The <code>jspm map</code> command treats the package map as a build artifact, accepting module arguments to create a map only for specific packages, or without any arguments it will generate one large map representing all the currently installed packages. The CommonJS conversion transformation is called a <a href="https://github.com/jspm/babel-plugin-transform-cjs-dew" target="_blank" rel="noopener">Deferred Execution Wrapper</a> that supports CommonJS semantics including for example, exact support for CJS circular references. The installed packages are laid out in flat, versioned <code>jspm_packages/[regstry]/[name]@[version]</code> folders which are symlinked to the global cache. Having versioned <code>jspm_packages</code> URLs allows them to be cached and properly shared between packages in the browser. The other benefit of this flat <code>jspm_packages</code> is that the packages are symlinked to a single global cache, avoiding the file size bloat caused by having a full copy of <code>node_modules</code> per-project.</p>
+<a name="nodejs-compatibility" class="anchor"></a><h2>Node.js Compatibility</h2>
+<p>JavaScript modules can be executed in Node.js with <code>jspm_packages</code> resolution using <code>jspm module.js</code>. This is effectively an alias for <code>node --experimental-modules module.js</code>, where the jspm resolver is provided through the <code>--loader</code> hooks of the Node.js experimental modules implementation, executing the native ES modules directly. The CommonJS conversion into ES modules on install is accurate enough that most npm packages running in Node.js are supported under this command, along with npm <code>bin</code> scripts, binary support, and <code>package.json</code> <code><span class="string">"scripts"</span></code>.</p>
+<p>In most scenarios, jspm behaves just like any other JS package manager. For the few cases where packages do not work under the jspm CommonJS conversion, <a href="/docs/integrations#npm">npm or Yarn can still be used side-by-side with jspm</a>, with jspm resolution falling back to a <code>node_modules</code> resolution in Node.js.</p>
+<p>jspm automatically adds a <code><span class="string">"type"</span>: <span class="string">"module"</span></code> field to the local project <code>package.json</code>, so that the support for ES modules in <code>.js</code> files remains fully compatible with the <a href="http://2ality.com/2019/04/nodejs-esm-impl.html#filename-extensions" target="_blank" rel="noopener">Node.js <code>--experimental-modules</code> implementation</a> - code that runs under jspm can continue to be compatible with the npm ecosystem in future.</p>
+<a name="optimization" class="anchor"></a><h2>Optimization</h2>
+<p>Having all packages installed as ES modules significantly improves the JS build experience. There is no need to set up highly custom build steps or handle CommonJS support as it is already all handled on install - instead the build is just the process of building ES modules, and resolving their dependencies in <code>jspm_packages</code>.</p>
+<p><code>jspm build</code> provides a light-weight wrapper around RollupJS that uses <a href="https://github.com/jspm/rollup-plugin-jspm" target="_blank" rel="noopener">rollup-plugin-jspm</a> for <code>jspm_packages</code> resolution. Build any package for the browser with just <code>jspm build ./module.js</code>. Full support for <a href="https://rollupjs.org/guide/en#code-splitting" target="_blank" rel="noopener">RollupJS code splitting</a> is provided through this command as well by passing multiple modules as entry points or using dynamic import. Add the <code>--node</code> flag to the build command for Node.js-specific builds. <a href="/docs/guide#optimizing-nodejs-libraries-for-publishing">Optimizing Node.js packages for publishing</a> is also made much easier with this command.</p>
+<p>There are some really interesting ways in which import maps and partial builds can be combined to create different types of optimizations. The primitives provided by <code>jspm map</code> and <code>jspm build</code>, provide some quite advanced approaches to do this. For example, <a href="/docs/guide#optimized-dependency-builds">dependencies can be optimized and cached separately to application code</a>. Exploring these ES module and import map optimization workflows and primitives further is a primary goal of the project.</p>
+<a name="legacy-browser-workflows" class="anchor"></a><h2>Legacy Browser Workflows</h2>
+<p>With <a href="https://caniuse.com/#feat=es6-module" target="_blank" rel="noopener">85% of browsers</a> supporting <code>&lt;script type=<span class="string">"module"</span>&gt;</code>, shipping ES modules directly is a viable option so long as the import maps have been optimized out by a build.</p>
+<p>For older browsers, <a href="/docs/guide#systemjs-legacy-browser-support">dual modern/legacy builds</a> can be made by building for the SystemJS module loader, which supports a conversion of all of the ES module semantics even back to IE11.</p>
+<p>Many different variations of these workflows exist inbetween - jspm only aims to provide the primitives to work out the best approach for your specific app.</p>
+<a name="cdn" class="anchor"></a><h2>CDN</h2>
+<p>Because <code>jspm_packages</code> has the same structure for all users, it can be hosted on a CDN as well. The map command offers the ability to select a custom location for this folder when creating package maps.</p>
+<p>For development experimentation, jspm provides a version of this CDN that inlines the latest version resolutions for ease-of-use. Any package on npm can be imported with just a <code>&lt;script type=<span class="string">"module"</span>&gt;</code> with the CommonJS conversion applying at <code>https://dev.jspm.io/[package-name]</code>. See the <a href="/sandbox">sandbox</a> for further examples.</p>
+<blockquote>
+<p>To get started with jspm, <a href="/docs/guide">see the guide</a>.</p>
+</blockquote>
+<div class="nextprev"><a class="edit" target="_blank" href="https://github.com/jspm/jspm.org/blob/master/introduction/about.md" rel="noopener">Edit</a><div class="next"><a href="/api-docs/cli">API Docs&nbsp;▶</a></div></div></div>
+
+
+</body></html>

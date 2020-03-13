@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vue": "https://cdn.jspm.io/npm:vue@2.6.11/dist/vue.runtime.common.js"
+    "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js"
   }
 }

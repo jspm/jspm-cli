@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta property="og:title" content="jspm.org - jspm CDN"><meta property="og:image" content="https://jspm.org/jspm.png"><meta name="Description" content="jspm CDN Server API Documentation"><meta property="og:description" content="jspm CDN Server API Documentation"><meta property="og:url" content="https://jspm.org/docs/cdn"><meta name="twitter:card" content="summary_large_image"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/style.css">
+<link rel="preload" as="font" href="/sourcesans.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="/sourcesans-light.woff2" type="font/woff2" crossorigin="anonymous">
+<script defer="" src="/script.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-40327700-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-40327700-2');
+</script>
+<title>jspm CDN - jspm.org</title></head><body class="section-docs page-cdn">
+<div class="topbar">
+  <ul class="toplinks">
+    <li><a href="/about/introduction">About</a></li>
+    <li><a href="/docs/guide">Guide</a></li>
+    <li><a href="/sandbox">Try Online</a></li>
+    <li class="github"><a target="_blank" href="https://github.com/jspm/jspm-cli" rel="noopener"></a></li>
+  </ul>
+  <div class="mobile-menu"></div>
+</div>
+<div class="sidebar">
+  <a style="display: block" href="/">
+    <div class="logobox" href="/"></div>
+    <h1 class="logo">jspm</h1>
+  </a>
+  <div class="toc">
+    <ul class="sections"><li class="introduction"><a href="/introduction/quick-start">Introduction</a><ul class="section-introduction"><li class="quick-start"><a href="/introduction/quick-start">Quick Start</a></li><li class="architecture"><a href="/introduction/architecture">Architecture</a></li></ul></li><li class="docs active"><a href="/docs/cli">API Docs</a><ul class="section-docs"><li class="cli"><a href="/docs/cli">jspm CLI</a></li><li class="cdn active"><a href="/docs/cdn">jspm CDN</a><ul class="subsection"><li><a href="#cdn-urls">CDN URLs</a></li><li><a href="#package-structure">Package Structure</a></li></ul></li></ul></li>
+      <!-- Table of contents links will be added here -->
+      <li><a>Resources</a>
+      <ul class="subsection">
+        <li><a href="/sandbox">Sandbox</a></li>
+        <li><a target="_blank" href="https://github.com/jspm/jspm-cli" rel="noopener">GitHub</a></li>
+        <li><a target="_blank" href="https://github.com/jspm/project/blob/master/CONTRIBUTING.md" rel="noopener">Contributing</a></li>
+        <li><a target="_blank" href="https://gitter.im/jspm/jspm" rel="noopener">Gitter</a></li>
+        <li><a target="_blank" href="/docs/0.16/index.html" rel="noopener">jspm 0.16</a></li>
+        <li><a target="_blank" href="/docs/0.17-beta/index.html" rel="noopener">jspm 0.17</a></li>
+        <li><a target="_blank" href="/enterprise" rel="noopener">Enterprise</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="footer"><p>
+    Logo design by <a target="_blank" href="https://dribbble.com/luukdv" rel="noopener">Luuk de Vlieger</a>
+  </p></div>
+</div>
+<div class="content"><h1>CDN Documentation</h1>
+<p><strong>Current CDN Version: Gamma / "gam"</strong></p>
+<a name="cdn-urls" class="anchor"></a><h2>CDN URLs</h2>
+<p>jspm is an <em>optimizing CDN</em>. All packages loaded through the jspm CDN are optimized.</p>
+<p>There are three primary variants of the jspm CDN:</p>
+<ol>
+<li><code>https://gam.jspm.dev/</code>: Development CDN. Serves optimized ES modules with version resolutions inlined and no need for import maps. Useful for quick experimentation workflows only - <strong>zero stability guarantees</strong>.</li>
+<li><code>https://gam.jspm.io/</code>: ES Module CDN. Serves optimized ES modules for use with import maps. <strong>Production-ready, 99.99% uptime guarantee, 100% backwards compatibility guarantee.</strong></li>
+<li><code>https://gam.jspm.systems/</code>: System CDN. Services optimized System modules for use with import maps. <strong>Production-ready, 99.99% uptime guarantee, 100% backwards compatibility guarantee.</strong></li>
+</ol>
+<p>Every new major release of the jspm CDN code gets a three letter version prefix. The current version is Gamma - "gam".</p>
+<p>You can directly access <code>https://jspm.dev</code> in development workflows, it will just redirect to the current major version prefix.</p>
+<h3>URL Format</h3>
+<p>For all CDNs, the paths take the following form:</p>
+<pre><code>/[registry]:[package-name]@[version]/[path]</code></pre><ul>
+<li><code>registry</code> is included because other registries other than <code>npm</code> may be supported in future - npm isn't given special treatmeny by jspm.</li>
+<li><code>package-name</code> is the package name in the registry (scoped or unscoped).</li>
+<li><code>version</code> is the semver version of the package. When using the development CDN, the version is optional, version shortcuts are provided and tagged version aliases are also supported.</li>
+<li><code>path</code> is the path to the module within the package. The path corresponds to the published path of the modules within the package.</li>
+</ul>
+<a name="package-structure" class="anchor"></a><h2>Package Structure</h2>
+<p>The public interface of packages is defined by the <code><span class="string">"exports"</span></code> field.</p>
+<p>To write a package for jspm, the best approach is to just always define an <code><span class="string">"exports"</span></code> field for the package.</p>
+<p>Packages not using the <code><span class="string">"exports"</span></code> field have their exports inferred from a comprehensive automated package analysis. There is no control over this automated process, which is why the <code><span class="string">"exports"</span></code> field is recommended though.</p>
+<h3>Package Exports</h3>
+<p>The exports of a package define its public interface - the modules it exposes to public importers.</p>
+<p>Any module which is defined as an export will be guaranteed to exist at its defined path in the optimized package output.</p>
+<p>Any private module - a module not defined as an export, but only used internally, will likely not be available as a path of the optimized package as it will be optimized into approached common chunking by the optimization process.</p>
+<p>Other files in the package such as the package.json file, CSS files, images etc will also not be included as paths of the optimized package <em>unless</em> they were<br>made available as package exports.</p>
+<p>Non-JS files can be defined by package exports just like JS files.</p>
+<p>In addition folder exports will expose all files in the folder - both JS and non-JS, such that the JS files will all be optimized, while the non-JS files will be exposed in the optimized package.</p>
+<div class="nextprev"><a class="edit" target="_blank" href="https://github.com/jspm/jspm.org/blob/master/docs/cdn.md" rel="noopener">Edit</a><div class="prev"><a href="/docs/cli">◀&nbsp;jspm CLI</a></div></div></div>
+
+
+</body></html>

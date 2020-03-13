@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "sandbox": "./sandbox.js",
+    "buffer": "https://system-cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/buffer.js",
+    "codemirror": "https://system-cdn.jspm.io/npm:codemirror@5.52.0/lib/codemirror.js",
+    "codemirror/mode/javascript/javascript.js": "https://system-cdn.jspm.io/npm:codemirror@5.52.0/mode/javascript/javascript.js",
+    "lit-html": "https://system-cdn.jspm.io/npm:lit-html@1.1.2/lit-html.js",
+    "lit-html/directives/unsafe-html.js": "https://system-cdn.jspm.io/npm:lit-html@1.1.2/directives/unsafe-html.js",
+    "util": "https://system-cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/util.js",
+    "zlib": "https://system-cdn.jspm.io/npm:@jspm/core@1.0.4/nodelibs/zlib.js"
+  }
+}
