@@ -269,7 +269,7 @@ export default class FetchClass {
         if (credentials.proxy) {
           if (!existingAgents)
             proxyAgents.set(credentials.proxy, existingAgents = []);
-          existingAgents.push(agent = new HttpsProxyAgent(Object.assign({}, credentials.proxy)));
+          existingAgents.push(agent = new HttpsProxyAgent(Object.assign({}, agentOptions)));
         }
         else {
           agents.push(agent = <Agent>(new NodeAgent(agentOptions)));
