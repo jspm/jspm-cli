@@ -233,7 +233,7 @@ export default class FetchClass {
     if (credentials.proxy && url.startsWith('https:')) {
       if (typeof credentials.proxy === 'string') {
         const proxyURL = parseURL(credentials.proxy);
-        (<ProxyAgentOptions>agentOptions).host = proxyURL.host;
+        (<ProxyAgentOptions>agentOptions).host = proxyURL.hostname;
         (<ProxyAgentOptions>agentOptions).port = parseInt(proxyURL.port);
       }
       else {
