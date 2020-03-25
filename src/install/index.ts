@@ -709,7 +709,7 @@ export class Installer {
         this.binFolderChecked = true;
       }
       await Promise.all(Object.keys(config.bin).map(p => 
-        writeBinScripts(binDir, p, resolvedPkgName.replace(':', path.sep) + path.sep + config.bin[p])
+        writeBinScripts(binDir, p.replace(/(@.*\/)/, ""), resolvedPkgName.replace(':', path.sep) + path.sep + config.bin[p])
       ));
     }
   }
