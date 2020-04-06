@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@babel/compat-data/corejs2-built-ins": "https://ga.jspm.dev/npm:@babel/compat-data@7.9.0/data/corejs2-built-ins.json",
+    "@babel/compat-data/corejs3-shipped-proposals": "https://ga.jspm.dev/npm:@babel/compat-data@7.9.0/data/corejs3-shipped-proposals.json",
+    "@babel/compat-data/native-modules": "https://ga.jspm.dev/npm:@babel/compat-data@7.9.0/data/native-modules.json",
+    "@babel/compat-data/overlapping-plugins": "https://ga.jspm.dev/npm:@babel/compat-data@7.9.0/data/overlapping-plugins.json",
+    "@babel/compat-data/plugin-bugfixes": "https://ga.jspm.dev/npm:@babel/compat-data@7.9.0/data/plugin-bugfixes.json",
+    "@babel/compat-data/plugins": "https://ga.jspm.dev/npm:@babel/compat-data@7.9.0/data/plugins.json"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "imports": {
+    "@antv/g2": "https://ga.jspm.dev/npm:@antv/g2@4.0.4/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@antv/adjust@0.2.2/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/attr@0.3.2/": {
+      "@antv/color-util": "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/lib/index.js",
+      "@antv/scale": "https://ga.jspm.dev/npm:@antv/scale@0.3.1/lib/index.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/component@0.5.3/": {
+      "@antv/color-util": "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/lib/index.js",
+      "@antv/dom-util": "https://ga.jspm.dev/npm:@antv/dom-util@2.0.2/lib/index.js",
+      "@antv/g-base": "https://ga.jspm.dev/npm:@antv/g-base@0.4.0/lib/index.js",
+      "@antv/g-base/": "https://ga.jspm.dev/npm:@antv/g-base@0.4.0/",
+      "@antv/g-base/lib/event/graph-event": "https://ga.jspm.dev/npm:@antv/g-base@0.4.0/lib/event/graph-event.js",
+      "@antv/matrix-util": "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/lib/index.js",
+      "@antv/path-util": "https://ga.jspm.dev/npm:@antv/path-util@2.0.7/lib/index.js",
+      "@antv/scale": "https://ga.jspm.dev/npm:@antv/scale@0.3.1/lib/index.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/coord@0.2.6/": {
+      "@antv/matrix-util": "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/lib/index.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/g-base@0.4.0/": {
+      "@antv/event-emitter": "https://ga.jspm.dev/npm:@antv/event-emitter@0.1.2/lib/index.js",
+      "@antv/matrix-util": "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/lib/index.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "@antv/util/": "https://ga.jspm.dev/npm:@antv/util@2.0.7/",
+      "@antv/util/lib/each": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/each.js",
+      "@antv/util/lib/is-array": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-array.js",
+      "@antv/util/lib/is-function": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-function.js",
+      "@antv/util/lib/is-nil": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-nil.js",
+      "@antv/util/lib/is-object": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-object.js",
+      "@antv/util/lib/is-string": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-string.js",
+      "@antv/util/lib/mix": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/mix.js",
+      "@antv/util/lib/upper-first": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/upper-first.js",
+      "d3-ease": "https://ga.jspm.dev/npm:d3-ease@1.0.6/dist/d3-ease.js",
+      "d3-interpolate": "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
+      "d3-timer": "https://ga.jspm.dev/npm:d3-timer@1.0.10/dist/d3-timer.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/g-canvas@0.4.2/": {
+      "@antv/util/": "https://ga.jspm.dev/npm:@antv/util@2.0.7/",
+      "@antv/util/lib/clear-animation-frame": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/clear-animation-frame.js",
+      "@antv/util/lib/each": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/each.js",
+      "@antv/util/lib/is-array": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-array.js",
+      "@antv/util/lib/is-function": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-function.js",
+      "@antv/util/lib/is-nil": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-nil.js",
+      "@antv/util/lib/is-number-equal": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-number-equal.js",
+      "@antv/util/lib/is-string": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-string.js",
+      "@antv/util/lib/mod": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/mod.js",
+      "@antv/util/lib/request-animation-frame": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/request-animation-frame.js",
+      "@antv/util/lib/to-radian": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/to-radian.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/g2@4.0.4/": {
+      "@antv/adjust": "https://ga.jspm.dev/npm:@antv/adjust@0.2.2/lib/index.js",
+      "@antv/adjust/": "https://ga.jspm.dev/npm:@antv/adjust@0.2.2/",
+      "@antv/adjust/lib/factory": "https://ga.jspm.dev/npm:@antv/adjust@0.2.2/lib/factory.js",
+      "@antv/attr": "https://ga.jspm.dev/npm:@antv/attr@0.3.2/lib/index.js",
+      "@antv/attr/": "https://ga.jspm.dev/npm:@antv/attr@0.3.2/",
+      "@antv/attr/lib/factory": "https://ga.jspm.dev/npm:@antv/attr@0.3.2/lib/factory.js",
+      "@antv/color-util": "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/lib/index.js",
+      "@antv/component": "https://ga.jspm.dev/npm:@antv/component@0.5.3/lib/index.js",
+      "@antv/component/": "https://ga.jspm.dev/npm:@antv/component@0.5.3/",
+      "@antv/component/lib/tooltip/css-const": "https://ga.jspm.dev/npm:@antv/component@0.5.3/lib/tooltip/css-const.js",
+      "@antv/component/lib/util/event": "https://ga.jspm.dev/npm:@antv/component@0.5.3/lib/util/event.js",
+      "@antv/coord": "https://ga.jspm.dev/npm:@antv/coord@0.2.6/lib/index.js",
+      "@antv/dom-util": "https://ga.jspm.dev/npm:@antv/dom-util@2.0.2/lib/index.js",
+      "@antv/event-emitter": "https://ga.jspm.dev/npm:@antv/event-emitter@0.1.2/lib/index.js",
+      "@antv/g-base": "https://ga.jspm.dev/npm:@antv/g-base@0.4.0/lib/index.js",
+      "@antv/g-canvas": "https://ga.jspm.dev/npm:@antv/g-canvas@0.4.2/dist/g.min.js",
+      "@antv/g-canvas/": "https://ga.jspm.dev/npm:@antv/g-canvas@0.4.2/",
+      "@antv/g-canvas/lib/util/arc-params": "https://ga.jspm.dev/npm:@antv/g-canvas@0.4.2/lib/util/arc-params.js",
+      "@antv/g-svg": "https://ga.jspm.dev/npm:@antv/g-svg@0.4.0/dist/g.min.js",
+      "@antv/matrix-util": "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/lib/index.js",
+      "@antv/path-util": "https://ga.jspm.dev/npm:@antv/path-util@2.0.7/lib/index.js",
+      "@antv/path-util/": "https://ga.jspm.dev/npm:@antv/path-util@2.0.7/",
+      "@antv/path-util/lib/is-polygons-intersect": "https://ga.jspm.dev/npm:@antv/path-util@2.0.7/lib/is-polygons-intersect.js",
+      "@antv/scale": "https://ga.jspm.dev/npm:@antv/scale@0.3.1/lib/index.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/": {
+      "@antv/gl-matrix/": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/",
+      "@antv/gl-matrix/lib/gl-matrix/mat3": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/lib/gl-matrix/mat3.js",
+      "@antv/gl-matrix/lib/gl-matrix/vec2": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/lib/gl-matrix/vec2.js",
+      "@antv/gl-matrix/lib/gl-matrix/vec3": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/lib/gl-matrix/vec3.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/path-util@2.0.7/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "@antv/util/": "https://ga.jspm.dev/npm:@antv/util@2.0.7/",
+      "@antv/util/lib/each": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/each.js",
+      "@antv/util/lib/is-array": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-array.js",
+      "@antv/util/lib/is-equal": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-equal.js",
+      "@antv/util/lib/is-string": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/is-string.js",
+      "@antv/util/lib/mod": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/mod.js",
+      "@antv/util/lib/to-radian": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/to-radian.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/scale@0.3.1/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "fecha": "https://ga.jspm.dev/npm:fecha@3.0.3/lib/fecha.umd.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/": {
+      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.0/dist/d3-color.js"
+    }
+  }
+}

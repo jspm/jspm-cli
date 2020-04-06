@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.0/bundles/core.umd.js"
+  }
+}

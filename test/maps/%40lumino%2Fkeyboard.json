@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lumino/keyboard": "https://ga.jspm.dev/npm:@lumino/keyboard@1.1.6/lib/index.js"
+  }
+}

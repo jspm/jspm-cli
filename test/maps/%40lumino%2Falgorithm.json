@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lumino/algorithm": "https://ga.jspm.dev/npm:@lumino/algorithm@1.2.3/lib/index.js"
+  }
+}

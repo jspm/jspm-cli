@@ -5,11 +5,11 @@
   "version": "3.0.0-beta",
   "scripts": {
     "build-browser": "tsc -p .",
-    "build-node": "ncc build -t -m src/node.js -e sver -e es-module-lexer",
+    "build-node": "ncc build -t -m src/node.js -e sver -s -e es-module-lexer",
     "watch-build-node": "ncc build -t -m src/node.js -s -e sver -e es-module-lexer -w",
     "build": "npm run build-node && npm run build-browser",
     "test": "npm run build && echo '>>>> Open: http://localhost:8080/test/test.html' && http-server",
-    "generate-maps": "node test/generate-maps.mjs"
+    "generate-maps": "node --experimental-modules test/generate-maps.mjs"
   },
   "bin": {
     "jspm": "dist/index.js"
@@ -21,7 +21,7 @@
     "sver": "^1.8.3"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.21.1",
+    "@zeit/ncc": "^0.22.0",
     "chalk": "^3.0.0",
     "http-server": "^0.12.1",
     "make-fetch-happen": "^8.0.1",

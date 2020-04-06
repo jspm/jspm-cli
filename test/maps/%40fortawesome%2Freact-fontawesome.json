@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@fortawesome/fontawesome-svg-core": "https://ga.jspm.dev/npm:@fortawesome/fontawesome-svg-core@1.2.28/index.js",
+    "@fortawesome/react-fontawesome": "https://ga.jspm.dev/npm:@fortawesome/react-fontawesome@0.1.9/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@fortawesome/react-fontawesome@0.1.9/": {
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

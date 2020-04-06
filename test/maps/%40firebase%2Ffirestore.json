@@ -1,0 +1,29 @@
+{
+  "imports": {
+    "@firebase/app": "https://ga.jspm.dev/npm:@firebase/app@0.6.1/dist/index.cjs.js",
+    "@firebase/firestore": "https://ga.jspm.dev/npm:@firebase/firestore@1.13.1/dist/index.cjs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@firebase/app@0.6.1/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/component@0.1.9/": {
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/firestore@1.13.1/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "@firebase/webchannel-wrapper": "https://ga.jspm.dev/npm:@firebase/webchannel-wrapper@0.2.38/dist/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/util@0.2.44/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

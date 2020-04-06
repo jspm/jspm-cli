@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@istanbuljs/schema": "https://ga.jspm.dev/npm:@istanbuljs/schema@0.1.2/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

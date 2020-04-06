@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lumino/collections": "https://ga.jspm.dev/npm:@lumino/collections@1.2.3/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lumino/collections@1.2.3/": {
+      "@lumino/algorithm": "https://ga.jspm.dev/npm:@lumino/algorithm@1.2.3/lib/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jest/types": "https://ga.jspm.dev/npm:@jest/types@25.2.6/build/index.js"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "imports": {
+    "@blueprintjs/core": "https://ga.jspm.dev/npm:@blueprintjs/core@3.24.0/lib/cjs/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@blueprintjs/core@3.24.0/": {
+      "@blueprintjs/icons": "https://ga.jspm.dev/npm:@blueprintjs/icons@3.14.0/lib/cjs/index.js",
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "dom4": "https://ga.jspm.dev/npm:dom4@2.1.5/build/dom4.max.js",
+      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js",
+      "react-popper": "https://ga.jspm.dev/npm:react-popper@1.3.7/lib/cjs/index.js",
+      "react-transition-group": "https://ga.jspm.dev/npm:react-transition-group@2.9.0/index.js",
+      "resize-observer-polyfill": "https://ga.jspm.dev/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@blueprintjs/icons@3.14.0/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:create-react-context@0.3.0/": {
+      "gud": "https://ga.jspm.dev/npm:gud@1.0.0/index.js",
+      "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
+    },
+    "https://ga.jspm.dev/npm:deep-equal@1.1.1/": {
+      "is-arguments": "https://ga.jspm.dev/npm:is-arguments@1.0.4/index.js",
+      "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
+      "is-regex": "https://ga.jspm.dev/npm:is-regex@1.0.5/index.js",
+      "object-is": "https://ga.jspm.dev/npm:object-is@1.0.2/index.js",
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js",
+      "regexp.prototype.flags": "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:dom-helpers@3.4.0/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-regex@1.0.5/": {
+      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-popper@1.3.7/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "create-react-context": "https://ga.jspm.dev/npm:create-react-context@0.3.0/lib/index.js",
+      "deep-equal": "https://ga.jspm.dev/npm:deep-equal@1.1.1/index.js",
+      "popper.js": "https://ga.jspm.dev/npm:popper.js@1.16.1/dist/umd/popper.js",
+      "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
+    },
+    "https://ga.jspm.dev/npm:react-transition-group@2.9.0/": {
+      "dom-helpers/": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/",
+      "dom-helpers/class/addClass": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/class/addClass.js",
+      "dom-helpers/class/removeClass": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/class/removeClass.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/": "https://ga.jspm.dev/npm:es-abstract@1.17.5/",
+      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js"
+    }
+  }
+}

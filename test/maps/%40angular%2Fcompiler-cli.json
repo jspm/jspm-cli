@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@angular/compiler-cli": "https://ga.jspm.dev/npm:@angular/compiler-cli@9.1.0/index.js"
+  }
+}

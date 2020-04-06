@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@angular/cdk": "https://ga.jspm.dev/npm:@angular/cdk@9.2.0/bundles/cdk.umd.js",
+    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.0/bundles/core.umd.js"
+  }
+}

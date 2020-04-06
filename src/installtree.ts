@@ -57,7 +57,7 @@ export function parseInstallTarget (target: string): { target: PackageTarget, su
 export class PackageTarget {
   registry: string;
   name: string;
-  range: any;
+  ranges: any[];
 
   get registryName () {
     return `${this.registry}:${this.name}`;
@@ -71,15 +71,15 @@ export class PackageTarget {
     if (versionIndex > registryIndex + 1) {
       this.name = target.slice(registryIndex + 1, versionIndex);
       const version = target.slice(versionIndex + 1);
-      this.range = (depName || SemverRange.isValid(version)) ? new SemverRange(version) : convertRange(version);
+      this.ranges = (depName || SemverRange.isValid(version)) ? [new SemverRange(version)] : version.split('||').map(v => convertRange(v));
     }
     else if (registryIndex === -1 && depName) {
       this.name = depName;
-      this.range = SemverRange.isValid(target) ? new SemverRange(target) : convertRange(target);
+      this.ranges = SemverRange.isValid(target) ? [new SemverRange(target)] : target.split('||').map(v => convertRange(v));
     }
     else {
       this.name = target.slice(registryIndex + 1);
-      this.range = new SemverRange('*');
+      this.ranges = [new SemverRange('*')];
     }
   
     if (registryIndex === -1 && this.name.indexOf('/') !== -1 && this.name[0] !== '@')
@@ -91,7 +91,7 @@ export class PackageTarget {
   }
 
   toString () {
-    return `${this.registryName}@${this.range.toString()}`;
+    return `${this.registryName}@${this.ranges.map(range => range.toString()).join(' || ')}`;
   }
 };
 
@@ -314,6 +314,11 @@ export function parsePkg (specifier: string): { pkgName: string, subpath: string
 }
 export function pkgToStr (pkg: ExactPackage) {
   return `${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
+}
+export function pkgToLookupUrl (pkg: ExactPackage) {
+  if (pkg.registry !== 'npm')
+    throw new Error('Not an npm registry');
+  return `https://unpkg.com/${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
 }
 export const devCdnUrl = 'https://dev.jspm.io/';
 export const esmCdnUrl = 'https://ga.jspm.dev/';

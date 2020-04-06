@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jest/test-result": "https://ga.jspm.dev/npm:@jest/test-result@25.2.6/build/index.js"
+  }
+}

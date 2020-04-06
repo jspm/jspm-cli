@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@antv/component": "https://ga.jspm.dev/npm:@antv/component@0.3.9/build/component.js"
+  }
+}

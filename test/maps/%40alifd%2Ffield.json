@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "@alifd/field": "https://ga.jspm.dev/npm:@alifd/field@1.4.2/lib/index.js",
+    "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+    "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/asyncToGenerator.js",
+    "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/classCallCheck.js",
+    "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
+    "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
+    "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
+    "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+    "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/slicedToArray.js",
+    "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.2/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@alifd/field@1.4.2/": {
+      "@alifd/validate": "https://ga.jspm.dev/npm:@alifd/validate@1.2.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    }
+  }
+}

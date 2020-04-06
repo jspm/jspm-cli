@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@babel/plugin-syntax-numeric-separator": "https://ga.jspm.dev/npm:@babel/plugin-syntax-numeric-separator@7.8.3/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/plugin-syntax-numeric-separator@7.8.3/": {
+      "@babel/helper-plugin-utils": "https://ga.jspm.dev/npm:@babel/helper-plugin-utils@7.8.3/lib/index.js"
+    }
+  }
+}

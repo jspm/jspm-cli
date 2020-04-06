@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@angular/animations": "https://ga.jspm.dev/npm:@angular/animations@9.1.0/bundles/animations.umd.js"
+  }
+}

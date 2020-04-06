@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@ant-design/colors": "https://ga.jspm.dev/npm:@ant-design/colors@4.0.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@ant-design/colors@4.0.0/": {
+      "tinycolor2": "https://ga.jspm.dev/npm:tinycolor2@1.4.1/tinycolor.js"
+    }
+  }
+}

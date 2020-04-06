@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@formatjs/intl-displaynames": "https://ga.jspm.dev/npm:@formatjs/intl-displaynames@1.2.2/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@formatjs/intl-displaynames@1.2.2/": {
+      "@formatjs/intl-utils": "https://ga.jspm.dev/npm:@formatjs/intl-utils@2.2.1/dist/index.js"
+    }
+  }
+}

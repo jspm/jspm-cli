@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@babel/plugin-syntax-async-generators": "https://ga.jspm.dev/npm:@babel/plugin-syntax-async-generators@7.8.4/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/plugin-syntax-async-generators@7.8.4/": {
+      "@babel/helper-plugin-utils": "https://ga.jspm.dev/npm:@babel/helper-plugin-utils@7.8.3/lib/index.js"
+    }
+  }
+}

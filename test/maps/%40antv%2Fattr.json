@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "@antv/attr": "https://ga.jspm.dev/npm:@antv/attr@0.3.2/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@antv/attr@0.3.2/": {
+      "@antv/color-util": "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/lib/index.js",
+      "@antv/scale": "https://ga.jspm.dev/npm:@antv/scale@0.3.1/lib/index.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@antv/scale@0.3.1/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js",
+      "fecha": "https://ga.jspm.dev/npm:fecha@3.0.3/lib/fecha.umd.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

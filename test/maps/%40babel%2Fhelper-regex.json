@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@babel/helper-regex": "https://ga.jspm.dev/npm:@babel/helper-regex@7.8.3/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/helper-regex@7.8.3/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/pull": "https://ga.jspm.dev/npm:lodash@4.17.15/pull.js"
+    }
+  }
+}

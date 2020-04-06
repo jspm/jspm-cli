@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@fortawesome/fontawesome-svg-core": "https://ga.jspm.dev/npm:@fortawesome/fontawesome-svg-core@1.2.28/index.js"
+  }
+}

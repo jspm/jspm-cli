@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@lumino/coreutils": "https://ga.jspm.dev/npm:@lumino/coreutils@1.4.2/lib/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js"
+  }
+}

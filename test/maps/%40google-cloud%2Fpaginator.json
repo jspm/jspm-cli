@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@google-cloud/paginator": "https://ga.jspm.dev/npm:@google-cloud/paginator@3.0.0/build/src/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@google-cloud/paginator@3.0.0/": {
+      "arrify": "https://ga.jspm.dev/npm:arrify@2.0.1/index.js",
+      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js"
+    }
+  }
+}

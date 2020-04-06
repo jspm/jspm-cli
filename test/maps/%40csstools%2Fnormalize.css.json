@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@csstools/normalize.css": "https://ga.jspm.dev/npm:@csstools/normalize.css@10.1.0/normalize.css"
+  }
+}

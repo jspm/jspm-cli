@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@angular/common": "https://ga.jspm.dev/npm:@angular/common@9.1.0/bundles/common.umd.js",
+    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.0/bundles/core.umd.js",
+    "@angular/platform-browser": "https://ga.jspm.dev/npm:@angular/platform-browser@9.1.0/bundles/platform-browser.umd.js"
+  }
+}

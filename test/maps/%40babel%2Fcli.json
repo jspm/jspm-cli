@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@babel/cli": "https://ga.jspm.dev/npm:@babel/cli@7.8.4/index.js"
+  }
+}

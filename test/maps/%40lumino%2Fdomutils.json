@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lumino/domutils": "https://ga.jspm.dev/npm:@lumino/domutils@1.1.7/lib/index.js"
+  }
+}

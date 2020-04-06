@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@lumino/dragdrop": "https://ga.jspm.dev/npm:@lumino/dragdrop@1.5.1/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lumino/disposable@1.3.5/": {
+      "@lumino/algorithm": "https://ga.jspm.dev/npm:@lumino/algorithm@1.2.3/lib/index.js",
+      "@lumino/signaling": "https://ga.jspm.dev/npm:@lumino/signaling@1.3.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@lumino/dragdrop@1.5.1/": {
+      "@lumino/disposable": "https://ga.jspm.dev/npm:@lumino/disposable@1.3.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@lumino/signaling@1.3.5/": {
+      "@lumino/algorithm": "https://ga.jspm.dev/npm:@lumino/algorithm@1.2.3/lib/index.js"
+    }
+  }
+}

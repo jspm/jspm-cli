@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@antv/gl-matrix": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/dist/gl-matrix.js"
+  }
+}

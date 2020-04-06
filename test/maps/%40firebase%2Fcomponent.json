@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@firebase/component@0.1.9/": {
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/util@0.2.44/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

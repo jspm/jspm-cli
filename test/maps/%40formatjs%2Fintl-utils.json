@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@formatjs/intl-utils": "https://ga.jspm.dev/npm:@formatjs/intl-utils@2.2.1/dist/index.js"
+  }
+}

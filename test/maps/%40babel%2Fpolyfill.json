@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "@babel/polyfill": "https://ga.jspm.dev/npm:@babel/polyfill@7.8.7/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/polyfill@7.8.7/": {
+      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
+      "core-js/es6": "https://ga.jspm.dev/npm:core-js@2.6.11/es6/index.js",
+      "core-js/fn/array/flat-map": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/array/flat-map.js",
+      "core-js/fn/array/includes": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/array/includes.js",
+      "core-js/fn/object/entries": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/object/entries.js",
+      "core-js/fn/object/get-own-property-descriptors": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/object/get-own-property-descriptors.js",
+      "core-js/fn/object/values": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/object/values.js",
+      "core-js/fn/promise/finally": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/promise/finally.js",
+      "core-js/fn/string/pad-end": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/string/pad-end.js",
+      "core-js/fn/string/pad-start": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/string/pad-start.js",
+      "core-js/fn/string/trim-end": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/string/trim-end.js",
+      "core-js/fn/string/trim-start": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/string/trim-start.js",
+      "core-js/fn/symbol/async-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/symbol/async-iterator.js",
+      "core-js/library/fn/global": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/global.js",
+      "core-js/web": "https://ga.jspm.dev/npm:core-js@2.6.11/web/index.js",
+      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
+      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    }
+  }
+}

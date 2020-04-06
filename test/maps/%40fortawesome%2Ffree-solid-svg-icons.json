@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@fortawesome/free-solid-svg-icons": "https://ga.jspm.dev/npm:@fortawesome/free-solid-svg-icons@5.13.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@csstools/convert-colors": "https://ga.jspm.dev/npm:@csstools/convert-colors@2.0.0/index.js"
+  }
+}

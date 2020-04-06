@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@formatjs/intl-unified-numberformat": "https://ga.jspm.dev/npm:@formatjs/intl-unified-numberformat@3.3.0/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@formatjs/intl-unified-numberformat@3.3.0/": {
+      "@formatjs/intl-utils": "https://ga.jspm.dev/npm:@formatjs/intl-utils@2.2.1/dist/index.js"
+    }
+  }
+}

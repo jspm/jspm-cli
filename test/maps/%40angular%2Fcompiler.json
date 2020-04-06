@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@angular/compiler": "https://ga.jspm.dev/npm:@angular/compiler@9.1.0/bundles/compiler.umd.js"
+  }
+}

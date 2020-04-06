@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@babel/register": "https://ga.jspm.dev/npm:@babel/register@7.9.0/lib/index.js"
+  }
+}
