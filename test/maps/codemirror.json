@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "codemirror": "https://ga.jspm.dev/npm:codemirror@5.52.2/lib/codemirror.js"
+  }
+}

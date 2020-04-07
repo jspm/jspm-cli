@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "canvas-box-blur": "https://ga.jspm.dev/npm:canvas-box-blur@0.0.3/src/index.mjs"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "await-fn": "https://ga.jspm.dev/npm:await-fn@1.3.6/src/index.js"
+  }
+}

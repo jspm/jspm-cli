@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "async-done": "https://ga.jspm.dev/npm:async-done@1.3.2/index.js",
+    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/domain.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-done@1.3.2/": {
+      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "stream-exhaust": "https://ga.jspm.dev/npm:stream-exhaust@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    }
+  }
+}

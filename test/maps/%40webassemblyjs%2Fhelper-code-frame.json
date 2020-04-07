@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "@webassemblyjs/helper-code-frame": "https://ga.jspm.dev/npm:@webassemblyjs/helper-code-frame@1.9.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@webassemblyjs/ast@1.9.0/": {
+      "@webassemblyjs/helper-wasm-bytecode": "https://ga.jspm.dev/npm:@webassemblyjs/helper-wasm-bytecode@1.9.0/lib/index.js",
+      "@webassemblyjs/wast-parser": "https://ga.jspm.dev/npm:@webassemblyjs/wast-parser@1.9.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@webassemblyjs/helper-code-frame@1.9.0/": {
+      "@webassemblyjs/wast-printer": "https://ga.jspm.dev/npm:@webassemblyjs/wast-printer@1.9.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@webassemblyjs/wast-parser@1.9.0/": {
+      "@webassemblyjs/ast": "https://ga.jspm.dev/npm:@webassemblyjs/ast@1.9.0/lib/index.js",
+      "@webassemblyjs/floating-point-hex-parser": "https://ga.jspm.dev/npm:@webassemblyjs/floating-point-hex-parser@1.9.0/lib/index.js",
+      "@webassemblyjs/helper-api-error": "https://ga.jspm.dev/npm:@webassemblyjs/helper-api-error@1.9.0/lib/index.js",
+      "@webassemblyjs/helper-code-frame": "https://ga.jspm.dev/npm:@webassemblyjs/helper-code-frame@1.9.0/lib/index.js",
+      "@webassemblyjs/helper-fsm": "https://ga.jspm.dev/npm:@webassemblyjs/helper-fsm@1.9.0/lib/index.js",
+      "@xtuc/long": "https://ga.jspm.dev/npm:@xtuc/long@4.2.2/src/long.js"
+    },
+    "https://ga.jspm.dev/npm:@webassemblyjs/wast-printer@1.9.0/": {
+      "@webassemblyjs/ast": "https://ga.jspm.dev/npm:@webassemblyjs/ast@1.9.0/lib/index.js",
+      "@xtuc/long": "https://ga.jspm.dev/npm:@xtuc/long@4.2.2/src/long.js"
+    }
+  }
+}

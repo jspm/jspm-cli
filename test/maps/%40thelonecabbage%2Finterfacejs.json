@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@thelonecabbage/interfacejs": "https://ga.jspm.dev/npm:@thelonecabbage/interfacejs@0.1.7/dist/index.js"
+  }
+}

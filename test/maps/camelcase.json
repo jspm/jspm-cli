@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "camelcase": "https://ga.jspm.dev/npm:camelcase@6.0.0/index.js"
+  }
+}

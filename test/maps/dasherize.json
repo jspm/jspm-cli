@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dasherize": "https://ga.jspm.dev/npm:dasherize@2.0.0/index.js"
+  }
+}

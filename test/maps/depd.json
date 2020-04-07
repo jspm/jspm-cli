@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "depd": "https://ga.jspm.dev/npm:depd@2.0.0/lib/browser/index.js"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "d3-chord": "https://ga.jspm.dev/npm:d3-chord@1.0.6/dist/d3-chord.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:d3-chord@1.0.6/": {
+      "d3-array": "https://ga.jspm.dev/npm:d3-array@1.2.4/dist/d3-array.js",
+      "d3-path": "https://ga.jspm.dev/npm:d3-path@1.0.9/dist/d3-path.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@author.io/arg": "https://ga.jspm.dev/npm:@author.io/arg@1.2.5/index.js"
+  }
+}

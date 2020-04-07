@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "assertion-error": "https://ga.jspm.dev/npm:assertion-error@1.1.0/index.js"
+  }
+}

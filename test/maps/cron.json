@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "cron": "https://ga.jspm.dev/npm:cron@1.8.2/lib/cron.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cron@1.8.2/": {
+      "moment-timezone": "https://ga.jspm.dev/npm:moment-timezone@0.5.28/index.js"
+    },
+    "https://ga.jspm.dev/npm:moment-timezone@0.5.28/": {
+      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
+    }
+  }
+}

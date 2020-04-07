@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "corser": "https://ga.jspm.dev/npm:corser@2.0.1/lib/corser.js"
+  }
+}

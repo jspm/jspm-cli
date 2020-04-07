@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@trevthedev/mash": "https://ga.jspm.dev/npm:@trevthedev/mash@0.0.18/src/server.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@trevthedev/mash@0.0.18/": {
+      "@trevthedev/shell-harness": "https://ga.jspm.dev/npm:@trevthedev/shell-harness@1.0.8/src/shell harness.js",
+      "date-fns": "https://ga.jspm.dev/npm:date-fns@2.11.1/index.js"
+    }
+  }
+}

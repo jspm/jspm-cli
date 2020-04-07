@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.0/dist/d3-color.js"
+  }
+}

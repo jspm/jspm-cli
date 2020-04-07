@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bourne": "https://ga.jspm.dev/npm:bourne@1.1.2/lib/index.js"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@distributed-systems/http2-client": "https://ga.jspm.dev/npm:@distributed-systems/http2-client@2.1.1/npm/src/HTTP2Client.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "http2": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@distributed-systems/http2-client@2.1.1/": {
+      "@distributed-systems/http2-lib": "https://ga.jspm.dev/npm:@distributed-systems/http2-lib@2.0.2/npm/index.js"
+    },
+    "https://ga.jspm.dev/npm:@distributed-systems/http2-lib@2.0.2/": {
+      "@distributed-systems/types/": "https://ga.jspm.dev/npm:@distributed-systems/types@2.0.1/"
+    }
+  }
+}

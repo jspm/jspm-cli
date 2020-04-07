@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js"
+  }
+}

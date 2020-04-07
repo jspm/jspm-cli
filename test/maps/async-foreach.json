@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "async-foreach": "https://ga.jspm.dev/npm:async-foreach@0.1.3/lib/foreach.js"
+  }
+}

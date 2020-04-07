@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cynic": "https://ga.jspm.dev/npm:cynic@0.1.0-dev.8/dist/cynic.js"
+  }
+}

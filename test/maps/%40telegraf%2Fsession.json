@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@telegraf/session": "https://ga.jspm.dev/npm:@telegraf/session@1.0.1/index.js"
+  }
+}

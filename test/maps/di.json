@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "di": "https://ga.jspm.dev/npm:di@0.0.1/lib/index.js"
+  }
+}

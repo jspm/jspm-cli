@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "default-user-agent": "https://ga.jspm.dev/npm:default-user-agent@1.0.0/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:default-user-agent@1.0.0/": {
+      "os-name": "https://ga.jspm.dev/npm:os-name@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:os-name@1.0.3/": {
+      "osx-release": "https://ga.jspm.dev/npm:osx-release@1.1.0/index.js",
+      "win-release": "https://ga.jspm.dev/npm:win-release@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:win-release@1.1.1/": {
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    }
+  }
+}

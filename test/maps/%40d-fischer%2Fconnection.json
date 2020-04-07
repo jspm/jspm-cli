@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@d-fischer/connection": "https://ga.jspm.dev/npm:@d-fischer/connection@3.0.0/es/index.mjs",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@d-fischer/connection@3.0.0/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js",
+      "universal-websocket-client": "https://ga.jspm.dev/npm:universal-websocket-client@1.0.2/browser.js"
+    }
+  }
+}

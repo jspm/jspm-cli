@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "auta": "https://ga.jspm.dev/npm:auta@2.0.0-R3/src/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:auta@2.0.0-R3/": {
+      "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js"
+    }
+  }
+}

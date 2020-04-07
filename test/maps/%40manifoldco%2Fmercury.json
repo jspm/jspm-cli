@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@manifoldco/mercury": "https://ga.jspm.dev/npm:@manifoldco/mercury@0.0.6/wrapper.mjs",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@diez/web-sdk-common@10.5.0/": {
+      "@diez/framework-core": "https://ga.jspm.dev/npm:@diez/framework-core@10.5.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@manifoldco/mercury@0.0.6/": {
+      "@diez/web-sdk-common": "https://ga.jspm.dev/npm:@diez/web-sdk-common@10.5.0/lib/index.js"
+    }
+  }
+}

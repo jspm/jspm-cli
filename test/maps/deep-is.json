@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "deep-is": "https://ga.jspm.dev/npm:deep-is@0.1.3/index.js"
+  }
+}

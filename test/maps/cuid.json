@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cuid": "https://ga.jspm.dev/npm:cuid@2.1.8/index.js"
+  }
+}

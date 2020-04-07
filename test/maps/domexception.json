@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "domexception": "https://ga.jspm.dev/npm:domexception@2.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:domexception@2.0.1/": {
+      "webidl-conversions": "https://ga.jspm.dev/npm:webidl-conversions@5.0.0/lib/index.js"
+    }
+  }
+}

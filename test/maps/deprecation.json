@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "deprecation": "https://ga.jspm.dev/npm:deprecation@2.3.1/dist-node/index.js"
+  }
+}

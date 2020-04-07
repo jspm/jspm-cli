@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "blur-accessibly": "https://ga.jspm.dev/npm:blur-accessibly@0.9.1/index.js"
+  }
+}

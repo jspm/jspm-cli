@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@urql/exchange-retry": "https://ga.jspm.dev/npm:@urql/exchange-retry@0.1.3/dist/urql-exchange-retry.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@urql/exchange-retry@0.1.3/": {
+      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.9/dist/wonka.mjs"
+    }
+  }
+}

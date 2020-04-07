@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "async-iter-duration-at-least": "https://ga.jspm.dev/npm:async-iter-duration-at-least@1.0.0/duration-at-least.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-iter-duration-at-least@1.0.0/": {
+      "delay": "https://ga.jspm.dev/npm:delay@4.3.0/index.js"
+    }
+  }
+}

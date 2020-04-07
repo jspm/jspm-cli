@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babel": "https://ga.jspm.dev/npm:babel@6.23.0/index.js"
+  }
+}

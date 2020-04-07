@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "denodeify": "https://ga.jspm.dev/npm:denodeify@1.2.1/index.js"
+  }
+}

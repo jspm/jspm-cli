@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babel-plugin-htmlbars-inline-precompile": "https://ga.jspm.dev/npm:babel-plugin-htmlbars-inline-precompile@3.0.1/index.js"
+  }
+}

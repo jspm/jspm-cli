@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dom-storage": "https://ga.jspm.dev/npm:dom-storage@2.1.0/lib/index.js"
+  }
+}

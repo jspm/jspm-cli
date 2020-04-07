@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babel-plugin-syntax-decorators": "https://ga.jspm.dev/npm:babel-plugin-syntax-decorators@6.13.0/lib/index.js"
+  }
+}

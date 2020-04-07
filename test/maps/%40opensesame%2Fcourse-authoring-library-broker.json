@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "@opensesame/course-authoring-library-broker": "https://ga.jspm.dev/npm:@opensesame/course-authoring-library-broker@1.0.5-alpha/dist/out-tsc/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@hapi/boom@7.4.11/": {
+      "@hapi/hoek": "https://ga.jspm.dev/npm:@hapi/hoek@8.5.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@opensesame/course-authoring-library-broker@1.0.5-alpha/": {
+      "@hapi/boom": "https://ga.jspm.dev/npm:@hapi/boom@7.4.11/lib/index.js",
+      "@hapi/joi": "https://ga.jspm.dev/npm:@hapi/joi@17.1.1/dist/joi-browser.min.js",
+      "hapi-decorators": "https://ga.jspm.dev/npm:hapi-decorators@2.0.0/index.js",
+      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js",
+      "pretty-bytes": "https://ga.jspm.dev/npm:pretty-bytes@5.3.0/index.js",
+      "systeminformation": "https://ga.jspm.dev/npm:systeminformation@4.23.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:hapi-decorators@2.0.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
+      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js"
+    }
+  }
+}

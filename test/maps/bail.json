@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bail": "https://ga.jspm.dev/npm:bail@1.0.5/index.js"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "aggregation-repository-provider": "https://ga.jspm.dev/npm:aggregation-repository-provider@2.6.45/src/repository-provider.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:aggregation-repository-provider@2.6.45/": {
+      "repository-provider": "https://ga.jspm.dev/npm:repository-provider@16.15.0/src/provider.mjs"
+    },
+    "https://ga.jspm.dev/npm:repository-provider@16.15.0/": {
+      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.5/src/loglevel-mixin.mjs"
+    }
+  }
+}

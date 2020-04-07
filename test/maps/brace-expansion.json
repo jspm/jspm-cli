@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    }
+  }
+}

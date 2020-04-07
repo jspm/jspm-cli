@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "babel-plugin-ember-data-packages-polyfill": "https://ga.jspm.dev/npm:babel-plugin-ember-data-packages-polyfill@0.1.2/src/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-plugin-ember-data-packages-polyfill@0.1.2/": {
+      "@ember-data/rfc395-data": "https://ga.jspm.dev/npm:@ember-data/rfc395-data@0.0.4/mappings.json"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "imports": {
+    "chokidar": "https://ga.jspm.dev/npm:chokidar@3.3.1/index.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "fsevents": "https://ga.jspm.dev/npm:fsevents@2.1.2/fsevents.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:anymatch@3.1.1/": {
+      "normalize-path": "https://ga.jspm.dev/npm:normalize-path@3.0.0/index.js",
+      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chokidar@3.3.1/": {
+      "anymatch": "https://ga.jspm.dev/npm:anymatch@3.1.1/index.js",
+      "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
+      "glob-parent": "https://ga.jspm.dev/npm:glob-parent@5.1.1/index.js",
+      "is-binary-path": "https://ga.jspm.dev/npm:is-binary-path@2.1.0/index.js",
+      "is-glob": "https://ga.jspm.dev/npm:is-glob@4.0.1/index.js",
+      "normalize-path": "https://ga.jspm.dev/npm:normalize-path@3.0.0/index.js",
+      "readdirp": "https://ga.jspm.dev/npm:readdirp@3.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:glob-parent@5.1.1/": {
+      "is-glob": "https://ga.jspm.dev/npm:is-glob@4.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-binary-path@2.1.0/": {
+      "binary-extensions": "https://ga.jspm.dev/npm:binary-extensions@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-glob@4.0.1/": {
+      "is-extglob": "https://ga.jspm.dev/npm:is-extglob@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:readdirp@3.3.0/": {
+      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bn.js": "https://ga.jspm.dev/npm:bn.js@5.1.1/lib/bn.js"
+  }
+}

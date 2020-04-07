@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@undercut/cli": "https://ga.jspm.dev/npm:@undercut/cli@0.5.0/lib/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@undercut/cli@0.5.0/": {
+      "@undercut/node-10/": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.0/",
+      "@undercut/node-10/pull": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.0/pull.js",
+      "@undercut/node-10/push": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.0/push.js",
+      "@undercut/node-10/utils": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.0/utils.js"
+    }
+  }
+}

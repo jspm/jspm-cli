@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "append-field": "https://ga.jspm.dev/npm:append-field@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "add-dom-event-listener": "https://ga.jspm.dev/npm:add-dom-event-listener@1.1.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:add-dom-event-listener@1.1.0/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

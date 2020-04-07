@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@candlefw/css": "https://ga.jspm.dev/npm:@candlefw/css@0.1.6/source/css.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@candlefw/css@0.1.6/": {
+      "@candlefw/color": "https://ga.jspm.dev/npm:@candlefw/color@1.0.1-0/color.mjs",
+      "@candlefw/math": "https://ga.jspm.dev/npm:@candlefw/math@0.0.3/source/math.mjs",
+      "@candlefw/observer": "https://ga.jspm.dev/npm:@candlefw/observer@1.0.2/observer.mjs",
+      "@candlefw/url": "https://ga.jspm.dev/npm:@candlefw/url@0.0.13/url.mjs",
+      "@candlefw/whind": "https://ga.jspm.dev/npm:@candlefw/whind@0.4.0/build/library/whind.js"
+    },
+    "https://ga.jspm.dev/npm:@candlefw/url@0.0.13/": {
+      "@candlefw/whind": "https://ga.jspm.dev/npm:@candlefw/whind@0.4.0/build/library/whind.js"
+    }
+  }
+}

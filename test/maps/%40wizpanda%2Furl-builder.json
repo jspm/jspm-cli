@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@wizpanda/url-builder": "https://ga.jspm.dev/npm:@wizpanda/url-builder@0.0.3/dist/url-builder.js"
+  }
+}

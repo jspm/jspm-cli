@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "async-call-rpc": "https://ga.jspm.dev/npm:async-call-rpc@1.0.4/out/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "css-prefers-color-scheme": "https://ga.jspm.dev/npm:css-prefers-color-scheme@4.0.0/index.js"
+  }
+}

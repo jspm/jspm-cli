@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@undercut/push": "https://ga.jspm.dev/npm:@undercut/push@0.5.0/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@undercut/push@0.5.0/": {
+      "@undercut/utils/": "https://ga.jspm.dev/npm:@undercut/utils@0.5.0/"
+    }
+  }
+}

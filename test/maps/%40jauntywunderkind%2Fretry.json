@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@jauntywunderkind/retry": "https://ga.jspm.dev/npm:@jauntywunderkind/retry@1.0.2/retry.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@jauntywunderkind/retry@1.0.2/": {
+      "delay": "https://ga.jspm.dev/npm:delay@4.3.0/index.js",
+      "robot3": "https://ga.jspm.dev/npm:robot3@0.2.15/dist/machine.js"
+    }
+  }
+}

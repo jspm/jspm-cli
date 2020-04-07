@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "character-entities": "https://ga.jspm.dev/npm:character-entities@1.2.4/index.json"
+  }
+}

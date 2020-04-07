@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "cfn-resolver-lib": "https://ga.jspm.dev/npm:cfn-resolver-lib@1.1.5/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cfn-resolver-lib@1.1.5/": {
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "traverse": "https://ga.jspm.dev/npm:traverse@0.6.6/index.js"
+    }
+  }
+}

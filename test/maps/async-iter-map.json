@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "async-iter-map": "https://ga.jspm.dev/npm:async-iter-map@1.0.2/map.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-iter-map@1.0.2/": {
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js",
+      "shim-to-polyfill": "https://ga.jspm.dev/npm:shim-to-polyfill@1.0.0/shim-to-polyfill.js"
+    }
+  }
+}

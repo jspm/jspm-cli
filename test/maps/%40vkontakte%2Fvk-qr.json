@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@vkontakte/vk-qr": "https://ga.jspm.dev/npm:@vkontakte/vk-qr@2.0.10/dist/umd/qrCodeGenerator.js"
+  }
+}

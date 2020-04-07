@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bottomsearchbar": "https://ga.jspm.dev/npm:bottomsearchbar@0.0.9/src/index.js"
+  }
+}

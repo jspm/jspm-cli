@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "domutils": "https://ga.jspm.dev/npm:domutils@2.0.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:dom-serializer@0.2.2/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
+      "entities": "https://ga.jspm.dev/npm:entities@2.0.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:domutils@2.0.0/": {
+      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.2.2/index.js",
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js"
+    }
+  }
+}

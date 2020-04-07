@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babel-plugin-transform-es2015-for-of": "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-for-of@6.23.0/lib/index.js"
+  }
+}

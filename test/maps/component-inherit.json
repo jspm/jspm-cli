@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "component-inherit": "https://ga.jspm.dev/npm:component-inherit@0.0.3/index.js"
+  }
+}

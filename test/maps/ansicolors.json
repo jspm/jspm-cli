@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ansicolors": "https://ga.jspm.dev/npm:ansicolors@0.3.2/ansicolors.js"
+  }
+}

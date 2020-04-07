@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@3.1.0/index.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cli-cursor@3.1.0/": {
+      "restore-cursor": "https://ga.jspm.dev/npm:restore-cursor@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:onetime@5.1.0/": {
+      "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:restore-cursor@3.1.0/": {
+      "onetime": "https://ga.jspm.dev/npm:onetime@5.1.0/index.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
+    }
+  }
+}

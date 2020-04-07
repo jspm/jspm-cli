@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "continuation-local-storage": "https://ga.jspm.dev/npm:continuation-local-storage@3.2.1/context.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "timers": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/timers.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-listener@0.6.10/": {
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
+      "shimmer": "https://ga.jspm.dev/npm:shimmer@1.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:continuation-local-storage@3.2.1/": {
+      "async-listener": "https://ga.jspm.dev/npm:async-listener@0.6.10/index.js",
+      "emitter-listener": "https://ga.jspm.dev/npm:emitter-listener@1.1.2/listener.js"
+    },
+    "https://ga.jspm.dev/npm:emitter-listener@1.1.2/": {
+      "shimmer": "https://ga.jspm.dev/npm:shimmer@1.2.1/index.js"
+    }
+  }
+}

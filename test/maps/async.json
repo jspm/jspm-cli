@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "async": "https://ga.jspm.dev/npm:async@3.2.0/dist/async.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

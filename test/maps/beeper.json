@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "beeper": "https://ga.jspm.dev/npm:beeper@2.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:beeper@2.0.0/": {
+      "delay": "https://ga.jspm.dev/npm:delay@4.3.0/index.js"
+    }
+  }
+}

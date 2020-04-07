@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "@endgame/alice": "https://ga.jspm.dev/npm:@endgame/alice@0.1.7-alpha.9/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:@endgame/alice@0.1.7-alpha.9/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/asyncToGenerator.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/slicedToArray.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+      "@endgame/clara": "https://ga.jspm.dev/npm:@endgame/clara@0.1.6/lib/index.js",
+      "@endgame/steve": "https://ga.jspm.dev/npm:@endgame/steve@0.1.6/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@endgame/clara@0.1.6/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/asyncToGenerator.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/toConsumableArray.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+      "core-js/": "https://ga.jspm.dev/npm:core-js@3.6.4/",
+      "core-js/modules/es.array.filter": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.filter.js",
+      "core-js/modules/es.array.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.for-each.js",
+      "core-js/modules/es.array.index-of": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.index-of.js",
+      "core-js/modules/es.array.join": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.join.js",
+      "core-js/modules/es.array.reduce": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.reduce.js",
+      "core-js/modules/es.array.reverse": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.reverse.js",
+      "core-js/modules/es.date.now": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.date.now.js",
+      "core-js/modules/es.date.to-string": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.date.to-string.js",
+      "core-js/modules/es.object.define-properties": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.define-properties.js",
+      "core-js/modules/es.object.define-property": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.define-property.js",
+      "core-js/modules/es.object.entries": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.entries.js",
+      "core-js/modules/es.object.get-own-property-descriptor": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.get-own-property-descriptor.js",
+      "core-js/modules/es.object.get-own-property-descriptors": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.get-own-property-descriptors.js",
+      "core-js/modules/es.object.keys": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.keys.js",
+      "core-js/modules/es.object.to-string": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.to-string.js",
+      "core-js/modules/es.promise": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.promise.js",
+      "core-js/modules/es.regexp.exec": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.regexp.exec.js",
+      "core-js/modules/es.string.match": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.string.match.js",
+      "core-js/modules/es.string.replace": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.string.replace.js",
+      "core-js/modules/es.string.split": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.string.split.js",
+      "core-js/modules/es.symbol": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.symbol.js",
+      "core-js/modules/web.dom-collections.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/web.dom-collections.for-each.js",
+      "core-js/modules/web.timers": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/web.timers.js",
+      "intersection-observer": "https://ga.jspm.dev/npm:intersection-observer@0.7.0/intersection-observer.js",
+      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
+      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js",
+      "smoothscroll-polyfill": "https://ga.jspm.dev/npm:smoothscroll-polyfill@0.4.4/dist/smoothscroll.js"
+    },
+    "https://ga.jspm.dev/npm:@endgame/steve@0.1.6/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "core-js/": "https://ga.jspm.dev/npm:core-js@3.6.4/",
+      "core-js/modules/es.array.filter": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.filter.js",
+      "core-js/modules/es.array.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.for-each.js",
+      "core-js/modules/es.object.define-properties": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.define-properties.js",
+      "core-js/modules/es.object.define-property": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.define-property.js",
+      "core-js/modules/es.object.get-own-property-descriptor": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.get-own-property-descriptor.js",
+      "core-js/modules/es.object.get-own-property-descriptors": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.get-own-property-descriptors.js",
+      "core-js/modules/es.object.keys": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.keys.js",
+      "core-js/modules/es.symbol": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.symbol.js",
+      "core-js/modules/web.dom-collections.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/web.dom-collections.for-each.js"
+    }
+  }
+}

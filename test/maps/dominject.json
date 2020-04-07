@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dominject": "https://ga.jspm.dev/npm:dominject@4.0.0/edition-browsers/index.js"
+  }
+}

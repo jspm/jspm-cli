@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "clarity-pattern-parser": "https://ga.jspm.dev/npm:clarity-pattern-parser@2.0.10/lib/index.js"
+  }
+}

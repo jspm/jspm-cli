@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@yaffle/expression": "https://ga.jspm.dev/npm:@yaffle/expression@0.0.18/index.js"
+  }
+}

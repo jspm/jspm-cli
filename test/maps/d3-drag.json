@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "d3-drag": "https://ga.jspm.dev/npm:d3-drag@1.2.5/dist/d3-drag.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:d3-drag@1.2.5/": {
+      "d3-dispatch": "https://ga.jspm.dev/npm:d3-dispatch@1.0.6/dist/d3-dispatch.js",
+      "d3-selection": "https://ga.jspm.dev/npm:d3-selection@1.4.1/dist/d3-selection.js"
+    }
+  }
+}

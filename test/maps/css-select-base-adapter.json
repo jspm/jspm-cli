@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "css-select-base-adapter": "https://ga.jspm.dev/npm:css-select-base-adapter@0.1.1/index.js"
+  }
+}

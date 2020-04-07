@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "charenc": "https://ga.jspm.dev/npm:charenc@0.0.2/charenc.js"
+  }
+}

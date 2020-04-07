@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "deep-eql": "https://ga.jspm.dev/npm:deep-eql@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:deep-eql@4.0.0/": {
+      "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
+    }
+  }
+}

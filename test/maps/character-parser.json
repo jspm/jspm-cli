@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "character-parser": "https://ga.jspm.dev/npm:character-parser@3.1.0/lib/index.js"
+  }
+}

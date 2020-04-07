@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "component-indexof": "https://ga.jspm.dev/npm:component-indexof@0.0.3/index.js"
+  }
+}

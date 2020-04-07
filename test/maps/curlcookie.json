@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "curlcookie": "https://ga.jspm.dev/npm:curlcookie@0.0.5/src/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@storeon/websocket": "https://ga.jspm.dev/npm:@storeon/websocket@0.5.1/index.js"
+  }
+}

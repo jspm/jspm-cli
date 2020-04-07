@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "arr-map": "https://ga.jspm.dev/npm:arr-map@2.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:arr-map@2.0.2/": {
+      "make-iterator": "https://ga.jspm.dev/npm:make-iterator@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:make-iterator@1.0.1/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@jauntywunderkind/async-retry": "https://ga.jspm.dev/npm:@jauntywunderkind/async-retry@1.0.0/retry.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@jauntywunderkind/async-retry@1.0.0/": {
+      "delay": "https://ga.jspm.dev/npm:delay@4.3.0/index.js"
+    }
+  }
+}

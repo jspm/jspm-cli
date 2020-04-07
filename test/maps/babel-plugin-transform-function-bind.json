@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "babel-plugin-transform-function-bind": "https://ga.jspm.dev/npm:babel-plugin-transform-function-bind@6.22.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-plugin-transform-function-bind@6.22.0/": {
+      "babel-plugin-syntax-function-bind": "https://ga.jspm.dev/npm:babel-plugin-syntax-function-bind@6.13.0/lib/index.js"
+    }
+  }
+}

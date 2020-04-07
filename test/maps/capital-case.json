@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "capital-case": "https://ga.jspm.dev/npm:capital-case@1.0.3/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:capital-case@1.0.3/": {
+      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js",
+      "upper-case-first": "https://ga.jspm.dev/npm:upper-case-first@2.0.1/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:no-case@3.0.3/": {
+      "lower-case": "https://ga.jspm.dev/npm:lower-case@2.0.1/dist/index.js"
+    }
+  }
+}

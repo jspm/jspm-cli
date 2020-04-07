@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "create-react-context": "https://ga.jspm.dev/npm:create-react-context@0.3.0/lib/index.js",
+    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:create-react-context@0.3.0/": {
+      "gud": "https://ga.jspm.dev/npm:gud@1.0.0/index.js",
+      "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

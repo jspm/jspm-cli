@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+    "acorn-jsx": "https://ga.jspm.dev/npm:acorn-jsx@5.2.0/index.js"
+  }
+}

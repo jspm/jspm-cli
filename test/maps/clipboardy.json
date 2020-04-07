@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "clipboardy": "https://ga.jspm.dev/npm:clipboardy@2.3.0/browser.js"
+  }
+}

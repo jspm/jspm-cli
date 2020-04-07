@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "babel-code-frame": "https://ga.jspm.dev/npm:babel-code-frame@6.26.0/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-code-frame@6.26.0/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@1.1.3/index.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js",
+      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@3.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@1.1.3/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@2.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "has-ansi": "https://ga.jspm.dev/npm:has-ansi@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-ansi@2.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@3.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    }
+  }
+}

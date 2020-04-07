@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "@bevry/testen": "https://ga.jspm.dev/npm:@bevry/testen@3.6.0/source/index.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@bevry/testen@3.6.0/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
+      "figures": "https://ga.jspm.dev/npm:figures@3.2.0/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js",
+      "then-exec": "https://ga.jspm.dev/npm:then-exec@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:figures@3.2.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/": {
+      "pinkie": "https://ga.jspm.dev/npm:pinkie@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:then-exec@0.0.1/": {
+      "pinkie-promise": "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "d3-time-format": "https://ga.jspm.dev/npm:d3-time-format@2.2.3/dist/d3-time-format.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:d3-time-format@2.2.3/": {
+      "d3-time": "https://ga.jspm.dev/npm:d3-time@1.1.0/dist/d3-time.js"
+    }
+  }
+}

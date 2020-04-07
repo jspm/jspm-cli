@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@storeon/localstorage": "https://ga.jspm.dev/npm:@storeon/localstorage@0.14.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "creative-commons-web-component": "https://ga.jspm.dev/npm:creative-commons-web-component@1.0.2/ccLicense.js"
+  }
+}

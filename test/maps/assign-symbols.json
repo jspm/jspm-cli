@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "assign-symbols": "https://ga.jspm.dev/npm:assign-symbols@2.0.2/index.js"
+  }
+}

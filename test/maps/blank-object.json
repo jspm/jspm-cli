@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "blank-object": "https://ga.jspm.dev/npm:blank-object@1.0.2/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "co": "https://ga.jspm.dev/npm:co@4.6.0/index.js"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "acorn-node": "https://ga.jspm.dev/npm:acorn-node@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:acorn-node@2.0.0/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    }
+  }
+}

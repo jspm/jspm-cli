@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "checkout-sdk-node": "https://ga.jspm.dev/npm:checkout-sdk-node@1.0.0/dist/index.js"
+  }
+}

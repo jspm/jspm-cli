@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "@endgame/clara": "https://ga.jspm.dev/npm:@endgame/clara@0.1.7-alpha.9/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:@endgame/clara@0.1.7-alpha.9/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/asyncToGenerator.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/toConsumableArray.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+      "intersection-observer": "https://ga.jspm.dev/npm:intersection-observer@0.7.0/intersection-observer.js",
+      "smoothscroll-polyfill": "https://ga.jspm.dev/npm:smoothscroll-polyfill@0.4.4/dist/smoothscroll.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@witzbould/utils-clamp-value": "https://ga.jspm.dev/npm:@witzbould/utils-clamp-value@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "archy": "https://ga.jspm.dev/npm:archy@1.0.0/index.js"
+  }
+}

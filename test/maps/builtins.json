@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "builtins": "https://ga.jspm.dev/npm:builtins@3.0.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:builtins@3.0.1/": {
+      "semver": "https://ga.jspm.dev/npm:semver@7.2.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "confusing-browser-globals": "https://ga.jspm.dev/npm:confusing-browser-globals@1.0.9/index.js"
+  }
+}

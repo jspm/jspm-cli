@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "define-property": "https://ga.jspm.dev/npm:define-property@2.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:define-property@2.0.2/": {
+      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@1.0.2/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-descriptor@1.0.2/": {
+      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/index.js",
+      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    }
+  }
+}

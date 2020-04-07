@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "device-size": "https://ga.jspm.dev/npm:device-size@0.1.1/device-size.js"
+  }
+}

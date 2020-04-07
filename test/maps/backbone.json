@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "backbone": "https://ga.jspm.dev/npm:backbone@1.4.0/backbone.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:backbone@1.4.0/": {
+      "underscore": "https://ga.jspm.dev/npm:underscore@1.10.2/underscore.js"
+    }
+  }
+}

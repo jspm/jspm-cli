@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@stool/core": "https://ga.jspm.dev/npm:@stool/core@2.6.1/dist/core.mjs"
+  }
+}

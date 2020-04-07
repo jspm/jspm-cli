@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "arrangekeys": "https://ga.jspm.dev/npm:arrangekeys@4.0.0/edition-browsers/index.js"
+  }
+}

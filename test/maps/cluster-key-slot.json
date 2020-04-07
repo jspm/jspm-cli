@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cluster-key-slot": "https://ga.jspm.dev/npm:cluster-key-slot@1.1.0/lib/index.js"
+  }
+}

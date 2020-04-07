@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@wry/equality": "https://ga.jspm.dev/npm:@wry/equality@0.1.11/lib/equality.js"
+  }
+}

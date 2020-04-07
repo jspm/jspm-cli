@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "acorn-globals": "https://ga.jspm.dev/npm:acorn-globals@6.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:acorn-globals@6.0.0/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+      "acorn-walk": "https://ga.jspm.dev/npm:acorn-walk@7.1.1/dist/walk.js"
+    }
+  }
+}

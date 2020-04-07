@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "co-from-stream": "https://ga.jspm.dev/npm:co-from-stream@0.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:co-from-stream@0.0.0/": {
+      "co-read": "https://ga.jspm.dev/npm:co-read@0.0.1/index.js"
+    }
+  }
+}

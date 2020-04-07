@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "diff": "https://ga.jspm.dev/npm:diff@4.0.2/dist/diff.js"
+  }
+}

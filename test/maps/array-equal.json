@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "array-equal": "https://ga.jspm.dev/npm:array-equal@1.0.0/index.js"
+  }
+}

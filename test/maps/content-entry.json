@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "content-entry": "https://ga.jspm.dev/npm:content-entry@2.3.1/src/entry.mjs",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  }
+}

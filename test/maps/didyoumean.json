@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "didyoumean": "https://ga.jspm.dev/npm:didyoumean@1.2.1/didYouMean-1.2.1.js"
+  }
+}

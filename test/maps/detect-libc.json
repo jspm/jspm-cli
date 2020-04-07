@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "detect-libc": "https://ga.jspm.dev/npm:detect-libc@1.0.3/lib/detect-libc.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

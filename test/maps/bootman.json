@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bootman": "https://ga.jspm.dev/npm:bootman@0.1.0/index.js"
+  }
+}

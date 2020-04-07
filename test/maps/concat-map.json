@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+  }
+}

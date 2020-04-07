@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "babel-plugin-debug-macros": "https://ga.jspm.dev/npm:babel-plugin-debug-macros@0.3.3/src/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-plugin-debug-macros@0.3.3/": {
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    }
+  }
+}

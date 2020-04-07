@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "clipboard": "https://ga.jspm.dev/npm:clipboard@2.0.6/dist/clipboard.js"
+  }
+}

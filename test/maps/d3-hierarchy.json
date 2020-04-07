@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "d3-hierarchy": "https://ga.jspm.dev/npm:d3-hierarchy@1.1.9/dist/d3-hierarchy.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cycle": "https://ga.jspm.dev/npm:cycle@1.0.3/cycle.js"
+  }
+}

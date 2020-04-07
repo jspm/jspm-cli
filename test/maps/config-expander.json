@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "config-expander": "https://ga.jspm.dev/npm:config-expander@11.0.11/src/expander.mjs",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:config-expander@11.0.11/": {
+      "expression-expander": "https://ga.jspm.dev/npm:expression-expander@7.0.4/src/expander.mjs",
+      "pratt-parser": "https://ga.jspm.dev/npm:pratt-parser@8.0.5/src/parser.mjs"
+    }
+  }
+}

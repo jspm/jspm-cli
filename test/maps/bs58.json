@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "bs58": "https://ga.jspm.dev/npm:bs58@4.0.1/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:base-x@3.0.8/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:bs58@4.0.1/": {
+      "base-x": "https://ga.jspm.dev/npm:base-x@3.0.8/src/index.js"
+    }
+  }
+}

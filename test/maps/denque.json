@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "denque": "https://ga.jspm.dev/npm:denque@1.4.1/index.js"
+  }
+}

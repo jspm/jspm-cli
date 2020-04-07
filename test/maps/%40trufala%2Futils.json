@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@trufala/utils": "https://ga.jspm.dev/npm:@trufala/utils@0.0.1/dist/index.js"
+  }
+}

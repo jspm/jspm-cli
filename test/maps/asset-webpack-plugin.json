@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "asset-webpack-plugin": "https://ga.jspm.dev/npm:asset-webpack-plugin@0.2.4/lib/index.js"
+  }
+}

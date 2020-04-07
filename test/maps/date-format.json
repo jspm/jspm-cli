@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "date-format": "https://ga.jspm.dev/npm:date-format@3.0.0/lib/index.js"
+  }
+}

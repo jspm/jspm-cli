@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bytex": "https://ga.jspm.dev/npm:bytex@0.2.0/lib/index.ts"
+  }
+}

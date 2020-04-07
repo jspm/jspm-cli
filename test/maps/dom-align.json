@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dom-align": "https://ga.jspm.dev/npm:dom-align@1.11.1/dist-node/index.js"
+  }
+}

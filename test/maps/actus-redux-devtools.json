@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "actus-redux-devtools": "https://ga.jspm.dev/npm:actus-redux-devtools@0.1.0-alpha.0/index.js"
+  }
+}

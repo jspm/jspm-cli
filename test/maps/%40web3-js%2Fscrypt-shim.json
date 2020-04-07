@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@web3-js/scrypt-shim": "https://ga.jspm.dev/npm:@web3-js/scrypt-shim@0.1.0/src/browser.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@web3-js/scrypt-shim@0.1.0/": {
+      "scryptsy": "https://ga.jspm.dev/npm:scryptsy@2.1.0/lib/index.js"
+    }
+  }
+}

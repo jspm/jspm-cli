@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@spectrum-web-components/illustrated-message": "https://ga.jspm.dev/npm:@spectrum-web-components/illustrated-message@0.1.9/lib/index.js",
+    "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@spectrum-web-components/illustrated-message@0.1.9/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
+      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+    }
+  }
+}

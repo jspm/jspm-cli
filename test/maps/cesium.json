@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cesium": "https://ga.jspm.dev/npm:cesium@1.68.0/Source/Cesium.js"
+  }
+}

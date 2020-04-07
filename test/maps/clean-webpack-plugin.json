@@ -1,0 +1,67 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "clean-webpack-plugin": "https://ga.jspm.dev/npm:clean-webpack-plugin@3.0.0/dist/clean-webpack-plugin.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:array-union@1.0.2/": {
+      "array-uniq": "https://ga.jspm.dev/npm:array-uniq@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:clean-webpack-plugin@3.0.0/": {
+      "del": "https://ga.jspm.dev/npm:del@4.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:del@4.1.1/": {
+      "globby": "https://ga.jspm.dev/npm:globby@6.1.0/index.js",
+      "is-path-cwd": "https://ga.jspm.dev/npm:is-path-cwd@2.2.0/index.js",
+      "is-path-in-cwd": "https://ga.jspm.dev/npm:is-path-in-cwd@2.1.0/index.js",
+      "p-map": "https://ga.jspm.dev/npm:p-map@2.1.0/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js",
+      "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:globby@6.1.0/": {
+      "array-union": "https://ga.jspm.dev/npm:array-union@1.0.2/index.js",
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@2.3.0/index.js",
+      "pinkie-promise": "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:is-path-in-cwd@2.1.0/": {
+      "is-path-inside": "https://ga.jspm.dev/npm:is-path-inside@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-path-inside@2.1.0/": {
+      "path-is-inside": "https://ga.jspm.dev/npm:path-is-inside@1.0.2/lib/path-is-inside.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/": {
+      "pinkie": "https://ga.jspm.dev/npm:pinkie@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:rimraf@2.7.1/": {
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js"
+    }
+  }
+}

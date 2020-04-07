@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "algae-ui": "https://ga.jspm.dev/npm:algae-ui@0.1.14/lib/index.js"
+  }
+}

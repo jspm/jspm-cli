@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "absurdum": "https://ga.jspm.dev/npm:absurdum@1.1.7/index.js"
+  }
+}

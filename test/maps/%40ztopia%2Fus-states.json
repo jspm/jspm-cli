@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ztopia/us-states": "https://ga.jspm.dev/npm:@ztopia/us-states@1.2.0/index.js"
+  }
+}

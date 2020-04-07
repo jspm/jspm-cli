@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "diff-sequences": "https://ga.jspm.dev/npm:diff-sequences@25.2.6/build/index.js"
+  }
+}

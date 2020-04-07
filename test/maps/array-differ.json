@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "array-differ": "https://ga.jspm.dev/npm:array-differ@3.0.0/index.js"
+  }
+}

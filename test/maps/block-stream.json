@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "block-stream": "https://ga.jspm.dev/npm:block-stream@0.0.9/block-stream.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:block-stream@0.0.9/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+    }
+  }
+}

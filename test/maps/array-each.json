@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "array-each": "https://ga.jspm.dev/npm:array-each@1.0.1/index.js"
+  }
+}

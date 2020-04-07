@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "array-initial": "https://ga.jspm.dev/npm:array-initial@1.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:array-initial@1.1.0/": {
+      "array-slice": "https://ga.jspm.dev/npm:array-slice@1.1.0/index.js",
+      "is-number": "https://ga.jspm.dev/npm:is-number@4.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "call-me-maybe": "https://ga.jspm.dev/npm:call-me-maybe@1.0.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

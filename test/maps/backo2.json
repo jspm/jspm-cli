@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "backo2": "https://ga.jspm.dev/npm:backo2@1.0.2/index.js"
+  }
+}

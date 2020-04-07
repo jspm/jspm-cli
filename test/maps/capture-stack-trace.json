@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "capture-stack-trace": "https://ga.jspm.dev/npm:capture-stack-trace@1.0.1/index.js"
+  }
+}

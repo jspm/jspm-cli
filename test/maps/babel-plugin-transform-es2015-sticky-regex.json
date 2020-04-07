@@ -1,0 +1,46 @@
+{
+  "imports": {
+    "babel-plugin-transform-es2015-sticky-regex": "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-sticky-regex@6.24.1/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-helper-regex@6.26.0/": {
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/pull": "https://ga.jspm.dev/npm:lodash@4.17.15/pull.js"
+    },
+    "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-sticky-regex@6.24.1/": {
+      "babel-helper-regex": "https://ga.jspm.dev/npm:babel-helper-regex@6.26.0/lib/index.js",
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
+      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
+      "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js",
+      "core-js/library/fn/json/stringify": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/json/stringify.js",
+      "core-js/library/fn/number/max-safe-integer": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/number/max-safe-integer.js",
+      "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
+      "core-js/library/fn/object/get-own-property-symbols": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/get-own-property-symbols.js",
+      "core-js/library/fn/object/keys": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/keys.js",
+      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
+      "core-js/library/fn/symbol/for": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/for.js",
+      "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
+    },
+    "https://ga.jspm.dev/npm:babel-types@6.26.0/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
+      "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js",
+      "babel-runtime/core-js/number/max-safe-integer": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/number/max-safe-integer.js",
+      "babel-runtime/core-js/object/create": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/create.js",
+      "babel-runtime/core-js/object/get-own-property-symbols": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/get-own-property-symbols.js",
+      "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
+      "babel-runtime/core-js/symbol/for": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol/for.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@1.0.3/index.js"
+    }
+  }
+}

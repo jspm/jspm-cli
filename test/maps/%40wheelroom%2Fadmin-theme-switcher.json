@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@wheelroom/admin-core": "https://ga.jspm.dev/npm:@wheelroom/admin-core@1.1.7/dist/index.js",
+    "@wheelroom/admin-theme-switcher": "https://ga.jspm.dev/npm:@wheelroom/admin-theme-switcher@1.1.0/dist/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

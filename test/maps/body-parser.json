@@ -1,0 +1,55 @@
+{
+  "imports": {
+    "body-parser": "https://ga.jspm.dev/npm:body-parser@1.19.0/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:body-parser@1.19.0/": {
+      "bytes": "https://ga.jspm.dev/npm:bytes@3.1.0/index.js",
+      "content-type": "https://ga.jspm.dev/npm:content-type@1.0.4/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
+      "http-errors": "https://ga.jspm.dev/npm:http-errors@1.7.2/index.js",
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js",
+      "on-finished": "https://ga.jspm.dev/npm:on-finished@2.3.0/index.js",
+      "qs": "https://ga.jspm.dev/npm:qs@6.7.0/lib/index.js",
+      "raw-body": "https://ga.jspm.dev/npm:raw-body@2.4.0/index.js",
+      "type-is": "https://ga.jspm.dev/npm:type-is@1.6.18/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:http-errors@1.7.2/": {
+      "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js",
+      "setprototypeof": "https://ga.jspm.dev/npm:setprototypeof@1.1.1/index.js",
+      "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js",
+      "toidentifier": "https://ga.jspm.dev/npm:toidentifier@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
+      "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:raw-body@2.4.0/": {
+      "bytes": "https://ga.jspm.dev/npm:bytes@3.1.0/index.js",
+      "http-errors": "https://ga.jspm.dev/npm:http-errors@1.7.2/index.js",
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js",
+      "unpipe": "https://ga.jspm.dev/npm:unpipe@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:type-is@1.6.18/": {
+      "media-typer": "https://ga.jspm.dev/npm:media-typer@0.3.0/index.js",
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js"
+    }
+  }
+}

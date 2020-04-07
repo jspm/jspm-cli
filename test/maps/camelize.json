@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "camelize": "https://ga.jspm.dev/npm:camelize@1.0.0/index.js"
+  }
+}

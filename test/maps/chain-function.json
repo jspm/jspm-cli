@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "chain-function": "https://ga.jspm.dev/npm:chain-function@1.0.1/index.js"
+  }
+}

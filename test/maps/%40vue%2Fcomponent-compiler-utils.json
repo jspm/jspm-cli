@@ -1,0 +1,46 @@
+{
+  "imports": {
+    "@vue/component-compiler-utils": "https://ga.jspm.dev/npm:@vue/component-compiler-utils@3.1.1/dist/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@vue/component-compiler-utils@3.1.1/": {
+      "consolidate": "https://ga.jspm.dev/npm:consolidate@0.15.1/index.js",
+      "hash-sum": "https://ga.jspm.dev/npm:hash-sum@1.0.2/hash-sum.js",
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@4.1.5/index.js",
+      "merge-source-map": "https://ga.jspm.dev/npm:merge-source-map@1.1.0/index.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js",
+      "postcss-selector-parser": "https://ga.jspm.dev/npm:postcss-selector-parser@6.0.2/dist/index.js",
+      "prettier": "https://ga.jspm.dev/npm:prettier@1.19.1/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
+      "vue-template-es2015-compiler": "https://ga.jspm.dev/npm:vue-template-es2015-compiler@1.9.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:consolidate@0.15.1/": {
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js"
+    },
+    "https://ga.jspm.dev/npm:lru-cache@4.1.5/": {
+      "pseudomap": "https://ga.jspm.dev/npm:pseudomap@1.0.2/map.js",
+      "yallist": "https://ga.jspm.dev/npm:yallist@2.1.2/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:merge-source-map@1.1.0/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:postcss-selector-parser@6.0.2/": {
+      "cssesc": "https://ga.jspm.dev/npm:cssesc@3.0.0/cssesc.js",
+      "indexes-of": "https://ga.jspm.dev/npm:indexes-of@1.0.1/index.js",
+      "uniq": "https://ga.jspm.dev/npm:uniq@1.0.1/uniq.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

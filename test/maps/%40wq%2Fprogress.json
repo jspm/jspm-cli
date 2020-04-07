@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@wq/progress": "https://ga.jspm.dev/npm:@wq/progress@1.2.0/dist/index.js"
+  }
+}

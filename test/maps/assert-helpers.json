@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "assert-helpers": "https://ga.jspm.dev/npm:assert-helpers@6.0.0/edition-browsers/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:assert-helpers@6.0.0/": {
+      "ansicolors": "https://ga.jspm.dev/npm:ansicolors@0.3.2/ansicolors.js",
+      "diff": "https://ga.jspm.dev/npm:diff@4.0.2/dist/diff.js",
+      "errlop": "https://ga.jspm.dev/npm:errlop@2.1.0/edition-browsers/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "array-uniq": "https://ga.jspm.dev/npm:array-uniq@2.1.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "d3-collection": "https://ga.jspm.dev/npm:d3-collection@1.0.7/dist/d3-collection.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dedent": "https://ga.jspm.dev/npm:dedent@0.7.0/dist/dedent.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ssttevee/u8-utils": "https://ga.jspm.dev/npm:@ssttevee/u8-utils@0.1.4/lib/index.js"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "csv": "https://ga.jspm.dev/npm:csv@5.3.2/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:csv@5.3.2/": {
+      "csv-generate/": "https://ga.jspm.dev/npm:csv-generate@3.2.4/",
+      "csv-generate/lib": "https://ga.jspm.dev/npm:csv-generate@3.2.4/lib/index.js",
+      "csv-parse/": "https://ga.jspm.dev/npm:csv-parse@4.8.8/",
+      "csv-parse/lib": "https://ga.jspm.dev/npm:csv-parse@4.8.8/lib/index.js",
+      "csv-stringify/": "https://ga.jspm.dev/npm:csv-stringify@5.3.6/",
+      "csv-stringify/lib": "https://ga.jspm.dev/npm:csv-stringify@5.3.6/lib/index.js",
+      "stream-transform/": "https://ga.jspm.dev/npm:stream-transform@2.0.1/",
+      "stream-transform/lib": "https://ga.jspm.dev/npm:stream-transform@2.0.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:stream-transform@2.0.1/": {
+      "mixme": "https://ga.jspm.dev/npm:mixme@0.3.5/dist/mixme.cjs.js"
+    }
+  }
+}

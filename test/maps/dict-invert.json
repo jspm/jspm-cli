@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dict-invert": "https://ga.jspm.dev/npm:dict-invert@1.0.1/dict-invert.js"
+  }
+}

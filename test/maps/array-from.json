@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "array-from": "https://ga.jspm.dev/npm:array-from@2.1.1/index.js"
+  }
+}

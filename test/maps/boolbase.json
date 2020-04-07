@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js"
+  }
+}

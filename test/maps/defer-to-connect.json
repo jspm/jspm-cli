@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "defer-to-connect": "https://ga.jspm.dev/npm:defer-to-connect@2.0.0/dist/source/index.js"
+  }
+}

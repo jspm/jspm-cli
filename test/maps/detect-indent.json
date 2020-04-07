@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "detect-indent": "https://ga.jspm.dev/npm:detect-indent@6.0.0/index.js"
+  }
+}

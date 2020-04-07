@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "any-observable": "https://ga.jspm.dev/npm:any-observable@0.5.1/index.js"
+  }
+}

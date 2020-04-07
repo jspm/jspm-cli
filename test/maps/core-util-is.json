@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js"
+  }
+}

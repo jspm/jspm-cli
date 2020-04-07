@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "cursornext/": "https://ga.jspm.dev/npm:cursornext@0.2.2/cjs/index.js",
+    "cursornext/module": "https://ga.jspm.dev/npm:cursornext@0.2.2/esm/index.js"
+  }
+}

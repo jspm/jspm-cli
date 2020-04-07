@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    }
+  }
+}

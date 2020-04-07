@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "check-types": "https://ga.jspm.dev/npm:check-types@11.1.2/src/check-types.js"
+  }
+}

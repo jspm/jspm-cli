@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

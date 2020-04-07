@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "clsx": "https://ga.jspm.dev/npm:clsx@1.1.0/dist/clsx.js"
+  }
+}

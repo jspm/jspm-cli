@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "dnd-core": "https://ga.jspm.dev/npm:dnd-core@10.0.2/dist/cjs/index.js",
+    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/domain.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:dnd-core@10.0.2/": {
+      "@react-dnd/asap": "https://ga.jspm.dev/npm:@react-dnd/asap@4.0.0/dist/cjs/node/index.js",
+      "@react-dnd/invariant": "https://ga.jspm.dev/npm:@react-dnd/invariant@2.0.0/dist/index.js",
+      "redux": "https://ga.jspm.dev/npm:redux@4.0.5/lib/redux.js"
+    },
+    "https://ga.jspm.dev/npm:redux@4.0.5/": {
+      "symbol-observable": "https://ga.jspm.dev/npm:symbol-observable@1.2.0/lib/index.js"
+    }
+  }
+}

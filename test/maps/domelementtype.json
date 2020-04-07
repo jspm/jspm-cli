@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js"
+  }
+}

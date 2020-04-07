@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bottom-line-utils": "https://ga.jspm.dev/npm:bottom-line-utils@0.8.0/src/index.mjs"
+  }
+}

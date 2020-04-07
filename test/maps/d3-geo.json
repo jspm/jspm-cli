@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "d3-geo": "https://ga.jspm.dev/npm:d3-geo@1.11.9/dist/d3-geo.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:d3-geo@1.11.9/": {
+      "d3-array": "https://ga.jspm.dev/npm:d3-array@1.2.4/dist/d3-array.js"
+    }
+  }
+}

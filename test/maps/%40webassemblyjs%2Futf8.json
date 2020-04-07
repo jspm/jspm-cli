@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@webassemblyjs/utf8": "https://ga.jspm.dev/npm:@webassemblyjs/utf8@1.9.0/lib/index.js"
+  }
+}

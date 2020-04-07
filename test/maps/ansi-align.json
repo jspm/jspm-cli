@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "ansi-align": "https://ga.jspm.dev/npm:ansi-align@3.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-align@3.0.0/": {
+      "string-width": "https://ga.jspm.dev/npm:string-width@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@3.1.0/": {
+      "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@7.0.3/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@5.2.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@4.1.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@toheeb/naija": "https://ga.jspm.dev/npm:@toheeb/naija@0.0.3/index.js"
+  }
+}

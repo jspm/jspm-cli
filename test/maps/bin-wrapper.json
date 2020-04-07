@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "bin-wrapper": "https://ga.jspm.dev/npm:bin-wrapper@4.1.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bin-wrapper@4.1.0/": {
+      "import-lazy": "https://ga.jspm.dev/npm:import-lazy@3.1.0/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js"
+    }
+  }
+}

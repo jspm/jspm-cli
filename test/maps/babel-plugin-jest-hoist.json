@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babel-plugin-jest-hoist": "https://ga.jspm.dev/npm:babel-plugin-jest-hoist@25.2.6/build/index.js"
+  }
+}

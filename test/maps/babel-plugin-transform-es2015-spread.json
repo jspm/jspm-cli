@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "babel-plugin-transform-es2015-spread": "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-spread@6.22.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-spread@6.22.0/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js"
+    },
+    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
+      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
+      "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js"
+    }
+  }
+}

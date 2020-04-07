@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "array-map": "https://ga.jspm.dev/npm:array-map@0.0.0/index.js"
+  }
+}

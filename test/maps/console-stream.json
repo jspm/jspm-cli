@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/console.js",
+    "console-stream": "https://ga.jspm.dev/npm:console-stream@0.1.1/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  }
+}

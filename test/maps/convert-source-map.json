@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "convert-source-map": "https://ga.jspm.dev/npm:convert-source-map@1.7.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:convert-source-map@1.7.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    }
+  }
+}

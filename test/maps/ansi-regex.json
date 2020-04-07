@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js"
+  }
+}

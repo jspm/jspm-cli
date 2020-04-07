@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "custom-event": "https://ga.jspm.dev/npm:custom-event@1.0.1/index.js"
+  }
+}

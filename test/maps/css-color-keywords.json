@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "css-color-keywords": "https://ga.jspm.dev/npm:css-color-keywords@1.0.0/index.js"
+  }
+}

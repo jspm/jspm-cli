@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "clone-stats": "https://ga.jspm.dev/npm:clone-stats@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "clean-stack": "https://ga.jspm.dev/npm:clean-stack@2.2.0/index.js"
+  }
+}

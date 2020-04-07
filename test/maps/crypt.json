@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "crypt": "https://ga.jspm.dev/npm:crypt@0.0.2/crypt.js"
+  }
+}

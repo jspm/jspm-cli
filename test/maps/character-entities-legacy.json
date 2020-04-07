@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json"
+  }
+}

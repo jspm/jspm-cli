@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@stardust-ui/react-component-event-listener": "https://ga.jspm.dev/npm:@stardust-ui/react-component-event-listener@0.40.0/dist/commonjs/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@stardust-ui/react-component-event-listener@0.40.0/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

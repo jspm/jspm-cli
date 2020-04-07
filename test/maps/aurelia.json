@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "aurelia": "https://ga.jspm.dev/npm:aurelia@0.6.0/dist/umd/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "bytes": "https://ga.jspm.dev/npm:bytes@3.1.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "airbnb-prop-types": "https://ga.jspm.dev/npm:airbnb-prop-types@2.15.0/index.js"
+  }
+}

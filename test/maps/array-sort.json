@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "array-sort": "https://ga.jspm.dev/npm:array-sort@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:array-sort@1.0.0/": {
+      "default-compare": "https://ga.jspm.dev/npm:default-compare@1.0.0/index.js",
+      "get-value": "https://ga.jspm.dev/npm:get-value@2.0.6/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@5.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:default-compare@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@5.1.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "bip66": "https://ga.jspm.dev/npm:bip66@1.1.5/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bip66@1.1.5/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    }
+  }
+}

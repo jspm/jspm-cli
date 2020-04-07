@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cookiejar": "https://ga.jspm.dev/npm:cookiejar@2.1.2/cookiejar.js"
+  }
+}

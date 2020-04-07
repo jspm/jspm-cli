@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "@urql/exchange-multipart-fetch": "https://ga.jspm.dev/npm:@urql/exchange-multipart-fetch@0.1.3/dist/urql-exchange-multipart-fetch.mjs",
+    "graphql": "https://ga.jspm.dev/npm:graphql@14.6.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@urql/core@1.10.7/": {
+      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.9/dist/wonka.mjs"
+    },
+    "https://ga.jspm.dev/npm:@urql/exchange-multipart-fetch@0.1.3/": {
+      "@urql/core": "https://ga.jspm.dev/npm:@urql/core@1.10.7/dist/urql-core.mjs",
+      "extract-files": "https://ga.jspm.dev/npm:extract-files@7.0.0/lib/index.js",
+      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.9/dist/wonka.mjs"
+    },
+    "https://ga.jspm.dev/npm:graphql@14.6.0/": {
+      "iterall": "https://ga.jspm.dev/npm:iterall@1.3.0/index.js"
+    }
+  }
+}

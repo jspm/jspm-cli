@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "dom-converter": "https://ga.jspm.dev/npm:dom-converter@0.2.0/lib/domConverter.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:dom-converter@0.2.0/": {
+      "utila": "https://ga.jspm.dev/npm:utila@0.4.0/lib/utila.js"
+    }
+  }
+}

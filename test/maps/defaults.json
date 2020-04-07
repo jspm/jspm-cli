@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "defaults": "https://ga.jspm.dev/npm:defaults@1.0.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:defaults@1.0.3/": {
+      "clone": "https://ga.jspm.dev/npm:clone@1.0.4/clone.js"
+    }
+  }
+}

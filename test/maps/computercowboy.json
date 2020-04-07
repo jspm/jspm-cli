@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "computercowboy": "https://ga.jspm.dev/npm:computercowboy@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:computercowboy@1.0.1/": {
+      "cc_time": "https://ga.jspm.dev/npm:cc_time@1.0.1/index.js"
+    }
+  }
+}

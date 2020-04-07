@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "any-promise": "https://ga.jspm.dev/npm:any-promise@1.3.0/index.js"
+  }
+}

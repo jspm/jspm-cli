@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "cdate-formatting": "https://ga.jspm.dev/npm:cdate-formatting@1.0.0/index.js"
+  }
+}

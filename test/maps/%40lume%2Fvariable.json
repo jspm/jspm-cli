@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lume/variable": "https://ga.jspm.dev/npm:@lume/variable@0.0.3/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lume/variable@0.0.3/": {
+      "solid-js": "https://ga.jspm.dev/npm:solid-js@0.16.14/lib/index.js"
+    }
+  }
+}

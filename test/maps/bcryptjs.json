@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "bcryptjs": "https://ga.jspm.dev/npm:bcryptjs@2.4.3/dist/bcrypt.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

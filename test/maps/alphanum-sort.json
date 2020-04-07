@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "alphanum-sort": "https://ga.jspm.dev/npm:alphanum-sort@1.0.2/lib/index.js"
+  }
+}

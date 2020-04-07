@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "digest-header": "https://ga.jspm.dev/npm:digest-header@0.0.1/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:digest-header@0.0.1/": {
+      "utility": "https://ga.jspm.dev/npm:utility@0.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:utility@0.1.11/": {
+      "address": "https://ga.jspm.dev/npm:address@1.1.2/lib/address.js"
+    }
+  }
+}

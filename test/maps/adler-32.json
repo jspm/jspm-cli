@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "adler-32": "https://ga.jspm.dev/npm:adler-32@1.2.0/adler32.js"
+  }
+}

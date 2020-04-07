@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "boxes": "https://ga.jspm.dev/npm:boxes@0.37.0/lib/boxes.js"
+  }
+}
