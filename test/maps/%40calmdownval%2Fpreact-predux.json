@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@calmdownval/preact-predux": "https://ga.jspm.dev/npm:@calmdownval/preact-predux@0.0.8/dist/index.js"
+  }
+}

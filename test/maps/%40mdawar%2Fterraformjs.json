@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@mdawar/terraformjs": "https://ga.jspm.dev/npm:@mdawar/terraformjs@1.1.0/src/index.js"
+  }
+}

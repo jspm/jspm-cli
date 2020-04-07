@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jeffmcmahan/server-dom": "https://ga.jspm.dev/npm:@jeffmcmahan/server-dom@0.4.1/main.mjs"
+  }
+}

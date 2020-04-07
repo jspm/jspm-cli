@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@fusionstrings/query-string": "https://ga.jspm.dev/npm:@fusionstrings/query-string@1.1.3/dist/index.js"
+  }
+}

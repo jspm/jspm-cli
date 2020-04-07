@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "@babel/helper-bindify-decorators": "https://ga.jspm.dev/npm:@babel/helper-bindify-decorators@7.8.3/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/helper-bindify-decorators@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/types@7.9.0/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.0/lib/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@2.0.0/index.js"
+    }
+  }
+}

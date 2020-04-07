@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "@jimp/plugin-color": "https://ga.jspm.dev/npm:@jimp/plugin-color@0.10.1/dist/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:@jimp/plugin-color@0.10.1/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/toConsumableArray.js",
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js",
+      "core-js/": "https://ga.jspm.dev/npm:core-js@3.6.4/",
+      "core-js/modules/es.array.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.for-each.js",
+      "core-js/modules/es.array.is-array": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.is-array.js",
+      "core-js/modules/es.array.map": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.map.js",
+      "core-js/modules/es.parse-int": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.parse-int.js",
+      "core-js/modules/web.dom-collections.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/web.dom-collections.for-each.js",
+      "tinycolor2": "https://ga.jspm.dev/npm:tinycolor2@1.4.1/tinycolor.js"
+    },
+    "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
+      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/lrn-math": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-math@2.6.4/lrn-math.js"
+  }
+}

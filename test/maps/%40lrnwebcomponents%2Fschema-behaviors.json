@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lrnwebcomponents/schema-behaviors": "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.4/schema-behaviors.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.4/": {
+      "@lrnwebcomponents/utils/": "https://ga.jspm.dev/npm:@lrnwebcomponents/utils@2.5.0/"
+    }
+  }
+}

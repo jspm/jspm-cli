@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lrnwebcomponents/paper-fab-speed-dial": "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-fab-speed-dial@2.6.4/paper-fab-speed-dial.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-fab-speed-dial@2.6.4/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    }
+  }
+}

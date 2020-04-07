@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@equinor/eds-icons": "https://ga.jspm.dev/npm:@equinor/eds-icons@0.1.0/dist/icons.umd.js"
+  }
+}

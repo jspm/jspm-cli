@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@candlefw/spark": "https://ga.jspm.dev/npm:@candlefw/spark@0.1.0/build/library/spark.js"
+  }
+}

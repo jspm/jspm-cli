@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@reactioncommerce/plugin-system-information": "https://ga.jspm.dev/npm:@reactioncommerce/plugin-system-information@1.0.0/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.9.0/": {
+      "callsite": "https://ga.jspm.dev/npm:callsite@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@reactioncommerce/plugin-system-information@1.0.0/": {
+      "@reactioncommerce/api-utils/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.9.0/lib/"
+    }
+  }
+}

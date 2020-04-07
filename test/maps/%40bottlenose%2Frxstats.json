@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "@bottlenose/rxstats": "https://ga.jspm.dev/npm:@bottlenose/rxstats@0.2.1-beta.3/build/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@bottlenose/rxstats@0.2.1-beta.3/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/isNaN": "https://ga.jspm.dev/npm:lodash@4.17.15/isNaN.js",
+      "lodash/isNil": "https://ga.jspm.dev/npm:lodash@4.17.15/isNil.js",
+      "lodash/isNumber": "https://ga.jspm.dev/npm:lodash@4.17.15/isNumber.js",
+      "lodash/pick": "https://ga.jspm.dev/npm:lodash@4.17.15/pick.js",
+      "lodash/sum": "https://ga.jspm.dev/npm:lodash@4.17.15/sum.js",
+      "lodash/toPairs": "https://ga.jspm.dev/npm:lodash@4.17.15/toPairs.js",
+      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
+      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
+    }
+  }
+}

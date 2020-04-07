@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@bevry/links": "https://ga.jspm.dev/npm:@bevry/links@1.0.0/edition-esnext/index.js"
+  }
+}

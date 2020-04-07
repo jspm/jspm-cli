@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ictoanen/pub-sub": "https://ga.jspm.dev/npm:@ictoanen/pub-sub@2.1.0/index.js"
+  }
+}

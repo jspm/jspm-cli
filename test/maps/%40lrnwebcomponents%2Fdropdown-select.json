@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "@lrnwebcomponents/dropdown-select": "https://ga.jspm.dev/npm:@lrnwebcomponents/dropdown-select@2.6.4/dropdown-select.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/dropdown-select@2.6.4/": {
+      "@lrnwebcomponents/simple-picker/": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-picker@2.6.3/",
+      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    },
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-picker@2.6.3/": {
+      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    },
+    "https://ga.jspm.dev/npm:lit-element@2.2.1/": {
+      "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js",
+      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+    }
+  }
+}

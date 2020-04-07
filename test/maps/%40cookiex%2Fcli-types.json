@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cookiex/cli-types": "https://ga.jspm.dev/npm:@cookiex/cli-types@0.1.9/index.js"
+  }
+}

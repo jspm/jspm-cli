@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@masx200/react-simple-global-state-store-hook": "https://ga.jspm.dev/npm:@masx200/react-simple-global-state-store-hook@1.2.6/dist/index.min.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

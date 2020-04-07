@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@captaincodeman/redux-connect-element": "https://ga.jspm.dev/npm:@captaincodeman/redux-connect-element@2.0.0/connect.min.js"
+  }
+}

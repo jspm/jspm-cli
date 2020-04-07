@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/example-hax-element": "https://ga.jspm.dev/npm:@lrnwebcomponents/example-hax-element@2.6.4/example-hax-element.js"
+  }
+}

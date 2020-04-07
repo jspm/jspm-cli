@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "@phosphor/commands": "https://ga.jspm.dev/npm:@phosphor/commands@1.7.2/lib/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@phosphor/commands@1.7.2/": {
+      "@phosphor/algorithm": "https://ga.jspm.dev/npm:@phosphor/algorithm@1.2.0/lib/index.js",
+      "@phosphor/coreutils": "https://ga.jspm.dev/npm:@phosphor/coreutils@1.3.1/lib/index.js",
+      "@phosphor/disposable": "https://ga.jspm.dev/npm:@phosphor/disposable@1.3.1/lib/index.js",
+      "@phosphor/domutils": "https://ga.jspm.dev/npm:@phosphor/domutils@1.1.4/lib/index.js",
+      "@phosphor/keyboard": "https://ga.jspm.dev/npm:@phosphor/keyboard@1.1.3/lib/index.js",
+      "@phosphor/signaling": "https://ga.jspm.dev/npm:@phosphor/signaling@1.3.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@phosphor/disposable@1.3.1/": {
+      "@phosphor/algorithm": "https://ga.jspm.dev/npm:@phosphor/algorithm@1.2.0/lib/index.js",
+      "@phosphor/signaling": "https://ga.jspm.dev/npm:@phosphor/signaling@1.3.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@phosphor/signaling@1.3.1/": {
+      "@phosphor/algorithm": "https://ga.jspm.dev/npm:@phosphor/algorithm@1.2.0/lib/index.js"
+    }
+  }
+}

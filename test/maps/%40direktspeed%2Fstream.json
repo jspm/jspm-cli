@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@direktspeed/stream": "https://ga.jspm.dev/npm:@direktspeed/stream@0.0.19/core.mjs"
+  }
+}

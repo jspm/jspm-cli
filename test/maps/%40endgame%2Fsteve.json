@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "@endgame/steve": "https://ga.jspm.dev/npm:@endgame/steve@0.1.7-alpha.9/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@endgame/steve@0.1.7-alpha.9/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/wrapNativeSuper": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/wrapNativeSuper.js",
+      "path": "https://ga.jspm.dev/npm:path@0.12.7/path.js"
+    },
+    "https://ga.jspm.dev/npm:path@0.12.7/": {
+      "process": "https://ga.jspm.dev/npm:process@0.11.10/browser.js",
+      "util": "https://ga.jspm.dev/npm:util@0.10.4/util.js"
+    },
+    "https://ga.jspm.dev/npm:util@0.10.4/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js"
+    }
+  }
+}

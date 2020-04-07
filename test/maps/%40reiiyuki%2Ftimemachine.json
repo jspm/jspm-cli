@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@reiiyuki/timemachine": "https://ga.jspm.dev/npm:@reiiyuki/timemachine@0.3.2/timemachine.js"
+  }
+}

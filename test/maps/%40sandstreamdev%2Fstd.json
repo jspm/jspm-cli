@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@sandstreamdev/std": "https://ga.jspm.dev/npm:@sandstreamdev/std@0.13.0/index.umd.js"
+  }
+}

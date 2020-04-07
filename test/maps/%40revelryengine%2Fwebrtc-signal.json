@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@revelryengine/webrtc-signal": "https://ga.jspm.dev/npm:@revelryengine/webrtc-signal@0.0.4/index.js"
+  }
+}

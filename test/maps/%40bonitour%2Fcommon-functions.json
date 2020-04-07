@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@bonitour/common-functions": "https://ga.jspm.dev/npm:@bonitour/common-functions@1.1.19/dist/index.umd.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/hax-bookmarklet": "https://ga.jspm.dev/npm:@lrnwebcomponents/hax-bookmarklet@2.6.4/hax-bookmarklet.js"
+  }
+}

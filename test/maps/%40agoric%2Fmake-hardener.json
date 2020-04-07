@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@agoric/make-hardener": "https://ga.jspm.dev/npm:@agoric/make-hardener@0.0.8/src/main.js"
+  }
+}

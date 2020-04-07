@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@mothepro/amazons-engine": "https://ga.jspm.dev/npm:@mothepro/amazons-engine@0.0.9/dist/npm/index.js"
+  }
+}

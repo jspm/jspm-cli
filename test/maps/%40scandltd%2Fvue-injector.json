@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@scandltd/vue-injector": "https://ga.jspm.dev/npm:@scandltd/vue-injector@3.3.7/dist/vue-injector.js",
+    "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js"
+  }
+}

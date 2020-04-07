@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ordman/scanner": "https://ga.jspm.dev/npm:@ordman/scanner@1.0.8/dist/index.js"
+  }
+}

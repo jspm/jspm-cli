@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@nodutilus/events": "https://ga.jspm.dev/npm:@nodutilus/events@0.1.0/events.js"
+  }
+}

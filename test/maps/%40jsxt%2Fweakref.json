@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jsxt/weakref": "https://ga.jspm.dev/npm:@jsxt/weakref@2.0.1/index.js"
+  }
+}

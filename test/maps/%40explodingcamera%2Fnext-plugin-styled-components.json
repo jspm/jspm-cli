@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@explodingcamera/next-plugin-styled-components": "https://ga.jspm.dev/npm:@explodingcamera/next-plugin-styled-components@1.3.0/index.js"
+  }
+}

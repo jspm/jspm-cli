@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@etsitpab/cie": "https://ga.jspm.dev/npm:@etsitpab/cie@1.1.2/src/CIE.object.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@etsitpab/cie@1.1.2/": {
+      "@etsitpab/colorconversions": "https://ga.jspm.dev/npm:@etsitpab/colorconversions@1.0.1/src/ColorConversions.js",
+      "@etsitpab/matrix3x3": "https://ga.jspm.dev/npm:@etsitpab/matrix3x3@1.0.0/src/Matrix3x3.js",
+      "@etsitpab/tools": "https://ga.jspm.dev/npm:@etsitpab/tools@1.0.0/src/Tools.js"
+    },
+    "https://ga.jspm.dev/npm:@etsitpab/colorconversions@1.0.1/": {
+      "@etsitpab/matrix3x3": "https://ga.jspm.dev/npm:@etsitpab/matrix3x3@1.0.0/src/Matrix3x3.js"
+    }
+  }
+}

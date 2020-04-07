@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@dv4all/web-components": "https://ga.jspm.dev/npm:@dv4all/web-components@0.7.0/lib/dv4wcp.cjs.js"
+  }
+}

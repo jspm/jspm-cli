@@ -18,7 +18,7 @@
   (async () => {
     const tests = eval(await (await fetch('./tests.js')).text());
 
-    runTests(await Promise.all(tests.map(async test => {
+    await runTests(await Promise.all(tests.map(async test => {
       const [installs, specifiers] = typeof test === 'string' ? [test, test] : test;
       return {
         test: installs,
@@ -28,6 +28,25 @@
           for (const specifier of specifiers.split(' ')) {
             const m = await loader.import(specifier);
           }
+          loader.dispose();
+        }
+      };
+    })));
+
+    const testList = await (await fetch('./test-list.json')).json();
+    runTests(await Promise.all(testList.map(async test => {
+      return {
+        test,
+        async run () {
+          try {
+            var map = await (await fetch(`./maps/${encodeURIComponent(encodeURIComponent(test))}.json`)).json();
+          }
+          catch (e) {
+            console.warn('No map for ' + test);
+            return;
+          }
+          const loader = createMapLoader(map);
+          const m = await loader.import(test);
           loader.dispose();
         }
       };

@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@serialport/parser-readline": "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/lib/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/": {
+      "@serialport/parser-delimiter": "https://ga.jspm.dev/npm:@serialport/parser-delimiter@8.0.6/lib/index.js"
+    }
+  }
+}

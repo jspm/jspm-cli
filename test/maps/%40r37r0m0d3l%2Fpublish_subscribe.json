@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@r37r0m0d3l/publish_subscribe": "https://ga.jspm.dev/npm:@r37r0m0d3l/publish_subscribe@1.4.0/dist/publish_subscribe.mjs"
+  }
+}

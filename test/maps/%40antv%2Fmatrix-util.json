@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@antv/matrix-util": "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@antv/matrix-util@2.0.5/": {
+      "@antv/gl-matrix/": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/",
+      "@antv/gl-matrix/lib/gl-matrix/mat3": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/lib/gl-matrix/mat3.js",
+      "@antv/gl-matrix/lib/gl-matrix/vec2": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/lib/gl-matrix/vec2.js",
+      "@antv/gl-matrix/lib/gl-matrix/vec3": "https://ga.jspm.dev/npm:@antv/gl-matrix@2.7.1/lib/gl-matrix/vec3.js",
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js"
+    }
+  }
+}

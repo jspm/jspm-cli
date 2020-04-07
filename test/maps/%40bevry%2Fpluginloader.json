@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@bevry/pluginloader": "https://ga.jspm.dev/npm:@bevry/pluginloader@3.0.0/edition-esnext/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@bevry/pluginloader@3.0.0/": {
+      "errlop": "https://ga.jspm.dev/npm:errlop@2.1.0/edition-browsers/index.js",
+      "semver/": "https://ga.jspm.dev/npm:semver@7.2.1/",
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    }
+  }
+}

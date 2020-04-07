@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@hilesystem/local": "https://ga.jspm.dev/npm:@hilesystem/local@0.0.8/dist/local.cjs",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@hilesystem/local@0.0.8/": {
+      "@r37r0m0d3l/of": "https://ga.jspm.dev/npm:@r37r0m0d3l/of@2.1.3/dist/of.cjs"
+    }
+  }
+}

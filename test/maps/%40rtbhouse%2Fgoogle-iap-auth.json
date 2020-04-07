@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@rtbhouse/google-iap-auth": "https://ga.jspm.dev/npm:@rtbhouse/google-iap-auth@0.1.2/dist/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@rtbhouse/google-iap-auth@0.1.2/": {
+      "jwt-simple": "https://ga.jspm.dev/npm:jwt-simple@0.5.6/index.js",
+      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+    }
+  }
+}

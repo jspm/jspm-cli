@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/anchor-behaviors": "https://ga.jspm.dev/npm:@lrnwebcomponents/anchor-behaviors@2.5.0/anchor-behaviors.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@antv/color-util": "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@antv/color-util@2.0.4/": {
+      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.7/lib/index.js"
+    }
+  }
+}

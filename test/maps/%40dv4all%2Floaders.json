@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@dv4all/loaders": "https://ga.jspm.dev/npm:@dv4all/loaders@0.4.1/lib/dv4loaders.cjs.js"
+  }
+}

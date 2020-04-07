@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@candlefw/url": "https://ga.jspm.dev/npm:@candlefw/url@0.1.1/build/library/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@candlefw/url@0.1.1/": {
+      "@candlefw/wind": "https://ga.jspm.dev/npm:@candlefw/wind@0.4.0/build/library/wind.js"
+    }
+  }
+}

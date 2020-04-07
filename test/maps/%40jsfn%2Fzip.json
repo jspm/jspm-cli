@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jsfn/zip": "https://ga.jspm.dev/npm:@jsfn/zip@1.0.0/zip.mjs"
+  }
+}

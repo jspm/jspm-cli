@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jsenv/url-meta": "https://ga.jspm.dev/npm:@jsenv/url-meta@5.2.3/index.js"
+  }
+}

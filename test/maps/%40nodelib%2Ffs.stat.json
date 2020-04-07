@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@nodelib/fs.stat": "https://ga.jspm.dev/npm:@nodelib/fs.stat@2.0.3/out/index.js"
+  }
+}

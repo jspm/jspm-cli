@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@devsnicket/eunice-call-with-process-standard-streams": "https://ga.jspm.dev/npm:@devsnicket/eunice-call-with-process-standard-streams@1.7.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@devsnicket/eunice-call-with-process-standard-streams@1.7.1/": {
+      "minimist": "https://ga.jspm.dev/npm:minimist@1.2.0/index.js"
+    }
+  }
+}

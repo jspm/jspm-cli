@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@equinor/eds-tokens": "https://ga.jspm.dev/npm:@equinor/eds-tokens@0.1.0/dist/tokens.umd.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@masx200/dom-element-attribute-agent-proxy": "https://ga.jspm.dev/npm:@masx200/dom-element-attribute-agent-proxy@1.3.1/dist/index.min.js"
+  }
+}

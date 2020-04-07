@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cedx/lcov": "https://ga.jspm.dev/npm:@cedx/lcov@6.4.0/lib/index.js"
+  }
+}

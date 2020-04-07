@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@mikaello/emit-punch-cards-communication": "https://ga.jspm.dev/npm:@mikaello/emit-punch-cards-communication@0.0.6/dist/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-libraries/db": "https://ga.jspm.dev/npm:@magic-libraries/db@0.0.5/src/index.mjs"
+  }
+}

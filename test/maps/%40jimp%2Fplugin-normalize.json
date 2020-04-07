@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "@jimp/plugin-normalize": "https://ga.jspm.dev/npm:@jimp/plugin-normalize@0.10.1/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:@jimp/plugin-normalize@0.10.1/": {
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js",
+      "core-js/": "https://ga.jspm.dev/npm:core-js@3.6.4/",
+      "core-js/modules/es.array.fill": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.fill.js",
+      "core-js/modules/es.array.find-index": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.find-index.js",
+      "core-js/modules/es.array.reverse": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.reverse.js",
+      "core-js/modules/es.array.slice": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.slice.js"
+    },
+    "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
+      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    }
+  }
+}

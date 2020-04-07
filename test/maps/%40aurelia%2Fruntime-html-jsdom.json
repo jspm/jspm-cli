@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@aurelia/runtime-html-jsdom": "https://ga.jspm.dev/npm:@aurelia/runtime-html-jsdom@0.6.0/dist/umd/index.js"
+  }
+}

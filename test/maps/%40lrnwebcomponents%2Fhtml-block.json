@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/html-block": "https://ga.jspm.dev/npm:@lrnwebcomponents/html-block@2.6.3/html-block.js"
+  }
+}

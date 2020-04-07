@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@d-fischer/shared-utils": "https://ga.jspm.dev/npm:@d-fischer/shared-utils@2.0.0/es/index.mjs"
+  }
+}

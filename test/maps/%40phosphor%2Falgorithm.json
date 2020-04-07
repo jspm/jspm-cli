@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@phosphor/algorithm": "https://ga.jspm.dev/npm:@phosphor/algorithm@1.2.0/lib/index.js"
+  }
+}

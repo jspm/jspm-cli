@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@sindresorhus/is": "https://ga.jspm.dev/npm:@sindresorhus/is@2.1.0/dist/index.js"
+  }
+}

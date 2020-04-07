@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ghostship/stdlib": "https://ga.jspm.dev/npm:@ghostship/stdlib@0.0.8/dist-node/index.js"
+  }
+}

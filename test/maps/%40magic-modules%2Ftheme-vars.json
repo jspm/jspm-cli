@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-modules/theme-vars": "https://ga.jspm.dev/npm:@magic-modules/theme-vars@0.0.6/src/index.mjs"
+  }
+}

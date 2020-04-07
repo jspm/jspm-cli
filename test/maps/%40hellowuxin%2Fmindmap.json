@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@hellowuxin/mindmap": "https://ga.jspm.dev/npm:@hellowuxin/mindmap@1.3.0/dist/mindmap.umd.min.js"
+  }
+}

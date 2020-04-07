@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@aurelia/aot": "https://ga.jspm.dev/npm:@aurelia/aot@0.6.0/dist/umd/index.js"
+  }
+}

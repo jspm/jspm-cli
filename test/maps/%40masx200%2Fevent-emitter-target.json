@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@masx200/event-emitter-target": "https://ga.jspm.dev/npm:@masx200/event-emitter-target@1.1.7/dist/index.js"
+  }
+}

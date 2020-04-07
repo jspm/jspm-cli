@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/media-behaviors": "https://ga.jspm.dev/npm:@lrnwebcomponents/media-behaviors@2.6.4/media-behaviors.js"
+  }
+}

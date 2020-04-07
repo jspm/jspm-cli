@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@calmdownval/xml-sax": "https://ga.jspm.dev/npm:@calmdownval/xml-sax@0.1.1/dist/index.js"
+  }
+}

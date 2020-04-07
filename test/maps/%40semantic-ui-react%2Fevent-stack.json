@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@semantic-ui-react/event-stack": "https://ga.jspm.dev/npm:@semantic-ui-react/event-stack@3.1.1/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@semantic-ui-react/event-stack@3.1.1/": {
+      "exenv": "https://ga.jspm.dev/npm:exenv@1.2.2/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

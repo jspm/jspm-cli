@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@masx200/mvvm-reactive-view": "https://ga.jspm.dev/npm:@masx200/mvvm-reactive-view@1.8.2/dist/index.min.js"
+  }
+}

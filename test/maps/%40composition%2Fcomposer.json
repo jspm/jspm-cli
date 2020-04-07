@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@composition/composer": "https://ga.jspm.dev/npm:@composition/composer@0.0.1-beta.21/src/index.ts"
+  }
+}

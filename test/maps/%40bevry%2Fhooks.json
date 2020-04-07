@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@bevry/hooks": "https://ga.jspm.dev/npm:@bevry/hooks@2.5.0/edition-browsers/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

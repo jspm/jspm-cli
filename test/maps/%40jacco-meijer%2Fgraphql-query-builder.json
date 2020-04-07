@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jacco-meijer/graphql-query-builder": "https://ga.jspm.dev/npm:@jacco-meijer/graphql-query-builder@1.2.2/dist/index.js"
+  }
+}

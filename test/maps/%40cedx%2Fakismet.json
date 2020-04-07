@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@cedx/akismet": "https://ga.jspm.dev/npm:@cedx/akismet@14.0.0/lib/index.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@cedx/akismet@14.0.0/": {
+      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+    }
+  }
+}

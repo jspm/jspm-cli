@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cedx/enum": "https://ga.jspm.dev/npm:@cedx/enum@6.3.0/lib/index.js"
+  }
+}

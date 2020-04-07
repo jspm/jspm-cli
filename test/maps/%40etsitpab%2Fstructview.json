@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@etsitpab/structview": "https://ga.jspm.dev/npm:@etsitpab/structview@1.0.0/src/StructView.class.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@octokit/plugin-request-log": "https://ga.jspm.dev/npm:@octokit/plugin-request-log@1.0.0/dist-node/index.js"
+  }
+}

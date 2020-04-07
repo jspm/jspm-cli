@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@opencensus/propagation-b3": "https://ga.jspm.dev/npm:@opencensus/propagation-b3@0.0.21/build/src/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@opencensus/propagation-b3@0.0.21/": {
+      "uuid": "https://ga.jspm.dev/npm:uuid@3.4.0/index.js"
+    }
+  }
+}

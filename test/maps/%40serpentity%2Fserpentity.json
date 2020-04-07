@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@serpentity/serpentity": "https://ga.jspm.dev/npm:@serpentity/serpentity@3.0.2/lib/serpentity.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@serpentity/serpentity@3.0.2/": {
+      "events": "https://ga.jspm.dev/npm:events@3.1.0/events.js"
+    }
+  }
+}

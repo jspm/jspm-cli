@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lemon-clown-wpg/option-util": "https://ga.jspm.dev/npm:@lemon-clown-wpg/option-util@0.0.1/lib/index.js"
+  }
+}

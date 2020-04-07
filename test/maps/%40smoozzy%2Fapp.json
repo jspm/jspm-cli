@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "@smoozzy/app": "https://ga.jspm.dev/npm:@smoozzy/app@0.6.0/src/index.js",
+    "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js",
+    "vue-router": "https://ga.jspm.dev/npm:vue-router@3.1.6/dist/vue-router.common.js",
+    "vuex": "https://ga.jspm.dev/npm:vuex@3.1.3/dist/vuex.common.js",
+    "vuex-router-sync": "https://ga.jspm.dev/npm:vuex-router-sync@5.0.0/index.js"
+  }
+}

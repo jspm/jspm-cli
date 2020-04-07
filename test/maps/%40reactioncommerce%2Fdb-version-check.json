@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@reactioncommerce/db-version-check": "https://ga.jspm.dev/npm:@reactioncommerce/db-version-check@1.0.0/src/main.js"
+  }
+}

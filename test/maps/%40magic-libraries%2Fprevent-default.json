@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-libraries/prevent-default": "https://ga.jspm.dev/npm:@magic-libraries/prevent-default@0.0.3/src/index.mjs"
+  }
+}

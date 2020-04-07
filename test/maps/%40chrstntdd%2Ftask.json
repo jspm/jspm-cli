@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@chrstntdd/task": "https://ga.jspm.dev/npm:@chrstntdd/task@0.0.1/lib/esm/index.mjs"
+  }
+}

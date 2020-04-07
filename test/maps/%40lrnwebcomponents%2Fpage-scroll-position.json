@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/page-scroll-position": "https://ga.jspm.dev/npm:@lrnwebcomponents/page-scroll-position@2.6.4/page-scroll-position.js"
+  }
+}

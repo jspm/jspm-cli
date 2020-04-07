@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@aurelia/fetch-client": "https://ga.jspm.dev/npm:@aurelia/fetch-client@0.6.0/dist/umd/index.js"
+  }
+}

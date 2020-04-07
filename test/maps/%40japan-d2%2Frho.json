@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@japan-d2/rho": "https://ga.jspm.dev/npm:@japan-d2/rho@0.0.4/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@japan-d2/rho@0.0.4/": {
+      "@japan-d2/gcd": "https://ga.jspm.dev/npm:@japan-d2/gcd@0.0.6/lib/index.js"
+    }
+  }
+}

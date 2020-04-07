@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lrnwebcomponents/material-word": "https://ga.jspm.dev/npm:@lrnwebcomponents/material-word@2.6.4/material-word.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/material-word@2.6.4/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    }
+  }
+}

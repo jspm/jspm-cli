@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.3/index.js"
+  }
+}

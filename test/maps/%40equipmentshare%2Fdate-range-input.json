@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@equipmentshare/date-range-input": "https://ga.jspm.dev/npm:@equipmentshare/date-range-input@2.1.0/bundle.js"
+  }
+}

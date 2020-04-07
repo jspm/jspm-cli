@@ -440,7 +440,7 @@ export class Installer {
       let resolvedUrl = pkgUrl + exportTarget.slice(1) + subpath.slice(exportMatch.length);
       // TODO: do this properly (should not apply when there is "exports")
       let found = true;
-      if (!await exists(resolvedUrl)) {
+      if (!resolvedUrl.endsWith('/') && !await exists(resolvedUrl)) {
         // this is now a custom "mapping"
         if (await exists(resolvedUrl + '.js')) {
           resolvedUrl = resolvedUrl + '.js';

@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "@acutejs/template-basic": "https://ga.jspm.dev/npm:@acutejs/template-basic@0.2.1/rollup.config.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@acutejs/template-basic@0.2.1/": {
+      "rollup-plugin-node-resolve": "https://ga.jspm.dev/npm:rollup-plugin-node-resolve@5.2.0/dist/rollup-plugin-node-resolve.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:rollup-plugin-node-resolve@5.2.0/": {
+      "builtin-modules": "https://ga.jspm.dev/npm:builtin-modules@3.1.0/index.js",
+      "is-module": "https://ga.jspm.dev/npm:is-module@1.0.0/index.js",
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js",
+      "rollup-pluginutils": "https://ga.jspm.dev/npm:rollup-pluginutils@2.8.2/dist/pluginutils.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:rollup-pluginutils@2.8.2/": {
+      "estree-walker": "https://ga.jspm.dev/npm:estree-walker@0.6.1/dist/estree-walker.umd.js"
+    }
+  }
+}

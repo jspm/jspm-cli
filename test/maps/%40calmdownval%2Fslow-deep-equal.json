@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@calmdownval/slow-deep-equal": "https://ga.jspm.dev/npm:@calmdownval/slow-deep-equal@1.0.3/src/index.cjs"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@aurelia/plugin-pixi": "https://ga.jspm.dev/npm:@aurelia/plugin-pixi@0.6.0/dist/umd/index.js"
+  }
+}

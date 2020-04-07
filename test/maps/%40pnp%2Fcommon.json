@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@pnp/common@2.0.3/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    }
+  }
+}

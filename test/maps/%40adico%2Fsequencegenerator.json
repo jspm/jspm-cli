@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "@adico/sequencegenerator": "https://ga.jspm.dev/npm:@adico/sequencegenerator@2.0.1/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@adico/sequencegenerator@2.0.1/": {
+      "editions": "https://ga.jspm.dev/npm:editions@2.3.0/edition-es5/index.js"
+    },
+    "https://ga.jspm.dev/npm:editions@2.3.0/": {
+      "errlop": "https://ga.jspm.dev/npm:errlop@2.1.0/edition-browsers/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-modules/module-list": "https://ga.jspm.dev/npm:@magic-modules/module-list@0.0.13/src/index.mjs"
+  }
+}

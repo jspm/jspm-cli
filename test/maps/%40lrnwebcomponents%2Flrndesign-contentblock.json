@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lrnwebcomponents/lrndesign-contentblock": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-contentblock@2.6.4/lrndesign-contentblock.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-contentblock@2.6.4/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    }
+  }
+}

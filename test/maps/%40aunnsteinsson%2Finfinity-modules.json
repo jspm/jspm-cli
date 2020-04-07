@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@aunnsteinsson/infinity-modules": "https://ga.jspm.dev/npm:@aunnsteinsson/infinity-modules@1.4.5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@aunnsteinsson/infinity-modules@1.4.5/": {
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@japan-d2/schema": "https://ga.jspm.dev/npm:@japan-d2/schema@0.0.19/lib/index.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@japan-d2/schema@0.0.19/": {
+      "jsonschema": "https://ga.jspm.dev/npm:jsonschema@1.2.6/lib/index.js"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@iswa/svg": "https://ga.jspm.dev/npm:@iswa/svg@1.0.4/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  }
+}

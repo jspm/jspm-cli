@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@redux-saga/deferred": "https://ga.jspm.dev/npm:@redux-saga/deferred@1.1.2/dist/redux-saga-deferred.cjs.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.0/index.js"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@flowscripter/ts-template": "https://ga.jspm.dev/npm:@flowscripter/ts-template@1.4.7/dist/browser.js",
+    "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    }
+  }
+}

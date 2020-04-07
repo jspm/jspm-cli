@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@bevry/memo": "https://ga.jspm.dev/npm:@bevry/memo@2.0.0/edition-browsers/index.js"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@ranedrop/backpack": "https://ga.jspm.dev/npm:@ranedrop/backpack@2.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@ranedrop/backpack@2.1.0/": {
+      "@ranedrop/utility": "https://ga.jspm.dev/npm:@ranedrop/utility@2.2.2/index.js",
+      "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.0/index.js",
+      "uuid": "https://ga.jspm.dev/npm:uuid@3.4.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ranedrop/utility@2.2.2/": {
+      "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.0/index.js",
+      "uuid/": "https://ga.jspm.dev/npm:uuid@3.4.0/",
+      "uuid/v4": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
+    }
+  }
+}

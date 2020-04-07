@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-modules/accordion": "https://ga.jspm.dev/npm:@magic-modules/accordion@0.0.3/src/index.mjs"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@hugojosefson/example-cli": "https://ga.jspm.dev/npm:@hugojosefson/example-cli@2.1.1/src/api.js"
+  }
+}

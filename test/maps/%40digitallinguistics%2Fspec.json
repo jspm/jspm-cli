@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@digitallinguistics/spec": "https://ga.jspm.dev/npm:@digitallinguistics/spec@1.0.0/schemas/json/index.js"
+  }
+}

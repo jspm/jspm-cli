@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jingwood/graphics-math": "https://ga.jspm.dev/npm:@jingwood/graphics-math@1.1.3/dist/index.js"
+  }
+}

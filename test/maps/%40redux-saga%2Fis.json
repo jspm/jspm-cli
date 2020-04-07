@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@redux-saga/is": "https://ga.jspm.dev/npm:@redux-saga/is@1.1.2/dist/redux-saga-is.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@redux-saga/is@1.1.2/": {
+      "@redux-saga/symbols": "https://ga.jspm.dev/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@flowscripter/esm-dynamic-plugins": "https://ga.jspm.dev/npm:@flowscripter/esm-dynamic-plugins@1.4.25/dist/browser.js"
+  }
+}

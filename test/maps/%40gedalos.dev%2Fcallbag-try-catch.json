@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@gedalos.dev/callbag-try-catch": "https://ga.jspm.dev/npm:@gedalos.dev/callbag-try-catch@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jsenv/logger": "https://ga.jspm.dev/npm:@jsenv/logger@3.3.1/index.js"
+  }
+}

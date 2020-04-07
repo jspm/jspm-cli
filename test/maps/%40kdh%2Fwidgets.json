@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@kdh/widgets": "https://ga.jspm.dev/npm:@kdh/widgets@3.0.5/dist/main.js"
+  }
+}

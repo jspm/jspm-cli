@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@candlefw/conflagrate": "https://ga.jspm.dev/npm:@candlefw/conflagrate@0.0.5-alpha/build/library/conflagrate.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@candlefw/conflagrate@0.0.5-alpha/": {
+      "@candlefw/wind": "https://ga.jspm.dev/npm:@candlefw/wind@0.4.1-dev/build/library/wind.js"
+    }
+  }
+}

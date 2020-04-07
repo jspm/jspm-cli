@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@coriolis/dev-tools": "https://ga.jspm.dev/npm:@coriolis/dev-tools@1.0.0-alpha1/dist/cjs/index.js"
+  }
+}

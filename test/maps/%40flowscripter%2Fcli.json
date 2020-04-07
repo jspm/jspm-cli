@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@flowscripter/cli": "https://ga.jspm.dev/npm:@flowscripter/cli@1.0.3/dist/node.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  }
+}

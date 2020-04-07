@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@ranedrop/pubsub": "https://ga.jspm.dev/npm:@ranedrop/pubsub@1.1.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@ranedrop/pubsub@1.1.2/": {
+      "pubsub-js": "https://ga.jspm.dev/npm:pubsub-js@1.8.0/src/pubsub.js"
+    }
+  }
+}

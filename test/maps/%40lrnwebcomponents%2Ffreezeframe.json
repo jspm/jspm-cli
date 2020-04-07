@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/freezeframe": "https://ga.jspm.dev/npm:@lrnwebcomponents/freezeframe@2.4.0/build/js/freezeframe.js"
+  }
+}

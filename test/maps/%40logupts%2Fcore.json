@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@logupts/core": "https://ga.jspm.dev/npm:@logupts/core@6.0.0-beta.1/dist/cjs/index.js"
+  }
+}

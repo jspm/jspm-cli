@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
+  }
+}

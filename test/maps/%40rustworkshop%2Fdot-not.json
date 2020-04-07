@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@rustworkshop/dot-not": "https://ga.jspm.dev/npm:@rustworkshop/dot-not@1.0.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@rustworkshop/dot-not@1.0.0/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

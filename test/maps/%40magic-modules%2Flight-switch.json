@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-modules/light-switch": "https://ga.jspm.dev/npm:@magic-modules/light-switch@0.0.5/src/index.mjs"
+  }
+}

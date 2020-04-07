@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@promatia/prograph": "https://ga.jspm.dev/npm:@promatia/prograph@0.0.22/index.js"
+  }
+}

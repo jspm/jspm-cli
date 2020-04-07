@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@lrnwebcomponents/pouch-db": "https://ga.jspm.dev/npm:@lrnwebcomponents/pouch-db@2.6.4/pouch-db.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/pouch-db@2.6.4/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    }
+  }
+}

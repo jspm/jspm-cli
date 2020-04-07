@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@lrnwebcomponents/to-element": "https://ga.jspm.dev/npm:@lrnwebcomponents/to-element@2.6.3/to-element.js"
+  }
+}

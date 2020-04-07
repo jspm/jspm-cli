@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@sinonjs/samsam": "https://ga.jspm.dev/npm:@sinonjs/samsam@5.0.3/lib/samsam.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/": {
+      "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
+    },
+    "https://ga.jspm.dev/npm:@sinonjs/samsam@5.0.3/": {
+      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/lib/index.js",
+      "lodash.get": "https://ga.jspm.dev/npm:lodash.get@4.4.2/index.js",
+      "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
+    }
+  }
+}

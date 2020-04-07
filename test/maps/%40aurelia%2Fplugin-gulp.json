@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@aurelia/plugin-gulp": "https://ga.jspm.dev/npm:@aurelia/plugin-gulp@0.6.0/dist/umd/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+  }
+}

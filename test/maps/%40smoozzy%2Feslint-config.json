@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@smoozzy/eslint-config": "https://ga.jspm.dev/npm:@smoozzy/eslint-config@0.2.1/src/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@smoozzy/eslint-config@0.2.1/": {
+      "semver": "https://ga.jspm.dev/npm:semver@7.1.3/index.js"
+    }
+  }
+}

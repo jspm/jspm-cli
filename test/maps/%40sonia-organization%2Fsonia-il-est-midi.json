@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@sonia-organization/sonia-il-est-midi": "https://ga.jspm.dev/npm:@sonia-organization/sonia-il-est-midi@1.2.0/src/index.ts"
+  }
+}

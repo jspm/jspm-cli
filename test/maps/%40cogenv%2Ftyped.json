@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cogenv/typed": "https://ga.jspm.dev/npm:@cogenv/typed@1.0.3/dist/index.js"
+  }
+}

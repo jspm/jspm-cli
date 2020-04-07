@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@octokit/types": "https://ga.jspm.dev/npm:@octokit/types@2.5.1/src/index.ts"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@kronos-integration/test-interceptor": "https://ga.jspm.dev/npm:@kronos-integration/test-interceptor@7.0.2/src/module.mjs"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@aurelia/jit": "https://ga.jspm.dev/npm:@aurelia/jit@0.6.0/dist/umd/index.js"
+  }
+}

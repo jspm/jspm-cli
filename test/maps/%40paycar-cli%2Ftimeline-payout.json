@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@paycar-cli/timeline-payout": "https://ga.jspm.dev/npm:@paycar-cli/timeline-payout@1.4.0/src/Timeline-payout.js"
+  }
+}

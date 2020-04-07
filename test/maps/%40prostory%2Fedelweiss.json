@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@prostory/edelweiss": "https://ga.jspm.dev/npm:@prostory/edelweiss@0.10.0/dist/index.mjs"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@frontpage/web-helper-express": "https://ga.jspm.dev/npm:@frontpage/web-helper-express@1.0.1/lib/_export_all_in_one_index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@fluent/syntax": "https://ga.jspm.dev/npm:@fluent/syntax@0.15.0/index.js"
+  }
+}

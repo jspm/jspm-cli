@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@sparkly/logger": "https://ga.jspm.dev/npm:@sparkly/logger@1.0.7/index.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@sparkly/logger@1.0.7/": {
+      "uuid/": "https://ga.jspm.dev/npm:uuid@3.4.0/"
+    }
+  }
+}

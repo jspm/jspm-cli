@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@cedx/which": "https://ga.jspm.dev/npm:@cedx/which@6.4.0/lib/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

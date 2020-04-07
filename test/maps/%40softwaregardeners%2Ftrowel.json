@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@softwaregardeners/trowel": "https://ga.jspm.dev/npm:@softwaregardeners/trowel@0.14.0/dist/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@magic-libraries/uri": "https://ga.jspm.dev/npm:@magic-libraries/uri@0.0.2/src/index.mjs"
+  }
+}

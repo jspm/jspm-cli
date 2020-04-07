@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@etsitpab/matrixview": "https://ga.jspm.dev/npm:@etsitpab/matrixview@1.0.4/src/MatrixView.js"
+  }
+}

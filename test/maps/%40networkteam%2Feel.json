@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@networkteam/eel": "https://ga.jspm.dev/npm:@networkteam/eel@2.0.1/dist/main.js"
+  }
+}

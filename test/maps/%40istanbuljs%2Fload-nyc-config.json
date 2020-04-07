@@ -1,0 +1,30 @@
+{
+  "imports": {
+    "@istanbuljs/load-nyc-config": "https://ga.jspm.dev/npm:@istanbuljs/load-nyc-config@1.0.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@istanbuljs/load-nyc-config@1.0.0/": {
+      "camelcase": "https://ga.jspm.dev/npm:camelcase@5.3.1/index.js",
+      "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "resolve-from": "https://ga.jspm.dev/npm:resolve-from@5.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:find-up@4.1.0/": {
+      "locate-path": "https://ga.jspm.dev/npm:locate-path@5.0.0/index.js",
+      "path-exists": "https://ga.jspm.dev/npm:path-exists@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:locate-path@5.0.0/": {
+      "p-locate": "https://ga.jspm.dev/npm:p-locate@4.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-locate@4.1.0/": {
+      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    }
+  }
+}

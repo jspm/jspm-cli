@@ -1,0 +1,28 @@
+{
+  "imports": {
+    "@jsenv/server": "https://ga.jspm.dev/npm:@jsenv/server@2.2.0/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@jsenv/server@2.2.0/": {
+      "@jsenv/cancellation": "https://ga.jspm.dev/npm:@jsenv/cancellation@1.4.1/index.js",
+      "@jsenv/logger": "https://ga.jspm.dev/npm:@jsenv/logger@3.3.1/index.js",
+      "@jsenv/node-signals": "https://ga.jspm.dev/npm:@jsenv/node-signals@2.0.1/index.js",
+      "@jsenv/util": "https://ga.jspm.dev/npm:@jsenv/util@3.5.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:@jsenv/util@3.5.2/": {
+      "@jsenv/cancellation": "https://ga.jspm.dev/npm:@jsenv/cancellation@1.4.1/index.js",
+      "@jsenv/node-signals": "https://ga.jspm.dev/npm:@jsenv/node-signals@2.0.1/index.js",
+      "@jsenv/url-meta": "https://ga.jspm.dev/npm:@jsenv/url-meta@5.2.2/index.js"
+    }
+  }
+}

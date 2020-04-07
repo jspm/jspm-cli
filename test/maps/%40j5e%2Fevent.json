@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@j5e/event": "https://ga.jspm.dev/npm:@j5e/event@0.1.0/index.js"
+  }
+}

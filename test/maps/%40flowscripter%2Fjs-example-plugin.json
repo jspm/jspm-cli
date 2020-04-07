@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@flowscripter/js-example-plugin": "https://ga.jspm.dev/npm:@flowscripter/js-example-plugin@1.3.30/dist/browser.js"
+  }
+}

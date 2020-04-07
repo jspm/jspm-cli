@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "@jimp/plugin-print": "https://ga.jspm.dev/npm:@jimp/plugin-print@0.10.1/dist/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:@jimp/plugin-print@0.10.1/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/toConsumableArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js",
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js",
+      "core-js/": "https://ga.jspm.dev/npm:core-js@3.6.4/",
+      "core-js/modules/es.array.concat": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.concat.js",
+      "core-js/modules/es.array.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.for-each.js",
+      "core-js/modules/es.array.iterator": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.iterator.js",
+      "core-js/modules/es.array.join": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.join.js",
+      "core-js/modules/es.array.map": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.array.map.js",
+      "core-js/modules/es.date.to-string": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.date.to-string.js",
+      "core-js/modules/es.object.entries": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.entries.js",
+      "core-js/modules/es.object.to-string": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.object.to-string.js",
+      "core-js/modules/es.promise": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.promise.js",
+      "core-js/modules/es.regexp.exec": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.regexp.exec.js",
+      "core-js/modules/es.regexp.to-string": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.regexp.to-string.js",
+      "core-js/modules/es.string.iterator": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.string.iterator.js",
+      "core-js/modules/es.string.split": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/es.string.split.js",
+      "core-js/modules/web.dom-collections.for-each": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/web.dom-collections.for-each.js",
+      "core-js/modules/web.dom-collections.iterator": "https://ga.jspm.dev/npm:core-js@3.6.4/modules/web.dom-collections.iterator.js",
+      "load-bmfont": "https://ga.jspm.dev/npm:load-bmfont@1.4.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
+      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
+      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:load-bmfont@1.4.0/": {
+      "buffer-equal": "https://ga.jspm.dev/npm:buffer-equal@0.0.1/index.js",
+      "parse-bmfont-ascii": "https://ga.jspm.dev/npm:parse-bmfont-ascii@1.0.6/index.js",
+      "parse-bmfont-binary": "https://ga.jspm.dev/npm:parse-bmfont-binary@1.0.6/index.js",
+      "parse-bmfont-xml": "https://ga.jspm.dev/npm:parse-bmfont-xml@1.1.4/lib/browser.js",
+      "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:parse-bmfont-xml@1.1.4/": {
+      "xml-parse-from-string": "https://ga.jspm.dev/npm:xml-parse-from-string@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:xhr@2.5.0/": {
+      "global/": "https://ga.jspm.dev/npm:global@4.3.2/",
+      "global/window": "https://ga.jspm.dev/npm:global@4.3.2/window.js",
+      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.1/index.js",
+      "parse-headers": "https://ga.jspm.dev/npm:parse-headers@2.0.3/parse-headers.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    }
+  }
+}

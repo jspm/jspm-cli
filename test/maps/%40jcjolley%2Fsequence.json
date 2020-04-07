@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@jcjolley/sequence": "https://ga.jspm.dev/npm:@jcjolley/sequence@0.0.15/dist/index.js"
+  }
+}

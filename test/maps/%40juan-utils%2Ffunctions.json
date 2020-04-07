@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@juan-utils/functions": "https://ga.jspm.dev/npm:@juan-utils/functions@2.4.0/dist/umd/juan-utils-functions.umd.js"
+  }
+}

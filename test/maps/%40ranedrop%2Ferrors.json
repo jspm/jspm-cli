@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@ranedrop/errors": "https://ga.jspm.dev/npm:@ranedrop/errors@1.4.2/index.js"
+  }
+}

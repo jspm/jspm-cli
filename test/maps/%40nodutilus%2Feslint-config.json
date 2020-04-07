@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@nodutilus/eslint-config": "https://ga.jspm.dev/npm:@nodutilus/eslint-config@0.4.3/node.cjs"
+  }
+}

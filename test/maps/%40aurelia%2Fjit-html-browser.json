@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@aurelia/jit-html-browser": "https://ga.jspm.dev/npm:@aurelia/jit-html-browser@0.6.0/dist/umd/index.js"
+  }
+}

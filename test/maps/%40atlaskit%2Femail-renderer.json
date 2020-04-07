@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@atlaskit/email-renderer": "https://ga.jspm.dev/npm:@atlaskit/email-renderer@4.2.0/dist/cjs/index.js"
+  }
+}

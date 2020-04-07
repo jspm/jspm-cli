@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@butlerlogic/browser-iam-es6": "https://ga.jspm.dev/npm:@butlerlogic/browser-iam-es6@1.0.1/iam-1.0.1-es6.min.js"
+  }
+}
