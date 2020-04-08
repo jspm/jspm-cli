@@ -1,0 +1,350 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "cson": "https://ga.jspm.dev/npm:cson@7.0.0/edition-esnext/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/core@7.9.0/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
+      "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.9.5/lib/index.js",
+      "@babel/helper-module-transforms": "https://ga.jspm.dev/npm:@babel/helper-module-transforms@7.9.0/lib/index.js",
+      "@babel/helpers": "https://ga.jspm.dev/npm:@babel/helpers@7.9.2/lib/index.js",
+      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js",
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
+      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
+      "convert-source-map": "https://ga.jspm.dev/npm:convert-source-map@1.7.0/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "gensync": "https://ga.jspm.dev/npm:gensync@1.0.0-beta.1/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/escapeRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/escapeRegExp.js",
+      "lodash/sortBy": "https://ga.jspm.dev/npm:lodash@4.17.15/sortBy.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/generator@7.9.5/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
+      "jsesc": "https://ga.jspm.dev/npm:jsesc@2.5.2/jsesc.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/isInteger": "https://ga.jspm.dev/npm:lodash@4.17.15/isInteger.js",
+      "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-function-name@7.9.5/": {
+      "@babel/helper-get-function-arity": "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.8.3/lib/index.js",
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-member-expression-to-functions@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-module-transforms@7.9.0/": {
+      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/lib/index.js",
+      "@babel/helper-replace-supers": "https://ga.jspm.dev/npm:@babel/helper-replace-supers@7.8.6/lib/index.js",
+      "@babel/helper-simple-access": "https://ga.jspm.dev/npm:@babel/helper-simple-access@7.8.3/lib/index.js",
+      "@babel/helper-split-export-declaration": "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.8.3/lib/index.js",
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/chunk": "https://ga.jspm.dev/npm:lodash@4.17.15/chunk.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-optimise-call-expression@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-replace-supers@7.8.6/": {
+      "@babel/helper-member-expression-to-functions": "https://ga.jspm.dev/npm:@babel/helper-member-expression-to-functions@7.8.3/lib/index.js",
+      "@babel/helper-optimise-call-expression": "https://ga.jspm.dev/npm:@babel/helper-optimise-call-expression@7.8.3/lib/index.js",
+      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-simple-access@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.8.3/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/helpers@7.9.2/": {
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
+      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/template@7.8.6/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
+      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
+      "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.9.5/lib/index.js",
+      "@babel/helper-function-name": "https://ga.jspm.dev/npm:@babel/helper-function-name@7.9.5/lib/index.js",
+      "@babel/helper-split-export-declaration": "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.8.3/lib/index.js",
+      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "globals": "https://ga.jspm.dev/npm:globals@11.12.0/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
+      "lodash/includes": "https://ga.jspm.dev/npm:lodash@4.17.15/includes.js",
+      "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/types@7.9.5/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:babel-code-frame@6.26.0/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@1.1.3/index.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js",
+      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@3.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:babel-core@6.26.3/": {
+      "babel-code-frame": "https://ga.jspm.dev/npm:babel-code-frame@6.26.0/lib/index.js",
+      "babel-generator": "https://ga.jspm.dev/npm:babel-generator@6.26.1/lib/index.js",
+      "babel-helpers": "https://ga.jspm.dev/npm:babel-helpers@6.24.1/lib/index.js",
+      "babel-messages": "https://ga.jspm.dev/npm:babel-messages@6.23.0/lib/index.js",
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/array/from": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/array/from.js",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
+      "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js",
+      "babel-runtime/core-js/map": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/map.js",
+      "babel-runtime/core-js/object/assign": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/assign.js",
+      "babel-runtime/core-js/object/create": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/create.js",
+      "babel-runtime/core-js/symbol": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol.js",
+      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
+      "babel-runtime/helpers/extends": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/extends.js",
+      "babel-runtime/helpers/inherits": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/inherits.js",
+      "babel-runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/objectWithoutProperties.js",
+      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "babel-template": "https://ga.jspm.dev/npm:babel-template@6.26.0/lib/index.js",
+      "babel-traverse": "https://ga.jspm.dev/npm:babel-traverse@6.26.0/lib/index.js",
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js",
+      "babylon": "https://ga.jspm.dev/npm:babylon@6.18.0/lib/index.js",
+      "convert-source-map": "https://ga.jspm.dev/npm:convert-source-map@1.7.0/index.js",
+      "debug/": "https://ga.jspm.dev/npm:debug@2.6.9/",
+      "debug/node": "https://ga.jspm.dev/npm:debug@2.6.9/node.js",
+      "json5": "https://ga.jspm.dev/npm:json5@0.5.1/lib/json5.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/cloneDeepWith": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeepWith.js",
+      "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
+      "lodash/escapeRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/escapeRegExp.js",
+      "lodash/includes": "https://ga.jspm.dev/npm:lodash@4.17.15/includes.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/mergeWith": "https://ga.jspm.dev/npm:lodash@4.17.15/mergeWith.js",
+      "lodash/sortBy": "https://ga.jspm.dev/npm:lodash@4.17.15/sortBy.js",
+      "lodash/startsWith": "https://ga.jspm.dev/npm:lodash@4.17.15/startsWith.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js",
+      "slash": "https://ga.jspm.dev/npm:slash@1.0.0/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:babel-generator@6.26.1/": {
+      "babel-messages": "https://ga.jspm.dev/npm:babel-messages@6.23.0/lib/index.js",
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
+      "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js",
+      "babel-runtime/core-js/object/assign": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/assign.js",
+      "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
+      "babel-runtime/core-js/weak-set": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/weak-set.js",
+      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
+      "babel-runtime/helpers/inherits": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/inherits.js",
+      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js",
+      "detect-indent": "https://ga.jspm.dev/npm:detect-indent@4.0.0/index.js",
+      "jsesc": "https://ga.jspm.dev/npm:jsesc@1.3.0/jsesc.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/find": "https://ga.jspm.dev/npm:lodash@4.17.15/find.js",
+      "lodash/findLast": "https://ga.jspm.dev/npm:lodash@4.17.15/findLast.js",
+      "lodash/isInteger": "https://ga.jspm.dev/npm:lodash@4.17.15/isInteger.js",
+      "lodash/map": "https://ga.jspm.dev/npm:lodash@4.17.15/map.js",
+      "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js",
+      "trim-right": "https://ga.jspm.dev/npm:trim-right@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:babel-helpers@6.24.1/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
+      "babel-template": "https://ga.jspm.dev/npm:babel-template@6.26.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:babel-messages@6.23.0/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js"
+    },
+    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
+      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
+      "core-js/library/fn/array/from": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/array/from.js",
+      "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js",
+      "core-js/library/fn/json/stringify": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/json/stringify.js",
+      "core-js/library/fn/map": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/map.js",
+      "core-js/library/fn/number/max-safe-integer": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/number/max-safe-integer.js",
+      "core-js/library/fn/object/assign": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/assign.js",
+      "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
+      "core-js/library/fn/object/get-own-property-symbols": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/get-own-property-symbols.js",
+      "core-js/library/fn/object/keys": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/keys.js",
+      "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
+      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
+      "core-js/library/fn/symbol/for": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/for.js",
+      "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js",
+      "core-js/library/fn/weak-map": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/weak-map.js",
+      "core-js/library/fn/weak-set": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/weak-set.js"
+    },
+    "https://ga.jspm.dev/npm:babel-template@6.26.0/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/symbol": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol.js",
+      "babel-traverse": "https://ga.jspm.dev/npm:babel-traverse@6.26.0/lib/index.js",
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js",
+      "babylon": "https://ga.jspm.dev/npm:babylon@6.18.0/lib/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
+      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/has": "https://ga.jspm.dev/npm:lodash@4.17.15/has.js"
+    },
+    "https://ga.jspm.dev/npm:babel-traverse@6.26.0/": {
+      "babel-code-frame": "https://ga.jspm.dev/npm:babel-code-frame@6.26.0/lib/index.js",
+      "babel-messages": "https://ga.jspm.dev/npm:babel-messages@6.23.0/lib/index.js",
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
+      "babel-runtime/core-js/map": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/map.js",
+      "babel-runtime/core-js/object/create": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/create.js",
+      "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
+      "babel-runtime/core-js/weak-map": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/weak-map.js",
+      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js",
+      "babylon": "https://ga.jspm.dev/npm:babylon@6.18.0/lib/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "globals": "https://ga.jspm.dev/npm:globals@9.18.0/index.js",
+      "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
+      "lodash/includes": "https://ga.jspm.dev/npm:lodash@4.17.15/includes.js",
+      "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js"
+    },
+    "https://ga.jspm.dev/npm:babel-types@6.26.0/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
+      "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js",
+      "babel-runtime/core-js/number/max-safe-integer": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/number/max-safe-integer.js",
+      "babel-runtime/core-js/object/create": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/create.js",
+      "babel-runtime/core-js/object/get-own-property-symbols": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/get-own-property-symbols.js",
+      "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
+      "babel-runtime/core-js/symbol/for": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol/for.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@1.1.3/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@2.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "has-ansi": "https://ga.jspm.dev/npm:has-ansi@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:coffeescript@2.5.1/": {
+      "@babel/core": "https://ga.jspm.dev/npm:@babel/core@7.9.0/lib/index.js",
+      "babel-core": "https://ga.jspm.dev/npm:babel-core@6.26.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:convert-source-map@1.7.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:cson-parser@4.0.4/": {
+      "coffeescript": "https://ga.jspm.dev/npm:coffeescript@1.12.7/lib/coffee-script/coffee-script.js"
+    },
+    "https://ga.jspm.dev/npm:cson@7.0.0/": {
+      "coffeescript": "https://ga.jspm.dev/npm:coffeescript@2.5.1/lib/coffeescript-browser-compiler-legacy/coffeescript.js",
+      "coffeescript/": "https://ga.jspm.dev/npm:coffeescript@2.5.1/",
+      "coffeescript/register": "https://ga.jspm.dev/npm:coffeescript@2.5.1/register.js",
+      "cson-parser": "https://ga.jspm.dev/npm:cson-parser@4.0.4/lib/cson-parser.js",
+      "extract-opts": "https://ga.jspm.dev/npm:extract-opts@4.3.0/edition-browsers/index.js",
+      "requirefresh": "https://ga.jspm.dev/npm:requirefresh@3.3.0/source/index.js",
+      "safefs": "https://ga.jspm.dev/npm:safefs@5.5.0/source/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:detect-indent@4.0.0/": {
+      "repeating": "https://ga.jspm.dev/npm:repeating@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:eachr@4.5.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:extract-opts@4.3.0/": {
+      "eachr": "https://ga.jspm.dev/npm:eachr@4.5.0/edition-browsers/index.js",
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-ansi@2.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:repeating@2.0.1/": {
+      "is-finite": "https://ga.jspm.dev/npm:is-finite@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:safefs@5.5.0/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@3.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    }
+  }
+}

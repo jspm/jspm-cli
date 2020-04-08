@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "caterpillar": "https://ga.jspm.dev/npm:caterpillar@4.0.0/edition-browsers/index.js",
+    "caterpillar-browser": "https://ga.jspm.dev/npm:caterpillar-browser@4.5.0/edition-browsers/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:caterpillar@4.0.0/": {
+      "extendr": "https://ga.jspm.dev/npm:extendr@4.3.0/edition-browsers/index.js",
+      "rfc-log-levels": "https://ga.jspm.dev/npm:rfc-log-levels@2.3.0/source/index.json"
+    },
+    "https://ga.jspm.dev/npm:extendr@4.3.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "bird-oid": "https://ga.jspm.dev/npm:bird-oid@0.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bird-oid@0.2.0/": {
+      "gl-matrix": "https://ga.jspm.dev/npm:gl-matrix@3.3.0/cjs/index.js"
+    }
+  }
+}

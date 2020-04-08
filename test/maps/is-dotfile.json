@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "is-dotfile": "https://ga.jspm.dev/npm:is-dotfile@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-dotfile@2.0.0/": {
+      "dotfile-regex": "https://ga.jspm.dev/npm:dotfile-regex@0.1.2/index.js"
+    }
+  }
+}

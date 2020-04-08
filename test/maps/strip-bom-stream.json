@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "strip-bom-stream": "https://ga.jspm.dev/npm:strip-bom-stream@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:strip-bom-buf@2.0.0/": {
+      "is-utf8": "https://ga.jspm.dev/npm:is-utf8@0.2.1/is-utf8.js"
+    },
+    "https://ga.jspm.dev/npm:strip-bom-stream@4.0.0/": {
+      "first-chunk-stream": "https://ga.jspm.dev/npm:first-chunk-stream@3.0.0/index.js",
+      "strip-bom-buf": "https://ga.jspm.dev/npm:strip-bom-buf@2.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "lazy-cache": "https://ga.jspm.dev/npm:lazy-cache@2.0.2/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:lazy-cache@2.0.2/": {
+      "set-getter": "https://ga.jspm.dev/npm:set-getter@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:set-getter@0.1.0/": {
+      "to-object-path": "https://ga.jspm.dev/npm:to-object-path@0.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-object-path@0.3.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    }
+  }
+}

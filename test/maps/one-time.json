@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "one-time": "https://ga.jspm.dev/npm:one-time@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:one-time@1.0.0/": {
+      "fn.name": "https://ga.jspm.dev/npm:fn.name@1.1.0/index.js"
+    }
+  }
+}

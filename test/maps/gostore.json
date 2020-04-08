@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "gostore": "https://ga.jspm.dev/npm:gostore@0.1.9/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:gostore@0.1.9/": {
+      "email-regex": "https://ga.jspm.dev/npm:email-regex@4.0.0/index.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "ecstatic": "https://ga.jspm.dev/npm:ecstatic@4.1.4/lib/ecstatic.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ecstatic@4.1.4/": {
+      "charset": "https://ga.jspm.dev/npm:charset@1.0.1/index.js",
+      "he": "https://ga.jspm.dev/npm:he@1.2.0/he.js",
+      "mime": "https://ga.jspm.dev/npm:mime@2.4.4/index.js",
+      "on-finished": "https://ga.jspm.dev/npm:on-finished@2.3.0/index.js",
+      "url-join": "https://ga.jspm.dev/npm:url-join@4.0.1/lib/url-join.js"
+    },
+    "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
+      "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
+    }
+  }
+}

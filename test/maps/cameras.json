@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "cameras": "https://ga.jspm.dev/npm:cameras@1.1.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cameras@1.1.0/": {
+      "gl-matrix": "https://ga.jspm.dev/npm:gl-matrix@3.3.0/cjs/index.js"
+    }
+  }
+}

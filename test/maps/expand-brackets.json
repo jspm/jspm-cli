@@ -1,0 +1,112 @@
+{
+  "imports": {
+    "expand-brackets": "https://ga.jspm.dev/npm:expand-brackets@4.0.0/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:define-property@0.2.5/": {
+      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@0.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:define-property@2.0.2/": {
+      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@1.0.2/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:expand-brackets@4.0.0/": {
+      "posix-character-classes": "https://ga.jspm.dev/npm:posix-character-classes@1.0.0/index.js",
+      "regex-not": "https://ga.jspm.dev/npm:regex-not@1.0.2/index.js",
+      "snapdragon": "https://ga.jspm.dev/npm:snapdragon@0.12.0/index.js",
+      "to-regex": "https://ga.jspm.dev/npm:to-regex@3.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:extend-shallow@3.0.2/": {
+      "assign-symbols": "https://ga.jspm.dev/npm:assign-symbols@1.0.0/index.js",
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-accessor-descriptor@0.1.6/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-data-descriptor@0.1.4/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-descriptor@0.1.6/": {
+      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@0.1.6/index.js",
+      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@0.1.4/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@5.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-descriptor@1.0.2/": {
+      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/index.js",
+      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-extendable@1.0.1/": {
+      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:lazy-cache@2.0.2/": {
+      "set-getter": "https://ga.jspm.dev/npm:set-getter@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:regex-not@1.0.2/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js",
+      "safe-regex": "https://ga.jspm.dev/npm:safe-regex@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:safe-regex@1.1.0/": {
+      "ret": "https://ga.jspm.dev/npm:ret@0.1.15/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:set-getter@0.1.0/": {
+      "to-object-path": "https://ga.jspm.dev/npm:to-object-path@0.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:snapdragon-node@1.0.6/": {
+      "define-property": "https://ga.jspm.dev/npm:define-property@0.2.5/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js",
+      "lazy-cache": "https://ga.jspm.dev/npm:lazy-cache@2.0.2/index.js",
+      "snapdragon-util": "https://ga.jspm.dev/npm:snapdragon-util@1.0.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:snapdragon-util@1.0.6/": {
+      "define-property": "https://ga.jspm.dev/npm:define-property@0.2.5/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js",
+      "lazy-cache": "https://ga.jspm.dev/npm:lazy-cache@2.0.2/index.js",
+      "snapdragon-node": "https://ga.jspm.dev/npm:snapdragon-node@1.0.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:snapdragon-util@4.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:snapdragon@0.12.0/": {
+      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.3.0/index.js",
+      "define-property": "https://ga.jspm.dev/npm:define-property@2.0.2/index.js",
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js",
+      "get-value": "https://ga.jspm.dev/npm:get-value@2.0.6/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js",
+      "map-cache": "https://ga.jspm.dev/npm:map-cache@0.2.2/index.js",
+      "snapdragon-node": "https://ga.jspm.dev/npm:snapdragon-node@1.0.6/index.js",
+      "snapdragon-util": "https://ga.jspm.dev/npm:snapdragon-util@4.0.0/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js",
+      "source-map-resolve": "https://ga.jspm.dev/npm:source-map-resolve@0.5.3/source-map-resolve.js",
+      "use": "https://ga.jspm.dev/npm:use@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:source-map-resolve@0.5.3/": {
+      "resolve-url": "https://ga.jspm.dev/npm:resolve-url@0.2.1/resolve-url.js",
+      "source-map-url": "https://ga.jspm.dev/npm:source-map-url@0.4.0/source-map-url.js"
+    },
+    "https://ga.jspm.dev/npm:to-object-path@0.3.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-regex@3.0.2/": {
+      "define-property": "https://ga.jspm.dev/npm:define-property@2.0.2/index.js",
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js",
+      "regex-not": "https://ga.jspm.dev/npm:regex-not@1.0.2/index.js",
+      "safe-regex": "https://ga.jspm.dev/npm:safe-regex@1.1.0/index.js"
+    }
+  }
+}

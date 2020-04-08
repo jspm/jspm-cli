@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@computercowboy/tdd": "https://ga.jspm.dev/npm:@computercowboy/tdd@1.0.0/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@computercowboy/tdd@1.0.0/": {
+      "@computercowboy/check": "https://ga.jspm.dev/npm:@computercowboy/check@1.0.0/Check.js",
+      "@computercowboy/logger": "https://ga.jspm.dev/npm:@computercowboy/logger@1.0.0/Logger.js"
+    }
+  }
+}

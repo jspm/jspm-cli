@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "jest-leak-detector": "https://ga.jspm.dev/npm:jest-leak-detector@25.2.6/build/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bindings@1.5.0/": {
+      "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:jest-leak-detector@25.2.6/": {
+      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@25.2.6/build/index.js",
+      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@25.2.6/build-es5/index.js",
+      "v8": "https://ga.jspm.dev/npm:v8@0.1.0/index.js",
+      "weak-napi": "https://ga.jspm.dev/npm:weak-napi@1.0.3/lib/weak.js"
+    },
+    "https://ga.jspm.dev/npm:weak-napi@1.0.3/": {
+      "bindings": "https://ga.jspm.dev/npm:bindings@1.5.0/bindings.js"
+    }
+  }
+}

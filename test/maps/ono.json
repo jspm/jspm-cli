@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "ono": "https://ga.jspm.dev/npm:ono@7.1.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ono@7.1.1/": {
+      "@jsdevtools/ono": "https://ga.jspm.dev/npm:@jsdevtools/ono@7.1.1/cjs/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@bolt/components-nav-bar": "https://ga.jspm.dev/npm:@bolt/components-nav-bar@1.0.3/src/nav-bar.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@bolt/components-nav-bar@1.0.3/": {
+      "@bolt/core": "https://ga.jspm.dev/npm:@bolt/core@1.8.0/index.js"
+    }
+  }
+}

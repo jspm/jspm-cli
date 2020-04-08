@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "json-schema-ref-parser": "https://ga.jspm.dev/npm:json-schema-ref-parser@8.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/": {
+      "@jsdevtools/ono": "https://ga.jspm.dev/npm:@jsdevtools/ono@7.1.1/cjs/index.js",
+      "call-me-maybe": "https://ga.jspm.dev/npm:call-me-maybe@1.0.1/index.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:json-schema-ref-parser@8.0.0/": {
+      "@apidevtools/json-schema-ref-parser": "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/index.js"
+    }
+  }
+}

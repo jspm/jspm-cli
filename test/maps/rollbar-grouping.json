@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "rollbar-grouping": "https://ga.jspm.dev/npm:rollbar-grouping@1.5.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rollbar-grouping@1.5.4/": {
+      "rollbar": "https://ga.jspm.dev/npm:rollbar@2.15.0/dist/rollbar.umd.min.js"
+    }
+  }
+}

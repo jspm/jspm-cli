@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "bin-links": "https://ga.jspm.dev/npm:bin-links@2.1.2/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bin-links@2.1.2/": {
+      "cmd-shim": "https://ga.jspm.dev/npm:cmd-shim@4.0.1/index.js",
+      "mkdirp-infer-owner": "https://ga.jspm.dev/npm:mkdirp-infer-owner@1.0.2/index.js",
+      "npm-normalize-package-bin": "https://ga.jspm.dev/npm:npm-normalize-package-bin@1.0.1/index.js",
+      "read-cmd-shim": "https://ga.jspm.dev/npm:read-cmd-shim@2.0.0/index.js",
+      "rimraf": "https://ga.jspm.dev/npm:rimraf@3.0.2/rimraf.js",
+      "write-file-atomic": "https://ga.jspm.dev/npm:write-file-atomic@2.4.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:cmd-shim@4.0.1/": {
+      "mkdirp-infer-owner": "https://ga.jspm.dev/npm:mkdirp-infer-owner@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:mkdirp-infer-owner@1.0.2/": {
+      "chownr": "https://ga.jspm.dev/npm:chownr@1.1.4/chownr.js",
+      "infer-owner": "https://ga.jspm.dev/npm:infer-owner@1.0.4/index.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@1.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:rimraf@3.0.2/": {
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js"
+    },
+    "https://ga.jspm.dev/npm:write-file-atomic@2.4.3/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "imurmurhash": "https://ga.jspm.dev/npm:imurmurhash@0.1.4/imurmurhash.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "cluster": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "valid-directory": "https://ga.jspm.dev/npm:valid-directory@1.6.0/source/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:valid-directory@1.6.0/": {
+      "readdir-cluster": "https://ga.jspm.dev/npm:readdir-cluster@2.3.0/source/index.js",
+      "valid-filename": "https://ga.jspm.dev/npm:valid-filename@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:valid-filename@3.1.0/": {
+      "filename-reserved-regex": "https://ga.jspm.dev/npm:filename-reserved-regex@2.0.0/index.js"
+    }
+  }
+}

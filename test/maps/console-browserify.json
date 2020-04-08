@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "console-browserify": "https://ga.jspm.dev/npm:console-browserify@1.2.0/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  }
+}

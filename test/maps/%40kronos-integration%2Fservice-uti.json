@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "@kronos-integration/service-uti": "https://ga.jspm.dev/npm:@kronos-integration/service-uti@2.0.13/src/service-uti.mjs",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/src/index.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/": {
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/service-uti@2.0.13/": {
+      "@kronos-integration/service": "https://ga.jspm.dev/npm:@kronos-integration/service@8.3.20/src/module.mjs",
+      "uti": "https://ga.jspm.dev/npm:uti@6.3.3/src/uti.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/service@8.3.20/": {
+      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/src/module.mjs",
+      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.5/src/loglevel-mixin.mjs",
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs",
+      "statetransition-mixin": "https://ga.jspm.dev/npm:statetransition-mixin@6.0.6/src/statetransition-mixin.mjs"
+    }
+  }
+}

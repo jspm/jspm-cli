@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "install": "https://ga.jspm.dev/npm:install@0.13.0/install.js"
+  }
+}

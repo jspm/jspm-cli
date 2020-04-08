@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "async-iter-watch": "https://ga.jspm.dev/npm:async-iter-watch@1.0.0/watch.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-iter-dedupe@1.0.0/": {
+      "async-iter-map": "https://ga.jspm.dev/npm:async-iter-map@1.0.2/map.js"
+    },
+    "https://ga.jspm.dev/npm:async-iter-interval@1.0.1/": {
+      "async-iter-pipe": "https://ga.jspm.dev/npm:async-iter-pipe@1.2.0/pipe.js"
+    },
+    "https://ga.jspm.dev/npm:async-iter-map@1.0.2/": {
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js",
+      "shim-to-polyfill": "https://ga.jspm.dev/npm:shim-to-polyfill@1.0.0/shim-to-polyfill.js"
+    },
+    "https://ga.jspm.dev/npm:async-iter-pipe@1.2.0/": {
+      "dequeue": "https://ga.jspm.dev/npm:dequeue@1.0.5/lib/index.js",
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:async-iter-watch@1.0.0/": {
+      "async-iter-dedupe": "https://ga.jspm.dev/npm:async-iter-dedupe@1.0.0/async-iter-dedupe.js",
+      "async-iter-interval": "https://ga.jspm.dev/npm:async-iter-interval@1.0.1/async-iter-interval.js"
+    }
+  }
+}

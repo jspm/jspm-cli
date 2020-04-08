@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "async-iter-event-listener": "https://ga.jspm.dev/npm:async-iter-event-listener@1.0.0/async-iter-event-listener.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-iter-event-listener@1.0.0/": {
+      "async-iter-pipe": "https://ga.jspm.dev/npm:async-iter-pipe@1.2.0/pipe.js"
+    },
+    "https://ga.jspm.dev/npm:async-iter-pipe@1.2.0/": {
+      "dequeue": "https://ga.jspm.dev/npm:dequeue@1.0.5/lib/index.js",
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    }
+  }
+}

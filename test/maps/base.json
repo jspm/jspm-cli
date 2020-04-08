@@ -1,0 +1,104 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "base": "https://ga.jspm.dev/npm:base@3.0.0/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:base@3.0.0/": {
+      "cache-base": "https://ga.jspm.dev/npm:cache-base@4.0.0/index.js",
+      "define-property": "https://ga.jspm.dev/npm:define-property@2.0.2/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js",
+      "mixin-deep": "https://ga.jspm.dev/npm:mixin-deep@1.3.2/index.js",
+      "pascalcase": "https://ga.jspm.dev/npm:pascalcase@0.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:cache-base@4.0.0/": {
+      "@sellside/emitter": "https://ga.jspm.dev/npm:@sellside/emitter@1.2.1/index.js",
+      "collection-visit": "https://ga.jspm.dev/npm:collection-visit@1.0.0/index.js",
+      "get-value": "https://ga.jspm.dev/npm:get-value@3.0.1/index.js",
+      "has-own-deep": "https://ga.jspm.dev/npm:has-own-deep@1.1.0/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js",
+      "set-value": "https://ga.jspm.dev/npm:set-value@3.0.2/index.js",
+      "union-value": "https://ga.jspm.dev/npm:union-value@1.0.1/index.js",
+      "unset-value": "https://ga.jspm.dev/npm:unset-value@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:collection-visit@1.0.0/": {
+      "map-visit": "https://ga.jspm.dev/npm:map-visit@1.0.0/index.js",
+      "object-visit": "https://ga.jspm.dev/npm:object-visit@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:define-property@2.0.2/": {
+      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@1.0.2/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:extend-shallow@2.0.1/": {
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:extend-shallow@3.0.2/": {
+      "assign-symbols": "https://ga.jspm.dev/npm:assign-symbols@1.0.0/index.js",
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:get-value@3.0.1/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-own-deep@1.1.0/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-value@0.3.1/": {
+      "get-value": "https://ga.jspm.dev/npm:get-value@2.0.6/index.js",
+      "has-values": "https://ga.jspm.dev/npm:has-values@0.1.4/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-descriptor@1.0.2/": {
+      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/index.js",
+      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-extendable@1.0.1/": {
+      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:isobject@2.1.0/": {
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:map-visit@1.0.0/": {
+      "object-visit": "https://ga.jspm.dev/npm:object-visit@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:mixin-deep@1.3.2/": {
+      "for-in": "https://ga.jspm.dev/npm:for-in@1.0.2/index.js",
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:object-visit@1.0.1/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:set-value@2.0.1/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@2.0.1/index.js",
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js",
+      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js",
+      "split-string": "https://ga.jspm.dev/npm:split-string@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:set-value@3.0.2/": {
+      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:split-string@3.1.0/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:union-value@1.0.1/": {
+      "arr-union": "https://ga.jspm.dev/npm:arr-union@3.1.0/index.js",
+      "get-value": "https://ga.jspm.dev/npm:get-value@2.0.6/index.js",
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js",
+      "set-value": "https://ga.jspm.dev/npm:set-value@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:unset-value@1.0.0/": {
+      "has-value": "https://ga.jspm.dev/npm:has-value@0.3.1/index.js",
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/src/module.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/src/index.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/": {
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+    }
+  }
+}

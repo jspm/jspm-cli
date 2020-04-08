@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babylonjs": "https://ga.jspm.dev/npm:babylonjs@4.1.0/babylon.js"
+  }
+}

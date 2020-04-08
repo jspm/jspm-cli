@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "yjs": "https://ga.jspm.dev/npm:yjs@13.0.5/dist/yjs.cjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lib0@0.2.24/": {
+      "isomorphic.js": "https://ga.jspm.dev/npm:isomorphic.js@0.1.3/iso-browser.js"
+    },
+    "https://ga.jspm.dev/npm:yjs@13.0.5/": {
+      "lib0/": "https://ga.jspm.dev/npm:lib0@0.2.24/"
+    }
+  }
+}

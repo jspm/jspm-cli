@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "svarabhakti": "https://ga.jspm.dev/npm:svarabhakti@0.0.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:svarabhakti@0.0.4/": {
+      "s-js": "https://ga.jspm.dev/npm:s-js@0.4.9/dist/S.js"
+    }
+  }
+}

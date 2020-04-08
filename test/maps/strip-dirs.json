@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "strip-dirs": "https://ga.jspm.dev/npm:strip-dirs@3.0.0/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:inspect-with-kind@1.0.5/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-dirs@3.0.0/": {
+      "inspect-with-kind": "https://ga.jspm.dev/npm:inspect-with-kind@1.0.5/index.js",
+      "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@1.1.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@computercowboy/api": "https://ga.jspm.dev/npm:@computercowboy/api@1.0.0/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@computercowboy/api@1.0.0/": {
+      "@computercowboy/logger": "https://ga.jspm.dev/npm:@computercowboy/logger@1.0.0/Logger.js"
+    }
+  }
+}

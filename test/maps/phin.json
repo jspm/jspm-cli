@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "phin": "https://ga.jspm.dev/npm:phin@3.4.1/lib/phin.min.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:phin@3.4.1/": {
+      "centra": "https://ga.jspm.dev/npm:centra@2.4.0/createRequest.js"
+    }
+  }
+}

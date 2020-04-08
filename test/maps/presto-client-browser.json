@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "presto-client-browser": "https://ga.jspm.dev/npm:presto-client-browser@0.0.4/src/js/prestoClient.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:presto-client-browser@0.0.4/": {
+      "btoa": "https://ga.jspm.dev/npm:btoa@1.2.1/index.js",
+      "humanize-duration": "https://ga.jspm.dev/npm:humanize-duration@3.22.0/humanize-duration.js"
+    }
+  }
+}

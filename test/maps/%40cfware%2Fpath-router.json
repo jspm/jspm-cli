@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cfware/path-router": "https://ga.jspm.dev/npm:@cfware/path-router@0.1.3/path-router.js"
+  }
+}

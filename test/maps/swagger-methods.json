@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "swagger-methods": "https://ga.jspm.dev/npm:swagger-methods@3.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:swagger-methods@3.0.1/": {
+      "@apidevtools/swagger-methods": "https://ga.jspm.dev/npm:@apidevtools/swagger-methods@3.0.1/lib/index.js"
+    }
+  }
+}

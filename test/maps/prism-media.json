@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "ffmpeg-static": "https://ga.jspm.dev/npm:ffmpeg-static@3.0.0/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "prism-media": "https://ga.jspm.dev/npm:prism-media@1.2.1/src/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  }
+}

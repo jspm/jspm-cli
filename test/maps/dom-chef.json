@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "dom-chef": "https://ga.jspm.dev/npm:dom-chef@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:dom-chef@4.0.0/": {
+      "array-flatten": "https://ga.jspm.dev/npm:array-flatten@3.0.0/dist/index.js",
+      "svg-tag-names": "https://ga.jspm.dev/npm:svg-tag-names@2.0.1/index.json"
+    }
+  }
+}

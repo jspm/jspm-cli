@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "requizzle": "https://ga.jspm.dev/npm:requizzle@0.2.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:requizzle@0.2.3/": {
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    }
+  }
+}

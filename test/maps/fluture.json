@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "fluture": "https://ga.jspm.dev/npm:fluture@12.2.0/index.cjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:fluture@12.2.0/": {
+      "sanctuary-show": "https://ga.jspm.dev/npm:sanctuary-show@2.0.0/index.js",
+      "sanctuary-type-identifiers": "https://ga.jspm.dev/npm:sanctuary-type-identifiers@2.0.1/index.js"
+    }
+  }
+}
