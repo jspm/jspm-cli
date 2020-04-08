@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+    "nav-frontend-lenkepanel": "https://ga.jspm.dev/npm:nav-frontend-lenkepanel@1.0.38/lib/index.js",
+    "nav-frontend-lenkepanel-style": "https://ga.jspm.dev/npm:nav-frontend-lenkepanel-style@0.3.28/src/index.less",
+    "nav-frontend-typografi": "https://ga.jspm.dev/npm:nav-frontend-typografi@2.0.18/lib/index.js",
+    "nav-frontend-typografi-style": "https://ga.jspm.dev/npm:nav-frontend-typografi-style@1.0.19/src/index.less",
+    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

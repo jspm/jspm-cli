@@ -1,0 +1,90 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "pg": "https://ga.jspm.dev/npm:pg@8.0.0/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "sequelize-pg-utilities": "https://ga.jspm.dev/npm:sequelize-pg-utilities@1.3.0/src/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bindings@1.5.0/": {
+      "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:libpq@1.8.9/": {
+      "bindings": "https://ga.jspm.dev/npm:bindings@1.5.0/bindings.js"
+    },
+    "https://ga.jspm.dev/npm:pg-native@3.0.0/": {
+      "libpq": "https://ga.jspm.dev/npm:libpq@1.8.9/index.js",
+      "pg-types": "https://ga.jspm.dev/npm:pg-types@1.13.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pg-pool@1.8.0/": {
+      "generic-pool": "https://ga.jspm.dev/npm:generic-pool@2.4.3/lib/generic-pool.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.0/index.js",
+      "pg": "https://ga.jspm.dev/npm:pg@8.0.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:pg-types@1.13.0/": {
+      "pg-int8": "https://ga.jspm.dev/npm:pg-int8@1.0.1/index.js",
+      "postgres-array": "https://ga.jspm.dev/npm:postgres-array@1.0.3/index.js",
+      "postgres-bytea": "https://ga.jspm.dev/npm:postgres-bytea@1.0.0/index.js",
+      "postgres-date": "https://ga.jspm.dev/npm:postgres-date@1.0.4/index.js",
+      "postgres-interval": "https://ga.jspm.dev/npm:postgres-interval@1.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pg-types@2.2.0/": {
+      "pg-int8": "https://ga.jspm.dev/npm:pg-int8@1.0.1/index.js",
+      "postgres-array": "https://ga.jspm.dev/npm:postgres-array@2.0.0/index.js",
+      "postgres-bytea": "https://ga.jspm.dev/npm:postgres-bytea@1.0.0/index.js",
+      "postgres-date": "https://ga.jspm.dev/npm:postgres-date@1.0.4/index.js",
+      "postgres-interval": "https://ga.jspm.dev/npm:postgres-interval@1.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pg@6.4.2/": {
+      "buffer-writer": "https://ga.jspm.dev/npm:buffer-writer@1.0.1/index.js",
+      "js-string-escape": "https://ga.jspm.dev/npm:js-string-escape@1.0.1/index.js",
+      "packet-reader": "https://ga.jspm.dev/npm:packet-reader@0.3.1/index.js",
+      "pg-connection-string": "https://ga.jspm.dev/npm:pg-connection-string@0.1.3/index.js",
+      "pg-native": "https://ga.jspm.dev/npm:pg-native@3.0.0/index.js",
+      "pg-pool": "https://ga.jspm.dev/npm:pg-pool@1.8.0/index.js",
+      "pg-types": "https://ga.jspm.dev/npm:pg-types@1.13.0/index.js",
+      "pgpass": "https://ga.jspm.dev/npm:pgpass@1.0.2/lib/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@4.3.2/semver.browser.js"
+    },
+    "https://ga.jspm.dev/npm:pg@8.0.0/": {
+      "buffer-writer": "https://ga.jspm.dev/npm:buffer-writer@2.0.0/index.js",
+      "packet-reader": "https://ga.jspm.dev/npm:packet-reader@1.0.0/index.js",
+      "pg-connection-string": "https://ga.jspm.dev/npm:pg-connection-string@0.1.3/index.js",
+      "pg-native": "https://ga.jspm.dev/npm:pg-native@3.0.0/index.js",
+      "pg-packet-stream": "https://ga.jspm.dev/npm:pg-packet-stream@1.1.0/dist/index.js",
+      "pg-pool": "https://ga.jspm.dev/npm:pg-pool@3.0.0/index.js",
+      "pg-types": "https://ga.jspm.dev/npm:pg-types@2.2.0/index.js",
+      "pgpass": "https://ga.jspm.dev/npm:pgpass@1.0.2/lib/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@4.3.2/semver.browser.js"
+    },
+    "https://ga.jspm.dev/npm:pgpass@1.0.2/": {
+      "split": "https://ga.jspm.dev/npm:split@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:pgtools@0.3.0/": {
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js",
+      "pg": "https://ga.jspm.dev/npm:pg@6.4.2/lib/index.js",
+      "pg-connection-string": "https://ga.jspm.dev/npm:pg-connection-string@0.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:postgres-interval@1.2.0/": {
+      "xtend/": "https://ga.jspm.dev/npm:xtend@4.0.2/",
+      "xtend/mutable": "https://ga.jspm.dev/npm:xtend@4.0.2/mutable.js"
+    },
+    "https://ga.jspm.dev/npm:sequelize-pg-utilities@1.3.0/": {
+      "pgtools": "https://ga.jspm.dev/npm:pgtools@0.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:split@1.0.1/": {
+      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    }
+  }
+}

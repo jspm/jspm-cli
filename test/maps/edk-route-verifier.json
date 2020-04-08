@@ -1,0 +1,44 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "edk-route-verifier": "https://ga.jspm.dev/npm:edk-route-verifier@2.3.0/src/core/verifyRoute.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@google/maps@1.1.0/": {
+      "https-proxy-agent": "https://ga.jspm.dev/npm:https-proxy-agent@3.0.1/index.js",
+      "uuid/": "https://ga.jspm.dev/npm:uuid@7.0.3/",
+      "uuid/v4": "https://ga.jspm.dev/npm:uuid@7.0.3/v4.js"
+    },
+    "https://ga.jspm.dev/npm:@mapbox/togeojson@0.16.0/": {
+      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.31/dom-parser.js"
+    },
+    "https://ga.jspm.dev/npm:agent-base@4.3.0/": {
+      "es6-promisify": "https://ga.jspm.dev/npm:es6-promisify@5.0.0/dist/promisify.js"
+    },
+    "https://ga.jspm.dev/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:edk-route-verifier@2.3.0/": {
+      "@google/maps": "https://ga.jspm.dev/npm:@google/maps@1.1.0/lib/index.js",
+      "@mapbox/togeojson": "https://ga.jspm.dev/npm:@mapbox/togeojson@0.16.0/togeojson.js",
+      "@turf/turf": "https://ga.jspm.dev/npm:@turf/turf@5.1.6/turf.min.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "loglevel": "https://ga.jspm.dev/npm:loglevel@1.6.7/lib/loglevel.js",
+      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.31/dom-parser.js"
+    },
+    "https://ga.jspm.dev/npm:es6-promisify@5.0.0/": {
+      "es6-promise": "https://ga.jspm.dev/npm:es6-promise@4.2.8/dist/es6-promise.js"
+    },
+    "https://ga.jspm.dev/npm:https-proxy-agent@3.0.1/": {
+      "agent-base": "https://ga.jspm.dev/npm:agent-base@4.3.0/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js"
+    }
+  }
+}
