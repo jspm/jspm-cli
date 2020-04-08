@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "map-age-cleaner": "https://ga.jspm.dev/npm:map-age-cleaner@0.1.3/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:map-age-cleaner@0.1.3/": {
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@1.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:minipass@3.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@4.0.0/yallist.js"
+    }
+  }
+}

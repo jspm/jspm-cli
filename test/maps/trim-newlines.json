@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "trim-newlines": "https://ga.jspm.dev/npm:trim-newlines@3.0.0/index.js"
+  }
+}

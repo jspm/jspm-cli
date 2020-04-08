@@ -1,0 +1,42 @@
+{
+  "imports": {
+    "graphql": "https://ga.jspm.dev/npm:graphql@14.6.0/index.js",
+    "graphql-tools": "https://ga.jspm.dev/npm:graphql-tools@4.0.7/dist/index.js",
+    "graphql/": "https://ga.jspm.dev/npm:graphql@14.6.0/",
+    "graphql/error": "https://ga.jspm.dev/npm:graphql@14.6.0/error/index.js",
+    "graphql/execution/values": "https://ga.jspm.dev/npm:graphql@14.6.0/execution/values.js",
+    "graphql/language/visitor": "https://ga.jspm.dev/npm:graphql@14.6.0/language/visitor.js",
+    "graphql/utilities": "https://ga.jspm.dev/npm:graphql@14.6.0/utilities/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:apollo-link@1.2.13/": {
+      "apollo-utilities": "https://ga.jspm.dev/npm:apollo-utilities@1.3.3/lib/bundle.cjs.js",
+      "ts-invariant": "https://ga.jspm.dev/npm:ts-invariant@0.4.4/lib/invariant.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js",
+      "zen-observable-ts": "https://ga.jspm.dev/npm:zen-observable-ts@0.8.20/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:apollo-utilities@1.3.3/": {
+      "@wry/equality": "https://ga.jspm.dev/npm:@wry/equality@0.1.11/lib/equality.js",
+      "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
+      "ts-invariant": "https://ga.jspm.dev/npm:ts-invariant@0.4.4/lib/invariant.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:graphql-tools@4.0.7/": {
+      "apollo-link": "https://ga.jspm.dev/npm:apollo-link@1.2.13/lib/index.js",
+      "deprecated-decorator": "https://ga.jspm.dev/npm:deprecated-decorator@0.1.6/bld/index.js",
+      "iterall": "https://ga.jspm.dev/npm:iterall@1.3.0/index.js",
+      "uuid": "https://ga.jspm.dev/npm:uuid@3.4.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:graphql@14.6.0/": {
+      "iterall": "https://ga.jspm.dev/npm:iterall@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:ts-invariant@0.4.4/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:zen-observable-ts@0.8.20/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js",
+      "zen-observable": "https://ga.jspm.dev/npm:zen-observable@0.8.15/index.js"
+    }
+  }
+}

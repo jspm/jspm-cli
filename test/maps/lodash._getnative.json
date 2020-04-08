@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash._getnative": "https://ga.jspm.dev/npm:lodash._getnative@3.9.1/index.js"
+  }
+}

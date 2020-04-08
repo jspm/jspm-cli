@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "http-assert": "https://ga.jspm.dev/npm:http-assert@1.4.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:http-assert@1.4.1/": {
+      "deep-equal": "https://ga.jspm.dev/npm:deep-equal@1.0.1/index.js",
+      "http-errors": "https://ga.jspm.dev/npm:http-errors@1.7.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:http-errors@1.7.3/": {
+      "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "setprototypeof": "https://ga.jspm.dev/npm:setprototypeof@1.1.1/index.js",
+      "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js",
+      "toidentifier": "https://ga.jspm.dev/npm:toidentifier@1.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "istanbul-reports": "https://ga.jspm.dev/npm:istanbul-reports@3.0.2/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

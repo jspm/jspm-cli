@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "html-element-map": "https://ga.jspm.dev/npm:html-element-map@1.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:html-element-map@1.2.0/": {
+      "array-filter": "https://ga.jspm.dev/npm:array-filter@1.0.0/index.js"
+    }
+  }
+}

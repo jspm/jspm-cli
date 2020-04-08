@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "simple-jseventbus": "https://ga.jspm.dev/npm:simple-jseventbus@1.0.3/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:simple-jseventbus@1.0.3/": {
+      "uuid": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/index.js"
+    }
+  }
+}

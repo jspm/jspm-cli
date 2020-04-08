@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+  }
+}

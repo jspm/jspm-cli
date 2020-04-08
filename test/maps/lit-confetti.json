@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lit-confetti": "https://ga.jspm.dev/npm:lit-confetti@0.1.5/dist/npm/index.js"
+  }
+}

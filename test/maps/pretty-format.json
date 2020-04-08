@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "pretty-format": "https://ga.jspm.dev/npm:pretty-format@25.2.6/build-es5/index.js"
+  }
+}

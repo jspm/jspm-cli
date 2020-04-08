@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "resolve-options": "https://ga.jspm.dev/npm:resolve-options@1.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:resolve-options@1.1.0/": {
+      "value-or-function": "https://ga.jspm.dev/npm:value-or-function@3.0.0/index.js"
+    }
+  }
+}

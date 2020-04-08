@@ -1,0 +1,27 @@
+{
+  "imports": {
+    "@ndn/keychain": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/mod.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/": {
+      "@ndn/naming-convention2": "https://ga.jspm.dev/npm:@ndn/naming-convention2@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "applymixins": "https://ga.jspm.dev/npm:applymixins@1.1.0/index.js",
+      "asn1-ts": "https://ga.jspm.dev/npm:asn1-ts@2.11.2/dist/index.js",
+      "idb-keyval": "https://ga.jspm.dev/npm:idb-keyval@3.2.0/dist/idb-keyval-cjs.js",
+      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
+      "throat": "https://ga.jspm.dev/npm:throat@5.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/naming-convention2@0.0.20191223-beta.1/": {
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
+      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    }
+  }
+}

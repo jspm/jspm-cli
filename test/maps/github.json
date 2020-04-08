@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "github": "https://ga.jspm.dev/npm:github@14.0.0/index.js"
+  }
+}

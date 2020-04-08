@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "nth-check": "https://ga.jspm.dev/npm:nth-check@1.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:nth-check@1.0.2/": {
+      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js"
+    }
+  }
+}

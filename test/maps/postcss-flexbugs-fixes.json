@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "postcss-flexbugs-fixes": "https://ga.jspm.dev/npm:postcss-flexbugs-fixes@4.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:postcss-flexbugs-fixes@4.2.0/": {
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

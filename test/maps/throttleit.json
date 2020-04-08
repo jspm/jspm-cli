@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "throttleit": "https://ga.jspm.dev/npm:throttleit@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "table": "https://ga.jspm.dev/npm:table@5.4.6/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ajv@6.12.0/": {
+      "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:slice-ansi@2.1.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "astral-regex": "https://ga.jspm.dev/npm:astral-regex@1.0.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@3.1.0/": {
+      "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@7.0.3/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@5.2.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@4.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:table@5.4.6/": {
+      "ajv/": "https://ga.jspm.dev/npm:ajv@6.12.0/",
+      "ajv/lib/compile/equal": "https://ga.jspm.dev/npm:ajv@6.12.0/lib/compile/equal.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/flatten": "https://ga.jspm.dev/npm:lodash@4.17.15/flatten.js",
+      "lodash/isBoolean": "https://ga.jspm.dev/npm:lodash@4.17.15/isBoolean.js",
+      "lodash/isNumber": "https://ga.jspm.dev/npm:lodash@4.17.15/isNumber.js",
+      "lodash/isString": "https://ga.jspm.dev/npm:lodash@4.17.15/isString.js",
+      "lodash/isUndefined": "https://ga.jspm.dev/npm:lodash@4.17.15/isUndefined.js",
+      "lodash/mapValues": "https://ga.jspm.dev/npm:lodash@4.17.15/mapValues.js",
+      "lodash/max": "https://ga.jspm.dev/npm:lodash@4.17.15/max.js",
+      "lodash/times": "https://ga.jspm.dev/npm:lodash@4.17.15/times.js",
+      "lodash/trimEnd": "https://ga.jspm.dev/npm:lodash@4.17.15/trimEnd.js",
+      "lodash/truncate": "https://ga.jspm.dev/npm:lodash@4.17.15/truncate.js",
+      "lodash/values": "https://ga.jspm.dev/npm:lodash@4.17.15/values.js",
+      "slice-ansi": "https://ga.jspm.dev/npm:slice-ansi@2.1.0/index.js",
+      "string-width": "https://ga.jspm.dev/npm:string-width@3.1.0/index.js"
+    }
+  }
+}

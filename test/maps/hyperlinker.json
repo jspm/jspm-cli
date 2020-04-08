@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hyperlinker": "https://ga.jspm.dev/npm:hyperlinker@1.0.0/browser.js"
+  }
+}

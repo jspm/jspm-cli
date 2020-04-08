@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "p-queue": "https://ga.jspm.dev/npm:p-queue@6.3.0/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:p-queue@6.3.0/": {
+      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@4.0.0/index.js",
+      "p-timeout": "https://ga.jspm.dev/npm:p-timeout@3.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-timeout@3.2.0/": {
+      "p-finally": "https://ga.jspm.dev/npm:p-finally@1.0.0/index.js"
+    }
+  }
+}

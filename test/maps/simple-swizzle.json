@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "simple-swizzle": "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/": {
+      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.3.2/index.js"
+    }
+  }
+}

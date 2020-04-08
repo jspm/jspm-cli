@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "confinode": "https://ga.jspm.dev/npm:confinode@2.1.1/lib/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:confinode@2.1.1/": {
+      "quick-lru": "https://ga.jspm.dev/npm:quick-lru@5.1.0/index.js",
+      "yaml": "https://ga.jspm.dev/npm:yaml@1.8.3/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "trim-repeated": "https://ga.jspm.dev/npm:trim-repeated@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:trim-repeated@1.0.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    }
+  }
+}

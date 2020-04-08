@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "webpack-node-externals": "https://ga.jspm.dev/npm:webpack-node-externals@1.7.2/index.js"
+  }
+}

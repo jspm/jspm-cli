@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "feature-policy": "https://ga.jspm.dev/npm:feature-policy@0.4.0/dist/index.js"
+  }
+}

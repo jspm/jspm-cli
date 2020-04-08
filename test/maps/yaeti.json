@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "yaeti": "https://ga.jspm.dev/npm:yaeti@1.0.2/index.js"
+  }
+}

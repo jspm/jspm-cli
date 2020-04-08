@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-absolute-url": "https://ga.jspm.dev/npm:is-absolute-url@3.0.3/index.js"
+  }
+}

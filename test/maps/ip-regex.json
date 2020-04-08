@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ip-regex": "https://ga.jspm.dev/npm:ip-regex@4.1.0/index.js"
+  }
+}

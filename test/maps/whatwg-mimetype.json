@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "whatwg-mimetype": "https://ga.jspm.dev/npm:whatwg-mimetype@2.3.0/lib/mime-type.js"
+  }
+}

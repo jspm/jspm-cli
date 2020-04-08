@@ -1,0 +1,27 @@
+{
+  "imports": {
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
+    "react-slick": "https://ga.jspm.dev/npm:react-slick@0.25.2/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:json2mq@0.2.0/": {
+      "string-convert/": "https://ga.jspm.dev/npm:string-convert@0.2.1/",
+      "string-convert/camel2hyphen": "https://ga.jspm.dev/npm:string-convert@0.2.1/camel2hyphen.js"
+    },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-slick@0.25.2/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "enquire.js": "https://ga.jspm.dev/npm:enquire.js@2.1.6/src/index.js",
+      "json2mq": "https://ga.jspm.dev/npm:json2mq@0.2.0/index.js",
+      "lodash.debounce": "https://ga.jspm.dev/npm:lodash.debounce@4.0.8/index.js",
+      "resize-observer-polyfill": "https://ga.jspm.dev/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "connect-redis": "https://ga.jspm.dev/npm:connect-redis@4.0.4/index.js"
+  }
+}

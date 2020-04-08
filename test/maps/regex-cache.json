@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "regex-cache": "https://ga.jspm.dev/npm:regex-cache@0.4.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-equal-shallow@0.1.3/": {
+      "is-primitive": "https://ga.jspm.dev/npm:is-primitive@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:regex-cache@0.4.4/": {
+      "is-equal-shallow": "https://ga.jspm.dev/npm:is-equal-shallow@0.1.3/index.js"
+    }
+  }
+}

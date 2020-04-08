@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jmespath": "https://ga.jspm.dev/npm:jmespath@0.15.0/jmespath.js"
+  }
+}

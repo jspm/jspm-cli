@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "source-map-loader": "https://ga.jspm.dev/npm:source-map-loader@0.2.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:loader-utils@1.4.0/": {
+      "big.js": "https://ga.jspm.dev/npm:big.js@5.2.2/big.js",
+      "emojis-list": "https://ga.jspm.dev/npm:emojis-list@3.0.0/index.js",
+      "json5": "https://ga.jspm.dev/npm:json5@1.0.1/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:source-map-loader@0.2.4/": {
+      "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
+      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@1.4.0/lib/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "querystringify": "https://ga.jspm.dev/npm:querystringify@2.1.1/index.js"
+  }
+}

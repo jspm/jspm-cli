@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "pad-component": "https://ga.jspm.dev/npm:pad-component@0.0.1/index.js"
+  }
+}

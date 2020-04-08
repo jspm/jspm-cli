@@ -1,0 +1,119 @@
+{
+  "imports": {
+    "@ndn/cli-common": "https://ga.jspm.dev/npm:@ndn/cli-common@0.0.20191223-beta.1/lib/mod.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@ndn/autoconfig@0.0.20191223-beta.1/": {
+      "@ndn/endpoint": "https://ga.jspm.dev/npm:@ndn/endpoint@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/fw": "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/ws-transport": "https://ga.jspm.dev/npm:@ndn/ws-transport@0.0.20191223-beta.1/lib/mod.js",
+      "hirestime": "https://ga.jspm.dev/npm:hirestime@4.0.0/index.js",
+      "streaming-iterables": "https://ga.jspm.dev/npm:streaming-iterables@4.1.2/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/cli-common@0.0.20191223-beta.1/": {
+      "@ndn/autoconfig": "https://ga.jspm.dev/npm:@ndn/autoconfig@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/fw": "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/keychain": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/nfdmgmt": "https://ga.jspm.dev/npm:@ndn/nfdmgmt@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/node-transport": "https://ga.jspm.dev/npm:@ndn/node-transport@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@strattadb/environment": "https://ga.jspm.dev/npm:@strattadb/environment@7.0.0/dist/index.js",
+      "dotenv": "https://ga.jspm.dev/npm:dotenv@8.2.0/lib/main.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/endpoint@0.0.20191223-beta.1/": {
+      "@ndn/fw": "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "applymixins": "https://ga.jspm.dev/npm:applymixins@1.1.0/index.js",
+      "it-pushable": "https://ga.jspm.dev/npm:it-pushable@1.4.0/index.js",
+      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
+      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js",
+      "streaming-iterables": "https://ga.jspm.dev/npm:streaming-iterables@4.1.2/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/": {
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "hirestime": "https://ga.jspm.dev/npm:hirestime@4.0.0/index.js",
+      "it-pushable": "https://ga.jspm.dev/npm:it-pushable@1.4.0/index.js",
+      "loglevel": "https://ga.jspm.dev/npm:loglevel@1.6.7/lib/loglevel.js",
+      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js",
+      "p-fifo": "https://ga.jspm.dev/npm:p-fifo@1.0.0/index.js",
+      "streaming-iterables": "https://ga.jspm.dev/npm:streaming-iterables@4.1.2/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/": {
+      "@ndn/naming-convention2": "https://ga.jspm.dev/npm:@ndn/naming-convention2@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "applymixins": "https://ga.jspm.dev/npm:applymixins@1.1.0/index.js",
+      "asn1-ts": "https://ga.jspm.dev/npm:asn1-ts@2.11.2/dist/index.js",
+      "idb-keyval": "https://ga.jspm.dev/npm:idb-keyval@3.2.0/dist/idb-keyval-cjs.js",
+      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
+      "throat": "https://ga.jspm.dev/npm:throat@5.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/": {
+      "@ndn/lp": "https://ga.jspm.dev/npm:@ndn/lp@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "streaming-iterables": "https://ga.jspm.dev/npm:streaming-iterables@4.1.2/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/lp@0.0.20191223-beta.1/": {
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/naming-convention2@0.0.20191223-beta.1/": {
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/nfdmgmt@0.0.20191223-beta.1/": {
+      "@ndn/endpoint": "https://ga.jspm.dev/npm:@ndn/endpoint@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/fw": "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/keychain": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/node-transport@0.0.20191223-beta.1/": {
+      "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
+      "event-iterator": "https://ga.jspm.dev/npm:event-iterator@1.2.0/lib/dom.js",
+      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js",
+      "p-timeout": "https://ga.jspm.dev/npm:p-timeout@3.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
+      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:@ndn/ws-transport@0.0.20191223-beta.1/": {
+      "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
+      "event-iterator": "https://ga.jspm.dev/npm:event-iterator@1.2.0/lib/dom.js",
+      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js",
+      "p-timeout": "https://ga.jspm.dev/npm:p-timeout@3.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@strattadb/environment@7.0.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "validator": "https://ga.jspm.dev/npm:validator@10.11.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:it-pushable@1.4.0/": {
+      "fast-fifo": "https://ga.jspm.dev/npm:fast-fifo@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-fifo@1.0.0/": {
+      "fast-fifo": "https://ga.jspm.dev/npm:fast-fifo@1.0.0/index.js",
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-timeout@3.2.0/": {
+      "p-finally": "https://ga.jspm.dev/npm:p-finally@1.0.0/index.js"
+    }
+  }
+}

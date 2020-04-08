@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@3.0.0/index.cjs.js"
+  }
+}

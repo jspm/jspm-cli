@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@cfware/debouncer": "https://ga.jspm.dev/npm:@cfware/debouncer@0.3.3/debouncer.js"
+  }
+}

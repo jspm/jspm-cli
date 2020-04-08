@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.isfinite": "https://ga.jspm.dev/npm:lodash.isfinite@3.3.2/index.js"
+  }
+}

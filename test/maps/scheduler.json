@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+  }
+}

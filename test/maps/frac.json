@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "frac": "https://ga.jspm.dev/npm:frac@1.1.2/frac.js"
+  }
+}

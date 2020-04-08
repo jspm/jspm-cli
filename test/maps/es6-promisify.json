@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "es6-promisify": "https://ga.jspm.dev/npm:es6-promisify@6.1.0/dist/promisify.js"
+  }
+}

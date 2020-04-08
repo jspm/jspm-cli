@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "single-spa": "https://ga.jspm.dev/npm:single-spa@5.3.1/lib/umd/single-spa.min.js"
+  }
+}

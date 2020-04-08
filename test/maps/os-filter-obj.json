@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "os-filter-obj": "https://ga.jspm.dev/npm:os-filter-obj@2.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:os-filter-obj@2.0.0/": {
+      "arch": "https://ga.jspm.dev/npm:arch@2.1.1/browser.js"
+    }
+  }
+}

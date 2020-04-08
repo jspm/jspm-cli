@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    }
+  }
+}

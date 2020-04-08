@@ -1,0 +1,48 @@
+{
+  "imports": {
+    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/console.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "logalot": "https://ga.jspm.dev/npm:logalot@2.1.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:chalk@1.1.3/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@2.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "has-ansi": "https://ga.jspm.dev/npm:has-ansi@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:figures@1.7.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-ansi@2.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:indent-string@2.1.0/": {
+      "repeating": "https://ga.jspm.dev/npm:repeating@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:logalot@2.1.0/": {
+      "figures": "https://ga.jspm.dev/npm:figures@1.7.0/index.js",
+      "squeak": "https://ga.jspm.dev/npm:squeak@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:lpad-align@1.1.2/": {
+      "indent-string": "https://ga.jspm.dev/npm:indent-string@2.1.0/index.js",
+      "longest": "https://ga.jspm.dev/npm:longest@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:repeating@2.0.1/": {
+      "is-finite": "https://ga.jspm.dev/npm:is-finite@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:squeak@1.3.0/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@1.1.3/index.js",
+      "console-stream": "https://ga.jspm.dev/npm:console-stream@0.1.1/index.js",
+      "lpad-align": "https://ga.jspm.dev/npm:lpad-align@1.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@3.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "revalidator": "https://ga.jspm.dev/npm:revalidator@0.3.1/lib/revalidator.js"
+  }
+}

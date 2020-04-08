@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "query-keeper": "https://ga.jspm.dev/npm:query-keeper@0.0.1-alpha.8/dist/query-keeper.js"
+  }
+}

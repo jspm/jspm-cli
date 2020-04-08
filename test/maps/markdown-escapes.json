@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "markdown-escapes": "https://ga.jspm.dev/npm:markdown-escapes@1.0.4/index.js"
+  }
+}

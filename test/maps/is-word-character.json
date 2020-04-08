@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-word-character": "https://ga.jspm.dev/npm:is-word-character@1.0.4/index.js"
+  }
+}

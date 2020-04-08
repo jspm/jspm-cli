@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash._basevalues": "https://ga.jspm.dev/npm:lodash._basevalues@3.0.0/index.js"
+  }
+}

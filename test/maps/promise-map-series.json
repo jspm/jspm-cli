@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "promise-map-series": "https://ga.jspm.dev/npm:promise-map-series@0.3.0/index.js"
+  }
+}

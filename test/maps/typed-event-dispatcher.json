@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "typed-event-dispatcher": "https://ga.jspm.dev/npm:typed-event-dispatcher@1.8.0/typed-event-dispatcher.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dualmodule": "https://ga.jspm.dev/npm:dualmodule@0.1.0/esm/index.js"
+  }
+}

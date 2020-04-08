@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "socket.io-parser": "https://ga.jspm.dev/npm:socket.io-parser@3.4.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:socket.io-parser@3.4.0/": {
+      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.2.1/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.1/index.js"
+    }
+  }
+}

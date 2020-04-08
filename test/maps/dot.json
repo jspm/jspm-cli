@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dot": "https://ga.jspm.dev/npm:dot@1.1.3/doT.js"
+  }
+}

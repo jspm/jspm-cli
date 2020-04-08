@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "range-parser": "https://ga.jspm.dev/npm:range-parser@1.2.1/index.js"
+  }
+}

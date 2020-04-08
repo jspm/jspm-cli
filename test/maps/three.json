@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "three": "https://ga.jspm.dev/npm:three@0.115.0/build/three.js"
+  }
+}

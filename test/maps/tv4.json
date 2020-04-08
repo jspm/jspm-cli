@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tv4": "https://ga.jspm.dev/npm:tv4@1.3.0/tv4.js"
+  }
+}

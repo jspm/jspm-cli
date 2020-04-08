@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "generate-gua": "https://ga.jspm.dev/npm:generate-gua@1.0.7/index.js"
+  }
+}

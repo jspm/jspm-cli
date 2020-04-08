@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "xila": "https://ga.jspm.dev/npm:xila@0.0.18/xila.js"
+  }
+}

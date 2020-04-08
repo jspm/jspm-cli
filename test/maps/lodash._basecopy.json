@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash._basecopy": "https://ga.jspm.dev/npm:lodash._basecopy@3.0.1/index.js"
+  }
+}

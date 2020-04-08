@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "node-notifier": "https://ga.jspm.dev/npm:node-notifier@6.0.0/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:node-notifier@6.0.0/": {
+      "growly": "https://ga.jspm.dev/npm:growly@1.3.0/lib/growly.js",
+      "is-wsl": "https://ga.jspm.dev/npm:is-wsl@2.1.1/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js",
+      "shellwords": "https://ga.jspm.dev/npm:shellwords@0.1.1/lib/shellwords.js",
+      "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js"
+    },
+    "https://ga.jspm.dev/npm:which@1.3.1/": {
+      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "resolve-dir": "https://ga.jspm.dev/npm:resolve-dir@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:expand-tilde@2.0.2/": {
+      "homedir-polyfill": "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:global-modules@1.0.0/": {
+      "global-prefix": "https://ga.jspm.dev/npm:global-prefix@1.0.2/index.js",
+      "is-windows": "https://ga.jspm.dev/npm:is-windows@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:global-prefix@1.0.2/": {
+      "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
+      "homedir-polyfill": "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/index.js",
+      "ini": "https://ga.jspm.dev/npm:ini@1.3.5/ini.js",
+      "is-windows": "https://ga.jspm.dev/npm:is-windows@1.0.2/index.js",
+      "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js"
+    },
+    "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/": {
+      "parse-passwd": "https://ga.jspm.dev/npm:parse-passwd@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:resolve-dir@1.0.1/": {
+      "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
+      "global-modules": "https://ga.jspm.dev/npm:global-modules@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:which@1.3.1/": {
+      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    }
+  }
+}

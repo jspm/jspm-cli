@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "pstree.remy": "https://ga.jspm.dev/npm:pstree.remy@1.1.7/lib/index.js"
+  }
+}

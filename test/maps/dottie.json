@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dottie": "https://ga.jspm.dev/npm:dottie@2.0.2/dottie.js"
+  }
+}

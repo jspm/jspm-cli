@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "select": "https://ga.jspm.dev/npm:select@1.1.2/src/select.js"
+  }
+}

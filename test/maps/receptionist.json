@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "receptionist": "https://ga.jspm.dev/npm:receptionist@1.2.0/receptionist.js"
+  }
+}

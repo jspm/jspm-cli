@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.toarray": "https://ga.jspm.dev/npm:lodash.toarray@4.4.0/index.js"
+  }
+}

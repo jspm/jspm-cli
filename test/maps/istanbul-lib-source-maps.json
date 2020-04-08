@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "istanbul-lib-source-maps": "https://ga.jspm.dev/npm:istanbul-lib-source-maps@4.0.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:istanbul-lib-source-maps@4.0.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "istanbul-lib-coverage": "https://ga.jspm.dev/npm:istanbul-lib-coverage@3.0.0/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "pbkdf2-helper": "https://ga.jspm.dev/npm:pbkdf2-helper@1.0.0/build/src/index.js"
+  }
+}

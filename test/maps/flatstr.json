@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "flatstr": "https://ga.jspm.dev/npm:flatstr@1.0.12/index.js"
+  }
+}

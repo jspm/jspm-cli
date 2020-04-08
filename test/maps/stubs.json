@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "stubs": "https://ga.jspm.dev/npm:stubs@3.0.0/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:strip-ansi@6.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js"
+    }
+  }
+}

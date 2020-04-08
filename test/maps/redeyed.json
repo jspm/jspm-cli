@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "redeyed": "https://ga.jspm.dev/npm:redeyed@2.1.1/redeyed.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:redeyed@2.1.1/": {
+      "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js"
+    }
+  }
+}

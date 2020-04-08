@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "spark-md5": "https://ga.jspm.dev/npm:spark-md5@3.0.1/spark-md5.js"
+  }
+}

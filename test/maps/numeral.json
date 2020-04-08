@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "numeral": "https://ga.jspm.dev/npm:numeral@2.0.6/numeral.js"
+  }
+}

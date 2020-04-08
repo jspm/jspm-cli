@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream-each": "https://ga.jspm.dev/npm:stream-each@1.2.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:stream-each@1.2.3/": {
+      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
+      "stream-shift": "https://ga.jspm.dev/npm:stream-shift@1.0.1/index.js"
+    }
+  }
+}

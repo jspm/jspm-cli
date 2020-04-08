@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "identity-obj-proxy": "https://ga.jspm.dev/npm:identity-obj-proxy@3.0.0/src/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:identity-obj-proxy@3.0.0/": {
+      "harmony-reflect": "https://ga.jspm.dev/npm:harmony-reflect@1.6.1/reflect.js"
+    }
+  }
+}

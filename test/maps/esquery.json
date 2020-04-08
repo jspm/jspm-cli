@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "esquery": "https://ga.jspm.dev/npm:esquery@1.2.0/dist/esquery.min.js"
+  }
+}

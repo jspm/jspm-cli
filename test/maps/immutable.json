@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "immutable": "https://ga.jspm.dev/npm:immutable@4.0.0-rc.12/dist/immutable.js"
+  }
+}

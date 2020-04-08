@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "history": "https://ga.jspm.dev/npm:history@4.10.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:history@4.10.1/": {
+      "resolve-pathname": "https://ga.jspm.dev/npm:resolve-pathname@3.0.0/index.js",
+      "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js",
+      "value-equal": "https://ga.jspm.dev/npm:value-equal@1.0.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-extendable@1.0.1/": {
+      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    }
+  }
+}

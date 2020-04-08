@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "prompts": "https://ga.jspm.dev/npm:prompts@2.3.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:prompts@2.3.2/": {
+      "kleur": "https://ga.jspm.dev/npm:kleur@3.0.3/index.js",
+      "sisteransi": "https://ga.jspm.dev/npm:sisteransi@1.0.5/src/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "release-zalgo": "https://ga.jspm.dev/npm:release-zalgo@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:release-zalgo@1.0.0/": {
+      "es6-error": "https://ga.jspm.dev/npm:es6-error@4.1.1/lib/index.js"
+    }
+  }
+}

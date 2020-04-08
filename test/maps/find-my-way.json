@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "find-my-way": "https://ga.jspm.dev/npm:find-my-way@2.2.2/index.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:find-my-way@2.2.2/": {
+      "fast-decode-uri-component": "https://ga.jspm.dev/npm:fast-decode-uri-component@1.0.1/index.js",
+      "safe-regex2": "https://ga.jspm.dev/npm:safe-regex2@2.0.0/index.js",
+      "semver-store": "https://ga.jspm.dev/npm:semver-store@0.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:safe-regex2@2.0.0/": {
+      "ret": "https://ga.jspm.dev/npm:ret@0.2.2/lib/index.js"
+    }
+  }
+}

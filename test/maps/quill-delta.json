@@ -1,0 +1,38 @@
+{
+  "imports": {
+    "quill-delta": "https://ga.jspm.dev/npm:quill-delta@4.2.1/dist/Delta.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:deep-equal@1.1.1/": {
+      "is-arguments": "https://ga.jspm.dev/npm:is-arguments@1.0.4/index.js",
+      "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
+      "is-regex": "https://ga.jspm.dev/npm:is-regex@1.0.5/index.js",
+      "object-is": "https://ga.jspm.dev/npm:object-is@1.0.2/index.js",
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js",
+      "regexp.prototype.flags": "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-regex@1.0.5/": {
+      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:quill-delta@4.2.1/": {
+      "deep-equal": "https://ga.jspm.dev/npm:deep-equal@1.1.1/index.js",
+      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
+      "fast-diff": "https://ga.jspm.dev/npm:fast-diff@1.2.0/diff.js"
+    },
+    "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/": "https://ga.jspm.dev/npm:es-abstract@1.17.5/",
+      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js"
+    }
+  }
+}

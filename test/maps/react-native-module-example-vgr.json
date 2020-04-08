@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "react-native-module-example-vgr": "https://ga.jspm.dev/npm:react-native-module-example-vgr@1.0.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-native-module-example-vgr@1.0.3/": {
+      "react-native": "https://ga.jspm.dev/npm:react-native@0.62.1/index.js"
+    }
+  }
+}

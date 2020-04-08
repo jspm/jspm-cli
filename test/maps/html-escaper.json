@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "html-escaper": "https://ga.jspm.dev/npm:html-escaper@3.0.0/esm/index.js"
+  }
+}

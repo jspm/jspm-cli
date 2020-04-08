@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "simple-git": "https://ga.jspm.dev/npm:simple-git@1.132.0/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:simple-git@1.132.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    }
+  }
+}

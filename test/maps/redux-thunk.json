@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "redux-thunk": "https://ga.jspm.dev/npm:redux-thunk@2.3.0/lib/index.js"
+  }
+}

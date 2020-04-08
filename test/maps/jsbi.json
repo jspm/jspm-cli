@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jsbi": "https://ga.jspm.dev/npm:jsbi@3.1.2/dist/jsbi-umd.js"
+  }
+}

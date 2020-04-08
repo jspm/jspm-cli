@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "prepend-http": "https://ga.jspm.dev/npm:prepend-http@3.0.1/index.js"
+  }
+}

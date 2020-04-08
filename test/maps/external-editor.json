@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "external-editor": "https://ga.jspm.dev/npm:external-editor@3.1.0/main/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:external-editor@3.1.0/": {
+      "chardet": "https://ga.jspm.dev/npm:chardet@0.7.0/index.js",
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js",
+      "tmp": "https://ga.jspm.dev/npm:tmp@0.0.33/lib/tmp.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:tmp@0.0.33/": {
+      "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js"
+    }
+  }
+}

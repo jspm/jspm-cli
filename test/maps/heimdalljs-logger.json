@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "heimdalljs-logger": "https://ga.jspm.dev/npm:heimdalljs-logger@0.1.10/dist/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:heimdalljs-logger@0.1.10/": {
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "heimdalljs": "https://ga.jspm.dev/npm:heimdalljs@0.2.6/dist/heimdalljs.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:heimdalljs@0.2.6/": {
+      "rsvp": "https://ga.jspm.dev/npm:rsvp@3.2.1/dist/rsvp.js"
+    }
+  }
+}

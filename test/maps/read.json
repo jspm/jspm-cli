@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "read": "https://ga.jspm.dev/npm:read@1.0.7/lib/read.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:read@1.0.7/": {
+      "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.8/mute.js"
+    }
+  }
+}

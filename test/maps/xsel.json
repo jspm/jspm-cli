@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "xsel": "https://ga.jspm.dev/npm:xsel@1.0.0/xsel.js"
+  }
+}

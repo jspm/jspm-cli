@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "unpaginated": "https://ga.jspm.dev/npm:unpaginated@1.0.1/unpaginated.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:unpaginated@1.0.1/": {
+      "ramda": "https://ga.jspm.dev/npm:ramda@0.27.0/src/index.js"
+    }
+  }
+}

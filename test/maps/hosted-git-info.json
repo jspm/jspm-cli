@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "hosted-git-info": "https://ga.jspm.dev/npm:hosted-git-info@3.0.4/index.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:hosted-git-info@3.0.4/": {
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:lru-cache@5.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@3.1.1/yallist.js"
+    }
+  }
+}

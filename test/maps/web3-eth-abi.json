@@ -1,0 +1,47 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "web3-eth-abi": "https://ga.jspm.dev/npm:web3-eth-abi@1.2.6/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/": {
+      "js-sha3": "https://ga.jspm.dev/npm:js-sha3@0.8.0/src/sha3.js"
+    },
+    "https://ga.jspm.dev/npm:ethers@4.0.0-beta.3/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "js-sha3": "https://ga.jspm.dev/npm:js-sha3@0.5.7/src/sha3.js"
+    },
+    "https://ga.jspm.dev/npm:ethjs-unit@0.1.6/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.6/lib/bn.js",
+      "number-to-bn": "https://ga.jspm.dev/npm:number-to-bn@1.7.0/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:number-to-bn@1.7.0/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.6/lib/bn.js",
+      "strip-hex-prefix": "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/": {
+      "is-hex-prefixed": "https://ga.jspm.dev/npm:is-hex-prefixed@1.0.0/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:web3-eth-abi@1.2.6/": {
+      "ethers/": "https://ga.jspm.dev/npm:ethers@4.0.0-beta.3/",
+      "ethers/utils/abi-coder": "https://ga.jspm.dev/npm:ethers@4.0.0-beta.3/utils/abi-coder.js",
+      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
+      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.6/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:web3-utils@1.2.6/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "eth-lib/": "https://ga.jspm.dev/npm:eth-lib@0.2.7/",
+      "eth-lib/lib/hash": "https://ga.jspm.dev/npm:eth-lib@0.2.7/lib/hash.js",
+      "ethereum-bloom-filters": "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/dist/index.js",
+      "ethjs-unit": "https://ga.jspm.dev/npm:ethjs-unit@0.1.6/lib/index.js",
+      "number-to-bn": "https://ga.jspm.dev/npm:number-to-bn@1.7.0/src/index.js",
+      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
+      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
+      "utf8": "https://ga.jspm.dev/npm:utf8@3.0.0/utf8.js"
+    }
+  }
+}

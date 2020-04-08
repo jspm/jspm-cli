@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "filesize": "https://ga.jspm.dev/npm:filesize@6.1.0/lib/filesize.min.js"
+  }
+}

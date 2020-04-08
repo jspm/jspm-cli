@@ -1,0 +1,98 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "vorpal": "https://ga.jspm.dev/npm:vorpal@1.12.0/dist/vorpal.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:babel-polyfill@6.26.0/": {
+      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
+      "core-js/fn/regexp/escape": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/regexp/escape.js",
+      "core-js/shim": "https://ga.jspm.dev/npm:core-js@2.6.11/shim.js",
+      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.10.5/",
+      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.10.5/runtime.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@1.1.3/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@2.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "has-ansi": "https://ga.jspm.dev/npm:has-ansi@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:cli-cursor@1.0.2/": {
+      "restore-cursor": "https://ga.jspm.dev/npm:restore-cursor@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:figures@1.7.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-ansi@2.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inquirer@0.11.0/": {
+      "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@1.4.0/index.js",
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@1.1.3/index.js",
+      "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@1.0.2/index.js",
+      "cli-width": "https://ga.jspm.dev/npm:cli-width@1.1.1/index.js",
+      "figures": "https://ga.jspm.dev/npm:figures@1.7.0/index.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@3.10.1/index.js",
+      "readline2": "https://ga.jspm.dev/npm:readline2@1.0.1/index.js",
+      "run-async": "https://ga.jspm.dev/npm:run-async@0.1.0/index.js",
+      "rx-lite": "https://ga.jspm.dev/npm:rx-lite@3.1.2/rx.lite.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/": {
+      "number-is-nan": "https://ga.jspm.dev/npm:number-is-nan@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:log-update@1.0.2/": {
+      "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@1.4.0/index.js",
+      "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:readline2@1.0.1/": {
+      "code-point-at": "https://ga.jspm.dev/npm:code-point-at@1.1.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/index.js",
+      "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.5/mute.js"
+    },
+    "https://ga.jspm.dev/npm:restore-cursor@1.0.1/": {
+      "exit-hook": "https://ga.jspm.dev/npm:exit-hook@1.1.1/index.js",
+      "onetime": "https://ga.jspm.dev/npm:onetime@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:run-async@0.1.0/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@1.0.2/": {
+      "code-point-at": "https://ga.jspm.dev/npm:code-point-at@1.1.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@3.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:vorpal@1.12.0/": {
+      "babel-polyfill": "https://ga.jspm.dev/npm:babel-polyfill@6.26.0/lib/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@1.1.3/index.js",
+      "inquirer": "https://ga.jspm.dev/npm:inquirer@0.11.0/lib/inquirer.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "log-update": "https://ga.jspm.dev/npm:log-update@1.0.2/index.js",
+      "minimist": "https://ga.jspm.dev/npm:minimist@1.2.5/index.js",
+      "node-localstorage": "https://ga.jspm.dev/npm:node-localstorage@0.6.0/LocalStorage.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "wrap-ansi": "https://ga.jspm.dev/npm:wrap-ansi@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:wrap-ansi@2.1.0/": {
+      "string-width": "https://ga.jspm.dev/npm:string-width@1.0.2/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js"
+    }
+  }
+}

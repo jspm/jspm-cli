@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "multi-cli": "https://ga.jspm.dev/npm:multi-cli@0.1.6/src/main.js"
+  }
+}

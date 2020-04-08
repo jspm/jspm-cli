@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "randexp": "https://ga.jspm.dev/npm:randexp@0.5.3/lib/randexp.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:randexp@0.5.3/": {
+      "drange": "https://ga.jspm.dev/npm:drange@1.1.1/lib/index.js",
+      "ret": "https://ga.jspm.dev/npm:ret@0.2.2/lib/index.js"
+    }
+  }
+}

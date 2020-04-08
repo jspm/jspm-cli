@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "basex.rest": "https://ga.jspm.dev/npm:basex.rest@1.0.1/src/BaseX.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:basex.rest@1.0.1/": {
+      "net-api": "https://ga.jspm.dev/npm:net-api@1.0.4/src/API.js",
+      "xml-format": "https://ga.jspm.dev/npm:xml-format@0.5.1/dist/web.js",
+      "xml.one": "https://ga.jspm.dev/npm:xml.one@1.0.3/dist/web.js"
+    }
+  }
+}

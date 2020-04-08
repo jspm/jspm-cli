@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "finalize-object": "https://ga.jspm.dev/npm:finalize-object@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "foreachasync": "https://ga.jspm.dev/npm:foreachasync@5.1.3/foreachasync.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:foreachasync@5.1.3/": {
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js"
+    }
+  }
+}

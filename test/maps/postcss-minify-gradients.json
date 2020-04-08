@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "postcss-minify-gradients": "https://ga.jspm.dev/npm:postcss-minify-gradients@4.0.2/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-color-stop@1.1.0/": {
+      "css-color-names": "https://ga.jspm.dev/npm:css-color-names@0.0.4/css-color-names.json",
+      "hex-color-regex": "https://ga.jspm.dev/npm:hex-color-regex@1.1.0/index.js",
+      "hsl-regex": "https://ga.jspm.dev/npm:hsl-regex@1.0.0/index.js",
+      "hsla-regex": "https://ga.jspm.dev/npm:hsla-regex@1.0.0/index.js",
+      "rgb-regex": "https://ga.jspm.dev/npm:rgb-regex@1.0.1/index.js",
+      "rgba-regex": "https://ga.jspm.dev/npm:rgba-regex@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss-minify-gradients@4.0.2/": {
+      "cssnano-util-get-arguments": "https://ga.jspm.dev/npm:cssnano-util-get-arguments@4.0.0/dist/index.js",
+      "is-color-stop": "https://ga.jspm.dev/npm:is-color-stop@1.1.0/index.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

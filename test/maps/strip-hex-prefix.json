@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "strip-hex-prefix": "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/": {
+      "is-hex-prefixed": "https://ga.jspm.dev/npm:is-hex-prefixed@1.0.0/src/index.js"
+    }
+  }
+}

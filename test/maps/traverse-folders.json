@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "traverse-folders": "https://ga.jspm.dev/npm:traverse-folders@1.1.2/src/index.js"
+  }
+}

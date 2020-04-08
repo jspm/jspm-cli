@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sorted-object": "https://ga.jspm.dev/npm:sorted-object@2.0.1/lib/sorted-object.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.debounce": "https://ga.jspm.dev/npm:lodash.debounce@4.0.8/index.js"
+  }
+}

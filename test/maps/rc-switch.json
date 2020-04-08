@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "rc-switch": "https://ga.jspm.dev/npm:rc-switch@1.9.0/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rc-switch@1.9.0/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

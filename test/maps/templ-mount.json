@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "templ-mount": "https://ga.jspm.dev/npm:templ-mount@0.0.56/templ-mount.js"
+  }
+}

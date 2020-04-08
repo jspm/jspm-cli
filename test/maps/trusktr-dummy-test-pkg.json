@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "trusktr-dummy-test-pkg": "https://ga.jspm.dev/npm:trusktr-dummy-test-pkg@0.0.3/index.js"
+  }
+}

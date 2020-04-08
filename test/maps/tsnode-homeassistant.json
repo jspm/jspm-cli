@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "tsnode-homeassistant": "https://ga.jspm.dev/npm:tsnode-homeassistant@0.0.12/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:tsnode-homeassistant@0.0.12/": {
+      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
+      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
+      "ws": "https://ga.jspm.dev/npm:ws@7.2.3/browser.js"
+    }
+  }
+}

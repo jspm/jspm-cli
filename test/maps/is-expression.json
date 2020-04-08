@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "is-expression": "https://ga.jspm.dev/npm:is-expression@3.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-expression@3.0.0/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@4.0.13/dist/acorn.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

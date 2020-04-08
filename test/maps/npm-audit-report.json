@@ -1,0 +1,27 @@
+{
+  "imports": {
+    "colors/": "https://ga.jspm.dev/npm:colors@1.4.0/",
+    "colors/safe": "https://ga.jspm.dev/npm:colors@1.4.0/safe.js",
+    "npm-audit-report": "https://ga.jspm.dev/npm:npm-audit-report@1.3.3/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cli-table3@0.5.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "string-width": "https://ga.jspm.dev/npm:string-width@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:npm-audit-report@1.3.3/": {
+      "cli-table3": "https://ga.jspm.dev/npm:cli-table3@0.5.1/index.js",
+      "console-control-strings": "https://ga.jspm.dev/npm:console-control-strings@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@2.1.1/": {
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@4.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@3.0.0/index.js"
+    }
+  }
+}

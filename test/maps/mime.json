@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mime": "https://ga.jspm.dev/npm:mime@2.4.4/index.js"
+  }
+}

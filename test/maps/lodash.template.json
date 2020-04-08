@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "lodash.template": "https://ga.jspm.dev/npm:lodash.template@4.5.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lodash.template@4.5.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js",
+      "lodash.templatesettings": "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js"
+    }
+  }
+}

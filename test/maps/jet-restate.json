@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jet-restate": "https://ga.jspm.dev/npm:jet-restate@1.1.0/index.js"
+  }
+}

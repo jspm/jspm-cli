@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "heimdalljs": "https://ga.jspm.dev/npm:heimdalljs@0.2.6/dist/heimdalljs.cjs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:heimdalljs@0.2.6/": {
+      "rsvp": "https://ga.jspm.dev/npm:rsvp@3.2.1/dist/rsvp.js"
+    }
+  }
+}

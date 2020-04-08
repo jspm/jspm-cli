@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "quick-format-unescaped": "https://ga.jspm.dev/npm:quick-format-unescaped@4.0.1/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "prr": "https://ga.jspm.dev/npm:prr@1.0.1/prr.js"
+  }
+}

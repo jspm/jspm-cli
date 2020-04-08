@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "frontend-project-lvl1-pa": "https://ga.jspm.dev/npm:frontend-project-lvl1-pa@1.0.0/src/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:frontend-project-lvl1-pa@1.0.0/": {
+      "readline-sync": "https://ga.jspm.dev/npm:readline-sync@1.4.10/lib/readline-sync.js"
+    }
+  }
+}

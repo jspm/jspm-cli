@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "require-package-name": "https://ga.jspm.dev/npm:require-package-name@2.0.1/index.js"
+  }
+}

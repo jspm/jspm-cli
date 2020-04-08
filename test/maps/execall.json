@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "execall": "https://ga.jspm.dev/npm:execall@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:clone-regexp@2.2.0/": {
+      "is-regexp": "https://ga.jspm.dev/npm:is-regexp@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:execall@2.0.0/": {
+      "clone-regexp": "https://ga.jspm.dev/npm:clone-regexp@2.2.0/index.js"
+    }
+  }
+}

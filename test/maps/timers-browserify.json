@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "timers-browserify": "https://ga.jspm.dev/npm:timers-browserify@2.0.11/main.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:timers-browserify@2.0.11/": {
+      "setimmediate": "https://ga.jspm.dev/npm:setimmediate@1.0.5/setImmediate.js"
+    }
+  }
+}

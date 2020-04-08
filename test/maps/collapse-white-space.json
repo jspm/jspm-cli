@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "collapse-white-space": "https://ga.jspm.dev/npm:collapse-white-space@1.0.6/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sardines-service-driver-http": "https://ga.jspm.dev/npm:sardines-service-driver-http@1.0.26/lib/bundle.js"
+  }
+}

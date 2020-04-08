@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "mz": "https://ga.jspm.dev/npm:mz@2.7.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mz@2.7.0/": {
+      "any-promise": "https://ga.jspm.dev/npm:any-promise@1.3.0/index.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "thenify-all": "https://ga.jspm.dev/npm:thenify-all@1.6.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:thenify-all@1.6.0/": {
+      "thenify": "https://ga.jspm.dev/npm:thenify@3.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:thenify@3.3.0/": {
+      "any-promise": "https://ga.jspm.dev/npm:any-promise@1.3.0/index.js"
+    }
+  }
+}

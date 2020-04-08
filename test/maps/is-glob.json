@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "is-glob": "https://ga.jspm.dev/npm:is-glob@4.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-glob@4.0.1/": {
+      "is-extglob": "https://ga.jspm.dev/npm:is-extglob@2.1.1/index.js"
+    }
+  }
+}

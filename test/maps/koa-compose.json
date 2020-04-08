@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "koa-compose": "https://ga.jspm.dev/npm:koa-compose@4.1.0/index.js"
+  }
+}

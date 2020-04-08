@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "jss-plugin-nested": "https://ga.jspm.dev/npm:jss-plugin-nested@10.1.1/dist/jss-plugin-nested.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:jss-plugin-nested@10.1.1/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    }
+  }
+}

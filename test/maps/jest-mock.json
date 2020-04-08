@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jest-mock": "https://ga.jspm.dev/npm:jest-mock@25.2.6/build-es5/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "esrecurse": "https://ga.jspm.dev/npm:esrecurse@4.2.1/esrecurse.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:esrecurse@4.2.1/": {
+      "estraverse": "https://ga.jspm.dev/npm:estraverse@4.3.0/estraverse.js"
+    }
+  }
+}

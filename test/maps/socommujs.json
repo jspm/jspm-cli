@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "socommujs": "https://ga.jspm.dev/npm:socommujs@2.0.17/index.js"
+  }
+}

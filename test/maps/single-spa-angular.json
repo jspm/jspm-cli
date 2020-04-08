@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "single-spa-angular": "https://ga.jspm.dev/npm:single-spa-angular@3.3.0/lib/browser-lib/single-spa-angular.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "getsetdeep": "https://ga.jspm.dev/npm:getsetdeep@3.7.0/edition-browsers/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:getsetdeep@3.7.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    }
+  }
+}

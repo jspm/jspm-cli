@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sorted-array-functions": "https://ga.jspm.dev/npm:sorted-array-functions@1.2.0/index.js"
+  }
+}

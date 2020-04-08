@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "functional-red-black-tree": "https://ga.jspm.dev/npm:functional-red-black-tree@1.0.1/rbtree.js"
+  }
+}

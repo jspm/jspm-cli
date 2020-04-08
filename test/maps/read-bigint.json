@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "read-bigint": "https://ga.jspm.dev/npm:read-bigint@0.1.1/dist/index.js"
+  }
+}

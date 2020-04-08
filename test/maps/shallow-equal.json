@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "shallow-equal": "https://ga.jspm.dev/npm:shallow-equal@1.2.1/dist/index.cjs.js"
+  }
+}

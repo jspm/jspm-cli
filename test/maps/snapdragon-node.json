@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "snapdragon-node": "https://ga.jspm.dev/npm:snapdragon-node@3.0.0/index.js"
+  }
+}

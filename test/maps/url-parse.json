@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "url-parse": "https://ga.jspm.dev/npm:url-parse@1.4.7/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:url-parse@1.4.7/": {
+      "querystringify": "https://ga.jspm.dev/npm:querystringify@2.1.1/index.js",
+      "requires-port": "https://ga.jspm.dev/npm:requires-port@1.0.0/index.js"
+    }
+  }
+}

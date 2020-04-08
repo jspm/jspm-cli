@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.3.2/index.js"
+  }
+}

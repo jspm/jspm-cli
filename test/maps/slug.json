@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "slug": "https://ga.jspm.dev/npm:slug@2.1.1/slug.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:slug@2.1.1/": {
+      "unicode/": "https://ga.jspm.dev/npm:unicode@12.1.0/",
+      "unicode/category/So": "https://ga.jspm.dev/npm:unicode@12.1.0/category/So.js"
+    }
+  }
+}

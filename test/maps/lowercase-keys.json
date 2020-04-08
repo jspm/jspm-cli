@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js"
+  }
+}

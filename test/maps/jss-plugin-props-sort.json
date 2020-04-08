@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jss-plugin-props-sort": "https://ga.jspm.dev/npm:jss-plugin-props-sort@10.1.1/dist/jss-plugin-props-sort.cjs.js"
+  }
+}

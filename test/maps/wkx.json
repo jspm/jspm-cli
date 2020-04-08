@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "wkx": "https://ga.jspm.dev/npm:wkx@0.5.0/lib/wkx.js"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "json-ok": "https://ga.jspm.dev/npm:json-ok@1.2.0/index.min.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  }
+}

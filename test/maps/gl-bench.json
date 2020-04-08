@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "gl-bench": "https://ga.jspm.dev/npm:gl-bench@0.3.74/dist/gl-bench.min.js"
+  }
+}

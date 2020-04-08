@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "htmlescape": "https://ga.jspm.dev/npm:htmlescape@1.1.1/htmlescape.js"
+  }
+}

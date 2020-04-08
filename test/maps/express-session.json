@@ -1,0 +1,29 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "express-session": "https://ga.jspm.dev/npm:express-session@1.17.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:express-session@1.17.0/": {
+      "cookie": "https://ga.jspm.dev/npm:cookie@0.4.0/index.js",
+      "cookie-signature": "https://ga.jspm.dev/npm:cookie-signature@1.0.6/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "depd": "https://ga.jspm.dev/npm:depd@2.0.0/lib/browser/index.js",
+      "on-headers": "https://ga.jspm.dev/npm:on-headers@1.0.2/index.js",
+      "parseurl": "https://ga.jspm.dev/npm:parseurl@1.3.3/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "uid-safe": "https://ga.jspm.dev/npm:uid-safe@2.1.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:uid-safe@2.1.5/": {
+      "random-bytes": "https://ga.jspm.dev/npm:random-bytes@1.0.0/index.js"
+    }
+  }
+}

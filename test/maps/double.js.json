@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "double.js": "https://ga.jspm.dev/npm:double.js@0.4.32/dist/double.js"
+  }
+}

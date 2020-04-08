@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.partialright": "https://ga.jspm.dev/npm:lodash.partialright@4.2.1/index.js"
+  }
+}

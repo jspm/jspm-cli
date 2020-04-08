@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "portscanner": "https://ga.jspm.dev/npm:portscanner@2.2.0/lib/portscanner.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-number-like@1.0.8/": {
+      "lodash.isfinite": "https://ga.jspm.dev/npm:lodash.isfinite@3.3.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:portscanner@2.2.0/": {
+      "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
+      "is-number-like": "https://ga.jspm.dev/npm:is-number-like@1.0.8/lib/index.js"
+    }
+  }
+}

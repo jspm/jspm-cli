@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "shim-to-polyfill": "https://ga.jspm.dev/npm:shim-to-polyfill@1.0.0/shim-to-polyfill.js"
+  }
+}

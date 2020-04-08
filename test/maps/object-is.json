@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "object-is": "https://ga.jspm.dev/npm:object-is@1.0.2/index.js"
+  }
+}

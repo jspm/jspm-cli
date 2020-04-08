@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "material-mithril": "https://ga.jspm.dev/npm:material-mithril@0.3.5/index.coffee"
+  }
+}

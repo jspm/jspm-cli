@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "sha1": "https://ga.jspm.dev/npm:sha1@1.1.1/sha1.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:sha1@1.1.1/": {
+      "charenc": "https://ga.jspm.dev/npm:charenc@0.0.2/charenc.js",
+      "crypt": "https://ga.jspm.dev/npm:crypt@0.0.2/crypt.js"
+    }
+  }
+}

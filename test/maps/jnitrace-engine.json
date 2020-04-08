@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jnitrace-engine": "https://ga.jspm.dev/npm:jnitrace-engine@1.0.7/dist/index.js"
+  }
+}

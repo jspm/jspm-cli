@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "rst-selector-parser": "https://ga.jspm.dev/npm:rst-selector-parser@2.2.3/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rst-selector-parser@2.2.3/": {
+      "lodash.flattendeep": "https://ga.jspm.dev/npm:lodash.flattendeep@4.4.0/index.js",
+      "nearley": "https://ga.jspm.dev/npm:nearley@2.19.1/lib/nearley.js"
+    }
+  }
+}

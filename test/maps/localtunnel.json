@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "localtunnel": "https://ga.jspm.dev/npm:localtunnel@2.0.0/localtunnel.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:axios@0.19.0/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:localtunnel@2.0.0/": {
+      "axios": "https://ga.jspm.dev/npm:axios@0.19.0/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    }
+  }
+}

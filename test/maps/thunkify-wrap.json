@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "thunkify-wrap": "https://ga.jspm.dev/npm:thunkify-wrap@1.0.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:thunkify-wrap@1.0.4/": {
+      "enable": "https://ga.jspm.dev/npm:enable@1.3.2/index.js"
+    }
+  }
+}

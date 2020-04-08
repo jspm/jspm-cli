@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ecc-codec": "https://ga.jspm.dev/npm:ecc-codec@0.0.3/esm/index.mjs"
+  }
+}

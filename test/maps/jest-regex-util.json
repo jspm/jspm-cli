@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "jest-regex-util": "https://ga.jspm.dev/npm:jest-regex-util@25.2.6/build/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

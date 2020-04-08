@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "w3c-xmlserializer": "https://ga.jspm.dev/npm:w3c-xmlserializer@2.0.0/lib/serialize.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:w3c-xmlserializer@2.0.0/": {
+      "xml-name-validator": "https://ga.jspm.dev/npm:xml-name-validator@3.0.0/lib/xml-name-validator.js"
+    }
+  }
+}

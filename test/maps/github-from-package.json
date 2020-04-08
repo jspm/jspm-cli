@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "github-from-package": "https://ga.jspm.dev/npm:github-from-package@0.0.0/index.js"
+  }
+}

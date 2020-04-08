@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "when": "https://ga.jspm.dev/npm:when@3.7.8/when.js"
+  }
+}

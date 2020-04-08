@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "infer-owner": "https://ga.jspm.dev/npm:infer-owner@1.0.4/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "nan": "https://ga.jspm.dev/npm:nan@2.14.0/include_dirs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

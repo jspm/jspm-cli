@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rm-plugin": "https://ga.jspm.dev/npm:rm-plugin@0.0.7/index.min.js"
+  }
+}

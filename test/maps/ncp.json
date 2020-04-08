@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "ncp": "https://ga.jspm.dev/npm:ncp@2.0.0/lib/ncp.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "poly-get": "https://ga.jspm.dev/npm:poly-get@0.4.0/index.min.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "stealthy-require": "https://ga.jspm.dev/npm:stealthy-require@1.1.1/lib/index.js"
+  }
+}

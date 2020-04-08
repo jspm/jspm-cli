@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "proxy-addr": "https://ga.jspm.dev/npm:proxy-addr@2.0.6/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:proxy-addr@2.0.6/": {
+      "forwarded": "https://ga.jspm.dev/npm:forwarded@0.1.2/index.js",
+      "ipaddr.js": "https://ga.jspm.dev/npm:ipaddr.js@1.9.1/lib/ipaddr.js"
+    }
+  }
+}

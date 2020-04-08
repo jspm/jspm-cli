@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hw-fingerprint": "https://ga.jspm.dev/npm:hw-fingerprint@1.1.0/hw-fingerprint.js"
+  }
+}

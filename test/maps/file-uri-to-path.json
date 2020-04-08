@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@2.0.0/dist/src/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

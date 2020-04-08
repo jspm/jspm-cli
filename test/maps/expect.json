@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "expect": "https://ga.jspm.dev/npm:expect@25.2.7/build-es5/index.js"
+  }
+}

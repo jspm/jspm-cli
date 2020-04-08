@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js"
+  }
+}

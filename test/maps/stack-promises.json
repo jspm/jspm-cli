@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "stack-promises": "https://ga.jspm.dev/npm:stack-promises@0.0.3/dist/index.mjs"
+  }
+}

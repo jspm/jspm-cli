@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fx-ts": "https://ga.jspm.dev/npm:fx-ts@1.4.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@3.0.0/index.js"
+  }
+}

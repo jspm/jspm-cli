@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "handlebars": "https://ga.jspm.dev/npm:handlebars@4.7.6/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:handlebars@4.7.6/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

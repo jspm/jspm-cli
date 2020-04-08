@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+  }
+}

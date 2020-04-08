@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "lezer": "https://ga.jspm.dev/npm:lezer@0.8.3/dist/index.es.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lezer@0.8.3/": {
+      "lezer-tree": "https://ga.jspm.dev/npm:lezer-tree@0.8.4/dist/tree.es.js"
+    }
+  }
+}

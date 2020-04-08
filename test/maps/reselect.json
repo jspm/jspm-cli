@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "reselect": "https://ga.jspm.dev/npm:reselect@4.0.0/lib/index.js"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "gray-matter": "https://ga.jspm.dev/npm:gray-matter@4.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:extend-shallow@2.0.1/": {
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:gray-matter@4.0.2/": {
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js",
+      "section-matter": "https://ga.jspm.dev/npm:section-matter@1.0.0/index.js",
+      "strip-bom-string": "https://ga.jspm.dev/npm:strip-bom-string@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:section-matter@1.0.0/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@2.0.1/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    }
+  }
+}

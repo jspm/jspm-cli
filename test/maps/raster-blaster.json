@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "raster-blaster": "https://ga.jspm.dev/npm:raster-blaster@2.0.2/src/index.js"
+  }
+}

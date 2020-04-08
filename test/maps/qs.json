@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "qs": "https://ga.jspm.dev/npm:qs@6.9.3/lib/index.js"
+  }
+}

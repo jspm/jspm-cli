@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "pm2-multimeter": "https://ga.jspm.dev/npm:pm2-multimeter@0.1.2/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:pm2-multimeter@0.1.2/": {
+      "charm": "https://ga.jspm.dev/npm:charm@0.1.2/index.js"
+    }
+  }
+}

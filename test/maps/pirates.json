@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "pirates": "https://ga.jspm.dev/npm:pirates@4.0.1/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:pirates@4.0.1/": {
+      "node-modules-regexp": "https://ga.jspm.dev/npm:node-modules-regexp@1.0.0/index.js"
+    }
+  }
+}

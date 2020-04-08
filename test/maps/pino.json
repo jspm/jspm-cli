@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "pino": "https://ga.jspm.dev/npm:pino@6.1.1/browser.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:pino@6.1.1/": {
+      "quick-format-unescaped": "https://ga.jspm.dev/npm:quick-format-unescaped@4.0.1/index.js"
+    }
+  }
+}

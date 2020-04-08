@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "web3-functions": "https://ga.jspm.dev/npm:web3-functions@1.1.10/index.js"
+  }
+}

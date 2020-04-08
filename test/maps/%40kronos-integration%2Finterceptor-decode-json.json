@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@kronos-integration/interceptor-decode-json": "https://ga.jspm.dev/npm:@kronos-integration/interceptor-decode-json@2.1.5/src/decode-json.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@kronos-integration/interceptor-decode-json@2.1.5/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/src/index.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/": {
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+    }
+  }
+}

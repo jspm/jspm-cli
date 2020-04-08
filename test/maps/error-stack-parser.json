@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "error-stack-parser": "https://ga.jspm.dev/npm:error-stack-parser@2.0.6/error-stack-parser.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:error-stack-parser@2.0.6/": {
+      "stackframe": "https://ga.jspm.dev/npm:stackframe@1.1.1/stackframe.js"
+    }
+  }
+}

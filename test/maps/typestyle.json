@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "typestyle": "https://ga.jspm.dev/npm:typestyle@2.1.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:typestyle@2.1.0/": {
+      "free-style": "https://ga.jspm.dev/npm:free-style@3.1.0/dist/index.js"
+    }
+  }
+}

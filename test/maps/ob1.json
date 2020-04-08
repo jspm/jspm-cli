@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ob1": "https://ga.jspm.dev/npm:ob1@0.59.0/src/ob1.js"
+  }
+}

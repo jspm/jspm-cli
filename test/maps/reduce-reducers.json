@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "reduce-reducers": "https://ga.jspm.dev/npm:reduce-reducers@1.0.4/lib/index.js"
+  }
+}

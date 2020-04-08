@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "har-schema": "https://ga.jspm.dev/npm:har-schema@2.0.0/lib/index.js"
+  }
+}

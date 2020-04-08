@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "pkg-dir": "https://ga.jspm.dev/npm:pkg-dir@4.2.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:find-up@4.1.0/": {
+      "locate-path": "https://ga.jspm.dev/npm:locate-path@5.0.0/index.js",
+      "path-exists": "https://ga.jspm.dev/npm:path-exists@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:locate-path@5.0.0/": {
+      "p-locate": "https://ga.jspm.dev/npm:p-locate@4.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-locate@4.1.0/": {
+      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pkg-dir@4.2.0/": {
+      "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js"
+    }
+  }
+}

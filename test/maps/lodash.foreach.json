@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.foreach": "https://ga.jspm.dev/npm:lodash.foreach@4.5.0/index.js"
+  }
+}

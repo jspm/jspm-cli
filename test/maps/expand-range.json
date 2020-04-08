@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "expand-range": "https://ga.jspm.dev/npm:expand-range@2.0.2/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:expand-range@2.0.2/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@2.0.1/index.js",
+      "fill-range": "https://ga.jspm.dev/npm:fill-range@5.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:extend-shallow@2.0.1/": {
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:fill-range@5.0.0/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@2.0.1/index.js",
+      "is-number": "https://ga.jspm.dev/npm:is-number@4.0.0/index.js",
+      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js",
+      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-number@3.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-regex-range@2.1.1/": {
+      "is-number": "https://ga.jspm.dev/npm:is-number@3.0.0/index.js",
+      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    }
+  }
+}

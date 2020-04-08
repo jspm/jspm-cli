@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "value-equal": "https://ga.jspm.dev/npm:value-equal@1.0.1/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "these-are-tests": "https://ga.jspm.dev/npm:these-are-tests@1.1.1/index.js"
+  }
+}

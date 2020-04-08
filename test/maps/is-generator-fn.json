@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-generator-fn": "https://ga.jspm.dev/npm:is-generator-fn@2.1.0/index.js"
+  }
+}

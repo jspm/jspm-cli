@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "geojson-apply-right-hand-rule": "https://ga.jspm.dev/npm:geojson-apply-right-hand-rule@1.0.6/dist/index.js"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "nodefied": "https://ga.jspm.dev/npm:nodefied@1.0.1/nodefied.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  }
+}

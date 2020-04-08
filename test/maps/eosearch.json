@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eosearch": "https://ga.jspm.dev/npm:eosearch@1.0.0/index.js"
+  }
+}

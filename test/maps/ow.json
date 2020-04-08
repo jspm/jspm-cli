@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "ow": "https://ga.jspm.dev/npm:ow@0.17.0/dist/source/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

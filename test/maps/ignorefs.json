@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "ignorefs": "https://ga.jspm.dev/npm:ignorefs@2.3.0/edition-node-12/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ignorefs@2.3.0/": {
+      "ignorepatterns": "https://ga.jspm.dev/npm:ignorepatterns@2.3.0/edition-node-12/index.js"
+    }
+  }
+}

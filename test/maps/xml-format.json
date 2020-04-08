@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "xml-format": "https://ga.jspm.dev/npm:xml-format@0.5.1/dist/web.js"
+  }
+}

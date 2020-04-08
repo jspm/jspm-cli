@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "setprototypeof": "https://ga.jspm.dev/npm:setprototypeof@1.2.0/index.js"
+  }
+}

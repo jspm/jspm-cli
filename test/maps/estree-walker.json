@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "estree-walker": "https://ga.jspm.dev/npm:estree-walker@2.0.1/dist/estree-walker.umd.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mock-console-es": "https://ga.jspm.dev/npm:mock-console-es@1.0.4/index.js"
+  }
+}

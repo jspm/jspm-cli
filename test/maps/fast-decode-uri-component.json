@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fast-decode-uri-component": "https://ga.jspm.dev/npm:fast-decode-uri-component@1.0.1/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jsbn": "https://ga.jspm.dev/npm:jsbn@1.1.0/index.js"
+  }
+}

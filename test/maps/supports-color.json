@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+  }
+}

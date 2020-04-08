@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "is-path-in-cwd": "https://ga.jspm.dev/npm:is-path-in-cwd@3.0.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-path-in-cwd@3.0.0/": {
+      "is-path-inside": "https://ga.jspm.dev/npm:is-path-inside@3.0.2/index.js"
+    }
+  }
+}

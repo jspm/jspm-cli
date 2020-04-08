@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "postprocessing": "https://ga.jspm.dev/npm:postprocessing@6.13.2/build/postprocessing.esm.js",
+    "three": "https://ga.jspm.dev/npm:three@0.115.0/build/three.js"
+  }
+}

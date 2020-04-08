@@ -1,0 +1,41 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "listr-verbose-renderer": "https://ga.jspm.dev/npm:listr-verbose-renderer@0.6.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:cli-cursor@2.1.0/": {
+      "restore-cursor": "https://ga.jspm.dev/npm:restore-cursor@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:figures@2.0.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:listr-verbose-renderer@0.6.0/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@2.1.0/index.js",
+      "date-fns/": "https://ga.jspm.dev/npm:date-fns@2.11.1/",
+      "date-fns/format": "https://ga.jspm.dev/npm:date-fns@2.11.1/format/index.js",
+      "figures": "https://ga.jspm.dev/npm:figures@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:onetime@2.0.1/": {
+      "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@1.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:restore-cursor@2.0.0/": {
+      "onetime": "https://ga.jspm.dev/npm:onetime@2.0.1/index.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
+    }
+  }
+}

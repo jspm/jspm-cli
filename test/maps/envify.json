@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "envify": "https://ga.jspm.dev/npm:envify@4.1.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:envify@4.1.0/": {
+      "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js",
+      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    }
+  }
+}

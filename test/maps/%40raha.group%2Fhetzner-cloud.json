@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@raha.group/hetzner-cloud": "https://ga.jspm.dev/npm:@raha.group/hetzner-cloud@1.0.5/main.js"
+  }
+}

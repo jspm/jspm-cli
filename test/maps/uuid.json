@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "uuid": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/index.js"
+  }
+}

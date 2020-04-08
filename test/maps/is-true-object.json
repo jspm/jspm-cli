@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-true-object": "https://ga.jspm.dev/npm:is-true-object@1.0.0/index.cjs"
+  }
+}

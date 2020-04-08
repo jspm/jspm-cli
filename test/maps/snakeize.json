@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "snakeize": "https://ga.jspm.dev/npm:snakeize@0.1.0/index.js"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "umeta": "https://ga.jspm.dev/npm:umeta@0.1.0/esm/index.js"
+  }
+}

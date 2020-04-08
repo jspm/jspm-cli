@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "immutability-helper": "https://ga.jspm.dev/npm:immutability-helper@3.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:immutability-helper@3.0.2/": {
+      "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js"
+    }
+  }
+}

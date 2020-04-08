@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "find-babel-config": "https://ga.jspm.dev/npm:find-babel-config@1.2.0/lib/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:find-babel-config@1.2.0/": {
+      "json5": "https://ga.jspm.dev/npm:json5@0.5.1/lib/json5.js",
+      "path-exists": "https://ga.jspm.dev/npm:path-exists@3.0.0/index.js"
+    }
+  }
+}

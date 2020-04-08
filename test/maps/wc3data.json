@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "wc3data": "https://ga.jspm.dev/npm:wc3data@2.2.1/dist/index.js"
+  }
+}

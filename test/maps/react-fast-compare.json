@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-fast-compare": "https://ga.jspm.dev/npm:react-fast-compare@3.0.1/index.js"
+  }
+}

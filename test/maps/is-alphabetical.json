@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-alphabetical": "https://ga.jspm.dev/npm:is-alphabetical@1.0.4/index.js"
+  }
+}

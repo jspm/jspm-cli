@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "humanize-ms": "https://ga.jspm.dev/npm:humanize-ms@1.2.1/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:humanize-ms@1.2.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    }
+  }
+}

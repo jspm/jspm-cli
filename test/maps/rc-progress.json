@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "rc-progress": "https://ga.jspm.dev/npm:rc-progress@2.5.2/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rc-progress@2.5.2/": {
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    }
+  }
+}

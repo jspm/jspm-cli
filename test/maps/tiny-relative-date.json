@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tiny-relative-date": "https://ga.jspm.dev/npm:tiny-relative-date@1.3.0/lib/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "unique-random-array": "https://ga.jspm.dev/npm:unique-random-array@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:unique-random-array@2.0.0/": {
+      "unique-random": "https://ga.jspm.dev/npm:unique-random@2.1.0/index.js"
+    }
+  }
+}

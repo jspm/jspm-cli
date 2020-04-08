@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-map": "https://ga.jspm.dev/npm:is-map@2.0.1/index.js"
+  }
+}

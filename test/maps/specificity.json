@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "specificity": "https://ga.jspm.dev/npm:specificity@0.4.1/dist/specificity.js"
+  }
+}

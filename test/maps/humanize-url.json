@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "humanize-url": "https://ga.jspm.dev/npm:humanize-url@2.1.0/index.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:humanize-url@2.1.0/": {
+      "normalize-url": "https://ga.jspm.dev/npm:normalize-url@4.5.0/index.js"
+    }
+  }
+}

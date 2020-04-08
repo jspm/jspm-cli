@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "rework": "https://ga.jspm.dev/npm:rework@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:css@2.2.4/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
+      "source-map-resolve": "https://ga.jspm.dev/npm:source-map-resolve@0.5.3/source-map-resolve.js",
+      "urix": "https://ga.jspm.dev/npm:urix@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:rework@1.0.1/": {
+      "convert-source-map": "https://ga.jspm.dev/npm:convert-source-map@0.3.5/index.js",
+      "css": "https://ga.jspm.dev/npm:css@2.2.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:source-map-resolve@0.5.3/": {
+      "resolve-url": "https://ga.jspm.dev/npm:resolve-url@0.2.1/resolve-url.js",
+      "source-map-url": "https://ga.jspm.dev/npm:source-map-url@0.4.0/source-map-url.js"
+    }
+  }
+}

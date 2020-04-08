@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "lcid": "https://ga.jspm.dev/npm:lcid@3.1.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lcid@3.1.1/": {
+      "invert-kv": "https://ga.jspm.dev/npm:invert-kv@3.0.0/index.js"
+    }
+  }
+}

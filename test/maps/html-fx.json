@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "html-fx": "https://ga.jspm.dev/npm:html-fx@0.0.5/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:html-fx@0.0.5/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

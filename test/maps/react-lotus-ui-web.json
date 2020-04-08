@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-lotus-ui-web": "https://ga.jspm.dev/npm:react-lotus-ui-web@1.0.1/dist/index.js"
+  }
+}

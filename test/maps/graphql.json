@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "graphql": "https://ga.jspm.dev/npm:graphql@15.0.0/index.js"
+  }
+}

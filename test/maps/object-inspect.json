@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "object-inspect": "https://ga.jspm.dev/npm:object-inspect@1.7.0/index.js"
+  }
+}

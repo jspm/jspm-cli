@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "nanoleaf-client": "https://ga.jspm.dev/npm:nanoleaf-client@0.1.1/src/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:nanoleaf-client@0.1.1/": {
+      "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js"
+    }
+  }
+}

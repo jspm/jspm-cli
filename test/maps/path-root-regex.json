@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "path-root-regex": "https://ga.jspm.dev/npm:path-root-regex@0.1.2/index.js"
+  }
+}

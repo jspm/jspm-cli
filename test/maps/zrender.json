@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "zrender": "https://ga.jspm.dev/npm:zrender@4.3.0/index.js"
+  }
+}

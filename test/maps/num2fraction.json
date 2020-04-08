@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "num2fraction": "https://ga.jspm.dev/npm:num2fraction@1.2.2/index.js"
+  }
+}

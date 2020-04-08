@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "stateful-messaging-system": "https://ga.jspm.dev/npm:stateful-messaging-system@0.1.19/dist/sms.js"
+  }
+}

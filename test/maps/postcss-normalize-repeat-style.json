@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "postcss-normalize-repeat-style": "https://ga.jspm.dev/npm:postcss-normalize-repeat-style@4.0.2/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:postcss-normalize-repeat-style@4.0.2/": {
+      "cssnano-util-get-arguments": "https://ga.jspm.dev/npm:cssnano-util-get-arguments@4.0.0/dist/index.js",
+      "cssnano-util-get-match": "https://ga.jspm.dev/npm:cssnano-util-get-match@4.0.0/dist/index.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

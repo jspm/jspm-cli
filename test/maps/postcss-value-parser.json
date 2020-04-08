@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@4.0.3/lib/index.js"
+  }
+}

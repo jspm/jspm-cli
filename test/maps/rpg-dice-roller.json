@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rpg-dice-roller": "https://ga.jspm.dev/npm:rpg-dice-roller@4.0.2/lib/umd/bundle.js"
+  }
+}

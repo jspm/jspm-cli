@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "regex-not": "https://ga.jspm.dev/npm:regex-not@1.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:extend-shallow@3.0.2/": {
+      "assign-symbols": "https://ga.jspm.dev/npm:assign-symbols@1.0.0/index.js",
+      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-extendable@1.0.1/": {
+      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:regex-not@1.0.2/": {
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js",
+      "safe-regex": "https://ga.jspm.dev/npm:safe-regex@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:safe-regex@1.1.0/": {
+      "ret": "https://ga.jspm.dev/npm:ret@0.1.15/lib/index.js"
+    }
+  }
+}

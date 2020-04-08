@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "istanbul-lib-report": "https://ga.jspm.dev/npm:istanbul-lib-report@3.0.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:istanbul-lib-report@3.0.0/": {
+      "istanbul-lib-coverage": "https://ga.jspm.dev/npm:istanbul-lib-coverage@3.0.0/index.js",
+      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.0.2/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:make-dir@3.0.2/": {
+      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
+    }
+  }
+}

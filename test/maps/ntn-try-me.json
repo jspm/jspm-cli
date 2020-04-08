@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ntn-try-me": "https://ga.jspm.dev/npm:ntn-try-me@2.0.4/dist/index.js"
+  }
+}

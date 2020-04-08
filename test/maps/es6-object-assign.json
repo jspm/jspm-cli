@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "es6-object-assign": "https://ga.jspm.dev/npm:es6-object-assign@1.1.0/index.js"
+  }
+}

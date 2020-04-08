@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "escape-regexp": "https://ga.jspm.dev/npm:escape-regexp@0.0.1/index.js"
+  }
+}

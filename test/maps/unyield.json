@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "unyield": "https://ga.jspm.dev/npm:unyield@0.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:unyield@0.0.1/": {
+      "co": "https://ga.jspm.dev/npm:co@3.1.0/index.js"
+    }
+  }
+}

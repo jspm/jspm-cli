@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sin": "https://ga.jspm.dev/npm:sin@1.0.0-rc.0/browser/sin.umd.js"
+  }
+}

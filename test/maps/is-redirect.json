@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-redirect": "https://ga.jspm.dev/npm:is-redirect@1.0.0/index.js"
+  }
+}

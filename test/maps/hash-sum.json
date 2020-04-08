@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hash-sum": "https://ga.jspm.dev/npm:hash-sum@2.0.0/hash-sum.js"
+  }
+}

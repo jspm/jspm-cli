@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+  }
+}

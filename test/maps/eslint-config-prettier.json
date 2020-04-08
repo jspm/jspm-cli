@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "eslint-config-prettier": "https://ga.jspm.dev/npm:eslint-config-prettier@6.10.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

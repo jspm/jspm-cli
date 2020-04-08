@@ -1,0 +1,39 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "transformers": "https://ga.jspm.dev/npm:transformers@3.1.0/lib/transformers.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:css@2.0.0/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.1.43/lib/source-map.js",
+      "source-map-resolve": "https://ga.jspm.dev/npm:source-map-resolve@0.1.4/source-map-resolve.js",
+      "urix": "https://ga.jspm.dev/npm:urix@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:promise@5.0.0/": {
+      "asap": "https://ga.jspm.dev/npm:asap@1.0.0/asap.js"
+    },
+    "https://ga.jspm.dev/npm:source-map-resolve@0.1.4/": {
+      "resolve-url": "https://ga.jspm.dev/npm:resolve-url@0.2.1/resolve-url.js",
+      "source-map-url": "https://ga.jspm.dev/npm:source-map-url@0.2.0/source-map-url.js"
+    },
+    "https://ga.jspm.dev/npm:source-map@0.1.34/": {
+      "amdefine": "https://ga.jspm.dev/npm:amdefine@1.0.1/amdefine.js"
+    },
+    "https://ga.jspm.dev/npm:source-map@0.1.43/": {
+      "amdefine": "https://ga.jspm.dev/npm:amdefine@1.0.1/amdefine.js"
+    },
+    "https://ga.jspm.dev/npm:transformers@3.1.0/": {
+      "clone": "https://ga.jspm.dev/npm:clone@0.1.19/clone.js",
+      "css": "https://ga.jspm.dev/npm:css@2.0.0/index.js",
+      "promise": "https://ga.jspm.dev/npm:promise@5.0.0/index.js",
+      "uglify-js": "https://ga.jspm.dev/npm:uglify-js@2.4.24/tools/node.js"
+    },
+    "https://ga.jspm.dev/npm:uglify-js@2.4.24/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.1.34/lib/source-map.js"
+    }
+  }
+}

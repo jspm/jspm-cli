@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mitt": "https://ga.jspm.dev/npm:mitt@1.2.0/dist/mitt.js"
+  }
+}

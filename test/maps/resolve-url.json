@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "resolve-url": "https://ga.jspm.dev/npm:resolve-url@0.2.1/resolve-url.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "simple-log-colors": "https://ga.jspm.dev/npm:simple-log-colors@1.0.3/index.js"
+  }
+}

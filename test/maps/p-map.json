@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "p-map": "https://ga.jspm.dev/npm:p-map@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:aggregate-error@3.0.1/": {
+      "clean-stack": "https://ga.jspm.dev/npm:clean-stack@2.2.0/index.js",
+      "indent-string": "https://ga.jspm.dev/npm:indent-string@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-map@4.0.0/": {
+      "aggregate-error": "https://ga.jspm.dev/npm:aggregate-error@3.0.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "webidl-conversions": "https://ga.jspm.dev/npm:webidl-conversions@6.0.0/lib/index.js"
+  }
+}

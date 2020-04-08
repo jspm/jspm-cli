@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "indent-textarea": "https://ga.jspm.dev/npm:indent-textarea@2.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:indent-textarea@2.0.1/": {
+      "insert-text-textarea": "https://ga.jspm.dev/npm:insert-text-textarea@2.0.1/index.js"
+    }
+  }
+}

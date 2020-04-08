@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-arguments": "https://ga.jspm.dev/npm:is-arguments@1.0.4/index.js"
+  }
+}

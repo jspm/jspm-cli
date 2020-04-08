@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "scss-tokenizer": "https://ga.jspm.dev/npm:scss-tokenizer@0.4.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:scss-tokenizer@0.4.2/": {
+      "js-base64": "https://ga.jspm.dev/npm:js-base64@2.5.2/base64.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.7.3/source-map.js"
+    }
+  }
+}

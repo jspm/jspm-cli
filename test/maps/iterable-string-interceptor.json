@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "iterable-string-interceptor": "https://ga.jspm.dev/npm:iterable-string-interceptor@1.0.4/src/iterable-string-interceptor.mjs"
+  }
+}

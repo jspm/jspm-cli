@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "js2xmlparser": "https://ga.jspm.dev/npm:js2xmlparser@4.0.1/lib/main.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:js2xmlparser@4.0.1/": {
+      "xmlcreate": "https://ga.jspm.dev/npm:xmlcreate@2.0.3/lib/main.js"
+    }
+  }
+}

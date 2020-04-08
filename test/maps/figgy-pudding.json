@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "figgy-pudding": "https://ga.jspm.dev/npm:figgy-pudding@3.5.2/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  }
+}

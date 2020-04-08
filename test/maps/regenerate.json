@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "regenerate": "https://ga.jspm.dev/npm:regenerate@1.4.0/regenerate.js"
+  }
+}

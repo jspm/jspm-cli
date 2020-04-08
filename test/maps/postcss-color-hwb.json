@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "postcss-color-hwb": "https://ga.jspm.dev/npm:postcss-color-hwb@3.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-string@1.5.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js",
+      "simple-swizzle": "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:color@1.0.3/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.dev/npm:color-string@1.5.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss-color-hwb@3.0.0/": {
+      "color": "https://ga.jspm.dev/npm:color@1.0.3/index.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-message-helpers": "https://ga.jspm.dev/npm:postcss-message-helpers@2.0.0/index.js",
+      "reduce-function-call": "https://ga.jspm.dev/npm:reduce-function-call@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@6.0.23/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:reduce-function-call@1.0.3/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/": {
+      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.3.2/index.js"
+    }
+  }
+}

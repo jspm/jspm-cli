@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "xmlcreate": "https://ga.jspm.dev/npm:xmlcreate@2.0.3/lib/main.js"
+  }
+}

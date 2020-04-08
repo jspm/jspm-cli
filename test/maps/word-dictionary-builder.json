@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "word-dictionary-builder": "https://ga.jspm.dev/npm:word-dictionary-builder@1.0.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:word-dictionary-builder@1.0.0/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/chunk": "https://ga.jspm.dev/npm:lodash@4.17.15/chunk.js"
+    }
+  }
+}

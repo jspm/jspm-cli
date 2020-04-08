@@ -1,0 +1,30 @@
+{
+  "imports": {
+    "react-color": "https://ga.jspm.dev/npm:react-color@2.18.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-color@2.18.0/": {
+      "@icons/material/": "https://ga.jspm.dev/npm:@icons/material@0.2.4/",
+      "@icons/material/CheckIcon": "https://ga.jspm.dev/npm:@icons/material@0.2.4/CheckIcon.js",
+      "@icons/material/UnfoldMoreHorizontalIcon": "https://ga.jspm.dev/npm:@icons/material@0.2.4/UnfoldMoreHorizontalIcon.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/debounce": "https://ga.jspm.dev/npm:lodash@4.17.15/debounce.js",
+      "lodash/each": "https://ga.jspm.dev/npm:lodash@4.17.15/each.js",
+      "lodash/map": "https://ga.jspm.dev/npm:lodash@4.17.15/map.js",
+      "lodash/merge": "https://ga.jspm.dev/npm:lodash@4.17.15/merge.js",
+      "lodash/throttle": "https://ga.jspm.dev/npm:lodash@4.17.15/throttle.js",
+      "material-colors": "https://ga.jspm.dev/npm:material-colors@1.2.6/dist/colors.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "reactcss": "https://ga.jspm.dev/npm:reactcss@1.2.3/lib/index.js",
+      "tinycolor2": "https://ga.jspm.dev/npm:tinycolor2@1.4.1/tinycolor.js"
+    },
+    "https://ga.jspm.dev/npm:reactcss@1.2.3/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/forOwn": "https://ga.jspm.dev/npm:lodash@4.17.15/forOwn.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isString": "https://ga.jspm.dev/npm:lodash@4.17.15/isString.js",
+      "lodash/map": "https://ga.jspm.dev/npm:lodash@4.17.15/map.js"
+    }
+  }
+}

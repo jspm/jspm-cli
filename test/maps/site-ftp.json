@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "site-ftp": "https://ga.jspm.dev/npm:site-ftp@1.3.0/dist/index.js"
+  }
+}

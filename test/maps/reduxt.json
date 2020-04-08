@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "reduxt": "https://ga.jspm.dev/npm:reduxt@3.2.2/dist/lib.js"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "readline2": "https://ga.jspm.dev/npm:readline2@1.0.1/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/": {
+      "number-is-nan": "https://ga.jspm.dev/npm:number-is-nan@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:readline2@1.0.1/": {
+      "code-point-at": "https://ga.jspm.dev/npm:code-point-at@1.1.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/index.js",
+      "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.5/mute.js"
+    }
+  }
+}

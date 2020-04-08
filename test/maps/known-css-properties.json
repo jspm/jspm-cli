@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "known-css-properties": "https://ga.jspm.dev/npm:known-css-properties@0.18.0/index.js"
+  }
+}

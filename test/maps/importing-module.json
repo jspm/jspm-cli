@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "importing-module": "https://ga.jspm.dev/npm:importing-module@1.0.6/get-space-people.js"
+  }
+}

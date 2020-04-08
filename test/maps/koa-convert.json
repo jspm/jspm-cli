@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "koa-convert": "https://ga.jspm.dev/npm:koa-convert@1.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:koa-compose@3.2.1/": {
+      "any-promise": "https://ga.jspm.dev/npm:any-promise@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:koa-convert@1.2.0/": {
+      "co": "https://ga.jspm.dev/npm:co@4.6.0/index.js",
+      "koa-compose": "https://ga.jspm.dev/npm:koa-compose@3.2.1/index.js"
+    }
+  }
+}

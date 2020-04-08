@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-negated-glob": "https://ga.jspm.dev/npm:is-negated-glob@1.0.0/index.js"
+  }
+}

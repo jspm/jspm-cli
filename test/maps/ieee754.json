@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+  }
+}

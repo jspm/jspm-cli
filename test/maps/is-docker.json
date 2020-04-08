@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-docker": "https://ga.jspm.dev/npm:is-docker@2.0.0/index.js"
+  }
+}

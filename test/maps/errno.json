@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "errno": "https://ga.jspm.dev/npm:errno@0.1.7/errno.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:errno@0.1.7/": {
+      "prr": "https://ga.jspm.dev/npm:prr@1.0.1/prr.js"
+    }
+  }
+}

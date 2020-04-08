@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "serialize-javascript": "https://ga.jspm.dev/npm:serialize-javascript@3.0.0/index.js"
+  }
+}

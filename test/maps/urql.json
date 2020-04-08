@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "graphql": "https://ga.jspm.dev/npm:graphql@14.6.0/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "urql": "https://ga.jspm.dev/npm:urql@1.9.5/dist/urql.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@urql/core@1.10.7/": {
+      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.9/dist/wonka.mjs"
+    },
+    "https://ga.jspm.dev/npm:graphql@14.6.0/": {
+      "iterall": "https://ga.jspm.dev/npm:iterall@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:urql@1.9.5/": {
+      "@urql/core": "https://ga.jspm.dev/npm:@urql/core@1.10.7/dist/urql-core.mjs",
+      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.9/dist/wonka.mjs"
+    }
+  }
+}

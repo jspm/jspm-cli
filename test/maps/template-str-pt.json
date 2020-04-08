@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "template-str-pt": "https://ga.jspm.dev/npm:template-str-pt@1.0.0/src/pt.mjs"
+  }
+}

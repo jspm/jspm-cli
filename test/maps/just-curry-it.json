@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "just-curry-it": "https://ga.jspm.dev/npm:just-curry-it@3.1.0/index.js"
+  }
+}

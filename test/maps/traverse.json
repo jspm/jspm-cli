@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "traverse": "https://ga.jspm.dev/npm:traverse@0.6.6/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "fastq": "https://ga.jspm.dev/npm:fastq@1.7.0/queue.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:fastq@1.7.0/": {
+      "reusify": "https://ga.jspm.dev/npm:reusify@1.0.4/reusify.js"
+    }
+  }
+}

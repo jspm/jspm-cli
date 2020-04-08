@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sets-game-engine": "https://ga.jspm.dev/npm:sets-game-engine@1.0.3/dist/npm/index.js"
+  }
+}

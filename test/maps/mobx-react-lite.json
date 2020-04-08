@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "mobx": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/index.js",
+    "mobx-react-lite": "https://ga.jspm.dev/npm:mobx-react-lite@2.0.4/dist/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

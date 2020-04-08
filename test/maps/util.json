@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:util@0.12.2/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:util@0.12.2/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "is-arguments": "https://ga.jspm.dev/npm:is-arguments@1.0.4/index.js",
+      "is-generator-function": "https://ga.jspm.dev/npm:is-generator-function@1.0.7/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json"
+  }
+}

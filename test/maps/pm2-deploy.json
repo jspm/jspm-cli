@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "pm2-deploy": "https://ga.jspm.dev/npm:pm2-deploy@0.4.0/deploy.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async@2.6.3/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/isArrayLike": "https://ga.jspm.dev/npm:lodash@4.17.15/isArrayLike.js",
+      "lodash/isObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isObject.js",
+      "lodash/keys": "https://ga.jspm.dev/npm:lodash@4.17.15/keys.js",
+      "lodash/noop": "https://ga.jspm.dev/npm:lodash@4.17.15/noop.js"
+    },
+    "https://ga.jspm.dev/npm:pm2-deploy@0.4.0/": {
+      "async/": "https://ga.jspm.dev/npm:async@2.6.3/",
+      "async/series": "https://ga.jspm.dev/npm:async@2.6.3/series.js",
+      "tv4": "https://ga.jspm.dev/npm:tv4@1.3.0/tv4.js"
+    }
+  }
+}

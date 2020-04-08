@@ -1,0 +1,29 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "gaxios": "https://ga.jspm.dev/npm:gaxios@3.0.2/build/src/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:agent-base@6.0.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    },
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:gaxios@3.0.2/": {
+      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
+      "https-proxy-agent": "https://ga.jspm.dev/npm:https-proxy-agent@5.0.0/dist/index.js",
+      "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js",
+      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:https-proxy-agent@5.0.0/": {
+      "agent-base": "https://ga.jspm.dev/npm:agent-base@6.0.0/dist/src/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    }
+  }
+}

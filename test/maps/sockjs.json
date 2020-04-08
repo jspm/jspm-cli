@@ -1,0 +1,33 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "sockjs": "https://ga.jspm.dev/npm:sockjs@0.3.20/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:faye-websocket@0.10.0/": {
+      "websocket-driver": "https://ga.jspm.dev/npm:websocket-driver@0.7.3/lib/websocket/driver.js",
+      "websocket-driver/": "https://ga.jspm.dev/npm:websocket-driver@0.7.3/",
+      "websocket-driver/lib/websocket/driver/headers": "https://ga.jspm.dev/npm:websocket-driver@0.7.3/lib/websocket/driver/headers.js"
+    },
+    "https://ga.jspm.dev/npm:sockjs@0.3.20/": {
+      "faye-websocket": "https://ga.jspm.dev/npm:faye-websocket@0.10.0/lib/faye/websocket.js",
+      "uuid/": "https://ga.jspm.dev/npm:uuid@3.4.0/",
+      "uuid/v4": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
+    },
+    "https://ga.jspm.dev/npm:websocket-driver@0.7.3/": {
+      "http-parser-js": "https://ga.jspm.dev/npm:http-parser-js@0.4.13/http-parser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "websocket-extensions": "https://ga.jspm.dev/npm:websocket-extensions@0.1.3/lib/websocket_extensions.js"
+    }
+  }
+}

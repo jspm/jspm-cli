@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+  }
+}

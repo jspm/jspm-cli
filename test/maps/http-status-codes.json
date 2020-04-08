@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "http-status-codes": "https://ga.jspm.dev/npm:http-status-codes@1.4.0/index.js"
+  }
+}

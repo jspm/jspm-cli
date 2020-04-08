@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "linkify-it": "https://ga.jspm.dev/npm:linkify-it@2.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:linkify-it@2.2.0/": {
+      "uc.micro/": "https://ga.jspm.dev/npm:uc.micro@1.0.6/",
+      "uc.micro/categories/Cc/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/Cc/regex.js",
+      "uc.micro/categories/P/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/P/regex.js",
+      "uc.micro/categories/Z/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/Z/regex.js",
+      "uc.micro/properties/Any/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/properties/Any/regex.js"
+    }
+  }
+}

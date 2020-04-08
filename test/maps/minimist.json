@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "minimist": "https://ga.jspm.dev/npm:minimist@1.2.5/index.js"
+  }
+}

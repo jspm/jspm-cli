@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "methods": "https://ga.jspm.dev/npm:methods@1.1.2/index.js"
+  }
+}

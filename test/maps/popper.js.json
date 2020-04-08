@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "popper.js": "https://ga.jspm.dev/npm:popper.js@1.16.1/dist/umd/popper.js"
+  }
+}

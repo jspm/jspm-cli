@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "uniqs": "https://ga.jspm.dev/npm:uniqs@2.0.0/index.js"
+  }
+}

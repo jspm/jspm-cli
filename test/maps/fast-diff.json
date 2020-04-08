@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fast-diff": "https://ga.jspm.dev/npm:fast-diff@1.2.0/diff.js"
+  }
+}

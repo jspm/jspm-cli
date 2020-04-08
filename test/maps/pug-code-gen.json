@@ -1,0 +1,70 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "pug-code-gen": "https://ga.jspm.dev/npm:pug-code-gen@2.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:acorn-globals@3.1.0/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@4.0.13/dist/acorn.js",
+      "acorn/": "https://ga.jspm.dev/npm:acorn@4.0.13/",
+      "acorn/dist/walk": "https://ga.jspm.dev/npm:acorn@4.0.13/dist/walk.js"
+    },
+    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
+      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
+      "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js",
+      "core-js/library/fn/json/stringify": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/json/stringify.js",
+      "core-js/library/fn/number/max-safe-integer": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/number/max-safe-integer.js",
+      "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
+      "core-js/library/fn/object/get-own-property-symbols": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/get-own-property-symbols.js",
+      "core-js/library/fn/object/keys": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/keys.js",
+      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
+      "core-js/library/fn/symbol/for": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/for.js",
+      "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
+    },
+    "https://ga.jspm.dev/npm:babel-types@6.26.0/": {
+      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
+      "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js",
+      "babel-runtime/core-js/number/max-safe-integer": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/number/max-safe-integer.js",
+      "babel-runtime/core-js/object/create": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/create.js",
+      "babel-runtime/core-js/object/get-own-property-symbols": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/get-own-property-symbols.js",
+      "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
+      "babel-runtime/core-js/symbol/for": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol/for.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:constantinople@3.1.2/": {
+      "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js",
+      "babylon": "https://ga.jspm.dev/npm:babylon@6.18.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:pug-attrs@2.0.4/": {
+      "constantinople": "https://ga.jspm.dev/npm:constantinople@3.1.2/lib/index.js",
+      "js-stringify": "https://ga.jspm.dev/npm:js-stringify@1.0.2/index.js",
+      "pug-runtime": "https://ga.jspm.dev/npm:pug-runtime@2.0.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:pug-code-gen@2.0.2/": {
+      "constantinople": "https://ga.jspm.dev/npm:constantinople@3.1.2/lib/index.js",
+      "doctypes": "https://ga.jspm.dev/npm:doctypes@1.1.0/index.js",
+      "js-stringify": "https://ga.jspm.dev/npm:js-stringify@1.0.2/index.js",
+      "pug-attrs": "https://ga.jspm.dev/npm:pug-attrs@2.0.4/index.js",
+      "pug-error": "https://ga.jspm.dev/npm:pug-error@1.3.3/index.js",
+      "pug-runtime": "https://ga.jspm.dev/npm:pug-runtime@2.0.5/index.js",
+      "pug-runtime/": "https://ga.jspm.dev/npm:pug-runtime@2.0.5/",
+      "pug-runtime/build": "https://ga.jspm.dev/npm:pug-runtime@2.0.5/build.js",
+      "void-elements": "https://ga.jspm.dev/npm:void-elements@2.0.1/index.js",
+      "with": "https://ga.jspm.dev/npm:with@5.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:with@5.1.1/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@3.3.0/dist/acorn.js",
+      "acorn-globals": "https://ga.jspm.dev/npm:acorn-globals@3.1.0/index.js",
+      "acorn/": "https://ga.jspm.dev/npm:acorn@3.3.0/",
+      "acorn/dist/walk": "https://ga.jspm.dev/npm:acorn@3.3.0/dist/walk.js"
+    }
+  }
+}

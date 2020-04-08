@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "regexp-clone": "https://ga.jspm.dev/npm:regexp-clone@1.0.0/index.js"
+  }
+}

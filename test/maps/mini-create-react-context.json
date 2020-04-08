@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "mini-create-react-context": "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/dist/cjs/index.js",
+    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

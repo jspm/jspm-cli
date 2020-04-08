@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.assign": "https://ga.jspm.dev/npm:lodash.assign@4.2.0/index.js"
+  }
+}

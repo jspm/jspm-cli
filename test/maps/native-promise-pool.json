@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "native-promise-pool": "https://ga.jspm.dev/npm:native-promise-pool@2.3.0/edition-browsers/index.js"
+  }
+}

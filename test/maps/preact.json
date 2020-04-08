@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "preact": "https://ga.jspm.dev/npm:preact@10.3.4/dist/preact.module.js"
+  }
+}

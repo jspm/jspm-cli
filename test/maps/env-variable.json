@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "env-variable": "https://ga.jspm.dev/npm:env-variable@0.0.6/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

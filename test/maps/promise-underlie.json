@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "promise-underlie": "https://ga.jspm.dev/npm:promise-underlie@1.0.0/promise-underlie.js"
+  }
+}

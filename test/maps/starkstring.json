@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "starkstring": "https://ga.jspm.dev/npm:starkstring@0.2.4/src/index.js"
+  }
+}

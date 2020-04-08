@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "lpad-align": "https://ga.jspm.dev/npm:lpad-align@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lpad-align@2.0.0/": {
+      "indent-string": "https://ga.jspm.dev/npm:indent-string@3.2.0/index.js",
+      "longest": "https://ga.jspm.dev/npm:longest@2.0.1/index.js"
+    }
+  }
+}

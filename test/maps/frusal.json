@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "frusal": "https://ga.jspm.dev/npm:frusal@0.0.5/wrapper.mjs",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

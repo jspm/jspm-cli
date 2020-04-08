@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "miller-rabin": "https://ga.jspm.dev/npm:miller-rabin@4.0.1/lib/mr.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:miller-rabin@4.0.1/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js"
+    }
+  }
+}

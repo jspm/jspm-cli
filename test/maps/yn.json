@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "yn": "https://ga.jspm.dev/npm:yn@4.0.0/index.js"
+  }
+}

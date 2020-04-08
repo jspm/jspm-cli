@@ -1,0 +1,38 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "json-schema-faker-bb": "https://ga.jspm.dev/npm:json-schema-faker-bb@0.5.0-rc12/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:deref@0.7.6/": {
+      "deep-extend": "https://ga.jspm.dev/npm:deep-extend@0.6.0/lib/deep-extend.js"
+    },
+    "https://ga.jspm.dev/npm:json-schema-faker-bb@0.5.0-rc12/": {
+      "deref": "https://ga.jspm.dev/npm:deref@0.7.6/lib/index.js",
+      "json-schema-ref-parser": "https://ga.jspm.dev/npm:json-schema-ref-parser@4.1.1/lib/index.js",
+      "jsonpath-plus": "https://ga.jspm.dev/npm:jsonpath-plus@0.16.0/lib/jsonpath.js",
+      "randexp": "https://ga.jspm.dev/npm:randexp@0.5.3/lib/randexp.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:json-schema-ref-parser@4.1.1/": {
+      "call-me-maybe": "https://ga.jspm.dev/npm:call-me-maybe@1.0.1/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "ono": "https://ga.jspm.dev/npm:ono@4.0.11/lib/ono.js"
+    },
+    "https://ga.jspm.dev/npm:ono@4.0.11/": {
+      "format-util": "https://ga.jspm.dev/npm:format-util@1.0.5/format.js"
+    },
+    "https://ga.jspm.dev/npm:randexp@0.5.3/": {
+      "drange": "https://ga.jspm.dev/npm:drange@1.1.1/lib/index.js",
+      "ret": "https://ga.jspm.dev/npm:ret@0.2.2/lib/index.js"
+    }
+  }
+}

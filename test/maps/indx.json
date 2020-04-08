@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "indx": "https://ga.jspm.dev/npm:indx@0.2.3/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

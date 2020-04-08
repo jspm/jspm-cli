@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "reflect-metadata": "https://ga.jspm.dev/npm:reflect-metadata@0.1.13/Reflect.js"
+  }
+}

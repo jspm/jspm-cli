@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "syndemofirst": "https://ga.jspm.dev/npm:syndemofirst@1.1.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "vue-hot-reload-api": "https://ga.jspm.dev/npm:vue-hot-reload-api@2.3.4/dist/index.js"
+  }
+}

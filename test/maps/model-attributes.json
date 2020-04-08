@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+  }
+}

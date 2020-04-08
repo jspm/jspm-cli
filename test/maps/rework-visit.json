@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rework-visit": "https://ga.jspm.dev/npm:rework-visit@1.0.0/index.js"
+  }
+}

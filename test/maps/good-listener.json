@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "good-listener": "https://ga.jspm.dev/npm:good-listener@1.2.2/src/listen.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:good-listener@1.2.2/": {
+      "delegate": "https://ga.jspm.dev/npm:delegate@3.2.0/src/delegate.js"
+    }
+  }
+}

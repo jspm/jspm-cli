@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "repeating": "https://ga.jspm.dev/npm:repeating@3.0.0/index.js"
+  }
+}

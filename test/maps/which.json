@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:which@2.0.2/": {
+      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    }
+  }
+}

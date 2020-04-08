@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eslint-plugin-standard": "https://ga.jspm.dev/npm:eslint-plugin-standard@4.0.1/index.js"
+  }
+}

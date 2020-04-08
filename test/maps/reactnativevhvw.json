@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "reactnativevhvw": "https://ga.jspm.dev/npm:reactnativevhvw@1.5.0/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:reactnativevhvw@1.5.0/": {
+      "react-native": "https://ga.jspm.dev/npm:react-native@0.62.1/index.js"
+    }
+  }
+}

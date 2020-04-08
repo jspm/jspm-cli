@@ -1,0 +1,51 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/domain.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "lazy-require": "https://ga.jspm.dev/npm:lazy-require@3.5.0/edition-browsers/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ambi@3.2.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@4.11.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:eachr@4.5.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:extendr@4.3.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:extract-opts@4.3.0/": {
+      "eachr": "https://ga.jspm.dev/npm:eachr@4.5.0/edition-browsers/index.js",
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:lazy-require@3.5.0/": {
+      "errlop": "https://ga.jspm.dev/npm:errlop@1.7.0/edition-browsers/index.js",
+      "extract-opts": "https://ga.jspm.dev/npm:extract-opts@4.3.0/edition-browsers/index.js",
+      "safeps": "https://ga.jspm.dev/npm:safeps@9.3.0/source/index.js"
+    },
+    "https://ga.jspm.dev/npm:safefs@5.5.0/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js"
+    },
+    "https://ga.jspm.dev/npm:safeps@9.3.0/": {
+      "extract-opts": "https://ga.jspm.dev/npm:extract-opts@4.3.0/edition-browsers/index.js",
+      "safefs": "https://ga.jspm.dev/npm:safefs@5.5.0/source/index.js",
+      "taskgroup": "https://ga.jspm.dev/npm:taskgroup@6.5.0/edition-browsers/index.js",
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:taskgroup@6.5.0/": {
+      "ambi": "https://ga.jspm.dev/npm:ambi@3.2.0/edition-browsers/index.js",
+      "eachr": "https://ga.jspm.dev/npm:eachr@4.5.0/edition-browsers/index.js",
+      "extendr": "https://ga.jspm.dev/npm:extendr@4.3.0/edition-browsers/index.js",
+      "unbounded": "https://ga.jspm.dev/npm:unbounded@2.3.0/edition-browsers/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ignore-by-default": "https://ga.jspm.dev/npm:ignore-by-default@1.0.1/index.js"
+  }
+}

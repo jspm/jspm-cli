@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "stringify-package": "https://ga.jspm.dev/npm:stringify-package@1.0.1/index.js"
+  }
+}

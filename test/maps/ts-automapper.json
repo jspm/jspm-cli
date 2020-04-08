@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ts-automapper": "https://ga.jspm.dev/npm:ts-automapper@1.1.0/dist/index.js"
+  }
+}

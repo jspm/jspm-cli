@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "valid-url": "https://ga.jspm.dev/npm:valid-url@1.0.9/index.js"
+  }
+}

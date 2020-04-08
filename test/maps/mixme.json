@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mixme": "https://ga.jspm.dev/npm:mixme@0.3.5/dist/mixme.cjs.js"
+  }
+}

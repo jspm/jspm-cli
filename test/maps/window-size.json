@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js",
+    "window-size": "https://ga.jspm.dev/npm:window-size@1.1.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:define-property@1.0.0/": {
+      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-descriptor@1.0.2/": {
+      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/index.js",
+      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/index.js",
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-number@3.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:window-size@1.1.1/": {
+      "define-property": "https://ga.jspm.dev/npm:define-property@1.0.0/index.js",
+      "is-number": "https://ga.jspm.dev/npm:is-number@3.0.0/index.js"
+    }
+  }
+}

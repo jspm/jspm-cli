@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-function": "https://ga.jspm.dev/npm:is-function@1.0.1/index.js"
+  }
+}

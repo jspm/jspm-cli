@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "less": "https://ga.jspm.dev/npm:less@3.11.1/dist/less.js",
+    "less-loader": "https://ga.jspm.dev/npm:less-loader@5.0.0/dist/cjs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:less-loader@5.0.0/": {
+      "clone": "https://ga.jspm.dev/npm:clone@2.1.2/clone.js",
+      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@1.4.0/lib/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:loader-utils@1.4.0/": {
+      "big.js": "https://ga.jspm.dev/npm:big.js@5.2.2/big.js",
+      "emojis-list": "https://ga.jspm.dev/npm:emojis-list@3.0.0/index.js",
+      "json5": "https://ga.jspm.dev/npm:json5@1.0.1/dist/index.js"
+    }
+  }
+}

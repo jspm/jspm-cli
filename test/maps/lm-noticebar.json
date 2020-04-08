@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "lm-noticebar": "https://ga.jspm.dev/npm:lm-noticebar@0.1.5/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lm-noticebar@0.1.5/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

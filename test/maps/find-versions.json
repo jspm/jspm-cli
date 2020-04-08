@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "find-versions": "https://ga.jspm.dev/npm:find-versions@3.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:find-versions@3.2.0/": {
+      "semver-regex": "https://ga.jspm.dev/npm:semver-regex@2.0.0/index.js"
+    }
+  }
+}

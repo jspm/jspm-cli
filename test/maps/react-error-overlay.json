@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "react-error-overlay": "https://ga.jspm.dev/npm:react-error-overlay@6.0.7/lib/index.js"
+  }
+}

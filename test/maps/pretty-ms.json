@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "pretty-ms": "https://ga.jspm.dev/npm:pretty-ms@6.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:pretty-ms@6.0.1/": {
+      "parse-ms": "https://ga.jspm.dev/npm:parse-ms@2.1.0/index.js"
+    }
+  }
+}

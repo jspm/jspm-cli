@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "vfile-message": "https://ga.jspm.dev/npm:vfile-message@2.0.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:vfile-message@2.0.4/": {
+      "unist-util-stringify-position": "https://ga.jspm.dev/npm:unist-util-stringify-position@2.0.3/index.js"
+    }
+  }
+}

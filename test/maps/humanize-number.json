@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "humanize-number": "https://ga.jspm.dev/npm:humanize-number@0.0.2/index.js"
+  }
+}

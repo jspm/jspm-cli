@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "iter-prototype": "https://ga.jspm.dev/npm:iter-prototype@1.0.0/iter-prototype.js"
+  }
+}

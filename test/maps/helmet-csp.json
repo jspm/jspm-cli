@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "helmet-csp": "https://ga.jspm.dev/npm:helmet-csp@2.10.0/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:helmet-csp@2.10.0/": {
+      "bowser": "https://ga.jspm.dev/npm:bowser@2.9.0/es5.js",
+      "camelize": "https://ga.jspm.dev/npm:camelize@1.0.0/index.js",
+      "content-security-policy-builder": "https://ga.jspm.dev/npm:content-security-policy-builder@2.1.0/dist/index.js",
+      "dasherize": "https://ga.jspm.dev/npm:dasherize@2.0.0/index.js"
+    }
+  }
+}

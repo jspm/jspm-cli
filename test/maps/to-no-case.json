@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "to-no-case": "https://ga.jspm.dev/npm:to-no-case@1.0.2/index.js"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:xhr@2.5.0/": {
+      "global/": "https://ga.jspm.dev/npm:global@4.3.2/",
+      "global/window": "https://ga.jspm.dev/npm:global@4.3.2/window.js",
+      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.1/index.js",
+      "parse-headers": "https://ga.jspm.dev/npm:parse-headers@2.0.3/parse-headers.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    }
+  }
+}

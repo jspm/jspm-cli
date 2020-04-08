@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "typescript-tuple": "https://ga.jspm.dev/npm:typescript-tuple@2.2.1/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "plur": "https://ga.jspm.dev/npm:plur@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:plur@4.0.0/": {
+      "irregular-plurals": "https://ga.jspm.dev/npm:irregular-plurals@3.2.0/index.js"
+    }
+  }
+}

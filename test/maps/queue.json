@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "queue": "https://ga.jspm.dev/npm:queue@6.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:queue@6.0.1/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+    }
+  }
+}

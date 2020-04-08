@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "koa-mount": "https://ga.jspm.dev/npm:koa-mount@4.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:koa-mount@4.0.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "koa-compose": "https://ga.jspm.dev/npm:koa-compose@4.1.0/index.js"
+    }
+  }
+}

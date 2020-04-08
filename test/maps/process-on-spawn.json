@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "process-on-spawn": "https://ga.jspm.dev/npm:process-on-spawn@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:process-on-spawn@1.0.0/": {
+      "fromentries": "https://ga.jspm.dev/npm:fromentries@1.2.0/index.js"
+    }
+  }
+}

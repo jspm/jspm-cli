@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "iferr": "https://ga.jspm.dev/npm:iferr@1.0.2/iferr.js"
+  }
+}

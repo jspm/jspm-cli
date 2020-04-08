@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eslint-config-bevry": "https://ga.jspm.dev/npm:eslint-config-bevry@3.0.0/index.js"
+  }
+}

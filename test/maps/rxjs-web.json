@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "rxjs-web": "https://ga.jspm.dev/npm:rxjs-web@1.0.0-alpha.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rxjs-web@1.0.0-alpha.0/": {
+      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
+      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

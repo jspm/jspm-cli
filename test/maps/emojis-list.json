@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "emojis-list": "https://ga.jspm.dev/npm:emojis-list@3.0.0/index.js"
+  }
+}

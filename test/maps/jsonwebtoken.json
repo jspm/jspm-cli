@@ -1,0 +1,36 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "jsonwebtoken": "https://ga.jspm.dev/npm:jsonwebtoken@8.5.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ecdsa-sig-formatter@1.0.11/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:jsonwebtoken@8.5.1/": {
+      "jws": "https://ga.jspm.dev/npm:jws@3.2.2/index.js",
+      "lodash.includes": "https://ga.jspm.dev/npm:lodash.includes@4.3.0/index.js",
+      "lodash.isboolean": "https://ga.jspm.dev/npm:lodash.isboolean@3.0.3/index.js",
+      "lodash.isinteger": "https://ga.jspm.dev/npm:lodash.isinteger@4.0.4/index.js",
+      "lodash.isnumber": "https://ga.jspm.dev/npm:lodash.isnumber@3.0.3/index.js",
+      "lodash.isplainobject": "https://ga.jspm.dev/npm:lodash.isplainobject@4.0.6/index.js",
+      "lodash.isstring": "https://ga.jspm.dev/npm:lodash.isstring@4.0.1/index.js",
+      "lodash.once": "https://ga.jspm.dev/npm:lodash.once@4.1.1/index.js",
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    },
+    "https://ga.jspm.dev/npm:jwa@1.4.1/": {
+      "buffer-equal-constant-time": "https://ga.jspm.dev/npm:buffer-equal-constant-time@1.0.1/index.js",
+      "ecdsa-sig-formatter": "https://ga.jspm.dev/npm:ecdsa-sig-formatter@1.0.11/src/ecdsa-sig-formatter.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:jws@3.2.2/": {
+      "jwa": "https://ga.jspm.dev/npm:jwa@1.4.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    }
+  }
+}

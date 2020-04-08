@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "moo": "https://ga.jspm.dev/npm:moo@0.5.1/moo.js"
+  }
+}

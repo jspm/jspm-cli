@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "git-clone": "https://ga.jspm.dev/npm:git-clone@0.1.0/index.js"
+  }
+}

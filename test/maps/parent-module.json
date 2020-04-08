@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "parent-module": "https://ga.jspm.dev/npm:parent-module@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:parent-module@2.0.0/": {
+      "callsites": "https://ga.jspm.dev/npm:callsites@3.1.0/index.js"
+    }
+  }
+}

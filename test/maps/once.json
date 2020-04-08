@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    }
+  }
+}

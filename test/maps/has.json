@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    }
+  }
+}

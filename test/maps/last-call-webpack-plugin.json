@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "last-call-webpack-plugin": "https://ga.jspm.dev/npm:last-call-webpack-plugin@3.0.0/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:last-call-webpack-plugin@3.0.0/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
+      "lodash/each": "https://ga.jspm.dev/npm:lodash@4.17.15/each.js",
+      "lodash/find": "https://ga.jspm.dev/npm:lodash@4.17.15/find.js",
+      "lodash/isArray": "https://ga.jspm.dev/npm:lodash@4.17.15/isArray.js",
+      "lodash/isFunction": "https://ga.jspm.dev/npm:lodash@4.17.15/isFunction.js",
+      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/keys": "https://ga.jspm.dev/npm:lodash@4.17.15/keys.js",
+      "lodash/values": "https://ga.jspm.dev/npm:lodash@4.17.15/values.js",
+      "webpack-sources": "https://ga.jspm.dev/npm:webpack-sources@1.4.3/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:webpack-sources@1.4.3/": {
+      "source-list-map": "https://ga.jspm.dev/npm:source-list-map@2.0.1/lib/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

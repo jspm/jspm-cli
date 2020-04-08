@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "wark": "https://ga.jspm.dev/npm:wark@0.0.0-alpha.5/src/index.js"
+  }
+}

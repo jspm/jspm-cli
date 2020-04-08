@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "normalize-wheel": "https://ga.jspm.dev/npm:normalize-wheel@1.0.1/index.js"
+  }
+}

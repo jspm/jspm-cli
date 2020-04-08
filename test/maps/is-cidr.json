@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "is-cidr": "https://ga.jspm.dev/npm:is-cidr@3.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cidr-regex@2.0.10/": {
+      "ip-regex": "https://ga.jspm.dev/npm:ip-regex@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-cidr@3.1.0/": {
+      "cidr-regex": "https://ga.jspm.dev/npm:cidr-regex@2.0.10/index.js"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "bitsyntax": "https://ga.jspm.dev/npm:bitsyntax@0.1.0/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bitsyntax@0.1.0/": {
+      "buffer-more-ints": "https://ga.jspm.dev/npm:buffer-more-ints@1.0.0/buffer-more-ints.js",
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    }
+  }
+}

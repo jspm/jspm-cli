@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "soft-sync": "https://ga.jspm.dev/npm:soft-sync@0.0.4/src/index.ts"
+  }
+}

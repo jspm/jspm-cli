@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "yuml2svg": "https://ga.jspm.dev/npm:yuml2svg@5.0.0-beta.12/index.mjs"
+  }
+}

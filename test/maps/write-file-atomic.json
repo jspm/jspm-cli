@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "write-file-atomic": "https://ga.jspm.dev/npm:write-file-atomic@3.0.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:typedarray-to-buffer@3.1.5/": {
+      "is-typedarray": "https://ga.jspm.dev/npm:is-typedarray@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:write-file-atomic@3.0.3/": {
+      "imurmurhash": "https://ga.jspm.dev/npm:imurmurhash@0.1.4/imurmurhash.js",
+      "is-typedarray": "https://ga.jspm.dev/npm:is-typedarray@1.0.0/index.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js",
+      "typedarray-to-buffer": "https://ga.jspm.dev/npm:typedarray-to-buffer@3.1.5/index.js"
+    }
+  }
+}

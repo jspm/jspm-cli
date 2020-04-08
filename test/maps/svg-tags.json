@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "svg-tags": "https://ga.jspm.dev/npm:svg-tags@1.0.0/lib/index.js"
+  }
+}

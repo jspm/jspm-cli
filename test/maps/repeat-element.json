@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "repeat-element": "https://ga.jspm.dev/npm:repeat-element@1.1.3/index.js"
+  }
+}

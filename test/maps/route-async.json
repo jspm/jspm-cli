@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "route-async": "https://ga.jspm.dev/npm:route-async@1.0.7/src/index.js"
+  }
+}

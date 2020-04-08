@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "trim-right": "https://ga.jspm.dev/npm:trim-right@1.0.1/index.js"
+  }
+}

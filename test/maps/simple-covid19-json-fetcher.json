@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "simple-covid19-json-fetcher": "https://ga.jspm.dev/npm:simple-covid19-json-fetcher@1.5.0/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:d3-fetch@1.1.2/": {
+      "d3-dsv": "https://ga.jspm.dev/npm:d3-dsv@1.2.0/dist/d3-dsv.js"
+    },
+    "https://ga.jspm.dev/npm:simple-covid19-json-fetcher@1.5.0/": {
+      "d3-fetch": "https://ga.jspm.dev/npm:d3-fetch@1.1.2/dist/d3-fetch.js",
+      "date-fns": "https://ga.jspm.dev/npm:date-fns@2.11.1/index.js",
+      "lodash.camelcase": "https://ga.jspm.dev/npm:lodash.camelcase@4.3.0/index.js",
+      "ramda": "https://ga.jspm.dev/npm:ramda@0.27.0/src/index.js",
+      "whatwg-fetch": "https://ga.jspm.dev/npm:whatwg-fetch@2.0.4/fetch.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "es6-denodeify": "https://ga.jspm.dev/npm:es6-denodeify@0.1.5/index.js"
+  }
+}

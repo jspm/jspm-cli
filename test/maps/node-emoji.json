@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "node-emoji": "https://ga.jspm.dev/npm:node-emoji@1.10.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:node-emoji@1.10.0/": {
+      "lodash.toarray": "https://ga.jspm.dev/npm:lodash.toarray@4.4.0/index.js"
+    }
+  }
+}

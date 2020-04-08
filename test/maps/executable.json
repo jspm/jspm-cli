@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "executable": "https://ga.jspm.dev/npm:executable@4.1.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:executable@4.1.1/": {
+      "pify": "https://ga.jspm.dev/npm:pify@2.3.0/index.js"
+    }
+  }
+}

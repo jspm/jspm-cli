@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "rc-steps": "https://ga.jspm.dev/npm:rc-steps@3.5.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rc-steps@3.5.0/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/debounce": "https://ga.jspm.dev/npm:lodash@4.17.15/debounce.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    }
+  }
+}

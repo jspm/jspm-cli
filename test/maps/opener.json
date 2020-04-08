@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "opener": "https://ga.jspm.dev/npm:opener@1.5.1/lib/opener.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

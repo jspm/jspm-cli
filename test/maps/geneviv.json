@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "geneviv": "https://ga.jspm.dev/npm:geneviv@0.0.3/geneviv.js"
+  }
+}

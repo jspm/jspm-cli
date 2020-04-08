@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "cloud-conformity": "https://ga.jspm.dev/npm:cloud-conformity@1.1.0/dist/cloudconformity.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cloud-conformity@1.1.0/": {
+      "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js"
+    }
+  }
+}

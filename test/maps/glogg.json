@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "glogg": "https://ga.jspm.dev/npm:glogg@1.0.2/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:glogg@1.0.2/": {
+      "sparkles": "https://ga.jspm.dev/npm:sparkles@1.0.1/index.js"
+    }
+  }
+}

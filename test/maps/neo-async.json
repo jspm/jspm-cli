@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "neo-async": "https://ga.jspm.dev/npm:neo-async@2.6.1/async.min.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

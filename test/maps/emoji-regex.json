@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@8.0.0/index.js"
+  }
+}

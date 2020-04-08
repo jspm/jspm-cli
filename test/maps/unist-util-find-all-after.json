@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "unist-util-find-all-after": "https://ga.jspm.dev/npm:unist-util-find-all-after@3.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:unist-util-find-all-after@3.0.1/": {
+      "unist-util-is/": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/",
+      "unist-util-is/convert": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/convert.js"
+    }
+  }
+}

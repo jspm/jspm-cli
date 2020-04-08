@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "quill": "https://ga.jspm.dev/npm:quill@1.3.7/dist/quill.js"
+  }
+}

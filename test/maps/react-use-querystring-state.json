@@ -1,0 +1,57 @@
+{
+  "imports": {
+    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-use-querystring-state": "https://ga.jspm.dev/npm:react-use-querystring-state@1.0.3/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:history@4.10.1/": {
+      "resolve-pathname": "https://ga.jspm.dev/npm:resolve-pathname@3.0.0/index.js",
+      "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js",
+      "value-equal": "https://ga.jspm.dev/npm:value-equal@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:mini-create-react-context@0.3.2/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
+      "gud": "https://ga.jspm.dev/npm:gud@1.0.0/index.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/": {
+      "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:query-string@6.12.0/": {
+      "decode-uri-component": "https://ga.jspm.dev/npm:decode-uri-component@0.2.0/index.js",
+      "split-on-first": "https://ga.jspm.dev/npm:split-on-first@1.1.0/index.js",
+      "strict-uri-encode": "https://ga.jspm.dev/npm:strict-uri-encode@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-router-dom@5.1.2/": {
+      "history": "https://ga.jspm.dev/npm:history@4.10.1/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-router": "https://ga.jspm.dev/npm:react-router@5.1.2/index.js",
+      "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:react-router@5.1.2/": {
+      "history": "https://ga.jspm.dev/npm:history@4.10.1/index.js",
+      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
+      "mini-create-react-context": "https://ga.jspm.dev/npm:mini-create-react-context@0.3.2/dist/cjs/index.js",
+      "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js",
+      "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
+      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:react-use-querystring-state@1.0.3/": {
+      "query-string": "https://ga.jspm.dev/npm:query-string@6.12.0/index.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-router-dom": "https://ga.jspm.dev/npm:react-router-dom@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

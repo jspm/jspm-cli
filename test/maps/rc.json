@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rc": "https://ga.jspm.dev/npm:rc@1.2.8/browser.js"
+  }
+}

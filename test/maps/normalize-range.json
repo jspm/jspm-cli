@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "normalize-range": "https://ga.jspm.dev/npm:normalize-range@0.1.2/index.js"
+  }
+}

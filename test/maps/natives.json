@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "natives": "https://ga.jspm.dev/npm:natives@1.1.6/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  }
+}

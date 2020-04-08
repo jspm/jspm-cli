@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "username-sync": "https://ga.jspm.dev/npm:username-sync@1.0.2/index.js"
+  }
+}

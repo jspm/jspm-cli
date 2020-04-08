@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "quantum-generator": "https://ga.jspm.dev/npm:quantum-generator@1.9.3/index.js"
+  }
+}

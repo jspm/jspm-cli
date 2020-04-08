@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "is-binary-path": "https://ga.jspm.dev/npm:is-binary-path@2.1.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-binary-path@2.1.0/": {
+      "binary-extensions": "https://ga.jspm.dev/npm:binary-extensions@2.0.0/index.js"
+    }
+  }
+}

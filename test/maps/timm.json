@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "timm": "https://ga.jspm.dev/npm:timm@1.6.2/lib/timm.js"
+  }
+}

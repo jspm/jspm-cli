@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tag-html": "https://ga.jspm.dev/npm:tag-html@0.0.11/tag-html.mjs"
+  }
+}

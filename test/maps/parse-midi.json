@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "parse-midi": "https://ga.jspm.dev/npm:parse-midi@2.0.2/dist/parseMidi.umd.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-in-browser": "https://ga.jspm.dev/npm:is-in-browser@1.1.3/dist/index.js"
+  }
+}

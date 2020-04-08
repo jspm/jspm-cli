@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "parseuri": "https://ga.jspm.dev/npm:parseuri@0.0.6/index.js"
+  }
+}

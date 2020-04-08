@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "react-native": "https://ga.jspm.dev/npm:react-native@0.62.1/index.js",
+    "react-native-notification-sounds": "https://ga.jspm.dev/npm:react-native-notification-sounds@0.2.2/index.js"
+  }
+}

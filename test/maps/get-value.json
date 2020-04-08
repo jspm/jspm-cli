@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "get-value": "https://ga.jspm.dev/npm:get-value@3.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:get-value@3.0.1/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    }
+  }
+}

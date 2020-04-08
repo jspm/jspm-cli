@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rgb-hex": "https://ga.jspm.dev/npm:rgb-hex@3.0.0/index.js"
+  }
+}

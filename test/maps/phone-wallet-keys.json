@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "phone-wallet-keys": "https://ga.jspm.dev/npm:phone-wallet-keys@1.1.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:fs-extra@8.1.0/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "jsonfile": "https://ga.jspm.dev/npm:jsonfile@4.0.0/index.js",
+      "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:phone-wallet-keys@1.1.0/": {
+      "fs-extra": "https://ga.jspm.dev/npm:fs-extra@8.1.0/lib/index.js"
+    }
+  }
+}

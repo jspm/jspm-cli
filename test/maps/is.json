@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is": "https://ga.jspm.dev/npm:is@3.3.0/index.js"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
+    "static-eval": "https://ga.jspm.dev/npm:static-eval@2.0.5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:escodegen@1.14.1/": {
+      "estraverse": "https://ga.jspm.dev/npm:estraverse@4.3.0/estraverse.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js"
+    },
+    "https://ga.jspm.dev/npm:static-eval@2.0.5/": {
+      "escodegen": "https://ga.jspm.dev/npm:escodegen@1.14.1/escodegen.js"
+    }
+  }
+}

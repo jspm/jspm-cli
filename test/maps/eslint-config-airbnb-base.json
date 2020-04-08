@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eslint-config-airbnb-base": "https://ga.jspm.dev/npm:eslint-config-airbnb-base@14.1.0/index.js"
+  }
+}

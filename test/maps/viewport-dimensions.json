@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "viewport-dimensions": "https://ga.jspm.dev/npm:viewport-dimensions@0.2.0/index.js"
+  }
+}

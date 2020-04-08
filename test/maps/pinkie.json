@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "pinkie": "https://ga.jspm.dev/npm:pinkie@2.0.4/index.js"
+  }
+}

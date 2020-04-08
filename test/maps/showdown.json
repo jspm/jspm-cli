@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "showdown": "https://ga.jspm.dev/npm:showdown@1.9.1/dist/showdown.js"
+  }
+}

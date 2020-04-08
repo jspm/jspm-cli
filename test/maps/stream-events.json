@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "stream-events": "https://ga.jspm.dev/npm:stream-events@1.0.5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:stream-events@1.0.5/": {
+      "stubs": "https://ga.jspm.dev/npm:stubs@3.0.0/index.js"
+    }
+  }
+}

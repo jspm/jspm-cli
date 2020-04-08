@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-weakset": "https://ga.jspm.dev/npm:is-weakset@2.0.1/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "json-stable-stringify": "https://ga.jspm.dev/npm:json-stable-stringify@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:json-stable-stringify@1.0.1/": {
+      "jsonify": "https://ga.jspm.dev/npm:jsonify@0.0.0/index.js"
+    }
+  }
+}

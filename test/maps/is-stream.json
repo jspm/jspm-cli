@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js"
+  }
+}

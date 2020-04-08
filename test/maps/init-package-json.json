@@ -1,0 +1,81 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+    "init-package-json": "https://ga.jspm.dev/npm:init-package-json@1.10.3/init-package-json.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:init-package-json@1.10.3/": {
+      "promzard": "https://ga.jspm.dev/npm:promzard@0.3.0/promzard.js",
+      "read": "https://ga.jspm.dev/npm:read@1.0.7/lib/read.js",
+      "read-package-json": "https://ga.jspm.dev/npm:read-package-json@2.1.1/read-json.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:normalize-package-data@2.5.0/": {
+      "hosted-git-info": "https://ga.jspm.dev/npm:hosted-git-info@2.8.8/index.js",
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
+      "validate-npm-package-license": "https://ga.jspm.dev/npm:validate-npm-package-license@3.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:promzard@0.3.0/": {
+      "read": "https://ga.jspm.dev/npm:read@1.0.7/lib/read.js"
+    },
+    "https://ga.jspm.dev/npm:read-package-json@2.1.1/": {
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
+      "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js",
+      "normalize-package-data": "https://ga.jspm.dev/npm:normalize-package-data@2.5.0/lib/normalize.js",
+      "npm-normalize-package-bin": "https://ga.jspm.dev/npm:npm-normalize-package-bin@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:read@1.0.7/": {
+      "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.8/mute.js"
+    },
+    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:spdx-correct@3.1.0/": {
+      "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.0/index.js",
+      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json"
+    },
+    "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.0/": {
+      "spdx-exceptions": "https://ga.jspm.dev/npm:spdx-exceptions@2.2.0/index.json",
+      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json",
+      "spdx-license-ids/": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/",
+      "spdx-license-ids/deprecated": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/deprecated.json"
+    },
+    "https://ga.jspm.dev/npm:validate-npm-package-license@3.0.4/": {
+      "spdx-correct": "https://ga.jspm.dev/npm:spdx-correct@3.1.0/index.js",
+      "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.0/index.js"
+    }
+  }
+}

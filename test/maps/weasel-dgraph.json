@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "weasel-dgraph": "https://ga.jspm.dev/npm:weasel-dgraph@0.3.4/lib/index.js"
+  }
+}

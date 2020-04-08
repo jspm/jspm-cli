@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "fold-menu": "https://ga.jspm.dev/npm:fold-menu@0.0.5/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:fold-menu@0.0.5/": {
+      "resize-observer-polyfill": "https://ga.jspm.dev/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"
+    }
+  }
+}

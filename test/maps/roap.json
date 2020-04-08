@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "roap": "https://ga.jspm.dev/npm:roap@0.0.9/esm/index.mjs"
+  }
+}

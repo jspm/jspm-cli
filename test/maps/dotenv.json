@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "dotenv": "https://ga.jspm.dev/npm:dotenv@8.2.0/lib/main.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "mobx": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

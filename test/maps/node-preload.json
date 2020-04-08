@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "node-preload": "https://ga.jspm.dev/npm:node-preload@0.2.1/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:node-preload@0.2.1/": {
+      "process-on-spawn": "https://ga.jspm.dev/npm:process-on-spawn@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:process-on-spawn@1.0.0/": {
+      "fromentries": "https://ga.jspm.dev/npm:fromentries@1.2.0/index.js"
+    }
+  }
+}

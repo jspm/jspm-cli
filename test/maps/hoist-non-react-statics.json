@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    }
+  }
+}

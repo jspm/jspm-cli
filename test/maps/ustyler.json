@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ustyler": "https://ga.jspm.dev/npm:ustyler@1.0.1/esm/index.js"
+  }
+}

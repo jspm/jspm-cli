@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-png": "https://ga.jspm.dev/npm:is-png@2.0.0/index.js"
+  }
+}

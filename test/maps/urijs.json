@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "urijs": "https://ga.jspm.dev/npm:urijs@1.19.2/src/URI.js"
+  }
+}

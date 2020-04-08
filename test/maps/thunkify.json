@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "thunkify": "https://ga.jspm.dev/npm:thunkify@2.1.2/index.js"
+  }
+}

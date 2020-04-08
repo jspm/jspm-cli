@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "koa-github-hook-handler": "https://ga.jspm.dev/npm:koa-github-hook-handler@1.4.5/src/hook-handler.mjs",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:http-errors@1.7.3/": {
+      "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "setprototypeof": "https://ga.jspm.dev/npm:setprototypeof@1.1.1/index.js",
+      "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js",
+      "toidentifier": "https://ga.jspm.dev/npm:toidentifier@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:koa-github-hook-handler@1.4.5/": {
+      "raw-body": "https://ga.jspm.dev/npm:raw-body@2.4.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:raw-body@2.4.1/": {
+      "bytes": "https://ga.jspm.dev/npm:bytes@3.1.0/index.js",
+      "http-errors": "https://ga.jspm.dev/npm:http-errors@1.7.3/index.js",
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js",
+      "unpipe": "https://ga.jspm.dev/npm:unpipe@1.0.0/index.js"
+    }
+  }
+}

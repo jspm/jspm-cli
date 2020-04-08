@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "require-dir": "https://ga.jspm.dev/npm:require-dir@1.2.0/index.js"
+  }
+}

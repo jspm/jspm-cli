@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "for-each": "https://ga.jspm.dev/npm:for-each@0.3.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:for-each@0.3.3/": {
+      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "combined-stream": "https://ga.jspm.dev/npm:combined-stream@1.0.8/lib/combined_stream.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:combined-stream@1.0.8/": {
+      "delayed-stream": "https://ga.jspm.dev/npm:delayed-stream@1.0.0/lib/delayed_stream.js"
+    }
+  }
+}

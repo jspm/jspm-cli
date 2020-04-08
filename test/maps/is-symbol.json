@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "is-symbol": "https://ga.jspm.dev/npm:is-symbol@1.0.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-symbol@1.0.3/": {
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    }
+  }
+}

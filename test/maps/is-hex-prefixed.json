@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-hex-prefixed": "https://ga.jspm.dev/npm:is-hex-prefixed@1.0.0/src/index.js"
+  }
+}

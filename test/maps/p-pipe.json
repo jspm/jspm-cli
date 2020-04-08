@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "p-pipe": "https://ga.jspm.dev/npm:p-pipe@3.0.0/index.js"
+  }
+}

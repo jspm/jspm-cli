@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "source-list-map": "https://ga.jspm.dev/npm:source-list-map@2.0.1/lib/index.js"
+  }
+}

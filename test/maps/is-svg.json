@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "is-svg": "https://ga.jspm.dev/npm:is-svg@4.2.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-svg@4.2.1/": {
+      "html-comment-regex": "https://ga.jspm.dev/npm:html-comment-regex@1.1.2/index.js"
+    }
+  }
+}

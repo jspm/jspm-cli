@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "postcss-initial": "https://ga.jspm.dev/npm:postcss-initial@3.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lodash.template@4.5.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js",
+      "lodash.templatesettings": "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss-initial@3.0.2/": {
+      "lodash.template": "https://ga.jspm.dev/npm:lodash.template@4.5.0/index.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

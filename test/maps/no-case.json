@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:no-case@3.0.3/": {
+      "lower-case": "https://ga.jspm.dev/npm:lower-case@2.0.1/dist/index.js"
+    }
+  }
+}

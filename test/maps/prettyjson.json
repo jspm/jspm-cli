@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "prettyjson": "https://ga.jspm.dev/npm:prettyjson@1.2.1/lib/prettyjson.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:prettyjson@1.2.1/": {
+      "colors/": "https://ga.jspm.dev/npm:colors@1.4.0/",
+      "colors/safe": "https://ga.jspm.dev/npm:colors@1.4.0/safe.js"
+    }
+  }
+}

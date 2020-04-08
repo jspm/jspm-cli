@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fromentries": "https://ga.jspm.dev/npm:fromentries@1.2.0/index.js"
+  }
+}

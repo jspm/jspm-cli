@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "osenv": "https://ga.jspm.dev/npm:osenv@0.1.5/osenv.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:osenv@0.1.5/": {
+      "os-homedir": "https://ga.jspm.dev/npm:os-homedir@1.0.2/index.js",
+      "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js"
+    }
+  }
+}

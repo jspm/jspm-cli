@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "nanodelay": "https://ga.jspm.dev/npm:nanodelay@1.0.1/index.js"
+  }
+}

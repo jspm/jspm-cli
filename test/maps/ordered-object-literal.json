@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ordered-object-literal": "https://ga.jspm.dev/npm:ordered-object-literal@0.0.4/src/index.mjs"
+  }
+}

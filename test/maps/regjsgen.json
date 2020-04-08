@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "regjsgen": "https://ga.jspm.dev/npm:regjsgen@0.5.1/regjsgen.js"
+  }
+}

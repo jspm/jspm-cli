@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "noyo": "https://ga.jspm.dev/npm:noyo@0.0.3/noyo.js"
+  }
+}

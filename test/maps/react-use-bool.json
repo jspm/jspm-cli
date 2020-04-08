@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-use-bool": "https://ga.jspm.dev/npm:react-use-bool@1.0.0/index.cjs.js"
+  }
+}

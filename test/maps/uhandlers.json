@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "uhandlers": "https://ga.jspm.dev/npm:uhandlers@0.2.0/esm/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:uhandlers@0.2.0/": {
+      "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/esm/index.js"
+    }
+  }
+}

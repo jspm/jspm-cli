@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "subarg": "https://ga.jspm.dev/npm:subarg@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:subarg@1.0.0/": {
+      "minimist": "https://ga.jspm.dev/npm:minimist@1.2.5/index.js"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "rechoir": "https://ga.jspm.dev/npm:rechoir@0.7.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rechoir@0.7.0/": {
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "hamburger-react": "https://ga.jspm.dev/npm:hamburger-react@2.0.0/dist-cjs/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

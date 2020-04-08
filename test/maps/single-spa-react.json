@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "single-spa-react": "https://ga.jspm.dev/npm:single-spa-react@2.13.0/lib/single-spa-react.js"
+  }
+}

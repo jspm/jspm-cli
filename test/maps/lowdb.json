@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "lowdb": "https://ga.jspm.dev/npm:lowdb@1.0.0/lib/main.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lowdb@1.0.0/": {
+      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    }
+  }
+}

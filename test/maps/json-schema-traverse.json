@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "json-schema-traverse": "https://ga.jspm.dev/npm:json-schema-traverse@0.4.1/index.js"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js",
+    "vue-class-component": "https://ga.jspm.dev/npm:vue-class-component@7.2.3/dist/vue-class-component.common.js"
+  }
+}

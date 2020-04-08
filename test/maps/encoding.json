@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "encoding": "https://ga.jspm.dev/npm:encoding@0.1.12/lib/encoding.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:encoding@0.1.12/": {
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    }
+  }
+}

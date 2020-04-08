@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "ip": "https://ga.jspm.dev/npm:ip@1.1.5/lib/ip.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js"
+  }
+}

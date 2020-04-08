@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash._createset": "https://ga.jspm.dev/npm:lodash._createset@4.0.3/index.js"
+  }
+}

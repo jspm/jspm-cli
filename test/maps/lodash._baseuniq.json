@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "lodash._baseuniq": "https://ga.jspm.dev/npm:lodash._baseuniq@4.6.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lodash._baseuniq@4.6.0/": {
+      "lodash._createset": "https://ga.jspm.dev/npm:lodash._createset@4.0.3/index.js",
+      "lodash._root": "https://ga.jspm.dev/npm:lodash._root@3.0.1/index.js"
+    }
+  }
+}

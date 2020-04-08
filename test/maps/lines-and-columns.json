@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lines-and-columns": "https://ga.jspm.dev/npm:lines-and-columns@1.1.6/dist/index.js"
+  }
+}

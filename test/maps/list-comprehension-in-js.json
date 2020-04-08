@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "list-comprehension-in-js": "https://ga.jspm.dev/npm:list-comprehension-in-js@0.0.17/build/index.js"
+  }
+}

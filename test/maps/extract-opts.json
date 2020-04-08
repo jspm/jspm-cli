@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "extract-opts": "https://ga.jspm.dev/npm:extract-opts@4.3.0/edition-browsers/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:eachr@4.5.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    },
+    "https://ga.jspm.dev/npm:extract-opts@4.3.0/": {
+      "eachr": "https://ga.jspm.dev/npm:eachr@4.5.0/edition-browsers/index.js",
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    }
+  }
+}

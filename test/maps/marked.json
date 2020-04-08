@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "marked": "https://ga.jspm.dev/npm:marked@0.8.2/src/marked.js"
+  }
+}

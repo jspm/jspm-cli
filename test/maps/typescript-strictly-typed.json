@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "typescript-strictly-typed": "https://ga.jspm.dev/npm:typescript-strictly-typed@1.1.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:typescript-strictly-typed@1.1.1/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "json5": "https://ga.jspm.dev/npm:json5@2.1.1/dist/index.js"
+    }
+  }
+}

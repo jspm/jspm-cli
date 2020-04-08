@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "terser": "https://ga.jspm.dev/npm:terser@4.6.10/dist/bundle.min.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:terser@4.6.10/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    }
+  }
+}

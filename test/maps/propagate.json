@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "propagate": "https://ga.jspm.dev/npm:propagate@2.0.1/index.js"
+  }
+}

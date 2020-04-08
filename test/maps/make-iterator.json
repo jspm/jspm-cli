@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "make-iterator": "https://ga.jspm.dev/npm:make-iterator@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:make-iterator@2.0.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    }
+  }
+}

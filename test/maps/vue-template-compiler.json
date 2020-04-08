@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "vue-template-compiler": "https://ga.jspm.dev/npm:vue-template-compiler@2.6.11/browser.js"
+  }
+}

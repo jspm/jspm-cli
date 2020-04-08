@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "rc-rate": "https://ga.jspm.dev/npm:rc-rate@2.5.1/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rc-rate@2.5.1/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "rc-util/": "https://ga.jspm.dev/npm:rc-util@4.20.3/",
+      "rc-util/lib/KeyCode": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/KeyCode.js",
+      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+    }
+  }
+}

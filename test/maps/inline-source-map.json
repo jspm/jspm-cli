@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "inline-source-map": "https://ga.jspm.dev/npm:inline-source-map@0.6.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:inline-source-map@0.6.2/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "w3c-keyname": "https://ga.jspm.dev/npm:w3c-keyname@2.2.4/index.es.js"
+  }
+}

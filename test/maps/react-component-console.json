@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-component-console": "https://ga.jspm.dev/npm:react-component-console@1.2.1/dist/react-component-console.cjs.js"
+  }
+}

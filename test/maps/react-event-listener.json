@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-event-listener": "https://ga.jspm.dev/npm:react-event-listener@0.6.6/dist/react-event-listener.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-event-listener@0.6.6/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inherits.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

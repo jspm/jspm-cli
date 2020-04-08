@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "mathjs": "https://ga.jspm.dev/npm:mathjs@6.6.2/main/es5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mathjs@6.6.2/": {
+      "complex.js": "https://ga.jspm.dev/npm:complex.js@2.0.11/complex.js",
+      "decimal.js": "https://ga.jspm.dev/npm:decimal.js@10.2.0/decimal.js",
+      "escape-latex": "https://ga.jspm.dev/npm:escape-latex@1.2.0/dist/index.js",
+      "fraction.js": "https://ga.jspm.dev/npm:fraction.js@4.0.12/fraction.js",
+      "javascript-natural-sort": "https://ga.jspm.dev/npm:javascript-natural-sort@0.7.1/naturalSort.js",
+      "seed-random": "https://ga.jspm.dev/npm:seed-random@2.2.0/index.js",
+      "tiny-emitter": "https://ga.jspm.dev/npm:tiny-emitter@2.1.0/index.js",
+      "typed-function": "https://ga.jspm.dev/npm:typed-function@1.1.1/typed-function.js"
+    }
+  }
+}

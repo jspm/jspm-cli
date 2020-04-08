@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "postcss-import": "https://ga.jspm.dev/npm:postcss-import@12.0.1/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:postcss-import@12.0.1/": {
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js",
+      "read-cache": "https://ga.jspm.dev/npm:read-cache@1.0.0/index.js",
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:read-cache@1.0.0/": {
+      "pify": "https://ga.jspm.dev/npm:pify@2.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    }
+  }
+}

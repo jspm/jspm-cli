@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "consono": "https://ga.jspm.dev/npm:consono@1.4.0/dist/consono.browser.mjs"
+  }
+}

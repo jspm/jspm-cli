@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "trendsetter.tj": "https://ga.jspm.dev/npm:trendsetter.tj@1.2.0/main.js"
+  }
+}

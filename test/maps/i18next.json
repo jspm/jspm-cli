@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "i18next": "https://ga.jspm.dev/npm:i18next@19.3.4/dist/cjs/i18next.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:i18next@19.3.4/": {
+      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inherits.js",
+      "@babel/runtime/helpers/objectSpread": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectSpread.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/toConsumableArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js"
+    }
+  }
+}

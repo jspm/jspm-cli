@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "insert-css": "https://ga.jspm.dev/npm:insert-css@2.0.0/index.js"
+  }
+}

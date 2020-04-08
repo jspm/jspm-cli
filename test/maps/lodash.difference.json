@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.difference": "https://ga.jspm.dev/npm:lodash.difference@4.5.0/index.js"
+  }
+}

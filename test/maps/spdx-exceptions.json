@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "spdx-exceptions": "https://ga.jspm.dev/npm:spdx-exceptions@2.2.0/index.json"
+  }
+}

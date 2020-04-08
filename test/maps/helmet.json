@@ -1,0 +1,33 @@
+{
+  "imports": {
+    "helmet": "https://ga.jspm.dev/npm:helmet@3.22.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:helmet-csp@2.10.0/": {
+      "bowser": "https://ga.jspm.dev/npm:bowser@2.9.0/es5.js",
+      "camelize": "https://ga.jspm.dev/npm:camelize@1.0.0/index.js",
+      "content-security-policy-builder": "https://ga.jspm.dev/npm:content-security-policy-builder@2.1.0/dist/index.js",
+      "dasherize": "https://ga.jspm.dev/npm:dasherize@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:helmet@3.22.0/": {
+      "depd": "https://ga.jspm.dev/npm:depd@2.0.0/lib/browser/index.js",
+      "dns-prefetch-control": "https://ga.jspm.dev/npm:dns-prefetch-control@0.2.0/dist/index.js",
+      "dont-sniff-mimetype": "https://ga.jspm.dev/npm:dont-sniff-mimetype@1.1.0/dist/index.js",
+      "expect-ct": "https://ga.jspm.dev/npm:expect-ct@0.2.0/dist/index.js",
+      "feature-policy": "https://ga.jspm.dev/npm:feature-policy@0.3.0/dist/index.js",
+      "frameguard": "https://ga.jspm.dev/npm:frameguard@3.1.0/dist/index.js",
+      "helmet-crossdomain": "https://ga.jspm.dev/npm:helmet-crossdomain@0.4.0/dist/index.js",
+      "helmet-csp": "https://ga.jspm.dev/npm:helmet-csp@2.10.0/dist/index.js",
+      "hide-powered-by": "https://ga.jspm.dev/npm:hide-powered-by@1.1.0/dist/index.js",
+      "hpkp": "https://ga.jspm.dev/npm:hpkp@2.0.0/index.js",
+      "hsts": "https://ga.jspm.dev/npm:hsts@2.2.0/index.js",
+      "ienoopen": "https://ga.jspm.dev/npm:ienoopen@1.1.0/dist/index.js",
+      "nocache": "https://ga.jspm.dev/npm:nocache@2.1.0/dist/index.js",
+      "referrer-policy": "https://ga.jspm.dev/npm:referrer-policy@1.2.0/dist/index.js",
+      "x-xss-protection": "https://ga.jspm.dev/npm:x-xss-protection@1.3.0/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:hsts@2.2.0/": {
+      "depd": "https://ga.jspm.dev/npm:depd@2.0.0/lib/browser/index.js"
+    }
+  }
+}

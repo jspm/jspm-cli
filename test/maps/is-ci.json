@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "is-ci": "https://ga.jspm.dev/npm:is-ci@2.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-ci@2.0.0/": {
+      "ci-info": "https://ga.jspm.dev/npm:ci-info@2.0.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "hover-api-esm": "https://ga.jspm.dev/npm:hover-api-esm@1.0.5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:hover-api-esm@1.0.5/": {
+      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+    }
+  }
+}

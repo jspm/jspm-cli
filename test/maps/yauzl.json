@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "yauzl": "https://ga.jspm.dev/npm:yauzl@2.10.0/index.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:fd-slicer@1.1.0/": {
+      "pend": "https://ga.jspm.dev/npm:pend@1.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:yauzl@2.10.0/": {
+      "buffer-crc32": "https://ga.jspm.dev/npm:buffer-crc32@0.2.13/index.js",
+      "fd-slicer": "https://ga.jspm.dev/npm:fd-slicer@1.1.0/index.js"
+    }
+  }
+}

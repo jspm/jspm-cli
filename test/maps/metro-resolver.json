@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "metro-resolver": "https://ga.jspm.dev/npm:metro-resolver@0.59.0/src/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:metro-resolver@0.59.0/": {
+      "absolute-path": "https://ga.jspm.dev/npm:absolute-path@0.0.0/index.js"
+    }
+  }
+}

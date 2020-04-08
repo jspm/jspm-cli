@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "jest-serializer": "https://ga.jspm.dev/npm:jest-serializer@25.2.6/build/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:jest-serializer@25.2.6/": {
+      "v8": "https://ga.jspm.dev/npm:v8@0.1.0/index.js"
+    }
+  }
+}

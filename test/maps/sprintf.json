@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sprintf": "https://ga.jspm.dev/npm:sprintf@0.1.5/lib/sprintf.js"
+  }
+}

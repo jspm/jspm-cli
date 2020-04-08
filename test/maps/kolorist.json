@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "kolorist": "https://ga.jspm.dev/npm:kolorist@1.2.0/dist/esm/index.js"
+  }
+}

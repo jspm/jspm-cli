@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tinytim": "https://ga.jspm.dev/npm:tinytim@0.1.1/lib/index.js"
+  }
+}

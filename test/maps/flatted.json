@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "flatted": "https://ga.jspm.dev/npm:flatted@2.0.2/cjs/index.js"
+  }
+}

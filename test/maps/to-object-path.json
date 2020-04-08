@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "to-object-path": "https://ga.jspm.dev/npm:to-object-path@0.3.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-object-path@0.3.0/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    }
+  }
+}

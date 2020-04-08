@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "pug-runtime": "https://ga.jspm.dev/npm:pug-runtime@2.0.5/index.js"
+  }
+}

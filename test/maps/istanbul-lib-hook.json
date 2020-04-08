@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "istanbul-lib-hook": "https://ga.jspm.dev/npm:istanbul-lib-hook@3.0.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:append-transform@2.0.0/": {
+      "default-require-extensions/": "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/",
+      "default-require-extensions/js": "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/js.js"
+    },
+    "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/": {
+      "strip-bom": "https://ga.jspm.dev/npm:strip-bom@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:istanbul-lib-hook@3.0.0/": {
+      "append-transform": "https://ga.jspm.dev/npm:append-transform@2.0.0/index.js"
+    }
+  }
+}

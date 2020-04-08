@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tinycolor2": "https://ga.jspm.dev/npm:tinycolor2@1.4.1/tinycolor.js"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "mikov": "https://ga.jspm.dev/npm:mikov@0.8.0/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mikov@0.8.0/": {
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    }
+  }
+}

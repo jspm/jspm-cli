@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "figures": "https://ga.jspm.dev/npm:figures@3.2.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:figures@3.2.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    }
+  }
+}

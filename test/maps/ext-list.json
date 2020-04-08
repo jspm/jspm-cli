@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "ext-list": "https://ga.jspm.dev/npm:ext-list@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ext-list@4.0.0/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    }
+  }
+}

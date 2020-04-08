@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "multicast-dns": "https://ga.jspm.dev/npm:multicast-dns@7.2.2/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:dns-packet@4.2.0/": {
+      "ip": "https://ga.jspm.dev/npm:ip@1.1.5/lib/ip.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:multicast-dns@7.2.2/": {
+      "dns-packet": "https://ga.jspm.dev/npm:dns-packet@4.2.0/index.js",
+      "thunky": "https://ga.jspm.dev/npm:thunky@1.1.0/index.js"
+    }
+  }
+}

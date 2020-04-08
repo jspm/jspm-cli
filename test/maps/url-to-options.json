@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "url-to-options": "https://ga.jspm.dev/npm:url-to-options@2.0.0/index.js"
+  }
+}

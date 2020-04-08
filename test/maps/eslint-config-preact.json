@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eslint-config-preact": "https://ga.jspm.dev/npm:eslint-config-preact@1.1.1/dist/eslint-config-preact.module.js"
+  }
+}

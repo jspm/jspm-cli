@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "wrap-fn": "https://ga.jspm.dev/npm:wrap-fn@0.1.5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:wrap-fn@0.1.5/": {
+      "co": "https://ga.jspm.dev/npm:co@3.1.0/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mkdirp-promise": "https://ga.jspm.dev/npm:mkdirp-promise@5.0.1/lib/index.js"
+  }
+}

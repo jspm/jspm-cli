@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "stream-transform": "https://ga.jspm.dev/npm:stream-transform@2.0.1/lib/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:stream-transform@2.0.1/": {
+      "mixme": "https://ga.jspm.dev/npm:mixme@0.3.5/dist/mixme.cjs.js"
+    }
+  }
+}

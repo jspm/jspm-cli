@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "unistore-browser-sync": "https://ga.jspm.dev/npm:unistore-browser-sync@1.0.0/index.js"
+  }
+}

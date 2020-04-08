@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.camelcase": "https://ga.jspm.dev/npm:lodash.camelcase@4.3.0/index.js"
+  }
+}

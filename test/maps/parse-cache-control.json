@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "parse-cache-control": "https://ga.jspm.dev/npm:parse-cache-control@1.0.1/index.js"
+  }
+}

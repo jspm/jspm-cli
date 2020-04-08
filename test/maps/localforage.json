@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "localforage": "https://ga.jspm.dev/npm:localforage@1.7.3/dist/localforage.js"
+  }
+}

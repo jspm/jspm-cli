@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "worker-farm": "https://ga.jspm.dev/npm:worker-farm@1.7.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:errno@0.1.7/": {
+      "prr": "https://ga.jspm.dev/npm:prr@1.0.1/prr.js"
+    },
+    "https://ga.jspm.dev/npm:worker-farm@1.7.0/": {
+      "errno": "https://ga.jspm.dev/npm:errno@0.1.7/errno.js"
+    }
+  }
+}

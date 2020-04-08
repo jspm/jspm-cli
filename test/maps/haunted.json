@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "haunted": "https://ga.jspm.dev/npm:haunted@4.7.0/lib/haunted.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:haunted@4.7.0/": {
+      "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
+    "react-onclickoutside": "https://ga.jspm.dev/npm:react-onclickoutside@6.9.0/dist/react-onclickoutside.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

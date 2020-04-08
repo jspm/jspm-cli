@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "junk": "https://ga.jspm.dev/npm:junk@3.1.0/index.js"
+  }
+}

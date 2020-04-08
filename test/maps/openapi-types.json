@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "openapi-types": "https://ga.jspm.dev/npm:openapi-types@1.3.5/dist/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "parse-bmfont-ascii": "https://ga.jspm.dev/npm:parse-bmfont-ascii@1.0.6/index.js"
+  }
+}

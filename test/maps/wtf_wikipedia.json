@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "wtf_wikipedia": "https://ga.jspm.dev/npm:wtf_wikipedia@8.1.1/builds/wtf_wikipedia-client.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+  }
+}

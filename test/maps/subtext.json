@@ -1,0 +1,56 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "subtext": "https://ga.jspm.dev/npm:subtext@6.0.12/lib/index.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:b64@4.1.2/": {
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:boom@7.3.0/": {
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:content@4.0.6/": {
+      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:nigel@3.0.4/": {
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
+      "vise": "https://ga.jspm.dev/npm:vise@3.0.2/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:pez@4.0.5/": {
+      "b64": "https://ga.jspm.dev/npm:b64@4.1.2/lib/index.js",
+      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
+      "content": "https://ga.jspm.dev/npm:content@4.0.6/lib/index.js",
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
+      "nigel": "https://ga.jspm.dev/npm:nigel@3.0.4/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:subtext@6.0.12/": {
+      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
+      "bourne": "https://ga.jspm.dev/npm:bourne@1.1.2/lib/index.js",
+      "content": "https://ga.jspm.dev/npm:content@4.0.6/lib/index.js",
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
+      "pez": "https://ga.jspm.dev/npm:pez@4.0.5/lib/index.js",
+      "wreck": "https://ga.jspm.dev/npm:wreck@14.2.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:vise@3.0.2/": {
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:wreck@14.2.0/": {
+      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
+      "bourne": "https://ga.jspm.dev/npm:bourne@1.1.2/lib/index.js",
+      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    }
+  }
+}

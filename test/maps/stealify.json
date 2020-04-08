@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "stealify": "https://ga.jspm.dev/npm:stealify@0.0.8/core.mjs"
+  }
+}

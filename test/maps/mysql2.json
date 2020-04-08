@@ -1,0 +1,51 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "mysql2": "https://ga.jspm.dev/npm:mysql2@2.1.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "timers": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/timers.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cardinal@2.1.1/": {
+      "ansicolors": "https://ga.jspm.dev/npm:ansicolors@0.3.2/ansicolors.js",
+      "redeyed": "https://ga.jspm.dev/npm:redeyed@2.1.1/redeyed.js"
+    },
+    "https://ga.jspm.dev/npm:generate-function@2.3.1/": {
+      "is-property": "https://ga.jspm.dev/npm:is-property@1.0.2/is-property.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.5.1/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:lru-cache@4.1.5/": {
+      "pseudomap": "https://ga.jspm.dev/npm:pseudomap@1.0.2/map.js",
+      "yallist": "https://ga.jspm.dev/npm:yallist@2.1.2/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:lru-cache@5.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@3.1.1/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:mysql2@2.1.0/": {
+      "cardinal": "https://ga.jspm.dev/npm:cardinal@2.1.1/cardinal.js",
+      "denque": "https://ga.jspm.dev/npm:denque@1.4.1/index.js",
+      "generate-function": "https://ga.jspm.dev/npm:generate-function@2.3.1/index.js",
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.5.1/lib/index.js",
+      "long": "https://ga.jspm.dev/npm:long@4.0.0/src/long.js",
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js",
+      "named-placeholders": "https://ga.jspm.dev/npm:named-placeholders@1.1.2/index.js",
+      "seq-queue": "https://ga.jspm.dev/npm:seq-queue@0.0.5/index.js",
+      "sqlstring": "https://ga.jspm.dev/npm:sqlstring@2.3.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:named-placeholders@1.1.2/": {
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@4.1.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:redeyed@2.1.1/": {
+      "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js"
+    }
+  }
+}

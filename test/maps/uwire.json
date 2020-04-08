@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "uwire": "https://ga.jspm.dev/npm:uwire@1.0.1/esm/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:uwire@1.0.1/": {
+      "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/esm/index.js"
+    }
+  }
+}

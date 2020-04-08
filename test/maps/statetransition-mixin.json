@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "statetransition-mixin": "https://ga.jspm.dev/npm:statetransition-mixin@6.0.6/src/statetransition-mixin.mjs"
+  }
+}

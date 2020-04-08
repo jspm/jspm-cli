@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lower-case": "https://ga.jspm.dev/npm:lower-case@2.0.1/dist/index.js"
+  }
+}

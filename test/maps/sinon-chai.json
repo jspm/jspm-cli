@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sinon-chai": "https://ga.jspm.dev/npm:sinon-chai@3.5.0/lib/sinon-chai.js"
+  }
+}

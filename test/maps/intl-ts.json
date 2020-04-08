@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "intl-ts": "https://ga.jspm.dev/npm:intl-ts@4.2.0/dist/module.mjs",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:intl-ts@4.2.0/": {
+      "mobx": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/index.js"
+    }
+  }
+}

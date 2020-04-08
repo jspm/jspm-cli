@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "hiredis": "https://ga.jspm.dev/npm:hiredis@0.5.0/hiredis.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bindings@1.5.0/": {
+      "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:hiredis@0.5.0/": {
+      "bindings": "https://ga.jspm.dev/npm:bindings@1.5.0/bindings.js"
+    }
+  }
+}

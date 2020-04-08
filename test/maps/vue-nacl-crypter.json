@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "vue-nacl-crypter": "https://ga.jspm.dev/npm:vue-nacl-crypter@1.0.9/dist/vue-nacl-crypter.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:vue-nacl-crypter@1.0.9/": {
+      "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js"
+    }
+  }
+}

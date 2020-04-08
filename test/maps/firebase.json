@@ -1,0 +1,90 @@
+{
+  "imports": {
+    "@firebase/app": "https://ga.jspm.dev/npm:@firebase/app@0.6.1/dist/index.cjs.js",
+    "firebase": "https://ga.jspm.dev/npm:firebase@7.13.2/dist/index.cjs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@firebase/analytics@0.3.1/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/installations": "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/app@0.6.1/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/component@0.1.9/": {
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/database@0.5.25/": {
+      "@firebase/app": "https://ga.jspm.dev/npm:@firebase/app@0.6.1/dist/index.cjs.js",
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/firestore@1.13.1/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "@firebase/webchannel-wrapper": "https://ga.jspm.dev/npm:@firebase/webchannel-wrapper@0.2.38/dist/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/functions@0.4.39/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "idb": "https://ga.jspm.dev/npm:idb@3.0.2/build/idb.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/messaging@0.6.11/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/installations": "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "idb": "https://ga.jspm.dev/npm:idb@3.0.2/build/idb.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/performance@0.2.37/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/installations": "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/remote-config@0.1.18/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "@firebase/installations": "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/storage@0.3.31/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@firebase/util@0.2.44/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:firebase@7.13.2/": {
+      "@firebase/analytics": "https://ga.jspm.dev/npm:@firebase/analytics@0.3.1/dist/index.cjs.js",
+      "@firebase/app": "https://ga.jspm.dev/npm:@firebase/app@0.6.1/dist/index.cjs.js",
+      "@firebase/auth": "https://ga.jspm.dev/npm:@firebase/auth@0.14.2/dist/auth.js",
+      "@firebase/database": "https://ga.jspm.dev/npm:@firebase/database@0.5.25/dist/index.cjs.js",
+      "@firebase/firestore": "https://ga.jspm.dev/npm:@firebase/firestore@1.13.1/dist/index.cjs.js",
+      "@firebase/functions": "https://ga.jspm.dev/npm:@firebase/functions@0.4.39/dist/index.cjs.js",
+      "@firebase/messaging": "https://ga.jspm.dev/npm:@firebase/messaging@0.6.11/dist/index.cjs.js",
+      "@firebase/performance": "https://ga.jspm.dev/npm:@firebase/performance@0.2.37/dist/index.cjs.js",
+      "@firebase/remote-config": "https://ga.jspm.dev/npm:@firebase/remote-config@0.1.18/dist/index.cjs.js",
+      "@firebase/storage": "https://ga.jspm.dev/npm:@firebase/storage@0.3.31/dist/index.cjs.js"
+    }
+  }
+}

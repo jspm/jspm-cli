@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.uniq": "https://ga.jspm.dev/npm:lodash.uniq@4.5.0/index.js"
+  }
+}

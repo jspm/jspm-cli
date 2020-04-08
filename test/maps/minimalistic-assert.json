@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "gh-got": "https://ga.jspm.dev/npm:gh-got@9.0.0/index.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@szmarczak/http-timer@4.0.5/": {
+      "defer-to-connect": "https://ga.jspm.dev/npm:defer-to-connect@2.0.0/dist/source/index.js"
+    },
+    "https://ga.jspm.dev/npm:cacheable-lookup@2.0.1/": {
+      "keyv": "https://ga.jspm.dev/npm:keyv@4.0.0/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:cacheable-request@7.0.1/": {
+      "clone-response": "https://ga.jspm.dev/npm:clone-response@1.0.2/src/index.js",
+      "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
+      "http-cache-semantics": "https://ga.jspm.dev/npm:http-cache-semantics@4.1.0/index.js",
+      "keyv": "https://ga.jspm.dev/npm:keyv@4.0.0/src/index.js",
+      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js",
+      "normalize-url": "https://ga.jspm.dev/npm:normalize-url@4.5.0/index.js",
+      "responselike": "https://ga.jspm.dev/npm:responselike@2.0.0/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:clone-response@1.0.2/": {
+      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:decompress-response@5.0.0/": {
+      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:get-stream@5.1.0/": {
+      "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:gh-got@9.0.0/": {
+      "got": "https://ga.jspm.dev/npm:got@10.7.0/dist/source/index.js"
+    },
+    "https://ga.jspm.dev/npm:got@10.7.0/": {
+      "@sindresorhus/is": "https://ga.jspm.dev/npm:@sindresorhus/is@2.1.0/dist/index.js",
+      "@szmarczak/http-timer": "https://ga.jspm.dev/npm:@szmarczak/http-timer@4.0.5/dist/source/index.js",
+      "cacheable-lookup": "https://ga.jspm.dev/npm:cacheable-lookup@2.0.1/index.js",
+      "cacheable-request": "https://ga.jspm.dev/npm:cacheable-request@7.0.1/src/index.js",
+      "decompress-response": "https://ga.jspm.dev/npm:decompress-response@5.0.0/index.js",
+      "duplexer3": "https://ga.jspm.dev/npm:duplexer3@0.1.4/index.js",
+      "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
+      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js",
+      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@2.1.0/index.js",
+      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js",
+      "p-event": "https://ga.jspm.dev/npm:p-event@4.1.0/index.js",
+      "to-readable-stream": "https://ga.jspm.dev/npm:to-readable-stream@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:keyv@4.0.0/": {
+      "json-buffer": "https://ga.jspm.dev/npm:json-buffer@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:p-event@4.1.0/": {
+      "p-timeout": "https://ga.jspm.dev/npm:p-timeout@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-timeout@2.0.1/": {
+      "p-finally": "https://ga.jspm.dev/npm:p-finally@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pump@3.0.0/": {
+      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:responselike@2.0.0/": {
+      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js"
+    }
+  }
+}

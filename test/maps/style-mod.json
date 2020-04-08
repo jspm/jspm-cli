@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "style-mod": "https://ga.jspm.dev/npm:style-mod@2.2.2/src/style-mod.js"
+  }
+}

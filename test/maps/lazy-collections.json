@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lazy-collections": "https://ga.jspm.dev/npm:lazy-collections@0.7.1/dist/index.js"
+  }
+}

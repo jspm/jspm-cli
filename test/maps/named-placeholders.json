@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "named-placeholders": "https://ga.jspm.dev/npm:named-placeholders@1.1.2/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lru-cache@4.1.5/": {
+      "pseudomap": "https://ga.jspm.dev/npm:pseudomap@1.0.2/map.js",
+      "yallist": "https://ga.jspm.dev/npm:yallist@2.1.2/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:named-placeholders@1.1.2/": {
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@4.1.5/index.js"
+    }
+  }
+}

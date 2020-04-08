@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "is-scoped": "https://ga.jspm.dev/npm:is-scoped@2.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-scoped@2.1.0/": {
+      "scoped-regex": "https://ga.jspm.dev/npm:scoped-regex@2.1.0/index.js"
+    }
+  }
+}

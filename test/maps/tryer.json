@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tryer": "https://ga.jspm.dev/npm:tryer@1.0.1/src/tryer.js"
+  }
+}

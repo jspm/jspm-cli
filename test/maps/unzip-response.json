@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "unzip-response": "https://ga.jspm.dev/npm:unzip-response@3.0.0/index.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  }
+}

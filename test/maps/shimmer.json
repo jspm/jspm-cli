@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "shimmer": "https://ga.jspm.dev/npm:shimmer@1.2.1/index.js"
+  }
+}

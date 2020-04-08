@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "filename-reserved-regex": "https://ga.jspm.dev/npm:filename-reserved-regex@2.0.0/index.js"
+  }
+}

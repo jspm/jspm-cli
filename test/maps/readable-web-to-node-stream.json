@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "readable-web-to-node-stream": "https://ga.jspm.dev/npm:readable-web-to-node-stream@2.0.0/lib/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  }
+}

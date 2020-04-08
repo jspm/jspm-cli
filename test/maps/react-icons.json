@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-icons": "https://ga.jspm.dev/npm:react-icons@3.9.0/lib/cjs/index.js"
+  }
+}

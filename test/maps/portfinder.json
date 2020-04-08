@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "portfinder": "https://ga.jspm.dev/npm:portfinder@1.0.25/lib/portfinder.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:portfinder@1.0.25/": {
+      "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
+      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js"
+    }
+  }
+}

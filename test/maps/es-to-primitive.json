@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "es-to-primitive": "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/": {
+      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js",
+      "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
+      "is-symbol": "https://ga.jspm.dev/npm:is-symbol@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-symbol@1.0.3/": {
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    }
+  }
+}

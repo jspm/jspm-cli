@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-devtools-core": "https://ga.jspm.dev/npm:react-devtools-core@4.6.0/dist/backend.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "npm-user-validate": "https://ga.jspm.dev/npm:npm-user-validate@1.0.0/npm-user-validate.js"
+  }
+}

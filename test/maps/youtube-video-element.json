@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "youtube-video-element": "https://ga.jspm.dev/npm:youtube-video-element@0.0.1/dist/youtube-video-element.js"
+  }
+}

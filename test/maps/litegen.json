@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "litegen": "https://ga.jspm.dev/npm:litegen@0.0.1/generator.ts"
+  }
+}

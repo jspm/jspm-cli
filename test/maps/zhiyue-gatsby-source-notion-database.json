@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "zhiyue-gatsby-source-notion-database": "https://ga.jspm.dev/npm:zhiyue-gatsby-source-notion-database@0.6.12/index.js"
+  }
+}

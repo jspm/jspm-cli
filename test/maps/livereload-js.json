@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "livereload-js": "https://ga.jspm.dev/npm:livereload-js@3.2.2/dist/livereload.js"
+  }
+}

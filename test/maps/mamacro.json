@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mamacro": "https://ga.jspm.dev/npm:mamacro@0.0.7/index.js"
+  }
+}

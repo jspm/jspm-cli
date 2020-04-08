@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "miracle-observer": "https://ga.jspm.dev/npm:miracle-observer@0.0.6/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:miracle-observer@0.0.6/": {
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
+      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

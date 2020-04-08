@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "global": "https://ga.jspm.dev/npm:global@4.4.0/window.js"
+  }
+}

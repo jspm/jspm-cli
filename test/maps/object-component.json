@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "object-component": "https://ga.jspm.dev/npm:object-component@0.0.3/index.js"
+  }
+}

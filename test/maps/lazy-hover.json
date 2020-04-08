@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lazy-hover": "https://ga.jspm.dev/npm:lazy-hover@1.1.1/lib/index.js"
+  }
+}

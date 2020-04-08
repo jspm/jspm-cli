@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "error": "https://ga.jspm.dev/npm:error@10.0.1/index.js"
+  }
+}

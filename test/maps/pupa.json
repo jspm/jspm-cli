@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "pupa": "https://ga.jspm.dev/npm:pupa@2.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:pupa@2.0.1/": {
+      "escape-goat": "https://ga.jspm.dev/npm:escape-goat@2.1.1/index.js"
+    }
+  }
+}

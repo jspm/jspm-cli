@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "vuex-micro-frontends": "https://ga.jspm.dev/npm:vuex-micro-frontends@1.0.1/dist/vuex-micro-frontends.umd.min.js"
+  }
+}

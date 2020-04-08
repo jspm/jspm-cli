@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "typical": "https://ga.jspm.dev/npm:typical@6.0.0/dist/index.js"
+  }
+}

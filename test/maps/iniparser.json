@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "iniparser": "https://ga.jspm.dev/npm:iniparser@1.0.5/lib/node-iniparser.js"
+  }
+}

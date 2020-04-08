@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "swagger-scraper": "https://ga.jspm.dev/npm:swagger-scraper@0.3.1/index.js"
+  }
+}

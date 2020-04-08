@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "investira.data": "https://ga.jspm.dev/npm:investira.data@1.1.8/index.js",
+    "investira.sdk": "https://ga.jspm.dev/npm:investira.sdk@1.2.22/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:axios@0.18.1/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:investira.sdk@1.2.22/": {
+      "axios": "https://ga.jspm.dev/npm:axios@0.18.1/index.js",
+      "deep-diff": "https://ga.jspm.dev/npm:deep-diff@1.0.2/index.js",
+      "moment/": "https://ga.jspm.dev/npm:moment@2.24.0/",
+      "moment/min/moment-with-locales": "https://ga.jspm.dev/npm:moment@2.24.0/min/moment-with-locales.js"
+    }
+  }
+}

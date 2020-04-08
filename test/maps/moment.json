@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
+  }
+}

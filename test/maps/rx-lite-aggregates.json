@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rx-lite-aggregates": "https://ga.jspm.dev/npm:rx-lite-aggregates@4.0.8/rx.lite.aggregates.js"
+  }
+}

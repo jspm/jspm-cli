@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lru-cache@5.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@3.1.1/yallist.js"
+    }
+  }
+}

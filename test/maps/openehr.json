@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "openehr": "https://ga.jspm.dev/npm:openehr@1.0.0/src/OpenEHR.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:openehr@1.0.0/": {
+      "net-api": "https://ga.jspm.dev/npm:net-api@1.0.4/src/API.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "omen-client-js": "https://ga.jspm.dev/npm:omen-client-js@0.1.12/src/index.js"
+  }
+}

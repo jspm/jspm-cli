@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "intl-format-cache": "https://ga.jspm.dev/npm:intl-format-cache@4.2.23/dist/index.js"
+  }
+}

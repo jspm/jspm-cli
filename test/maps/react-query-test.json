@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-query-test": "https://ga.jspm.dev/npm:react-query-test@0.2.11/index.min.js"
+  }
+}

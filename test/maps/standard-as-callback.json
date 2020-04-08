@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "standard-as-callback": "https://ga.jspm.dev/npm:standard-as-callback@2.0.1/built/index.js"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:path@0.12.7/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:path@0.12.7/": {
+      "process": "https://ga.jspm.dev/npm:process@0.11.10/browser.js",
+      "util": "https://ga.jspm.dev/npm:util@0.10.4/util.js"
+    },
+    "https://ga.jspm.dev/npm:util@0.10.4/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js"
+    }
+  }
+}

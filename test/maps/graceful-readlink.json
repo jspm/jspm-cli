@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "graceful-readlink": "https://ga.jspm.dev/npm:graceful-readlink@1.0.1/index.js"
+  }
+}

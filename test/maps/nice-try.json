@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "nice-try": "https://ga.jspm.dev/npm:nice-try@2.0.1/src/index.js"
+  }
+}

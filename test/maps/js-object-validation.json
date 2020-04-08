@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "js-object-validation": "https://ga.jspm.dev/npm:js-object-validation@2.0.1/index.js"
+  }
+}

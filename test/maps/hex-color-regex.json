@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hex-color-regex": "https://ga.jspm.dev/npm:hex-color-regex@1.1.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "babel-plugin-add-module-exports": "https://ga.jspm.dev/npm:babel-plugin-add-module-exports@1.0.2/lib/index.js"
+  }
+}

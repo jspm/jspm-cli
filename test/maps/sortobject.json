@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sortobject": "https://ga.jspm.dev/npm:sortobject@3.0.0/edition-browsers/index.js"
+  }
+}

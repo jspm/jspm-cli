@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "rlp": "https://ga.jspm.dev/npm:rlp@2.2.4/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:rlp@2.2.4/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js"
+    }
+  }
+}

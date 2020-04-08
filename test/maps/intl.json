@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "intl": "https://ga.jspm.dev/npm:intl@1.2.5/index.js"
+  }
+}

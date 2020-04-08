@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "nunjucks": "https://ga.jspm.dev/npm:nunjucks@3.2.1/browser/nunjucks.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

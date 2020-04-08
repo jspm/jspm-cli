@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "javascript-graph": "https://ga.jspm.dev/npm:javascript-graph@1.0.0/index.js"
+  }
+}

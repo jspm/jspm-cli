@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "utf8": "https://ga.jspm.dev/npm:utf8@3.0.0/utf8.js"
+  }
+}

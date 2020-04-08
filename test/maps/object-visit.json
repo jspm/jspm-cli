@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "object-visit": "https://ga.jspm.dev/npm:object-visit@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:object-visit@1.0.1/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    }
+  }
+}

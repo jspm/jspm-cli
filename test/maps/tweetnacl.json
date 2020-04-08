@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tweetnacl": "https://ga.jspm.dev/npm:tweetnacl@1.0.3/nacl-fast.js"
+  }
+}

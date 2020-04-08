@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "merge": "https://ga.jspm.dev/npm:merge@1.2.1/merge.js"
+  }
+}

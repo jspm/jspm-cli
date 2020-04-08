@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "skeme": "https://ga.jspm.dev/npm:skeme@2.0.0/index.js"
+  }
+}

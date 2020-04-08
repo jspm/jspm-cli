@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "workbox-navigation-preload": "https://ga.jspm.dev/npm:workbox-navigation-preload@5.1.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:workbox-navigation-preload@5.1.2/": {
+      "workbox-core/": "https://ga.jspm.dev/npm:workbox-core@5.1.2/"
+    }
+  }
+}

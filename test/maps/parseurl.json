@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "parseurl": "https://ga.jspm.dev/npm:parseurl@1.3.3/index.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  }
+}

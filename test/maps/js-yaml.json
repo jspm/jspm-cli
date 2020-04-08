@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js"
+  }
+}

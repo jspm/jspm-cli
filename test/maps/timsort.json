@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "timsort": "https://ga.jspm.dev/npm:timsort@0.3.0/index.js"
+  }
+}

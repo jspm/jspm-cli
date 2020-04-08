@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "soulpay-sdk/esm": "https://ga.jspm.dev/npm:soulpay-sdk@1.4.0/src/index.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:soulpay-sdk@1.4.0/": {
+      "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js"
+    }
+  }
+}

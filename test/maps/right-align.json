@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "right-align": "https://ga.jspm.dev/npm:right-align@0.1.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:align-text@0.1.4/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js",
+      "longest": "https://ga.jspm.dev/npm:longest@1.0.1/index.js",
+      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:right-align@0.1.3/": {
+      "align-text": "https://ga.jspm.dev/npm:align-text@0.1.4/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "node-libs-browser": "https://ga.jspm.dev/npm:node-libs-browser@2.2.1/index.js"
+  }
+}

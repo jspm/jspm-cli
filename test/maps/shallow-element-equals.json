@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "shallow-element-equals": "https://ga.jspm.dev/npm:shallow-element-equals@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:shallow-element-equals@1.0.1/": {
+      "style-equal": "https://ga.jspm.dev/npm:style-equal@1.0.0/index.js"
+    }
+  }
+}

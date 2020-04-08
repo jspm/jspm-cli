@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "units-css": "https://ga.jspm.dev/npm:units-css@0.4.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:units-css@0.4.0/": {
+      "isnumeric/": "https://ga.jspm.dev/npm:isnumeric@0.2.0/",
+      "isnumeric/isNumeric": "https://ga.jspm.dev/npm:isnumeric@0.2.0/isNumeric.js",
+      "viewport-dimensions": "https://ga.jspm.dev/npm:viewport-dimensions@0.2.0/index.js"
+    }
+  }
+}

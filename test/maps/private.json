@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "private": "https://ga.jspm.dev/npm:private@0.1.8/private.js"
+  }
+}

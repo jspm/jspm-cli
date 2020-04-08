@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "xmldom": "https://ga.jspm.dev/npm:xmldom@0.3.0/lib/dom-parser.js"
+  }
+}

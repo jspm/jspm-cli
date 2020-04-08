@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tiered-map": "https://ga.jspm.dev/npm:tiered-map@1.7.0/edition-browsers/index.js"
+  }
+}

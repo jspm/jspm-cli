@@ -1,0 +1,54 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "istanbul": "https://ga.jspm.dev/npm:istanbul@0.4.5/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "source-map": "https://ga.jspm.dev/npm:source-map@0.2.0/lib/source-map.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:escodegen@1.8.1/": {
+      "estraverse": "https://ga.jspm.dev/npm:estraverse@1.9.3/estraverse.js",
+      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js"
+    },
+    "https://ga.jspm.dev/npm:glob@5.0.15/": {
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:istanbul@0.4.5/": {
+      "abbrev": "https://ga.jspm.dev/npm:abbrev@1.0.9/abbrev.js",
+      "async": "https://ga.jspm.dev/npm:async@1.5.2/lib/async.js",
+      "escodegen": "https://ga.jspm.dev/npm:escodegen@1.8.1/escodegen.js",
+      "esprima": "https://ga.jspm.dev/npm:esprima@2.7.3/esprima.js",
+      "glob": "https://ga.jspm.dev/npm:glob@5.0.15/glob.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@3.2.3/browser.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:source-map@0.2.0/": {
+      "amdefine": "https://ga.jspm.dev/npm:amdefine@1.0.1/amdefine.js"
+    }
+  }
+}

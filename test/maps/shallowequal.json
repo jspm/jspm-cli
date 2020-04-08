@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "shallowequal": "https://ga.jspm.dev/npm:shallowequal@1.1.0/index.js"
+  }
+}

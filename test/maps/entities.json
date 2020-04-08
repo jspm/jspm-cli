@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "entities": "https://ga.jspm.dev/npm:entities@2.0.0/lib/index.js"
+  }
+}

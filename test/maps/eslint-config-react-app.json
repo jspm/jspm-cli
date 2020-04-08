@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "eslint-config-react-app": "https://ga.jspm.dev/npm:eslint-config-react-app@5.2.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:eslint-config-react-app@5.2.1/": {
+      "confusing-browser-globals": "https://ga.jspm.dev/npm:confusing-browser-globals@1.0.9/index.js"
+    }
+  }
+}

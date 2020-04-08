@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "xmldoc": "https://ga.jspm.dev/npm:xmldoc@1.1.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:xmldoc@1.1.2/": {
+      "sax": "https://ga.jspm.dev/npm:sax@1.2.4/lib/sax.js"
+    }
+  }
+}

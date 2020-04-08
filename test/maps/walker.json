@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "walker": "https://ga.jspm.dev/npm:walker@1.0.7/lib/walker.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:makeerror@1.0.11/": {
+      "tmpl": "https://ga.jspm.dev/npm:tmpl@1.0.4/lib/tmpl.js"
+    },
+    "https://ga.jspm.dev/npm:walker@1.0.7/": {
+      "makeerror": "https://ga.jspm.dev/npm:makeerror@1.0.11/lib/makeerror.js"
+    }
+  }
+}

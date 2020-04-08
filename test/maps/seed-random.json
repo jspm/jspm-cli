@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "seed-random": "https://ga.jspm.dev/npm:seed-random@2.2.0/index.js"
+  }
+}

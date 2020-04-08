@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "repository-provider": "https://ga.jspm.dev/npm:repository-provider@16.15.0/src/provider.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:repository-provider@16.15.0/": {
+      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.5/src/loglevel-mixin.mjs"
+    }
+  }
+}

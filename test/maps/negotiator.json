@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "negotiator": "https://ga.jspm.dev/npm:negotiator@0.6.2/index.js"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "standard-engine": "https://ga.jspm.dev/npm:standard-engine@12.0.0/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:deglob@4.0.1/": {
+      "find-root": "https://ga.jspm.dev/npm:find-root@1.1.0/index.js",
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
+      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.4/index.js",
+      "pkg-config": "https://ga.jspm.dev/npm:pkg-config@1.1.1/index.js",
+      "run-parallel": "https://ga.jspm.dev/npm:run-parallel@1.1.9/index.js",
+      "uniq": "https://ga.jspm.dev/npm:uniq@1.0.1/uniq.js"
+    },
+    "https://ga.jspm.dev/npm:error-ex@1.3.2/": {
+      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:find-up@3.0.0/": {
+      "locate-path": "https://ga.jspm.dev/npm:locate-path@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:load-json-file@5.3.0/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "parse-json": "https://ga.jspm.dev/npm:parse-json@4.0.0/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js",
+      "strip-bom": "https://ga.jspm.dev/npm:strip-bom@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:locate-path@3.0.0/": {
+      "p-locate": "https://ga.jspm.dev/npm:p-locate@3.0.0/index.js",
+      "path-exists": "https://ga.jspm.dev/npm:path-exists@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-locate@3.0.0/": {
+      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:parse-json@4.0.0/": {
+      "error-ex": "https://ga.jspm.dev/npm:error-ex@1.3.2/index.js",
+      "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:pkg-conf@3.1.0/": {
+      "find-up": "https://ga.jspm.dev/npm:find-up@3.0.0/index.js",
+      "load-json-file": "https://ga.jspm.dev/npm:load-json-file@5.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pkg-config@1.1.1/": {
+      "debug-log": "https://ga.jspm.dev/npm:debug-log@1.0.1/index.js",
+      "find-root": "https://ga.jspm.dev/npm:find-root@1.1.0/index.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:standard-engine@12.0.0/": {
+      "deglob": "https://ga.jspm.dev/npm:deglob@4.0.1/index.js",
+      "get-stdin": "https://ga.jspm.dev/npm:get-stdin@7.0.0/index.js",
+      "minimist": "https://ga.jspm.dev/npm:minimist@1.2.5/index.js",
+      "pkg-conf": "https://ga.jspm.dev/npm:pkg-conf@3.1.0/index.js"
+    }
+  }
+}

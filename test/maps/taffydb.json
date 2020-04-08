@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "taffydb": "https://ga.jspm.dev/npm:taffydb@2.7.3/taffy.js"
+  }
+}

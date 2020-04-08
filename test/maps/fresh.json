@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fresh": "https://ga.jspm.dev/npm:fresh@0.5.2/index.js"
+  }
+}

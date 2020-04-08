@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jest-pnp-resolver": "https://ga.jspm.dev/npm:jest-pnp-resolver@1.2.1/index.js"
+  }
+}

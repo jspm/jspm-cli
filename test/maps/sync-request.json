@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "sync-request": "https://ga.jspm.dev/npm:sync-request@6.1.0/lib/browser.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:sync-request@6.1.0/": {
+      "http-response-object": "https://ga.jspm.dev/npm:http-response-object@3.0.2/lib/index.js",
+      "then-request/": "https://ga.jspm.dev/npm:then-request@6.0.2/"
+    },
+    "https://ga.jspm.dev/npm:then-request@6.0.2/": {
+      "qs": "https://ga.jspm.dev/npm:qs@6.9.3/lib/index.js"
+    }
+  }
+}

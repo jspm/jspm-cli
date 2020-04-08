@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "compatto": "https://ga.jspm.dev/npm:compatto@2.1.2/index.js"
+  }
+}

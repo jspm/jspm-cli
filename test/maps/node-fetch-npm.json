@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "node-fetch-npm": "https://ga.jspm.dev/npm:node-fetch-npm@2.0.4/src/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:encoding@0.1.12/": {
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:node-fetch-npm@2.0.4/": {
+      "encoding": "https://ga.jspm.dev/npm:encoding@0.1.12/lib/encoding.js",
+      "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    }
+  }
+}

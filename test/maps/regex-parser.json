@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "regex-parser": "https://ga.jspm.dev/npm:regex-parser@2.2.10/lib/index.js"
+  }
+}

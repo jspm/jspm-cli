@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "object-observer": "https://ga.jspm.dev/npm:object-observer@2.9.3/dist/object-observer.min.js"
+  }
+}

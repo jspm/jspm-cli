@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "mini-store": "https://ga.jspm.dev/npm:mini-store@3.0.1/cjs/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mini-store@3.0.1/": {
+      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@2.5.5/dist/hoist-non-react-statics.cjs.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js",
+      "shallowequal": "https://ga.jspm.dev/npm:shallowequal@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

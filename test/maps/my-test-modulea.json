@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "my-test-modulea": "https://ga.jspm.dev/npm:my-test-modulea@1.2.0/index.js"
+  }
+}

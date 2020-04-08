@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "supports-hyperlinks": "https://ga.jspm.dev/npm:supports-hyperlinks@2.1.0/browser.js"
+  }
+}

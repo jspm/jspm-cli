@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "pico-cookie": "https://ga.jspm.dev/npm:pico-cookie@1.0.0/pico-cookie.js"
+  }
+}

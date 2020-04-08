@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "microevent.ts": "https://ga.jspm.dev/npm:microevent.ts@0.2.1/lib/index.js"
+  }
+}

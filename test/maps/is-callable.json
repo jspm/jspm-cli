@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js"
+  }
+}

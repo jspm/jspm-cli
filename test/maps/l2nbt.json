@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "l2nbt": "https://ga.jspm.dev/npm:l2nbt@0.0.7/dist/l2nbt.js"
+  }
+}

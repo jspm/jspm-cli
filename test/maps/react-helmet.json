@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-helmet": "https://ga.jspm.dev/npm:react-helmet@5.2.1/lib/Helmet.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-helmet@5.2.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-fast-compare": "https://ga.jspm.dev/npm:react-fast-compare@2.0.4/index.js",
+      "react-side-effect": "https://ga.jspm.dev/npm:react-side-effect@1.2.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-side-effect@1.2.0/": {
+      "shallowequal": "https://ga.jspm.dev/npm:shallowequal@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

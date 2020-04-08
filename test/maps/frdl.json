@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "frdl": "https://ga.jspm.dev/npm:frdl@2.7.11/index.js"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:expand-tilde@2.0.2/": {
+      "homedir-polyfill": "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/": {
+      "parse-passwd": "https://ga.jspm.dev/npm:parse-passwd@1.0.0/index.js"
+    }
+  }
+}

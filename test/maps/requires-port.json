@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "requires-port": "https://ga.jspm.dev/npm:requires-port@1.0.0/index.js"
+  }
+}

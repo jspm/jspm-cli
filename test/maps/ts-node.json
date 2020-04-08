@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "ts-node": "https://ga.jspm.dev/npm:ts-node@8.8.2/dist/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:source-map-support@0.5.16/": {
+      "buffer-from": "https://ga.jspm.dev/npm:buffer-from@1.1.1/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    },
+    "https://ga.jspm.dev/npm:ts-node@8.8.2/": {
+      "make-error": "https://ga.jspm.dev/npm:make-error@1.3.6/index.js",
+      "source-map-support": "https://ga.jspm.dev/npm:source-map-support@0.5.16/source-map-support.js",
+      "yn": "https://ga.jspm.dev/npm:yn@3.1.1/index.js"
+    }
+  }
+}

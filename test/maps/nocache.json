@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "nocache": "https://ga.jspm.dev/npm:nocache@2.1.0/dist/index.js"
+  }
+}

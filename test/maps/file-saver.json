@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "file-saver": "https://ga.jspm.dev/npm:file-saver@2.0.2/dist/FileSaver.min.js"
+  }
+}

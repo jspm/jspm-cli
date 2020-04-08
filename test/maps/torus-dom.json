@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "torus-dom": "https://ga.jspm.dev/npm:torus-dom@0.4.7/dist/index.min.js"
+  }
+}

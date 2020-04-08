@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "toidentifier": "https://ga.jspm.dev/npm:toidentifier@1.0.0/index.js"
+  }
+}

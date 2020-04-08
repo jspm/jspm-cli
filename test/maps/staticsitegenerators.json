@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "staticsitegenerators": "https://ga.jspm.dev/npm:staticsitegenerators@3.0.0/edition-browsers/index.js"
+  }
+}

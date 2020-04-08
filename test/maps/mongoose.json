@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mongoose": "https://ga.jspm.dev/npm:mongoose@5.9.7/dist/browser.umd.js"
+  }
+}

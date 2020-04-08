@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "skinview3d": "https://ga.jspm.dev/npm:skinview3d@2.0.0-alpha.1/jsm/skinview3d.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:skinview3d@2.0.0-alpha.1/": {
+      "skinview-utils": "https://ga.jspm.dev/npm:skinview-utils@0.2.1/index.js",
+      "three": "https://ga.jspm.dev/npm:three@0.112.1/build/three.js"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "redux-actions": "https://ga.jspm.dev/npm:redux-actions@2.6.5/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:redux-actions@2.6.5/": {
+      "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js",
+      "just-curry-it": "https://ga.jspm.dev/npm:just-curry-it@3.1.0/index.js",
+      "reduce-reducers": "https://ga.jspm.dev/npm:reduce-reducers@0.4.3/lib/index.js",
+      "to-camel-case": "https://ga.jspm.dev/npm:to-camel-case@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-camel-case@1.0.0/": {
+      "to-space-case": "https://ga.jspm.dev/npm:to-space-case@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-space-case@1.0.0/": {
+      "to-no-case": "https://ga.jspm.dev/npm:to-no-case@1.0.2/index.js"
+    }
+  }
+}

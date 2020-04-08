@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "errlop": "https://ga.jspm.dev/npm:errlop@2.1.0/edition-browsers/index.js"
+  }
+}

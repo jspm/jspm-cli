@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lowclass": "https://ga.jspm.dev/npm:lowclass@4.9.3/dist/index.js"
+  }
+}

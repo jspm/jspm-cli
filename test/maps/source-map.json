@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "source-map": "https://ga.jspm.dev/npm:source-map@0.7.3/source-map.js"
+  }
+}

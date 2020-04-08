@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "robot3": "https://ga.jspm.dev/npm:robot3@0.2.15/dist/machine.js"
+  }
+}

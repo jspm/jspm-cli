@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ylru": "https://ga.jspm.dev/npm:ylru@1.2.1/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-typedarray": "https://ga.jspm.dev/npm:is-typedarray@1.0.0/index.js"
+  }
+}

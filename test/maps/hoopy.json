@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hoopy": "https://ga.jspm.dev/npm:hoopy@0.1.4/index.js"
+  }
+}

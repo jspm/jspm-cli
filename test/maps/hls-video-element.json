@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hls-video-element": "https://ga.jspm.dev/npm:hls-video-element@0.0.2/dist/hls-video-element.js"
+  }
+}

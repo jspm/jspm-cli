@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ssf": "https://ga.jspm.dev/npm:ssf@0.10.3/ssf.js"
+  }
+}

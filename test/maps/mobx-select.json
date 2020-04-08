@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mobx-select": "https://ga.jspm.dev/npm:mobx-select@2.1.0/index.cjs.js"
+  }
+}

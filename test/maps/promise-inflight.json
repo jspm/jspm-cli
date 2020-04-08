@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "promise-inflight": "https://ga.jspm.dev/npm:promise-inflight@1.0.1/inflight.js"
+  }
+}

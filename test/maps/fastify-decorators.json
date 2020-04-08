@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "fastify-decorators": "https://ga.jspm.dev/npm:fastify-decorators@1.3.0/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  }
+}

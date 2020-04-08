@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js"
+  }
+}

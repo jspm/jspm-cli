@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+  }
+}

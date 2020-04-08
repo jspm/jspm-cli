@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "glob-parent": "https://ga.jspm.dev/npm:glob-parent@5.1.1/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:glob-parent@5.1.1/": {
+      "is-glob": "https://ga.jspm.dev/npm:is-glob@4.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-glob@4.0.1/": {
+      "is-extglob": "https://ga.jspm.dev/npm:is-extglob@2.1.1/index.js"
+    }
+  }
+}

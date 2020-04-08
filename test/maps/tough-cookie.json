@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/punycode.js",
+    "tough-cookie": "https://ga.jspm.dev/npm:tough-cookie@4.0.0/lib/cookie.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:tough-cookie@4.0.0/": {
+      "psl": "https://ga.jspm.dev/npm:psl@1.8.0/index.js",
+      "punycode": "https://ga.jspm.dev/npm:punycode@2.1.1/punycode.js",
+      "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
+    }
+  }
+}

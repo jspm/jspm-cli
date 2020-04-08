@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fastclick": "https://ga.jspm.dev/npm:fastclick@1.0.6/lib/fastclick.js"
+  }
+}

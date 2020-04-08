@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "unique-string": "https://ga.jspm.dev/npm:unique-string@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:unique-string@2.0.0/": {
+      "crypto-random-string": "https://ga.jspm.dev/npm:crypto-random-string@2.0.0/index.js"
+    }
+  }
+}

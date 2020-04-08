@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "is-gif": "https://ga.jspm.dev/npm:is-gif@3.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-gif@3.0.0/": {
+      "file-type": "https://ga.jspm.dev/npm:file-type@10.11.0/index.js"
+    }
+  }
+}

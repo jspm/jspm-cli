@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "jaxiinofea-test11": "https://ga.jspm.dev/npm:jaxiinofea-test11@1.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:jaxiinofea-test11@1.1.0/": {
+      "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-alphanumeric": "https://ga.jspm.dev/npm:is-alphanumeric@1.0.0/index.js"
+  }
+}

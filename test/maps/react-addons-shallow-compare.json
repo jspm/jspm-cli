@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "react-addons-shallow-compare": "https://ga.jspm.dev/npm:react-addons-shallow-compare@15.6.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-addons-shallow-compare@15.6.2/": {
+      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
+      "fbjs/lib/shallowEqual": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/shallowEqual.js"
+    }
+  }
+}

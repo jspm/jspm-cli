@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-side-effect": "https://ga.jspm.dev/npm:react-side-effect@2.1.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

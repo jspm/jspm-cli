@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "shebang-command": "https://ga.jspm.dev/npm:shebang-command@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:shebang-command@2.0.0/": {
+      "shebang-regex": "https://ga.jspm.dev/npm:shebang-regex@3.0.0/index.js"
+    }
+  }
+}

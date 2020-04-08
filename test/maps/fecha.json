@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "fecha": "https://ga.jspm.dev/npm:fecha@4.2.0/lib/fecha.umd.js"
+  }
+}

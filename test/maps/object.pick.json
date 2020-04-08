@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "object.pick": "https://ga.jspm.dev/npm:object.pick@1.3.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:object.pick@1.3.0/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    }
+  }
+}

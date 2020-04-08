@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "rgb": "https://ga.jspm.dev/npm:rgb@0.1.0/index.js"
+  }
+}

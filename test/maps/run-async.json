@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "run-async": "https://ga.jspm.dev/npm:run-async@2.4.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:run-async@2.4.0/": {
+      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js"
+    }
+  }
+}

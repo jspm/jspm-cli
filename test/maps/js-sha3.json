@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "js-sha3": "https://ga.jspm.dev/npm:js-sha3@0.8.0/src/sha3.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

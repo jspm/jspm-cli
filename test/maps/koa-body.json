@@ -1,0 +1,51 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "koa-body": "https://ga.jspm.dev/npm:koa-body@4.1.1/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:co-body@5.2.0/": {
+      "inflation": "https://ga.jspm.dev/npm:inflation@2.0.0/index.js",
+      "qs": "https://ga.jspm.dev/npm:qs@6.9.3/lib/index.js",
+      "raw-body": "https://ga.jspm.dev/npm:raw-body@2.4.1/index.js",
+      "type-is": "https://ga.jspm.dev/npm:type-is@1.6.18/index.js"
+    },
+    "https://ga.jspm.dev/npm:http-errors@1.7.3/": {
+      "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "setprototypeof": "https://ga.jspm.dev/npm:setprototypeof@1.1.1/index.js",
+      "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js",
+      "toidentifier": "https://ga.jspm.dev/npm:toidentifier@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:koa-body@4.1.1/": {
+      "co-body": "https://ga.jspm.dev/npm:co-body@5.2.0/index.js",
+      "formidable": "https://ga.jspm.dev/npm:formidable@1.2.2/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:raw-body@2.4.1/": {
+      "bytes": "https://ga.jspm.dev/npm:bytes@3.1.0/index.js",
+      "http-errors": "https://ga.jspm.dev/npm:http-errors@1.7.3/index.js",
+      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js",
+      "unpipe": "https://ga.jspm.dev/npm:unpipe@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:type-is@1.6.18/": {
+      "media-typer": "https://ga.jspm.dev/npm:media-typer@0.3.0/index.js",
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js"
+    }
+  }
+}

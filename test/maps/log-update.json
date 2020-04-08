@@ -1,0 +1,50 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "log-update": "https://ga.jspm.dev/npm:log-update@4.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:cli-cursor@3.1.0/": {
+      "restore-cursor": "https://ga.jspm.dev/npm:restore-cursor@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:log-update@4.0.0/": {
+      "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@4.3.1/index.js",
+      "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@3.1.0/index.js",
+      "slice-ansi": "https://ga.jspm.dev/npm:slice-ansi@4.0.0/index.js",
+      "wrap-ansi": "https://ga.jspm.dev/npm:wrap-ansi@6.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:onetime@5.1.0/": {
+      "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:restore-cursor@3.1.0/": {
+      "onetime": "https://ga.jspm.dev/npm:onetime@5.1.0/index.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:slice-ansi@4.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "astral-regex": "https://ga.jspm.dev/npm:astral-regex@2.0.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@4.2.0/": {
+      "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@8.0.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@3.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@6.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:wrap-ansi@6.2.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
+    }
+  }
+}

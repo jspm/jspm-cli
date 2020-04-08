@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "svelte-quill": "https://ga.jspm.dev/npm:svelte-quill@1.2.0/dist/index.umd.js"
+  }
+}

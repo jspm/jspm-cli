@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "requirejs": "https://ga.jspm.dev/npm:requirejs@2.3.6/bin/r.js"
+  }
+}

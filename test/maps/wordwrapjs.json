@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "wordwrapjs": "https://ga.jspm.dev/npm:wordwrapjs@4.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:wordwrapjs@4.0.0/": {
+      "reduce-flatten": "https://ga.jspm.dev/npm:reduce-flatten@2.0.0/index.js",
+      "typical": "https://ga.jspm.dev/npm:typical@5.2.0/dist/index.js"
+    }
+  }
+}

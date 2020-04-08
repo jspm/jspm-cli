@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "inquirer-autocomplete-prompt": "https://ga.jspm.dev/npm:inquirer-autocomplete-prompt@1.0.2/index.js",
+    "inquirer/": "https://ga.jspm.dev/npm:inquirer@6.5.2/",
+    "inquirer/lib/objects/choices": "https://ga.jspm.dev/npm:inquirer@6.5.2/lib/objects/choices.js",
+    "inquirer/lib/prompts/base": "https://ga.jspm.dev/npm:inquirer@6.5.2/lib/prompts/base.js",
+    "inquirer/lib/utils/events": "https://ga.jspm.dev/npm:inquirer@6.5.2/lib/utils/events.js",
+    "inquirer/lib/utils/paginator": "https://ga.jspm.dev/npm:inquirer@6.5.2/lib/utils/paginator.js",
+    "inquirer/lib/utils/readline": "https://ga.jspm.dev/npm:inquirer@6.5.2/lib/utils/readline.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:figures@2.0.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:inquirer-autocomplete-prompt@1.0.2/": {
+      "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@3.2.0/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "figures": "https://ga.jspm.dev/npm:figures@2.0.0/index.js",
+      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:inquirer@6.5.2/": {
+      "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@3.2.0/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "cli-width": "https://ga.jspm.dev/npm:cli-width@2.2.0/index.js",
+      "figures": "https://ga.jspm.dev/npm:figures@2.0.0/index.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.0/index.js",
+      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
+      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
+      "string-width": "https://ga.jspm.dev/npm:string-width@2.1.1/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:run-async@2.4.0/": {
+      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@2.1.1/": {
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@4.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@5.2.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@4.1.0/index.js"
+    }
+  }
+}

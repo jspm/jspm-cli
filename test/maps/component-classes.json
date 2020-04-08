@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "component-classes": "https://ga.jspm.dev/npm:component-classes@1.2.6/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:component-classes@1.2.6/": {
+      "component-indexof": "https://ga.jspm.dev/npm:component-indexof@0.0.3/index.js",
+      "indexof": "https://ga.jspm.dev/npm:indexof@0.0.1/index.js"
+    }
+  }
+}

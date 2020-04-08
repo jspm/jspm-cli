@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "isnumeric": "https://ga.jspm.dev/npm:isnumeric@0.3.3/isNumeric.min.js"
+  }
+}

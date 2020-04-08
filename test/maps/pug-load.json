@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "pug-load": "https://ga.jspm.dev/npm:pug-load@2.0.12/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:pug-load@2.0.12/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "pug-walk": "https://ga.jspm.dev/npm:pug-walk@1.1.8/index.js"
+    }
+  }
+}

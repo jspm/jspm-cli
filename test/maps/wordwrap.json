@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "wordwrap": "https://ga.jspm.dev/npm:wordwrap@1.0.0/index.js"
+  }
+}

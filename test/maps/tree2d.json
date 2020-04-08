@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "tree2d": "https://ga.jspm.dev/npm:tree2d@1.0.0-alpha.13/dist/tree2d.js"
+  }
+}

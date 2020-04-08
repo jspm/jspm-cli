@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "json5": "https://ga.jspm.dev/npm:json5@2.1.3/dist/index.js"
+  }
+}

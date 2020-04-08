@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "escape-latex": "https://ga.jspm.dev/npm:escape-latex@1.2.0/dist/index.js"
+  }
+}

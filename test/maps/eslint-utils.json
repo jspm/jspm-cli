@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "eslint-utils": "https://ga.jspm.dev/npm:eslint-utils@2.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:eslint-utils@2.0.0/": {
+      "eslint-visitor-keys": "https://ga.jspm.dev/npm:eslint-visitor-keys@1.1.0/lib/index.js"
+    }
+  }
+}

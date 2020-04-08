@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "map-visit": "https://ga.jspm.dev/npm:map-visit@1.0.0/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:map-visit@1.0.0/": {
+      "object-visit": "https://ga.jspm.dev/npm:object-visit@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:object-visit@1.0.1/": {
+      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "kuler": "https://ga.jspm.dev/npm:kuler@2.0.0/index.js"
+  }
+}

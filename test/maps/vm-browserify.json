@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "vm-browserify": "https://ga.jspm.dev/npm:vm-browserify@1.1.2/index.js"
+  }
+}

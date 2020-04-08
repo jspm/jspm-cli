@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "postgres-array": "https://ga.jspm.dev/npm:postgres-array@2.0.0/index.js"
+  }
+}

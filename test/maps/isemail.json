@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "isemail": "https://ga.jspm.dev/npm:isemail@3.2.0/lib/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:isemail@3.2.0/": {
+      "punycode": "https://ga.jspm.dev/npm:punycode@2.1.1/punycode.js"
+    }
+  }
+}

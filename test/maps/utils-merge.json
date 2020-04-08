@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "utils-merge": "https://ga.jspm.dev/npm:utils-merge@1.0.1/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "loglevelnext": "https://ga.jspm.dev/npm:loglevelnext@3.0.1/lib/index.js"
+  }
+}

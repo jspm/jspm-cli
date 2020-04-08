@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "pend": "https://ga.jspm.dev/npm:pend@1.2.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "jweboy-ssh-client": "https://ga.jspm.dev/npm:jweboy-ssh-client@0.0.5/lib/client.js"
+  }
+}

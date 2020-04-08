@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "frontmeta": "https://ga.jspm.dev/npm:frontmeta@2.2.2/index.js"
+  }
+}

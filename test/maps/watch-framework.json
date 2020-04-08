@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "watch-framework": "https://ga.jspm.dev/npm:watch-framework@1.0.3/index.js"
+  }
+}

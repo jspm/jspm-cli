@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "iview": "https://ga.jspm.dev/npm:iview@3.5.4/dist/iview.js",
+    "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js"
+  }
+}

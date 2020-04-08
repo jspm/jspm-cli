@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "has-values": "https://ga.jspm.dev/npm:has-values@2.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:has-values@2.0.1/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    }
+  }
+}

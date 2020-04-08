@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash._reevaluate": "https://ga.jspm.dev/npm:lodash._reevaluate@3.0.0/index.js"
+  }
+}

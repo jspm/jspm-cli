@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "zen-observable-ts": "https://ga.jspm.dev/npm:zen-observable-ts@0.8.20/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:zen-observable-ts@0.8.20/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js",
+      "zen-observable": "https://ga.jspm.dev/npm:zen-observable@0.8.15/index.js"
+    }
+  }
+}

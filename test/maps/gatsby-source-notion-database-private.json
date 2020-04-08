@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "gatsby-source-notion-database-private": "https://ga.jspm.dev/npm:gatsby-source-notion-database-private@0.7.0/index.js"
+  }
+}

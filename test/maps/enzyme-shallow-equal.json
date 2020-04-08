@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "enzyme-shallow-equal": "https://ga.jspm.dev/npm:enzyme-shallow-equal@1.0.1/build/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:enzyme-shallow-equal@1.0.1/": {
+      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js",
+      "object-is": "https://ga.jspm.dev/npm:object-is@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    }
+  }
+}

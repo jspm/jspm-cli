@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "encodeurl": "https://ga.jspm.dev/npm:encodeurl@1.0.2/index.js"
+  }
+}

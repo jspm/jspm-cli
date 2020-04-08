@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "hsl-regex": "https://ga.jspm.dev/npm:hsl-regex@1.0.0/index.js"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "request-debug": "https://ga.jspm.dev/npm:request-debug@0.2.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:request-debug@0.2.0/": {
+      "stringify-clone": "https://ga.jspm.dev/npm:stringify-clone@1.1.1/src/index.js"
+    }
+  }
+}

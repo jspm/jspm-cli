@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "map-cache": "https://ga.jspm.dev/npm:map-cache@0.2.2/index.js"
+  }
+}

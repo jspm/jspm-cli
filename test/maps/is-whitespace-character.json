@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-whitespace-character": "https://ga.jspm.dev/npm:is-whitespace-character@1.0.4/index.js"
+  }
+}

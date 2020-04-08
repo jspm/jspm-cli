@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "has-generators": "https://ga.jspm.dev/npm:has-generators@1.0.1/index.js"
+  }
+}

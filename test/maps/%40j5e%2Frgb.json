@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@j5e/rgb": "https://ga.jspm.dev/npm:@j5e/rgb@0.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@j5e/animation@0.1.0/": {
+      "@j5e/fn": "https://ga.jspm.dev/npm:@j5e/fn@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:@j5e/rgb@0.1.0/": {
+      "@j5e/animation": "https://ga.jspm.dev/npm:@j5e/animation@0.1.0/index.js",
+      "@j5e/easing": "https://ga.jspm.dev/npm:@j5e/easing@0.1.0/index.js",
+      "@j5e/fn": "https://ga.jspm.dev/npm:@j5e/fn@0.1.0/index.js"
+    }
+  }
+}

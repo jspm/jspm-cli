@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "ktloguploader": "https://ga.jspm.dev/npm:ktloguploader@1.0.3/index.js"
+  }
+}

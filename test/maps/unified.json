@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "unified": "https://ga.jspm.dev/npm:unified@9.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:unified@9.0.0/": {
+      "bail": "https://ga.jspm.dev/npm:bail@1.0.5/index.js",
+      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js",
+      "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@2.1.0/index.js",
+      "trough": "https://ga.jspm.dev/npm:trough@1.0.5/index.js",
+      "vfile": "https://ga.jspm.dev/npm:vfile@4.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:vfile-message@2.0.4/": {
+      "unist-util-stringify-position": "https://ga.jspm.dev/npm:unist-util-stringify-position@2.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:vfile@4.1.0/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js",
+      "replace-ext": "https://ga.jspm.dev/npm:replace-ext@1.0.0/index.js",
+      "vfile-message": "https://ga.jspm.dev/npm:vfile-message@2.0.4/index.js"
+    }
+  }
+}

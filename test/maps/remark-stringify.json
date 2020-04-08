@@ -1,0 +1,58 @@
+{
+  "imports": {
+    "remark-stringify": "https://ga.jspm.dev/npm:remark-stringify@8.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/": {
+      "is-alphabetical": "https://ga.jspm.dev/npm:is-alphabetical@1.0.4/index.js",
+      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:markdown-table@2.0.0/": {
+      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:mdast-util-compact@2.0.1/": {
+      "unist-util-visit": "https://ga.jspm.dev/npm:unist-util-visit@2.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:parse-entities@2.0.0/": {
+      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json",
+      "character-reference-invalid": "https://ga.jspm.dev/npm:character-reference-invalid@1.1.4/index.json",
+      "is-alphanumerical": "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/index.js",
+      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
+      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:remark-stringify@8.0.0/": {
+      "ccount": "https://ga.jspm.dev/npm:ccount@1.0.5/index.js",
+      "is-alphanumeric": "https://ga.jspm.dev/npm:is-alphanumeric@1.0.0/index.js",
+      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
+      "is-whitespace-character": "https://ga.jspm.dev/npm:is-whitespace-character@1.0.4/index.js",
+      "longest-streak": "https://ga.jspm.dev/npm:longest-streak@2.0.4/index.js",
+      "markdown-escapes": "https://ga.jspm.dev/npm:markdown-escapes@1.0.4/index.js",
+      "markdown-table": "https://ga.jspm.dev/npm:markdown-table@2.0.0/index.js",
+      "mdast-util-compact": "https://ga.jspm.dev/npm:mdast-util-compact@2.0.1/index.js",
+      "parse-entities": "https://ga.jspm.dev/npm:parse-entities@2.0.0/index.js",
+      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js",
+      "state-toggle": "https://ga.jspm.dev/npm:state-toggle@1.0.3/index.js",
+      "stringify-entities": "https://ga.jspm.dev/npm:stringify-entities@3.0.0/index.js",
+      "unherit": "https://ga.jspm.dev/npm:unherit@1.1.3/index.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:stringify-entities@3.0.0/": {
+      "character-entities-html4": "https://ga.jspm.dev/npm:character-entities-html4@1.1.4/index.json",
+      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json",
+      "is-alphanumerical": "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/index.js",
+      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
+      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:unherit@1.1.3/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:unist-util-visit-parents@3.0.2/": {
+      "unist-util-is/": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/",
+      "unist-util-is/convert": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/convert.js"
+    },
+    "https://ga.jspm.dev/npm:unist-util-visit@2.0.2/": {
+      "unist-util-visit-parents": "https://ga.jspm.dev/npm:unist-util-visit-parents@3.0.2/index.js"
+    }
+  }
+}

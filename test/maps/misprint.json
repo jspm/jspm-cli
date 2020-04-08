@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "misprint": "https://ga.jspm.dev/npm:misprint@1.0.1/index.js"
+  }
+}

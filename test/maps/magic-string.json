@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "magic-string": "https://ga.jspm.dev/npm:magic-string@0.25.7/dist/magic-string.cjs.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:magic-string@0.25.7/": {
+      "sourcemap-codec": "https://ga.jspm.dev/npm:sourcemap-codec@1.4.8/dist/sourcemap-codec.umd.js"
+    }
+  }
+}

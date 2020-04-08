@@ -1,0 +1,78 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "mangadex-api": "https://ga.jspm.dev/npm:mangadex-api@2.0.5/Mangadex.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:cheerio@1.0.0-rc.3/": {
+      "css-select": "https://ga.jspm.dev/npm:css-select@1.2.0/index.js",
+      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.1.1/index.js",
+      "htmlparser2": "https://ga.jspm.dev/npm:htmlparser2@3.10.1/lib/index.js",
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
+      "lodash/assignIn": "https://ga.jspm.dev/npm:lodash@4.17.15/assignIn.js",
+      "lodash/bind": "https://ga.jspm.dev/npm:lodash@4.17.15/bind.js",
+      "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
+      "lodash/filter": "https://ga.jspm.dev/npm:lodash@4.17.15/filter.js",
+      "lodash/flatten": "https://ga.jspm.dev/npm:lodash@4.17.15/flatten.js",
+      "lodash/forEach": "https://ga.jspm.dev/npm:lodash@4.17.15/forEach.js",
+      "lodash/map": "https://ga.jspm.dev/npm:lodash@4.17.15/map.js",
+      "lodash/merge": "https://ga.jspm.dev/npm:lodash@4.17.15/merge.js",
+      "lodash/pick": "https://ga.jspm.dev/npm:lodash@4.17.15/pick.js",
+      "lodash/reduce": "https://ga.jspm.dev/npm:lodash@4.17.15/reduce.js",
+      "lodash/reject": "https://ga.jspm.dev/npm:lodash@4.17.15/reject.js",
+      "lodash/some": "https://ga.jspm.dev/npm:lodash@4.17.15/some.js",
+      "parse5": "https://ga.jspm.dev/npm:parse5@3.0.3/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:css-select@1.2.0/": {
+      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js",
+      "css-what": "https://ga.jspm.dev/npm:css-what@2.1.3/index.js",
+      "domutils": "https://ga.jspm.dev/npm:domutils@1.5.1/index.js",
+      "nth-check": "https://ga.jspm.dev/npm:nth-check@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:dom-serializer@0.1.1/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js",
+      "entities": "https://ga.jspm.dev/npm:entities@1.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:dom-serializer@0.2.2/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
+      "entities": "https://ga.jspm.dev/npm:entities@2.0.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:domhandler@2.4.2/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:domutils@1.5.1/": {
+      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.2.2/index.js",
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:domutils@1.7.0/": {
+      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.2.2/index.js",
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:htmlparser2@3.10.1/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js",
+      "domhandler": "https://ga.jspm.dev/npm:domhandler@2.4.2/index.js",
+      "domutils": "https://ga.jspm.dev/npm:domutils@1.7.0/index.js",
+      "entities/": "https://ga.jspm.dev/npm:entities@1.1.2/",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+    },
+    "https://ga.jspm.dev/npm:lru-cache@5.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@3.1.1/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:mangadex-api@2.0.5/": {
+      "cheerio": "https://ga.jspm.dev/npm:cheerio@1.0.0-rc.3/index.js",
+      "deepmerge": "https://ga.jspm.dev/npm:deepmerge@4.2.2/dist/cjs.js",
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:nth-check@1.0.2/": {
+      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js"
+    }
+  }
+}

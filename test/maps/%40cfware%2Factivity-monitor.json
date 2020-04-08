@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@cfware/activity-monitor": "https://ga.jspm.dev/npm:@cfware/activity-monitor@0.1.4/activity-monitor.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@cfware/activity-monitor@0.1.4/": {
+      "@cfware/add-event-listener": "https://ga.jspm.dev/npm:@cfware/add-event-listener@0.1.2/add-event-listener.js",
+      "@cfware/callback-array-once": "https://ga.jspm.dev/npm:@cfware/callback-array-once@1.0.3/callback-array-once.js",
+      "@cfware/cleanable-interval": "https://ga.jspm.dev/npm:@cfware/cleanable-interval@0.1.2/cleanable-interval.js"
+    }
+  }
+}

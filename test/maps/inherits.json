@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+  }
+}

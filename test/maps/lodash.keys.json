@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "lodash.keys": "https://ga.jspm.dev/npm:lodash.keys@4.2.0/index.js"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "uri-tag": "https://ga.jspm.dev/npm:uri-tag@1.1.7/lib-esm/index.js"
+  }
+}

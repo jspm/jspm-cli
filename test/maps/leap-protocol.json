@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "leap-protocol": "https://ga.jspm.dev/npm:leap-protocol@1.0.7/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:leap-protocol@1.0.7/": {
+      "utf8": "https://ga.jspm.dev/npm:utf8@3.0.0/utf8.js"
+    }
+  }
+}

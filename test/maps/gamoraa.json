@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "gamoraa": "https://ga.jspm.dev/npm:gamoraa@1.0.1/dist/src/server.js"
+  }
+}

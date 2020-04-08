@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "messageformat-number-skeleton": "https://ga.jspm.dev/npm:messageformat-number-skeleton@0.2.1/lib/index.js"
+  }
+}

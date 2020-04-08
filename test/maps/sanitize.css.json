@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sanitize.css": "https://ga.jspm.dev/npm:sanitize.css@11.0.0/sanitize.css"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "exit": "https://ga.jspm.dev/npm:exit@0.1.2/lib/exit.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  }
+}

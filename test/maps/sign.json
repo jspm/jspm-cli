@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "sign": "https://ga.jspm.dev/npm:sign@1.0.2/index.js"
+  }
+}
