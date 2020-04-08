@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "codemirror": "https://ga.jspm.dev/npm:codemirror@5.52.2/lib/codemirror.js",
+    "codemirror/": "https://ga.jspm.dev/npm:codemirror@5.52.2/",
+    "codemirror/addon/lint/lint": "https://ga.jspm.dev/npm:codemirror@5.52.2/addon/lint/lint.js",
+    "mirrorsharp": "https://ga.jspm.dev/npm:mirrorsharp@2.0.0-preview-02/mirrorsharp.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:mirrorsharp@2.0.0-preview-02/": {
+      "codemirror": "https://ga.jspm.dev/npm:codemirror@5.52.2/lib/codemirror.js",
+      "codemirror-addon-infotip": "https://ga.jspm.dev/npm:codemirror-addon-infotip@1.1.0/dist/infotip.js",
+      "codemirror-addon-lint-fix": "https://ga.jspm.dev/npm:codemirror-addon-lint-fix@1.1.0/dist/lint-fix.js",
+      "codemirror/": "https://ga.jspm.dev/npm:codemirror@5.52.2/",
+      "codemirror/addon/hint/show-hint": "https://ga.jspm.dev/npm:codemirror@5.52.2/addon/hint/show-hint.js",
+      "codemirror/mode/clike/clike": "https://ga.jspm.dev/npm:codemirror@5.52.2/mode/clike/clike.js"
+    }
+  }
+}

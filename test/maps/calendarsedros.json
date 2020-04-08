@@ -1,0 +1,27 @@
+{
+  "imports": {
+    "@angular/common": "https://ga.jspm.dev/npm:@angular/common@9.1.1/bundles/common.umd.js",
+    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.1/bundles/core.umd.js",
+    "@angular/forms": "https://ga.jspm.dev/npm:@angular/forms@9.1.1/bundles/forms.umd.js",
+    "@angular/router": "https://ga.jspm.dev/npm:@angular/router@9.1.1/bundles/router.umd.js",
+    "calendarsedros": "https://ga.jspm.dev/npm:calendarsedros@0.9.1/index.js",
+    "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+    "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
+    "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@ionic/angular@5.0.7/": {
+      "@angular/common": "https://ga.jspm.dev/npm:@angular/common@9.1.1/bundles/common.umd.js",
+      "@ionic/core": "https://ga.jspm.dev/npm:@ionic/core@5.0.7/dist/index.js",
+      "@ionic/core/": "https://ga.jspm.dev/npm:@ionic/core@5.0.7/",
+      "@ionic/core/loader": "https://ga.jspm.dev/npm:@ionic/core@5.0.7/loader/index.cjs.js"
+    },
+    "https://ga.jspm.dev/npm:calendarsedros@0.9.1/": {
+      "@angular/common": "https://ga.jspm.dev/npm:@angular/common@9.1.1/bundles/common.umd.js",
+      "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.1/bundles/core.umd.js",
+      "@ionic/angular": "https://ga.jspm.dev/npm:@ionic/angular@5.0.7/bundles/ionic-angular.umd.js",
+      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    }
+  }
+}

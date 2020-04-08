@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "react-native-reconnecting-websocket-client": "https://ga.jspm.dev/npm:react-native-reconnecting-websocket-client@0.3.2/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react-native-reconnecting-websocket-client@0.3.2/": {
+      "react-native-reconnecting-websocket": "https://ga.jspm.dev/npm:react-native-reconnecting-websocket@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-native-reconnecting-websocket@1.0.2/": {
+      "react-native": "https://ga.jspm.dev/npm:react-native@0.62.1/index.js"
+    }
+  }
+}

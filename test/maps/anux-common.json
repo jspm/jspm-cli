@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "anux-common": "https://ga.jspm.dev/npm:anux-common@1.0.48/dist/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:anux-common@1.0.48/": {
+      "datejs": "https://ga.jspm.dev/npm:datejs@1.0.0-rc3/index.js",
+      "fast-equals": "https://ga.jspm.dev/npm:fast-equals@2.0.0/dist/fast-equals.js",
+      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js",
+      "moment/": "https://ga.jspm.dev/npm:moment@2.24.0/",
+      "moment/locale/en-gb": "https://ga.jspm.dev/npm:moment@2.24.0/locale/en-gb.js",
+      "numeral": "https://ga.jspm.dev/npm:numeral@2.0.6/numeral.js",
+      "uuid": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/index.js"
+    }
+  }
+}

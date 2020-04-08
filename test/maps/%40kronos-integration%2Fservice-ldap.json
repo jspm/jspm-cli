@@ -1,0 +1,42 @@
+{
+  "imports": {
+    "@kronos-integration/service-ldap": "https://ga.jspm.dev/npm:@kronos-integration/service-ldap@2.1.17/src/service-ldap.mjs",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/src/index.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/": {
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/service-ldap@2.1.17/": {
+      "@kronos-integration/service": "https://ga.jspm.dev/npm:@kronos-integration/service@8.3.20/src/module.mjs",
+      "ldapts": "https://ga.jspm.dev/npm:ldapts@2.2.0/index.js",
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+    },
+    "https://ga.jspm.dev/npm:@kronos-integration/service@8.3.20/": {
+      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/src/module.mjs",
+      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.5/src/loglevel-mixin.mjs",
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs",
+      "statetransition-mixin": "https://ga.jspm.dev/npm:statetransition-mixin@6.0.6/src/statetransition-mixin.mjs"
+    },
+    "https://ga.jspm.dev/npm:asn1@0.2.4/": {
+      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    },
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:ldapts@2.2.0/": {
+      "asn1": "https://ga.jspm.dev/npm:asn1@0.2.4/lib/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "uuid": "https://ga.jspm.dev/npm:uuid@3.3.3/index.js"
+    }
+  }
+}
