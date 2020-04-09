@@ -1,0 +1,30 @@
+{
+  "imports": {
+    "@lrnwebcomponents/social-media-icons": "https://ga.jspm.dev/npm:@lrnwebcomponents/social-media-icons@2.6.4/social-media-icons.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/social-media-icons@2.6.4/": {
+      "@polymer/iron-icon/": "https://ga.jspm.dev/npm:@polymer/iron-icon@3.0.1/",
+      "@polymer/iron-iconset-svg/": "https://ga.jspm.dev/npm:@polymer/iron-iconset-svg@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-icon@3.0.1/": {
+      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
+      "@polymer/iron-meta/": "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-iconset-svg@3.0.1/": {
+      "@polymer/iron-meta/": "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/": {
+      "@webcomponents/shadycss/": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/"
+    }
+  }
+}

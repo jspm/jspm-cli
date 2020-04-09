@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@livy/group-handler": "https://ga.jspm.dev/npm:@livy/group-handler@1.0.2/lib/group-handler.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@livy/group-handler@1.0.2/": {
+      "@livy/util/": "https://ga.jspm.dev/npm:@livy/util@1.0.4/",
+      "@livy/util/lib/handlers/abstract-batch-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-batch-handler.js",
+      "@livy/util/lib/handlers/is-closable-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-closable-handler-interface.js",
+      "@livy/util/lib/handlers/is-formattable-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-formattable-handler-interface.js",
+      "@livy/util/lib/handlers/is-sync-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-sync-handler-interface.js",
+      "@livy/util/lib/handlers/processable-handler-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/processable-handler-mixin.js",
+      "@livy/util/lib/is-resettable-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/is-resettable-interface.js",
+      "@livy/util/lib/validatable-set": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/validatable-set.js"
+    }
+  }
+}

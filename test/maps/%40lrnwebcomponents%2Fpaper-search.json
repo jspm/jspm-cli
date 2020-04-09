@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@lrnwebcomponents/paper-search": "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-search@2.6.4/paper-search.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-search@2.6.4/": {
+      "@polymer/iron-a11y-keys-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/": {
+      "@webcomponents/shadycss/": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/"
+    }
+  }
+}
