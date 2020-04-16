@@ -1,0 +1,29 @@
+{
+  "imports": {
+    "iterate-value": "https://ga.jspm.dev/npm:iterate-value@1.0.2/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-get-iterator@1.1.0/": {
+      "es-abstract/": "https://ga.jspm.dev/npm:es-abstract@1.17.5/",
+      "es-abstract/GetIntrinsic": "https://ga.jspm.dev/npm:es-abstract@1.17.5/GetIntrinsic.js",
+      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js",
+      "has-symbols/": "https://ga.jspm.dev/npm:has-symbols@1.0.1/",
+      "has-symbols/shams": "https://ga.jspm.dev/npm:has-symbols@1.0.1/shams.js",
+      "is-arguments": "https://ga.jspm.dev/npm:is-arguments@1.0.4/index.js",
+      "is-map": "https://ga.jspm.dev/npm:is-map@2.0.1/index.js",
+      "is-set": "https://ga.jspm.dev/npm:is-set@2.0.1/index.js",
+      "is-string": "https://ga.jspm.dev/npm:is-string@1.0.5/index.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:iterate-value@1.0.2/": {
+      "es-get-iterator": "https://ga.jspm.dev/npm:es-get-iterator@1.1.0/index.js",
+      "iterate-iterator": "https://ga.jspm.dev/npm:iterate-iterator@1.0.1/index.js"
+    }
+  }
+}

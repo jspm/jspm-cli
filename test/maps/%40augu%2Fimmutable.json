@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@augu/immutable": "https://ga.jspm.dev/npm:@augu/immutable@0.2.0/esm.mjs"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "available-typed-arrays": "https://ga.jspm.dev/npm:available-typed-arrays@1.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:available-typed-arrays@1.0.2/": {
+      "array-filter": "https://ga.jspm.dev/npm:array-filter@1.0.0/index.js"
+    }
+  }
+}

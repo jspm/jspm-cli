@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@augu/ichigo": "https://ga.jspm.dev/npm:@augu/ichigo@1.2.1/esm.mjs"
+  }
+}
