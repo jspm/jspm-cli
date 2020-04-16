@@ -152,7 +152,7 @@ export function getExportsTarget(target, env): string | null {
   else if (Array.isArray(target)) {
     // TODO: Validation for arrays
     for (const targetFallback of target) {
-      return targetFallback;
+      return getExportsTarget(targetFallback, env);
     }
   }
   return null;
