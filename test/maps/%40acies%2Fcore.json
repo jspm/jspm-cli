@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@acies/core/": "https://ga.jspm.dev/npm:@acies/core@1.1.246/lib/"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@emotion/hash": "https://ga.jspm.dev/npm:@emotion/hash@0.8.0/dist/hash.browser.cjs.js"
+  }
+}

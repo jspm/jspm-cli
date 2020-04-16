@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "tossjs/action/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/action/",
+    "tossjs/components/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/components/",
+    "tossjs/helpers/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/helpers/",
+    "tossjs/history/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/history/",
+    "tossjs/spa/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/spa/",
+    "tossjs/store/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/store/",
+    "tossjs/utils/": "https://ga.jspm.dev/npm:tossjs@0.0.23/runtime/utils/"
+  }
+}

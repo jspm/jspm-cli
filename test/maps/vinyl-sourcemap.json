@@ -1,0 +1,69 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "vinyl-sourcemap": "https://ga.jspm.dev/npm:vinyl-sourcemap@1.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:append-buffer@1.0.2/": {
+      "buffer-equal": "https://ga.jspm.dev/npm:buffer-equal@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:cloneable-readable@1.1.3/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js"
+    },
+    "https://ga.jspm.dev/npm:convert-source-map@1.7.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:normalize-path@2.1.1/": {
+      "remove-trailing-separator": "https://ga.jspm.dev/npm:remove-trailing-separator@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:now-and-later@2.0.1/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:remove-bom-buffer@3.0.0/": {
+      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js",
+      "is-utf8": "https://ga.jspm.dev/npm:is-utf8@0.2.1/is-utf8.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:vinyl-sourcemap@1.1.0/": {
+      "append-buffer": "https://ga.jspm.dev/npm:append-buffer@1.0.2/index.js",
+      "convert-source-map": "https://ga.jspm.dev/npm:convert-source-map@1.7.0/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "normalize-path": "https://ga.jspm.dev/npm:normalize-path@2.1.1/index.js",
+      "now-and-later": "https://ga.jspm.dev/npm:now-and-later@2.0.1/index.js",
+      "remove-bom-buffer": "https://ga.jspm.dev/npm:remove-bom-buffer@3.0.0/index.js",
+      "vinyl": "https://ga.jspm.dev/npm:vinyl@2.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:vinyl@2.2.0/": {
+      "clone": "https://ga.jspm.dev/npm:clone@2.1.2/clone.js",
+      "clone-buffer": "https://ga.jspm.dev/npm:clone-buffer@1.0.0/index.js",
+      "clone-stats": "https://ga.jspm.dev/npm:clone-stats@1.0.0/index.js",
+      "cloneable-readable": "https://ga.jspm.dev/npm:cloneable-readable@1.1.3/index.js",
+      "remove-trailing-separator": "https://ga.jspm.dev/npm:remove-trailing-separator@1.1.0/index.js",
+      "replace-ext": "https://ga.jspm.dev/npm:replace-ext@1.0.0/index.js"
+    }
+  }
+}

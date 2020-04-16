@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eslint-plugin-jest": "https://ga.jspm.dev/npm:eslint-plugin-jest@23.8.2/lib/"
+  }
+}

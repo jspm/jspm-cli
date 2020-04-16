@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@radist2s/babel-plugin-literal-shadow/": "https://ga.jspm.dev/npm:@radist2s/babel-plugin-literal-shadow@1.0.4/lib/"
+  }
+}

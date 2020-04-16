@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "jszip": "https://ga.jspm.dev/npm:jszip@3.3.0/lib/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:jszip@3.3.0/": {
+      "lie": "https://ga.jspm.dev/npm:lie@3.3.0/lib/browser.js",
+      "pako": "https://ga.jspm.dev/npm:pako@1.0.11/index.js",
+      "set-immediate-shim": "https://ga.jspm.dev/npm:set-immediate-shim@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:lie@3.3.0/": {
+      "immediate": "https://ga.jspm.dev/npm:immediate@3.0.6/lib/browser.js"
+    }
+  }
+}

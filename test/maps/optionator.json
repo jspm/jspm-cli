@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "optionator": "https://ga.jspm.dev/npm:optionator@0.9.1/lib/"
+  }
+}

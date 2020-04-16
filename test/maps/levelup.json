@@ -1,0 +1,57 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "levelup": "https://ga.jspm.dev/npm:levelup@4.4.0/lib/levelup.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:abstract-leveldown@6.2.3/": {
+      "buffer": "https://ga.jspm.dev/npm:buffer@5.6.0/index.js",
+      "immediate": "https://ga.jspm.dev/npm:immediate@3.2.3/lib/index.js",
+      "level-supports": "https://ga.jspm.dev/npm:level-supports@1.0.1/index.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:buffer@5.6.0/": {
+      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
+      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    },
+    "https://ga.jspm.dev/npm:deferred-leveldown@5.3.0/": {
+      "abstract-leveldown": "https://ga.jspm.dev/npm:abstract-leveldown@6.2.3/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+    },
+    "https://ga.jspm.dev/npm:errno@0.1.7/": {
+      "prr": "https://ga.jspm.dev/npm:prr@1.0.1/prr.js"
+    },
+    "https://ga.jspm.dev/npm:level-errors@2.0.1/": {
+      "errno": "https://ga.jspm.dev/npm:errno@0.1.7/errno.js"
+    },
+    "https://ga.jspm.dev/npm:level-iterator-stream@4.0.2/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:level-supports@1.0.1/": {
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js",
+      "xtend/": "https://ga.jspm.dev/npm:xtend@4.0.2/",
+      "xtend/mutable": "https://ga.jspm.dev/npm:xtend@4.0.2/mutable.js"
+    },
+    "https://ga.jspm.dev/npm:levelup@4.4.0/": {
+      "deferred-leveldown": "https://ga.jspm.dev/npm:deferred-leveldown@5.3.0/deferred-leveldown.js",
+      "level-errors": "https://ga.jspm.dev/npm:level-errors@2.0.1/errors.js",
+      "level-iterator-stream": "https://ga.jspm.dev/npm:level-iterator-stream@4.0.2/index.js",
+      "level-supports": "https://ga.jspm.dev/npm:level-supports@1.0.1/index.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@3.6.0/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    }
+  }
+}

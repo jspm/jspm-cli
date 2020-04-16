@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@emotion/memoize": "https://ga.jspm.dev/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js"
+  }
+}

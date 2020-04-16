@@ -1,0 +1,90 @@
+{
+  "imports": {
+    "@reactioncommerce/plugin-navigation": "https://ga.jspm.dev/npm:@reactioncommerce/plugin-navigation@1.0.2/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.1/": {
+      "callsite": "https://ga.jspm.dev/npm:callsite@1.0.0/index.js",
+      "graphql-fields": "https://ga.jspm.dev/npm:graphql-fields@2.0.3/build/index.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    },
+    "https://ga.jspm.dev/npm:@reactioncommerce/plugin-navigation@1.0.2/": {
+      "@reactioncommerce/api-utils/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.1/lib/",
+      "@reactioncommerce/api-utils/graphql/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.1/lib/graphql/",
+      "@reactioncommerce/random": "https://ga.jspm.dev/npm:@reactioncommerce/random@1.0.2/dist/browser.js",
+      "@reactioncommerce/reaction-error": "https://ga.jspm.dev/npm:@reactioncommerce/reaction-error@1.0.1/index.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "simpl-schema": "https://ga.jspm.dev/npm:simpl-schema@1.5.7/dist/main.js"
+    },
+    "https://ga.jspm.dev/npm:lodash._basecallback@3.3.1/": {
+      "lodash._baseisequal": "https://ga.jspm.dev/npm:lodash._baseisequal@3.0.7/index.js",
+      "lodash._bindcallback": "https://ga.jspm.dev/npm:lodash._bindcallback@3.0.1/index.js",
+      "lodash.isarray": "https://ga.jspm.dev/npm:lodash.isarray@3.0.4/index.js",
+      "lodash.pairs": "https://ga.jspm.dev/npm:lodash.pairs@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash._baseeach@3.0.4/": {
+      "lodash.keys": "https://ga.jspm.dev/npm:lodash.keys@3.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash._baseisequal@3.0.7/": {
+      "lodash.isarray": "https://ga.jspm.dev/npm:lodash.isarray@3.0.4/index.js",
+      "lodash.istypedarray": "https://ga.jspm.dev/npm:lodash.istypedarray@3.0.6/index.js",
+      "lodash.keys": "https://ga.jspm.dev/npm:lodash.keys@3.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash._baseismatch@3.1.3/": {
+      "lodash._baseisequal": "https://ga.jspm.dev/npm:lodash._baseisequal@3.0.7/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash._basematches@3.2.0/": {
+      "lodash._baseismatch": "https://ga.jspm.dev/npm:lodash._baseismatch@3.1.3/index.js",
+      "lodash.pairs": "https://ga.jspm.dev/npm:lodash.pairs@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash.find@3.2.1/": {
+      "lodash._basecallback": "https://ga.jspm.dev/npm:lodash._basecallback@3.3.1/index.js",
+      "lodash._baseeach": "https://ga.jspm.dev/npm:lodash._baseeach@3.0.4/index.js",
+      "lodash._basefind": "https://ga.jspm.dev/npm:lodash._basefind@3.0.0/index.js",
+      "lodash._basefindindex": "https://ga.jspm.dev/npm:lodash._basefindindex@3.6.0/index.js",
+      "lodash.isarray": "https://ga.jspm.dev/npm:lodash.isarray@3.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash.findwhere@3.1.0/": {
+      "lodash._basematches": "https://ga.jspm.dev/npm:lodash._basematches@3.2.0/index.js",
+      "lodash.find": "https://ga.jspm.dev/npm:lodash.find@3.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash.keys@3.1.2/": {
+      "lodash._getnative": "https://ga.jspm.dev/npm:lodash._getnative@3.9.1/index.js",
+      "lodash.isarguments": "https://ga.jspm.dev/npm:lodash.isarguments@3.1.0/index.js",
+      "lodash.isarray": "https://ga.jspm.dev/npm:lodash.isarray@3.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:lodash.pairs@3.0.1/": {
+      "lodash.keys": "https://ga.jspm.dev/npm:lodash.keys@3.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:message-box@0.2.2/": {
+      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "lodash/merge": "https://ga.jspm.dev/npm:lodash@4.17.15/merge.js",
+      "lodash/template": "https://ga.jspm.dev/npm:lodash@4.17.15/template.js"
+    },
+    "https://ga.jspm.dev/npm:mongo-object@0.1.3/": {
+      "lodash.foreach": "https://ga.jspm.dev/npm:lodash.foreach@4.5.0/index.js",
+      "lodash.isempty": "https://ga.jspm.dev/npm:lodash.isempty@4.4.0/index.js",
+      "lodash.isobject": "https://ga.jspm.dev/npm:lodash.isobject@3.0.2/index.js",
+      "lodash.without": "https://ga.jspm.dev/npm:lodash.without@4.4.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:simpl-schema@1.5.7/": {
+      "clone": "https://ga.jspm.dev/npm:clone@2.1.2/clone.js",
+      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
+      "lodash.every": "https://ga.jspm.dev/npm:lodash.every@4.6.0/index.js",
+      "lodash.find": "https://ga.jspm.dev/npm:lodash.find@4.6.0/index.js",
+      "lodash.findwhere": "https://ga.jspm.dev/npm:lodash.findwhere@3.1.0/index.js",
+      "lodash.includes": "https://ga.jspm.dev/npm:lodash.includes@4.3.0/index.js",
+      "lodash.isempty": "https://ga.jspm.dev/npm:lodash.isempty@4.4.0/index.js",
+      "lodash.isobject": "https://ga.jspm.dev/npm:lodash.isobject@3.0.2/index.js",
+      "lodash.omit": "https://ga.jspm.dev/npm:lodash.omit@4.5.0/index.js",
+      "lodash.pick": "https://ga.jspm.dev/npm:lodash.pick@4.4.0/index.js",
+      "lodash.union": "https://ga.jspm.dev/npm:lodash.union@4.6.0/index.js",
+      "lodash.uniq": "https://ga.jspm.dev/npm:lodash.uniq@4.5.0/index.js",
+      "message-box": "https://ga.jspm.dev/npm:message-box@0.2.2/dist/MessageBox.js",
+      "mongo-object": "https://ga.jspm.dev/npm:mongo-object@0.1.3/dist/mongo-object.js"
+    }
+  }
+}

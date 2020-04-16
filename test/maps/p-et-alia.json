@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "p-et-alia": "https://ga.jspm.dev/npm:p-et-alia@0.0.74/p-et-alia.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:p-et-alia@0.0.74/": {
+      "trans-render/": "https://ga.jspm.dev/npm:trans-render@0.0.142/",
+      "xtal-element/": "https://ga.jspm.dev/npm:xtal-element@0.0.101/",
+      "xtal-state/": "https://ga.jspm.dev/npm:xtal-state@0.0.100/"
+    },
+    "https://ga.jspm.dev/npm:xtal-element@0.0.101/": {
+      "trans-render/": "https://ga.jspm.dev/npm:trans-render@0.0.142/"
+    },
+    "https://ga.jspm.dev/npm:xtal-element@0.0.87/": {
+      "trans-render/": "https://ga.jspm.dev/npm:trans-render@0.0.136/"
+    },
+    "https://ga.jspm.dev/npm:xtal-state@0.0.100/": {
+      "trans-render/": "https://ga.jspm.dev/npm:trans-render@0.0.136/",
+      "xtal-element/": "https://ga.jspm.dev/npm:xtal-element@0.0.87/"
+    }
+  }
+}

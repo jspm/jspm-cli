@@ -1,0 +1,22 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "readem": "https://ga.jspm.dev/npm:readem@0.2.1/dist/index.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:at-at@1.1.0/": {
+      "army-knife/": "https://ga.jspm.dev/npm:army-knife@0.2.3/",
+      "army-knife/callAfter": "https://ga.jspm.dev/npm:army-knife@0.2.3/callAfter.js",
+      "parametric": "https://ga.jspm.dev/npm:parametric@0.0.5/index.js",
+      "regexr": "https://ga.jspm.dev/npm:regexr@1.6.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:readem@0.2.1/": {
+      "at-at": "https://ga.jspm.dev/npm:at-at@1.1.0/at-at.js",
+      "jsdoctypeparser": "https://ga.jspm.dev/npm:jsdoctypeparser@6.1.0/index.js",
+      "lowclass": "https://ga.jspm.dev/npm:lowclass@4.9.3/dist/index.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "teddytags/": "https://ga.jspm.dev/npm:teddytags@1.10.1/lib/",
+    "teddytags/umd": "https://ga.jspm.dev/npm:teddytags@1.10.1/lib/umd.js"
+  }
+}

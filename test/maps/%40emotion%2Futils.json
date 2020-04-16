@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@emotion/utils": "https://ga.jspm.dev/npm:@emotion/utils@0.11.3/dist/utils.browser.cjs.js"
+  }
+}

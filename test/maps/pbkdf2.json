@@ -1,0 +1,37 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "pbkdf2": "https://ga.jspm.dev/npm:pbkdf2@3.0.17/browser.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:create-hash@1.2.0/": {
+      "md5.js": "https://ga.jspm.dev/npm:md5.js@1.3.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:hash-base@3.0.4/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:md5.js@1.3.5/": {
+      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.0.4/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pbkdf2@3.0.17/": {
+      "create-hash/": "https://ga.jspm.dev/npm:create-hash@1.2.0/",
+      "create-hash/md5": "https://ga.jspm.dev/npm:create-hash@1.2.0/md5.js",
+      "ripemd160": "https://ga.jspm.dev/npm:ripemd160@2.0.2/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:ripemd160@2.0.2/": {
+      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.0.4/index.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+    },
+    "https://ga.jspm.dev/npm:sha.js@2.4.11/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    }
+  }
+}

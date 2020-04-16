@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "for-instance": "https://ga.jspm.dev/npm:for-instance@0.0.18/for-instance.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:for-instance@0.0.18/": {
+      "trans-render/": "https://ga.jspm.dev/npm:trans-render@0.0.142/",
+      "xtal-element/": "https://ga.jspm.dev/npm:xtal-element@0.0.99/"
+    },
+    "https://ga.jspm.dev/npm:xtal-element@0.0.99/": {
+      "trans-render/": "https://ga.jspm.dev/npm:trans-render@0.0.142/"
+    }
+  }
+}

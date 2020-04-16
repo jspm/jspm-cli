@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "bson": "https://ga.jspm.dev/npm:bson@4.0.4/dist/bson.browser.umd.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bson@4.0.4/": {
+      "buffer": "https://ga.jspm.dev/npm:buffer@5.6.0/index.js",
+      "long": "https://ga.jspm.dev/npm:long@4.0.0/src/long.js"
+    },
+    "https://ga.jspm.dev/npm:buffer@5.6.0/": {
+      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
+      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    }
+  }
+}

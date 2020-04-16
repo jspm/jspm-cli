@@ -1,0 +1,114 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "decompress": "https://ga.jspm.dev/npm:decompress@4.2.1/index.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bl@1.2.2/": {
+      "readable-stream/": "https://ga.jspm.dev/npm:readable-stream@2.3.7/",
+      "readable-stream/duplex": "https://ga.jspm.dev/npm:readable-stream@2.3.7/duplex.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:buffer-alloc@1.2.0/": {
+      "buffer-alloc-unsafe": "https://ga.jspm.dev/npm:buffer-alloc-unsafe@1.1.0/index.js",
+      "buffer-fill": "https://ga.jspm.dev/npm:buffer-fill@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:buffer@5.6.0/": {
+      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
+      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    },
+    "https://ga.jspm.dev/npm:decompress-tar@4.1.1/": {
+      "file-type": "https://ga.jspm.dev/npm:file-type@5.2.0/index.js",
+      "is-stream": "https://ga.jspm.dev/npm:is-stream@1.1.0/index.js",
+      "tar-stream": "https://ga.jspm.dev/npm:tar-stream@1.6.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:decompress-tarbz2@4.1.1/": {
+      "decompress-tar": "https://ga.jspm.dev/npm:decompress-tar@4.1.1/index.js",
+      "file-type": "https://ga.jspm.dev/npm:file-type@6.2.0/index.js",
+      "is-stream": "https://ga.jspm.dev/npm:is-stream@1.1.0/index.js",
+      "seek-bzip": "https://ga.jspm.dev/npm:seek-bzip@1.0.5/lib/index.js",
+      "unbzip2-stream": "https://ga.jspm.dev/npm:unbzip2-stream@1.4.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:decompress-targz@4.1.1/": {
+      "decompress-tar": "https://ga.jspm.dev/npm:decompress-tar@4.1.1/index.js",
+      "file-type": "https://ga.jspm.dev/npm:file-type@5.2.0/index.js",
+      "is-stream": "https://ga.jspm.dev/npm:is-stream@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:decompress-unzip@4.0.1/": {
+      "file-type": "https://ga.jspm.dev/npm:file-type@3.9.0/index.js",
+      "get-stream": "https://ga.jspm.dev/npm:get-stream@2.3.1/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@2.3.0/index.js",
+      "yauzl": "https://ga.jspm.dev/npm:yauzl@2.10.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:decompress@4.2.1/": {
+      "decompress-tar": "https://ga.jspm.dev/npm:decompress-tar@4.1.1/index.js",
+      "decompress-tarbz2": "https://ga.jspm.dev/npm:decompress-tarbz2@4.1.1/index.js",
+      "decompress-targz": "https://ga.jspm.dev/npm:decompress-targz@4.1.1/index.js",
+      "decompress-unzip": "https://ga.jspm.dev/npm:decompress-unzip@4.0.1/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "make-dir": "https://ga.jspm.dev/npm:make-dir@1.3.0/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@2.3.0/index.js",
+      "strip-dirs": "https://ga.jspm.dev/npm:strip-dirs@2.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:fd-slicer@1.1.0/": {
+      "pend": "https://ga.jspm.dev/npm:pend@1.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:get-stream@2.3.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "pinkie-promise": "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:make-dir@1.3.0/": {
+      "pify": "https://ga.jspm.dev/npm:pify@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/": {
+      "pinkie": "https://ga.jspm.dev/npm:pinkie@2.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-dirs@2.1.0/": {
+      "is-natural-number": "https://ga.jspm.dev/npm:is-natural-number@4.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:tar-stream@1.6.2/": {
+      "bl": "https://ga.jspm.dev/npm:bl@1.2.2/bl.js",
+      "buffer-alloc": "https://ga.jspm.dev/npm:buffer-alloc@1.2.0/index.js",
+      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
+      "fs-constants": "https://ga.jspm.dev/npm:fs-constants@1.0.0/browser.js",
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js",
+      "to-buffer": "https://ga.jspm.dev/npm:to-buffer@1.1.1/index.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    },
+    "https://ga.jspm.dev/npm:unbzip2-stream@1.4.1/": {
+      "buffer": "https://ga.jspm.dev/npm:buffer@5.6.0/index.js",
+      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    },
+    "https://ga.jspm.dev/npm:yauzl@2.10.0/": {
+      "buffer-crc32": "https://ga.jspm.dev/npm:buffer-crc32@0.2.13/index.js",
+      "fd-slicer": "https://ga.jspm.dev/npm:fd-slicer@1.1.0/index.js"
+    }
+  }
+}

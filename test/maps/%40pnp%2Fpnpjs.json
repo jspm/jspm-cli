@@ -1,0 +1,59 @@
+{
+  "imports": {
+    "@pnp/pnpjs": "https://ga.jspm.dev/npm:@pnp/pnpjs@2.0.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@pnp/adaljsclient@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "adal-angular/": "https://ga.jspm.dev/npm:adal-angular@1.0.17/",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/common@2.0.4/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/config-store@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/sp/": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/",
+      "@pnp/sp/items/list": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/items/list.js",
+      "@pnp/sp/lists/web": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/lists/web.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/graph@2.0.4/": {
+      "@pnp/adaljsclient": "https://ga.jspm.dev/npm:@pnp/adaljsclient@2.0.4/index.js",
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.4/index.js",
+      "@pnp/odata": "https://ga.jspm.dev/npm:@pnp/odata@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/odata@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/pnpjs@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/config-store": "https://ga.jspm.dev/npm:@pnp/config-store@2.0.4/index.js",
+      "@pnp/graph": "https://ga.jspm.dev/npm:@pnp/graph@2.0.4/index.js",
+      "@pnp/graph/": "https://ga.jspm.dev/npm:@pnp/graph@2.0.4/",
+      "@pnp/graph/presets/all": "https://ga.jspm.dev/npm:@pnp/graph@2.0.4/presets/all.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.4/index.js",
+      "@pnp/odata": "https://ga.jspm.dev/npm:@pnp/odata@2.0.4/index.js",
+      "@pnp/sp-addinhelpers": "https://ga.jspm.dev/npm:@pnp/sp-addinhelpers@2.0.4/index.js",
+      "@pnp/sp/": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/",
+      "@pnp/sp/presets/all": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/presets/all.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/sp-addinhelpers@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/sp": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/index.js",
+      "@pnp/sp/": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/",
+      "@pnp/sp/sites": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/sites/index.js",
+      "@pnp/sp/webs": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/webs/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.4/index.js",
+      "@pnp/odata": "https://ga.jspm.dev/npm:@pnp/odata@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    }
+  }
+}

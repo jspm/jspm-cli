@@ -1,0 +1,114 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fead-flo": "https://ga.jspm.dev/npm:fead-flo@1.0.3/dist/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@serialport/binding-abstract@8.0.6/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    },
+    "https://ga.jspm.dev/npm:@serialport/bindings@8.0.7/": {
+      "@serialport/binding-abstract": "https://ga.jspm.dev/npm:@serialport/binding-abstract@8.0.6/lib/index.js",
+      "@serialport/parser-readline": "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/lib/index.js",
+      "bindings": "https://ga.jspm.dev/npm:bindings@1.5.0/bindings.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    },
+    "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/": {
+      "@serialport/parser-delimiter": "https://ga.jspm.dev/npm:@serialport/parser-delimiter@8.0.6/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@serialport/stream@8.0.6/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+    },
+    "https://ga.jspm.dev/npm:accepts@1.3.7/": {
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js",
+      "negotiator": "https://ga.jspm.dev/npm:negotiator@0.6.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:bindings@1.5.0/": {
+      "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/": {
+      "after": "https://ga.jspm.dev/npm:after@0.8.2/index.js",
+      "arraybuffer.slice": "https://ga.jspm.dev/npm:arraybuffer.slice@0.0.7/index.js",
+      "base64-arraybuffer": "https://ga.jspm.dev/npm:base64-arraybuffer@0.1.5/lib/base64-arraybuffer.js",
+      "blob": "https://ga.jspm.dev/npm:blob@0.0.5/index.js",
+      "has-binary2": "https://ga.jspm.dev/npm:has-binary2@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:engine.io@3.4.0/": {
+      "accepts": "https://ga.jspm.dev/npm:accepts@1.3.7/index.js",
+      "base64id": "https://ga.jspm.dev/npm:base64id@2.0.0/lib/base64id.js",
+      "cookie": "https://ga.jspm.dev/npm:cookie@0.3.1/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "engine.io-parser": "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/lib/browser.js",
+      "ws": "https://ga.jspm.dev/npm:ws@7.2.3/browser.js"
+    },
+    "https://ga.jspm.dev/npm:fead-flo@1.0.3/": {
+      "fead": "https://ga.jspm.dev/npm:fead@1.0.4/lib/index.js",
+      "socket.io": "https://ga.jspm.dev/npm:socket.io@2.3.0/lib/index.js",
+      "winston-transport": "https://ga.jspm.dev/npm:winston-transport@4.3.0/dist/index.js",
+      "yaml": "https://ga.jspm.dev/npm:yaml@1.8.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:fead@1.0.4/": {
+      "serialport": "https://ga.jspm.dev/npm:serialport@8.0.7/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:has-binary2@1.0.3/": {
+      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:serialport@8.0.7/": {
+      "@serialport/bindings": "https://ga.jspm.dev/npm:@serialport/bindings@8.0.7/lib/index.js",
+      "@serialport/parser-byte-length": "https://ga.jspm.dev/npm:@serialport/parser-byte-length@8.0.6/lib/index.js",
+      "@serialport/parser-cctalk": "https://ga.jspm.dev/npm:@serialport/parser-cctalk@8.0.6/lib/index.js",
+      "@serialport/parser-delimiter": "https://ga.jspm.dev/npm:@serialport/parser-delimiter@8.0.6/lib/index.js",
+      "@serialport/parser-readline": "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/lib/index.js",
+      "@serialport/parser-ready": "https://ga.jspm.dev/npm:@serialport/parser-ready@8.0.6/lib/index.js",
+      "@serialport/parser-regex": "https://ga.jspm.dev/npm:@serialport/parser-regex@8.0.6/lib/index.js",
+      "@serialport/stream": "https://ga.jspm.dev/npm:@serialport/stream@8.0.6/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:socket.io-parser@3.4.0/": {
+      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.2.1/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:socket.io@2.3.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "engine.io": "https://ga.jspm.dev/npm:engine.io@3.4.0/lib/engine.io.js",
+      "has-binary2": "https://ga.jspm.dev/npm:has-binary2@1.0.3/index.js",
+      "socket.io-adapter": "https://ga.jspm.dev/npm:socket.io-adapter@1.1.2/index.js",
+      "socket.io-client/": "https://ga.jspm.dev/npm:socket.io-client@2.3.0/",
+      "socket.io-parser": "https://ga.jspm.dev/npm:socket.io-parser@3.4.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:winston-transport@4.3.0/": {
+      "readable-stream/": "https://ga.jspm.dev/npm:readable-stream@2.3.7/",
+      "readable-stream/writable": "https://ga.jspm.dev/npm:readable-stream@2.3.7/writable.js",
+      "triple-beam": "https://ga.jspm.dev/npm:triple-beam@1.3.0/index.js"
+    }
+  }
+}

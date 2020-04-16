@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "spect": "https://ga.jspm.dev/npm:spect@20.0.0/index.js"
+  }
+}

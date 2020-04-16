@@ -1,0 +1,47 @@
+{
+  "imports": {
+    "@lrnwebcomponents/simple-blog-card": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-blog-card@2.6.7/simple-blog-card.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/absolute-position-behavior@2.6.3/": {
+      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    },
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-avatar@2.6.7/": {
+      "@lrnwebcomponents/es-global-bridge/": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.4.0/",
+      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    },
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-blog-card@2.6.7/": {
+      "@lrnwebcomponents/paper-avatar/": "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-avatar@2.6.7/",
+      "@lrnwebcomponents/simple-popover/": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-popover@2.6.3/",
+      "@polymer/paper-card/": "https://ga.jspm.dev/npm:@polymer/paper-card@3.0.1/",
+      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/",
+      "time-elements/": "https://ga.jspm.dev/npm:time-elements@3.0.0/"
+    },
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-popover@2.6.3/": {
+      "@lrnwebcomponents/absolute-position-behavior/": "https://ga.jspm.dev/npm:@lrnwebcomponents/absolute-position-behavior@2.6.3/",
+      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-image@3.0.2/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-card@3.0.1/": {
+      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
+      "@polymer/iron-image/": "https://ga.jspm.dev/npm:@polymer/iron-image@3.0.2/",
+      "@polymer/paper-styles/": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/": {
+      "@webcomponents/shadycss/": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/"
+    },
+    "https://ga.jspm.dev/npm:lit-element@2.2.1/": {
+      "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js",
+      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+    }
+  }
+}

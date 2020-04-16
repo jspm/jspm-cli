@@ -1,0 +1,129 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "cacache": "https://ga.jspm.dev/npm:cacache@15.0.0/index.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:aggregate-error@3.0.1/": {
+      "clean-stack": "https://ga.jspm.dev/npm:clean-stack@2.2.0/index.js",
+      "indent-string": "https://ga.jspm.dev/npm:indent-string@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:cacache@15.0.0/": {
+      "chownr": "https://ga.jspm.dev/npm:chownr@1.1.4/chownr.js",
+      "fs-minipass": "https://ga.jspm.dev/npm:fs-minipass@2.1.0/index.js",
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
+      "infer-owner": "https://ga.jspm.dev/npm:infer-owner@1.0.4/index.js",
+      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js",
+      "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js",
+      "minipass-collect": "https://ga.jspm.dev/npm:minipass-collect@1.0.2/index.js",
+      "minipass-flush": "https://ga.jspm.dev/npm:minipass-flush@1.0.5/index.js",
+      "minipass-pipeline": "https://ga.jspm.dev/npm:minipass-pipeline@1.2.2/index.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@1.0.4/index.js",
+      "move-concurrently": "https://ga.jspm.dev/npm:move-concurrently@1.0.1/move.js",
+      "p-map": "https://ga.jspm.dev/npm:p-map@3.0.0/index.js",
+      "promise-inflight": "https://ga.jspm.dev/npm:promise-inflight@1.0.1/inflight.js",
+      "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js",
+      "ssri": "https://ga.jspm.dev/npm:ssri@8.0.0/index.js",
+      "unique-filename": "https://ga.jspm.dev/npm:unique-filename@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:copy-concurrently@1.0.5/": {
+      "aproba": "https://ga.jspm.dev/npm:aproba@1.2.0/index.js",
+      "fs-write-stream-atomic": "https://ga.jspm.dev/npm:fs-write-stream-atomic@1.0.10/index.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
+      "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js",
+      "run-queue": "https://ga.jspm.dev/npm:run-queue@1.0.3/queue.js"
+    },
+    "https://ga.jspm.dev/npm:fs-minipass@2.1.0/": {
+      "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:fs-write-stream-atomic@1.0.10/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "iferr": "https://ga.jspm.dev/npm:iferr@0.1.5/index.js",
+      "imurmurhash": "https://ga.jspm.dev/npm:imurmurhash@0.1.4/imurmurhash.js",
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:lru-cache@5.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@3.1.1/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:minipass-collect@1.0.2/": {
+      "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:minipass-flush@1.0.5/": {
+      "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:minipass-pipeline@1.2.2/": {
+      "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:minipass@3.1.1/": {
+      "yallist": "https://ga.jspm.dev/npm:yallist@4.0.0/yallist.js"
+    },
+    "https://ga.jspm.dev/npm:move-concurrently@1.0.1/": {
+      "aproba": "https://ga.jspm.dev/npm:aproba@1.2.0/index.js",
+      "copy-concurrently": "https://ga.jspm.dev/npm:copy-concurrently@1.0.5/copy.js",
+      "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js",
+      "run-queue": "https://ga.jspm.dev/npm:run-queue@1.0.3/queue.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:p-map@3.0.0/": {
+      "aggregate-error": "https://ga.jspm.dev/npm:aggregate-error@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:rimraf@2.7.1/": {
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js"
+    },
+    "https://ga.jspm.dev/npm:run-queue@1.0.3/": {
+      "aproba": "https://ga.jspm.dev/npm:aproba@1.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:ssri@8.0.0/": {
+      "minipass": "https://ga.jspm.dev/npm:minipass@3.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:unique-filename@1.1.1/": {
+      "unique-slug": "https://ga.jspm.dev/npm:unique-slug@2.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:unique-slug@2.0.2/": {
+      "imurmurhash": "https://ga.jspm.dev/npm:imurmurhash@0.1.4/imurmurhash.js"
+    }
+  }
+}

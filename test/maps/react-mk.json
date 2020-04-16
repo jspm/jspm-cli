@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "react-mk/": "https://ga.jspm.dev/npm:react-mk@1.0.9/lib/"
+  }
+}

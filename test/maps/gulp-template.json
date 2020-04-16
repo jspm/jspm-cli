@@ -1,0 +1,53 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "gulp-template": "https://ga.jspm.dev/npm:gulp-template@5.0.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-cyan@0.1.1/": {
+      "ansi-wrap": "https://ga.jspm.dev/npm:ansi-wrap@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-red@0.1.1/": {
+      "ansi-wrap": "https://ga.jspm.dev/npm:ansi-wrap@0.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:arr-diff@1.1.0/": {
+      "arr-flatten": "https://ga.jspm.dev/npm:arr-flatten@1.1.0/index.js",
+      "array-slice": "https://ga.jspm.dev/npm:array-slice@0.2.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:extend-shallow@1.1.4/": {
+      "kind-of": "https://ga.jspm.dev/npm:kind-of@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:gulp-template@5.0.0/": {
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "plugin-error": "https://ga.jspm.dev/npm:plugin-error@0.1.2/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "through2": "https://ga.jspm.dev/npm:through2@2.0.5/through2.js"
+    },
+    "https://ga.jspm.dev/npm:plugin-error@0.1.2/": {
+      "ansi-cyan": "https://ga.jspm.dev/npm:ansi-cyan@0.1.1/index.js",
+      "ansi-red": "https://ga.jspm.dev/npm:ansi-red@0.1.1/index.js",
+      "arr-diff": "https://ga.jspm.dev/npm:arr-diff@1.1.0/index.js",
+      "arr-union": "https://ga.jspm.dev/npm:arr-union@2.1.0/index.js",
+      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:through2@2.0.5/": {
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js",
+      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    }
+  }
+}

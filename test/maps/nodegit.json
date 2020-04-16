@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "nodegit": "https://ga.jspm.dev/npm:nodegit@0.26.5/dist/nodegit.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:nodegit-promise@4.0.0/": {
+      "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js",
+      "asap/raw": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    },
+    "https://ga.jspm.dev/npm:nodegit@0.26.5/": {
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
+      "promisify-node": "https://ga.jspm.dev/npm:promisify-node@0.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:promisify-node@0.3.0/": {
+      "nodegit-promise": "https://ga.jspm.dev/npm:nodegit-promise@4.0.0/index.js"
+    }
+  }
+}

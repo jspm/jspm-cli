@@ -1,0 +1,109 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "node-pre-gyp": "https://ga.jspm.dev/npm:node-pre-gyp@0.14.0/lib/node-pre-gyp.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:are-we-there-yet@1.1.5/": {
+      "delegates": "https://ga.jspm.dev/npm:delegates@1.0.0/index.js",
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js"
+    },
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:gauge@2.7.4/": {
+      "aproba": "https://ga.jspm.dev/npm:aproba@1.2.0/index.js",
+      "console-control-strings": "https://ga.jspm.dev/npm:console-control-strings@1.1.0/index.js",
+      "has-unicode": "https://ga.jspm.dev/npm:has-unicode@2.0.1/index.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js",
+      "string-width": "https://ga.jspm.dev/npm:string-width@1.0.2/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js",
+      "wide-align": "https://ga.jspm.dev/npm:wide-align@1.1.3/align.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/": {
+      "number-is-nan": "https://ga.jspm.dev/npm:number-is-nan@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:node-pre-gyp@0.14.0/": {
+      "detect-libc": "https://ga.jspm.dev/npm:detect-libc@1.0.3/lib/detect-libc.js",
+      "nopt": "https://ga.jspm.dev/npm:nopt@4.0.3/lib/nopt.js",
+      "npmlog": "https://ga.jspm.dev/npm:npmlog@4.1.2/log.js",
+      "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    },
+    "https://ga.jspm.dev/npm:nopt@4.0.3/": {
+      "abbrev": "https://ga.jspm.dev/npm:abbrev@1.1.1/abbrev.js",
+      "osenv": "https://ga.jspm.dev/npm:osenv@0.1.5/osenv.js"
+    },
+    "https://ga.jspm.dev/npm:npmlog@4.1.2/": {
+      "are-we-there-yet": "https://ga.jspm.dev/npm:are-we-there-yet@1.1.5/index.js",
+      "console-control-strings": "https://ga.jspm.dev/npm:console-control-strings@1.1.0/index.js",
+      "gauge": "https://ga.jspm.dev/npm:gauge@2.7.4/index.js",
+      "set-blocking": "https://ga.jspm.dev/npm:set-blocking@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:osenv@0.1.5/": {
+      "os-homedir": "https://ga.jspm.dev/npm:os-homedir@1.0.2/index.js",
+      "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:rimraf@2.7.1/": {
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@1.0.2/": {
+      "code-point-at": "https://ga.jspm.dev/npm:code-point-at@1.1.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@1.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:string-width@2.1.1/": {
+      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@3.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:strip-ansi@4.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:wide-align@1.1.3/": {
+      "string-width": "https://ga.jspm.dev/npm:string-width@2.1.1/index.js"
+    }
+  }
+}

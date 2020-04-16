@@ -1,0 +1,46 @@
+{
+  "imports": {
+    "@pnp/sp-addinhelpers-commonjs": "https://ga.jspm.dev/npm:@pnp/sp-addinhelpers-commonjs@2.0.4/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.4/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/common@2.0.4/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.4/": {
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/odata-commonjs@2.0.4/": {
+      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.4/index.js",
+      "@pnp/logging-commonjs": "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/odata@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/sp-addinhelpers-commonjs@2.0.4/": {
+      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.4/index.js",
+      "@pnp/sp-commonjs": "https://ga.jspm.dev/npm:@pnp/sp-commonjs@2.0.4/presets/all.js",
+      "@pnp/sp/": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/",
+      "@pnp/sp/sites": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/sites/index.js",
+      "@pnp/sp/webs": "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/webs/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/sp-commonjs@2.0.4/": {
+      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.4/index.js",
+      "@pnp/logging-commonjs": "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.4/index.js",
+      "@pnp/odata-commonjs": "https://ga.jspm.dev/npm:@pnp/odata-commonjs@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    },
+    "https://ga.jspm.dev/npm:@pnp/sp@2.0.4/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.4/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.4/index.js",
+      "@pnp/odata": "https://ga.jspm.dev/npm:@pnp/odata@2.0.4/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    }
+  }
+}

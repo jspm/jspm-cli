@@ -1,0 +1,82 @@
+{
+  "imports": {
+    "@lrnwebcomponents/simple-login": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-login@2.6.4/simple-login.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-login@2.6.4/": {
+      "@polymer/paper-button/": "https://ga.jspm.dev/npm:@polymer/paper-button@3.0.1/",
+      "@polymer/paper-input/": "https://ga.jspm.dev/npm:@polymer/paper-input@3.2.1/",
+      "@polymer/paper-progress/": "https://ga.jspm.dev/npm:@polymer/paper-progress@3.0.1/",
+      "@polymer/paper-styles/": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-a11y-announcer@3.0.2/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-behaviors@3.0.1/": {
+      "@polymer/iron-a11y-keys-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-form-element-behavior@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-input@3.0.1/": {
+      "@polymer/iron-a11y-announcer/": "https://ga.jspm.dev/npm:@polymer/iron-a11y-announcer@3.0.2/",
+      "@polymer/iron-validatable-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-validatable-behavior@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-range-behavior@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-validatable-behavior@3.0.1/": {
+      "@polymer/iron-meta/": "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-behaviors@3.0.1/": {
+      "@polymer/iron-behaviors/": "https://ga.jspm.dev/npm:@polymer/iron-behaviors@3.0.1/",
+      "@polymer/paper-ripple/": "https://ga.jspm.dev/npm:@polymer/paper-ripple@3.0.2/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-button@3.0.1/": {
+      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
+      "@polymer/paper-behaviors/": "https://ga.jspm.dev/npm:@polymer/paper-behaviors@3.0.1/",
+      "@polymer/paper-styles/": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-input@3.2.1/": {
+      "@polymer/iron-a11y-keys-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/",
+      "@polymer/iron-behaviors/": "https://ga.jspm.dev/npm:@polymer/iron-behaviors@3.0.1/",
+      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
+      "@polymer/iron-form-element-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-form-element-behavior@3.0.1/",
+      "@polymer/iron-input/": "https://ga.jspm.dev/npm:@polymer/iron-input@3.0.1/",
+      "@polymer/paper-styles/": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-progress@3.0.1/": {
+      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
+      "@polymer/iron-range-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-range-behavior@3.0.1/",
+      "@polymer/paper-styles/": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-ripple@3.0.2/": {
+      "@polymer/iron-a11y-keys-behavior/": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/": {
+      "@polymer/font-roboto/": "https://ga.jspm.dev/npm:@polymer/font-roboto@3.0.2/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/": {
+      "@webcomponents/shadycss/": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/"
+    }
+  }
+}

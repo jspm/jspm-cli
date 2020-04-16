@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "is-bluebird": "https://ga.jspm.dev/npm:is-bluebird@1.0.2/lib/"
+  }
+}

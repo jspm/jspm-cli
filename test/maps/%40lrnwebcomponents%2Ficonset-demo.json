@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "@lrnwebcomponents/iconset-demo": "https://ga.jspm.dev/npm:@lrnwebcomponents/iconset-demo@2.6.3/iconset-demo.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/iconset-demo@2.6.3/": {
+      "@polymer/iron-icon/": "https://ga.jspm.dev/npm:@polymer/iron-icon@3.0.1/",
+      "@polymer/iron-meta/": "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/",
+      "@polymer/marked-element/": "https://ga.jspm.dev/npm:@polymer/marked-element@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-icon@3.0.1/": {
+      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
+      "@polymer/iron-meta/": "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/",
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/iron-meta@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/marked-element@3.0.1/": {
+      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/",
+      "marked/": "https://ga.jspm.dev/npm:marked@0.3.19/"
+    },
+    "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/": {
+      "@webcomponents/shadycss/": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/"
+    }
+  }
+}

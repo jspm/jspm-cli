@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "terriajs-cesium": "https://ga.jspm.dev/npm:terriajs-cesium@1.68.0/Source/Cesium.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:terriajs-cesium@1.68.0/": {
+      "dompurify/": "https://ga.jspm.dev/npm:dompurify@2.0.8/",
+      "dompurify/dist/purify": "https://ga.jspm.dev/npm:dompurify@2.0.8/dist/purify.js"
+    }
+  }
+}

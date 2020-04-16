@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "jstransformer": "https://ga.jspm.dev/npm:jstransformer@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:jstransformer@1.0.0/": {
+      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js",
+      "promise": "https://ga.jspm.dev/npm:promise@7.3.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:promise@7.3.1/": {
+      "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js",
+      "asap/raw": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    }
+  }
+}

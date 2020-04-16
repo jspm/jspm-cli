@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@troveng/swagger-gen-ts/utility/": "https://ga.jspm.dev/npm:@troveng/swagger-gen-ts@3.0.0-beta.39/lib/utility/"
+  }
+}

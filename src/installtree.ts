@@ -326,6 +326,9 @@ export const systemCdnUrl = 'https://ga.jspm.systems/';
 function pkgEq (pkgA: ExactPackage, pkgB: ExactPackage) {
   return pkgA.registry === pkgB.registry && pkgA.name === pkgB.name && pkgA.version === pkgB.version;
 }
+export function matchesTarget (pkg: ExactPackage, target: PackageTarget) {
+  return pkg.registry === target.registry && pkg.name === target.name && target.ranges.some(range => range.has(pkg.version, true));
+}
 export function pkgToUrl (pkg: ExactPackage, cdnUrl: string) {
   return cdnUrl + pkgToStr(pkg);
 }

@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@outgrowio/reaction-dummy-data/": "https://ga.jspm.dev/npm:@outgrowio/reaction-dummy-data@1.1.0/lib/",
+    "@outgrowio/reaction-dummy-data/graphql/": "https://ga.jspm.dev/npm:@outgrowio/reaction-dummy-data@1.1.0/lib/graphql/",
+    "@outgrowio/reaction-dummy-data/tests/": "https://ga.jspm.dev/npm:@outgrowio/reaction-dummy-data@1.1.0/lib/tests/"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@emotion/weak-memoize": "https://ga.jspm.dev/npm:@emotion/weak-memoize@0.2.5/dist/weak-memoize.browser.cjs.js"
+  }
+}

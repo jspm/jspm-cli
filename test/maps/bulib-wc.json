@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "bulib-wc": "https://ga.jspm.dev/npm:bulib-wc@0.1.31/src/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:bulib-wc@0.1.31/": {
+      "@webcomponents/webcomponentsjs/": "https://ga.jspm.dev/npm:@webcomponents/webcomponentsjs@2.4.3/",
+      "@webcomponents/webcomponentsjs/webcomponents-loader": "https://ga.jspm.dev/npm:@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js"
+    }
+  }
+}

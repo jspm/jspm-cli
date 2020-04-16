@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js"
+  }
+}
