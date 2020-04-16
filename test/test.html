@@ -42,7 +42,7 @@
             var map = await (await fetch(`./maps/${encodeURIComponent(encodeURIComponent(test))}.json`)).json();
           }
           catch (e) {
-            console.warn('No map for ' + test);
+            throw new Error('No map for ' + test);
             return;
           }
           const loader = createMapLoader(map);
