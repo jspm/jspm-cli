@@ -27,6 +27,8 @@
           const loader = createMapLoader(map);
           for (const specifier of specifiers.split(' ')) {
             const m = await loader.import(specifier);
+            // for debugging
+            window.m = m;
           }
           loader.dispose();
         }
@@ -34,7 +36,8 @@
     })));
 
     const testList = await (await fetch('./test-list.json')).json();
-    runTests(await Promise.all(testList.map(async test => {
+    const skip = eval(await (await fetch('./skip-list.js')).text());
+    runTests(await Promise.all(testList.filter(test => !skip.includes(test)).map(async test => {
       return {
         test,
         async run () {

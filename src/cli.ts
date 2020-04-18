@@ -226,9 +226,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'system', 'flatten', 'depcache', 'inline-maps'],
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'system', 'flatten', 'depcache', 'inline-maps', 'package', 'hash-entries'],
           strFlags: ['import-map', 'dir', 'out', 'banner', 'log'],
-          aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', s: 'system', d: 'dir', b: 'banner', i: 'inline-maps' }
+          aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', s: 'system', d: 'dir', b: 'banner', i: 'inline-maps', h: 'hash-entries' }
         });
 
         const dir = opts.dir ? ((<string>opts.dir).endsWith('/') ? (<string>opts.dir).slice(0, -1) : <string>opts.dir) : 'dist';
@@ -265,17 +265,18 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const rollupOptions: any = {
           input: inputObj,
           onwarn: () => {},
-          plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, system: <boolean>opts.system, inlineMaps: <boolean>opts.inlineMaps })]
+          plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, system: <boolean>opts.system, inlineMaps: <boolean>opts.inlineMaps, sourceMap: opts.sourceMap })]
         };
 
         const outputOptions = {
-          entryFileNames: '[name]-[hash].js',
+          entryFileNames: opts.hashEntries ? '[name]-[hash].js' : '[name].js',
           chunkFileNames: 'chunk-[hash].js',
           dir,
           compact: true,
           format: opts.system ? 'system' : 'esm',
           sourcemap: opts.sourceMap,
           indent: true,
+          interop: false,
           banner: opts.banner
         };
 
@@ -342,12 +343,12 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
           let backupName: string = 'jspm.importmap';
           if (!opts.out) {
-            if (fs.existsSync('jspm.importmap') && !jsonEquals(fs.readFileSync('jspm.importmap').toString(), map.map)) {
+            if (path.resolve(outMapFile) === path.resolve(backupName) || fs.existsSync(backupName) && !jsonEquals(fs.readFileSync(backupName).toString(), map.map)) {
               const basename = path.basename(inMapFile).slice(0, -path.extname(inMapFile).length);
               backupName = basename + '.importmap';
-              if (fs.existsSync(backupName) && !jsonEquals(fs.readFileSync(backupName).toString(), map.map)) {
+              if (path.resolve(outMapFile) === path.resolve(backupName) || fs.existsSync(backupName) && !jsonEquals(fs.readFileSync(backupName).toString(), map.map)) {
                 let idx = 1;
-                while (fs.existsSync(`${basename}-${idx}.importmap`) && !jsonEquals(fs.readFileSync(`${basename}-${idx}.importmap`).toString(), map.map)) {
+                while (path.resolve(outMapFile) === path.resolve(`${basename}-${idx}.importmap`) || fs.existsSync(`${basename}-${idx}.importmap`) && !jsonEquals(fs.readFileSync(`${basename}-${idx}.importmap`).toString(), map.map)) {
                   idx++;
                 }
                 backupName = `${basename}-${idx}.importmap`;

@@ -10,8 +10,9 @@ export default ({
   baseUrl = pathToFileURL(process.cwd() + '/').href,
   system,
   externals,
-  inlineMaps
-}: { map: any, system?: boolean, baseUrl: URL | string, externals?: string[], inlineMaps?: boolean }) => {
+  inlineMaps,
+  sourceMap
+}: { map: any, system?: boolean, baseUrl: URL | string, externals?: string[], inlineMaps?: boolean, sourceMap?: boolean }) => {
   if (typeof baseUrl === 'string')
     baseUrl = new URL(baseUrl);
 
@@ -22,12 +23,6 @@ export default ({
 
   return {
     name: 'jspm-rollup',
-    options (opts) {
-      opts.output = opts.output || {};
-      opts.output.interop = false;
-      this.sourcemap = opts.output.sourcemap;
-      return opts;
-    },
     buildStart () {
       const traceMap = new TraceMap(map, baseUrl);
       this.traceMap = traceMap;
@@ -93,11 +88,15 @@ export default ({
           default: throw new Error(`Invalid status code ${res.status} loading ${url}. ${res.statusText}`);
         }
         return await res.text();
+        
       }
     },
     transform (code, url) {
       if (!minifyUrls.has(url)) return code;
-      return terser.minify(code, { sourceMap: this.sourcemap });
+      const result = terser.minify(code, { sourceMap });
+      if (result.error)
+        return code;
+      return result;
     }
   };
 };

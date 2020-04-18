@@ -4,9 +4,12 @@ import { fileURLToPath } from 'url';
 
 const { TraceMap } = jspm;
 
+const regenerate = false;
+
 (async () => {
-  const tests = eval(fs.readFileSync(fileURLToPath(import.meta.url + '/../test-list.json')).toString());
-  const skip = eval(fs.readFileSync(fileURLToPath(import.meta.url + '/../skip-list.json')).toString());
+  const testList = eval(fs.readFileSync(fileURLToPath(import.meta.url + '/../tests.js')).toString())
+  const tests = [...testList.map(test => Array.isArray(test) ? test[0] : test), ...eval(fs.readFileSync(fileURLToPath(import.meta.url + '/../test-list.json')).toString())];
+  const skip = eval(fs.readFileSync(fileURLToPath(import.meta.url + '/../skip-list.js')).toString());
   let failures = 0;
   let successes = 0;
   let count = tests.length;
@@ -17,7 +20,7 @@ const { TraceMap } = jspm;
     }
     const [installs] = typeof test === 'string' ? [test, test] : test;
     const path = fileURLToPath(import.meta.url + '/../maps/') + encodeURIComponent(installs) + '.json';
-    if (fs.existsSync(path))
+    if (!regenerate && fs.existsSync(path))
       continue;
     console.log('Generating map for ' + test + ' (' + (index + 1) + ' / ' + count + ' | ' + successes + ' / ' + failures + ')');
     const map = new TraceMap(new URL('.', import.meta.url).href);

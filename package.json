@@ -29,7 +29,7 @@
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",
     "rimraf": "^3.0.2",
-    "rollup": "^1.32.0",
+    "rollup": "^2.6.1",
     "terser": "^4.6.4",
     "typescript": "^3.8.0-beta"
   },
