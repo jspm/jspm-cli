@@ -277,6 +277,14 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
   return [installs, map];
 }
 
+const encodedHashRegEx = /%23/g;
+const encodedPercentRegEx = /%25/g;
+export function unsanitizeUrl (url) {
+  if (url.indexOf('%') === -1)
+    return url;
+  return url.replace(encodedHashRegEx, '#').replace(encodedPercentRegEx, '%');
+}
+
 export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string): ImportMap {
   const outMap = {
     imports: Object.create(null),

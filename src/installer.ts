@@ -4,7 +4,7 @@ import { TraceMap, ImportMap } from './tracemap.js';
 import { isPlain, baseUrl, sort } from './utils.js';
 import { fetch } from './fetch.js';
 import { log } from './log.js';
-import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, matchesTarget } from './installtree.js';
+import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, matchesTarget, unsanitizeUrl } from './installtree.js';
 
 export type Semver = any;
 export type SemverRange = any;
@@ -444,7 +444,7 @@ export class Installer {
   private async tracePkg (pkg: ExactPackage, subpaths: string[], pkgExports: Record<string, string>, exactSubpaths: boolean, cjsResolve: boolean, parentUrl?: URL) {
     await Promise.all(subpaths.map(async subpath => {
       const exports = await this.resolveExports(pkg, await this.getPackageConfig(pkg), cjsResolve);
-      let exportMatch = getMapMatch(subpath, exports);
+      let exportMatch = getMapMatch(unsanitizeUrl(subpath), exports);
       
       if (exportMatch === undefined) {
         console.log((await this.getPackageConfig(pkg)).exports);
