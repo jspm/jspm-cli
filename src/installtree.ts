@@ -315,12 +315,9 @@ export function parsePkg (specifier: string): { pkgName: string, subpath: string
 export function pkgToStr (pkg: ExactPackage) {
   return `${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
 }
-export function pkgToLookupUrl (pkg: ExactPackage) {
-  if (pkg.registry !== 'npm')
-    throw new Error('Not an npm registry');
-  return `https://unpkg.com/${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
+export function pkgToLookupUrl (pkg: ExactPackage, edge = false) {
+  return `https://ga.jspm.dev/${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : edge ? '@' : ''}`;
 }
-export const devCdnUrl = 'https://dev.jspm.io/';
 export const esmCdnUrl = 'https://ga.jspm.dev/';
 export const systemCdnUrl = 'https://ga.jspm.systems/';
 function pkgEq (pkgA: ExactPackage, pkgB: ExactPackage) {

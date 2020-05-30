@@ -4,7 +4,7 @@ import { TraceMap, ImportMap } from './tracemap.js';
 import { isPlain, baseUrl, sort } from './utils.js';
 import { fetch } from './fetch.js';
 import { log } from './log.js';
-import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, devCdnUrl, matchesTarget } from './installtree.js';
+import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, matchesTarget } from './installtree.js';
 
 export type Semver = any;
 export type SemverRange = any;
@@ -121,7 +121,7 @@ export class Installer {
         subpaths = availableSubpaths;
     }
     subpaths = subpaths || [subpath];
-    await this.tracePkg(pkg, subpaths, pkgExports, true);
+    await this.tracePkg(pkg, subpaths, pkgExports, true, false);
   }
 
   private setResolution (install: PackageInstall, pkg: ExactPackage): Record<string, string> {
@@ -146,9 +146,14 @@ export class Installer {
 
   // CDN TODO: CDN must disable extension checks
   // CDN TODO: CDN should set "exports" explicitly from its analysis, thereby encapsulating the CDN package
-  private async resolveExports (pkg: ExactPackage, pcfg: PackageConfig): Promise<Record<string, string>> {
+  private async resolveExports (pkg: ExactPackage, pcfg: PackageConfig, cjsResolve = false): Promise<Record<string, string>> {
     const cached = this.resolvedExportsCache.get(pcfg);
     if (cached) return cached;
+
+    let env = this.env;
+    if (cjsResolve)
+      env = ['require', ...this.env.filter(env => env !== 'import')];
+
     // conditional resolution from env
     // does in-browser package resolution
     // index.js | index.json
@@ -171,11 +176,11 @@ export class Installer {
         exports['.'] = pcfg.exports;
       }
       else if (!allDotKeys(pcfg.exports)) {
-        exports['.'] = getExportsTarget(pcfg.exports, this.env);
+        exports['.'] = getExportsTarget(pcfg.exports, env);
       }
       else {
         for (const expt of Object.keys(pcfg.exports)) {
-          exports[expt] = getExportsTarget(pcfg.exports[expt], this.env);
+          exports[expt] = getExportsTarget(pcfg.exports[expt], env);
         }
       }
     }
@@ -214,8 +219,8 @@ export class Installer {
     await (this.pcfgPromises[pkgStr] = this.pcfgPromises[pkgStr] || (async () => {
       const res = await fetch(`${pkgToLookupUrl(pkg)}/package.json`);
       switch (res.status) {
-        case 200: break;
-        case 404: throw new Error(`No package.json defined for ${pkgStr}`);;
+        case 200: case 304: break;
+        case 404: throw new Error(`Package ${pkgStr} not found.`);
         default: throw new Error(`Invalid status code ${res.status} reading package config for ${pkgStr}. ${res.statusText}`);
       }
       this.pcfgs[pkgStr] = await res.json();
@@ -269,6 +274,7 @@ export class Installer {
   private isNodeCorePeer (specifier: string) {
     return [
       'assert',
+      'async_hooks',
       'buffer',
       'child_process',
       'cluster',
@@ -283,10 +289,12 @@ export class Installer {
       'http',
       'http2',
       'https',
+      'inspector',
       'module',
       'net',
       'os',
       'path',
+      'perf_hooks',
       'process',
       'punycode',
       'querystring',
@@ -306,11 +314,11 @@ export class Installer {
     ].indexOf(specifier) !== -1;
   }
 
-  async traceInstall (specifier: string, parentUrl: URL) {
+  async traceInstall (specifier: string, parentUrl: URL, cjsResolve: boolean) {
     log('trace', `${specifier} ${parentUrl}`);
     if (!isPlain(specifier)) {
       const resolvedUrl = new URL(specifier, parentUrl);
-      return this.trace(resolvedUrl.href, parentUrl);
+      return this.trace(resolvedUrl.href, cjsResolve, parentUrl);
     }
 
     const parsed = parsePkg(specifier);
@@ -346,25 +354,27 @@ export class Installer {
       // New / existing install
       const pcfg = await this.getPackageConfig(parentPkg);
       if (pkgName === pcfg.name && pcfg.exports !== null && pcfg.exports !== undefined) {
-        throw new Error('TODO: package name self-resolution');
+        // Very lazy self resolution implementation
+        const target = new PackageTarget(parentPkg.version, parentPkg.name);
+        return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
       }
       if (pcfg.dependencies?.[pkgName]) {
         const target = new PackageTarget(pcfg.dependencies[pkgName], pkgName);
-        return this.installPkg(pkgName, pkgScope, target, [subpath], parentUrl);
+        return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
       }
       if (pcfg.peerDependencies?.[pkgName]) {
         const target = new PackageTarget(pcfg.peerDependencies[pkgName], pkgName);
-        return this.installPkg(pkgName, undefined, target, [subpath], parentUrl);
+        return this.installPkg(pkgName, undefined, target, [subpath], cjsResolve, parentUrl);
       }
       if (pcfg.optionalDependencies?.[pkgName]) {
         const target = new PackageTarget(pcfg.optionalDependencies[pkgName], pkgName);
-        return this.installPkg(pkgName, undefined, target, [subpath], parentUrl);
+        return this.installPkg(pkgName, undefined, target, [subpath], cjsResolve, parentUrl);
       }
       // Self resolve patch
       // CDN TODO: we should be able to remove this with "exports" support always on CDN
       if (pkgName === pcfg.name) {
         const pkgExports = this.setResolution({ pkgName, pkgScope }, parentPkg);
-        return this.tracePkg(parentPkg, [subpath], pkgExports, false, parentUrl);
+        return this.tracePkg(parentPkg, [subpath], pkgExports, false, cjsResolve, parentUrl);
       }
       if (this.isNodeCorePeer(specifier) && subpath === '.') {
         const target = new PackageTarget('@jspm/core@2', pkgName);
@@ -381,7 +391,7 @@ export class Installer {
         const exports = await this.resolveExports(pkg, await this.getPackageConfig(pkg));
         const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
         pkgExports['.'] = locked && pkgExports['.'] || exports[`./nodelibs/${specifier}`] || './nodelibs/@empty.js';
-        return this.trace(pkgUrl + pkgExports['.'].slice(1), parentUrl);
+        return this.trace(pkgUrl + pkgExports['.'].slice(1), cjsResolve, parentUrl);
       }
     }
     else {
@@ -394,10 +404,10 @@ export class Installer {
         const resolvedUrl = new URL((<string>this.map.imports[userImportsMatch]) + subpath.slice(1), this.mapBaseUrl);
         if (resolvedUrl.origin === 'https://dev.jspm.io')
           return this.install(resolvedUrl.pathname.slice(1), specifier);
-        return this.trace(resolvedUrl.href, parentUrl);
+        return this.trace(resolvedUrl.href, cjsResolve, parentUrl);
       }
       if (existingResolution) {
-        return this.tracePkg(existingResolution.pkg, Object.keys(existingResolution.exports), existingResolution.exports, false, parentUrl);
+        return this.tracePkg(existingResolution.pkg, Object.keys(existingResolution.exports), existingResolution.exports, false, cjsResolve, parentUrl);
       }
       // No match -> we can auto install if we are within the package boundary, and able to write
       if (pkgName) {
@@ -407,10 +417,10 @@ export class Installer {
     // default to installing the dependency from master
     console.warn(`Package ${specifier} not declared in package.json dependencies - installing from latest${importedFrom(parentUrl)}`);
     const target = new PackageTarget('*', pkgName);
-    return this.installPkg(pkgName, pkgScope, target, [subpath], parentUrl);
+    return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
   }
 
-  private async installPkg (pkgName: string, pkgScope: string | undefined, target: PackageTarget, subpaths: string[], parentUrl?: URL): Promise<void> {
+  private async installPkg (pkgName: string, pkgScope: string | undefined, target: PackageTarget, subpaths: string[], cjsResolve: boolean, parentUrl?: URL): Promise<void> {
     let pkg: ExactPackage | undefined = (!pkgScope ? this.installs.imports[pkgName] : this.installs.scopes[pkgScope]?.[pkgName])?.pkg;
     const locked = pkg && (this.opts.lock || matchesTarget(pkg, target));
     if (!locked) {
@@ -428,36 +438,51 @@ export class Installer {
       }
     }
     const pkgExports = this.setResolution({ pkgName, pkgScope }, pkg);
-    return this.tracePkg(pkg, subpaths, pkgExports, false, parentUrl);
+    return this.tracePkg(pkg, subpaths, pkgExports, false, cjsResolve, parentUrl);
   }
 
-  private async tracePkg (pkg: ExactPackage, subpaths: string[], pkgExports: Record<string, string>, exactSubpaths: boolean, parentUrl?: URL) {
+  private async tracePkg (pkg: ExactPackage, subpaths: string[], pkgExports: Record<string, string>, exactSubpaths: boolean, cjsResolve: boolean, parentUrl?: URL) {
     await Promise.all(subpaths.map(async subpath => {
-      const exports = await this.resolveExports(pkg, await this.getPackageConfig(pkg));
+      const exports = await this.resolveExports(pkg, await this.getPackageConfig(pkg), cjsResolve);
       let exportMatch = getMapMatch(subpath, exports);
+      
       if (exportMatch === undefined) {
+        console.log((await this.getPackageConfig(pkg)).exports);
+        console.log(`No package exports defined for ${subpath} in ${pkgToStr(pkg)}${importedFrom(parentUrl)}`);
+        // Consider a non-encapsulated fallback?
         throw new Error(`No package exports defined for ${subpath} in ${pkgToStr(pkg)}${importedFrom(parentUrl)}`);
       }
+
       const exportTarget = exports[exportMatch];
+      const subpathTrailer = subpath.slice(exportMatch.length);
+
       if (exactSubpaths)
-        pkgExports[exportMatch + subpath.slice(exportMatch.length)] = exportTarget + subpath.slice(exportMatch.length);
+        pkgExports[exportMatch + subpathTrailer] = exportTarget + subpathTrailer;
       else
         pkgExports[exportMatch] = exportTarget;
+
+
       const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
-      let resolvedUrl = pkgUrl + exportTarget.slice(1) + subpath.slice(exportMatch.length);
-      let found = true;
+      let resolvedUrl = pkgUrl + exportTarget.slice(1) + subpathTrailer;
+
+      // with the resolved URL, check if there is an exports !cjs entry
+      // and if so, jump into cjsResolve mode
+      if (!cjsResolve && exports[exportTarget + subpathTrailer + '!cjs'])
+        cjsResolve = true;
+
+      /*let found = true;
       if (!resolvedUrl.endsWith('/') && !await exists(resolvedUrl)) {
         // this is now a custom "mapping"
         if (await exists(resolvedUrl + '.js')) {
           resolvedUrl = resolvedUrl + '.js';
-          pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+          pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
         }
         else if (await exists(resolvedUrl + '.json')) {
           resolvedUrl = resolvedUrl + '.json';
-          pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+          pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
         }
-        else if (await exists(pkgToLookupUrl(pkg) + exportTarget.slice(1) + subpath.slice(exportMatch.length) + '/package.json')) {
-          const pjson = await (await fetch(pkgToLookupUrl(pkg) + exportTarget.slice(1) + subpath.slice(exportMatch.length) + '/package.json')).json();
+        else if (await exists(pkgToLookupUrl(pkg) + exportTarget.slice(1) + subpathTrailer + '/package.json')) {
+          const pjson = await (await fetch(pkgToLookupUrl(pkg) + exportTarget.slice(1) + subpathTrailer + '/package.json')).json();
           if (pjson.main) {
             if (pjson.main.startsWith('../../'))
               throw new Error('TODO: double backtracking lol');
@@ -470,27 +495,27 @@ export class Installer {
             if (!await exists(resolvedUrl)) {
               if (await exists(resolvedUrl + '.js')) {
                 resolvedUrl = resolvedUrl + '.js';
-                pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+                pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
               }
               else if (await exists(resolvedUrl + '.json')) {
                 resolvedUrl = resolvedUrl + '.json';
-                pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+                pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
               }
               else {
                 found = false;
               }
             }
             else {
-              pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+              pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
             }
           }
           else if (await exists(resolvedUrl + '/index.js')) {
             resolvedUrl = resolvedUrl + '/index.js';
-            pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+            pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
           }
           else if (await exists(resolvedUrl + '/index.json')) {
             resolvedUrl = resolvedUrl + '/index.json';
-            pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+            pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
           }
           else {
             found = false;
@@ -498,23 +523,24 @@ export class Installer {
         }
         else if (await exists(resolvedUrl + '/index.js')) {
           resolvedUrl = resolvedUrl + '/index.js';
-          pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+          pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
         }
         else if (await exists(resolvedUrl + '/index.json')) {
           resolvedUrl = resolvedUrl + '/index.json';
-          pkgExports[exportMatch + subpath.slice(exportMatch.length)] = '.' + resolvedUrl.slice(pkgUrl.length);
+          pkgExports[exportMatch + subpathTrailer] = '.' + resolvedUrl.slice(pkgUrl.length);
         }
         else {
           found = false;
         }
         if (!found)
           throw new Error(`Unable to resolve "${subpath}" in ${pkg.registry}:${pkg.name}@${pkg.version}${importedFrom(parentUrl)}`);
-      }
-      return this.trace(resolvedUrl, parentUrl);
+      }*/
+
+      return this.trace(resolvedUrl, cjsResolve, parentUrl);
     }));
   }
 
-  private async trace (resolvedUrl: string, parentUrl?: URL) {
+  private async trace (resolvedUrl: string, cjsResolve: boolean, parentUrl?: URL) {
     if (this.tracedUrls[resolvedUrl]) return;
     if (resolvedUrl.endsWith('/')) {
       const pkg = parseCdnPkg(new URL(resolvedUrl));
@@ -532,7 +558,7 @@ export class Installer {
           subpaths.push(expt);
         }
       }
-      await this.tracePkg(pkg, subpaths, exports, true, parentUrl);
+      await this.tracePkg(pkg, subpaths, exports, true, cjsResolve, parentUrl);
       return;
     }
     const tracedDeps: string[] = this.tracedUrls[resolvedUrl] = [];
@@ -540,7 +566,7 @@ export class Installer {
     const resolvedUrlObj = new URL(resolvedUrl);
     await Promise.all(deps.map(dep => {
       tracedDeps.push(dep);
-      return this.traceInstall(dep, resolvedUrlObj);
+      return this.traceInstall(dep, resolvedUrlObj, cjsResolve);
     }));
   }
 
@@ -582,34 +608,16 @@ export class Installer {
         if (lookup)
           return lookup;
       }
-    }  
+    }
     throw new Error(`Unable to resolve package ${registry}:${name} to "${ranges.join(' || ')}"${importedFrom(parentUrl)}`);
   }
   
   private async lookupRange (registry: string, name: string, range: string, parentUrl?: URL): Promise<ExactPackage | null> {
-    let pkgUrl = pkgToLookupUrl({ registry, name, version: '' });
-    let res = await fetch(`${pkgUrl}${range ? '@' + range : ''}/package.json`);
+    const res = await fetch(pkgToLookupUrl({ registry, name, version: range }));
     switch (res.status) {
-      case 200: break;
-      case 404: {
-        // unpkg doesn't support edge lookups - fall back to jspm dev
-        pkgUrl = pkgToUrl({ registry, name, version: '' }, devCdnUrl);
-        res = await fetch(`${pkgUrl}${range ? '@' + range : ''}/package.json`);
-        switch (res.status) {
-          case 200: break;
-          case 404: return null;
-          default: throw new Error(`Invalid status code ${res.status} looking up "${registry}:${name}" - ${res.statusText}`);
-        }
-        break;
-      }
+      case 304: case 200: return { registry, name, version: (await res.text()).trim() };
+      case 404: return null;
       default: throw new Error(`Invalid status code ${res.status} looking up "${registry}:${name}" - ${res.statusText}${importedFrom(parentUrl)}`);
     }
-    const version = res.url.slice(pkgUrl.length + 1, res.url.indexOf('/', pkgUrl.length + 1));
-
-    const pjson = await res.json();
-    if (!this.pcfgPromises[pkgToStr({ registry, name, version })])
-      this.pcfgs[pkgToStr({ registry, name, version })] = pjson;
-
-    return { registry, name, version };
   }
 }
