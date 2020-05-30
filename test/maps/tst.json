@@ -1,10 +1,5 @@
 {
   "imports": {
-    "tst": "https://ga.jspm.dev/npm:tst@5.3.3/index.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:tst@5.3.3/": {
-      "dequal": "https://ga.jspm.dev/npm:dequal@1.0.0/dist/dequal.js"
-    }
+    "tst": "https://ga.jspm.dev/npm:tst@6.1.1/index.js"
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "recast": "https://ga.jspm.dev/npm:recast@0.19.0/main.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "recast": "https://ga.jspm.dev/npm:recast@0.19.1/main.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:recast@0.19.0/": {
+    "https://ga.jspm.dev/npm:recast@0.19.1/": {
       "ast-types": "https://ga.jspm.dev/npm:ast-types@0.13.3/main.js",
       "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js",
       "private": "https://ga.jspm.dev/npm:private@0.1.8/private.js",

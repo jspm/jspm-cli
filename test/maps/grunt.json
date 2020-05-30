@@ -1,11 +1,14 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "grunt": "https://ga.jspm.dev/npm:grunt@1.1.0/lib/grunt.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
@@ -39,7 +42,6 @@
       "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js"
     },
     "https://ga.jspm.dev/npm:grunt@1.1.0/": {
-      "coffeescript/": "https://ga.jspm.dev/npm:coffeescript@1.10.0/",
       "coffeescript/register": "https://ga.jspm.dev/npm:coffeescript@1.10.0/register.js",
       "grunt-legacy-log": "https://ga.jspm.dev/npm:grunt-legacy-log@2.0.0/index.js",
       "grunt-legacy-util": "https://ga.jspm.dev/npm:grunt-legacy-util@1.1.1/index.js"

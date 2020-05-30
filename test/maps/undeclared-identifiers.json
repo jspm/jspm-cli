@@ -1,11 +1,11 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
     "undeclared-identifiers": "https://ga.jspm.dev/npm:undeclared-identifiers@1.1.3/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:acorn-node@1.8.2/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js",
       "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
     },
     "https://ga.jspm.dev/npm:undeclared-identifiers@1.1.3/": {

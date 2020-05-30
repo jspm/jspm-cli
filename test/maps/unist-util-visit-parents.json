@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:unist-util-visit-parents@3.0.2/": {
-      "unist-util-is/": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/",
       "unist-util-is/convert": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/convert.js"
     }
   }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@bevry/hooks": "https://ga.jspm.dev/npm:@bevry/hooks@2.5.0/edition-browsers/index.js",
+    "@bevry/hooks": "https://ga.jspm.dev/npm:@bevry/hooks@3.3.0/edition-browsers/index.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {

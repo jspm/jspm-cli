@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@undercut/node-10/pull": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/pull.js",
+    "@undercut/node-10/pull.js!cjs": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/pull.js",
+    "@undercut/node-10/push": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/push.js",
+    "@undercut/node-10/push.js!cjs": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/push.js",
+    "@undercut/node-10/utils": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/utils.js",
+    "@undercut/node-10/utils.js!cjs": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/utils.js"
+  }
+}

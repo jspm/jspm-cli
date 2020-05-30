@@ -1,20 +1,20 @@
 {
   "imports": {
     "@aero/chatwatch": "https://ga.jspm.dev/npm:@aero/chatwatch@1.5.5/src/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@aero/chatwatch@1.5.5/": {
       "@aero/centra": "https://ga.jspm.dev/npm:@aero/centra@1.0.3/createRequest.js",
-      "ws": "https://ga.jspm.dev/npm:ws@7.2.3/browser.js"
+      "ws": "https://ga.jspm.dev/npm:ws@7.3.0/browser.js"
     }
   }
 }

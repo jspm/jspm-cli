@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dom-accessibility-api": "https://ga.jspm.dev/npm:dom-accessibility-api@0.4.3/dist/index.mjs"
+    "dom-accessibility-api": "https://ga.jspm.dev/npm:dom-accessibility-api@0.4.4/dist/index.mjs"
   }
 }

@@ -1,9 +1,9 @@
 {
   "imports": {
-    "cssstyle": "https://ga.jspm.dev/npm:cssstyle@2.2.0/lib/CSSStyleDeclaration.js"
+    "cssstyle": "https://ga.jspm.dev/npm:cssstyle@2.3.0/lib/CSSStyleDeclaration.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cssstyle@2.2.0/": {
+    "https://ga.jspm.dev/npm:cssstyle@2.3.0/": {
       "cssom": "https://ga.jspm.dev/npm:cssom@0.3.8/lib/index.js"
     }
   }

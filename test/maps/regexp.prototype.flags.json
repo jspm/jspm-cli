@@ -12,7 +12,6 @@
     },
     "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/": {
       "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "es-abstract/": "https://ga.jspm.dev/npm:es-abstract@1.17.5/",
       "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js"
     }
   }

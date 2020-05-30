@@ -1,20 +1,20 @@
 {
   "imports": {
-    "@pnp/sp": "https://ga.jspm.dev/npm:@pnp/sp@2.0.3/index.js"
+    "@pnp/sp": "https://ga.jspm.dev/npm:@pnp/sp@2.0.5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@pnp/common@2.0.3/": {
+    "https://ga.jspm.dev/npm:@pnp/common@2.0.5/": {
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/odata@2.0.3/": {
-      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.3/index.js",
-      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.3/index.js",
+    "https://ga.jspm.dev/npm:@pnp/odata@2.0.5/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.5/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.5/index.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/sp@2.0.3/": {
-      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.3/index.js",
-      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.3/index.js",
-      "@pnp/odata": "https://ga.jspm.dev/npm:@pnp/odata@2.0.3/index.js",
+    "https://ga.jspm.dev/npm:@pnp/sp@2.0.5/": {
+      "@pnp/common": "https://ga.jspm.dev/npm:@pnp/common@2.0.5/index.js",
+      "@pnp/logging": "https://ga.jspm.dev/npm:@pnp/logging@2.0.5/index.js",
+      "@pnp/odata": "https://ga.jspm.dev/npm:@pnp/odata@2.0.5/index.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     }
   }

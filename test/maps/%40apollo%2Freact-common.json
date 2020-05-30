@@ -1,7 +1,7 @@
 {
   "imports": {
     "@apollo/react-common": "https://ga.jspm.dev/npm:@apollo/react-common@3.1.4/lib/react-common.cjs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {
@@ -12,7 +12,7 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:ts-invariant@0.4.4/": {
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

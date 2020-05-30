@@ -1,18 +1,18 @@
 {
   "imports": {
-    "@react-native-community/cli-debugger-ui": "https://ga.jspm.dev/npm:@react-native-community/cli-debugger-ui@4.2.1/build/middleware/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "@react-native-community/cli-debugger-ui": "https://ga.jspm.dev/npm:@react-native-community/cli-debugger-ui@4.9.0/build/middleware/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@react-native-community/cli-debugger-ui@4.2.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+    "https://ga.jspm.dev/npm:@react-native-community/cli-debugger-ui@4.9.0/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
       "serve-static": "https://ga.jspm.dev/npm:serve-static@1.14.1/index.js"
     },
     "https://ga.jspm.dev/npm:debug@2.6.9/": {

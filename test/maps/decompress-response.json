@@ -1,12 +1,12 @@
 {
   "imports": {
-    "decompress-response": "https://ga.jspm.dev/npm:decompress-response@5.0.0/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "decompress-response": "https://ga.jspm.dev/npm:decompress-response@6.0.0/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:decompress-response@5.0.0/": {
-      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@2.1.0/index.js"
+    "https://ga.jspm.dev/npm:decompress-response@6.0.0/": {
+      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@3.1.0/index.js"
     }
   }
 }

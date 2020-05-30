@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:lru-queue@0.1.0/": {
-      "es5-ext/": "https://ga.jspm.dev/npm:es5-ext@0.10.53/",
       "es5-ext/number/to-pos-integer": "https://ga.jspm.dev/npm:es5-ext@0.10.53/number/to-pos-integer.js"
     }
   }

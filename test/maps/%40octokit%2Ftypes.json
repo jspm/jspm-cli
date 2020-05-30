@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@octokit/types": "https://ga.jspm.dev/npm:@octokit/types@2.5.1/src/index.ts"
+    "@octokit/types": "https://ga.jspm.dev/npm:@octokit/types@4.1.1/dist-node/index.js"
   }
 }

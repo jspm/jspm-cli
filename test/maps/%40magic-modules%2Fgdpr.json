@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@magic-modules/gdpr": "https://ga.jspm.dev/npm:@magic-modules/gdpr@0.0.15/src/index.mjs"
+    "@magic-modules/gdpr": "https://ga.jspm.dev/npm:@magic-modules/gdpr@0.0.16/src/index.mjs"
   }
 }

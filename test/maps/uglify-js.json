@@ -1,11 +1,6 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "uglify-js": "https://ga.jspm.dev/npm:uglify-js@3.8.1/tools/node.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:uglify-js@3.8.1/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
-    }
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "uglify-js": "https://ga.jspm.dev/npm:uglify-js@3.9.4/tools/node.js"
   }
 }

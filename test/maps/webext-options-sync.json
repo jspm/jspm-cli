@@ -7,7 +7,6 @@
       "matches-selector": "https://ga.jspm.dev/npm:matches-selector@1.2.0/index.js"
     },
     "https://ga.jspm.dev/npm:webext-options-sync@1.2.3/": {
-      "dom-form-serializer/": "https://ga.jspm.dev/npm:dom-form-serializer@1.0.7/",
       "dom-form-serializer/lib/deserialize": "https://ga.jspm.dev/npm:dom-form-serializer@1.0.7/lib/deserialize.js",
       "dom-form-serializer/lib/serialize": "https://ga.jspm.dev/npm:dom-form-serializer@1.0.7/lib/serialize.js",
       "throttle-debounce": "https://ga.jspm.dev/npm:throttle-debounce@2.1.0/dist/index.cjs.js",

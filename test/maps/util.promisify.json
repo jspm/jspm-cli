@@ -1,0 +1,38 @@
+{
+  "imports": {
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "util.promisify": "https://ga.jspm.dev/npm:util.promisify@1.0.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js",
+      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js",
+      "is-regex": "https://ga.jspm.dev/npm:is-regex@1.0.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-regex@1.0.5/": {
+      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:object.getownpropertydescriptors@2.1.0/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/2019/CreateDataProperty": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/CreateDataProperty.js",
+      "es-abstract/2019/IsCallable": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/IsCallable.js",
+      "es-abstract/2019/RequireObjectCoercible": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/RequireObjectCoercible.js",
+      "es-abstract/2019/ToObject": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/ToObject.js",
+      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js"
+    },
+    "https://ga.jspm.dev/npm:util.promisify@1.0.1/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js",
+      "object.getownpropertydescriptors": "https://ga.jspm.dev/npm:object.getownpropertydescriptors@2.1.0/index.js"
+    }
+  }
+}

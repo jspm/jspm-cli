@@ -1,15 +1,36 @@
 {
   "imports": {
     "@reactioncommerce/plugin-system-information": "https://ga.jspm.dev/npm:@reactioncommerce/plugin-system-information@1.0.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.9.0/": {
-      "callsite": "https://ga.jspm.dev/npm:callsite@1.0.0/index.js"
+    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/": {
+      "callsite": "https://ga.jspm.dev/npm:callsite@1.0.0/index.js",
+      "envalid": "https://ga.jspm.dev/npm:envalid@6.0.2/src/envalidWithoutDotenv.js"
     },
     "https://ga.jspm.dev/npm:@reactioncommerce/plugin-system-information@1.0.0/": {
-      "@reactioncommerce/api-utils/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.9.0/lib/"
+      "@reactioncommerce/api-utils/decodeOpaqueIdForNamespace.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/decodeOpaqueIdForNamespace.js",
+      "@reactioncommerce/api-utils/encodeOpaqueId.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/encodeOpaqueId.js",
+      "@reactioncommerce/api-utils/importAsString.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/importAsString.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:envalid@6.0.2/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
+      "meant": "https://ga.jspm.dev/npm:meant@1.0.1/index.js",
+      "validator/lib/isFQDN": "https://ga.jspm.dev/npm:validator@13.0.0/lib/isFQDN.js",
+      "validator/lib/isIP": "https://ga.jspm.dev/npm:validator@13.0.0/lib/isIP.js"
     }
   }
 }

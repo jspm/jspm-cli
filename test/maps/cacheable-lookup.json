@@ -1,18 +1,8 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "cacheable-lookup": "https://ga.jspm.dev/npm:cacheable-lookup@2.0.1/index.js",
-    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:cacheable-lookup@2.0.1/": {
-      "keyv": "https://ga.jspm.dev/npm:keyv@4.0.0/src/index.js"
-    },
-    "https://ga.jspm.dev/npm:keyv@4.0.0/": {
-      "json-buffer": "https://ga.jspm.dev/npm:json-buffer@3.0.1/index.js"
-    }
+    "cacheable-lookup": "https://ga.jspm.dev/npm:cacheable-lookup@5.0.3/source/index.js",
+    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dns.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   }
 }

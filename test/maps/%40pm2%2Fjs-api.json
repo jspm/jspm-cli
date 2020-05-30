@@ -1,17 +1,21 @@
 {
   "imports": {
-    "@pm2/js-api": "https://ga.jspm.dev/npm:@pm2/js-api@0.5.60/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@pm2/js-api": "https://ga.jspm.dev/npm:@pm2/js-api@0.6.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@pm2/js-api@0.5.60/": {
+    "https://ga.jspm.dev/npm:@pm2/js-api@0.6.0/": {
       "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
       "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
-      "eventemitter2": "https://ga.jspm.dev/npm:eventemitter2@4.1.2/lib/eventemitter2.js"
+      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
+      "eventemitter2": "https://ga.jspm.dev/npm:eventemitter2@6.4.2/lib/eventemitter2.js",
+      "ws": "https://ga.jspm.dev/npm:ws@7.3.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@2.6.9/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.dev/npm:axios@0.19.2/": {
+      "axios/lib/adapters/http.js": "https://ga.jspm.dev/npm:axios@0.19.2/lib/adapters/xhr.js"
+    },
+    "https://ga.jspm.dev/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     }
   }
 }

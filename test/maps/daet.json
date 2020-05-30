@@ -1,11 +1,11 @@
 {
   "imports": {
-    "daet": "https://ga.jspm.dev/npm:daet@2.0.0/edition-browsers/index.js"
+    "daet": "https://ga.jspm.dev/npm:daet@3.5.0/edition-browsers/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:daet@2.0.0/": {
-      "@bevry/memo": "https://ga.jspm.dev/npm:@bevry/memo@2.0.0/edition-browsers/index.js",
-      "start-of-week": "https://ga.jspm.dev/npm:start-of-week@1.7.0/edition-browsers/index.js"
+    "https://ga.jspm.dev/npm:daet@3.5.0/": {
+      "@bevry/memo": "https://ga.jspm.dev/npm:@bevry/memo@3.3.0/edition-browsers/index.js",
+      "start-of-week": "https://ga.jspm.dev/npm:start-of-week@2.2.0/edition-browsers/index.js"
     }
   }
 }

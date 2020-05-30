@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@onehat/events": "https://ga.jspm.dev/npm:@onehat/events@1.5.0/src/EventEmitter.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@onehat/events@1.5.0/": {
+      "events": "https://ga.jspm.dev/npm:events@3.1.0/events.js",
+      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    }
+  }
+}

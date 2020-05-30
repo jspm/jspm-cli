@@ -1,0 +1,64 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "mocha": "https://ga.jspm.dev/npm:mocha@7.2.0/browser-entry.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tty.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:glob@7.1.3/": {
+      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:mocha@7.2.0/": {
+      "browser-stdout": "https://ga.jspm.dev/npm:browser-stdout@1.3.1/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
+      "diff": "https://ga.jspm.dev/npm:diff@3.5.0/dist/diff.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "glob": "https://ga.jspm.dev/npm:glob@7.1.3/glob.js",
+      "he": "https://ga.jspm.dev/npm:he@1.2.0/he.js",
+      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
+      "mocha/lib/growl.js": "https://ga.jspm.dev/npm:mocha@7.2.0/lib/browser/growl.js",
+      "ms": "https://ga.jspm.dev/npm:ms@2.1.1/index.js",
+      "object.assign": "https://ga.jspm.dev/npm:object.assign@4.1.0/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@6.0.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:object.assign@4.1.0/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols/shams": "https://ga.jspm.dev/npm:has-symbols@1.0.1/shams.js",
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    }
+  }
+}

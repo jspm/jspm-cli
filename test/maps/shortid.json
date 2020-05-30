@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "shortid": "https://ga.jspm.dev/npm:shortid@2.2.15/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:shortid@2.2.15/": {
+      "nanoid/format": "https://ga.jspm.dev/npm:nanoid@2.1.11/format.browser.js",
+      "shortid/lib/random/random-byte.js": "https://ga.jspm.dev/npm:shortid@2.2.15/lib/random/random-byte-browser.js",
+      "shortid/lib/util/cluster-worker-id.js": "https://ga.jspm.dev/npm:shortid@2.2.15/lib/util/cluster-worker-id-browser.js"
+    }
+  }
+}

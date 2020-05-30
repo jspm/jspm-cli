@@ -1,10 +1,11 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
     "httpreq": "https://ga.jspm.dev/npm:httpreq@0.4.24/lib/httpreq.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "oneday": "https://ga.jspm.dev/npm:oneday@3.0.0/edition-browsers/index.js"
+    "oneday": "https://ga.jspm.dev/npm:oneday@4.3.0/edition-browsers/index.js"
   }
 }

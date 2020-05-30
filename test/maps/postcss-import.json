@@ -1,25 +1,48 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
     "postcss-import": "https://ga.jspm.dev/npm:postcss-import@12.0.1/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
     "https://ga.jspm.dev/npm:postcss-import@12.0.1/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/postcss.js",
       "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js",
       "read-cache": "https://ga.jspm.dev/npm:read-cache@1.0.0/index.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js"
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js",
+      "sugarss": "https://ga.jspm.dev/npm:sugarss@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.dev/npm:postcss@7.0.31/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@6.1.0/browser.js"
     },
     "https://ga.jspm.dev/npm:read-cache@1.0.0/": {
       "pify": "https://ga.jspm.dev/npm:pify@2.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
       "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:sugarss@2.0.0/": {
+      "postcss/lib/at-rule": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/at-rule.js",
+      "postcss/lib/comment": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/comment.js",
+      "postcss/lib/declaration": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/declaration.js",
+      "postcss/lib/input": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/input.js",
+      "postcss/lib/root": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/root.js",
+      "postcss/lib/rule": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/rule.js"
     }
   }
 }

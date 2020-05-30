@@ -1,43 +1,46 @@
 {
   "imports": {
-    "@logux/redux": "https://ga.jspm.dev/npm:@logux/redux@0.5.0/index.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "@logux/redux": "https://ga.jspm.dev/npm:@logux/redux@0.6.2/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
     "react-redux": "https://ga.jspm.dev/npm:react-redux@7.2.0/lib/index.js",
     "redux": "https://ga.jspm.dev/npm:redux@4.0.5/lib/redux.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@logux/client@0.7.0/": {
-      "@logux/core/client-node": "https://ga.jspm.dev/npm:@logux/core@0.4.1/client-node/index.js",
-      "@logux/core/is-first-older": "https://ga.jspm.dev/npm:@logux/core@0.4.1/is-first-older/index.js",
-      "@logux/core/log": "https://ga.jspm.dev/npm:@logux/core@0.4.1/log/index.js",
-      "@logux/core/logux-error": "https://ga.jspm.dev/npm:@logux/core@0.4.1/logux-error/index.js",
-      "@logux/core/memory-store": "https://ga.jspm.dev/npm:@logux/core@0.4.1/memory-store/index.js",
-      "@logux/core/reconnect": "https://ga.jspm.dev/npm:@logux/core@0.4.1/reconnect/index.js",
-      "@logux/core/ws-connection": "https://ga.jspm.dev/npm:@logux/core@0.4.1/ws-connection/index.js",
-      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.5/index.js",
-      "nanoid": "https://ga.jspm.dev/npm:nanoid@3.0.2/index.js"
+    "https://ga.jspm.dev/npm:@logux/client@0.8.5/": {
+      "@logux/core/client-node": "https://ga.jspm.dev/npm:@logux/core@0.5.3/client-node/index.js",
+      "@logux/core/is-first-older": "https://ga.jspm.dev/npm:@logux/core@0.5.3/is-first-older/index.js",
+      "@logux/core/log": "https://ga.jspm.dev/npm:@logux/core@0.5.3/log/index.js",
+      "@logux/core/logux-error": "https://ga.jspm.dev/npm:@logux/core@0.5.3/logux-error/index.js",
+      "@logux/core/memory-store": "https://ga.jspm.dev/npm:@logux/core@0.5.3/memory-store/index.js",
+      "@logux/core/reconnect": "https://ga.jspm.dev/npm:@logux/core@0.5.3/reconnect/index.js",
+      "@logux/core/ws-connection": "https://ga.jspm.dev/npm:@logux/core@0.5.3/ws-connection/index.js",
+      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.7/index.js",
+      "nanoid": "https://ga.jspm.dev/npm:nanoid@3.1.9/index.js"
     },
-    "https://ga.jspm.dev/npm:@logux/core@0.4.1/": {
-      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.5/index.js"
+    "https://ga.jspm.dev/npm:@logux/core@0.5.3/": {
+      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.7/index.js"
     },
-    "https://ga.jspm.dev/npm:@logux/redux@0.5.0/": {
-      "@logux/client/cross-tab-client": "https://ga.jspm.dev/npm:@logux/client@0.7.0/cross-tab-client/index.js",
-      "@logux/core/is-first-older": "https://ga.jspm.dev/npm:@logux/core@0.4.1/is-first-older/index.js",
-      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.5/index.js",
-      "redux": "https://ga.jspm.dev/npm:redux@4.0.5/lib/redux.js"
+    "https://ga.jspm.dev/npm:@logux/redux@0.6.2/": {
+      "@logux/client/cross-tab-client": "https://ga.jspm.dev/npm:@logux/client@0.8.5/cross-tab-client/index.js",
+      "@logux/core/is-first-older": "https://ga.jspm.dev/npm:@logux/core@0.5.3/is-first-older/index.js",
+      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.7/index.js"
     },
     "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
     "https://ga.jspm.dev/npm:react-redux@7.2.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {

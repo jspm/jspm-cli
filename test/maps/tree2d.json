@@ -1,5 +1,10 @@
 {
   "imports": {
-    "tree2d": "https://ga.jspm.dev/npm:tree2d@1.0.0-alpha.13/dist/tree2d.js"
+    "tree2d": "https://ga.jspm.dev/npm:tree2d@1.0.12/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:tree2d@1.0.12/": {
+      "flexbox.js": "https://ga.jspm.dev/npm:flexbox.js@1.0.15/lib/index.js"
+    }
   }
 }

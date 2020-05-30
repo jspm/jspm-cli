@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "fhir-period": "https://ga.jspm.dev/npm:fhir-period@1.0.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@polymer/lit-element@0.5.2/": {
+      "@polymer/polymer/lib/mixins/properties-mixin.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/mixins/properties-mixin.js",
+      "@polymer/polymer/lib/utils/case-map.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/case-map.js",
+      "lit-html/lib/lit-extended.js": "https://ga.jspm.dev/npm:lit-html@0.10.2/lib/lit-extended.js",
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@0.10.2/lib/shady-render.js"
+    },
+    "https://ga.jspm.dev/npm:fhir-period@1.0.0/": {
+      "@polymer/lit-element/lit-element.js": "https://ga.jspm.dev/npm:@polymer/lit-element@0.5.2/lit-element.js",
+      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
+    }
+  }
+}

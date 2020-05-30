@@ -1,8 +1,8 @@
 {
   "imports": {
     "@io-maana/q-assistant-client": "https://ga.jspm.dev/npm:@io-maana/q-assistant-client@3.2.1/build/AssistantAPIClient.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@io-maana/q-assistant-client@3.2.1/": {

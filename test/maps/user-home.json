@@ -1,7 +1,7 @@
 {
   "imports": {
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "user-home": "https://ga.jspm.dev/npm:user-home@2.0.0/index.js"
   },
   "scopes": {

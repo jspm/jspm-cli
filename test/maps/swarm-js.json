@@ -1,6 +1,6 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
     "swarm-js": "https://ga.jspm.dev/npm:swarm-js@0.1.40/lib/api-browser.js"
   },
   "scopes": {
@@ -10,7 +10,6 @@
       "strict-uri-encode": "https://ga.jspm.dev/npm:strict-uri-encode@1.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:swarm-js@0.1.40/": {
-      "eth-lib/": "https://ga.jspm.dev/npm:eth-lib@0.1.29/",
       "eth-lib/lib/bytes": "https://ga.jspm.dev/npm:eth-lib@0.1.29/lib/bytes.js",
       "eth-lib/lib/hash": "https://ga.jspm.dev/npm:eth-lib@0.1.29/lib/hash.js",
       "xhr-request": "https://ga.jspm.dev/npm:xhr-request@1.1.0/index.js"
@@ -19,12 +18,12 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
       "query-string": "https://ga.jspm.dev/npm:query-string@5.1.1/index.js",
       "url-set-query": "https://ga.jspm.dev/npm:url-set-query@1.0.0/index.js",
-      "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js"
+      "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js",
+      "xhr-request/lib/request.js": "https://ga.jspm.dev/npm:xhr-request@1.1.0/lib/request-browser.js"
     },
     "https://ga.jspm.dev/npm:xhr@2.5.0/": {
-      "global/": "https://ga.jspm.dev/npm:global@4.3.2/",
       "global/window": "https://ga.jspm.dev/npm:global@4.3.2/window.js",
-      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.1/index.js",
+      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.2/index.js",
       "parse-headers": "https://ga.jspm.dev/npm:parse-headers@2.0.3/parse-headers.js",
       "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
     }

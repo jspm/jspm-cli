@@ -1,5 +1,5 @@
 {
   "imports": {
-    "agentkeepalive": "https://ga.jspm.dev/npm:agentkeepalive@4.1.0/browser.js"
+    "agentkeepalive": "https://ga.jspm.dev/npm:agentkeepalive@4.1.2/browser.js"
   }
 }

@@ -1,29 +1,28 @@
 {
   "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "jade": "https://ga.jspm.dev/npm:jade@1.11.0/lib/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:acorn-globals@1.0.9/": {
       "acorn": "https://ga.jspm.dev/npm:acorn@2.7.0/dist/acorn.js",
-      "acorn/": "https://ga.jspm.dev/npm:acorn@2.7.0/",
       "acorn/dist/walk": "https://ga.jspm.dev/npm:acorn@2.7.0/dist/walk.js"
     },
     "https://ga.jspm.dev/npm:constantinople@3.0.2/": {
       "acorn": "https://ga.jspm.dev/npm:acorn@2.7.0/dist/acorn.js",
-      "acorn/": "https://ga.jspm.dev/npm:acorn@2.7.0/",
       "acorn/dist/walk": "https://ga.jspm.dev/npm:acorn@2.7.0/dist/walk.js"
     },
     "https://ga.jspm.dev/npm:jade@1.11.0/": {
       "character-parser": "https://ga.jspm.dev/npm:character-parser@1.2.1/index.js",
       "constantinople": "https://ga.jspm.dev/npm:constantinople@3.0.2/index.js",
+      "jade/lib/filters.js": "https://ga.jspm.dev/npm:jade@1.11.0/lib/filters-client.js",
       "void-elements": "https://ga.jspm.dev/npm:void-elements@2.0.1/index.js",
       "with": "https://ga.jspm.dev/npm:with@4.0.3/index.js"
     },
     "https://ga.jspm.dev/npm:with@4.0.3/": {
       "acorn": "https://ga.jspm.dev/npm:acorn@1.2.2/dist/acorn.js",
       "acorn-globals": "https://ga.jspm.dev/npm:acorn-globals@1.0.9/index.js",
-      "acorn/": "https://ga.jspm.dev/npm:acorn@1.2.2/",
       "acorn/dist/walk": "https://ga.jspm.dev/npm:acorn@1.2.2/dist/walk.js"
     }
   }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@monchilin/countdown": "https://ga.jspm.dev/npm:@monchilin/countdown@0.1.0/dist/index.js"
+    "@monchilin/countdown": "https://ga.jspm.dev/npm:@monchilin/countdown@0.2.1/dist/index.js"
   }
 }

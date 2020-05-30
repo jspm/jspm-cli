@@ -1,7 +1,7 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
     "strip-bom-stream": "https://ga.jspm.dev/npm:strip-bom-stream@4.0.0/index.js"
   },
   "scopes": {

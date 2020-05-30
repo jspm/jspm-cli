@@ -1,20 +1,19 @@
 {
   "imports": {
-    "@svgr/hast-util-to-babel-ast": "https://ga.jspm.dev/npm:@svgr/hast-util-to-babel-ast@5.0.1/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@svgr/hast-util-to-babel-ast": "https://ga.jspm.dev/npm:@svgr/hast-util-to-babel-ast@5.4.0/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/types@7.9.5/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
       "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
       "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
       "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@svgr/hast-util-to-babel-ast@5.0.1/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@svgr/hast-util-to-babel-ast@5.4.0/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     }
   }
 }

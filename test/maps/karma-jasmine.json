@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "karma-jasmine": "https://ga.jspm.dev/npm:karma-jasmine@3.1.1/lib/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
-  }
-}

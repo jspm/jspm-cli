@@ -1,6 +1,6 @@
 {
   "imports": {
     "babel-plugin-transform-react-display-name": "https://ga.jspm.dev/npm:babel-plugin-transform-react-display-name@6.25.0/lib/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

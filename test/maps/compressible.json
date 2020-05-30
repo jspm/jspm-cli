@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:compressible@2.0.18/": {
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
     }
   }
 }

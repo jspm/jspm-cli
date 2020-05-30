@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dtext-parser": "https://ga.jspm.dev/npm:dtext-parser@0.3.0/src/index.js"
+    "dtext-parser": "https://ga.jspm.dev/npm:dtext-parser@0.4.0/src/index.js"
   }
 }

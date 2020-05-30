@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@dv4all/log-utils": "https://ga.jspm.dev/npm:@dv4all/log-utils@0.1.4/lib/dv4log.utils.cjs.js"
+    "@dv4all/log-utils": "https://ga.jspm.dev/npm:@dv4all/log-utils@0.1.5/lib/dv4log.utils.cjs.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fast-text-encoding": "https://ga.jspm.dev/npm:fast-text-encoding@1.0.1/text.min.js"
+    "fast-text-encoding": "https://ga.jspm.dev/npm:fast-text-encoding@1.0.2/text.min.js"
   }
 }

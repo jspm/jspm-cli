@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@modelx/data": "https://ga.jspm.dev/npm:@modelx/data@1.0.3/dist/index.umd.js"
+    "@modelx/data": "https://ga.jspm.dev/npm:@modelx/data@1.0.7/dist/index.umd.js"
   }
 }

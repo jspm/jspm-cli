@@ -1,31 +1,34 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "caching-transform": "https://ga.jspm.dev/npm:caching-transform@4.0.0/index.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "worker_threads": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/@empty.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:caching-transform@4.0.0/": {
       "hasha": "https://ga.jspm.dev/npm:hasha@5.2.0/index.js",
-      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.0.2/index.js",
+      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.1.0/index.js",
       "package-hash": "https://ga.jspm.dev/npm:package-hash@4.0.0/index.js",
       "write-file-atomic": "https://ga.jspm.dev/npm:write-file-atomic@3.0.3/index.js"
     },
     "https://ga.jspm.dev/npm:hasha@5.2.0/": {
       "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:make-dir@3.0.2/": {
+    "https://ga.jspm.dev/npm:make-dir@3.1.0/": {
       "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
     },
     "https://ga.jspm.dev/npm:package-hash@4.0.0/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "hasha": "https://ga.jspm.dev/npm:hasha@5.2.0/index.js",
       "lodash.flattendeep": "https://ga.jspm.dev/npm:lodash.flattendeep@4.4.0/index.js",
       "release-zalgo": "https://ga.jspm.dev/npm:release-zalgo@1.0.0/index.js"

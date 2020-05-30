@@ -1,13 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "node-osc": "https://ga.jspm.dev/npm:node-osc@4.1.8/lib/index.mjs",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dgram.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "node-osc": "https://ga.jspm.dev/npm:node-osc@5.1.0/lib/index.mjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:node-osc@4.1.8/": {
+    "https://ga.jspm.dev/npm:node-osc@5.1.0/": {
       "jspack": "https://ga.jspm.dev/npm:jspack@0.0.4/jspack.js",
       "osc-min": "https://ga.jspm.dev/npm:osc-min@1.1.2/lib/index.js"
     },

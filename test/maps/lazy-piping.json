@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lazy-piping": "https://ga.jspm.dev/npm:lazy-piping@1.1.10/packages/lazy-piping.esm/"
-  }
-}

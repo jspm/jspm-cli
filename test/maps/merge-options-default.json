@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "merge-options-default": "https://ga.jspm.dev/npm:merge-options-default@1.0.1/dist/index.js"
-  }
-}

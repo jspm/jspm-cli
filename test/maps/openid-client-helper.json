@@ -1,19 +1,22 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
     "openid-client-helper": "https://ga.jspm.dev/npm:openid-client-helper@0.1.2/lib/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@szmarczak/http-timer@1.1.2/": {
@@ -35,6 +38,9 @@
     "https://ga.jspm.dev/npm:clone-response@1.0.2/": {
       "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js"
     },
+    "https://ga.jspm.dev/npm:decompress-response@3.3.0/": {
+      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js"
+    },
     "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
     },
@@ -48,6 +54,7 @@
       "@sindresorhus/is": "https://ga.jspm.dev/npm:@sindresorhus/is@0.14.0/dist/index.js",
       "@szmarczak/http-timer": "https://ga.jspm.dev/npm:@szmarczak/http-timer@1.1.2/source/index.js",
       "cacheable-request": "https://ga.jspm.dev/npm:cacheable-request@6.1.0/src/index.js",
+      "decompress-response": "https://ga.jspm.dev/npm:decompress-response@3.3.0/index.js",
       "duplexer3": "https://ga.jspm.dev/npm:duplexer3@0.1.4/index.js",
       "get-stream": "https://ga.jspm.dev/npm:get-stream@4.1.0/index.js",
       "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@1.0.1/index.js",
@@ -56,7 +63,7 @@
       "to-readable-stream": "https://ga.jspm.dev/npm:to-readable-stream@1.0.0/index.js",
       "url-parse-lax": "https://ga.jspm.dev/npm:url-parse-lax@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jose@1.25.2/": {
+    "https://ga.jspm.dev/npm:jose@1.27.0/": {
       "@panva/asn1.js": "https://ga.jspm.dev/npm:@panva/asn1.js@1.0.0/lib/asn1.js"
     },
     "https://ga.jspm.dev/npm:keyv@3.1.0/": {
@@ -70,13 +77,12 @@
     },
     "https://ga.jspm.dev/npm:openid-client-helper@0.1.2/": {
       "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js",
-      "openid-client": "https://ga.jspm.dev/npm:openid-client@3.14.2/lib/index.js"
+      "openid-client": "https://ga.jspm.dev/npm:openid-client@3.15.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:openid-client@3.14.2/": {
+    "https://ga.jspm.dev/npm:openid-client@3.15.1/": {
       "base64url": "https://ga.jspm.dev/npm:base64url@3.0.1/index.js",
       "got": "https://ga.jspm.dev/npm:got@9.6.0/source/index.js",
-      "jose": "https://ga.jspm.dev/npm:jose@1.25.2/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "jose": "https://ga.jspm.dev/npm:jose@1.27.0/lib/index.js",
       "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
       "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
       "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",

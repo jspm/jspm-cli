@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "tgsp-shared-ui/": "https://ga.jspm.dev/npm:tgsp-shared-ui@0.1.94/lib/"
-  }
-}

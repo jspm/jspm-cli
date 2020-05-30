@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:todayis@1.0.0/": {
-      "english-days": "https://ga.jspm.dev/npm:english-days@1.0.0/index.json"
+      "english-days": "https://ga.jspm.dev/npm:english-days@1.0.0/index.json.js"
     }
   }
 }

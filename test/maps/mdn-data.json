@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mdn-data": "https://ga.jspm.dev/npm:mdn-data@2.0.8/index.js"
+    "mdn-data": "https://ga.jspm.dev/npm:mdn-data@2.0.9/index.js"
   }
 }

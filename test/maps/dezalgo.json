@@ -3,6 +3,9 @@
     "dezalgo": "https://ga.jspm.dev/npm:dezalgo@1.0.3/dezalgo.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:asap@2.0.6/": {
+      "asap/raw.js": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    },
     "https://ga.jspm.dev/npm:dezalgo@1.0.3/": {
       "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js",
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"

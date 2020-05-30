@@ -1,29 +1,29 @@
 {
   "imports": {
-    "@pnp/graph-commonjs": "https://ga.jspm.dev/npm:@pnp/graph-commonjs@2.0.3/presets/all.js"
+    "@pnp/graph-commonjs": "https://ga.jspm.dev/npm:@pnp/graph-commonjs@2.0.5/presets/all.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@pnp/adaljsclient-commonjs@2.0.3/": {
-      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.3/index.js",
-      "adal-angular/": "https://ga.jspm.dev/npm:adal-angular@1.0.17/",
+    "https://ga.jspm.dev/npm:@pnp/adaljsclient-commonjs@2.0.5/": {
+      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/index.js",
+      "adal-angular/dist/adal.min.js": "https://ga.jspm.dev/npm:adal-angular@1.0.17/dist/adal.min.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.3/": {
+    "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/": {
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/graph-commonjs@2.0.3/": {
-      "@pnp/adaljsclient-commonjs": "https://ga.jspm.dev/npm:@pnp/adaljsclient-commonjs@2.0.3/index.js",
-      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.3/index.js",
-      "@pnp/logging-commonjs": "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.3/index.js",
-      "@pnp/odata-commonjs": "https://ga.jspm.dev/npm:@pnp/odata-commonjs@2.0.3/index.js",
+    "https://ga.jspm.dev/npm:@pnp/graph-commonjs@2.0.5/": {
+      "@pnp/adaljsclient-commonjs": "https://ga.jspm.dev/npm:@pnp/adaljsclient-commonjs@2.0.5/index.js",
+      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/index.js",
+      "@pnp/logging-commonjs": "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.5/index.js",
+      "@pnp/odata-commonjs": "https://ga.jspm.dev/npm:@pnp/odata-commonjs@2.0.5/index.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.3/": {
+    "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.5/": {
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/odata-commonjs@2.0.3/": {
-      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.3/index.js",
-      "@pnp/logging-commonjs": "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.3/index.js",
+    "https://ga.jspm.dev/npm:@pnp/odata-commonjs@2.0.5/": {
+      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/index.js",
+      "@pnp/logging-commonjs": "https://ga.jspm.dev/npm:@pnp/logging-commonjs@2.0.5/index.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     }
   }

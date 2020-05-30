@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ext-list@2.2.2/": {
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
     },
     "https://ga.jspm.dev/npm:ext-name@5.0.0/": {
       "ext-list": "https://ga.jspm.dev/npm:ext-list@2.2.2/index.js",

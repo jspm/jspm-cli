@@ -6,11 +6,9 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:dom-helpers@3.4.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js"
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js"
     },
     "https://ga.jspm.dev/npm:react-addons-css-transition-group@15.6.2/": {
-      "react-transition-group/": "https://ga.jspm.dev/npm:react-transition-group@1.2.1/",
       "react-transition-group/CSSTransitionGroup": "https://ga.jspm.dev/npm:react-transition-group@1.2.1/CSSTransitionGroup.js"
     },
     "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
@@ -19,7 +17,6 @@
     },
     "https://ga.jspm.dev/npm:react-transition-group@1.2.1/": {
       "chain-function": "https://ga.jspm.dev/npm:chain-function@1.0.1/index.js",
-      "dom-helpers/": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/",
       "dom-helpers/class/addClass": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/class/addClass.js",
       "dom-helpers/class/removeClass": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/class/removeClass.js",
       "dom-helpers/transition/properties": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/transition/properties.js",

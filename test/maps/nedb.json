@@ -1,10 +1,10 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
     "nedb": "https://ga.jspm.dev/npm:nedb@1.8.0/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:binary-search-tree@0.2.5/": {
@@ -14,6 +14,8 @@
       "async": "https://ga.jspm.dev/npm:async@0.2.10/lib/async.js",
       "binary-search-tree": "https://ga.jspm.dev/npm:binary-search-tree@0.2.5/index.js",
       "localforage": "https://ga.jspm.dev/npm:localforage@1.7.3/dist/localforage.js",
+      "nedb/lib/customUtils.js": "https://ga.jspm.dev/npm:nedb@1.8.0/browser-version/browser-specific/lib/customUtils.js",
+      "nedb/lib/storage.js": "https://ga.jspm.dev/npm:nedb@1.8.0/browser-version/browser-specific/lib/storage.js",
       "underscore": "https://ga.jspm.dev/npm:underscore@1.4.4/underscore.js"
     }
   }

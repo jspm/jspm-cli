@@ -1,13 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "web3-providers-ws": "https://ga.jspm.dev/npm:web3-providers-ws@1.2.6/src/index.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "web3-providers-ws": "https://ga.jspm.dev/npm:web3-providers-ws@1.2.8/src/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@web3-js/websocket@1.0.30/": {
-      "es5-ext/": "https://ga.jspm.dev/npm:es5-ext@0.10.53/",
       "es5-ext/global": "https://ga.jspm.dev/npm:es5-ext@0.10.53/global.js"
     },
     "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/": {
@@ -22,28 +21,27 @@
       "strip-hex-prefix": "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/src/index.js"
     },
     "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/": {
       "is-hex-prefixed": "https://ga.jspm.dev/npm:is-hex-prefixed@1.0.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-core-helpers@1.2.6/": {
+    "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/": {
       "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-eth-iban": "https://ga.jspm.dev/npm:web3-eth-iban@1.2.6/src/index.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.6/src/index.js"
+      "web3-eth-iban": "https://ga.jspm.dev/npm:web3-eth-iban@1.2.8/src/index.js",
+      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-eth-iban@1.2.6/": {
+    "https://ga.jspm.dev/npm:web3-eth-iban@1.2.8/": {
       "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.6/src/index.js"
+      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-providers-ws@1.2.6/": {
+    "https://ga.jspm.dev/npm:web3-providers-ws@1.2.8/": {
       "@web3-js/websocket": "https://ga.jspm.dev/npm:@web3-js/websocket@1.0.30/lib/browser.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.6/src/index.js"
+      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@4.0.4/index.js",
+      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-utils@1.2.6/": {
+    "https://ga.jspm.dev/npm:web3-utils@1.2.8/": {
       "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
-      "eth-lib/": "https://ga.jspm.dev/npm:eth-lib@0.2.7/",
       "eth-lib/lib/hash": "https://ga.jspm.dev/npm:eth-lib@0.2.7/lib/hash.js",
       "ethereum-bloom-filters": "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/dist/index.js",
       "ethjs-unit": "https://ga.jspm.dev/npm:ethjs-unit@0.1.6/lib/index.js",

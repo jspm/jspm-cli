@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "aws-sdk": "https://ga.jspm.dev/npm:aws-sdk@2.686.0/lib/aws.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:aws-sdk@2.686.0/": {
+      "aws-sdk/lib/node_loader.js": "https://ga.jspm.dev/npm:aws-sdk@2.686.0/lib/browser_loader.js",
+      "buffer": "https://ga.jspm.dev/npm:buffer@4.9.1/index.js",
+      "events": "https://ga.jspm.dev/npm:events@1.1.1/events.js",
+      "jmespath": "https://ga.jspm.dev/npm:jmespath@0.15.0/jmespath.js",
+      "querystring": "https://ga.jspm.dev/npm:querystring@0.2.0/index.js",
+      "url": "https://ga.jspm.dev/npm:url@0.10.3/url.js",
+      "uuid": "https://ga.jspm.dev/npm:uuid@3.3.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:buffer@4.9.1/": {
+      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
+      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:url@0.10.3/": {
+      "punycode": "https://ga.jspm.dev/npm:punycode@1.3.2/punycode.js",
+      "querystring": "https://ga.jspm.dev/npm:querystring@0.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@3.3.2/": {
+      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.3.2/lib/rng-browser.js"
+    }
+  }
+}

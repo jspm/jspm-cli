@@ -1,8 +1,8 @@
 {
   "imports": {
     "named-placeholders": "https://ga.jspm.dev/npm:named-placeholders@1.1.2/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:lru-cache@4.1.5/": {

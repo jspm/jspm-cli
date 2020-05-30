@@ -1,10 +1,10 @@
 {
   "imports": {
     "@ndn/node-transport": "https://ga.jspm.dev/npm:@ndn/node-transport@0.0.20191223-beta.1/lib/mod.js",
-    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dgram.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/": {
@@ -23,6 +23,7 @@
       "p-timeout": "https://ga.jspm.dev/npm:p-timeout@3.2.0/index.js"
     },
     "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
       "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"

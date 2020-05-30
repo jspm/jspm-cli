@@ -1,10 +1,10 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "spinner-title": "https://ga.jspm.dev/npm:spinner-title@2.3.0/source/index.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "spinner-title": "https://ga.jspm.dev/npm:spinner-title@3.3.0/source/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:spinner-title@2.3.0/": {
+    "https://ga.jspm.dev/npm:spinner-title@3.3.0/": {
       "cli-spinners": "https://ga.jspm.dev/npm:cli-spinners@2.3.0/index.js"
     }
   }

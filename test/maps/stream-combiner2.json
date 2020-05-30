@@ -1,10 +1,10 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "stream-combiner2": "https://ga.jspm.dev/npm:stream-combiner2@1.1.1/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:duplexer2@0.1.4/": {
@@ -15,6 +15,7 @@
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
       "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
       "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@2.3.7/lib/internal/streams/stream-browser.js",
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
       "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"

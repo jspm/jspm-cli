@@ -1,7 +1,7 @@
 {
   "imports": {
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
     "websmsby": "https://ga.jspm.dev/npm:websmsby@0.2.2/index.js"
   },
   "scopes": {

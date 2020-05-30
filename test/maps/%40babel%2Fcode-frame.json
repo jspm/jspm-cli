@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/": {
-      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.0/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
     },

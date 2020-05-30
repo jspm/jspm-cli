@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@dothq/components/settings": "https://ga.jspm.dev/npm:@dothq/components@1.1.3/settings/src/renderer/settings/"
-  }
-}

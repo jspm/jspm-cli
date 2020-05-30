@@ -1,15 +1,18 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "elasticsearch": "https://ga.jspm.dev/npm:elasticsearch@16.7.1/src/elasticsearch.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:elasticsearch@16.7.1/": {
+      "elasticsearch/src/lib/apis/index.js": "https://ga.jspm.dev/npm:elasticsearch@16.7.1/src/lib/apis/browser_index.js",
+      "elasticsearch/src/lib/connectors/index.js": "https://ga.jspm.dev/npm:elasticsearch@16.7.1/src/lib/connectors/browser_index.js",
+      "elasticsearch/src/lib/loggers/index.js": "https://ga.jspm.dev/npm:elasticsearch@16.7.1/src/lib/loggers/browser_index.js",
       "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
     }
   }

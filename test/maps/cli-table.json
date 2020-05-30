@@ -1,11 +1,10 @@
 {
   "imports": {
     "cli-table": "https://ga.jspm.dev/npm:cli-table@0.3.1/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:cli-table@0.3.1/": {
-      "colors/": "https://ga.jspm.dev/npm:colors@1.0.3/",
       "colors/safe": "https://ga.jspm.dev/npm:colors@1.0.3/safe.js"
     }
   }

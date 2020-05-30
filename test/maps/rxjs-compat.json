@@ -5,7 +5,6 @@
   "scopes": {
     "https://ga.jspm.dev/npm:rxjs-compat@6.5.5/": {
       "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
       "rxjs/ajax": "https://ga.jspm.dev/npm:rxjs@6.5.5/ajax/index.js",
       "rxjs/internal-compatibility": "https://ga.jspm.dev/npm:rxjs@6.5.5/internal-compatibility/index.js",
       "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",

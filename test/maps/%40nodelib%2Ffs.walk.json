@@ -1,10 +1,11 @@
 {
   "imports": {
     "@nodelib/fs.walk": "https://ga.jspm.dev/npm:@nodelib/fs.walk@1.2.4/out/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@nodelib/fs.scandir@2.1.3/": {
@@ -13,9 +14,9 @@
     },
     "https://ga.jspm.dev/npm:@nodelib/fs.walk@1.2.4/": {
       "@nodelib/fs.scandir": "https://ga.jspm.dev/npm:@nodelib/fs.scandir@2.1.3/out/index.js",
-      "fastq": "https://ga.jspm.dev/npm:fastq@1.7.0/queue.js"
+      "fastq": "https://ga.jspm.dev/npm:fastq@1.8.0/queue.js"
     },
-    "https://ga.jspm.dev/npm:fastq@1.7.0/": {
+    "https://ga.jspm.dev/npm:fastq@1.8.0/": {
       "reusify": "https://ga.jspm.dev/npm:reusify@1.0.4/reusify.js"
     }
   }

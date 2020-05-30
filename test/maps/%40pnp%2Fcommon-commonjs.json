@@ -1,9 +1,9 @@
 {
   "imports": {
-    "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.3/index.js"
+    "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.3/": {
+    "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/": {
       "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
     }
   }

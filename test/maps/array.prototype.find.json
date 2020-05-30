@@ -1,0 +1,31 @@
+{
+  "imports": {
+    "array.prototype.find": "https://ga.jspm.dev/npm:array.prototype.find@2.1.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:array.prototype.find@2.1.1/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/2019/IsCallable": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/IsCallable.js",
+      "es-abstract/2019/RequireObjectCoercible": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/RequireObjectCoercible.js",
+      "es-abstract/2019/ToLength": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/ToLength.js",
+      "es-abstract/2019/ToObject": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/ToObject.js"
+    },
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "es-to-primitive/es2015": "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/es2015.js",
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js",
+      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/": {
+      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js",
+      "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
+      "is-symbol": "https://ga.jspm.dev/npm:is-symbol@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-symbol@1.0.3/": {
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    }
+  }
+}

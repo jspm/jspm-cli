@@ -1,8 +1,9 @@
 {
   "imports": {
     "@surma/rollup-plugin-off-main-thread": "https://ga.jspm.dev/npm:@surma/rollup-plugin-off-main-thread@1.4.1/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@surma/rollup-plugin-off-main-thread@1.4.1/": {

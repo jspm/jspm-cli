@@ -1,23 +1,24 @@
 {
   "imports": {
-    "ecodms-node": "https://ga.jspm.dev/npm:ecodms-node@0.0.4/lib/ecodms.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "ecodms-node": "https://ga.jspm.dev/npm:ecodms-node@0.0.6/lib/ecodms.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ecodms-node@0.0.4/": {
+    "https://ga.jspm.dev/npm:axios@0.19.2/": {
+      "axios/lib/adapters/http.js": "https://ga.jspm.dev/npm:axios@0.19.2/lib/adapters/xhr.js"
+    },
+    "https://ga.jspm.dev/npm:ecodms-node@0.0.6/": {
       "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js",
       "form-data": "https://ga.jspm.dev/npm:form-data@3.0.0/lib/browser.js",
-      "yup": "https://ga.jspm.dev/npm:yup@0.28.3/lib/index.js"
+      "yup": "https://ga.jspm.dev/npm:yup@0.28.5/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:yup@0.28.3/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
-      "@babel/runtime/helpers/taggedTemplateLiteralLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/taggedTemplateLiteralLoose.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:yup@0.28.5/": {
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/taggedTemplateLiteralLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/taggedTemplateLiteralLoose.js",
       "lodash/camelCase": "https://ga.jspm.dev/npm:lodash@4.17.15/camelCase.js",
       "lodash/cloneDeepWith": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeepWith.js",
       "lodash/has": "https://ga.jspm.dev/npm:lodash@4.17.15/has.js",
@@ -26,7 +27,7 @@
       "lodash/snakeCase": "https://ga.jspm.dev/npm:lodash@4.17.15/snakeCase.js",
       "lodash/toArray": "https://ga.jspm.dev/npm:lodash@4.17.15/toArray.js",
       "property-expr": "https://ga.jspm.dev/npm:property-expr@2.0.2/index.js",
-      "synchronous-promise": "https://ga.jspm.dev/npm:synchronous-promise@2.0.10/index.js",
+      "synchronous-promise": "https://ga.jspm.dev/npm:synchronous-promise@2.0.13/index.js",
       "toposort": "https://ga.jspm.dev/npm:toposort@2.0.2/index.js"
     }
   }

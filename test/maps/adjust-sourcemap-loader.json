@@ -1,0 +1,30 @@
+{
+  "imports": {
+    "adjust-sourcemap-loader": "https://ga.jspm.dev/npm:adjust-sourcemap-loader@2.0.0/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:adjust-sourcemap-loader@2.0.0/": {
+      "assert": "https://ga.jspm.dev/npm:assert@1.4.1/assert.js",
+      "camelcase": "https://ga.jspm.dev/npm:camelcase@5.0.0/index.js",
+      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@1.2.3/lib/index.js",
+      "object-path": "https://ga.jspm.dev/npm:object-path@0.11.4/index.js",
+      "regex-parser": "https://ga.jspm.dev/npm:regex-parser@2.2.10/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:assert@1.4.1/": {
+      "util": "https://ga.jspm.dev/npm:util@0.10.3/util.js"
+    },
+    "https://ga.jspm.dev/npm:loader-utils@1.2.3/": {
+      "big.js": "https://ga.jspm.dev/npm:big.js@5.2.2/big.js",
+      "emojis-list": "https://ga.jspm.dev/npm:emojis-list@2.1.0/index.js",
+      "json5": "https://ga.jspm.dev/npm:json5@1.0.1/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:util@0.10.3/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.1/inherits_browser.js",
+      "util/support/isBuffer.js": "https://ga.jspm.dev/npm:util@0.10.3/support/isBufferBrowser.js"
+    }
+  }
+}

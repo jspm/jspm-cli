@@ -1,6 +1,6 @@
 {
   "imports": {
     "@jsenv/prettier-config": "https://ga.jspm.dev/npm:@jsenv/prettier-config@1.2.0/index.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js"
   }
 }

@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@wheelroom/admin-core": "https://ga.jspm.dev/npm:@wheelroom/admin-core@1.1.7/dist/index.js",
-    "@wheelroom/admin-panel": "https://ga.jspm.dev/npm:@wheelroom/admin-panel@1.1.7/dist/index.js",
+    "@wheelroom/admin-core": "https://ga.jspm.dev/npm:@wheelroom/admin-core@1.2.2/dist/index.js",
+    "@wheelroom/admin-panel": "https://ga.jspm.dev/npm:@wheelroom/admin-panel@1.2.2/dist/index.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {

@@ -1,5 +1,6 @@
 {
   "imports": {
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
     "p-map": "https://ga.jspm.dev/npm:p-map@4.0.0/index.js"
   },
   "scopes": {

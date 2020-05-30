@@ -1,6 +1,6 @@
 {
   "imports": {
-    "getmac": "https://ga.jspm.dev/npm:getmac@5.1.0/edition-esnext/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js"
+    "getmac": "https://ga.jspm.dev/npm:getmac@5.5.0/edition-esnext/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   }
 }

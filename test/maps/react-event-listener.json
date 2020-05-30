@@ -5,15 +5,14 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:react-event-listener@0.6.6/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/getPrototypeOf.js",
-      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inherits.js",
-      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutProperties.js",
-      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/possibleConstructorReturn.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
     },

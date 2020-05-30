@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.0/lib/index.js"
+    "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js"
   }
 }

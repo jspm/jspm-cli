@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tslint-react": "https://ga.jspm.dev/npm:tslint-react@4.2.0/tslint-react.json"
+    "tslint-react": "https://ga.jspm.dev/npm:tslint-react@5.0.0/tslint-react.json.js"
   }
 }

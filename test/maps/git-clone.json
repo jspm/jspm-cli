@@ -1,5 +1,6 @@
 {
   "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
     "git-clone": "https://ga.jspm.dev/npm:git-clone@0.1.0/index.js"
   }
 }

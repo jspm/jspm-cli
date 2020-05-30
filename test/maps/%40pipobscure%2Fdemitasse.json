@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@pipobscure/demitasse": "https://ga.jspm.dev/npm:@pipobscure/demitasse@2.0.3/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@pipobscure/demitasse": "https://ga.jspm.dev/npm:@pipobscure/demitasse@2.0.4/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

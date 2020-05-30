@@ -1,13 +1,13 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "node-sass": "https://ga.jspm.dev/npm:node-sass@4.13.1/lib/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "node-sass": "https://ga.jspm.dev/npm:node-sass@4.14.1/lib/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -29,8 +29,7 @@
     "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
       "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:node-sass@4.13.1/": {
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:node-sass@4.14.1/": {
       "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
       "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
       "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",

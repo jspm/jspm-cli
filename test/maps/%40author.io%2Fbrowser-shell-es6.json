@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@author.io/browser-shell-es6": "https://ga.jspm.dev/npm:@author.io/browser-shell-es6@1.2.1/shell-1.2.1-es6.min.js"
+    "@author.io/browser-shell-es6": "https://ga.jspm.dev/npm:@author.io/browser-shell-es6@1.6.3/shell-1.6.3-es6.min.js"
   }
 }

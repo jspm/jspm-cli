@@ -1,25 +1,26 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "html-minifier-terser": "https://ga.jspm.dev/npm:html-minifier-terser@5.0.5/src/htmlminifier.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "html-minifier-terser": "https://ga.jspm.dev/npm:html-minifier-terser@5.1.1/src/htmlminifier.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:clean-css@4.2.3/": {
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     },
-    "https://ga.jspm.dev/npm:html-minifier-terser@5.0.5/": {
+    "https://ga.jspm.dev/npm:html-minifier-terser@5.1.1/": {
       "clean-css": "https://ga.jspm.dev/npm:clean-css@4.2.3/index.js",
       "he": "https://ga.jspm.dev/npm:he@1.2.0/he.js",
       "relateurl": "https://ga.jspm.dev/npm:relateurl@0.2.7/lib/index.js",
-      "terser": "https://ga.jspm.dev/npm:terser@4.6.10/dist/bundle.min.js"
+      "terser": "https://ga.jspm.dev/npm:terser@4.7.0/dist/bundle.min.js"
     },
-    "https://ga.jspm.dev/npm:terser@4.6.10/": {
+    "https://ga.jspm.dev/npm:terser@4.7.0/": {
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     }
   }

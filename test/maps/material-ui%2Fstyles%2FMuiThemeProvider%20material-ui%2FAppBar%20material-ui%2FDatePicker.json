@@ -3,12 +3,11 @@
     "material-ui/AppBar": "https://ga.jspm.dev/npm:material-ui@0.20.2/AppBar/index.js",
     "material-ui/DatePicker": "https://ga.jspm.dev/npm:material-ui@0.20.2/DatePicker/index.js",
     "material-ui/styles/MuiThemeProvider": "https://ga.jspm.dev/npm:material-ui@0.20.2/styles/MuiThemeProvider.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.0/index.js",
-    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.0/index.js"
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/library/fn/array/from": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/array/from.js",
       "core-js/library/fn/object/assign": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/assign.js",
       "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
@@ -24,12 +23,10 @@
     },
     "https://ga.jspm.dev/npm:inline-style-prefixer@3.0.8/": {
       "bowser": "https://ga.jspm.dev/npm:bowser@1.9.4/src/bowser.js",
-      "css-in-js-utils/": "https://ga.jspm.dev/npm:css-in-js-utils@2.0.1/",
       "css-in-js-utils/lib/hyphenateProperty": "https://ga.jspm.dev/npm:css-in-js-utils@2.0.1/lib/hyphenateProperty.js",
       "css-in-js-utils/lib/isPrefixedValue": "https://ga.jspm.dev/npm:css-in-js-utils@2.0.1/lib/isPrefixedValue.js"
     },
     "https://ga.jspm.dev/npm:material-ui@0.20.2/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
       "babel-runtime/core-js/object/get-prototype-of": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/get-prototype-of.js",
       "babel-runtime/core-js/object/keys": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/keys.js",
       "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
@@ -40,7 +37,6 @@
       "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
       "babel-runtime/helpers/toArray": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/toArray.js",
       "babel-runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/toConsumableArray.js",
-      "inline-style-prefixer/": "https://ga.jspm.dev/npm:inline-style-prefixer@3.0.8/",
       "inline-style-prefixer/dynamic/createPrefixer": "https://ga.jspm.dev/npm:inline-style-prefixer@3.0.8/dynamic/createPrefixer.js",
       "inline-style-prefixer/dynamic/plugins/calc": "https://ga.jspm.dev/npm:inline-style-prefixer@3.0.8/dynamic/plugins/calc.js",
       "inline-style-prefixer/dynamic/plugins/flex": "https://ga.jspm.dev/npm:inline-style-prefixer@3.0.8/dynamic/plugins/flex.js",
@@ -62,29 +58,26 @@
       "lodash.throttle": "https://ga.jspm.dev/npm:lodash.throttle@4.1.1/index.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "react-event-listener": "https://ga.jspm.dev/npm:react-event-listener@0.6.6/dist/react-event-listener.cjs.js",
-      "react-transition-group/": "https://ga.jspm.dev/npm:react-transition-group@1.2.1/",
       "react-transition-group/TransitionGroup": "https://ga.jspm.dev/npm:react-transition-group@1.2.1/TransitionGroup.js",
-      "recompose/": "https://ga.jspm.dev/npm:recompose@0.26.0/",
       "recompose/compose": "https://ga.jspm.dev/npm:recompose@0.26.0/compose.js",
       "recompose/pure": "https://ga.jspm.dev/npm:recompose@0.26.0/pure.js",
       "recompose/shallowEqual": "https://ga.jspm.dev/npm:recompose@0.26.0/shallowEqual.js",
       "simple-assign": "https://ga.jspm.dev/npm:simple-assign@0.1.0/index.js",
       "warning": "https://ga.jspm.dev/npm:warning@3.0.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:react-dom@16.13.0/": {
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.0/index.js"
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
     },
     "https://ga.jspm.dev/npm:react-event-listener@0.6.6/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/",
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/createClass.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/extends.js",
-      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/getPrototypeOf.js",
-      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/inherits.js",
-      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/objectWithoutProperties.js",
-      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/possibleConstructorReturn.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.8.7/helpers/typeof.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
     },
@@ -93,11 +86,10 @@
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "warning": "https://ga.jspm.dev/npm:warning@3.0.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.0/": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:recompose@0.26.0/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/shallowEqual": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/shallowEqual.js"
     }
   }

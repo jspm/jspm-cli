@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ethereumjs-common": "https://ga.jspm.dev/npm:ethereumjs-common@1.5.0/dist/index.js"
+    "ethereumjs-common": "https://ga.jspm.dev/npm:ethereumjs-common@1.5.1/dist/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mimic-response": "https://ga.jspm.dev/npm:mimic-response@2.1.0/index.js"
+    "mimic-response": "https://ga.jspm.dev/npm:mimic-response@3.1.0/index.js"
   }
 }

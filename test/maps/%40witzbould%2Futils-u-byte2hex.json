@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@witzbould/utils-u-byte2hex": "https://ga.jspm.dev/npm:@witzbould/utils-u-byte2hex@1.0.0/index.js"
-  }
-}

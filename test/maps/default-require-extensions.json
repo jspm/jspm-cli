@@ -1,6 +1,7 @@
 {
   "imports": {
-    "default-require-extensions": "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/js.js"
+    "default-require-extensions": "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/js.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/": {

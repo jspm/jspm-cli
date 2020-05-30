@@ -1,18 +1,18 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "libnpx": "https://ga.jspm.dev/npm:libnpx@10.2.3/index.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -71,7 +71,7 @@
       "dotenv": "https://ga.jspm.dev/npm:dotenv@5.0.1/lib/main.js",
       "npm-package-arg": "https://ga.jspm.dev/npm:npm-package-arg@6.1.1/npa.js",
       "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
       "update-notifier": "https://ga.jspm.dev/npm:update-notifier@2.5.0/index.js",
       "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js",
       "y18n": "https://ga.jspm.dev/npm:y18n@4.0.0/index.js",
@@ -148,7 +148,7 @@
       "import-lazy": "https://ga.jspm.dev/npm:import-lazy@2.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/": {
-      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json"
+      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json.js"
     },
     "https://ga.jspm.dev/npm:which@1.3.1/": {
       "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"

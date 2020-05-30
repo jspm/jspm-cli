@@ -13,7 +13,6 @@
     },
     "https://ga.jspm.dev/npm:function.prototype.name@1.1.2/": {
       "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "es-abstract/": "https://ga.jspm.dev/npm:es-abstract@1.17.5/",
       "es-abstract/2019/IsCallable": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/IsCallable.js",
       "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js",
       "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js",

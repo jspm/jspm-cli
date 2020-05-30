@@ -1,5 +1,5 @@
 {
   "imports": {
-    "intl-messageformat-parser": "https://ga.jspm.dev/npm:intl-messageformat-parser@4.1.1/dist/index.js"
+    "intl-messageformat-parser": "https://ga.jspm.dev/npm:intl-messageformat-parser@5.0.11/dist/index.js"
   }
 }

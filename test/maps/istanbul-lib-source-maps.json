@@ -1,16 +1,17 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "istanbul-lib-source-maps": "https://ga.jspm.dev/npm:istanbul-lib-source-maps@4.0.0/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+    "https://ga.jspm.dev/npm:debug@4.2.0/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:istanbul-lib-source-maps@4.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "istanbul-lib-coverage": "https://ga.jspm.dev/npm:istanbul-lib-coverage@3.0.0/index.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     }

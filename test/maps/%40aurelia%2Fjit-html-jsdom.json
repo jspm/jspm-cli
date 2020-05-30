@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aurelia/jit-html-jsdom": "https://ga.jspm.dev/npm:@aurelia/jit-html-jsdom@0.6.0/dist/umd/index.js"
-  }
-}

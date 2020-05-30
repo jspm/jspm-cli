@@ -1,14 +1,15 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "istanbul-lib-processinfo": "https://ga.jspm.dev/npm:istanbul-lib-processinfo@2.0.2/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:aggregate-error@3.0.1/": {
@@ -19,7 +20,7 @@
       "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
       "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:cross-spawn@7.0.2/": {
+    "https://ga.jspm.dev/npm:cross-spawn@7.0.3/": {
       "path-key": "https://ga.jspm.dev/npm:path-key@3.1.1/index.js",
       "shebang-command": "https://ga.jspm.dev/npm:shebang-command@2.0.0/index.js",
       "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
@@ -38,11 +39,10 @@
     },
     "https://ga.jspm.dev/npm:istanbul-lib-processinfo@2.0.2/": {
       "archy": "https://ga.jspm.dev/npm:archy@1.0.0/index.js",
-      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.2/index.js",
+      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.3/index.js",
       "istanbul-lib-coverage": "https://ga.jspm.dev/npm:istanbul-lib-coverage@3.0.0/index.js",
       "p-map": "https://ga.jspm.dev/npm:p-map@3.0.0/index.js",
       "rimraf": "https://ga.jspm.dev/npm:rimraf@3.0.2/rimraf.js",
-      "uuid/": "https://ga.jspm.dev/npm:uuid@3.4.0/",
       "uuid/v4": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
     },
     "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
@@ -59,6 +59,9 @@
     },
     "https://ga.jspm.dev/npm:shebang-command@2.0.0/": {
       "shebang-regex": "https://ga.jspm.dev/npm:shebang-regex@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
     },
     "https://ga.jspm.dev/npm:which@2.0.2/": {
       "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"

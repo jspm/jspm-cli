@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:parse5-htmlparser2-tree-adapter@6.0.0/": {
-      "parse5/": "https://ga.jspm.dev/npm:parse5@6.0.0/",
       "parse5/lib/common/doctype": "https://ga.jspm.dev/npm:parse5@6.0.0/lib/common/doctype.js",
       "parse5/lib/common/html": "https://ga.jspm.dev/npm:parse5@6.0.0/lib/common/html.js"
     }

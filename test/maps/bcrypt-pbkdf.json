@@ -1,6 +1,7 @@
 {
   "imports": {
-    "bcrypt-pbkdf": "https://ga.jspm.dev/npm:bcrypt-pbkdf@1.0.2/index.js"
+    "bcrypt-pbkdf": "https://ga.jspm.dev/npm:bcrypt-pbkdf@1.0.2/index.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:bcrypt-pbkdf@1.0.2/": {

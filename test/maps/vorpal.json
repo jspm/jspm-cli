@@ -1,21 +1,21 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
     "vorpal": "https://ga.jspm.dev/npm:vorpal@1.12.0/dist/vorpal.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-polyfill@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/fn/regexp/escape": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/regexp/escape.js",
       "core-js/shim": "https://ga.jspm.dev/npm:core-js@2.6.11/shim.js",
-      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.10.5/",
       "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.10.5/runtime.js"
     },
     "https://ga.jspm.dev/npm:chalk@1.1.3/": {

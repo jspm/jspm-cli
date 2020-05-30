@@ -1,5 +1,10 @@
 {
   "imports": {
-    "@babel/register": "https://ga.jspm.dev/npm:@babel/register@7.9.0/lib/index.js"
+    "@babel/register": "https://ga.jspm.dev/npm:@babel/register@7.10.1/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/register@7.10.1/": {
+      "@babel/register/lib/node.js": "https://ga.jspm.dev/npm:@babel/register@7.10.1/lib/browser.js"
+    }
   }
 }

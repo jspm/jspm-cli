@@ -1,10 +1,12 @@
 {
   "imports": {
-    "cls-bluebird": "https://ga.jspm.dev/npm:cls-bluebird@2.1.0/lib/index.js"
+    "cls-bluebird": "https://ga.jspm.dev/npm:cls-bluebird@2.1.0/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:cls-bluebird@2.1.0/": {
-      "is-bluebird": "https://ga.jspm.dev/npm:is-bluebird@1.0.2/lib/",
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js",
+      "is-bluebird": "https://ga.jspm.dev/npm:is-bluebird@1.0.2/lib/index.js",
       "shimmer": "https://ga.jspm.dev/npm:shimmer@1.2.1/index.js"
     }
   }

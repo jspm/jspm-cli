@@ -1,13 +1,16 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "spawn-wrap": "https://ga.jspm.dev/npm:spawn-wrap@2.0.0/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -26,7 +29,7 @@
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:make-dir@3.0.2/": {
+    "https://ga.jspm.dev/npm:make-dir@3.1.0/": {
       "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
     },
     "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
@@ -40,7 +43,7 @@
     },
     "https://ga.jspm.dev/npm:spawn-wrap@2.0.0/": {
       "is-windows": "https://ga.jspm.dev/npm:is-windows@1.0.2/index.js",
-      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.0.2/index.js",
+      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.1.0/index.js",
       "rimraf": "https://ga.jspm.dev/npm:rimraf@3.0.2/rimraf.js",
       "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js",
       "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"

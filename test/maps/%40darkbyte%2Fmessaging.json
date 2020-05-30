@@ -1,0 +1,47 @@
+{
+  "imports": {
+    "@darkbyte/messaging": "https://ga.jspm.dev/npm:@darkbyte/messaging@1.2.6/lib/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@darkbyte/messaging@1.2.6/": {
+      "@darkbyte/aqueue": "https://ga.jspm.dev/npm:@darkbyte/aqueue@2.0.1/lib/index.js",
+      "amqplib": "https://ga.jspm.dev/npm:amqplib@0.5.6/channel_api.js"
+    },
+    "https://ga.jspm.dev/npm:amqplib@0.5.6/": {
+      "bitsyntax": "https://ga.jspm.dev/npm:bitsyntax@0.1.0/index.js",
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js",
+      "buffer-more-ints": "https://ga.jspm.dev/npm:buffer-more-ints@1.0.0/buffer-more-ints.js",
+      "readable-stream/duplex": "https://ga.jspm.dev/npm:readable-stream@1.1.14/duplex.js",
+      "readable-stream/passthrough": "https://ga.jspm.dev/npm:readable-stream@1.1.14/passthrough.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "url-parse": "https://ga.jspm.dev/npm:url-parse@1.4.7/index.js"
+    },
+    "https://ga.jspm.dev/npm:bitsyntax@0.1.0/": {
+      "buffer-more-ints": "https://ga.jspm.dev/npm:buffer-more-ints@1.0.0/buffer-more-ints.js",
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@1.1.14/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@0.10.31/index.js"
+    },
+    "https://ga.jspm.dev/npm:url-parse@1.4.7/": {
+      "querystringify": "https://ga.jspm.dev/npm:querystringify@2.1.1/index.js",
+      "requires-port": "https://ga.jspm.dev/npm:requires-port@1.0.0/index.js"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "shtjs": "https://ga.jspm.dev/npm:shtjs@1.0.2/sht.js"
+    "shtjs": "https://ga.jspm.dev/npm:shtjs@1.1.0/sht.js"
   }
 }

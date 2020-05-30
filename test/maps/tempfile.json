@@ -1,14 +1,17 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
     "tempfile": "https://ga.jspm.dev/npm:tempfile@3.0.0/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:tempfile@3.0.0/": {
       "temp-dir": "https://ga.jspm.dev/npm:temp-dir@2.0.0/index.js",
       "uuid": "https://ga.jspm.dev/npm:uuid@3.4.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
     }
   }
 }

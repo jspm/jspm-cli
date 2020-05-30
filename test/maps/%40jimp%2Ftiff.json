@@ -1,14 +1,13 @@
 {
   "imports": {
-    "@jimp/tiff": "https://ga.jspm.dev/npm:@jimp/tiff@0.10.1/dist/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@jimp/tiff": "https://ga.jspm.dev/npm:@jimp/tiff@0.12.1/dist/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jimp/tiff@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+    "https://ga.jspm.dev/npm:@jimp/tiff@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
       "utif": "https://ga.jspm.dev/npm:utif@2.0.1/UTIF.js"
     },
     "https://ga.jspm.dev/npm:utif@2.0.1/": {

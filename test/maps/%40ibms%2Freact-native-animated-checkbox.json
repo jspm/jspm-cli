@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@ibms/react-native-animated-checkbox": "https://ga.jspm.dev/npm:@ibms/react-native-animated-checkbox@0.0.8/lib/index.js"
-  }
-}

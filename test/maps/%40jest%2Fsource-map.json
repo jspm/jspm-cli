@@ -1,16 +1,17 @@
 {
   "imports": {
-    "@jest/source-map": "https://ga.jspm.dev/npm:@jest/source-map@25.2.6/build/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "@jest/source-map": "https://ga.jspm.dev/npm:@jest/source-map@26.0.0/build/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jest/source-map@25.2.6/": {
+    "https://ga.jspm.dev/npm:@jest/source-map@26.0.0/": {
       "callsites": "https://ga.jspm.dev/npm:callsites@3.1.0/index.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     }
   }

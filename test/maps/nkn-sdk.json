@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "nkn-sdk/": "https://ga.jspm.dev/npm:nkn-sdk@1.1.1/lib/"
-  }
-}

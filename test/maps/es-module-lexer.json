@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "es-module-lexer": "https://ga.jspm.dev/npm:es-module-lexer@0.3.17/dist/lexer.cjs"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "es-module-lexer": "https://ga.jspm.dev/npm:es-module-lexer@0.3.20/dist/lexer.cjs"
   }
 }

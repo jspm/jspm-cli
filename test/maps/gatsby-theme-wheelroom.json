@@ -1,5 +1,5 @@
 {
   "imports": {
-    "gatsby-theme-wheelroom": "https://ga.jspm.dev/npm:gatsby-theme-wheelroom@4.0.6/index.js"
+    "gatsby-theme-wheelroom": "https://ga.jspm.dev/npm:gatsby-theme-wheelroom@5.0.1/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pave": "https://ga.jspm.dev/npm:pave@0.7.1/src/index.js"
+    "pave": "https://ga.jspm.dev/npm:pave@0.7.4/src/index.js"
   }
 }

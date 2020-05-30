@@ -1,5 +1,5 @@
 {
   "imports": {
-    "babel-preset-jest": "https://ga.jspm.dev/npm:babel-preset-jest@25.2.6/index.js"
+    "babel-preset-jest": "https://ga.jspm.dev/npm:babel-preset-jest@26.0.0/index.js"
   }
 }

@@ -2,7 +2,7 @@
   "imports": {
     "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-router": "https://ga.jspm.dev/npm:react-router@5.1.2/index.js"
+    "react-router": "https://ga.jspm.dev/npm:react-router@5.2.0/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:history@4.10.1/": {
@@ -14,19 +14,17 @@
     "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:mini-create-react-context@0.3.2/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
-      "gud": "https://ga.jspm.dev/npm:gud@1.0.0/index.js",
+    "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/": {
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
       "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
     "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/": {
       "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-router@5.1.2/": {
+    "https://ga.jspm.dev/npm:react-router@5.2.0/": {
       "history": "https://ga.jspm.dev/npm:history@4.10.1/index.js",
       "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
-      "mini-create-react-context": "https://ga.jspm.dev/npm:mini-create-react-context@0.3.2/dist/cjs/index.js",
+      "mini-create-react-context": "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/dist/cjs/index.js",
       "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/index.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js",

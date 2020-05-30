@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@softvisio/core": "https://ga.jspm.dev/npm:@softvisio/core@0.10.0/lib/index.js"
+    "@softvisio/core": "https://ga.jspm.dev/npm:@softvisio/core@0.16.2/lib/index.js"
   }
 }

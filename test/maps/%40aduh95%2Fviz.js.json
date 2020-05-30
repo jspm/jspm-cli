@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@aduh95/viz.js": "https://ga.jspm.dev/npm:@aduh95/viz.js@3.0.0-beta.6/dist/index.mjs"
+    "@aduh95/viz.js": "https://ga.jspm.dev/npm:@aduh95/viz.js@3.0.0/dist/index.mjs"
   }
 }

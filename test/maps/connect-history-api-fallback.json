@@ -1,6 +1,6 @@
 {
   "imports": {
     "connect-history-api-fallback": "https://ga.jspm.dev/npm:connect-history-api-fallback@1.6.0/lib/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   }
 }

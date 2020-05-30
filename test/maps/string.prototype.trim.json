@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "string.prototype.trim": "https://ga.jspm.dev/npm:string.prototype.trim@1.2.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:string.prototype.trim@1.2.1/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/2019/ToString": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/ToString.js",
+      "es-abstract/5/CheckObjectCoercible": "https://ga.jspm.dev/npm:es-abstract@1.17.5/5/CheckObjectCoercible.js",
+      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js",
+      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js"
+    }
+  }
+}

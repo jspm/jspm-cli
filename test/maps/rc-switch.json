@@ -1,13 +1,21 @@
 {
   "imports": {
-    "rc-switch": "https://ga.jspm.dev/npm:rc-switch@1.9.0/lib/index.js",
+    "rc-switch": "https://ga.jspm.dev/npm:rc-switch@3.2.0/lib/index.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rc-switch@1.9.0/": {
+    "https://ga.jspm.dev/npm:rc-switch@3.2.0/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+      "rc-util/lib/KeyCode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/KeyCode.js",
+      "rc-util/lib/hooks/useMergedState": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/hooks/useMergedState.js"
+    },
+    "https://ga.jspm.dev/npm:rc-util@5.0.1/": {
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"

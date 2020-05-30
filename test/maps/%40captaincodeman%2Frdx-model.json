@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@captaincodeman/rdx-model": "https://ga.jspm.dev/npm:@captaincodeman/rdx-model@1.0.0-rc.5/lib/index.js"
+  }
+}

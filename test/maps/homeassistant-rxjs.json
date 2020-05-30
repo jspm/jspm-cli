@@ -5,9 +5,8 @@
   "scopes": {
     "https://ga.jspm.dev/npm:homeassistant-rxjs@0.0.6/": {
       "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
       "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
-      "ws": "https://ga.jspm.dev/npm:ws@7.2.3/browser.js"
+      "ws": "https://ga.jspm.dev/npm:ws@7.3.0/browser.js"
     }
   }
 }

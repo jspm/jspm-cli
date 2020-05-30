@@ -1,9 +1,9 @@
 {
   "imports": {
-    "@d-fischer/logger": "https://ga.jspm.dev/npm:@d-fischer/logger@1.0.2/es/index.mjs"
+    "@d-fischer/logger": "https://ga.jspm.dev/npm:@d-fischer/logger@1.0.3/es/index.mjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@d-fischer/logger@1.0.2/": {
+    "https://ga.jspm.dev/npm:@d-fischer/logger@1.0.3/": {
       "detect-node": "https://ga.jspm.dev/npm:detect-node@2.0.4/browser.js"
     }
   }

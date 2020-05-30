@@ -1,7 +1,7 @@
 {
   "imports": {
-    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/domain.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/domain.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "roarr": "https://ga.jspm.dev/npm:roarr@2.15.3/dist/log.js"
   },
   "scopes": {

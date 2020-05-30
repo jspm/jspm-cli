@@ -1,6 +1,6 @@
 {
   "imports": {
-    "hostenv": "https://ga.jspm.dev/npm:hostenv@2.3.0/source/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "hostenv": "https://ga.jspm.dev/npm:hostenv@3.3.0/source/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

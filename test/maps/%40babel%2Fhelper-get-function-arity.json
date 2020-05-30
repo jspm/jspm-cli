@@ -1,15 +1,14 @@
 {
   "imports": {
-    "@babel/helper-get-function-arity": "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.8.3/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@babel/helper-get-function-arity": "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.10.1/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.0/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/types@7.9.0/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.0/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
       "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",

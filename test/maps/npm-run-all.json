@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "npm-run-all": "https://ga.jspm.dev/npm:npm-run-all@4.1.5/lib/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:error-ex@1.3.2/": {
+      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "es-to-primitive/es2015": "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/es2015.js",
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/": {
+      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js",
+      "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
+      "is-symbol": "https://ga.jspm.dev/npm:is-symbol@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-symbol@1.0.3/": {
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:load-json-file@4.0.0/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "parse-json": "https://ga.jspm.dev/npm:parse-json@4.0.0/index.js",
+      "pify": "https://ga.jspm.dev/npm:pify@3.0.0/index.js",
+      "strip-bom": "https://ga.jspm.dev/npm:strip-bom@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    },
+    "https://ga.jspm.dev/npm:normalize-package-data@2.5.0/": {
+      "hosted-git-info": "https://ga.jspm.dev/npm:hosted-git-info@2.8.8/index.js",
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
+      "validate-npm-package-license": "https://ga.jspm.dev/npm:validate-npm-package-license@3.0.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:npm-run-all@4.1.5/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "memorystream": "https://ga.jspm.dev/npm:memorystream@0.3.1/index.js",
+      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
+      "read-pkg": "https://ga.jspm.dev/npm:read-pkg@3.0.0/index.js",
+      "shell-quote": "https://ga.jspm.dev/npm:shell-quote@1.7.2/index.js",
+      "string.prototype.padend": "https://ga.jspm.dev/npm:string.prototype.padend@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:parse-json@4.0.0/": {
+      "error-ex": "https://ga.jspm.dev/npm:error-ex@1.3.2/index.js",
+      "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:path-type@3.0.0/": {
+      "pify": "https://ga.jspm.dev/npm:pify@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:read-pkg@3.0.0/": {
+      "load-json-file": "https://ga.jspm.dev/npm:load-json-file@4.0.0/index.js",
+      "normalize-package-data": "https://ga.jspm.dev/npm:normalize-package-data@2.5.0/lib/normalize.js",
+      "path-type": "https://ga.jspm.dev/npm:path-type@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
+      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    },
+    "https://ga.jspm.dev/npm:spdx-correct@3.1.1/": {
+      "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/index.js",
+      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json.js"
+    },
+    "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/": {
+      "spdx-exceptions": "https://ga.jspm.dev/npm:spdx-exceptions@2.3.0/index.json.js",
+      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json.js",
+      "spdx-license-ids/deprecated": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/deprecated.json.js"
+    },
+    "https://ga.jspm.dev/npm:string.prototype.padend@3.1.0/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/2019/RequireObjectCoercible": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/RequireObjectCoercible.js",
+      "es-abstract/2019/ToLength": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/ToLength.js",
+      "es-abstract/2019/ToString": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/ToString.js",
+      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js",
+      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js"
+    },
+    "https://ga.jspm.dev/npm:validate-npm-package-license@3.0.4/": {
+      "spdx-correct": "https://ga.jspm.dev/npm:spdx-correct@3.1.1/index.js",
+      "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/index.js"
+    }
+  }
+}

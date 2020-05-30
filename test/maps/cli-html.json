@@ -1,13 +1,13 @@
 {
   "imports": {
-    "cli-html": "https://ga.jspm.dev/npm:cli-html@1.7.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "cli-html": "https://ga.jspm.dev/npm:cli-html@1.8.2/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cli-html@1.7.0/": {
+    "https://ga.jspm.dev/npm:cli-html@1.8.2/": {
       "he": "https://ga.jspm.dev/npm:he@1.2.0/he.js",
       "normalize-html-whitespace": "https://ga.jspm.dev/npm:normalize-html-whitespace@1.0.0/index-es5.js",
-      "parse5": "https://ga.jspm.dev/npm:parse5@5.1.1/lib/index.js"
+      "parse5": "https://ga.jspm.dev/npm:parse5@6.0.0/lib/index.js"
     }
   }
 }

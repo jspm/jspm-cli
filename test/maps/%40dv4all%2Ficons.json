@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@dv4all/icons": "https://ga.jspm.dev/npm:@dv4all/icons@0.5.3/lib/dv4icons.cjs.js"
+    "@dv4all/icons": "https://ga.jspm.dev/npm:@dv4all/icons@1.0.1/lib/dv4icons.cjs.js"
   }
 }

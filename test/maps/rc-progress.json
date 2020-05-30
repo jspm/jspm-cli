@@ -1,10 +1,14 @@
 {
   "imports": {
-    "rc-progress": "https://ga.jspm.dev/npm:rc-progress@2.5.2/lib/index.js"
+    "rc-progress": "https://ga.jspm.dev/npm:rc-progress@3.0.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rc-progress@2.5.2/": {
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    "https://ga.jspm.dev/npm:rc-progress@3.0.0/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     }
   }
 }

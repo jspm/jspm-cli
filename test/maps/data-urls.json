@@ -1,19 +1,19 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "data-urls": "https://ga.jspm.dev/npm:data-urls@2.0.0/lib/parser.js",
-    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/punycode.js"
+    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:data-urls@2.0.0/": {
       "abab": "https://ga.jspm.dev/npm:abab@2.0.3/index.js",
       "whatwg-mimetype": "https://ga.jspm.dev/npm:whatwg-mimetype@2.3.0/lib/mime-type.js",
-      "whatwg-url": "https://ga.jspm.dev/npm:whatwg-url@8.0.0/index.js"
+      "whatwg-url": "https://ga.jspm.dev/npm:whatwg-url@8.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:tr46@2.0.2/": {
       "punycode": "https://ga.jspm.dev/npm:punycode@2.1.1/punycode.js"
     },
-    "https://ga.jspm.dev/npm:whatwg-url@8.0.0/": {
+    "https://ga.jspm.dev/npm:whatwg-url@8.1.0/": {
       "lodash.sortby": "https://ga.jspm.dev/npm:lodash.sortby@4.7.0/index.js",
       "tr46": "https://ga.jspm.dev/npm:tr46@2.0.2/index.js",
       "webidl-conversions": "https://ga.jspm.dev/npm:webidl-conversions@5.0.0/lib/index.js"

@@ -1,5 +1,11 @@
 {
   "imports": {
-    "react-icons": "https://ga.jspm.dev/npm:react-icons@3.9.0/lib/cjs/index.js"
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "react-icons": "https://ga.jspm.dev/npm:react-icons@3.10.0/lib/cjs/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
   }
 }

@@ -1,24 +1,26 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "webpack-bundle-analyzer": "https://ga.jspm.dev/npm:webpack-bundle-analyzer@3.6.1/lib/index.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "webpack-bundle-analyzer": "https://ga.jspm.dev/npm:webpack-bundle-analyzer@3.8.0/lib/index.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:accepts@1.3.7/": {
-      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js",
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.27/index.js",
       "negotiator": "https://ga.jspm.dev/npm:negotiator@0.6.2/index.js"
     },
     "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
@@ -118,8 +120,8 @@
     "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
       "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
     },
-    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    "https://ga.jspm.dev/npm:mime-types@2.1.27/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
     },
     "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
       "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
@@ -157,10 +159,10 @@
     },
     "https://ga.jspm.dev/npm:type-is@1.6.18/": {
       "media-typer": "https://ga.jspm.dev/npm:media-typer@0.3.0/index.js",
-      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js"
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.27/index.js"
     },
-    "https://ga.jspm.dev/npm:webpack-bundle-analyzer@3.6.1/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+    "https://ga.jspm.dev/npm:webpack-bundle-analyzer@3.8.0/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js",
       "acorn-walk": "https://ga.jspm.dev/npm:acorn-walk@7.1.1/dist/walk.js",
       "bfj": "https://ga.jspm.dev/npm:bfj@6.1.2/src/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",

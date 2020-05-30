@@ -1,6 +1,6 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
     "nengi": "https://ga.jspm.dev/npm:nengi@1.13.1/indexBrowser.js"
   },
   "scopes": {

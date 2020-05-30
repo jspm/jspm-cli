@@ -5,7 +5,6 @@
   "scopes": {
     "https://ga.jspm.dev/npm:level-supports@1.0.1/": {
       "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js",
-      "xtend/": "https://ga.jspm.dev/npm:xtend@4.0.2/",
       "xtend/mutable": "https://ga.jspm.dev/npm:xtend@4.0.2/mutable.js"
     }
   }

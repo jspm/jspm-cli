@@ -1,8 +1,8 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
     "pouchdb": "https://ga.jspm.dev/npm:pouchdb@7.2.1/lib/index-browser.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:pouchdb@7.2.1/": {
@@ -12,6 +12,9 @@
       "spark-md5": "https://ga.jspm.dev/npm:spark-md5@3.0.0/spark-md5.js",
       "uuid": "https://ga.jspm.dev/npm:uuid@3.3.3/index.js",
       "vuvuzela": "https://ga.jspm.dev/npm:vuvuzela@1.0.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@3.3.3/": {
+      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.3.3/lib/rng-browser.js"
     }
   }
 }

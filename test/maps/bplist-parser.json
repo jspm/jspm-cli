@@ -1,7 +1,8 @@
 {
   "imports": {
     "bplist-parser": "https://ga.jspm.dev/npm:bplist-parser@0.2.0/bplistParser.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:bplist-parser@0.2.0/": {

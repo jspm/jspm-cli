@@ -1,7 +1,7 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
     "react-markdown": "https://ga.jspm.dev/npm:react-markdown@4.3.1/lib/react-markdown.js"
   },
@@ -14,11 +14,12 @@
       "unist-util-visit-parents": "https://ga.jspm.dev/npm:unist-util-visit-parents@1.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:parse-entities@1.2.2/": {
-      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json",
-      "character-reference-invalid": "https://ga.jspm.dev/npm:character-reference-invalid@1.1.4/index.json",
+      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json.js",
+      "character-reference-invalid": "https://ga.jspm.dev/npm:character-reference-invalid@1.1.4/index.json.js",
       "is-alphanumerical": "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/index.js",
       "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
-      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js"
+      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js",
+      "parse-entities/decode-entity.js": "https://ga.jspm.dev/npm:parse-entities@1.2.2/decode-entity.browser.js"
     },
     "https://ga.jspm.dev/npm:react-markdown@4.3.1/": {
       "mdast-add-list-metadata": "https://ga.jspm.dev/npm:mdast-add-list-metadata@1.0.1/index.js",
@@ -65,7 +66,6 @@
       "unist-util-visit": "https://ga.jspm.dev/npm:unist-util-visit@1.4.1/index.js"
     },
     "https://ga.jspm.dev/npm:unist-util-visit-parents@2.1.2/": {
-      "unist-util-is/": "https://ga.jspm.dev/npm:unist-util-is@3.0.0/",
       "unist-util-is/convert": "https://ga.jspm.dev/npm:unist-util-is@3.0.0/convert.js"
     },
     "https://ga.jspm.dev/npm:unist-util-visit@1.4.1/": {

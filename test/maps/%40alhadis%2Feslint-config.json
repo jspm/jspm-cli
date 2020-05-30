@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@alhadis/eslint-config": "https://ga.jspm.dev/npm:@alhadis/eslint-config@2.2.0/index.js"
+    "@alhadis/eslint-config": "https://ga.jspm.dev/npm:@alhadis/eslint-config@2.3.2/index.js"
   }
 }

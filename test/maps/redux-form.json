@@ -3,38 +3,40 @@
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
     "react-redux": "https://ga.jspm.dev/npm:react-redux@7.2.0/lib/index.js",
     "redux": "https://ga.jspm.dev/npm:redux@4.0.5/lib/redux.js",
-    "redux-form": "https://ga.jspm.dev/npm:redux-form@8.3.2/lib/index.js"
+    "redux-form": "https://ga.jspm.dev/npm:redux-form@8.3.6/lib/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
     "https://ga.jspm.dev/npm:react-redux@7.2.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:redux-form@8.3.2/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/createClass.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+    "https://ga.jspm.dev/npm:redux-form@8.3.6/": {
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "es6-error": "https://ga.jspm.dev/npm:es6-error@4.1.1/lib/index.js",
       "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
       "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js",
-      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.2.2/index.js",
       "lodash/get": "https://ga.jspm.dev/npm:lodash@4.17.15/get.js",
       "lodash/isEmpty": "https://ga.jspm.dev/npm:lodash@4.17.15/isEmpty.js",
       "lodash/isEqual": "https://ga.jspm.dev/npm:lodash@4.17.15/isEqual.js",

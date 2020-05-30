@@ -1,7 +1,8 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "walk-sync": "https://ga.jspm.dev/npm:walk-sync@2.0.2/index.js"
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "walk-sync": "https://ga.jspm.dev/npm:walk-sync@2.1.0/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -14,7 +15,7 @@
     "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
       "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:walk-sync@2.0.2/": {
+    "https://ga.jspm.dev/npm:walk-sync@2.1.0/": {
       "ensure-posix-path": "https://ga.jspm.dev/npm:ensure-posix-path@1.1.1/index.js",
       "matcher-collection": "https://ga.jspm.dev/npm:matcher-collection@2.0.1/index.js"
     }

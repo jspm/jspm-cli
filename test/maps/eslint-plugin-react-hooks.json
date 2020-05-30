@@ -1,5 +1,5 @@
 {
   "imports": {
-    "eslint-plugin-react-hooks": "https://ga.jspm.dev/npm:eslint-plugin-react-hooks@3.0.0/index.js"
+    "eslint-plugin-react-hooks": "https://ga.jspm.dev/npm:eslint-plugin-react-hooks@4.0.4/index.js"
   }
 }

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "github-gatekeeper": "https://ga.jspm.dev/npm:github-gatekeeper@1.0.2/index.html"
-  }
-}

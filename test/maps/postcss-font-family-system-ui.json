@@ -1,25 +1,39 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
     "postcss-font-family-system-ui": "https://ga.jspm.dev/npm:postcss-font-family-system-ui@4.2.0/index.mjs",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:browserslist@4.11.1/": {
-      "caniuse-lite/": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001039/",
-      "caniuse-lite/dist/unpacker/agents": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001039/dist/unpacker/agents.js",
-      "electron-to-chromium/": "https://ga.jspm.dev/npm:electron-to-chromium@1.3.398/",
-      "electron-to-chromium/versions": "https://ga.jspm.dev/npm:electron-to-chromium@1.3.398/versions.js",
-      "node-releases/": "https://ga.jspm.dev/npm:node-releases@1.1.53/"
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:browserslist@4.12.0/": {
+      "browserslist/node.js": "https://ga.jspm.dev/npm:browserslist@4.12.0/browser.js",
+      "caniuse-lite/dist/unpacker/agents": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/agents.js",
+      "electron-to-chromium/versions": "https://ga.jspm.dev/npm:electron-to-chromium@1.3.455/versions.js",
+      "node-releases/data/processed/envs.json": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/processed/envs.json.js",
+      "node-releases/data/release-schedule/release-schedule.json": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
     },
     "https://ga.jspm.dev/npm:postcss-font-family-system-ui@4.2.0/": {
-      "browserslist": "https://ga.jspm.dev/npm:browserslist@4.11.1/index.js",
-      "caniuse-lite": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001039/dist/unpacker/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js"
+      "browserslist": "https://ga.jspm.dev/npm:browserslist@4.12.0/index.js",
+      "caniuse-lite": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/index.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.dev/npm:postcss@7.0.31/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@6.1.0/browser.js"
     }
   }
 }

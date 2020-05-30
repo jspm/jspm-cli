@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "minions-core/lib/components/WebComponent": "https://ga.jspm.dev/npm:minions-core@0.0.30/lib/components/WebComponent.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    },
+    "https://ga.jspm.dev/npm:minions-core@0.0.30/": {
+      "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    }
+  }
+}

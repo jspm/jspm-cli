@@ -1,12 +1,12 @@
 {
   "imports": {
     "npm-install-checks": "https://ga.jspm.dev/npm:npm-install-checks@4.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:npm-install-checks@4.0.0/": {
-      "semver": "https://ga.jspm.dev/npm:semver@7.2.1/index.js"
+      "semver": "https://ga.jspm.dev/npm:semver@7.3.2/index.js"
     }
   }
 }

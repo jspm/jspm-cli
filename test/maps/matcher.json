@@ -1,10 +1,10 @@
 {
   "imports": {
-    "matcher": "https://ga.jspm.dev/npm:matcher@2.1.0/index.js"
+    "matcher": "https://ga.jspm.dev/npm:matcher@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:matcher@2.1.0/": {
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@2.0.0/index.js"
+    "https://ga.jspm.dev/npm:matcher@3.0.0/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@4.0.0/index.js"
     }
   }
 }

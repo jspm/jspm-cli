@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@curbl/ecs@2.2.1/": {
-      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@4.0.0/index.js"
+      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@4.0.4/index.js"
     }
   }
 }

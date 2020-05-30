@@ -1,13 +1,12 @@
 {
   "imports": {
-    "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.0/index.js"
+    "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.0/": {
-      "spdx-exceptions": "https://ga.jspm.dev/npm:spdx-exceptions@2.2.0/index.json",
-      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json",
-      "spdx-license-ids/": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/",
-      "spdx-license-ids/deprecated": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/deprecated.json"
+    "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/": {
+      "spdx-exceptions": "https://ga.jspm.dev/npm:spdx-exceptions@2.3.0/index.json.js",
+      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json.js",
+      "spdx-license-ids/deprecated": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/deprecated.json.js"
     }
   }
 }

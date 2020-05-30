@@ -1,12 +1,12 @@
 {
   "imports": {
-    "fetch-cookie": "https://ga.jspm.dev/npm:fetch-cookie@0.8.0/index.js",
-    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/punycode.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "fetch-cookie": "https://ga.jspm.dev/npm:fetch-cookie@0.9.1/index.js",
+    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:fetch-cookie@0.8.0/": {
+    "https://ga.jspm.dev/npm:fetch-cookie@0.9.1/": {
       "tough-cookie": "https://ga.jspm.dev/npm:tough-cookie@4.0.0/lib/cookie.js"
     },
     "https://ga.jspm.dev/npm:tough-cookie@4.0.0/": {

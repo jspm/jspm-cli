@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@storeon/vue": "https://ga.jspm.dev/npm:@storeon/vue@0.5.0/index.js"
+    "@storeon/vue": "https://ga.jspm.dev/npm:@storeon/vue@1.1.0/index.js"
   }
 }

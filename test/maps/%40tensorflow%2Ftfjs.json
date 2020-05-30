@@ -1,20 +1,31 @@
 {
   "imports": {
-    "@tensorflow/tfjs": "https://ga.jspm.dev/npm:@tensorflow/tfjs@1.7.0/dist/index.js",
-    "@tensorflow/tfjs-core": "https://ga.jspm.dev/npm:@tensorflow/tfjs-core@1.7.0/dist/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.2/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.2/nodelibs/process-production.js",
-    "seedrandom": "https://ga.jspm.dev/npm:seedrandom@2.4.4/index.js"
+    "@tensorflow/tfjs": "https://ga.jspm.dev/npm:@tensorflow/tfjs@2.0.0/dist/tf.node.js",
+    "@tensorflow/tfjs-core": "https://ga.jspm.dev/npm:@tensorflow/tfjs-core@2.0.0/dist/tf-core.node.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@tensorflow/tfjs-core@1.7.0/": {
+    "https://ga.jspm.dev/npm:@tensorflow/tfjs-backend-cpu@2.0.0/": {
       "seedrandom": "https://ga.jspm.dev/npm:seedrandom@2.4.3/index.js"
     },
-    "https://ga.jspm.dev/npm:@tensorflow/tfjs@1.7.0/": {
-      "@tensorflow/tfjs-converter": "https://ga.jspm.dev/npm:@tensorflow/tfjs-converter@1.7.0/dist/src/index.js",
-      "@tensorflow/tfjs-core": "https://ga.jspm.dev/npm:@tensorflow/tfjs-core@1.7.0/dist/index.js",
-      "@tensorflow/tfjs-data": "https://ga.jspm.dev/npm:@tensorflow/tfjs-data@1.7.0/dist/index.js",
-      "@tensorflow/tfjs-layers": "https://ga.jspm.dev/npm:@tensorflow/tfjs-layers@1.7.0/dist/index.js"
+    "https://ga.jspm.dev/npm:@tensorflow/tfjs-backend-webgl@2.0.0/": {
+      "seedrandom": "https://ga.jspm.dev/npm:seedrandom@2.4.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:@tensorflow/tfjs-core@2.0.0/": {
+      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.1.2/browser.js"
+    },
+    "https://ga.jspm.dev/npm:@tensorflow/tfjs@2.0.0/": {
+      "@tensorflow/tfjs-backend-cpu": "https://ga.jspm.dev/npm:@tensorflow/tfjs-backend-cpu@2.0.0/dist/tf-backend-cpu.node.js",
+      "@tensorflow/tfjs-backend-webgl": "https://ga.jspm.dev/npm:@tensorflow/tfjs-backend-webgl@2.0.0/dist/tf-backend-webgl.node.js",
+      "@tensorflow/tfjs-converter": "https://ga.jspm.dev/npm:@tensorflow/tfjs-converter@2.0.0/dist/tf-converter.node.js",
+      "@tensorflow/tfjs-core": "https://ga.jspm.dev/npm:@tensorflow/tfjs-core@2.0.0/dist/tf-core.node.js",
+      "@tensorflow/tfjs-data": "https://ga.jspm.dev/npm:@tensorflow/tfjs-data@2.0.0/dist/tf-data.node.js",
+      "@tensorflow/tfjs-layers": "https://ga.jspm.dev/npm:@tensorflow/tfjs-layers@2.0.0/dist/tf-layers.node.js"
     }
   }
 }

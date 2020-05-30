@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@esm-bundle/rxjs": "https://ga.jspm.dev/npm:@esm-bundle/rxjs@6.5.5-fix.1/esm/es2015/rxjs.min.js"
+  }
+}

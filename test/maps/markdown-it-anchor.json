@@ -1,5 +1,5 @@
 {
   "imports": {
-    "markdown-it-anchor": "https://ga.jspm.dev/npm:markdown-it-anchor@5.2.7/dist/markdownItAnchor.js"
+    "markdown-it-anchor": "https://ga.jspm.dev/npm:markdown-it-anchor@5.3.0/dist/markdownItAnchor.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "textextensions": "https://ga.jspm.dev/npm:textextensions@3.3.0/source/index.json"
+    "textextensions": "https://ga.jspm.dev/npm:textextensions@5.0.0/edition-browsers/index.js"
   }
 }

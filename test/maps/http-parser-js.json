@@ -1,6 +1,6 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
     "http-parser-js": "https://ga.jspm.dev/npm:http-parser-js@0.5.2/http-parser.js"
   }
 }

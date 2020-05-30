@@ -1,10 +1,5 @@
 {
   "imports": {
-    "@vicis/transform-date": "https://ga.jspm.dev/npm:@vicis/transform-date@1.2.0/dist/vicis-transform-date.mjs"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:@vicis/transform-date@1.2.0/": {
-      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
-    }
+    "@vicis/transform-date": "https://ga.jspm.dev/npm:@vicis/transform-date@1.2.3/dist/vicis-transform-date.js"
   }
 }

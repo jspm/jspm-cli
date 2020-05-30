@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:chart.js@2.9.3/": {
-      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
+      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
     }
   }
 }

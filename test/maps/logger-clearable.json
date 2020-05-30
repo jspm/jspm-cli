@@ -1,7 +1,7 @@
 {
   "imports": {
-    "logger-clearable": "https://ga.jspm.dev/npm:logger-clearable@2.3.0/source/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "logger-clearable": "https://ga.jspm.dev/npm:logger-clearable@3.3.0/source/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
   }
 }

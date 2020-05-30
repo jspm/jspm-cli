@@ -1,6 +1,7 @@
 {
   "imports": {
     "debuglog": "https://ga.jspm.dev/npm:debuglog@1.0.1/debuglog.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   }
 }

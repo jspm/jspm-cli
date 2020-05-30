@@ -4,9 +4,12 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:create-react-class@15.6.3/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/emptyObject": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyObject.js",
       "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js",
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     }
   }

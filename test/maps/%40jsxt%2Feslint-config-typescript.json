@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@jsxt/eslint-config-typescript": "https://ga.jspm.dev/npm:@jsxt/eslint-config-typescript@3.4.4/createEslintConfig.cjs"
+    "@jsxt/eslint-config-typescript": "https://ga.jspm.dev/npm:@jsxt/eslint-config-typescript@3.4.6/createEslintConfig.cjs"
   }
 }

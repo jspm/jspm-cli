@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "typed-styles": "https://ga.jspm.dev/npm:typed-styles@0.0.8/index.js"
+  }
+}

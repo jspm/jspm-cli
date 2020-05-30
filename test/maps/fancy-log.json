@@ -1,8 +1,8 @@
 {
   "imports": {
-    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/console.js",
+    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/console.js",
     "fancy-log": "https://ga.jspm.dev/npm:fancy-log@1.3.3/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-gray@0.1.1/": {

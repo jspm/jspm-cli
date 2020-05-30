@@ -1,7 +1,7 @@
 {
   "imports": {
     "@webassemblyjs/wasm-opt": "https://ga.jspm.dev/npm:@webassemblyjs/wasm-opt@1.9.0/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@webassemblyjs/ast@1.9.0/": {
@@ -26,7 +26,6 @@
     "https://ga.jspm.dev/npm:@webassemblyjs/wasm-opt@1.9.0/": {
       "@webassemblyjs/ast": "https://ga.jspm.dev/npm:@webassemblyjs/ast@1.9.0/lib/index.js",
       "@webassemblyjs/helper-buffer": "https://ga.jspm.dev/npm:@webassemblyjs/helper-buffer@1.9.0/lib/index.js",
-      "@webassemblyjs/wasm-gen/": "https://ga.jspm.dev/npm:@webassemblyjs/wasm-gen@1.9.0/",
       "@webassemblyjs/wasm-gen/lib/encoder": "https://ga.jspm.dev/npm:@webassemblyjs/wasm-gen@1.9.0/lib/encoder/index.js",
       "@webassemblyjs/wasm-parser": "https://ga.jspm.dev/npm:@webassemblyjs/wasm-parser@1.9.0/lib/index.js"
     },

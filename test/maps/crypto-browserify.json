@@ -1,15 +1,18 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
     "crypto-browserify": "https://ga.jspm.dev/npm:crypto-browserify@3.12.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:asn1.js@4.10.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
     },
@@ -18,14 +21,12 @@
       "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
       "evp_bytestokey": "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/index.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:browserify-cipher@1.0.1/": {
-      "browserify-aes/": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/",
       "browserify-aes/browser": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/browser.js",
       "browserify-aes/modes": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/modes/index.js",
       "browserify-des": "https://ga.jspm.dev/npm:browserify-des@1.0.2/index.js",
-      "browserify-des/": "https://ga.jspm.dev/npm:browserify-des@1.0.2/",
       "browserify-des/modes": "https://ga.jspm.dev/npm:browserify-des@1.0.2/modes.js",
       "evp_bytestokey": "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/index.js"
     },
@@ -33,27 +34,29 @@
       "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
       "des.js": "https://ga.jspm.dev/npm:des.js@1.0.1/lib/des.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:browserify-rsa@4.0.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:browserify-sign@4.0.4/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+    "https://ga.jspm.dev/npm:browserify-sign@4.2.0/": {
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@5.1.2/lib/bn.js",
       "browserify-rsa": "https://ga.jspm.dev/npm:browserify-rsa@4.0.1/index.js",
       "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
       "create-hmac": "https://ga.jspm.dev/npm:create-hmac@1.1.7/browser.js",
       "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "parse-asn1": "https://ga.jspm.dev/npm:parse-asn1@5.1.5/index.js"
+      "parse-asn1": "https://ga.jspm.dev/npm:parse-asn1@5.1.5/index.js",
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:cipher-base@1.0.4/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:create-ecdh@4.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js"
     },
     "https://ga.jspm.dev/npm:create-hash@1.2.0/": {
@@ -65,18 +68,16 @@
     },
     "https://ga.jspm.dev/npm:create-hmac@1.1.7/": {
       "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
-      "create-hash/": "https://ga.jspm.dev/npm:create-hash@1.2.0/",
       "create-hash/md5": "https://ga.jspm.dev/npm:create-hash@1.2.0/md5.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
       "ripemd160": "https://ga.jspm.dev/npm:ripemd160@2.0.2/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
       "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js"
     },
     "https://ga.jspm.dev/npm:crypto-browserify@3.12.0/": {
       "browserify-cipher": "https://ga.jspm.dev/npm:browserify-cipher@1.0.1/browser.js",
-      "browserify-sign": "https://ga.jspm.dev/npm:browserify-sign@4.0.4/browser/index.js",
-      "browserify-sign/": "https://ga.jspm.dev/npm:browserify-sign@4.0.4/",
-      "browserify-sign/algos": "https://ga.jspm.dev/npm:browserify-sign@4.0.4/algos.js",
+      "browserify-sign": "https://ga.jspm.dev/npm:browserify-sign@4.2.0/browser/index.js",
+      "browserify-sign/algos": "https://ga.jspm.dev/npm:browserify-sign@4.2.0/algos.js",
       "create-ecdh": "https://ga.jspm.dev/npm:create-ecdh@4.0.3/browser.js",
       "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
       "create-hmac": "https://ga.jspm.dev/npm:create-hmac@1.1.7/browser.js",
@@ -91,12 +92,12 @@
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
     },
     "https://ga.jspm.dev/npm:diffie-hellman@5.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "miller-rabin": "https://ga.jspm.dev/npm:miller-rabin@4.0.1/lib/mr.js",
       "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js"
     },
     "https://ga.jspm.dev/npm:elliptic@6.5.2/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js",
       "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
       "hmac-drbg": "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
@@ -106,11 +107,12 @@
     },
     "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/": {
       "md5.js": "https://ga.jspm.dev/npm:md5.js@1.3.5/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hash-base@3.0.4/": {
+    "https://ga.jspm.dev/npm:hash-base@3.1.0/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:hash.js@1.1.7/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
@@ -122,12 +124,12 @@
       "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     },
     "https://ga.jspm.dev/npm:md5.js@1.3.5/": {
-      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.0.4/index.js",
+      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.1.0/index.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:miller-rabin@4.0.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:parse-asn1@5.1.5/": {
@@ -135,37 +137,47 @@
       "browserify-aes": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/browser.js",
       "evp_bytestokey": "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/index.js",
       "pbkdf2": "https://ga.jspm.dev/npm:pbkdf2@3.0.17/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:pbkdf2@3.0.17/": {
-      "create-hash/": "https://ga.jspm.dev/npm:create-hash@1.2.0/",
       "create-hash/md5": "https://ga.jspm.dev/npm:create-hash@1.2.0/md5.js",
+      "pbkdf2/lib/sync.js": "https://ga.jspm.dev/npm:pbkdf2@3.0.17/lib/sync-browser.js",
       "ripemd160": "https://ga.jspm.dev/npm:ripemd160@2.0.2/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
       "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js"
     },
     "https://ga.jspm.dev/npm:public-encrypt@4.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "browserify-rsa": "https://ga.jspm.dev/npm:browserify-rsa@4.0.1/index.js",
       "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
       "parse-asn1": "https://ga.jspm.dev/npm:parse-asn1@5.1.5/index.js",
       "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:randomfill@1.0.4/": {
       "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@3.6.0/": {
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
     },
     "https://ga.jspm.dev/npm:ripemd160@2.0.2/": {
-      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.0.4/index.js",
+      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.1.0/index.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
     },
     "https://ga.jspm.dev/npm:sha.js@2.4.11/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     }
   }
 }

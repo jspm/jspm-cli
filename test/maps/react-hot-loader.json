@@ -1,7 +1,7 @@
 {
   "imports": {
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-hot-loader": "https://ga.jspm.dev/npm:react-hot-loader@4.12.20/index.js"
+    "react-hot-loader": "https://ga.jspm.dev/npm:react-hot-loader@4.12.21/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:react@16.13.1/": {

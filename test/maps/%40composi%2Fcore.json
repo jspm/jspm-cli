@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@composi/core": "https://ga.jspm.dev/npm:@composi/core@2.7.6/src/index.js"
+    "@composi/core": "https://ga.jspm.dev/npm:@composi/core@2.7.9/src/index.js"
   }
 }

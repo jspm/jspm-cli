@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "alife-logger": "https://ga.jspm.dev/npm:alife-logger@1.8.16/lib/index.js"
+  }
+}

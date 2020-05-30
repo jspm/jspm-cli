@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "jimp": "https://ga.jspm.dev/npm:jimp@0.10.1/browser/lib/jimp.js"
-  }
-}

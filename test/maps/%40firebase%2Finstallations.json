@@ -1,26 +1,26 @@
 {
   "imports": {
-    "@firebase/app": "https://ga.jspm.dev/npm:@firebase/app@0.6.1/dist/index.cjs.js",
-    "@firebase/installations": "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/dist/index.cjs.js"
+    "@firebase/app": "https://ga.jspm.dev/npm:@firebase/app@0.6.4/dist/index.cjs.js",
+    "@firebase/installations": "https://ga.jspm.dev/npm:@firebase/installations@0.4.10/dist/index.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@firebase/app@0.6.1/": {
-      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
-      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js",
-      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+    "https://ga.jspm.dev/npm:@firebase/app@0.6.4/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.12/dist/index.cjs.js",
+      "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.4/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.47/dist/index.cjs.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@firebase/component@0.1.9/": {
-      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+    "https://ga.jspm.dev/npm:@firebase/component@0.1.12/": {
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.47/dist/index.cjs.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@firebase/installations@0.4.7/": {
-      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.9/dist/index.cjs.js",
-      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.44/dist/index.cjs.js",
+    "https://ga.jspm.dev/npm:@firebase/installations@0.4.10/": {
+      "@firebase/component": "https://ga.jspm.dev/npm:@firebase/component@0.1.12/dist/index.cjs.js",
+      "@firebase/util": "https://ga.jspm.dev/npm:@firebase/util@0.2.47/dist/index.cjs.js",
       "idb": "https://ga.jspm.dev/npm:idb@3.0.2/build/idb.js",
       "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@firebase/util@0.2.44/": {
+    "https://ga.jspm.dev/npm:@firebase/util@0.2.47/": {
       "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
     }
   }

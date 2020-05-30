@@ -6,8 +6,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
       "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {

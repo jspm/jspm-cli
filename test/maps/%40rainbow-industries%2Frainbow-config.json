@@ -1,14 +1,15 @@
 {
   "imports": {
     "@rainbow-industries/rainbow-config": "https://ga.jspm.dev/npm:@rainbow-industries/rainbow-config@1.0.2/npm/src/RainbowConfig.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@rainbow-industries/rainbow-config@1.0.2/": {
       "@distributed-systems/glob": "https://ga.jspm.dev/npm:@distributed-systems/glob@2.0.1/npm/src/glob.js",
-      "yaml": "https://ga.jspm.dev/npm:yaml@1.8.3/index.js"
+      "yaml": "https://ga.jspm.dev/npm:yaml@1.10.0/index.js"
     }
   }
 }

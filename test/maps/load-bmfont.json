@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "load-bmfont": "https://ga.jspm.dev/npm:load-bmfont@1.4.0/browser.js"
   },
   "scopes": {
@@ -16,9 +16,8 @@
       "xml-parse-from-string": "https://ga.jspm.dev/npm:xml-parse-from-string@1.0.1/index.js"
     },
     "https://ga.jspm.dev/npm:xhr@2.5.0/": {
-      "global/": "https://ga.jspm.dev/npm:global@4.3.2/",
       "global/window": "https://ga.jspm.dev/npm:global@4.3.2/window.js",
-      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.1/index.js",
+      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.2/index.js",
       "parse-headers": "https://ga.jspm.dev/npm:parse-headers@2.0.3/parse-headers.js",
       "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
     }

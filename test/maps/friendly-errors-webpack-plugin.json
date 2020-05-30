@@ -1,11 +1,11 @@
 {
   "imports": {
     "friendly-errors-webpack-plugin": "https://ga.jspm.dev/npm:friendly-errors-webpack-plugin@1.7.0/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "webpack/": "https://ga.jspm.dev/npm:webpack@4.42.1/",
-    "webpack/lib/RequestShortener": "https://ga.jspm.dev/npm:webpack@4.42.1/lib/RequestShortener.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
+    "webpack/lib/RequestShortener": "https://ga.jspm.dev/npm:webpack@4.43.0/lib/RequestShortener.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:chalk@1.1.3/": {
@@ -16,7 +16,7 @@
       "supports-color": "https://ga.jspm.dev/npm:supports-color@2.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:error-stack-parser@2.0.6/": {
-      "stackframe": "https://ga.jspm.dev/npm:stackframe@1.1.1/stackframe.js"
+      "stackframe": "https://ga.jspm.dev/npm:stackframe@1.2.0/stackframe.js"
     },
     "https://ga.jspm.dev/npm:friendly-errors-webpack-plugin@1.7.0/": {
       "chalk": "https://ga.jspm.dev/npm:chalk@1.1.3/index.js",

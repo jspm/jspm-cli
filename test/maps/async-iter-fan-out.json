@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "async-iter-fan-out/fan-out.js": "https://ga.jspm.dev/npm:async-iter-fan-out@1.0.0/fan-out.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:async-iter-fan-out@1.0.0/": {
+      "denque": "https://ga.jspm.dev/npm:denque@1.4.1/index.js",
+      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    }
+  }
+}

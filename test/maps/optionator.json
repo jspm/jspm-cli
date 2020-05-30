@@ -1,5 +1,23 @@
 {
   "imports": {
-    "optionator": "https://ga.jspm.dev/npm:optionator@0.9.1/lib/"
+    "optionator": "https://ga.jspm.dev/npm:optionator@0.9.1/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:levn@0.4.1/": {
+      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.2.1/lib/index.js",
+      "type-check": "https://ga.jspm.dev/npm:type-check@0.4.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:optionator@0.9.1/": {
+      "deep-is": "https://ga.jspm.dev/npm:deep-is@0.1.3/index.js",
+      "fast-levenshtein": "https://ga.jspm.dev/npm:fast-levenshtein@2.0.6/levenshtein.js",
+      "levn": "https://ga.jspm.dev/npm:levn@0.4.1/lib/index.js",
+      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.2.1/lib/index.js",
+      "type-check": "https://ga.jspm.dev/npm:type-check@0.4.0/lib/index.js",
+      "word-wrap": "https://ga.jspm.dev/npm:word-wrap@1.2.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:type-check@0.4.0/": {
+      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.2.1/lib/index.js"
+    }
   }
 }

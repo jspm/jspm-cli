@@ -1,21 +1,22 @@
 {
   "imports": {
-    "caterpillar": "https://ga.jspm.dev/npm:caterpillar@4.0.0/edition-browsers/index.js",
-    "caterpillar-human": "https://ga.jspm.dev/npm:caterpillar-human@5.0.0/edition-browsers/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "caterpillar": "https://ga.jspm.dev/npm:caterpillar@5.4.0/edition-browsers/index.js",
+    "caterpillar-human": "https://ga.jspm.dev/npm:caterpillar-human@6.4.0/edition-browsers/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:caterpillar-human@5.0.0/": {
+    "https://ga.jspm.dev/npm:caterpillar-human@6.4.0/": {
       "ansicolors": "https://ga.jspm.dev/npm:ansicolors@0.3.2/ansicolors.js",
       "ansistyles": "https://ga.jspm.dev/npm:ansistyles@0.1.3/ansistyles.js"
     },
-    "https://ga.jspm.dev/npm:caterpillar@4.0.0/": {
-      "extendr": "https://ga.jspm.dev/npm:extendr@4.3.0/edition-browsers/index.js",
-      "rfc-log-levels": "https://ga.jspm.dev/npm:rfc-log-levels@2.3.0/source/index.json"
+    "https://ga.jspm.dev/npm:caterpillar@5.4.0/": {
+      "extendr": "https://ga.jspm.dev/npm:extendr@5.4.0/edition-browsers/index.js",
+      "get-current-line": "https://ga.jspm.dev/npm:get-current-line@5.4.0/edition-browsers/index.js",
+      "rfc-log-levels": "https://ga.jspm.dev/npm:rfc-log-levels@3.4.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:extendr@4.3.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    "https://ga.jspm.dev/npm:extendr@5.4.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@7.4.0/edition-browsers/index.js"
     }
   }
 }

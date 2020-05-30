@@ -1,10 +1,12 @@
 {
   "imports": {
-    "secp256k1": "https://ga.jspm.dev/npm:secp256k1@4.0.0/elliptic.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "secp256k1": "https://ga.jspm.dev/npm:secp256k1@4.0.1/elliptic.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:elliptic@6.5.2/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js",
       "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
       "hmac-drbg": "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
@@ -21,7 +23,7 @@
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
       "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:secp256k1@4.0.0/": {
+    "https://ga.jspm.dev/npm:secp256k1@4.0.1/": {
       "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js"
     }
   }

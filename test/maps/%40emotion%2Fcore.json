@@ -10,8 +10,7 @@
       "@emotion/weak-memoize": "https://ga.jspm.dev/npm:@emotion/weak-memoize@0.2.5/dist/weak-memoize.browser.cjs.js"
     },
     "https://ga.jspm.dev/npm:@emotion/core@10.0.28/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
       "@emotion/cache": "https://ga.jspm.dev/npm:@emotion/cache@10.0.29/dist/cache.browser.cjs.js",
       "@emotion/css": "https://ga.jspm.dev/npm:@emotion/css@10.0.27/dist/css.browser.cjs.js",
       "@emotion/serialize": "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js",

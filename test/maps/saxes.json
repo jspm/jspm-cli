@@ -1,10 +1,9 @@
 {
   "imports": {
-    "saxes": "https://ga.jspm.dev/npm:saxes@5.0.0/saxes.js"
+    "saxes": "https://ga.jspm.dev/npm:saxes@5.0.1/saxes.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:saxes@5.0.0/": {
-      "xmlchars/": "https://ga.jspm.dev/npm:xmlchars@2.2.0/",
+    "https://ga.jspm.dev/npm:saxes@5.0.1/": {
       "xmlchars/xml/1.0/ed5": "https://ga.jspm.dev/npm:xmlchars@2.2.0/xml/1.0/ed5.js",
       "xmlchars/xml/1.1/ed2": "https://ga.jspm.dev/npm:xmlchars@2.2.0/xml/1.1/ed2.js",
       "xmlchars/xmlns/1.0/ed3": "https://ga.jspm.dev/npm:xmlchars@2.2.0/xmlns/1.0/ed3.js"

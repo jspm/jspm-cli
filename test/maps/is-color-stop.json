@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:is-color-stop@1.1.0/": {
-      "css-color-names": "https://ga.jspm.dev/npm:css-color-names@0.0.4/css-color-names.json",
+      "css-color-names": "https://ga.jspm.dev/npm:css-color-names@0.0.4/css-color-names.json.js",
       "hex-color-regex": "https://ga.jspm.dev/npm:hex-color-regex@1.1.0/index.js",
       "hsl-regex": "https://ga.jspm.dev/npm:hsl-regex@1.0.0/index.js",
       "hsla-regex": "https://ga.jspm.dev/npm:hsla-regex@1.0.0/index.js",

@@ -1,5 +1,92 @@
 {
   "imports": {
-    "expect": "https://ga.jspm.dev/npm:expect@25.2.7/build-es5/index.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "expect": "https://ga.jspm.dev/npm:expect@26.0.1/build/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:expect@26.0.1/": {
+      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js",
+      "jest-matcher-utils": "https://ga.jspm.dev/npm:jest-matcher-utils@26.0.1/build/index.js",
+      "jest-message-util": "https://ga.jspm.dev/npm:jest-message-util@26.0.1/build/index.js"
+    },
+    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:jest-diff@26.0.1/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "diff-sequences": "https://ga.jspm.dev/npm:diff-sequences@26.0.0/build/index.js",
+      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js",
+      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@26.0.1/build/index.js"
+    },
+    "https://ga.jspm.dev/npm:jest-matcher-utils@26.0.1/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "jest-diff": "https://ga.jspm.dev/npm:jest-diff@26.0.1/build/index.js",
+      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js",
+      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@26.0.1/build/index.js"
+    },
+    "https://ga.jspm.dev/npm:jest-message-util@26.0.1/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
+      "slash": "https://ga.jspm.dev/npm:slash@3.0.0/index.js",
+      "stack-utils": "https://ga.jspm.dev/npm:stack-utils@2.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
+      "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
+      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
+      "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
+    },
+    "https://ga.jspm.dev/npm:pretty-format@26.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js",
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:stack-utils@2.0.2/": {
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    }
   }
 }

@@ -1,30 +1,46 @@
 {
   "imports": {
     "@gulp-sourcemaps/identity-map": "https://ga.jspm.dev/npm:@gulp-sourcemaps/identity-map@2.0.1/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@gulp-sourcemaps/identity-map@2.0.1/": {
       "acorn": "https://ga.jspm.dev/npm:acorn@6.4.1/dist/acorn.js",
       "normalize-path": "https://ga.jspm.dev/npm:normalize-path@3.0.0/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.27/lib/postcss.js",
+      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/postcss.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
       "through2": "https://ga.jspm.dev/npm:through2@3.0.1/through2.js"
     },
-    "https://ga.jspm.dev/npm:postcss@7.0.27/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:postcss@7.0.31/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@6.1.0/browser.js"
     },
     "https://ga.jspm.dev/npm:readable-stream@3.6.0/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
       "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
     },
     "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:through2@3.0.1/": {
       "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js"

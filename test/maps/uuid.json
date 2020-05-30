@@ -1,5 +1,7 @@
 {
   "imports": {
-    "uuid": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/index.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "uuid": "https://ga.jspm.dev/npm:uuid@8.1.0/wrapper.mjs"
   }
 }

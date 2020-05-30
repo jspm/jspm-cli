@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "fs-resolver-fs": "https://ga.jspm.dev/npm:fs-resolver-fs@7.0.1/src/file-scheme.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:fs-resolver-fs@7.0.1/": {
+      "url-resolver-fs": "https://ga.jspm.dev/npm:url-resolver-fs@8.0.6/src/module.mjs"
+    }
+  }
+}

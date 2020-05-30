@@ -1,7 +1,6 @@
 {
   "imports": {
-    "node-addon-api": "https://ga.jspm.dev/npm:node-addon-api@2.0.0/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "node-addon-api": "https://ga.jspm.dev/npm:node-addon-api@3.0.0/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

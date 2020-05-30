@@ -1,24 +1,26 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/domain.js",
-    "global-agent": "https://ga.jspm.dev/npm:global-agent@2.1.8/dist/index.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/domain.js",
+    "global-agent": "https://ga.jspm.dev/npm:global-agent@2.1.9/dist/index.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
       "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:global-agent@2.1.8/": {
+    "https://ga.jspm.dev/npm:global-agent@2.1.9/": {
       "boolean": "https://ga.jspm.dev/npm:boolean@3.0.1/build/lib/boolean.js",
       "es6-error": "https://ga.jspm.dev/npm:es6-error@4.1.1/lib/index.js",
       "matcher": "https://ga.jspm.dev/npm:matcher@2.1.0/index.js",
       "roarr": "https://ga.jspm.dev/npm:roarr@2.15.3/dist/log.js",
-      "semver": "https://ga.jspm.dev/npm:semver@7.2.1/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@7.3.2/index.js",
       "serialize-error": "https://ga.jspm.dev/npm:serialize-error@5.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:globalthis@1.0.1/": {

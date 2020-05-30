@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "@outgrowio/reaction-marketplace/": "https://ga.jspm.dev/npm:@outgrowio/reaction-marketplace@0.1.0/lib/",
-    "@outgrowio/reaction-marketplace/graphql/": "https://ga.jspm.dev/npm:@outgrowio/reaction-marketplace@0.1.0/lib/graphql/",
-    "@outgrowio/reaction-marketplace/tests/": "https://ga.jspm.dev/npm:@outgrowio/reaction-marketplace@0.1.0/lib/tests/"
-  }
-}

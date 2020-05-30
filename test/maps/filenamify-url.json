@@ -1,8 +1,8 @@
 {
   "imports": {
     "filenamify-url": "https://ga.jspm.dev/npm:filenamify-url@2.1.1/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:filenamify-url@2.1.1/": {

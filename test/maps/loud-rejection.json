@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "loud-rejection": "https://ga.jspm.dev/npm:loud-rejection@2.2.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:currently-unhandled@0.4.1/": {
+      "array-find-index": "https://ga.jspm.dev/npm:array-find-index@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:loud-rejection@2.2.0/": {
+      "currently-unhandled": "https://ga.jspm.dev/npm:currently-unhandled@0.4.1/browser.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
+    }
+  }
+}

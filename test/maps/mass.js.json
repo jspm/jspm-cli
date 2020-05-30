@@ -6,7 +6,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:mass.js@1.3.3/": {
-      "n2words/": "https://ga.jspm.dev/npm:n2words@1.7.0/"
+      "n2words/src/n2words.mjs": "https://ga.jspm.dev/npm:n2words@1.7.0/src/n2words.mjs"
     }
   }
 }

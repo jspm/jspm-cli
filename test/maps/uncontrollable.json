@@ -8,12 +8,11 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:uncontrollable@7.1.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js",
       "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
     }

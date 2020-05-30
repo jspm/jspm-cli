@@ -1,5 +1,5 @@
 {
   "imports": {
-    "highlight.js": "https://ga.jspm.dev/npm:highlight.js@9.18.1/lib/index.js"
+    "highlight.js": "https://ga.jspm.dev/npm:highlight.js@10.0.3/lib/index.js"
   }
 }

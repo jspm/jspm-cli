@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@paycar-cli/transfer-eta-component": "https://ga.jspm.dev/npm:@paycar-cli/transfer-eta-component@2.2.2/src/Transfer-eta.js"
-  }
-}

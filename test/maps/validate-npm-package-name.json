@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/": {
-      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json"
+      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json.js"
     }
   }
 }

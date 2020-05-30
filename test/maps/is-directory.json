@@ -1,5 +1,6 @@
 {
   "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "is-directory": "https://ga.jspm.dev/npm:is-directory@0.3.1/index.js"
   }
 }

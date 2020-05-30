@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@igor.passchier/amqpstream": "https://ga.jspm.dev/npm:@igor.passchier/amqpstream@0.0.9/dist/index.js"
+  }
+}

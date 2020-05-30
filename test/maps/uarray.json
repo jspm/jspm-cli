@@ -1,5 +1,5 @@
 {
   "imports": {
-    "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/esm/index.js"
+    "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/cjs/index.js"
   }
 }

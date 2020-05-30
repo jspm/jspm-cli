@@ -1,13 +1,12 @@
 {
   "imports": {
     "draft-js": "https://ga.jspm.dev/npm:draft-js@0.11.5/lib/Draft.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
     "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:draft-js@0.11.5/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@1.0.0/",
       "fbjs/lib/DataTransfer": "https://ga.jspm.dev/npm:fbjs@1.0.0/lib/DataTransfer.js",
       "fbjs/lib/Keys": "https://ga.jspm.dev/npm:fbjs@1.0.0/lib/Keys.js",
       "fbjs/lib/Scroll": "https://ga.jspm.dev/npm:fbjs@1.0.0/lib/Scroll.js",

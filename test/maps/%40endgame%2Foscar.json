@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@endgame/oscar": "https://ga.jspm.dev/npm:@endgame/oscar@0.1.7-alpha.9/lib/index.js"
-  }
-}

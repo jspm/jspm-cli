@@ -1,10 +1,10 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "table": "https://ga.jspm.dev/npm:table@5.4.6/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ajv@6.12.0/": {
+    "https://ga.jspm.dev/npm:ajv@6.12.2/": {
       "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
@@ -27,9 +27,7 @@
       "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@4.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:table@5.4.6/": {
-      "ajv/": "https://ga.jspm.dev/npm:ajv@6.12.0/",
-      "ajv/lib/compile/equal": "https://ga.jspm.dev/npm:ajv@6.12.0/lib/compile/equal.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+      "ajv/lib/compile/equal": "https://ga.jspm.dev/npm:ajv@6.12.2/lib/compile/equal.js",
       "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
       "lodash/flatten": "https://ga.jspm.dev/npm:lodash@4.17.15/flatten.js",
       "lodash/isBoolean": "https://ga.jspm.dev/npm:lodash@4.17.15/isBoolean.js",

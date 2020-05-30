@@ -1,5 +1,5 @@
 {
   "imports": {
-    "memo": "https://ga.jspm.dev/npm:memo@1.0.0/memo.js"
+    "memo": "https://ga.jspm.dev/npm:memo@1.0.1/memo.js"
   }
 }

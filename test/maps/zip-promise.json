@@ -1,22 +1,22 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
     "zip-promise": "https://ga.jspm.dev/npm:zip-promise@1.1.1/dist/index.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:archiver-utils@2.1.0/": {
       "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "lazystream": "https://ga.jspm.dev/npm:lazystream@1.0.0/lib/lazystream.js",
       "lodash.defaults": "https://ga.jspm.dev/npm:lodash.defaults@4.2.0/index.js",
       "lodash.difference": "https://ga.jspm.dev/npm:lodash.difference@4.5.0/index.js",
@@ -77,7 +77,6 @@
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
     "https://ga.jspm.dev/npm:lazystream@1.0.0/": {
-      "readable-stream/": "https://ga.jspm.dev/npm:readable-stream@2.3.7/",
       "readable-stream/passthrough": "https://ga.jspm.dev/npm:readable-stream@2.3.7/passthrough.js"
     },
     "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
@@ -91,12 +90,16 @@
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
       "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
       "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@2.3.7/lib/internal/streams/stream-browser.js",
+      "readable-stream/readable.js": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js",
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
       "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
     },
     "https://ga.jspm.dev/npm:readable-stream@3.6.0/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
       "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
     },
@@ -104,7 +107,7 @@
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:tar-stream@2.1.2/": {
       "bl": "https://ga.jspm.dev/npm:bl@4.0.2/bl.js",

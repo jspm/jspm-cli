@@ -1,5 +1,5 @@
 {
   "imports": {
-    "leighton-form": "https://ga.jspm.dev/npm:leighton-form@0.0.11/index.js"
+    "leighton-form": "https://ga.jspm.dev/npm:leighton-form@0.1.11/index.js"
   }
 }

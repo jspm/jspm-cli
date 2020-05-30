@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "roll-a-d6": "https://ga.jspm.dev/npm:roll-a-d6@0.3.0/lib/index.mjs"
+  }
+}

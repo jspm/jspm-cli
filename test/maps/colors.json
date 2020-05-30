@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "colors": "https://ga.jspm.dev/npm:colors@1.4.0/lib/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
-  }
-}

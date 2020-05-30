@@ -1,11 +1,11 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "koa-github-hook-handler": "https://ga.jspm.dev/npm:koa-github-hook-handler@1.4.5/src/hook-handler.mjs",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "koa-github-hook-handler": "https://ga.jspm.dev/npm:koa-github-hook-handler@1.4.6/src/hook-handler.mjs",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:http-errors@1.7.3/": {
@@ -18,7 +18,7 @@
     "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
       "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
     },
-    "https://ga.jspm.dev/npm:koa-github-hook-handler@1.4.5/": {
+    "https://ga.jspm.dev/npm:koa-github-hook-handler@1.4.6/": {
       "raw-body": "https://ga.jspm.dev/npm:raw-body@2.4.1/index.js"
     },
     "https://ga.jspm.dev/npm:raw-body@2.4.1/": {

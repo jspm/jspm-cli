@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@stampinup/vue-components/": "https://ga.jspm.dev/npm:@stampinup/vue-components@1.7.4/src/"
-  }
-}

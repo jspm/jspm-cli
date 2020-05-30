@@ -1,5 +1,5 @@
 {
   "imports": {
-    "atomico": "https://ga.jspm.dev/npm:atomico@0.21.1/core.js"
+    "atomico": "https://ga.jspm.dev/npm:atomico@0.23.2/core.js"
   }
 }

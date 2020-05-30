@@ -1,11 +1,11 @@
 {
   "imports": {
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stack-utils": "https://ga.jspm.dev/npm:stack-utils@2.0.1/index.js"
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stack-utils": "https://ga.jspm.dev/npm:stack-utils@2.0.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:stack-utils@2.0.1/": {
+    "https://ga.jspm.dev/npm:stack-utils@2.0.2/": {
       "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@2.0.0/index.js"
     }
   }

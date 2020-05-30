@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pareto-compiler": "https://ga.jspm.dev/npm:pareto-compiler@0.1.0/dist/src/index.js"
-  }
-}

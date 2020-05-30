@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "magic-string": "https://ga.jspm.dev/npm:magic-string@0.25.7/dist/magic-string.cjs.js"
   },
   "scopes": {

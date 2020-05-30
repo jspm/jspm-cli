@@ -1,13 +1,13 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "crane-parser": "https://ga.jspm.dev/npm:crane-parser@0.2.1/src/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:crane-parser@0.2.1/": {
@@ -26,7 +26,7 @@
       "estraverse": "https://ga.jspm.dev/npm:estraverse@4.3.0/estraverse.js"
     },
     "https://ga.jspm.dev/npm:livescript@1.6.0/": {
-      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.1.2/lib/",
+      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.1.2/lib/index.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     }
   }

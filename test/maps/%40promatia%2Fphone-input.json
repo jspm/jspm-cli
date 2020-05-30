@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@promatia/phone-input": "https://ga.jspm.dev/npm:@promatia/phone-input@0.1.4/index.js"
-  }
-}

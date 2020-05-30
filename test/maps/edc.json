@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "edc": "https://ga.jspm.dev/npm:edc@0.0.1011/build/src/index.js"
-  }
-}

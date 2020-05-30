@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@nore/nql": "https://ga.jspm.dev/npm:@nore/nql@2.2.0/source/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@nore/nql@2.2.0/": {
+      "@nore/std/array": "https://ga.jspm.dev/npm:@nore/std@1.14.0/array/index.js",
+      "@nore/std/assert": "https://ga.jspm.dev/npm:@nore/std@1.14.0/assert/index.js",
+      "@nore/std/object": "https://ga.jspm.dev/npm:@nore/std@1.14.0/object/index.js"
+    }
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "@reactioncommerce/api-utils/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.1/lib/",
-    "@reactioncommerce/api-utils/graphql/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.1/lib/graphql/",
-    "@reactioncommerce/api-utils/tests/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.1/lib/tests/"
-  }
-}

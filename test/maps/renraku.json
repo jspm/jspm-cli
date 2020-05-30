@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "renraku/dist/api-client.js": "https://ga.jspm.dev/npm:renraku@0.0.0-dev.30/dist/api-client.js",
+    "renraku/dist/verify-cors.js": "https://ga.jspm.dev/npm:renraku@0.0.0-dev.30/dist/verify-cors.js"
+  }
+}

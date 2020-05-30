@@ -1,17 +1,17 @@
 {
   "imports": {
-    "pto-engine": "https://ga.jspm.dev/npm:pto-engine@0.0.5/src/index.js"
+    "pto-engine": "https://ga.jspm.dev/npm:pto-engine@0.1.1/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pto-engine@0.0.5/": {
-      "date-fns/": "https://ga.jspm.dev/npm:date-fns@2.12.0/",
-      "date-fns/eachDayOfInterval": "https://ga.jspm.dev/npm:date-fns@2.12.0/eachDayOfInterval/index.js",
-      "date-fns/getDate": "https://ga.jspm.dev/npm:date-fns@2.12.0/getDate/index.js",
-      "date-fns/getDay": "https://ga.jspm.dev/npm:date-fns@2.12.0/getDay/index.js",
-      "date-fns/getDayOfYear": "https://ga.jspm.dev/npm:date-fns@2.12.0/getDayOfYear/index.js",
-      "date-fns/isBefore": "https://ga.jspm.dev/npm:date-fns@2.12.0/isBefore/index.js",
-      "date-fns/isLastDayOfMonth": "https://ga.jspm.dev/npm:date-fns@2.12.0/isLastDayOfMonth/index.js",
-      "date-fns/lastDayOfYear": "https://ga.jspm.dev/npm:date-fns@2.12.0/lastDayOfYear/index.js"
+    "https://ga.jspm.dev/npm:pto-engine@0.1.1/": {
+      "date-fns/compareAsc": "https://ga.jspm.dev/npm:date-fns@2.14.0/compareAsc/index.js",
+      "date-fns/eachDayOfInterval": "https://ga.jspm.dev/npm:date-fns@2.14.0/eachDayOfInterval/index.js",
+      "date-fns/getDate": "https://ga.jspm.dev/npm:date-fns@2.14.0/getDate/index.js",
+      "date-fns/getDay": "https://ga.jspm.dev/npm:date-fns@2.14.0/getDay/index.js",
+      "date-fns/getDayOfYear": "https://ga.jspm.dev/npm:date-fns@2.14.0/getDayOfYear/index.js",
+      "date-fns/isBefore": "https://ga.jspm.dev/npm:date-fns@2.14.0/isBefore/index.js",
+      "date-fns/isLastDayOfMonth": "https://ga.jspm.dev/npm:date-fns@2.14.0/isLastDayOfMonth/index.js",
+      "date-fns/lastDayOfYear": "https://ga.jspm.dev/npm:date-fns@2.14.0/lastDayOfYear/index.js"
     }
   }
 }

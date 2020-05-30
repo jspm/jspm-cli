@@ -1,5 +1,5 @@
 {
   "imports": {
-    "foldable-device-configurator": "https://ga.jspm.dev/npm:foldable-device-configurator@1.0.10/build/foldable-device-configurator.js"
+    "foldable-device-configurator": "https://ga.jspm.dev/npm:foldable-device-configurator@1.1.4/build/foldable-device-configurator.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@lrnwebcomponents/paper-stepper": "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-stepper@2.6.4/paper-stepper.js"
+    "@lrnwebcomponents/paper-stepper": "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-stepper@2.6.14/paper-stepper.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-stepper@2.6.4/": {
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-stepper@2.6.14/": {
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

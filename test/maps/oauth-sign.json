@@ -1,6 +1,6 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
     "oauth-sign": "https://ga.jspm.dev/npm:oauth-sign@0.9.0/index.js"
   }
 }

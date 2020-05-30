@@ -1,9 +1,9 @@
 {
   "imports": {
-    "@octokit/request-error": "https://ga.jspm.dev/npm:@octokit/request-error@2.0.0/dist-node/index.js"
+    "@octokit/request-error": "https://ga.jspm.dev/npm:@octokit/request-error@2.0.1/dist-node/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@octokit/request-error@2.0.0/": {
+    "https://ga.jspm.dev/npm:@octokit/request-error@2.0.1/": {
       "deprecation": "https://ga.jspm.dev/npm:deprecation@2.3.1/dist-node/index.js",
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
     },

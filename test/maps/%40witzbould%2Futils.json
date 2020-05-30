@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@witzbould/utils": "https://ga.jspm.dev/npm:@witzbould/utils@2.1.2/index.js"
-  }
-}

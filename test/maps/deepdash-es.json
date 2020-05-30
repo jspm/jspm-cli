@@ -1,5 +1,5 @@
 {
   "imports": {
-    "deepdash-es": "https://ga.jspm.dev/npm:deepdash-es@5.0.1/deepdash.js"
+    "deepdash-es": "https://ga.jspm.dev/npm:deepdash-es@5.0.4/deepdash.js"
   }
 }

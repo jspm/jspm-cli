@@ -1,5 +1,5 @@
 {
   "imports": {
-    "estraverse": "https://ga.jspm.dev/npm:estraverse@5.0.0/estraverse.js"
+    "estraverse": "https://ga.jspm.dev/npm:estraverse@5.1.0/estraverse.js"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "imports": {
+    "cli-highlight": "https://ga.jspm.dev/npm:cli-highlight@2.1.4/dist/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:cli-highlight@2.1.4/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
+      "highlight.js": "https://ga.jspm.dev/npm:highlight.js@9.18.1/lib/index.js",
+      "parse5": "https://ga.jspm.dev/npm:parse5@5.1.1/lib/index.js",
+      "parse5-htmlparser2-tree-adapter": "https://ga.jspm.dev/npm:parse5-htmlparser2-tree-adapter@5.1.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:parse5-htmlparser2-tree-adapter@5.1.1/": {
+      "parse5/lib/common/doctype": "https://ga.jspm.dev/npm:parse5@5.1.1/lib/common/doctype.js",
+      "parse5/lib/common/html": "https://ga.jspm.dev/npm:parse5@5.1.1/lib/common/html.js"
+    }
+  }
+}

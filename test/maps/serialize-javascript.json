@@ -1,5 +1,15 @@
 {
   "imports": {
-    "serialize-javascript": "https://ga.jspm.dev/npm:serialize-javascript@3.0.0/index.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "serialize-javascript": "https://ga.jspm.dev/npm:serialize-javascript@3.1.0/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:serialize-javascript@3.1.0/": {
+      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js"
+    }
   }
 }

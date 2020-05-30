@@ -1,8 +1,8 @@
 {
   "imports": {
     "apollon-template": "https://ga.jspm.dev/npm:apollon-template@1.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@lymeodev/apollon@2.5.6/": {
@@ -16,7 +16,8 @@
       "util": "https://ga.jspm.dev/npm:util@0.10.4/util.js"
     },
     "https://ga.jspm.dev/npm:util@0.10.4/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js"
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js",
+      "util/support/isBuffer.js": "https://ga.jspm.dev/npm:util@0.10.4/support/isBufferBrowser.js"
     }
   }
 }

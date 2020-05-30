@@ -1,18 +1,19 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "cacheable-request": "https://ga.jspm.dev/npm:cacheable-request@7.0.1/src/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:cacheable-request@7.0.1/": {
       "clone-response": "https://ga.jspm.dev/npm:clone-response@1.0.2/src/index.js",
       "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
       "http-cache-semantics": "https://ga.jspm.dev/npm:http-cache-semantics@4.1.0/index.js",
-      "keyv": "https://ga.jspm.dev/npm:keyv@4.0.0/src/index.js",
+      "keyv": "https://ga.jspm.dev/npm:keyv@4.0.1/src/index.js",
       "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js",
       "normalize-url": "https://ga.jspm.dev/npm:normalize-url@4.5.0/index.js",
       "responselike": "https://ga.jspm.dev/npm:responselike@2.0.0/src/index.js"
@@ -26,7 +27,7 @@
     "https://ga.jspm.dev/npm:get-stream@5.1.0/": {
       "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:keyv@4.0.0/": {
+    "https://ga.jspm.dev/npm:keyv@4.0.1/": {
       "json-buffer": "https://ga.jspm.dev/npm:json-buffer@3.0.1/index.js"
     },
     "https://ga.jspm.dev/npm:once@1.4.0/": {

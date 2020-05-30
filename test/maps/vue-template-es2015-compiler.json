@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "vue-template-es2015-compiler": "https://ga.jspm.dev/npm:vue-template-es2015-compiler@1.9.1/index.js"
   }
 }

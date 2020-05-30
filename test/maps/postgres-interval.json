@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:postgres-interval@1.2.0/": {
-      "xtend/": "https://ga.jspm.dev/npm:xtend@4.0.2/",
       "xtend/mutable": "https://ga.jspm.dev/npm:xtend@4.0.2/mutable.js"
     }
   }

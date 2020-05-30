@@ -1,14 +1,14 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "split-make": "https://ga.jspm.dev/npm:split-make@1.0.0/src/main.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:split-make@1.0.0/": {
-      "terser": "https://ga.jspm.dev/npm:terser@4.6.10/dist/bundle.min.js"
+      "terser": "https://ga.jspm.dev/npm:terser@4.7.0/dist/bundle.min.js"
     },
-    "https://ga.jspm.dev/npm:terser@4.6.10/": {
+    "https://ga.jspm.dev/npm:terser@4.7.0/": {
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     }
   }

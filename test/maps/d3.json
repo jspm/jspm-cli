@@ -1,6 +1,6 @@
 {
   "imports": {
-    "d3": "https://ga.jspm.dev/npm:d3@5.15.1/dist/d3.node.js"
+    "d3": "https://ga.jspm.dev/npm:d3@5.16.0/dist/d3.node.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:d3-brush@1.1.5/": {
@@ -30,14 +30,14 @@
       "d3-quadtree": "https://ga.jspm.dev/npm:d3-quadtree@1.0.7/dist/d3-quadtree.js",
       "d3-timer": "https://ga.jspm.dev/npm:d3-timer@1.0.10/dist/d3-timer.js"
     },
-    "https://ga.jspm.dev/npm:d3-geo@1.11.9/": {
+    "https://ga.jspm.dev/npm:d3-geo@1.12.1/": {
       "d3-array": "https://ga.jspm.dev/npm:d3-array@1.2.4/dist/d3-array.js"
     },
     "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/": {
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.0/dist/d3-color.js"
+      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js"
     },
     "https://ga.jspm.dev/npm:d3-scale-chromatic@1.5.0/": {
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.0/dist/d3-color.js",
+      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js",
       "d3-interpolate": "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js"
     },
     "https://ga.jspm.dev/npm:d3-scale@2.2.2/": {
@@ -55,7 +55,7 @@
       "d3-time": "https://ga.jspm.dev/npm:d3-time@1.1.0/dist/d3-time.js"
     },
     "https://ga.jspm.dev/npm:d3-transition@1.3.2/": {
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.0/dist/d3-color.js",
+      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js",
       "d3-dispatch": "https://ga.jspm.dev/npm:d3-dispatch@1.0.6/dist/d3-dispatch.js",
       "d3-ease": "https://ga.jspm.dev/npm:d3-ease@1.0.6/dist/d3-ease.js",
       "d3-interpolate": "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
@@ -69,13 +69,13 @@
       "d3-selection": "https://ga.jspm.dev/npm:d3-selection@1.4.1/dist/d3-selection.js",
       "d3-transition": "https://ga.jspm.dev/npm:d3-transition@1.3.2/dist/d3-transition.js"
     },
-    "https://ga.jspm.dev/npm:d3@5.15.1/": {
+    "https://ga.jspm.dev/npm:d3@5.16.0/": {
       "d3-array": "https://ga.jspm.dev/npm:d3-array@1.2.4/dist/d3-array.js",
       "d3-axis": "https://ga.jspm.dev/npm:d3-axis@1.0.12/dist/d3-axis.js",
       "d3-brush": "https://ga.jspm.dev/npm:d3-brush@1.1.5/dist/d3-brush.js",
       "d3-chord": "https://ga.jspm.dev/npm:d3-chord@1.0.6/dist/d3-chord.js",
       "d3-collection": "https://ga.jspm.dev/npm:d3-collection@1.0.7/dist/d3-collection.js",
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.0/dist/d3-color.js",
+      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js",
       "d3-contour": "https://ga.jspm.dev/npm:d3-contour@1.3.2/dist/d3-contour.js",
       "d3-dispatch": "https://ga.jspm.dev/npm:d3-dispatch@1.0.6/dist/d3-dispatch.js",
       "d3-drag": "https://ga.jspm.dev/npm:d3-drag@1.2.5/dist/d3-drag.js",
@@ -84,7 +84,7 @@
       "d3-fetch": "https://ga.jspm.dev/npm:d3-fetch@1.1.2/dist/d3-fetch.js",
       "d3-force": "https://ga.jspm.dev/npm:d3-force@1.2.1/dist/d3-force.js",
       "d3-format": "https://ga.jspm.dev/npm:d3-format@1.4.4/dist/d3-format.js",
-      "d3-geo": "https://ga.jspm.dev/npm:d3-geo@1.11.9/dist/d3-geo.js",
+      "d3-geo": "https://ga.jspm.dev/npm:d3-geo@1.12.1/dist/d3-geo.js",
       "d3-hierarchy": "https://ga.jspm.dev/npm:d3-hierarchy@1.1.9/dist/d3-hierarchy.js",
       "d3-interpolate": "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
       "d3-path": "https://ga.jspm.dev/npm:d3-path@1.0.9/dist/d3-path.js",

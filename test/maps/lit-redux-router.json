@@ -1,16 +1,16 @@
 {
   "imports": {
     "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js",
-    "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/",
     "lit-html/directives/unsafe-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/directives/unsafe-html.js",
-    "lit-redux-router": "https://ga.jspm.dev/npm:lit-redux-router@0.13.0/lit-redux-router.js",
+    "lit-redux-router": "https://ga.jspm.dev/npm:lit-redux-router@0.13.2/lit-redux-router.js",
     "pwa-helpers": "https://ga.jspm.dev/npm:pwa-helpers@0.9.1/pwa-helpers.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
     },
-    "https://ga.jspm.dev/npm:lit-redux-router@0.13.0/": {
+    "https://ga.jspm.dev/npm:lit-redux-router@0.13.2/": {
       "regexparam": "https://ga.jspm.dev/npm:regexparam@1.3.0/dist/regexparam.js"
     }
   }

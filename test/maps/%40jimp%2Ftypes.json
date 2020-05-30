@@ -1,66 +1,57 @@
 {
   "imports": {
-    "@jimp/types": "https://ga.jspm.dev/npm:@jimp/types@0.10.1/dist/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "@jimp/types": "https://ga.jspm.dev/npm:@jimp/types@0.12.1/dist/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/": {
       "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/bmp@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js",
+    "https://ga.jspm.dev/npm:@jimp/bmp@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js",
       "bmp-js": "https://ga.jspm.dev/npm:bmp-js@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/gif@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+    "https://ga.jspm.dev/npm:@jimp/gif@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
       "omggif": "https://ga.jspm.dev/npm:omggif@1.0.10/omggif.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/jpeg@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js",
-      "jpeg-js": "https://ga.jspm.dev/npm:jpeg-js@0.3.7/index.js"
+    "https://ga.jspm.dev/npm:@jimp/jpeg@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js",
+      "jpeg-js": "https://ga.jspm.dev/npm:jpeg-js@0.4.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/png@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js",
+    "https://ga.jspm.dev/npm:@jimp/png@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js",
       "pngjs": "https://ga.jspm.dev/npm:pngjs@3.4.0/lib/png.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/tiff@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
+    "https://ga.jspm.dev/npm:@jimp/tiff@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
       "utif": "https://ga.jspm.dev/npm:utif@2.0.1/UTIF.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/types@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@jimp/bmp": "https://ga.jspm.dev/npm:@jimp/bmp@0.10.1/dist/index.js",
-      "@jimp/gif": "https://ga.jspm.dev/npm:@jimp/gif@0.10.1/dist/index.js",
-      "@jimp/jpeg": "https://ga.jspm.dev/npm:@jimp/jpeg@0.10.1/dist/index.js",
-      "@jimp/png": "https://ga.jspm.dev/npm:@jimp/png@0.10.1/dist/index.js",
-      "@jimp/tiff": "https://ga.jspm.dev/npm:@jimp/tiff@0.10.1/dist/index.js",
+    "https://ga.jspm.dev/npm:@jimp/types@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@jimp/bmp": "https://ga.jspm.dev/npm:@jimp/bmp@0.12.1/dist/index.js",
+      "@jimp/gif": "https://ga.jspm.dev/npm:@jimp/gif@0.12.1/dist/index.js",
+      "@jimp/jpeg": "https://ga.jspm.dev/npm:@jimp/jpeg@0.12.1/dist/index.js",
+      "@jimp/png": "https://ga.jspm.dev/npm:@jimp/png@0.12.1/dist/index.js",
+      "@jimp/tiff": "https://ga.jspm.dev/npm:@jimp/tiff@0.12.1/dist/index.js",
       "timm": "https://ga.jspm.dev/npm:timm@1.6.2/lib/timm.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
-      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
-      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
     },
     "https://ga.jspm.dev/npm:utif@2.0.1/": {
       "pako": "https://ga.jspm.dev/npm:pako@1.0.11/index.js"

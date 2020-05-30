@@ -1,17 +1,20 @@
 {
   "imports": {
-    "@lrnwebcomponents/lrn-shared-styles": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-shared-styles@2.6.3/lrn-shared-styles.js"
+    "@lrnwebcomponents/lrn-shared-styles": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-shared-styles@2.6.12/lrn-shared-styles.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-shared-styles@2.6.3/": {
-      "@polymer/iron-flex-layout/": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/",
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-shared-styles@2.6.12/": {
+      "@polymer/iron-flex-layout/iron-flex-layout-classes.js": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/iron-flex-layout-classes.js",
+      "@polymer/polymer/lib/elements/dom-module.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/elements/dom-module.js",
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
     },
     "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/": {
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/": {
-      "@webcomponents/shadycss/": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/"
+    "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/": {
+      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
+      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@tervis/tervispersonalizableitemsjs": "https://ga.jspm.dev/npm:@tervis/tervispersonalizableitemsjs@1.0.84/TervisPersonalizableItems.js"
+    "@tervis/tervispersonalizableitemsjs": "https://ga.jspm.dev/npm:@tervis/tervispersonalizableitemsjs@1.0.115/TervisPersonalizableItems.js"
   }
 }

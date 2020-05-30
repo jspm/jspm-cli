@@ -1,15 +1,13 @@
 {
   "imports": {
     "babel-messages": "https://ga.jspm.dev/npm:babel-messages@6.23.0/lib/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-messages@6.23.0/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
       "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js"
     },
     "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/library/fn/json/stringify": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/json/stringify.js"
     }
   }

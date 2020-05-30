@@ -5,14 +5,14 @@
   "scopes": {
     "https://ga.jspm.dev/npm:dot-case@3.0.3/": {
       "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
     },
     "https://ga.jspm.dev/npm:no-case@3.0.3/": {
       "lower-case": "https://ga.jspm.dev/npm:lower-case@2.0.1/dist/index.js"
     },
     "https://ga.jspm.dev/npm:param-case@3.0.3/": {
       "dot-case": "https://ga.jspm.dev/npm:dot-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

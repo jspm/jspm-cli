@@ -6,7 +6,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:react-dom@16.3.3/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/ExecutionEnvironment": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/ExecutionEnvironment.js",
       "fbjs/lib/containsNode": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/containsNode.js",
       "fbjs/lib/emptyFunction": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyFunction.js",
@@ -17,7 +16,6 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:react-tap-event-plugin@3.0.3/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/TouchEventUtils": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/TouchEventUtils.js",
       "fbjs/lib/emptyFunction": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyFunction.js",
       "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js",

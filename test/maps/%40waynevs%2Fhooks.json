@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@waynevs/hooks": "https://ga.jspm.dev/npm:@waynevs/hooks@0.2.0/src/index.ts"
-  }
-}

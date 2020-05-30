@@ -1,5 +1,5 @@
 {
   "imports": {
-    "parse5": "https://ga.jspm.dev/npm:parse5@5.1.1/lib/index.js"
+    "parse5": "https://ga.jspm.dev/npm:parse5@6.0.0/lib/index.js"
   }
 }

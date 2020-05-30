@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:eslint-config-react-app@5.2.1/": {
-      "confusing-browser-globals": "https://ga.jspm.dev/npm:confusing-browser-globals@1.0.9/index.js"
+      "confusing-browser-globals": "https://ga.jspm.dev/npm:confusing-browser-globals@1.1.0-next.103/index.js"
     }
   }
 }

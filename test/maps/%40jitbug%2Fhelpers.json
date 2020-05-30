@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@ionic/core": "https://ga.jspm.dev/npm:@ionic/core@5.1.1/dist/index.js",
+    "@jitbug/helpers": "https://ga.jspm.dev/npm:@jitbug/helpers@1.0.3/index.js",
+    "nprogress": "https://ga.jspm.dev/npm:nprogress@0.2.0/nprogress.js"
+  }
+}

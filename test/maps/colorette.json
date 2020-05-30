@@ -1,6 +1,6 @@
 {
   "imports": {
-    "colorette": "https://ga.jspm.dev/npm:colorette@1.1.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "colorette": "https://ga.jspm.dev/npm:colorette@1.2.0/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

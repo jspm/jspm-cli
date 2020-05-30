@@ -1,10 +1,10 @@
 {
   "imports": {
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-dropzone": "https://ga.jspm.dev/npm:react-dropzone@10.2.2/dist/index.js"
+    "react-dropzone": "https://ga.jspm.dev/npm:react-dropzone@11.0.1/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-dropzone@10.2.2/": {
+    "https://ga.jspm.dev/npm:react-dropzone@11.0.1/": {
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {

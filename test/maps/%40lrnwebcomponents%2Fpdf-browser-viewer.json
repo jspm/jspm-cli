@@ -1,10 +1,12 @@
 {
   "imports": {
-    "@lrnwebcomponents/pdf-browser-viewer": "https://ga.jspm.dev/npm:@lrnwebcomponents/pdf-browser-viewer@2.6.4/pdf-browser-viewer.js"
+    "@lrnwebcomponents/pdf-browser-viewer": "https://ga.jspm.dev/npm:@lrnwebcomponents/pdf-browser-viewer@2.6.14/pdf-browser-viewer.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/pdf-browser-viewer@2.6.4/": {
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/pdf-browser-viewer@2.6.14/": {
+      "@polymer/polymer/lib/elements/dom-if.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/elements/dom-if.js",
+      "@polymer/polymer/lib/utils/render-status.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/render-status.js",
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

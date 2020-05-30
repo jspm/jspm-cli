@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@magic-modules/pre": "https://ga.jspm.dev/npm:@magic-modules/pre@0.0.7/src/index.mjs"
+    "@magic-modules/pre": "https://ga.jspm.dev/npm:@magic-modules/pre@0.0.8/src/index.mjs"
   }
 }

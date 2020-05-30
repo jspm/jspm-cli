@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "sanitize-html": "https://ga.jspm.dev/npm:sanitize-html@1.22.1/dist/sanitize-html.js"
-  }
-}

@@ -1,83 +1,86 @@
 {
   "imports": {
-    "@-0/keys": "https://ga.jspm.dev/npm:@-0/keys@0.2.67/lib/index.js",
-    "@-0/spool": "https://ga.jspm.dev/npm:@-0/spool@0.2.70/lib/index.js",
-    "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-    "@thi.ng/rstream": "https://ga.jspm.dev/npm:@thi.ng/rstream@3.0.7/lib/index.js",
-    "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.4.4/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@-0/keys": "https://ga.jspm.dev/npm:@-0/keys@0.2.72/lib/index.js",
+    "@-0/spool": "https://ga.jspm.dev/npm:@-0/spool@0.2.78/lib/index.js",
+    "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+    "@thi.ng/paths": "https://ga.jspm.dev/npm:@thi.ng/paths@4.0.7/lib/index.js",
+    "@thi.ng/rstream": "https://ga.jspm.dev/npm:@thi.ng/rstream@4.3.3/lib/index.js",
+    "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.6.0/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@-0/spool@0.2.70/": {
-      "@-0/keys": "https://ga.jspm.dev/npm:@-0/keys@0.2.67/lib/index.js",
-      "@-0/utils": "https://ga.jspm.dev/npm:@-0/utils@0.2.61/lib/index.js"
+    "https://ga.jspm.dev/npm:@-0/spool@0.2.78/": {
+      "@-0/keys": "https://ga.jspm.dev/npm:@-0/keys@0.2.72/lib/index.js",
+      "@-0/utils": "https://ga.jspm.dev/npm:@-0/utils@0.2.66/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@-0/utils@0.2.61/": {
+    "https://ga.jspm.dev/npm:@-0/utils@0.2.66/": {
       "querystring": "https://ga.jspm.dev/npm:querystring@0.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/arrays@0.6.2/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.1/lib/index.js",
-      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.18/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js",
-      "@thi.ng/random": "https://ga.jspm.dev/npm:@thi.ng/random@1.4.4/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/arrays@0.6.7/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.6/lib/index.js",
+      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.23/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js",
+      "@thi.ng/random": "https://ga.jspm.dev/npm:@thi.ng/random@1.4.9/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/associative@3.1.8/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/binary": "https://ga.jspm.dev/npm:@thi.ng/binary@2.0.2/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.1/lib/index.js",
-      "@thi.ng/dcons": "https://ga.jspm.dev/npm:@thi.ng/dcons@2.2.10/lib/index.js",
-      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.18/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js",
-      "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.4.4/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/associative@4.0.9/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/binary": "https://ga.jspm.dev/npm:@thi.ng/binary@2.0.7/lib/index.js",
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.6/lib/index.js",
+      "@thi.ng/dcons": "https://ga.jspm.dev/npm:@thi.ng/dcons@2.2.17/lib/index.js",
+      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.23/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js",
+      "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.6.0/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/atom@3.1.8/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.18/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js",
-      "@thi.ng/paths": "https://ga.jspm.dev/npm:@thi.ng/paths@3.0.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/atom@4.1.8/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.23/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js",
+      "@thi.ng/paths": "https://ga.jspm.dev/npm:@thi.ng/paths@4.0.7/lib/index.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/compose@1.4.2/": {
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/compose@1.4.7/": {
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/dcons@2.2.10/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.1/lib/index.js",
-      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.18/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js",
-      "@thi.ng/random": "https://ga.jspm.dev/npm:@thi.ng/random@1.4.4/lib/index.js",
-      "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.4.4/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/dcons@2.2.17/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.6/lib/index.js",
+      "@thi.ng/equiv": "https://ga.jspm.dev/npm:@thi.ng/equiv@1.0.23/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js",
+      "@thi.ng/random": "https://ga.jspm.dev/npm:@thi.ng/random@1.4.9/lib/index.js",
+      "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.6.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/paths@3.0.5/": {
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/paths@4.0.7/": {
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/random@1.4.4/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/random@1.4.9/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/rstream@3.0.7/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/arrays": "https://ga.jspm.dev/npm:@thi.ng/arrays@0.6.2/lib/index.js",
-      "@thi.ng/associative": "https://ga.jspm.dev/npm:@thi.ng/associative@3.1.8/lib/index.js",
-      "@thi.ng/atom": "https://ga.jspm.dev/npm:@thi.ng/atom@3.1.8/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js",
-      "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.4.4/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/rstream@4.3.3/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/arrays": "https://ga.jspm.dev/npm:@thi.ng/arrays@0.6.7/lib/index.js",
+      "@thi.ng/associative": "https://ga.jspm.dev/npm:@thi.ng/associative@4.0.9/lib/index.js",
+      "@thi.ng/atom": "https://ga.jspm.dev/npm:@thi.ng/atom@4.1.8/lib/index.js",
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js",
+      "@thi.ng/transducers": "https://ga.jspm.dev/npm:@thi.ng/transducers@6.6.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@thi.ng/transducers@6.4.4/": {
-      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.0/lib/index.js",
-      "@thi.ng/arrays": "https://ga.jspm.dev/npm:@thi.ng/arrays@0.6.2/lib/index.js",
-      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.6.1/lib/index.js",
-      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.1/lib/index.js",
-      "@thi.ng/compose": "https://ga.jspm.dev/npm:@thi.ng/compose@1.4.2/lib/index.js",
-      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.9/lib/index.js",
-      "@thi.ng/math": "https://ga.jspm.dev/npm:@thi.ng/math@1.7.5/lib/index.js",
-      "@thi.ng/random": "https://ga.jspm.dev/npm:@thi.ng/random@1.4.4/lib/index.js"
+    "https://ga.jspm.dev/npm:@thi.ng/transducers@6.6.0/": {
+      "@thi.ng/api": "https://ga.jspm.dev/npm:@thi.ng/api@6.10.5/lib/index.js",
+      "@thi.ng/arrays": "https://ga.jspm.dev/npm:@thi.ng/arrays@0.6.7/lib/index.js",
+      "@thi.ng/checks": "https://ga.jspm.dev/npm:@thi.ng/checks@2.7.0/lib/index.js",
+      "@thi.ng/compare": "https://ga.jspm.dev/npm:@thi.ng/compare@1.3.6/lib/index.js",
+      "@thi.ng/compose": "https://ga.jspm.dev/npm:@thi.ng/compose@1.4.7/lib/index.js",
+      "@thi.ng/errors": "https://ga.jspm.dev/npm:@thi.ng/errors@1.2.14/lib/index.js",
+      "@thi.ng/math": "https://ga.jspm.dev/npm:@thi.ng/math@1.7.10/lib/index.js",
+      "@thi.ng/random": "https://ga.jspm.dev/npm:@thi.ng/random@1.4.9/lib/index.js"
     }
   }
 }

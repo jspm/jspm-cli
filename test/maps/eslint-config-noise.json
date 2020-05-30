@@ -1,13 +1,5 @@
 {
   "imports": {
-    "eslint-config-noise/rules": "https://ga.jspm.dev/npm:eslint-config-noise@0.0.38/rules/index.js",
-    "eslint-config-noise/utils": "https://ga.jspm.dev/npm:eslint-config-noise@0.0.38/utils.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:eslint-config-noise@0.0.38/": {
-      "confusing-browser-globals": "https://ga.jspm.dev/npm:confusing-browser-globals@1.0.9/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
-      "lodash/fp": "https://ga.jspm.dev/npm:lodash@4.17.15/fp.js"
-    }
+    "eslint-config-noise": "https://ga.jspm.dev/npm:eslint-config-noise@0.0.41/index.js"
   }
 }

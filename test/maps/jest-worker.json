@@ -1,15 +1,15 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "jest-worker": "https://ga.jspm.dev/npm:jest-worker@25.2.6/build/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "worker_threads": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "jest-worker": "https://ga.jspm.dev/npm:jest-worker@26.0.0/build/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "worker_threads": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/@empty.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:jest-worker@25.2.6/": {
+    "https://ga.jspm.dev/npm:jest-worker@26.0.0/": {
       "merge-stream": "https://ga.jspm.dev/npm:merge-stream@2.0.0/index.js",
       "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
     }

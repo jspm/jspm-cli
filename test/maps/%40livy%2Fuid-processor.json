@@ -1,13 +1,12 @@
 {
   "imports": {
     "@livy/uid-processor": "https://ga.jspm.dev/npm:@livy/uid-processor@1.0.2/lib/uid-processor.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@livy/uid-processor@1.0.2/": {
-      "@livy/util/": "https://ga.jspm.dev/npm:@livy/util@1.0.4/",
       "@livy/util/lib/environment": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/environment.js"
     }
   }

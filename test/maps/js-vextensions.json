@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "js-vextensions": "https://ga.jspm.dev/npm:js-vextensions@1.0.33/Dist/index.js"
+  }
+}

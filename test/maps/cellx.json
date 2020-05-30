@@ -1,9 +1,9 @@
 {
   "imports": {
-    "cellx": "https://ga.jspm.dev/npm:cellx@1.10.2/dist/cellx.js"
+    "cellx": "https://ga.jspm.dev/npm:cellx@1.10.5/dist/cellx.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cellx@1.10.2/": {
+    "https://ga.jspm.dev/npm:cellx@1.10.5/": {
       "@riim/next-tick": "https://ga.jspm.dev/npm:@riim/next-tick@1.2.4/dist/index.js"
     }
   }

@@ -8,8 +8,8 @@
       "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:async-iter-robot3@1.0.0/": {
-      "async-iter-pipe/": "https://ga.jspm.dev/npm:async-iter-pipe@1.2.0/",
-      "robot3/": "https://ga.jspm.dev/npm:robot3@0.2.15/"
+      "async-iter-pipe/pipe.js": "https://ga.jspm.dev/npm:async-iter-pipe@1.2.0/pipe.js",
+      "robot3/machine.js": "https://ga.jspm.dev/npm:robot3@0.2.18/machine.js"
     }
   }
 }

@@ -1,25 +1,29 @@
 {
   "imports": {
-    "rc-hammerjs": "https://ga.jspm.dev/npm:rc-hammerjs@0.6.9/lib/index.js",
+    "rc-hammerjs": "https://ga.jspm.dev/npm:rc-hammerjs@0.6.10/lib/index.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
       "core-js/library/fn/object/define-property": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/define-property.js",
       "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
       "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
       "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
     },
-    "https://ga.jspm.dev/npm:rc-hammerjs@0.6.9/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
+    "https://ga.jspm.dev/npm:rc-hammerjs@0.6.10/": {
       "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
       "babel-runtime/helpers/createClass": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/createClass.js",
       "babel-runtime/helpers/inherits": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/inherits.js",
       "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
       "hammerjs": "https://ga.jspm.dev/npm:hammerjs@2.0.8/hammer.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"

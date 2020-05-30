@@ -1,16 +1,19 @@
 {
   "imports": {
-    "@istanbuljs/load-nyc-config": "https://ga.jspm.dev/npm:@istanbuljs/load-nyc-config@1.0.0/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "@istanbuljs/load-nyc-config": "https://ga.jspm.dev/npm:@istanbuljs/load-nyc-config@1.1.0/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@istanbuljs/load-nyc-config@1.0.0/": {
+    "https://ga.jspm.dev/npm:@istanbuljs/load-nyc-config@1.1.0/": {
       "camelcase": "https://ga.jspm.dev/npm:camelcase@5.3.1/index.js",
       "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js",
-      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "get-package-type": "https://ga.jspm.dev/npm:get-package-type@0.1.0/index.cjs",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js",
       "resolve-from": "https://ga.jspm.dev/npm:resolve-from@5.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:find-up@4.1.0/": {

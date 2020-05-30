@@ -1,29 +1,29 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
     "babel-plugin-emotion": "https://ga.jspm.dev/npm:babel-plugin-emotion@10.0.33/dist/babel-plugin-emotion.cjs.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/": {
-      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/types@7.9.5/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
       "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
@@ -39,7 +39,7 @@
       "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
     },
     "https://ga.jspm.dev/npm:babel-plugin-emotion@10.0.33/": {
-      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/lib/index.js",
+      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/lib/index.js",
       "@emotion/hash": "https://ga.jspm.dev/npm:@emotion/hash@0.8.0/dist/hash.browser.cjs.js",
       "@emotion/memoize": "https://ga.jspm.dev/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js",
       "@emotion/serialize": "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js",
@@ -51,12 +51,11 @@
       "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
     },
     "https://ga.jspm.dev/npm:babel-plugin-macros@2.8.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "cosmiconfig": "https://ga.jspm.dev/npm:cosmiconfig@6.0.0/dist/index.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.16.0/index.js"
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js"
     },
     "https://ga.jspm.dev/npm:chalk@2.4.2/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
@@ -73,7 +72,7 @@
       "import-fresh": "https://ga.jspm.dev/npm:import-fresh@3.2.1/index.js",
       "parse-json": "https://ga.jspm.dev/npm:parse-json@5.0.0/index.js",
       "path-type": "https://ga.jspm.dev/npm:path-type@4.0.0/index.js",
-      "yaml": "https://ga.jspm.dev/npm:yaml@1.8.3/index.js"
+      "yaml": "https://ga.jspm.dev/npm:yaml@1.10.0/index.js"
     },
     "https://ga.jspm.dev/npm:error-ex@1.3.2/": {
       "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.2.1/index.js"
@@ -86,12 +85,12 @@
       "callsites": "https://ga.jspm.dev/npm:callsites@3.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:parse-json@5.0.0/": {
-      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
       "error-ex": "https://ga.jspm.dev/npm:error-ex@1.3.2/index.js",
       "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js",
       "lines-and-columns": "https://ga.jspm.dev/npm:lines-and-columns@1.1.6/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.16.0/": {
+    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
       "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
     }
   }

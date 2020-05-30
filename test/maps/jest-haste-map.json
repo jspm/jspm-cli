@@ -1,20 +1,21 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "fsevents": "https://ga.jspm.dev/npm:fsevents@2.1.2/fsevents.js",
-    "jest-haste-map": "https://ga.jspm.dev/npm:jest-haste-map@25.2.6/build/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "worker_threads": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "fsevents": "https://ga.jspm.dev/npm:fsevents@2.1.3/fsevents.js",
+    "jest-haste-map": "https://ga.jspm.dev/npm:jest-haste-map@26.0.1/build/index.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "worker_threads": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/@empty.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
@@ -69,7 +70,7 @@
     "https://ga.jspm.dev/npm:capture-exit@2.0.0/": {
       "rsvp": "https://ga.jspm.dev/npm:rsvp@4.8.5/dist/rsvp.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
       "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
     },
@@ -213,30 +214,31 @@
     "https://ga.jspm.dev/npm:isobject@2.1.0/": {
       "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-haste-map@25.2.6/": {
+    "https://ga.jspm.dev/npm:jest-haste-map@26.0.1/": {
       "anymatch": "https://ga.jspm.dev/npm:anymatch@3.1.1/index.js",
       "fb-watchman": "https://ga.jspm.dev/npm:fb-watchman@2.0.1/index.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
-      "jest-serializer": "https://ga.jspm.dev/npm:jest-serializer@25.2.6/build/index.js",
-      "jest-util": "https://ga.jspm.dev/npm:jest-util@25.2.6/build/index.js",
-      "jest-worker": "https://ga.jspm.dev/npm:jest-worker@25.2.6/build/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "jest-serializer": "https://ga.jspm.dev/npm:jest-serializer@26.0.0/build/index.js",
+      "jest-util": "https://ga.jspm.dev/npm:jest-util@26.0.1/build/index.js",
+      "jest-worker": "https://ga.jspm.dev/npm:jest-worker@26.0.0/build/index.js",
       "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
       "sane": "https://ga.jspm.dev/npm:sane@4.1.0/index.js",
-      "sane/": "https://ga.jspm.dev/npm:sane@4.1.0/",
       "sane/src/common": "https://ga.jspm.dev/npm:sane@4.1.0/src/common.js",
       "sane/src/utils/recrawl-warning-dedupe": "https://ga.jspm.dev/npm:sane@4.1.0/src/utils/recrawl-warning-dedupe.js",
       "walker": "https://ga.jspm.dev/npm:walker@1.0.7/lib/walker.js",
       "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
     },
-    "https://ga.jspm.dev/npm:jest-serializer@25.2.6/": {
+    "https://ga.jspm.dev/npm:jest-serializer@26.0.0/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "v8": "https://ga.jspm.dev/npm:v8@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-util@25.2.6/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
+    "https://ga.jspm.dev/npm:jest-util@26.0.1/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "is-ci": "https://ga.jspm.dev/npm:is-ci@2.0.0/index.js",
-      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.0.2/index.js"
+      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-worker@25.2.6/": {
+    "https://ga.jspm.dev/npm:jest-worker@26.0.0/": {
       "merge-stream": "https://ga.jspm.dev/npm:merge-stream@2.0.0/index.js",
       "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
     },
@@ -246,7 +248,7 @@
     "https://ga.jspm.dev/npm:kind-of@4.0.0/": {
       "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
     },
-    "https://ga.jspm.dev/npm:make-dir@3.0.2/": {
+    "https://ga.jspm.dev/npm:make-dir@3.1.0/": {
       "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
     },
     "https://ga.jspm.dev/npm:makeerror@1.0.11/": {
@@ -273,7 +275,6 @@
     "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
       "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
       "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/": "https://ga.jspm.dev/npm:picomatch@2.2.2/",
       "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
     },
     "https://ga.jspm.dev/npm:mixin-deep@1.3.2/": {

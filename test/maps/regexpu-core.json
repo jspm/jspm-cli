@@ -5,7 +5,7 @@
   "scopes": {
     "https://ga.jspm.dev/npm:regexpu-core@4.7.0/": {
       "regenerate": "https://ga.jspm.dev/npm:regenerate@1.4.0/regenerate.js",
-      "regjsgen": "https://ga.jspm.dev/npm:regjsgen@0.5.1/regjsgen.js",
+      "regjsgen": "https://ga.jspm.dev/npm:regjsgen@0.5.2/regjsgen.js",
       "regjsparser": "https://ga.jspm.dev/npm:regjsparser@0.6.4/parser.js",
       "unicode-match-property-ecmascript": "https://ga.jspm.dev/npm:unicode-match-property-ecmascript@1.0.4/index.js",
       "unicode-match-property-value-ecmascript": "https://ga.jspm.dev/npm:unicode-match-property-value-ecmascript@1.2.0/index.js"

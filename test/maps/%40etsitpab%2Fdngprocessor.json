@@ -24,7 +24,7 @@
     "https://ga.jspm.dev/npm:@etsitpab/matrix@1.0.4/": {
       "@etsitpab/cie": "https://ga.jspm.dev/npm:@etsitpab/cie@1.1.2/src/CIE.object.js",
       "@etsitpab/colorconversions": "https://ga.jspm.dev/npm:@etsitpab/colorconversions@1.0.1/src/ColorConversions.js",
-      "@etsitpab/matrixview": "https://ga.jspm.dev/npm:@etsitpab/matrixview@1.0.4/src/MatrixView.js"
+      "@etsitpab/matrixview": "https://ga.jspm.dev/npm:@etsitpab/matrixview@1.0.5/src/MatrixView.js"
     },
     "https://ga.jspm.dev/npm:@etsitpab/tiffio@1.0.1/": {
       "@etsitpab/jpegreader": "https://ga.jspm.dev/npm:@etsitpab/jpegreader@1.0.3/src/JPEGReader.js",

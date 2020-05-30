@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@aurelia/plugin-parcel": "https://ga.jspm.dev/npm:@aurelia/plugin-parcel@0.6.0/dist/umd/index.js"
+    "@aurelia/plugin-parcel": "https://ga.jspm.dev/npm:@aurelia/plugin-parcel@0.7.0/dist/umd/index.js"
   }
 }

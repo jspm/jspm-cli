@@ -1,14 +1,15 @@
 {
   "imports": {
-    "@urql/core": "https://ga.jspm.dev/npm:@urql/core@1.10.7/dist/urql-core.mjs",
-    "graphql": "https://ga.jspm.dev/npm:graphql@14.6.0/index.js"
+    "@urql/core": "https://ga.jspm.dev/npm:@urql/core@1.11.8/dist/urql-core.mjs",
+    "graphql/error/GraphQLError": "https://ga.jspm.dev/npm:graphql@15.0.0/error/GraphQLError.js",
+    "graphql/language/kinds": "https://ga.jspm.dev/npm:graphql@15.0.0/language/kinds.js",
+    "graphql/language/parser": "https://ga.jspm.dev/npm:graphql@15.0.0/language/parser.js",
+    "graphql/language/printer": "https://ga.jspm.dev/npm:graphql@15.0.0/language/printer.js",
+    "graphql/language/visitor": "https://ga.jspm.dev/npm:graphql@15.0.0/language/visitor.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@urql/core@1.10.7/": {
-      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.9/dist/wonka.mjs"
-    },
-    "https://ga.jspm.dev/npm:graphql@14.6.0/": {
-      "iterall": "https://ga.jspm.dev/npm:iterall@1.3.0/index.js"
+    "https://ga.jspm.dev/npm:@urql/core@1.11.8/": {
+      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.13/dist/wonka.mjs"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@pumpn/eslint-config": "https://ga.jspm.dev/npm:@pumpn/eslint-config@1.0.1/index.js"
+    "@pumpn/eslint-config": "https://ga.jspm.dev/npm:@pumpn/eslint-config@4.0.0/index.js"
   }
 }

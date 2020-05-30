@@ -1,13 +1,13 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "xml-crypto": "https://ga.jspm.dev/npm:xml-crypto@1.4.1/index.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "xml-crypto": "https://ga.jspm.dev/npm:xml-crypto@1.5.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:xml-crypto@1.4.1/": {
+    "https://ga.jspm.dev/npm:xml-crypto@1.5.3/": {
       "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.27/dom-parser.js",
       "xpath": "https://ga.jspm.dev/npm:xpath@0.0.27/xpath.js"
     }

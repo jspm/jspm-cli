@@ -8,12 +8,10 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:recompose@0.30.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "change-emitter": "https://ga.jspm.dev/npm:change-emitter@0.1.6/lib/index.js",
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/shallowEqual": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/shallowEqual.js",
       "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@2.5.5/dist/hoist-non-react-statics.cjs.js",
       "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js",

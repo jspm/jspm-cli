@@ -1,6 +1,6 @@
 {
   "imports": {
-    "bandicoot": "https://ga.jspm.dev/npm:bandicoot@4.2.1/dist/bandicoot.umd.js",
+    "bandicoot": "https://ga.jspm.dev/npm:bandicoot@4.4.1/dist/bandicoot.umd.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {

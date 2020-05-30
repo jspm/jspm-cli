@@ -1,5 +1,5 @@
 {
   "imports": {
-    "demo-aztec-cli": "https://ga.jspm.dev/npm:demo-aztec-cli@0.5.2/index.js"
+    "demo-aztec-cli": "https://ga.jspm.dev/npm:demo-aztec-cli@0.5.3/index.js"
   }
 }

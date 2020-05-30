@@ -1,5 +1,18 @@
 {
   "imports": {
-    "pretty-format": "https://ga.jspm.dev/npm:pretty-format@25.2.6/build-es5/index.js"
+    "pretty-format": "https://ga.jspm.dev/npm:pretty-format@26.0.1/build/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:pretty-format@26.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js",
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    }
   }
 }

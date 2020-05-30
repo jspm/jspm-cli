@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aurelia/runtime-html-browser": "https://ga.jspm.dev/npm:@aurelia/runtime-html-browser@0.6.0/dist/umd/index.js"
-  }
-}

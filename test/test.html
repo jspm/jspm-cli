@@ -29,6 +29,9 @@
             const m = await loader.import(specifier);
             // for debugging
             window.m = m;
+            // also try dev version
+            // const mdev = await loader.import('https://jspm.dev/' + specifier);
+            // window.mdev = mdev;
           }
           loader.dispose();
         }
@@ -41,6 +44,8 @@
       return {
         test,
         async run () {
+          if (window.stopped)
+            return;
           try {
             var map = await (await fetch(`./maps/${encodeURIComponent(encodeURIComponent(test))}.json`)).json();
           }
@@ -49,8 +54,13 @@
             return;
           }
           const loader = createMapLoader(map);
+          if (!map.imports[test])
+            throw new Error('Test TODO: export subpaths checks');
           const m = await loader.import(test);
           loader.dispose();
+          // const devloader = createMapLoader({});
+          // const mdev = await devloader.import('https://jspm.dev/' + test);
+          // devloader.dispose();
         }
       };
     })));

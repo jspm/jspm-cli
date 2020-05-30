@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "home-assistant-js-websocket": "https://ga.jspm.dev/npm:home-assistant-js-websocket@5.2.1/dist/haws.umd.js"
+  }
+}

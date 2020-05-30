@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "workbox-streams": "https://ga.jspm.dev/npm:workbox-streams@5.1.3/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:workbox-streams@5.1.3/": {
+      "workbox-core/_private/Deferred.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/Deferred.js",
+      "workbox-core/_private/assert.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/assert.js",
+      "workbox-core/_private/canConstructReadableStream.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/canConstructReadableStream.js",
+      "workbox-core/_private/logger.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/logger.js"
+    }
+  }
+}

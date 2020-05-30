@@ -1,6 +1,6 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "set-blocking": "https://ga.jspm.dev/npm:set-blocking@2.0.0/index.js"
   }
 }

@@ -1,12 +1,12 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "sass-graph": "https://ga.jspm.dev/npm:sass-graph@3.0.4/sass-graph.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "sass-graph": "https://ga.jspm.dev/npm:sass-graph@3.0.5/sass-graph.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -31,7 +31,7 @@
     "https://ga.jspm.dev/npm:once@1.4.0/": {
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:sass-graph@3.0.4/": {
+    "https://ga.jspm.dev/npm:sass-graph@3.0.5/": {
       "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
       "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
       "scss-tokenizer": "https://ga.jspm.dev/npm:scss-tokenizer@0.3.0/index.js"

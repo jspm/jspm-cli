@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "aesthetically": "https://ga.jspm.dev/npm:aesthetically@0.0.5/dist/aesthetically.js"
+  }
+}

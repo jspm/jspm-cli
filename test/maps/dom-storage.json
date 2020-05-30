@@ -1,5 +1,6 @@
 {
   "imports": {
-    "dom-storage": "https://ga.jspm.dev/npm:dom-storage@2.1.0/lib/index.js"
+    "dom-storage": "https://ga.jspm.dev/npm:dom-storage@2.1.0/lib/index.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   }
 }

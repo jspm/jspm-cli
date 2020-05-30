@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "htmlparser2": "https://ga.jspm.dev/npm:htmlparser2@4.1.0/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:dom-serializer@0.2.2/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
+      "entities": "https://ga.jspm.dev/npm:entities@2.0.2/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:domutils@2.1.0/": {
+      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.2.2/index.js",
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:htmlparser2@4.1.0/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
+      "domhandler": "https://ga.jspm.dev/npm:domhandler@3.0.0/lib/index.js",
+      "domutils": "https://ga.jspm.dev/npm:domutils@2.1.0/lib/index.js",
+      "entities/lib/decode_codepoint": "https://ga.jspm.dev/npm:entities@2.0.2/lib/decode_codepoint.js",
+      "entities/lib/maps/entities.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/entities.json.js",
+      "entities/lib/maps/legacy.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/legacy.json.js",
+      "entities/lib/maps/xml.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/xml.json.js"
+    }
+  }
+}

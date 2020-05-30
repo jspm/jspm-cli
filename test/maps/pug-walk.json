@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pug-walk": "https://ga.jspm.dev/npm:pug-walk@1.1.8/index.js"
+    "pug-walk": "https://ga.jspm.dev/npm:pug-walk@2.0.0/index.js"
   }
 }

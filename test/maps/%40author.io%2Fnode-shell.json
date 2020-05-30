@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@author.io/node-shell": "https://ga.jspm.dev/npm:@author.io/node-shell@1.2.1/index.js"
+    "@author.io/node-shell": "https://ga.jspm.dev/npm:@author.io/node-shell@1.6.3/index.js"
   }
 }

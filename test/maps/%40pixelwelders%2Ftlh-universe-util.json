@@ -1,9 +1,9 @@
 {
   "imports": {
-    "@pixelwelders/tlh-universe-util": "https://ga.jspm.dev/npm:@pixelwelders/tlh-universe-util@4.1.1/index.js"
+    "@pixelwelders/tlh-universe-util": "https://ga.jspm.dev/npm:@pixelwelders/tlh-universe-util@4.2.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@pixelwelders/tlh-universe-util@4.1.1/": {
+    "https://ga.jspm.dev/npm:@pixelwelders/tlh-universe-util@4.2.1/": {
       "profanity-util": "https://ga.jspm.dev/npm:profanity-util@0.2.0/lib/profanity.js"
     },
     "https://ga.jspm.dev/npm:profanity-util@0.2.0/": {

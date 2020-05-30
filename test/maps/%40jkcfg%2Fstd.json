@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@jkcfg/std/fs": "https://ga.jspm.dev/npm:@jkcfg/std@0.4.0/fs.js",
+    "@jkcfg/std/merge": "https://ga.jspm.dev/npm:@jkcfg/std@0.4.0/merge.js",
+    "@jkcfg/std/param": "https://ga.jspm.dev/npm:@jkcfg/std@0.4.0/param.js",
+    "@jkcfg/std/schema": "https://ga.jspm.dev/npm:@jkcfg/std@0.4.0/schema.js"
+  }
+}

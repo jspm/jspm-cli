@@ -1,0 +1,52 @@
+{
+  "imports": {
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "eslint-module-utils/ModuleCache": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/ModuleCache.js",
+    "eslint-module-utils/ModuleCache.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/ModuleCache.js",
+    "eslint-module-utils/declaredScope": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/declaredScope.js",
+    "eslint-module-utils/declaredScope.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/declaredScope.js",
+    "eslint-module-utils/hash": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/hash.js",
+    "eslint-module-utils/hash.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/hash.js",
+    "eslint-module-utils/ignore": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/ignore.js",
+    "eslint-module-utils/ignore.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/ignore.js",
+    "eslint-module-utils/module-require": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/module-require.js",
+    "eslint-module-utils/module-require.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/module-require.js",
+    "eslint-module-utils/moduleVisitor": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/moduleVisitor.js",
+    "eslint-module-utils/moduleVisitor.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/moduleVisitor.js",
+    "eslint-module-utils/parse": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/parse.js",
+    "eslint-module-utils/parse.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/parse.js",
+    "eslint-module-utils/resolve": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/resolve.js",
+    "eslint-module-utils/resolve.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/resolve.js",
+    "eslint-module-utils/unambiguous": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/unambiguous.js",
+    "eslint-module-utils/unambiguous.js!cjs": "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/unambiguous.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:eslint-module-utils@2.6.0/": {
+      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
+      "pkg-dir": "https://ga.jspm.dev/npm:pkg-dir@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:find-up@2.1.0/": {
+      "locate-path": "https://ga.jspm.dev/npm:locate-path@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:locate-path@2.0.0/": {
+      "p-locate": "https://ga.jspm.dev/npm:p-locate@2.0.0/index.js",
+      "path-exists": "https://ga.jspm.dev/npm:path-exists@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-limit@1.3.0/": {
+      "p-try": "https://ga.jspm.dev/npm:p-try@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-locate@2.0.0/": {
+      "p-limit": "https://ga.jspm.dev/npm:p-limit@1.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:pkg-dir@2.0.0/": {
+      "find-up": "https://ga.jspm.dev/npm:find-up@2.1.0/index.js"
+    }
+  }
+}

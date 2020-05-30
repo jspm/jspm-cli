@@ -1,7 +1,7 @@
 {
   "imports": {
     "import-cjs": "https://ga.jspm.dev/npm:import-cjs@1.0.1/index.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:import-cjs@1.0.1/": {

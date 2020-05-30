@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@magic-modules/theme-list": "https://ga.jspm.dev/npm:@magic-modules/theme-list@0.0.8/src/index.mjs"
+    "@magic-modules/theme-list": "https://ga.jspm.dev/npm:@magic-modules/theme-list@0.0.10/src/index.mjs"
   }
 }

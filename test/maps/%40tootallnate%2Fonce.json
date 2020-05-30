@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@tootallnate/once": "https://ga.jspm.dev/npm:@tootallnate/once@1.0.0/dist/index.js"
+    "@tootallnate/once": "https://ga.jspm.dev/npm:@tootallnate/once@1.1.2/dist/index.js"
   }
 }

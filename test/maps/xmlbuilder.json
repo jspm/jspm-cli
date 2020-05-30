@@ -1,5 +1,5 @@
 {
   "imports": {
-    "xmlbuilder": "https://ga.jspm.dev/npm:xmlbuilder@15.1.0/lib/index.js"
+    "xmlbuilder": "https://ga.jspm.dev/npm:xmlbuilder@15.1.1/lib/index.js"
   }
 }

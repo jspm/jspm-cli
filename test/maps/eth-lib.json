@@ -1,18 +1,24 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
     "eth-lib": "https://ga.jspm.dev/npm:eth-lib@0.1.29/lib/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:bufferutil@4.0.1/": {
+      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
+    },
     "https://ga.jspm.dev/npm:elliptic@6.5.2/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js",
       "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
       "hmac-drbg": "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
@@ -21,11 +27,11 @@
       "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     },
     "https://ga.jspm.dev/npm:eth-lib@0.1.29/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
+      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
       "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js",
       "nano-json-stream-parser": "https://ga.jspm.dev/npm:nano-json-stream-parser@0.1.2/dist/index.js",
       "ws": "https://ga.jspm.dev/npm:ws@3.3.3/index.js",
-      "xhr-request-promise": "https://ga.jspm.dev/npm:xhr-request-promise@0.1.2/index.js"
+      "xhr-request-promise": "https://ga.jspm.dev/npm:xhr-request-promise@0.1.3/index.js"
     },
     "https://ga.jspm.dev/npm:hash.js@1.1.7/": {
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
@@ -41,24 +47,29 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
       "strict-uri-encode": "https://ga.jspm.dev/npm:strict-uri-encode@1.1.0/index.js"
     },
+    "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/": {
+      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
+    },
     "https://ga.jspm.dev/npm:ws@3.3.3/": {
       "async-limiter": "https://ga.jspm.dev/npm:async-limiter@1.0.1/index.js",
+      "bufferutil": "https://ga.jspm.dev/npm:bufferutil@4.0.1/index.js",
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
-      "ultron": "https://ga.jspm.dev/npm:ultron@1.1.1/index.js"
+      "ultron": "https://ga.jspm.dev/npm:ultron@1.1.1/index.js",
+      "utf-8-validate": "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:xhr-request-promise@0.1.2/": {
+    "https://ga.jspm.dev/npm:xhr-request-promise@0.1.3/": {
       "xhr-request": "https://ga.jspm.dev/npm:xhr-request@1.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:xhr-request@1.1.0/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
       "query-string": "https://ga.jspm.dev/npm:query-string@5.1.1/index.js",
       "url-set-query": "https://ga.jspm.dev/npm:url-set-query@1.0.0/index.js",
-      "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js"
+      "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js",
+      "xhr-request/lib/request.js": "https://ga.jspm.dev/npm:xhr-request@1.1.0/lib/request-browser.js"
     },
     "https://ga.jspm.dev/npm:xhr@2.5.0/": {
-      "global/": "https://ga.jspm.dev/npm:global@4.3.2/",
       "global/window": "https://ga.jspm.dev/npm:global@4.3.2/window.js",
-      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.1/index.js",
+      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.2/index.js",
       "parse-headers": "https://ga.jspm.dev/npm:parse-headers@2.0.3/parse-headers.js",
       "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
     }

@@ -1,5 +1,10 @@
 {
   "imports": {
     "any-observable": "https://ga.jspm.dev/npm:any-observable@0.5.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:any-observable@0.5.1/": {
+      "any-observable/register.js": "https://ga.jspm.dev/npm:any-observable@0.5.1/register-shim.js"
+    }
   }
 }

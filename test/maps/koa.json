@@ -1,25 +1,30 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "koa": "https://ga.jspm.dev/npm:koa@2.11.0/lib/application.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "koa": "https://ga.jspm.dev/npm:koa@2.12.0/lib/application.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:accepts@1.3.7/": {
-      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js",
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.27/index.js",
       "negotiator": "https://ga.jspm.dev/npm:negotiator@0.6.2/index.js"
     },
+    "https://ga.jspm.dev/npm:any-promise@1.3.0/": {
+      "any-promise/register.js": "https://ga.jspm.dev/npm:any-promise@1.3.0/register-shim.js"
+    },
     "https://ga.jspm.dev/npm:cache-content-type@1.0.1/": {
-      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js",
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.27/index.js",
       "ylru": "https://ga.jspm.dev/npm:ylru@1.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:content-disposition@0.5.3/": {
@@ -53,7 +58,7 @@
       "co": "https://ga.jspm.dev/npm:co@4.6.0/index.js",
       "koa-compose": "https://ga.jspm.dev/npm:koa-compose@3.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:koa@2.11.0/": {
+    "https://ga.jspm.dev/npm:koa@2.12.0/": {
       "accepts": "https://ga.jspm.dev/npm:accepts@1.3.7/index.js",
       "cache-content-type": "https://ga.jspm.dev/npm:cache-content-type@1.0.1/index.js",
       "content-disposition": "https://ga.jspm.dev/npm:content-disposition@0.5.3/index.js",
@@ -64,7 +69,6 @@
       "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
       "destroy": "https://ga.jspm.dev/npm:destroy@1.0.4/index.js",
       "encodeurl": "https://ga.jspm.dev/npm:encodeurl@1.0.2/index.js",
-      "error-inject": "https://ga.jspm.dev/npm:error-inject@1.0.0/index.js",
       "escape-html": "https://ga.jspm.dev/npm:escape-html@1.0.3/index.js",
       "fresh": "https://ga.jspm.dev/npm:fresh@0.5.2/index.js",
       "http-assert": "https://ga.jspm.dev/npm:http-assert@1.4.1/index.js",
@@ -79,15 +83,15 @@
       "type-is": "https://ga.jspm.dev/npm:type-is@1.6.18/index.js",
       "vary": "https://ga.jspm.dev/npm:vary@1.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    "https://ga.jspm.dev/npm:mime-types@2.1.27/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
     },
     "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
       "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:type-is@1.6.18/": {
       "media-typer": "https://ga.jspm.dev/npm:media-typer@0.3.0/index.js",
-      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js"
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.27/index.js"
     }
   }
 }

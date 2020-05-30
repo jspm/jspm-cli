@@ -1,5 +1,5 @@
 {
   "imports": {
-    "boole": "https://ga.jspm.dev/npm:boole@0.1.2/boole.js"
+    "boole": "https://ga.jspm.dev/npm:boole@0.2.2/boole.cjs.js"
   }
 }

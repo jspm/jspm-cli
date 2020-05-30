@@ -1,10 +1,12 @@
 {
   "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "lock-verify": "https://ga.jspm.dev/npm:lock-verify@2.2.0/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:lock-verify@2.2.0/": {
@@ -22,7 +24,7 @@
       "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js"
     },
     "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/": {
-      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json"
+      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json.js"
     }
   }
 }

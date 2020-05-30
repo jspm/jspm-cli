@@ -8,6 +8,7 @@
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
     },
     "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
       "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"

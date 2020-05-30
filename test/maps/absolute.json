@@ -1,6 +1,6 @@
 {
   "imports": {
     "absolute": "https://ga.jspm.dev/npm:absolute@0.0.1/absolute.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

@@ -6,7 +6,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/library/fn/array/from": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/array/from.js",
       "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js",
       "core-js/library/fn/is-iterable": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/is-iterable.js",
@@ -22,15 +21,13 @@
       "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
     },
     "https://ga.jspm.dev/npm:dom-helpers@5.1.4/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js"
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js"
     },
     "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
       "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
     },
     "https://ga.jspm.dev/npm:react-virtualized@9.21.2/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
       "babel-runtime/core-js/object/assign": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/assign.js",
       "babel-runtime/core-js/object/get-own-property-descriptor": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/get-own-property-descriptor.js",
       "babel-runtime/core-js/object/get-prototype-of": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/get-prototype-of.js",
@@ -45,8 +42,7 @@
       "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
       "babel-runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/slicedToArray.js",
       "babel-runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/toConsumableArray.js",
-      "clsx": "https://ga.jspm.dev/npm:clsx@1.1.0/dist/clsx.js",
-      "dom-helpers/": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/",
+      "clsx": "https://ga.jspm.dev/npm:clsx@1.1.1/dist/clsx.js",
       "dom-helpers/scrollbarSize": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/cjs/scrollbarSize.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"

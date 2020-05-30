@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:websocket@1.0.31/": {
-      "es5-ext/": "https://ga.jspm.dev/npm:es5-ext@0.10.53/",
       "es5-ext/global": "https://ga.jspm.dev/npm:es5-ext@0.10.53/global.js"
     }
   }

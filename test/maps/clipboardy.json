@@ -1,5 +1,63 @@
 {
   "imports": {
-    "clipboardy": "https://ga.jspm.dev/npm:clipboardy@2.3.0/browser.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "clipboardy": "https://ga.jspm.dev/npm:clipboardy@2.3.0/index.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:clipboardy@2.3.0/": {
+      "arch": "https://ga.jspm.dev/npm:arch@2.1.2/browser.js",
+      "execa": "https://ga.jspm.dev/npm:execa@1.0.0/index.js",
+      "is-wsl": "https://ga.jspm.dev/npm:is-wsl@2.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:cross-spawn@6.0.5/": {
+      "nice-try": "https://ga.jspm.dev/npm:nice-try@1.0.5/src/index.js",
+      "path-key": "https://ga.jspm.dev/npm:path-key@2.0.1/index.js",
+      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
+      "shebang-command": "https://ga.jspm.dev/npm:shebang-command@1.2.0/index.js",
+      "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js"
+    },
+    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:execa@1.0.0/": {
+      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@6.0.5/index.js",
+      "get-stream": "https://ga.jspm.dev/npm:get-stream@4.1.0/index.js",
+      "is-stream": "https://ga.jspm.dev/npm:is-stream@1.1.0/index.js",
+      "npm-run-path": "https://ga.jspm.dev/npm:npm-run-path@2.0.2/index.js",
+      "p-finally": "https://ga.jspm.dev/npm:p-finally@1.0.0/index.js",
+      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js",
+      "strip-eof": "https://ga.jspm.dev/npm:strip-eof@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:get-stream@4.1.0/": {
+      "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:is-wsl@2.2.0/": {
+      "is-docker": "https://ga.jspm.dev/npm:is-docker@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:npm-run-path@2.0.2/": {
+      "path-key": "https://ga.jspm.dev/npm:path-key@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    },
+    "https://ga.jspm.dev/npm:pump@3.0.0/": {
+      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    },
+    "https://ga.jspm.dev/npm:shebang-command@1.2.0/": {
+      "shebang-regex": "https://ga.jspm.dev/npm:shebang-regex@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:which@1.3.1/": {
+      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    }
   }
 }

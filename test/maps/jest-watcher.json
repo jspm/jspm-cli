@@ -1,17 +1,20 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "jest-watcher": "https://ga.jspm.dev/npm:jest-watcher@25.2.7/build/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "jest-watcher": "https://ga.jspm.dev/npm:jest-watcher@26.0.1/build/index.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
       "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
       "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
     },
@@ -21,26 +24,27 @@
     "https://ga.jspm.dev/npm:is-ci@2.0.0/": {
       "ci-info": "https://ga.jspm.dev/npm:ci-info@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-util@25.2.6/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
+    "https://ga.jspm.dev/npm:jest-util@26.0.1/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "is-ci": "https://ga.jspm.dev/npm:is-ci@2.0.0/index.js",
-      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.0.2/index.js"
+      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-watcher@25.2.7/": {
+    "https://ga.jspm.dev/npm:jest-watcher@26.0.1/": {
       "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@4.3.1/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "jest-util": "https://ga.jspm.dev/npm:jest-util@25.2.6/build/index.js",
-      "string-length": "https://ga.jspm.dev/npm:string-length@3.1.0/index.js"
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "jest-util": "https://ga.jspm.dev/npm:jest-util@26.0.1/build/index.js",
+      "string-length": "https://ga.jspm.dev/npm:string-length@4.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:make-dir@3.0.2/": {
+    "https://ga.jspm.dev/npm:make-dir@3.1.0/": {
       "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
     },
-    "https://ga.jspm.dev/npm:string-length@3.1.0/": {
-      "astral-regex": "https://ga.jspm.dev/npm:astral-regex@1.0.0/index.js",
-      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
+    "https://ga.jspm.dev/npm:string-length@4.0.1/": {
+      "char-regex": "https://ga.jspm.dev/npm:char-regex@1.0.2/index.js",
+      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:strip-ansi@5.2.0/": {
-      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@4.1.0/index.js"
+    "https://ga.jspm.dev/npm:strip-ansi@6.0.0/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js"
     }
   }
 }

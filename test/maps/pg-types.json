@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "pg-types": "https://ga.jspm.dev/npm:pg-types@3.0.0/index.js"
   },
   "scopes": {
@@ -9,11 +9,10 @@
       "pg-numeric": "https://ga.jspm.dev/npm:pg-numeric@1.0.2/index.js",
       "postgres-array": "https://ga.jspm.dev/npm:postgres-array@2.0.0/index.js",
       "postgres-bytea": "https://ga.jspm.dev/npm:postgres-bytea@2.0.0/index.js",
-      "postgres-date": "https://ga.jspm.dev/npm:postgres-date@1.0.4/index.js",
+      "postgres-date": "https://ga.jspm.dev/npm:postgres-date@1.0.5/index.js",
       "postgres-interval": "https://ga.jspm.dev/npm:postgres-interval@1.2.0/index.js"
     },
     "https://ga.jspm.dev/npm:postgres-interval@1.2.0/": {
-      "xtend/": "https://ga.jspm.dev/npm:xtend@4.0.2/",
       "xtend/mutable": "https://ga.jspm.dev/npm:xtend@4.0.2/mutable.js"
     }
   }

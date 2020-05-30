@@ -1,6 +1,7 @@
 {
   "imports": {
-    "essential-md": "https://ga.jspm.dev/npm:essential-md@0.3.0/esm/index.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "essential-md": "https://ga.jspm.dev/npm:essential-md@0.3.0/cjs/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
   }
 }

@@ -1,12 +1,12 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "pug-parser": "https://ga.jspm.dev/npm:pug-parser@5.0.1/index.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "pug-parser": "https://ga.jspm.dev/npm:pug-parser@6.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pug-parser@5.0.1/": {
-      "pug-error": "https://ga.jspm.dev/npm:pug-error@1.3.3/index.js",
-      "token-stream": "https://ga.jspm.dev/npm:token-stream@0.0.1/index.js"
+    "https://ga.jspm.dev/npm:pug-parser@6.0.0/": {
+      "pug-error": "https://ga.jspm.dev/npm:pug-error@2.0.0/index.js",
+      "token-stream": "https://ga.jspm.dev/npm:token-stream@1.0.0/index.js"
     }
   }
 }

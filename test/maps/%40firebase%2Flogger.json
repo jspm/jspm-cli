@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.1/dist/index.cjs.js"
+    "@firebase/logger": "https://ga.jspm.dev/npm:@firebase/logger@0.2.4/dist/index.cjs.js"
   }
 }

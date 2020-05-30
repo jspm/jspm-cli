@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tle.js": "https://ga.jspm.dev/npm:tle.js@4.0.10/dist/tlejs.umd.js"
+    "tle.js": "https://ga.jspm.dev/npm:tle.js@4.0.12/dist/tlejs.umd.js"
   }
 }

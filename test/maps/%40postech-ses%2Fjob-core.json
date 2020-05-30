@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@postech-ses/job-core@0.0.7/": {
-      "date-fns": "https://ga.jspm.dev/npm:date-fns@2.11.1/index.js"
+      "date-fns": "https://ga.jspm.dev/npm:date-fns@2.14.0/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+    "tslib": "https://ga.jspm.dev/npm:tslib@2.0.0/tslib.js"
   }
 }

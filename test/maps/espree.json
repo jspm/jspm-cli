@@ -1,11 +1,11 @@
 {
   "imports": {
-    "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
-    "espree": "https://ga.jspm.dev/npm:espree@6.2.1/espree.js"
+    "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js",
+    "espree": "https://ga.jspm.dev/npm:espree@7.0.0/espree.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:espree@6.2.1/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+    "https://ga.jspm.dev/npm:espree@7.0.0/": {
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js",
       "acorn-jsx": "https://ga.jspm.dev/npm:acorn-jsx@5.2.0/index.js",
       "eslint-visitor-keys": "https://ga.jspm.dev/npm:eslint-visitor-keys@1.1.0/lib/index.js"
     }

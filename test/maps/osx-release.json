@@ -1,6 +1,6 @@
 {
   "imports": {
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
     "osx-release": "https://ga.jspm.dev/npm:osx-release@2.0.0/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mobiledoc-kit": "https://ga.jspm.dev/npm:mobiledoc-kit@0.13.0/dist/mobiledoc.js"
+    "mobiledoc-kit": "https://ga.jspm.dev/npm:mobiledoc-kit@0.13.1/dist/mobiledoc.js"
   }
 }

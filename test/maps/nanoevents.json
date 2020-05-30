@@ -1,5 +1,5 @@
 {
   "imports": {
-    "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.5/index.js"
+    "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.7/index.js"
   }
 }

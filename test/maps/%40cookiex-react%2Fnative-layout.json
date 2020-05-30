@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@cookiex-react/native-layout/": "https://ga.jspm.dev/npm:@cookiex-react/native-layout@0.7.12/dist/"
-  }
-}

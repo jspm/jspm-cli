@@ -1,27 +1,25 @@
 {
   "imports": {
-    "@material-ui/system": "https://ga.jspm.dev/npm:@material-ui/system@4.9.6/index.js"
+    "@material-ui/system": "https://ga.jspm.dev/npm:@material-ui/system@4.9.14/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@material-ui/system@4.9.6/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/slicedToArray.js",
-      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/toConsumableArray.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js",
-      "@material-ui/utils": "https://ga.jspm.dev/npm:@material-ui/utils@4.9.6/index.js",
+    "https://ga.jspm.dev/npm:@material-ui/system@4.9.14/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/toConsumableArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
+      "@material-ui/utils": "https://ga.jspm.dev/npm:@material-ui/utils@4.9.12/index.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
     },
-    "https://ga.jspm.dev/npm:@material-ui/utils@4.9.6/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/defineProperty.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js",
+    "https://ga.jspm.dev/npm:@material-ui/utils@4.9.12/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     }

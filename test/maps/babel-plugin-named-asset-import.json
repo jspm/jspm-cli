@@ -1,6 +1,6 @@
 {
   "imports": {
     "babel-plugin-named-asset-import": "https://ga.jspm.dev/npm:babel-plugin-named-asset-import@0.3.6/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

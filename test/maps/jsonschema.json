@@ -1,6 +1,6 @@
 {
   "imports": {
     "jsonschema": "https://ga.jspm.dev/npm:jsonschema@1.2.6/lib/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   }
 }

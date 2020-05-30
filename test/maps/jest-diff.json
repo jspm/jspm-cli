@@ -1,23 +1,28 @@
 {
   "imports": {
-    "jest-diff": "https://ga.jspm.dev/npm:jest-diff@25.2.6/build/index.js"
+    "jest-diff": "https://ga.jspm.dev/npm:jest-diff@26.0.1/build/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
       "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
+    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
       "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
     },
     "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
       "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-diff@25.2.6/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "diff-sequences": "https://ga.jspm.dev/npm:diff-sequences@25.2.6/build/index.js",
-      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@25.2.6/build/index.js",
-      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@25.2.6/build-es5/index.js"
+    "https://ga.jspm.dev/npm:jest-diff@26.0.1/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "diff-sequences": "https://ga.jspm.dev/npm:diff-sequences@26.0.0/build/index.js",
+      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js",
+      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@26.0.1/build/index.js"
+    },
+    "https://ga.jspm.dev/npm:pretty-format@26.0.1/": {
+      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js",
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     }
   }
 }

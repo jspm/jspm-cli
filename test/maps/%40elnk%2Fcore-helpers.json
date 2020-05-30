@@ -1,16 +1,17 @@
 {
   "imports": {
-    "@elnk/core-helpers": "https://ga.jspm.dev/npm:@elnk/core-helpers@1.11.8/index.js",
-    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/console.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "@elnk/core-helpers": "https://ga.jspm.dev/npm:@elnk/core-helpers@1.13.24/index.js",
+    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/console.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@elnk/core-helpers@1.11.8/": {
+    "https://ga.jspm.dev/npm:@elnk/core-helpers@1.13.24/": {
       "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js",
       "fastify-plugin": "https://ga.jspm.dev/npm:fastify-plugin@1.6.1/index.js",
       "globby": "https://ga.jspm.dev/npm:globby@11.0.0/index.js",
@@ -22,7 +23,7 @@
     },
     "https://ga.jspm.dev/npm:@nodelib/fs.walk@1.2.4/": {
       "@nodelib/fs.scandir": "https://ga.jspm.dev/npm:@nodelib/fs.scandir@2.1.3/out/index.js",
-      "fastq": "https://ga.jspm.dev/npm:fastq@1.7.0/queue.js"
+      "fastq": "https://ga.jspm.dev/npm:fastq@1.8.0/queue.js"
     },
     "https://ga.jspm.dev/npm:braces@3.0.2/": {
       "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
@@ -39,10 +40,10 @@
       "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js"
     },
     "https://ga.jspm.dev/npm:fastify-plugin@1.6.1/": {
-      "fastify/": "https://ga.jspm.dev/npm:fastify@2.13.0/",
+      "fastify/package.json": "https://ga.jspm.dev/npm:fastify@2.14.1/package.json.js",
       "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
     },
-    "https://ga.jspm.dev/npm:fastq@1.7.0/": {
+    "https://ga.jspm.dev/npm:fastq@1.8.0/": {
       "reusify": "https://ga.jspm.dev/npm:reusify@1.0.4/reusify.js"
     },
     "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
@@ -55,7 +56,7 @@
       "array-union": "https://ga.jspm.dev/npm:array-union@2.1.0/index.js",
       "dir-glob": "https://ga.jspm.dev/npm:dir-glob@3.0.1/index.js",
       "fast-glob": "https://ga.jspm.dev/npm:fast-glob@3.2.2/out/index.js",
-      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.4/index.js",
+      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.8/index.js",
       "merge2": "https://ga.jspm.dev/npm:merge2@1.3.0/index.js",
       "slash": "https://ga.jspm.dev/npm:slash@3.0.0/index.js"
     },
@@ -65,7 +66,6 @@
     "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
       "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
       "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/": "https://ga.jspm.dev/npm:picomatch@2.2.2/",
       "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
     },
     "https://ga.jspm.dev/npm:normalize-path@2.1.1/": {

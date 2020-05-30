@@ -1,6 +1,6 @@
 {
   "imports": {
-    "hooked-form": "https://ga.jspm.dev/npm:hooked-form@4.3.0/dist/hooked-form.module.js",
+    "hooked-form": "https://ga.jspm.dev/npm:hooked-form@4.3.3/dist/hooked-form.module.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {

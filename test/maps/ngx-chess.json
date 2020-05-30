@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ngx-chess": "https://ga.jspm.dev/npm:ngx-chess@1.0.5/src/ngx-chess.ts"
-  }
-}

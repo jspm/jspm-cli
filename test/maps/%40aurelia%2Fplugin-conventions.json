@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aurelia/plugin-conventions": "https://ga.jspm.dev/npm:@aurelia/plugin-conventions@0.6.0/dist/umd/index.js"
-  }
-}

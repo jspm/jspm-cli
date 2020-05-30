@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@chrstntdd/node": "https://ga.jspm.dev/npm:@chrstntdd/node@0.0.9-beta0/lib/esm/index.mjs",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  }
+}

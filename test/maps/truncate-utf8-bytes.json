@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:truncate-utf8-bytes@1.0.2/": {
-      "utf8-byte-length/": "https://ga.jspm.dev/npm:utf8-byte-length@1.0.4/",
       "utf8-byte-length/browser": "https://ga.jspm.dev/npm:utf8-byte-length@1.0.4/browser.js"
     }
   }

@@ -1,7 +1,7 @@
 {
   "imports": {
     "eazy-logger": "https://ga.jspm.dev/npm:eazy-logger@3.0.2/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:chalk@1.1.3/": {

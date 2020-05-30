@@ -1,5 +1,6 @@
 {
   "imports": {
-    "clean-stack": "https://ga.jspm.dev/npm:clean-stack@2.2.0/index.js"
+    "clean-stack": "https://ga.jspm.dev/npm:clean-stack@2.2.0/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   }
 }

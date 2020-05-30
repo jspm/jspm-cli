@@ -1,46 +1,47 @@
 {
   "imports": {
-    "@kronos-integration/service-http": "https://ga.jspm.dev/npm:@kronos-integration/service-http@10.0.6/src/service-http.mjs",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "@kronos-integration/service-http": "https://ga.jspm.dev/npm:@kronos-integration/service-http@10.1.18/src/service-http.mjs",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/": {
-      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/src/index.mjs"
+    "https://ga.jspm.dev/npm:@kronos-integration/endpoint@9.0.1/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/src/index.mjs"
     },
-    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/": {
-      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs"
+    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/": {
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.6/src/attributes.mjs"
     },
-    "https://ga.jspm.dev/npm:@kronos-integration/service-http@10.0.6/": {
-      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/src/module.mjs",
-      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@8.1.5/src/index.mjs",
-      "@kronos-integration/service": "https://ga.jspm.dev/npm:@kronos-integration/service@8.3.20/src/module.mjs",
+    "https://ga.jspm.dev/npm:@kronos-integration/service-http@10.1.18/": {
+      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@9.0.1/src/module.mjs",
+      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/src/index.mjs",
+      "@kronos-integration/service": "https://ga.jspm.dev/npm:@kronos-integration/service@8.5.12/src/module.mjs",
       "bufferutil": "https://ga.jspm.dev/npm:bufferutil@4.0.1/index.js",
       "jsonwebtoken": "https://ga.jspm.dev/npm:jsonwebtoken@8.5.1/index.js",
-      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs",
-      "multi-path-matcher": "https://ga.jspm.dev/npm:multi-path-matcher@2.0.11/src/multi-path-matcher.mjs",
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.6/src/attributes.mjs",
+      "multi-path-matcher": "https://ga.jspm.dev/npm:multi-path-matcher@2.0.14/src/multi-path-matcher.mjs",
       "utf-8-validate": "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/index.js",
-      "ws": "https://ga.jspm.dev/npm:ws@7.2.3/browser.js"
+      "ws": "https://ga.jspm.dev/npm:ws@7.3.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:@kronos-integration/service@8.3.20/": {
-      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@7.5.9/src/module.mjs",
-      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.5/src/loglevel-mixin.mjs",
-      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.5/src/attributes.mjs",
-      "statetransition-mixin": "https://ga.jspm.dev/npm:statetransition-mixin@6.0.6/src/statetransition-mixin.mjs"
+    "https://ga.jspm.dev/npm:@kronos-integration/service@8.5.12/": {
+      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@9.0.1/src/module.mjs",
+      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.6/src/loglevel-mixin.mjs",
+      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.6/src/attributes.mjs",
+      "statetransition-mixin": "https://ga.jspm.dev/npm:statetransition-mixin@6.0.7/src/statetransition-mixin.mjs"
     },
     "https://ga.jspm.dev/npm:bufferutil@4.0.1/": {
       "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
     },
     "https://ga.jspm.dev/npm:ecdsa-sig-formatter@1.0.11/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:jsonwebtoken@8.5.1/": {
       "jws": "https://ga.jspm.dev/npm:jws@3.2.2/index.js",
@@ -57,11 +58,11 @@
     "https://ga.jspm.dev/npm:jwa@1.4.1/": {
       "buffer-equal-constant-time": "https://ga.jspm.dev/npm:buffer-equal-constant-time@1.0.1/index.js",
       "ecdsa-sig-formatter": "https://ga.jspm.dev/npm:ecdsa-sig-formatter@1.0.11/src/ecdsa-sig-formatter.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:jws@3.2.2/": {
       "jwa": "https://ga.jspm.dev/npm:jwa@1.4.1/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/": {
       "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"

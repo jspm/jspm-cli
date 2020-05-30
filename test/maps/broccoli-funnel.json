@@ -1,28 +1,28 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "broccoli-funnel": "https://ga.jspm.dev/npm:broccoli-funnel@3.0.2/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "broccoli-funnel": "https://ga.jspm.dev/npm:broccoli-funnel@3.0.3/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
       "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
       "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:broccoli-funnel@3.0.2/": {
+    "https://ga.jspm.dev/npm:broccoli-funnel@3.0.3/": {
       "array-equal": "https://ga.jspm.dev/npm:array-equal@1.0.0/index.js",
       "blank-object": "https://ga.jspm.dev/npm:blank-object@1.0.2/index.js",
-      "broccoli-plugin": "https://ga.jspm.dev/npm:broccoli-plugin@4.0.2/dist/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "broccoli-plugin": "https://ga.jspm.dev/npm:broccoli-plugin@4.0.3/dist/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "fs-tree-diff": "https://ga.jspm.dev/npm:fs-tree-diff@2.0.1/lib/index.js",
       "heimdalljs": "https://ga.jspm.dev/npm:heimdalljs@0.2.6/dist/heimdalljs.cjs.js",
       "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
@@ -33,9 +33,9 @@
       "heimdalljs-logger": "https://ga.jspm.dev/npm:heimdalljs-logger@0.1.10/dist/index.js",
       "symlink-or-copy": "https://ga.jspm.dev/npm:symlink-or-copy@1.3.1/index.js"
     },
-    "https://ga.jspm.dev/npm:broccoli-plugin@4.0.2/": {
+    "https://ga.jspm.dev/npm:broccoli-plugin@4.0.3/": {
       "broccoli-output-wrapper": "https://ga.jspm.dev/npm:broccoli-output-wrapper@3.2.1/dist/index.js",
-      "fs-merger": "https://ga.jspm.dev/npm:fs-merger@3.0.2/dist/index.js",
+      "fs-merger": "https://ga.jspm.dev/npm:fs-merger@3.1.0/dist/index.js",
       "promise-map-series": "https://ga.jspm.dev/npm:promise-map-series@0.2.3/index.js",
       "quick-temp": "https://ga.jspm.dev/npm:quick-temp@0.1.8/index.js",
       "rimraf": "https://ga.jspm.dev/npm:rimraf@3.0.2/rimraf.js",
@@ -44,18 +44,18 @@
     "https://ga.jspm.dev/npm:debug@2.6.9/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+    "https://ga.jspm.dev/npm:debug@4.2.0/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:fs-extra@8.1.0/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "jsonfile": "https://ga.jspm.dev/npm:jsonfile@4.0.0/index.js",
       "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:fs-merger@3.0.2/": {
+    "https://ga.jspm.dev/npm:fs-merger@3.1.0/": {
       "broccoli-node-info": "https://ga.jspm.dev/npm:broccoli-node-info@2.1.0/index.js",
       "fs-extra": "https://ga.jspm.dev/npm:fs-extra@8.1.0/lib/index.js",
-      "walk-sync": "https://ga.jspm.dev/npm:walk-sync@2.0.2/index.js"
+      "walk-sync": "https://ga.jspm.dev/npm:walk-sync@2.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:fs-tree-diff@2.0.1/": {
       "heimdalljs-logger": "https://ga.jspm.dev/npm:heimdalljs-logger@0.1.10/dist/index.js",
@@ -108,7 +108,7 @@
       "sprintf-js": "https://ga.jspm.dev/npm:sprintf-js@1.1.2/src/sprintf.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
     },
-    "https://ga.jspm.dev/npm:walk-sync@2.0.2/": {
+    "https://ga.jspm.dev/npm:walk-sync@2.1.0/": {
       "ensure-posix-path": "https://ga.jspm.dev/npm:ensure-posix-path@1.1.1/index.js",
       "matcher-collection": "https://ga.jspm.dev/npm:matcher-collection@2.0.1/index.js"
     }

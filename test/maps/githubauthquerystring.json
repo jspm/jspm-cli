@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "githubauthquerystring": "https://ga.jspm.dev/npm:githubauthquerystring@4.0.0/edition-browsers/index.js"
+  }
+}

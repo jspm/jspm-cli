@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aurelia/webpack-loader": "https://ga.jspm.dev/npm:@aurelia/webpack-loader@0.6.0/dist/umd/index.js"
-  }
-}

@@ -1,10 +1,17 @@
 {
   "imports": {
-    "@undercut/push": "https://ga.jspm.dev/npm:@undercut/push@0.5.0/src/index.js"
+    "@undercut/push": "https://ga.jspm.dev/npm:@undercut/push@0.5.1/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@undercut/push@0.5.0/": {
-      "@undercut/utils/": "https://ga.jspm.dev/npm:@undercut/utils@0.5.0/"
+    "https://ga.jspm.dev/npm:@undercut/push@0.5.1/": {
+      "@undercut/utils/src/array.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/array.js",
+      "@undercut/utils/src/assert.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/assert.js",
+      "@undercut/utils/src/compare.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/compare.js",
+      "@undercut/utils/src/coroutine.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/coroutine.js",
+      "@undercut/utils/src/function.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/function.js",
+      "@undercut/utils/src/iterable.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/iterable.js",
+      "@undercut/utils/src/language.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/language.js",
+      "@undercut/utils/src/ordering.js": "https://ga.jspm.dev/npm:@undercut/utils@0.5.1/src/ordering.js"
     }
   }
 }

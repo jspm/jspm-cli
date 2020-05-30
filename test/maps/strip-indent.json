@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:strip-indent@3.0.0/": {
-      "min-indent": "https://ga.jspm.dev/npm:min-indent@1.0.0/index.js"
+      "min-indent": "https://ga.jspm.dev/npm:min-indent@1.0.1/index.js"
     }
   }
 }

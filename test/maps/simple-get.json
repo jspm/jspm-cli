@@ -1,17 +1,23 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/querystring.js",
-    "simple-get": "https://ga.jspm.dev/npm:simple-get@3.1.0/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "simple-get": "https://ga.jspm.dev/npm:simple-get@4.0.0/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:decompress-response@6.0.0/": {
+      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@3.1.0/index.js"
+    },
     "https://ga.jspm.dev/npm:once@1.4.0/": {
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:simple-get@3.1.0/": {
+    "https://ga.jspm.dev/npm:simple-get@4.0.0/": {
+      "decompress-response": "https://ga.jspm.dev/npm:decompress-response@6.0.0/index.js",
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
       "simple-concat": "https://ga.jspm.dev/npm:simple-concat@1.0.0/index.js"
     }

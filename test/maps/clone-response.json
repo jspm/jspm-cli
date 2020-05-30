@@ -1,7 +1,7 @@
 {
   "imports": {
     "clone-response": "https://ga.jspm.dev/npm:clone-response@1.0.2/src/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:clone-response@1.0.2/": {

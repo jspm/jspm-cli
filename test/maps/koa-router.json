@@ -1,10 +1,12 @@
 {
   "imports": {
-    "koa-router": "https://ga.jspm.dev/npm:koa-router@8.0.8/lib/router.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "koa-router": "https://ga.jspm.dev/npm:koa-router@9.0.1/lib/router.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+    "https://ga.jspm.dev/npm:debug@4.2.0/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:http-errors@1.7.3/": {
@@ -14,16 +16,12 @@
       "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js",
       "toidentifier": "https://ga.jspm.dev/npm:toidentifier@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:koa-router@8.0.8/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+    "https://ga.jspm.dev/npm:koa-router@9.0.1/": {
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "http-errors": "https://ga.jspm.dev/npm:http-errors@1.7.3/index.js",
       "koa-compose": "https://ga.jspm.dev/npm:koa-compose@4.1.0/index.js",
       "methods": "https://ga.jspm.dev/npm:methods@1.1.2/index.js",
-      "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/index.js",
-      "urijs": "https://ga.jspm.dev/npm:urijs@1.19.2/src/URI.js"
-    },
-    "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/": {
-      "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js"
+      "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@6.1.0/dist/index.js"
     }
   }
 }

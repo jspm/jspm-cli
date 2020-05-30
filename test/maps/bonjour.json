@@ -1,11 +1,12 @@
 {
   "imports": {
     "bonjour": "https://ga.jspm.dev/npm:bonjour@3.5.0/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dgram.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:bonjour@3.5.0/": {
@@ -20,7 +21,7 @@
       "is-arguments": "https://ga.jspm.dev/npm:is-arguments@1.0.4/index.js",
       "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
       "is-regex": "https://ga.jspm.dev/npm:is-regex@1.0.5/index.js",
-      "object-is": "https://ga.jspm.dev/npm:object-is@1.0.2/index.js",
+      "object-is": "https://ga.jspm.dev/npm:object-is@1.1.2/index.js",
       "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js",
       "regexp.prototype.flags": "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/index.js"
     },
@@ -29,7 +30,7 @@
     },
     "https://ga.jspm.dev/npm:dns-packet@1.3.1/": {
       "ip": "https://ga.jspm.dev/npm:ip@1.1.5/lib/ip.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
     },
     "https://ga.jspm.dev/npm:dns-txt@2.0.2/": {
       "buffer-indexof": "https://ga.jspm.dev/npm:buffer-indexof@1.1.1/index.js"
@@ -48,9 +49,12 @@
       "dns-packet": "https://ga.jspm.dev/npm:dns-packet@1.3.1/index.js",
       "thunky": "https://ga.jspm.dev/npm:thunky@1.1.0/index.js"
     },
+    "https://ga.jspm.dev/npm:object-is@1.1.2/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js"
+    },
     "https://ga.jspm.dev/npm:regexp.prototype.flags@1.3.0/": {
       "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "es-abstract/": "https://ga.jspm.dev/npm:es-abstract@1.17.5/",
       "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js"
     }
   }

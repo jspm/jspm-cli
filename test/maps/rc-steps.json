@@ -1,13 +1,21 @@
 {
   "imports": {
-    "rc-steps": "https://ga.jspm.dev/npm:rc-steps@3.5.0/lib/index.js"
+    "rc-steps": "https://ga.jspm.dev/npm:rc-steps@3.6.0/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rc-steps@3.5.0/": {
+    "https://ga.jspm.dev/npm:rc-steps@3.6.0/": {
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/debounce": "https://ga.jspm.dev/npm:lodash@4.17.15/debounce.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     }
   }
 }

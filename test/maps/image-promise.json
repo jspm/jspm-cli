@@ -1,5 +1,5 @@
 {
   "imports": {
-    "image-promise": "https://ga.jspm.dev/npm:image-promise@7.0.0/index.js"
+    "image-promise": "https://ga.jspm.dev/npm:image-promise@7.0.1/index.js"
   }
 }

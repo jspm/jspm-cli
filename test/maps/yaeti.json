@@ -1,5 +1,10 @@
 {
   "imports": {
     "yaeti": "https://ga.jspm.dev/npm:yaeti@1.0.2/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:yaeti@1.0.2/": {
+      "yaeti/lib/Event.js": "https://ga.jspm.dev/npm:yaeti@1.0.2/lib/Event.browser.js"
+    }
   }
 }

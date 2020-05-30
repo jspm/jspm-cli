@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "body": "https://ga.jspm.dev/npm:body@5.1.0/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:body@5.1.0/": {
+      "continuable-cache": "https://ga.jspm.dev/npm:continuable-cache@0.3.1/index.js",
+      "raw-body": "https://ga.jspm.dev/npm:raw-body@1.1.7/index.js"
+    },
+    "https://ga.jspm.dev/npm:raw-body@1.1.7/": {
+      "bytes": "https://ga.jspm.dev/npm:bytes@1.0.0/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@0.10.31/index.js"
+    }
+  }
+}

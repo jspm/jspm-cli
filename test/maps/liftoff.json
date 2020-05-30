@@ -1,11 +1,13 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "liftoff": "https://ga.jspm.dev/npm:liftoff@3.1.0/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:base@0.11.2/": {
@@ -107,7 +109,6 @@
     "https://ga.jspm.dev/npm:fined@1.2.0/": {
       "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
       "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js",
-      "object.defaults/": "https://ga.jspm.dev/npm:object.defaults@1.1.0/",
       "object.defaults/immutable": "https://ga.jspm.dev/npm:object.defaults@1.1.0/immutable.js",
       "object.pick": "https://ga.jspm.dev/npm:object.pick@1.3.0/index.js",
       "parse-filepath": "https://ga.jspm.dev/npm:parse-filepath@1.0.2/index.js"
@@ -207,7 +208,7 @@
       "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js",
       "object.map": "https://ga.jspm.dev/npm:object.map@1.0.1/index.js",
       "rechoir": "https://ga.jspm.dev/npm:rechoir@0.6.2/index.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js"
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js"
     },
     "https://ga.jspm.dev/npm:make-iterator@1.0.1/": {
       "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
@@ -277,7 +278,7 @@
       "path-root-regex": "https://ga.jspm.dev/npm:path-root-regex@0.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:rechoir@0.6.2/": {
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js"
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js"
     },
     "https://ga.jspm.dev/npm:regex-not@1.0.2/": {
       "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js",
@@ -287,7 +288,7 @@
       "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
       "global-modules": "https://ga.jspm.dev/npm:global-modules@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
       "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
     },
     "https://ga.jspm.dev/npm:safe-regex@1.1.0/": {

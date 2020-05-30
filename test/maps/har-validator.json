@@ -3,15 +3,15 @@
     "har-validator": "https://ga.jspm.dev/npm:har-validator@5.1.3/lib/promise.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ajv@6.12.0/": {
+    "https://ga.jspm.dev/npm:ajv@6.12.2/": {
       "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js",
       "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
       "json-schema-traverse": "https://ga.jspm.dev/npm:json-schema-traverse@0.4.1/index.js",
       "uri-js": "https://ga.jspm.dev/npm:uri-js@4.2.2/dist/es5/uri.all.js"
     },
     "https://ga.jspm.dev/npm:har-validator@5.1.3/": {
-      "ajv": "https://ga.jspm.dev/npm:ajv@6.12.0/lib/ajv.js",
-      "ajv/": "https://ga.jspm.dev/npm:ajv@6.12.0/",
+      "ajv": "https://ga.jspm.dev/npm:ajv@6.12.2/lib/ajv.js",
+      "ajv/lib/refs/json-schema-draft-06.json": "https://ga.jspm.dev/npm:ajv@6.12.2/lib/refs/json-schema-draft-06.json.js",
       "har-schema": "https://ga.jspm.dev/npm:har-schema@2.0.0/lib/index.js"
     }
   }

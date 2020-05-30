@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@magic/log": "https://ga.jspm.dev/npm:@magic/log@0.1.4/src/index.mjs"
+    "@magic/log": "https://ga.jspm.dev/npm:@magic/log@0.1.5/src/index.mjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@magic/log@0.1.4/": {
-      "@magic/types": "https://ga.jspm.dev/npm:@magic/types@0.1.11/src/index.mjs"
+    "https://ga.jspm.dev/npm:@magic/log@0.1.5/": {
+      "@magic/types": "https://ga.jspm.dev/npm:@magic/types@0.1.12/src/index.mjs"
     }
   }
 }

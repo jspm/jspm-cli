@@ -1,8 +1,8 @@
 {
   "imports": {
     "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/": {
@@ -15,6 +15,7 @@
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
     },
     "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
       "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"

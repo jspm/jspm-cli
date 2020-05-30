@@ -1,7 +1,7 @@
 {
   "imports": {
     "make-error-cause": "https://ga.jspm.dev/npm:make-error-cause@2.3.0/dist/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:make-error-cause@2.3.0/": {

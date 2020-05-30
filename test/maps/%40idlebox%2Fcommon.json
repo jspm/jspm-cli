@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@idlebox/common": "https://ga.jspm.dev/npm:@idlebox/common@1.0.10/lib/_export_all_in_one_index.js"
+    "@idlebox/common": "https://ga.jspm.dev/npm:@idlebox/common@1.0.16/lib/_export_all_in_one_index.js"
   }
 }

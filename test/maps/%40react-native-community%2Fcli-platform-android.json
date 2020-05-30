@@ -1,23 +1,23 @@
 {
   "imports": {
-    "@react-native-community/cli-platform-android": "https://ga.jspm.dev/npm:@react-native-community/cli-platform-android@4.6.0/build/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "@react-native-community/cli-platform-android": "https://ga.jspm.dev/npm:@react-native-community/cli-platform-android@4.9.0/build/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@react-native-community/cli-platform-android@4.6.0/": {
-      "@react-native-community/cli-tools": "https://ga.jspm.dev/npm:@react-native-community/cli-tools@4.6.0/build/index.js",
+    "https://ga.jspm.dev/npm:@react-native-community/cli-platform-android@4.9.0/": {
+      "@react-native-community/cli-tools": "https://ga.jspm.dev/npm:@react-native-community/cli-tools@4.9.0/build/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
       "execa": "https://ga.jspm.dev/npm:execa@1.0.0/index.js",
       "fs-extra": "https://ga.jspm.dev/npm:fs-extra@8.1.0/lib/index.js",
@@ -27,14 +27,16 @@
       "slash": "https://ga.jspm.dev/npm:slash@3.0.0/index.js",
       "xmldoc": "https://ga.jspm.dev/npm:xmldoc@1.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:@react-native-community/cli-tools@4.6.0/": {
+    "https://ga.jspm.dev/npm:@react-native-community/cli-tools@4.9.0/": {
       "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
       "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "mime": "https://ga.jspm.dev/npm:mime@2.4.4/index.js",
-      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+      "mime": "https://ga.jspm.dev/npm:mime@2.4.6/index.js",
+      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js",
+      "open": "https://ga.jspm.dev/npm:open@6.4.0/index.js",
+      "shell-quote": "https://ga.jspm.dev/npm:shell-quote@1.6.1/index.js"
     },
     "https://ga.jspm.dev/npm:ansi-fragments@0.2.1/": {
-      "colorette": "https://ga.jspm.dev/npm:colorette@1.1.0/index.js",
+      "colorette": "https://ga.jspm.dev/npm:colorette@1.2.0/index.js",
       "slice-ansi": "https://ga.jspm.dev/npm:slice-ansi@2.1.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
     },
@@ -78,7 +80,7 @@
       "strip-eof": "https://ga.jspm.dev/npm:strip-eof@1.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:fs-extra@8.1.0/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "jsonfile": "https://ga.jspm.dev/npm:jsonfile@4.0.0/index.js",
       "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
     },
@@ -99,7 +101,7 @@
     },
     "https://ga.jspm.dev/npm:logkitty@0.6.1/": {
       "ansi-fragments": "https://ga.jspm.dev/npm:ansi-fragments@0.2.1/build/index.js",
-      "dayjs": "https://ga.jspm.dev/npm:dayjs@1.8.23/dayjs.min.js"
+      "dayjs": "https://ga.jspm.dev/npm:dayjs@1.8.28/dayjs.min.js"
     },
     "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
       "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
@@ -110,12 +112,21 @@
     "https://ga.jspm.dev/npm:once@1.4.0/": {
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
+    "https://ga.jspm.dev/npm:open@6.4.0/": {
+      "is-wsl": "https://ga.jspm.dev/npm:is-wsl@1.1.0/index.js"
+    },
     "https://ga.jspm.dev/npm:pump@3.0.0/": {
       "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
     },
     "https://ga.jspm.dev/npm:shebang-command@1.2.0/": {
       "shebang-regex": "https://ga.jspm.dev/npm:shebang-regex@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:shell-quote@1.6.1/": {
+      "array-filter": "https://ga.jspm.dev/npm:array-filter@0.0.1/index.js",
+      "array-map": "https://ga.jspm.dev/npm:array-map@0.0.0/index.js",
+      "array-reduce": "https://ga.jspm.dev/npm:array-reduce@0.0.0/index.js",
+      "jsonify": "https://ga.jspm.dev/npm:jsonify@0.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:slice-ansi@2.1.0/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",

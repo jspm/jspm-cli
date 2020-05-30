@@ -1,25 +1,26 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dns.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "socks-proxy-agent": "https://ga.jspm.dev/npm:socks-proxy-agent@5.0.0/dist/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:agent-base@6.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js"
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+    "https://ga.jspm.dev/npm:debug@4.2.0/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:socks-proxy-agent@5.0.0/": {
       "agent-base": "https://ga.jspm.dev/npm:agent-base@6.0.0/dist/src/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "socks": "https://ga.jspm.dev/npm:socks@2.3.3/build/index.js"
     },
     "https://ga.jspm.dev/npm:socks@2.3.3/": {

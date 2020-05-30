@@ -7,7 +7,6 @@
       "@ssttevee/u8-utils": "https://ga.jspm.dev/npm:@ssttevee/u8-utils@0.1.4/lib/index.js"
     },
     "https://ga.jspm.dev/npm:@ssttevee/cfw-formdata-polyfill@0.2.1/": {
-      "@ssttevee/blob-ponyfill/": "https://ga.jspm.dev/npm:@ssttevee/blob-ponyfill@0.1.0/",
       "@ssttevee/blob-ponyfill/blob": "https://ga.jspm.dev/npm:@ssttevee/blob-ponyfill@0.1.0/blob.js",
       "@ssttevee/formdata-ponyfill": "https://ga.jspm.dev/npm:@ssttevee/formdata-ponyfill@0.1.4/lib/index.js",
       "@ssttevee/multipart-parser": "https://ga.jspm.dev/npm:@ssttevee/multipart-parser@0.1.6/lib/index.js",

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "utilsac": "https://ga.jspm.dev/npm:utilsac@12.3.0/utility.js"
+    "utilsac": "https://ga.jspm.dev/npm:utilsac@12.3.1/utility.js"
   }
 }

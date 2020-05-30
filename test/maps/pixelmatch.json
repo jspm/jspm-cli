@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pixelmatch": "https://ga.jspm.dev/npm:pixelmatch@5.1.0/index.js"
+    "pixelmatch": "https://ga.jspm.dev/npm:pixelmatch@5.2.0/index.js"
   }
 }

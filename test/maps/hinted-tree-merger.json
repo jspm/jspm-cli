@@ -1,5 +1,5 @@
 {
   "imports": {
-    "hinted-tree-merger": "https://ga.jspm.dev/npm:hinted-tree-merger@3.12.3/src/merger.mjs"
+    "hinted-tree-merger": "https://ga.jspm.dev/npm:hinted-tree-merger@4.2.3/src/merger.mjs"
   }
 }

@@ -1,9 +1,9 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
     "listr-verbose-renderer": "https://ga.jspm.dev/npm:listr-verbose-renderer@0.6.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
@@ -26,8 +26,7 @@
     "https://ga.jspm.dev/npm:listr-verbose-renderer@0.6.0/": {
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@2.1.0/index.js",
-      "date-fns/": "https://ga.jspm.dev/npm:date-fns@2.11.1/",
-      "date-fns/format": "https://ga.jspm.dev/npm:date-fns@2.11.1/format/index.js",
+      "date-fns/format": "https://ga.jspm.dev/npm:date-fns@2.14.0/format/index.js",
       "figures": "https://ga.jspm.dev/npm:figures@2.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:onetime@2.0.1/": {

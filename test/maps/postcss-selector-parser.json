@@ -1,7 +1,7 @@
 {
   "imports": {
     "postcss-selector-parser": "https://ga.jspm.dev/npm:postcss-selector-parser@6.0.2/dist/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:postcss-selector-parser@6.0.2/": {

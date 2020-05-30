@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@fpc/types": "https://ga.jspm.dev/npm:@fpc/types@0.0.9/src/index.js"
+  }
+}

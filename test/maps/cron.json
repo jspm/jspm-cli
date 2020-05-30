@@ -1,13 +1,14 @@
 {
   "imports": {
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
     "cron": "https://ga.jspm.dev/npm:cron@1.8.2/lib/cron.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:cron@1.8.2/": {
-      "moment-timezone": "https://ga.jspm.dev/npm:moment-timezone@0.5.28/index.js"
+      "moment-timezone": "https://ga.jspm.dev/npm:moment-timezone@0.5.31/index.js"
     },
-    "https://ga.jspm.dev/npm:moment-timezone@0.5.28/": {
-      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
+    "https://ga.jspm.dev/npm:moment-timezone@0.5.31/": {
+      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
     }
   }
 }

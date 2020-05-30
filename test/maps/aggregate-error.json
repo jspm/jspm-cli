@@ -1,6 +1,7 @@
 {
   "imports": {
-    "aggregate-error": "https://ga.jspm.dev/npm:aggregate-error@3.0.1/index.js"
+    "aggregate-error": "https://ga.jspm.dev/npm:aggregate-error@3.0.1/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:aggregate-error@3.0.1/": {

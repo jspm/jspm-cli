@@ -1,6 +1,6 @@
 {
   "imports": {
-    "remark-parse": "https://ga.jspm.dev/npm:remark-parse@8.0.0/index.js"
+    "remark-parse": "https://ga.jspm.dev/npm:remark-parse@8.0.2/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/": {
@@ -8,13 +8,14 @@
       "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js"
     },
     "https://ga.jspm.dev/npm:parse-entities@2.0.0/": {
-      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json",
-      "character-reference-invalid": "https://ga.jspm.dev/npm:character-reference-invalid@1.1.4/index.json",
+      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json.js",
+      "character-reference-invalid": "https://ga.jspm.dev/npm:character-reference-invalid@1.1.4/index.json.js",
       "is-alphanumerical": "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/index.js",
       "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
-      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js"
+      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js",
+      "parse-entities/decode-entity.js": "https://ga.jspm.dev/npm:parse-entities@2.0.0/decode-entity.browser.js"
     },
-    "https://ga.jspm.dev/npm:remark-parse@8.0.0/": {
+    "https://ga.jspm.dev/npm:remark-parse@8.0.2/": {
       "ccount": "https://ga.jspm.dev/npm:ccount@1.0.5/index.js",
       "collapse-white-space": "https://ga.jspm.dev/npm:collapse-white-space@1.0.6/index.js",
       "is-alphabetical": "https://ga.jspm.dev/npm:is-alphabetical@1.0.4/index.js",
@@ -40,7 +41,6 @@
       "unist-util-visit": "https://ga.jspm.dev/npm:unist-util-visit@2.0.2/index.js"
     },
     "https://ga.jspm.dev/npm:unist-util-visit-parents@3.0.2/": {
-      "unist-util-is/": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/",
       "unist-util-is/convert": "https://ga.jspm.dev/npm:unist-util-is@4.0.2/convert.js"
     },
     "https://ga.jspm.dev/npm:unist-util-visit@2.0.2/": {

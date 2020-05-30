@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-reference": "https://ga.jspm.dev/npm:is-reference@1.1.4/dist/is-reference.js"
+    "is-reference": "https://ga.jspm.dev/npm:is-reference@1.2.0/dist/is-reference.js"
   }
 }

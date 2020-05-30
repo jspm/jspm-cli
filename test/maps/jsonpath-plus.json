@@ -1,6 +1,6 @@
 {
   "imports": {
-    "jsonpath-plus": "https://ga.jspm.dev/npm:jsonpath-plus@3.0.0/dist/index-umd.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+    "jsonpath-plus": "https://ga.jspm.dev/npm:jsonpath-plus@4.0.0/dist/index-umd.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   }
 }

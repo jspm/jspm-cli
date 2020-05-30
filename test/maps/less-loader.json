@@ -1,22 +1,31 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "less": "https://ga.jspm.dev/npm:less@3.11.1/dist/less.js",
-    "less-loader": "https://ga.jspm.dev/npm:less-loader@5.0.0/dist/cjs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "less-loader": "https://ga.jspm.dev/npm:less-loader@6.1.0/dist/cjs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:less-loader@5.0.0/": {
-      "clone": "https://ga.jspm.dev/npm:clone@2.1.2/clone.js",
-      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@1.4.0/lib/index.js",
-      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js"
+    "https://ga.jspm.dev/npm:ajv@6.12.2/": {
+      "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js",
+      "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
+      "json-schema-traverse": "https://ga.jspm.dev/npm:json-schema-traverse@0.4.1/index.js",
+      "uri-js": "https://ga.jspm.dev/npm:uri-js@4.2.2/dist/es5/uri.all.js"
     },
-    "https://ga.jspm.dev/npm:loader-utils@1.4.0/": {
+    "https://ga.jspm.dev/npm:less-loader@6.1.0/": {
+      "clone": "https://ga.jspm.dev/npm:clone@2.1.2/clone.js",
+      "less": "https://ga.jspm.dev/npm:less@3.11.1/dist/less.js",
+      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@2.0.0/lib/index.js",
+      "schema-utils": "https://ga.jspm.dev/npm:schema-utils@2.7.0/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:loader-utils@2.0.0/": {
       "big.js": "https://ga.jspm.dev/npm:big.js@5.2.2/big.js",
       "emojis-list": "https://ga.jspm.dev/npm:emojis-list@3.0.0/index.js",
-      "json5": "https://ga.jspm.dev/npm:json5@1.0.1/dist/index.js"
+      "json5": "https://ga.jspm.dev/npm:json5@2.1.3/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:schema-utils@2.7.0/": {
+      "ajv": "https://ga.jspm.dev/npm:ajv@6.12.2/lib/ajv.js",
+      "ajv-keywords": "https://ga.jspm.dev/npm:ajv-keywords@3.4.1/index.js"
     }
   }
 }

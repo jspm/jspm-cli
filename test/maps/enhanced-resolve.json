@@ -1,0 +1,23 @@
+{
+  "imports": {
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "enhanced-resolve": "https://ga.jspm.dev/npm:enhanced-resolve@4.1.1/lib/node.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:enhanced-resolve@4.1.1/": {
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "memory-fs/lib/join": "https://ga.jspm.dev/npm:memory-fs@0.5.0/lib/join.js",
+      "memory-fs/lib/normalize": "https://ga.jspm.dev/npm:memory-fs@0.5.0/lib/normalize.js",
+      "tapable/lib/AsyncSeriesBailHook": "https://ga.jspm.dev/npm:tapable@1.1.3/lib/AsyncSeriesBailHook.js",
+      "tapable/lib/AsyncSeriesHook": "https://ga.jspm.dev/npm:tapable@1.1.3/lib/AsyncSeriesHook.js",
+      "tapable/lib/SyncHook": "https://ga.jspm.dev/npm:tapable@1.1.3/lib/SyncHook.js",
+      "tapable/lib/Tapable": "https://ga.jspm.dev/npm:tapable@1.1.3/lib/Tapable.js"
+    }
+  }
+}

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "gentle-fs": "https://ga.jspm.dev/npm:gentle-fs@2.3.1/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -16,11 +16,11 @@
       "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
     },
     "https://ga.jspm.dev/npm:cmd-shim@3.0.3/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js"
     },
     "https://ga.jspm.dev/npm:fs-vacuum@1.2.10/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "path-is-inside": "https://ga.jspm.dev/npm:path-is-inside@1.0.2/lib/path-is-inside.js",
       "rimraf": "https://ga.jspm.dev/npm:rimraf@2.7.1/rimraf.js"
     },
@@ -29,7 +29,7 @@
       "chownr": "https://ga.jspm.dev/npm:chownr@1.1.4/chownr.js",
       "cmd-shim": "https://ga.jspm.dev/npm:cmd-shim@3.0.3/index.js",
       "fs-vacuum": "https://ga.jspm.dev/npm:fs-vacuum@1.2.10/vacuum.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "iferr": "https://ga.jspm.dev/npm:iferr@0.1.5/index.js",
       "infer-owner": "https://ga.jspm.dev/npm:infer-owner@1.0.4/index.js",
       "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
@@ -56,7 +56,7 @@
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
     "https://ga.jspm.dev/npm:read-cmd-shim@1.0.5/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js"
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js"
     },
     "https://ga.jspm.dev/npm:rimraf@2.7.1/": {
       "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js"

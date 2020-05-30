@@ -1,14 +1,14 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
     "logkitty": "https://ga.jspm.dev/npm:logkitty@0.7.1/build/api.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-fragments@0.2.1/": {
-      "colorette": "https://ga.jspm.dev/npm:colorette@1.1.0/index.js",
+      "colorette": "https://ga.jspm.dev/npm:colorette@1.2.0/index.js",
       "slice-ansi": "https://ga.jspm.dev/npm:slice-ansi@2.1.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
     },
@@ -20,7 +20,7 @@
     },
     "https://ga.jspm.dev/npm:logkitty@0.7.1/": {
       "ansi-fragments": "https://ga.jspm.dev/npm:ansi-fragments@0.2.1/build/index.js",
-      "dayjs": "https://ga.jspm.dev/npm:dayjs@1.8.23/dayjs.min.js"
+      "dayjs": "https://ga.jspm.dev/npm:dayjs@1.8.28/dayjs.min.js"
     },
     "https://ga.jspm.dev/npm:slice-ansi@2.1.0/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",

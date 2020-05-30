@@ -1,19 +1,26 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
     "utility": "https://ga.jspm.dev/npm:utility@1.16.3/lib/utility.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:any-promise@1.3.0/": {
+      "any-promise/register.js": "https://ga.jspm.dev/npm:any-promise@1.3.0/register-shim.js"
+    },
     "https://ga.jspm.dev/npm:extend-shallow@2.0.1/": {
       "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:mz@2.7.0/": {
       "any-promise": "https://ga.jspm.dev/npm:any-promise@1.3.0/index.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "thenify-all": "https://ga.jspm.dev/npm:thenify-all@1.6.0/index.js"
     },
     "https://ga.jspm.dev/npm:thenify-all@1.6.0/": {
@@ -29,7 +36,6 @@
       "copy-to": "https://ga.jspm.dev/npm:copy-to@2.0.1/index.js",
       "escape-html": "https://ga.jspm.dev/npm:escape-html@1.0.3/index.js",
       "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
-      "mz/": "https://ga.jspm.dev/npm:mz@2.7.0/",
       "mz/fs": "https://ga.jspm.dev/npm:mz@2.7.0/fs.js",
       "unescape": "https://ga.jspm.dev/npm:unescape@1.0.1/index.js"
     }

@@ -1,16 +1,17 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "rebenchmark": "https://ga.jspm.dev/npm:rebenchmark@1.0.2/index.js"
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "rebenchmark": "https://ga.jspm.dev/npm:rebenchmark@1.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rebenchmark@1.0.2/": {
+    "https://ga.jspm.dev/npm:rebenchmark@1.2.0/": {
       "benchmark": "https://ga.jspm.dev/npm:benchmark@2.1.4/benchmark.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
-      "lodash/forOwn": "https://ga.jspm.dev/npm:lodash@4.17.15/forOwn.js",
-      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
-      "lodash/pick": "https://ga.jspm.dev/npm:lodash@4.17.15/pick.js",
-      "platform": "https://ga.jspm.dev/npm:platform@1.3.5/platform.js"
+      "lodash/forOwn.js": "https://ga.jspm.dev/npm:lodash@4.17.15/forOwn.js",
+      "lodash/isRegExp.js": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/pick.js": "https://ga.jspm.dev/npm:lodash@4.17.15/pick.js",
+      "platform": "https://ga.jspm.dev/npm:platform@1.3.5/platform.js",
+      "styled-cli-table/module/precomposed/RenderedStyledTable.js": "https://ga.jspm.dev/npm:styled-cli-table@1.2.0/module/precomposed/RenderedStyledTable.js",
+      "styled-cli-table/module/styles/border.js": "https://ga.jspm.dev/npm:styled-cli-table@1.2.0/module/styles/border.js"
     }
   }
 }

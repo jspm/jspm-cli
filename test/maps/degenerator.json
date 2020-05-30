@@ -2,8 +2,8 @@
   "imports": {
     "degenerator": "https://ga.jspm.dev/npm:degenerator@2.2.0/dist/src/index.js",
     "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/vm.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:degenerator@2.2.0/": {

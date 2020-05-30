@@ -1,0 +1,26 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "ftp": "https://ga.jspm.dev/npm:ftp@0.3.10/lib/connection.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:ftp@0.3.10/": {
+      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@1.1.14/readable.js",
+      "xregexp": "https://ga.jspm.dev/npm:xregexp@2.0.0/xregexp-all.js"
+    },
+    "https://ga.jspm.dev/npm:readable-stream@1.1.14/": {
+      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js",
+      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@0.10.31/index.js"
+    }
+  }
+}

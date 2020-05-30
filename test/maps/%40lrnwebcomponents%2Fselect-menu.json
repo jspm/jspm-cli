@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@lrnwebcomponents/select-menu": "https://ga.jspm.dev/npm:@lrnwebcomponents/select-menu@2.6.4/select-menu.js"
+    "@lrnwebcomponents/select-menu": "https://ga.jspm.dev/npm:@lrnwebcomponents/select-menu@2.6.14/select-menu.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/select-menu@2.6.4/": {
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/select-menu@2.6.14/": {
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

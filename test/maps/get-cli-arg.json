@@ -1,11 +1,11 @@
 {
   "imports": {
-    "get-cli-arg": "https://ga.jspm.dev/npm:get-cli-arg@3.0.0/edition-esnext/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "get-cli-arg": "https://ga.jspm.dev/npm:get-cli-arg@5.3.0/edition-esnext/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:get-cli-arg@3.0.0/": {
-      "normalify": "https://ga.jspm.dev/npm:normalify@2.5.0/edition-browsers/index.js"
+    "https://ga.jspm.dev/npm:get-cli-arg@5.3.0/": {
+      "normalify": "https://ga.jspm.dev/npm:normalify@2.10.0/edition-browsers/index.js"
     }
   }
 }

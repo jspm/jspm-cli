@@ -5,7 +5,6 @@
   "scopes": {
     "https://ga.jspm.dev/npm:each-props@1.3.2/": {
       "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js",
-      "object.defaults/": "https://ga.jspm.dev/npm:object.defaults@1.1.0/",
       "object.defaults/immutable": "https://ga.jspm.dev/npm:object.defaults@1.1.0/immutable.js"
     },
     "https://ga.jspm.dev/npm:for-own@1.0.0/": {

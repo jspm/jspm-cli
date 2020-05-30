@@ -1,15 +1,15 @@
 {
   "imports": {
-    "stringify-entities": "https://ga.jspm.dev/npm:stringify-entities@3.0.0/index.js"
+    "stringify-entities": "https://ga.jspm.dev/npm:stringify-entities@3.0.1/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/": {
       "is-alphabetical": "https://ga.jspm.dev/npm:is-alphabetical@1.0.4/index.js",
       "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js"
     },
-    "https://ga.jspm.dev/npm:stringify-entities@3.0.0/": {
-      "character-entities-html4": "https://ga.jspm.dev/npm:character-entities-html4@1.1.4/index.json",
-      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json",
+    "https://ga.jspm.dev/npm:stringify-entities@3.0.1/": {
+      "character-entities-html4": "https://ga.jspm.dev/npm:character-entities-html4@1.1.4/index.json.js",
+      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json.js",
       "is-alphanumerical": "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/index.js",
       "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
       "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js"

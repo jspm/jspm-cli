@@ -1,7 +1,7 @@
 {
   "imports": {
-    "bootstrap": "https://ga.jspm.dev/npm:bootstrap@4.4.1/dist/js/bootstrap.js",
-    "jquery": "https://ga.jspm.dev/npm:jquery@3.4.1/dist/jquery.js",
+    "bootstrap": "https://ga.jspm.dev/npm:bootstrap@4.5.0/dist/js/bootstrap.js",
+    "jquery": "https://ga.jspm.dev/npm:jquery@3.5.1/dist/jquery.js",
     "popper.js": "https://ga.jspm.dev/npm:popper.js@1.16.1/dist/umd/popper.js"
   }
 }

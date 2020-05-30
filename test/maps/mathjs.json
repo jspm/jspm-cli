@@ -1,9 +1,9 @@
 {
   "imports": {
-    "mathjs": "https://ga.jspm.dev/npm:mathjs@6.6.2/main/es5/index.js"
+    "mathjs": "https://ga.jspm.dev/npm:mathjs@7.0.0/main/es5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:mathjs@6.6.2/": {
+    "https://ga.jspm.dev/npm:mathjs@7.0.0/": {
       "complex.js": "https://ga.jspm.dev/npm:complex.js@2.0.11/complex.js",
       "decimal.js": "https://ga.jspm.dev/npm:decimal.js@10.2.0/decimal.js",
       "escape-latex": "https://ga.jspm.dev/npm:escape-latex@1.2.0/dist/index.js",

@@ -1,15 +1,15 @@
 {
   "imports": {
     "@reactioncommerce/plugin-payments-example": "https://ga.jspm.dev/npm:@reactioncommerce/plugin-payments-example@1.0.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js"
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.0/": {
+    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/": {
       "callsite": "https://ga.jspm.dev/npm:callsite@1.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:@reactioncommerce/plugin-payments-example@1.0.0/": {
-      "@reactioncommerce/api-utils/": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.10.0/lib/",
+      "@reactioncommerce/api-utils/importAsString.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/importAsString.js",
       "@reactioncommerce/random": "https://ga.jspm.dev/npm:@reactioncommerce/random@1.0.2/dist/browser.js"
     }
   }

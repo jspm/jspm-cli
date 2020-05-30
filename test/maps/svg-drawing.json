@@ -1,5 +1,5 @@
 {
   "imports": {
-    "svg-drawing": "https://ga.jspm.dev/npm:svg-drawing@1.8.2/lib/index.min.js"
+    "svg-drawing": "https://ga.jspm.dev/npm:svg-drawing@2.1.1/lib/index.min.js"
   }
 }

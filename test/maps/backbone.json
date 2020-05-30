@@ -4,6 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:backbone@1.4.0/": {
+      "jquery": "https://ga.jspm.dev/npm:jquery@3.5.1/dist/jquery.js",
       "underscore": "https://ga.jspm.dev/npm:underscore@1.10.2/underscore.js"
     }
   }

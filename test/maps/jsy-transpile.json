@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jsy-transpile": "https://ga.jspm.dev/npm:jsy-transpile@0.8.3/esm/index.mjs"
+    "jsy-transpile": "https://ga.jspm.dev/npm:jsy-transpile@0.9.2/esm/index.mjs"
   }
 }

@@ -1,12 +1,23 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "websocket-stream": "https://ga.jspm.dev/npm:websocket-stream@5.5.2/stream.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "websocket-stream": "https://ga.jspm.dev/npm:websocket-stream@5.5.2/stream.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:bufferutil@4.0.1/": {
+      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
+    },
     "https://ga.jspm.dev/npm:duplexify@3.7.1/": {
       "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
@@ -24,6 +35,7 @@
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
       "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
       "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@2.3.7/lib/internal/streams/stream-browser.js",
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
       "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
@@ -31,10 +43,21 @@
     "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
     },
+    "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/": {
+      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
+    },
     "https://ga.jspm.dev/npm:websocket-stream@5.5.2/": {
       "duplexify": "https://ga.jspm.dev/npm:duplexify@3.7.1/index.js",
       "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.0/index.js"
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
+      "ws": "https://ga.jspm.dev/npm:ws@3.3.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:ws@3.3.3/": {
+      "async-limiter": "https://ga.jspm.dev/npm:async-limiter@1.0.1/index.js",
+      "bufferutil": "https://ga.jspm.dev/npm:bufferutil@4.0.1/index.js",
+      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
+      "ultron": "https://ga.jspm.dev/npm:ultron@1.1.1/index.js",
+      "utf-8-validate": "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/index.js"
     }
   }
 }

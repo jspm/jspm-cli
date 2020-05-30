@@ -1,20 +1,20 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
     "text-adventure-robot-apocalypse": "https://ga.jspm.dev/npm:text-adventure-robot-apocalypse@1.1.4/bin/robotApocalypse.js",
-    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js"
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tty.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@inquirer/core@0.0.7-alpha.0/": {
       "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@4.3.1/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "cli-spinners": "https://ga.jspm.dev/npm:cli-spinners@2.3.0/index.js",
-      "cli-width": "https://ga.jspm.dev/npm:cli-width@2.2.0/index.js",
+      "cli-width": "https://ga.jspm.dev/npm:cli-width@2.2.1/index.js",
       "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
       "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.8/mute.js",
-      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.0/index.js",
+      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.1/index.js",
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js"
     },
@@ -24,7 +24,6 @@
     },
     "https://ga.jspm.dev/npm:@inquirer/select@0.0.7-alpha.0/": {
       "@inquirer/core": "https://ga.jspm.dev/npm:@inquirer/core@0.0.7-alpha.0/index.js",
-      "@inquirer/core/": "https://ga.jspm.dev/npm:@inquirer/core@0.0.7-alpha.0/",
       "@inquirer/core/lib/Paginator": "https://ga.jspm.dev/npm:@inquirer/core@0.0.7-alpha.0/lib/Paginator.js",
       "@inquirer/core/lib/key": "https://ga.jspm.dev/npm:@inquirer/core@0.0.7-alpha.0/lib/key.js",
       "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@4.3.1/index.js",
@@ -54,9 +53,6 @@
     },
     "https://ga.jspm.dev/npm:figures@3.2.0/": {
       "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
-    },
-    "https://ga.jspm.dev/npm:run-async@2.4.0/": {
-      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:string-width@4.2.0/": {
       "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@8.0.0/index.js",

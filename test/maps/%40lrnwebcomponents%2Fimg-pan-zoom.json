@@ -1,14 +1,15 @@
 {
   "imports": {
-    "@lrnwebcomponents/img-pan-zoom": "https://ga.jspm.dev/npm:@lrnwebcomponents/img-pan-zoom@2.6.4/img-pan-zoom.js"
+    "@lrnwebcomponents/img-pan-zoom": "https://ga.jspm.dev/npm:@lrnwebcomponents/img-pan-zoom@2.6.14/img-pan-zoom.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/img-pan-zoom@2.6.4/": {
-      "@lrnwebcomponents/es-global-bridge/": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.4.0/",
-      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/img-pan-zoom@2.6.14/": {
+      "@lrnwebcomponents/es-global-bridge/es-global-bridge.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.6.12/es-global-bridge.js",
+      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
     },
     "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

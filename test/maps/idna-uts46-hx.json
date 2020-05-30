@@ -1,9 +1,9 @@
 {
   "imports": {
-    "idna-uts46-hx": "https://ga.jspm.dev/npm:idna-uts46-hx@3.2.2/uts46.js"
+    "idna-uts46-hx": "https://ga.jspm.dev/npm:idna-uts46-hx@3.3.0/uts46.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:idna-uts46-hx@3.2.2/": {
+    "https://ga.jspm.dev/npm:idna-uts46-hx@3.3.0/": {
       "punycode": "https://ga.jspm.dev/npm:punycode@2.1.1/punycode.js"
     }
   }

@@ -3,11 +3,11 @@
     "svn-repository-provider": "https://ga.jspm.dev/npm:svn-repository-provider@1.0.64/src/svn-repository-provider.mjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:repository-provider@16.15.0/": {
-      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.5/src/loglevel-mixin.mjs"
+    "https://ga.jspm.dev/npm:repository-provider@16.17.6/": {
+      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.6/src/loglevel-mixin.mjs"
     },
     "https://ga.jspm.dev/npm:svn-repository-provider@1.0.64/": {
-      "repository-provider": "https://ga.jspm.dev/npm:repository-provider@16.15.0/src/provider.mjs"
+      "repository-provider": "https://ga.jspm.dev/npm:repository-provider@16.17.6/src/provider.mjs"
     }
   }
 }

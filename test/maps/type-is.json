@@ -1,15 +1,15 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
     "type-is": "https://ga.jspm.dev/npm:type-is@1.6.18/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:mime-types@2.1.26/": {
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.43.0/index.js"
+    "https://ga.jspm.dev/npm:mime-types@2.1.27/": {
+      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
     },
     "https://ga.jspm.dev/npm:type-is@1.6.18/": {
       "media-typer": "https://ga.jspm.dev/npm:media-typer@0.3.0/index.js",
-      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.26/index.js"
+      "mime-types": "https://ga.jspm.dev/npm:mime-types@2.1.27/index.js"
     }
   }
 }

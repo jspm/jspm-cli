@@ -1,5 +1,5 @@
 {
   "imports": {
-    "geojson-web-map-coordinates": "https://ga.jspm.dev/npm:geojson-web-map-coordinates@1.0.8/dist/index.js"
+    "geojson-web-map-coordinates": "https://ga.jspm.dev/npm:geojson-web-map-coordinates@1.0.9/dist/index.js"
   }
 }

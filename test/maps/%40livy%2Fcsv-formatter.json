@@ -1,12 +1,11 @@
 {
   "imports": {
     "@livy/csv-formatter": "https://ga.jspm.dev/npm:@livy/csv-formatter@1.0.2/lib/csv-formatter.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@livy/csv-formatter@1.0.2/": {
-      "@livy/util/": "https://ga.jspm.dev/npm:@livy/util@1.0.4/",
       "@livy/util/lib/formatters/abstract-batch-formatter": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/formatters/abstract-batch-formatter.js",
       "@livy/util/lib/helpers": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/helpers.js"
     }

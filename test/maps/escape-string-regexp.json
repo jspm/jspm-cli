@@ -1,5 +1,5 @@
 {
   "imports": {
-    "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@3.0.0/index.js"
+    "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@4.0.0/index.js"
   }
 }

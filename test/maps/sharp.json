@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "sharp": "https://ga.jspm.dev/npm:sharp@0.25.3/lib/index.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-string@1.5.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js",
+      "simple-swizzle": "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:color@3.1.2/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.dev/npm:color-string@1.5.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:sharp@0.25.3/": {
+      "color": "https://ga.jspm.dev/npm:color@3.1.2/index.js",
+      "detect-libc": "https://ga.jspm.dev/npm:detect-libc@1.0.3/lib/detect-libc.js",
+      "semver": "https://ga.jspm.dev/npm:semver@7.3.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/": {
+      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.3.2/index.js"
+    }
+  }
+}

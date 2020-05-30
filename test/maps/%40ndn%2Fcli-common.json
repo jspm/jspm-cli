@@ -1,16 +1,18 @@
 {
   "imports": {
     "@ndn/cli-common": "https://ga.jspm.dev/npm:@ndn/cli-common@0.0.20191223-beta.1/lib/mod.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dgram.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@ndn/autoconfig@0.0.20191223-beta.1/": {
+      "@ndn/autoconfig/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/autoconfig@0.0.20191223-beta.1/lib/platform/browser.js",
       "@ndn/endpoint": "https://ga.jspm.dev/npm:@ndn/endpoint@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/fw": "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
@@ -45,13 +47,15 @@
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
       "hirestime": "https://ga.jspm.dev/npm:hirestime@4.0.0/index.js",
       "it-pushable": "https://ga.jspm.dev/npm:it-pushable@1.4.0/index.js",
-      "loglevel": "https://ga.jspm.dev/npm:loglevel@1.6.7/lib/loglevel.js",
+      "loglevel": "https://ga.jspm.dev/npm:loglevel@1.6.8/lib/loglevel.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
       "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js",
       "p-fifo": "https://ga.jspm.dev/npm:p-fifo@1.0.0/index.js",
       "streaming-iterables": "https://ga.jspm.dev/npm:streaming-iterables@4.1.2/dist/index.js"
     },
     "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/": {
+      "@ndn/keychain/lib/key/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/key/platform/browser.js",
+      "@ndn/keychain/lib/store/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/store/platform/browser.js",
       "@ndn/naming-convention2": "https://ga.jspm.dev/npm:@ndn/naming-convention2@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
@@ -88,21 +92,23 @@
       "p-timeout": "https://ga.jspm.dev/npm:p-timeout@3.2.0/index.js"
     },
     "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
       "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
     },
     "https://ga.jspm.dev/npm:@ndn/ws-transport@0.0.20191223-beta.1/": {
       "@ndn/l3face": "https://ga.jspm.dev/npm:@ndn/l3face@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/ws-transport/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/ws-transport@0.0.20191223-beta.1/lib/platform/browser.js",
       "event-iterator": "https://ga.jspm.dev/npm:event-iterator@1.2.0/lib/dom.js",
       "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js",
       "p-timeout": "https://ga.jspm.dev/npm:p-timeout@3.2.0/index.js"
     },
     "https://ga.jspm.dev/npm:@strattadb/environment@7.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "validator": "https://ga.jspm.dev/npm:validator@10.11.0/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+    "https://ga.jspm.dev/npm:debug@4.2.0/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:it-pushable@1.4.0/": {

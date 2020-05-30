@@ -1,6 +1,6 @@
 {
   "imports": {
     "optjs": "https://ga.jspm.dev/npm:optjs@3.2.2/opt.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

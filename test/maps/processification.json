@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "processification": "https://ga.jspm.dev/npm:processification@1.1.1/processification.js"
-  }
-}

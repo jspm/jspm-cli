@@ -4,12 +4,10 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-plugin-transform-strict-mode@6.24.1/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
       "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
       "babel-types": "https://ga.jspm.dev/npm:babel-types@6.26.0/lib/index.js"
     },
     "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js",
       "core-js/library/fn/json/stringify": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/json/stringify.js",
       "core-js/library/fn/number/max-safe-integer": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/number/max-safe-integer.js",
@@ -21,7 +19,6 @@
       "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
     },
     "https://ga.jspm.dev/npm:babel-types@6.26.0/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
       "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js",
       "babel-runtime/core-js/json/stringify": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/json/stringify.js",
       "babel-runtime/core-js/number/max-safe-integer": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/number/max-safe-integer.js",
@@ -31,7 +28,6 @@
       "babel-runtime/core-js/symbol/for": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol/for.js",
       "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
       "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
       "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",

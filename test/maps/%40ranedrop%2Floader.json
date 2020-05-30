@@ -1,17 +1,17 @@
 {
   "imports": {
     "@ranedrop/loader": "https://ga.jspm.dev/npm:@ranedrop/loader@1.9.3/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@ranedrop/cache@0.1.0/": {
-      "@ranedrop/errors": "https://ga.jspm.dev/npm:@ranedrop/errors@1.4.2/index.js",
+      "@ranedrop/errors": "https://ga.jspm.dev/npm:@ranedrop/errors@1.6.1/index.js",
       "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.1/index.js"
     },
     "https://ga.jspm.dev/npm:@ranedrop/loader@1.9.3/": {
       "@ranedrop/cache": "https://ga.jspm.dev/npm:@ranedrop/cache@0.1.0/index.js",
-      "@ranedrop/errors": "https://ga.jspm.dev/npm:@ranedrop/errors@1.4.2/index.js",
+      "@ranedrop/errors": "https://ga.jspm.dev/npm:@ranedrop/errors@1.6.1/index.js",
       "@ranedrop/utility": "https://ga.jspm.dev/npm:@ranedrop/utility@2.2.2/index.js",
       "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.1/index.js",
       "path": "https://ga.jspm.dev/npm:path@0.12.7/path.js",
@@ -19,7 +19,6 @@
     },
     "https://ga.jspm.dev/npm:@ranedrop/utility@2.2.2/": {
       "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.1/index.js",
-      "uuid/": "https://ga.jspm.dev/npm:uuid@3.4.0/",
       "uuid/v4": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
     },
     "https://ga.jspm.dev/npm:path@0.12.7/": {
@@ -30,7 +29,11 @@
       "sugar-core": "https://ga.jspm.dev/npm:sugar-core@2.0.6/sugar-core.js"
     },
     "https://ga.jspm.dev/npm:util@0.10.4/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js"
+      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js",
+      "util/support/isBuffer.js": "https://ga.jspm.dev/npm:util@0.10.4/support/isBufferBrowser.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
     }
   }
 }

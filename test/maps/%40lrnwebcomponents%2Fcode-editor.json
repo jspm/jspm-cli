@@ -1,17 +1,18 @@
 {
   "imports": {
-    "@lrnwebcomponents/code-editor": "https://ga.jspm.dev/npm:@lrnwebcomponents/code-editor@2.6.4/code-editor.js"
+    "@lrnwebcomponents/code-editor": "https://ga.jspm.dev/npm:@lrnwebcomponents/code-editor@2.6.14/code-editor.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/code-editor@2.6.4/": {
-      "@lrnwebcomponents/schema-behaviors/": "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.4/",
-      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/code-editor@2.6.14/": {
+      "@lrnwebcomponents/schema-behaviors/schema-behaviors.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.14/schema-behaviors.js",
+      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.4/": {
-      "@lrnwebcomponents/utils/": "https://ga.jspm.dev/npm:@lrnwebcomponents/utils@2.5.0/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.14/": {
+      "@lrnwebcomponents/utils/utils.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/utils@2.6.12/utils.js"
     },
     "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

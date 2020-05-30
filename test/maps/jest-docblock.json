@@ -1,10 +1,10 @@
 {
   "imports": {
-    "jest-docblock": "https://ga.jspm.dev/npm:jest-docblock@25.2.6/build/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js"
+    "jest-docblock": "https://ga.jspm.dev/npm:jest-docblock@26.0.0/build/index.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:jest-docblock@25.2.6/": {
+    "https://ga.jspm.dev/npm:jest-docblock@26.0.0/": {
       "detect-newline": "https://ga.jspm.dev/npm:detect-newline@3.1.0/index.js"
     }
   }

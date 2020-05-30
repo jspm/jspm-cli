@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "javascript-algebra": "https://ga.jspm.dev/npm:javascript-algebra@1.6.7/index.js"
+  }
+}

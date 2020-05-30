@@ -1,0 +1,107 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "husky/dev.husky.js!cjs": "https://ga.jspm.dev/npm:husky@4.2.5/dev.husky.js",
+    "husky/husky": "https://ga.jspm.dev/npm:husky@4.2.5/husky.js",
+    "husky/husky.js!cjs": "https://ga.jspm.dev/npm:husky@4.2.5/husky.js",
+    "husky/lib/installer": "https://ga.jspm.dev/npm:husky@4.2.5/lib/installer/index.js",
+    "husky/lib/installer/bin": "https://ga.jspm.dev/npm:husky@4.2.5/lib/installer/bin.js",
+    "husky/lib/installer/bin.js!cjs": "https://ga.jspm.dev/npm:husky@4.2.5/lib/installer/bin.js",
+    "husky/lib/installer/index.js!cjs": "https://ga.jspm.dev/npm:husky@4.2.5/lib/installer/index.js",
+    "husky/package.json": "https://ga.jspm.dev/npm:husky@4.2.5/package.json.js",
+    "husky/package.json.js!cjs": "https://ga.jspm.dev/npm:husky@4.2.5/package.json.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
+      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
+      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
+      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:cosmiconfig@6.0.0/": {
+      "import-fresh": "https://ga.jspm.dev/npm:import-fresh@3.2.1/index.js",
+      "parse-json": "https://ga.jspm.dev/npm:parse-json@5.0.0/index.js",
+      "path-type": "https://ga.jspm.dev/npm:path-type@4.0.0/index.js",
+      "yaml": "https://ga.jspm.dev/npm:yaml@1.10.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:error-ex@1.3.2/": {
+      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:find-up@4.1.0/": {
+      "locate-path": "https://ga.jspm.dev/npm:locate-path@5.0.0/index.js",
+      "path-exists": "https://ga.jspm.dev/npm:path-exists@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:find-versions@3.2.0/": {
+      "semver-regex": "https://ga.jspm.dev/npm:semver-regex@2.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:husky@4.2.5/": {
+      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
+      "ci-info": "https://ga.jspm.dev/npm:ci-info@2.0.0/index.js",
+      "compare-versions": "https://ga.jspm.dev/npm:compare-versions@3.6.0/index.js",
+      "cosmiconfig": "https://ga.jspm.dev/npm:cosmiconfig@6.0.0/dist/index.js",
+      "find-versions": "https://ga.jspm.dev/npm:find-versions@3.2.0/index.js",
+      "pkg-dir": "https://ga.jspm.dev/npm:pkg-dir@4.2.0/index.js",
+      "please-upgrade-node": "https://ga.jspm.dev/npm:please-upgrade-node@3.2.0/index.js",
+      "slash": "https://ga.jspm.dev/npm:slash@3.0.0/index.js",
+      "which-pm-runs": "https://ga.jspm.dev/npm:which-pm-runs@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:import-fresh@3.2.1/": {
+      "parent-module": "https://ga.jspm.dev/npm:parent-module@1.0.1/index.js",
+      "resolve-from": "https://ga.jspm.dev/npm:resolve-from@4.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:locate-path@5.0.0/": {
+      "p-locate": "https://ga.jspm.dev/npm:p-locate@4.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:p-locate@4.1.0/": {
+      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:parent-module@1.0.1/": {
+      "callsites": "https://ga.jspm.dev/npm:callsites@3.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:parse-json@5.0.0/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
+      "error-ex": "https://ga.jspm.dev/npm:error-ex@1.3.2/index.js",
+      "json-parse-better-errors": "https://ga.jspm.dev/npm:json-parse-better-errors@1.0.2/index.js",
+      "lines-and-columns": "https://ga.jspm.dev/npm:lines-and-columns@1.1.6/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:pkg-dir@4.2.0/": {
+      "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:please-upgrade-node@3.2.0/": {
+      "semver-compare": "https://ga.jspm.dev/npm:semver-compare@1.0.0/index.js"
+    }
+  }
+}

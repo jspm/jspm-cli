@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:acorn-node@1.8.2/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js",
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js",
       "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
     },
     "https://ga.jspm.dev/npm:syntax-error@1.4.0/": {

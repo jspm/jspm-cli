@@ -1,5 +1,11 @@
 {
   "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "promise-inflight": "https://ga.jspm.dev/npm:promise-inflight@1.0.1/inflight.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:promise-inflight@1.0.1/": {
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js"
+    }
   }
 }

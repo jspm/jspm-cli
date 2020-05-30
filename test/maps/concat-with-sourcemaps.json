@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "concat-with-sourcemaps": "https://ga.jspm.dev/npm:concat-with-sourcemaps@1.1.0/index.js"
   },
   "scopes": {

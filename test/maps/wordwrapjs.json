@@ -1,6 +1,6 @@
 {
   "imports": {
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
     "wordwrapjs": "https://ga.jspm.dev/npm:wordwrapjs@4.0.0/index.js"
   },
   "scopes": {

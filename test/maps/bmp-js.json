@@ -1,6 +1,6 @@
 {
   "imports": {
     "bmp-js": "https://ga.jspm.dev/npm:bmp-js@0.1.0/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   }
 }

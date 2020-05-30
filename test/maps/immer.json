@@ -1,5 +1,5 @@
 {
   "imports": {
-    "immer": "https://ga.jspm.dev/npm:immer@6.0.3/dist/index.js"
+    "immer": "https://ga.jspm.dev/npm:immer@6.0.9/dist/index.js"
   }
 }

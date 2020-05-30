@@ -2,7 +2,6 @@
   "imports": {
     "epix": "https://ga.jspm.dev/npm:epix@0.0.1/dist/index.js",
     "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-    "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
     "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
   }
 }

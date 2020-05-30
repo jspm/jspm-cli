@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@configura/web-api": "https://ga.jspm.dev/npm:@configura/web-api@0.0.16/dist/index.js"
+    "@configura/web-api": "https://ga.jspm.dev/npm:@configura/web-api@0.0.19/dist/index.js"
   }
 }

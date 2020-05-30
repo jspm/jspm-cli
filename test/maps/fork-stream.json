@@ -1,6 +1,6 @@
 {
   "imports": {
     "fork-stream": "https://ga.jspm.dev/npm:fork-stream@0.0.4/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

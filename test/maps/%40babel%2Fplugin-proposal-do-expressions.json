@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@babel/plugin-proposal-do-expressions": "https://ga.jspm.dev/npm:@babel/plugin-proposal-do-expressions@7.8.3/lib/index.js"
+    "@babel/plugin-proposal-do-expressions": "https://ga.jspm.dev/npm:@babel/plugin-proposal-do-expressions@7.10.1/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/plugin-proposal-do-expressions@7.8.3/": {
-      "@babel/helper-plugin-utils": "https://ga.jspm.dev/npm:@babel/helper-plugin-utils@7.8.3/lib/index.js",
-      "@babel/plugin-syntax-do-expressions": "https://ga.jspm.dev/npm:@babel/plugin-syntax-do-expressions@7.8.3/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/plugin-proposal-do-expressions@7.10.1/": {
+      "@babel/helper-plugin-utils": "https://ga.jspm.dev/npm:@babel/helper-plugin-utils@7.10.1/lib/index.js",
+      "@babel/plugin-syntax-do-expressions": "https://ga.jspm.dev/npm:@babel/plugin-syntax-do-expressions@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/plugin-syntax-do-expressions@7.8.3/": {
-      "@babel/helper-plugin-utils": "https://ga.jspm.dev/npm:@babel/helper-plugin-utils@7.8.3/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/plugin-syntax-do-expressions@7.10.1/": {
+      "@babel/helper-plugin-utils": "https://ga.jspm.dev/npm:@babel/helper-plugin-utils@7.10.1/lib/index.js"
     }
   }
 }

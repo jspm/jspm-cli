@@ -1,9 +1,9 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
     "listr": "https://ga.jspm.dev/npm:listr@0.14.3/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@samverschueren/stream-to-observable@0.3.0/": {
@@ -11,6 +11,9 @@
     },
     "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
       "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    },
+    "https://ga.jspm.dev/npm:any-observable@0.3.0/": {
+      "any-observable/register.js": "https://ga.jspm.dev/npm:any-observable@0.3.0/register-shim.js"
     },
     "https://ga.jspm.dev/npm:chalk@1.1.3/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@2.2.1/index.js",
@@ -63,14 +66,13 @@
     "https://ga.jspm.dev/npm:listr-verbose-renderer@0.5.0/": {
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@2.1.0/index.js",
-      "date-fns/": "https://ga.jspm.dev/npm:date-fns@1.30.1/",
       "date-fns/format": "https://ga.jspm.dev/npm:date-fns@1.30.1/format/index.js",
       "figures": "https://ga.jspm.dev/npm:figures@2.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:listr@0.14.3/": {
       "@samverschueren/stream-to-observable": "https://ga.jspm.dev/npm:@samverschueren/stream-to-observable@0.3.0/index.js",
       "is-observable": "https://ga.jspm.dev/npm:is-observable@1.1.0/index.js",
-      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js",
+      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.2.2/index.js",
       "is-stream": "https://ga.jspm.dev/npm:is-stream@1.1.0/index.js",
       "listr-silent-renderer": "https://ga.jspm.dev/npm:listr-silent-renderer@1.1.1/index.js",
       "listr-update-renderer": "https://ga.jspm.dev/npm:listr-update-renderer@0.5.0/index.js",

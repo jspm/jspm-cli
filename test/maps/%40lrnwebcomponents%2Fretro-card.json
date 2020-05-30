@@ -1,22 +1,22 @@
 {
   "imports": {
-    "@lrnwebcomponents/retro-card": "https://ga.jspm.dev/npm:@lrnwebcomponents/retro-card@2.6.4/retro-card.js"
+    "@lrnwebcomponents/retro-card": "https://ga.jspm.dev/npm:@lrnwebcomponents/retro-card@2.6.14/retro-card.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/retro-card@2.6.4/": {
-      "@lrnwebcomponents/simple-colors/": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors@2.6.4/",
-      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/retro-card@2.6.14/": {
+      "@lrnwebcomponents/simple-colors/simple-colors.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors@2.6.14/simple-colors.js",
+      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.3/": {
-      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.14/": {
+      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors@2.6.4/": {
-      "@lrnwebcomponents/simple-colors-shared-styles/": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.3/",
-      "lit-element/": "https://ga.jspm.dev/npm:lit-element@2.2.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors@2.6.14/": {
+      "@lrnwebcomponents/simple-colors-shared-styles/simple-colors-shared-styles.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.14/simple-colors-shared-styles.js",
+      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:lit-element@2.2.1/": {
-      "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js",
-      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

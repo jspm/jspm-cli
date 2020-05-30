@@ -4,7 +4,7 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:error-stack-parser@2.0.6/": {
-      "stackframe": "https://ga.jspm.dev/npm:stackframe@1.1.1/stackframe.js"
+      "stackframe": "https://ga.jspm.dev/npm:stackframe@1.2.0/stackframe.js"
     }
   }
 }

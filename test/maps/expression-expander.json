@@ -1,5 +1,5 @@
 {
   "imports": {
-    "expression-expander": "https://ga.jspm.dev/npm:expression-expander@7.0.4/src/expander.mjs"
+    "expression-expander": "https://ga.jspm.dev/npm:expression-expander@7.0.5/src/expander.mjs"
   }
 }

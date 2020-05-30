@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js"
+    "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.10.1/lib/index.js"
   }
 }

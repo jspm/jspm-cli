@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@cedx/webstorage": "https://ga.jspm.dev/npm:@cedx/webstorage@1.4.0/lib/index.js"
+    "@cedx/webstorage": "https://ga.jspm.dev/npm:@cedx/webstorage@1.6.0/lib/index.js"
   }
 }

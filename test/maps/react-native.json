@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "react-native": "https://ga.jspm.dev/npm:react-native@0.62.1/index.js"
-  }
-}

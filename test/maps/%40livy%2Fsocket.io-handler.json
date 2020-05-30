@@ -1,18 +1,21 @@
 {
   "imports": {
     "@livy/socket.io-handler": "https://ga.jspm.dev/npm:@livy/socket.io-handler@1.0.2/lib/socket.io-handler.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@livy/socket.io-handler@1.0.2/": {
-      "@livy/util/": "https://ga.jspm.dev/npm:@livy/util@1.0.4/",
       "@livy/util/lib/handlers/abstract-level-bubble-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-level-bubble-handler.js",
       "@livy/util/lib/handlers/processable-handler-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/processable-handler-mixin.js",
       "socket.io-client": "https://ga.jspm.dev/npm:socket.io-client@2.3.0/lib/index.js"
     },
     "https://ga.jspm.dev/npm:@livy/util@1.0.4/": {
-      "@livy/contracts/": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/",
       "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js"
     },
     "https://ga.jspm.dev/npm:debug@3.1.0/": {
@@ -21,15 +24,17 @@
     "https://ga.jspm.dev/npm:debug@4.1.1/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:engine.io-client@3.4.0/": {
-      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.2.1/index.js",
+    "https://ga.jspm.dev/npm:engine.io-client@3.4.2/": {
+      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.3.0/index.js",
       "component-inherit": "https://ga.jspm.dev/npm:component-inherit@0.0.3/index.js",
       "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "engine.io-client/lib/globalThis.js": "https://ga.jspm.dev/npm:engine.io-client@3.4.2/lib/globalThis.browser.js",
       "engine.io-parser": "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/lib/browser.js",
-      "has-cors": "https://ga.jspm.dev/npm:has-cors@1.1.0/index.js",
       "indexof": "https://ga.jspm.dev/npm:indexof@0.0.1/index.js",
       "parseqs": "https://ga.jspm.dev/npm:parseqs@0.0.5/index.js",
       "parseuri": "https://ga.jspm.dev/npm:parseuri@0.0.5/index.js",
+      "ws": "https://ga.jspm.dev/npm:ws@6.1.4/browser.js",
+      "xmlhttprequest-ssl": "https://ga.jspm.dev/npm:xmlhttprequest-ssl@1.5.5/lib/XMLHttpRequest.js",
       "yeast": "https://ga.jspm.dev/npm:yeast@0.1.2/index.js"
     },
     "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/": {
@@ -47,7 +52,7 @@
       "component-bind": "https://ga.jspm.dev/npm:component-bind@1.0.0/index.js",
       "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.2.1/index.js",
       "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
-      "engine.io-client": "https://ga.jspm.dev/npm:engine.io-client@3.4.0/lib/index.js",
+      "engine.io-client": "https://ga.jspm.dev/npm:engine.io-client@3.4.2/lib/index.js",
       "has-binary2": "https://ga.jspm.dev/npm:has-binary2@1.0.3/index.js",
       "indexof": "https://ga.jspm.dev/npm:indexof@0.0.1/index.js",
       "parseqs": "https://ga.jspm.dev/npm:parseqs@0.0.5/index.js",

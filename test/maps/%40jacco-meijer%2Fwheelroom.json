@@ -1,20 +1,22 @@
 {
   "imports": {
     "@jacco-meijer/wheelroom": "https://ga.jspm.dev/npm:@jacco-meijer/wheelroom@3.8.0/dist/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/string_decoder.js",
-    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/tty.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@jacco-meijer/wheelroom@3.8.0/": {
@@ -45,7 +47,7 @@
       "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
     },
     "https://ga.jspm.dev/npm:fs-extra@8.1.0/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "jsonfile": "https://ga.jspm.dev/npm:jsonfile@4.0.0/index.js",
       "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
     },
@@ -56,14 +58,13 @@
       "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@4.3.1/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@3.1.0/index.js",
-      "cli-width": "https://ga.jspm.dev/npm:cli-width@2.2.0/index.js",
+      "cli-width": "https://ga.jspm.dev/npm:cli-width@2.2.1/index.js",
       "external-editor": "https://ga.jspm.dev/npm:external-editor@3.1.0/main/index.js",
       "figures": "https://ga.jspm.dev/npm:figures@3.2.0/index.js",
       "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
       "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.8/mute.js",
-      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.0/index.js",
+      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.1/index.js",
       "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
       "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@5.2.0/index.js",
@@ -75,9 +76,6 @@
     "https://ga.jspm.dev/npm:restore-cursor@3.1.0/": {
       "onetime": "https://ga.jspm.dev/npm:onetime@5.1.0/index.js",
       "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
-    },
-    "https://ga.jspm.dev/npm:run-async@2.4.0/": {
-      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.1.0/index.js"
     },
     "https://ga.jspm.dev/npm:string-width@4.2.0/": {
       "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@8.0.0/index.js",

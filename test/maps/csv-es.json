@@ -1,5 +1,5 @@
 {
   "imports": {
-    "csv-es": "https://ga.jspm.dev/npm:csv-es@2.0.2/index.js"
+    "csv-es": "https://ga.jspm.dev/npm:csv-es@2.0.3/index.js"
   }
 }

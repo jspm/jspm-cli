@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@vexera/cache/dist/src/drivers/mongodb/index.js!cjs": "https://ga.jspm.dev/npm:@vexera/cache@1.0.4/dist/src/drivers/mongodb/index.js",
     "@vexera/cache/mongodb": "https://ga.jspm.dev/npm:@vexera/cache@1.0.4/dist/src/drivers/mongodb/index.js"
   }
 }

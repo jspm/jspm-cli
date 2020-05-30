@@ -4,10 +4,8 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:babel-polyfill@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
       "core-js/fn/regexp/escape": "https://ga.jspm.dev/npm:core-js@2.6.11/fn/regexp/escape.js",
       "core-js/shim": "https://ga.jspm.dev/npm:core-js@2.6.11/shim.js",
-      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.10.5/",
       "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.10.5/runtime.js"
     }
   }

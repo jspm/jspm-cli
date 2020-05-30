@@ -1,5 +1,6 @@
 {
   "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "with-open-file": "https://ga.jspm.dev/npm:with-open-file@0.1.7/index.js"
   },
   "scopes": {

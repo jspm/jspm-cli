@@ -1,11 +1,10 @@
 {
   "imports": {
     "react": "https://ga.jspm.dev/npm:react@15.6.2/react.js",
-    "react-children-utilities": "https://ga.jspm.dev/npm:react-children-utilities@2.0.12/react-children-utilities.js"
+    "react-children-utilities": "https://ga.jspm.dev/npm:react-children-utilities@2.1.1/react-children-utilities.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:create-react-class@15.6.3/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/emptyObject": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyObject.js",
       "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js",
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
@@ -15,15 +14,12 @@
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
     "https://ga.jspm.dev/npm:react@15.6.2/": {
-      "create-react-class/": "https://ga.jspm.dev/npm:create-react-class@15.6.3/",
       "create-react-class/factory": "https://ga.jspm.dev/npm:create-react-class@15.6.3/factory.js",
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/emptyFunction": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyFunction.js",
       "fbjs/lib/emptyObject": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyObject.js",
       "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js",
       "fbjs/lib/warning": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/warning.js",
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "prop-types/": "https://ga.jspm.dev/npm:prop-types@15.7.2/",
       "prop-types/factory": "https://ga.jspm.dev/npm:prop-types@15.7.2/factory.js"
     }
   }

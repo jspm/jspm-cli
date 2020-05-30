@@ -1,10 +1,10 @@
 {
   "imports": {
-    "moment-timezone": "https://ga.jspm.dev/npm:moment-timezone@0.5.28/index.js"
+    "moment-timezone": "https://ga.jspm.dev/npm:moment-timezone@0.5.31/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:moment-timezone@0.5.28/": {
-      "moment": "https://ga.jspm.dev/npm:moment@2.24.0/moment.js"
+    "https://ga.jspm.dev/npm:moment-timezone@0.5.31/": {
+      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
     }
   }
 }

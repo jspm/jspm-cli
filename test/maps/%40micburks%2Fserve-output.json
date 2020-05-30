@@ -1,6 +1,6 @@
 {
   "imports": {
     "@micburks/serve-output": "https://ga.jspm.dev/npm:@micburks/serve-output@1.0.12/index.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js"
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js"
   }
 }

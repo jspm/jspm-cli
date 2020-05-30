@@ -1,18 +1,25 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/https.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
     "metro-inspector-proxy": "https://ga.jspm.dev/npm:metro-inspector-proxy@0.59.0/src/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/zlib.js"
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:bufferutil@4.0.1/": {
+      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
+    },
     "https://ga.jspm.dev/npm:connect@3.7.0/": {
       "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
       "finalhandler": "https://ga.jspm.dev/npm:finalhandler@1.1.2/index.js",
@@ -39,9 +46,14 @@
     "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
       "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
     },
+    "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/": {
+      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@3.7.0/index.js"
+    },
     "https://ga.jspm.dev/npm:ws@1.1.5/": {
+      "bufferutil": "https://ga.jspm.dev/npm:bufferutil@4.0.1/index.js",
       "options": "https://ga.jspm.dev/npm:options@0.0.6/lib/options.js",
-      "ultron": "https://ga.jspm.dev/npm:ultron@1.0.2/index.js"
+      "ultron": "https://ga.jspm.dev/npm:ultron@1.0.2/index.js",
+      "utf-8-validate": "https://ga.jspm.dev/npm:utf-8-validate@5.0.2/index.js"
     }
   }
 }

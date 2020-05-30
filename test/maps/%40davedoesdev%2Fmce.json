@@ -1,15 +1,35 @@
 {
   "imports": {
     "@davedoesdev/mce": "https://ga.jspm.dev/npm:@davedoesdev/mce@0.0.2/mce.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/": {
+      "core-js-pure/features/array/from": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/array/from.js",
+      "core-js-pure/features/array/is-array": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/array/is-array.js",
+      "core-js-pure/features/get-iterator": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/get-iterator.js",
+      "core-js-pure/features/instance/slice": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/instance/slice.js",
+      "core-js-pure/features/is-iterable": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/is-iterable.js",
+      "core-js-pure/features/symbol": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/symbol/index.js",
+      "core-js-pure/stable/instance/concat": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/concat.js",
+      "core-js-pure/stable/instance/flags": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/flags.js",
+      "core-js-pure/stable/instance/for-each": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/for-each.js",
+      "core-js-pure/stable/instance/includes": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/includes.js",
+      "core-js-pure/stable/instance/index-of": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/index-of.js",
+      "core-js-pure/stable/instance/map": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/map.js",
+      "core-js-pure/stable/instance/reduce": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/reduce.js",
+      "core-js-pure/stable/instance/slice": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/slice.js",
+      "core-js-pure/stable/instance/sort": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/sort.js",
+      "core-js-pure/stable/object/create": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/object/create.js",
+      "core-js-pure/stable/object/define-property": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/object/define-property.js",
+      "core-js-pure/stable/parse-int": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/parse-int.js"
+    },
     "https://ga.jspm.dev/npm:@davedoesdev/mce@0.0.2/": {
-      "yargs": "https://ga.jspm.dev/npm:yargs@15.3.1/index.js"
+      "yargs": "https://ga.jspm.dev/npm:yargs@15.4.0-beta.0/index.js"
     },
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
       "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
@@ -21,6 +41,9 @@
     },
     "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
       "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    },
+    "https://ga.jspm.dev/npm:decamelize@3.2.0/": {
+      "xregexp": "https://ga.jspm.dev/npm:xregexp@4.3.0/lib/index.js"
     },
     "https://ga.jspm.dev/npm:find-up@4.1.0/": {
       "locate-path": "https://ga.jspm.dev/npm:locate-path@5.0.0/index.js",
@@ -48,13 +71,30 @@
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:yargs-parser@18.1.2/": {
+    "https://ga.jspm.dev/npm:xregexp@4.3.0/": {
+      "@babel/runtime-corejs3/core-js-stable/instance/concat": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/concat.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/flags": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/flags.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/for-each": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/for-each.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/includes": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/includes.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/index-of": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/index-of.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/map": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/map.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/reduce": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/reduce.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/slice": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/slice.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/sort": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/sort.js",
+      "@babel/runtime-corejs3/core-js-stable/object/create": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/object/create.js",
+      "@babel/runtime-corejs3/core-js-stable/object/define-property": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/object/define-property.js",
+      "@babel/runtime-corejs3/core-js-stable/parse-int": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/parse-int.js",
+      "@babel/runtime-corejs3/core-js/get-iterator": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js/get-iterator.js",
+      "@babel/runtime-corejs3/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime-corejs3/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/helpers/slicedToArray.js"
+    },
+    "https://ga.jspm.dev/npm:yargs-parser@18.1.3/": {
       "camelcase": "https://ga.jspm.dev/npm:camelcase@5.3.1/index.js",
       "decamelize": "https://ga.jspm.dev/npm:decamelize@1.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:yargs@15.3.1/": {
+    "https://ga.jspm.dev/npm:yargs@15.4.0-beta.0/": {
       "cliui": "https://ga.jspm.dev/npm:cliui@6.0.0/index.js",
-      "decamelize": "https://ga.jspm.dev/npm:decamelize@1.2.0/index.js",
+      "decamelize": "https://ga.jspm.dev/npm:decamelize@3.2.0/index.js",
       "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js",
       "get-caller-file": "https://ga.jspm.dev/npm:get-caller-file@2.0.5/index.js",
       "require-directory": "https://ga.jspm.dev/npm:require-directory@2.1.1/index.js",
@@ -63,7 +103,7 @@
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "which-module": "https://ga.jspm.dev/npm:which-module@2.0.0/index.js",
       "y18n": "https://ga.jspm.dev/npm:y18n@4.0.0/index.js",
-      "yargs-parser": "https://ga.jspm.dev/npm:yargs-parser@18.1.2/index.js"
+      "yargs-parser": "https://ga.jspm.dev/npm:yargs-parser@18.1.3/index.js"
     }
   }
 }

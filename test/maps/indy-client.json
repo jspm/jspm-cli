@@ -1,23 +1,25 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "indy-client": "https://ga.jspm.dev/npm:indy-client@1.0.8/lib/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "random-word-by-length": "https://ga.jspm.dev/npm:random-word-by-length@0.1.0/index.js",
     "randomstring": "https://ga.jspm.dev/npm:randomstring@1.1.5/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
+    "https://ga.jspm.dev/npm:axios@0.19.2/": {
+      "axios/lib/adapters/http.js": "https://ga.jspm.dev/npm:axios@0.19.2/lib/adapters/xhr.js"
+    },
     "https://ga.jspm.dev/npm:bindings@1.5.0/": {
       "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@1.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:indy-client@1.0.8/": {
       "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js",
-      "dotenv/": "https://ga.jspm.dev/npm:dotenv@8.2.0/",
       "dotenv/config": "https://ga.jspm.dev/npm:dotenv@8.2.0/config.js",
       "indy-sdk": "https://ga.jspm.dev/npm:indy-sdk@1.15.0/src/index.js",
       "mkdirp": "https://ga.jspm.dev/npm:mkdirp@1.0.4/index.js",

@@ -1,11 +1,12 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "ora": "https://ga.jspm.dev/npm:ora@4.0.3/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "ora": "https://ga.jspm.dev/npm:ora@4.0.4/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
@@ -27,7 +28,7 @@
     "https://ga.jspm.dev/npm:onetime@5.1.0/": {
       "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@2.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:ora@4.0.3/": {
+    "https://ga.jspm.dev/npm:ora@4.0.4/": {
       "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
       "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@3.1.0/index.js",
       "cli-spinners": "https://ga.jspm.dev/npm:cli-spinners@2.3.0/index.js",

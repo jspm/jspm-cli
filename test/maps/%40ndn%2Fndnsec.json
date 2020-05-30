@@ -1,19 +1,21 @@
 {
   "imports": {
     "@ndn/ndnsec": "https://ga.jspm.dev/npm:@ndn/ndnsec@0.0.20191223-beta.1/lib/mod.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/": {
+      "@ndn/keychain/lib/key/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/key/platform/browser.js",
+      "@ndn/keychain/lib/store/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/store/platform/browser.js",
       "@ndn/naming-convention2": "https://ga.jspm.dev/npm:@ndn/naming-convention2@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
@@ -31,14 +33,15 @@
       "@ndn/keychain": "https://ga.jspm.dev/npm:@ndn/keychain@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
-      "execa": "https://ga.jspm.dev/npm:execa@4.0.0/index.js"
+      "execa": "https://ga.jspm.dev/npm:execa@4.0.2/index.js"
     },
     "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
       "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
       "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
       "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:cross-spawn@7.0.2/": {
+    "https://ga.jspm.dev/npm:cross-spawn@7.0.3/": {
       "path-key": "https://ga.jspm.dev/npm:path-key@3.1.1/index.js",
       "shebang-command": "https://ga.jspm.dev/npm:shebang-command@2.0.0/index.js",
       "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
@@ -46,8 +49,8 @@
     "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:execa@4.0.0/": {
-      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.2/index.js",
+    "https://ga.jspm.dev/npm:execa@4.0.2/": {
+      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.3/index.js",
       "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
       "human-signals": "https://ga.jspm.dev/npm:human-signals@1.1.1/build/src/main.js",
       "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js",

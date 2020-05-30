@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "http-responder": "https://ga.jspm.dev/npm:http-responder@2.2.2/packages/http-responder.esm/"
-  }
-}

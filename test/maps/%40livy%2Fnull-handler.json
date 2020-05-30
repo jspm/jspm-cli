@@ -4,14 +4,11 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@livy/null-handler@1.0.2/": {
-      "@livy/contracts/": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/",
       "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js",
-      "@livy/util/": "https://ga.jspm.dev/npm:@livy/util@1.0.4/",
       "@livy/util/lib/handlers/abstract-batch-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-batch-handler.js",
       "@livy/util/lib/handlers/respect-level-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/respect-level-mixin.js"
     },
     "https://ga.jspm.dev/npm:@livy/util@1.0.4/": {
-      "@livy/contracts/": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/",
       "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js"
     }
   }

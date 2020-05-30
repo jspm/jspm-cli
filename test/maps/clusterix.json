@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "clusterix": "https://ga.jspm.dev/npm:clusterix@2.0.0/dist/index.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:clusterix@2.0.0/": {
+      "delay": "https://ga.jspm.dev/npm:delay@4.3.0/index.js"
+    }
+  }
+}

@@ -1,26 +1,26 @@
 {
   "imports": {
     "chai": "https://ga.jspm.dev/npm:chai@4.2.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "sequelize-test-helpers": "https://ga.jspm.dev/npm:sequelize-test-helpers@1.2.2/src/index.js",
-    "sinon": "https://ga.jspm.dev/npm:sinon@9.0.1/lib/sinon.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "sinon": "https://ga.jspm.dev/npm:sinon@9.0.2/lib/sinon.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/": {
+    "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/": {
       "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
     },
     "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/lib/index.js"
+      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js"
     },
     "https://ga.jspm.dev/npm:@sinonjs/formatio@5.0.1/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/lib/index.js",
+      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js",
       "@sinonjs/samsam": "https://ga.jspm.dev/npm:@sinonjs/samsam@5.0.3/lib/samsam.js"
     },
     "https://ga.jspm.dev/npm:@sinonjs/samsam@5.0.3/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/lib/index.js",
+      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js",
       "lodash.get": "https://ga.jspm.dev/npm:lodash.get@4.4.2/index.js",
       "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
     },
@@ -36,7 +36,7 @@
       "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
     },
     "https://ga.jspm.dev/npm:nise@4.0.3/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/lib/index.js",
+      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js",
       "@sinonjs/fake-timers": "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/src/fake-timers-src.js",
       "@sinonjs/text-encoding": "https://ga.jspm.dev/npm:@sinonjs/text-encoding@0.7.1/index.js",
       "just-extend": "https://ga.jspm.dev/npm:just-extend@4.1.0/index.js",
@@ -45,8 +45,8 @@
     "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/": {
       "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:sinon@9.0.1/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.7.1/lib/index.js",
+    "https://ga.jspm.dev/npm:sinon@9.0.2/": {
+      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js",
       "@sinonjs/fake-timers": "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/src/fake-timers-src.js",
       "@sinonjs/formatio": "https://ga.jspm.dev/npm:@sinonjs/formatio@5.0.1/lib/formatio.js",
       "@sinonjs/samsam": "https://ga.jspm.dev/npm:@sinonjs/samsam@5.0.3/lib/samsam.js",

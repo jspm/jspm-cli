@@ -1,5 +1,5 @@
 {
   "imports": {
-    "workbox-core": "https://ga.jspm.dev/npm:workbox-core@5.1.2/index.js"
+    "workbox-core": "https://ga.jspm.dev/npm:workbox-core@5.1.3/index.js"
   }
 }

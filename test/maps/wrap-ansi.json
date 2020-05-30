@@ -1,6 +1,6 @@
 {
   "imports": {
-    "wrap-ansi": "https://ga.jspm.dev/npm:wrap-ansi@6.2.0/index.js"
+    "wrap-ansi": "https://ga.jspm.dev/npm:wrap-ansi@7.0.0/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
@@ -17,7 +17,7 @@
     "https://ga.jspm.dev/npm:strip-ansi@6.0.0/": {
       "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:wrap-ansi@6.2.0/": {
+    "https://ga.jspm.dev/npm:wrap-ansi@7.0.0/": {
       "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"

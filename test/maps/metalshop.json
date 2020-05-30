@@ -4,21 +4,25 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.41/": {
-      "crosscall/": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/",
-      "renraku/": "https://ga.jspm.dev/npm:renraku@0.0.0-dev.24/"
+      "crosscall/dist/create-iframe.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/dist/create-iframe.js",
+      "crosscall/dist/crosscall-client.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/dist/crosscall-client.js",
+      "renraku/dist/api-client.js": "https://ga.jspm.dev/npm:renraku@0.0.0-dev.24/dist/api-client.js"
     },
     "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/": "https://ga.jspm.dev/npm:lit-html@1.2.1/"
+      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
     },
     "https://ga.jspm.dev/npm:menutown@0.0.1/": {
       "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
     },
     "https://ga.jspm.dev/npm:metalshop@0.0.0-dev.33/": {
-      "authoritarian/": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.41/",
+      "authoritarian/dist/account-popup/trigger-login-popup.js": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.41/dist/account-popup/trigger-login-popup.js",
+      "authoritarian/dist/clients/create-profile-magistrate-client.js": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.41/dist/clients/create-profile-magistrate-client.js",
+      "authoritarian/dist/clients/create-token-storage-client.js": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.41/dist/clients/create-token-storage-client.js",
       "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js",
       "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js",
-      "menutown/": "https://ga.jspm.dev/npm:menutown@0.0.1/",
-      "redcrypto/": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.4/"
+      "menutown/dist/register-all.js": "https://ga.jspm.dev/npm:menutown@0.0.1/dist/register-all.js",
+      "redcrypto/dist/token-decode.js": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.4/dist/token-decode.js"
     }
   }
 }

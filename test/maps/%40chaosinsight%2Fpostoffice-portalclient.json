@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@chaosinsight/portalclient": "https://ga.jspm.dev/npm:@chaosinsight/portalclient@3.9.4/dist/index.js",
-    "@chaosinsight/postoffice-portalclient": "https://ga.jspm.dev/npm:@chaosinsight/postoffice-portalclient@1.7.5/dist/index.js"
+    "@chaosinsight/portalclient": "https://ga.jspm.dev/npm:@chaosinsight/portalclient@3.10.1/dist/index.js",
+    "@chaosinsight/postoffice-portalclient": "https://ga.jspm.dev/npm:@chaosinsight/postoffice-portalclient@1.8.0/dist/index.js"
   }
 }

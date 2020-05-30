@@ -1,5 +1,14 @@
 {
   "imports": {
-    "levn": "https://ga.jspm.dev/npm:levn@0.4.1/lib/"
+    "levn": "https://ga.jspm.dev/npm:levn@0.4.1/lib/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:levn@0.4.1/": {
+      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.2.1/lib/index.js",
+      "type-check": "https://ga.jspm.dev/npm:type-check@0.4.0/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:type-check@0.4.0/": {
+      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.2.1/lib/index.js"
+    }
   }
 }

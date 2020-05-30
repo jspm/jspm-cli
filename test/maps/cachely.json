@@ -1,10 +1,10 @@
 {
   "imports": {
-    "cachely": "https://ga.jspm.dev/npm:cachely@5.0.0/edition-browsers/index.js"
+    "cachely": "https://ga.jspm.dev/npm:cachely@5.5.0/edition-browsers/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cachely@5.0.0/": {
-      "oneday": "https://ga.jspm.dev/npm:oneday@3.0.0/edition-browsers/index.js"
+    "https://ga.jspm.dev/npm:cachely@5.5.0/": {
+      "oneday": "https://ga.jspm.dev/npm:oneday@4.3.0/edition-browsers/index.js"
     }
   }
 }

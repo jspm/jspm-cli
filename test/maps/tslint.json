@@ -1,21 +1,21 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "tslint": "https://ga.jspm.dev/npm:tslint@6.1.1/lib/index.js",
-    "typescript": "https://ga.jspm.dev/npm:typescript@3.8.3/lib/typescript.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "tslint": "https://ga.jspm.dev/npm:tslint@6.1.2/lib/index.js",
+    "typescript": "https://ga.jspm.dev/npm:typescript@3.9.3/lib/typescript.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/": {
-      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
     },
@@ -52,23 +52,23 @@
     "https://ga.jspm.dev/npm:once@1.4.0/": {
       "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.15.1/": {
+    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
       "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
     },
-    "https://ga.jspm.dev/npm:tslint@6.1.1/": {
-      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
+    "https://ga.jspm.dev/npm:tslint@6.1.2/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "diff": "https://ga.jspm.dev/npm:diff@4.0.2/dist/diff.js",
       "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
-      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.13.1/index.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js",
       "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.15.1/index.js",
+      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js",
       "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js",
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js",
       "tsutils": "https://ga.jspm.dev/npm:tsutils@2.29.0/index.js"
     },
     "https://ga.jspm.dev/npm:tsutils@2.29.0/": {
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.11.1/tslib.js"
+      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

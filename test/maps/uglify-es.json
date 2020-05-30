@@ -1,5 +1,6 @@
 {
   "imports": {
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
     "uglify-es": "https://ga.jspm.dev/npm:uglify-es@3.3.9/tools/node.js"
   },
   "scopes": {

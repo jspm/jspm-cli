@@ -1,19 +1,20 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "rc-virtual-list": "https://ga.jspm.dev/npm:rc-virtual-list@1.1.2/lib/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "rc-virtual-list": "https://ga.jspm.dev/npm:rc-virtual-list@1.1.4/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:raf@3.4.1/": {
       "performance-now": "https://ga.jspm.dev/npm:performance-now@2.1.0/lib/performance-now.js"
     },
-    "https://ga.jspm.dev/npm:rc-virtual-list@1.1.2/": {
+    "https://ga.jspm.dev/npm:rc-util@5.0.1/": {
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:rc-virtual-list@1.1.4/": {
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
       "raf": "https://ga.jspm.dev/npm:raf@3.4.1/index.js",
-      "rc-util/": "https://ga.jspm.dev/npm:rc-util@4.20.3/",
-      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/Dom/findDOMNode.js"
+      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/findDOMNode.js"
     },
     "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",

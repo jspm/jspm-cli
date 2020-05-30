@@ -1,9 +1,9 @@
 {
   "imports": {
-    "valid-module": "https://ga.jspm.dev/npm:valid-module@1.0.0/edition-browsers/browser.js"
+    "valid-module": "https://ga.jspm.dev/npm:valid-module@1.3.0/edition-browsers/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:valid-module@1.0.0/": {
+    "https://ga.jspm.dev/npm:valid-module@1.3.0/": {
       "cross-fetch": "https://ga.jspm.dev/npm:cross-fetch@3.0.4/dist/browser-ponyfill.js"
     }
   }

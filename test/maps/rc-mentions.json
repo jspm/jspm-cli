@@ -1,0 +1,113 @@
+{
+  "imports": {
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "rc-mentions": "https://ga.jspm.dev/npm:rc-mentions@1.2.0/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:mini-store@3.0.4/": {
+      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
+      "shallowequal": "https://ga.jspm.dev/npm:shallowequal@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:raf@3.4.1/": {
+      "performance-now": "https://ga.jspm.dev/npm:performance-now@2.1.0/lib/performance-now.js"
+    },
+    "https://ga.jspm.dev/npm:rc-align@4.0.0/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
+      "dom-align": "https://ga.jspm.dev/npm:dom-align@1.12.0/dist-node/index.js",
+      "rc-util/lib/Dom/addEventListener": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/addEventListener.js",
+      "rc-util/lib/Dom/contains": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/contains.js",
+      "rc-util/lib/ref": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/ref.js",
+      "resize-observer-polyfill": "https://ga.jspm.dev/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"
+    },
+    "https://ga.jspm.dev/npm:rc-animate@3.1.0/": {
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "raf": "https://ga.jspm.dev/npm:raf@3.4.1/index.js",
+      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/findDOMNode.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:rc-mentions@1.2.0/": {
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "rc-menu": "https://ga.jspm.dev/npm:rc-menu@8.3.0/lib/index.js",
+      "rc-trigger": "https://ga.jspm.dev/npm:rc-trigger@4.3.0/lib/index.js",
+      "rc-util/lib/Children/toArray": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Children/toArray.js",
+      "rc-util/lib/KeyCode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/KeyCode.js"
+    },
+    "https://ga.jspm.dev/npm:rc-menu@8.3.0/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/toConsumableArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "mini-store": "https://ga.jspm.dev/npm:mini-store@3.0.4/cjs/index.js",
+      "rc-animate/lib/CSSMotion": "https://ga.jspm.dev/npm:rc-animate@3.1.0/lib/CSSMotion.js",
+      "rc-trigger": "https://ga.jspm.dev/npm:rc-trigger@4.3.0/lib/index.js",
+      "rc-util/lib/KeyCode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/KeyCode.js",
+      "rc-util/lib/createChainedFunction": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/createChainedFunction.js",
+      "rc-util/lib/warning": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/warning.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
+      "resize-observer-polyfill": "https://ga.jspm.dev/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js",
+      "shallowequal": "https://ga.jspm.dev/npm:shallowequal@1.1.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:rc-trigger@4.3.0/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
+      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
+      "raf": "https://ga.jspm.dev/npm:raf@3.4.1/index.js",
+      "rc-align": "https://ga.jspm.dev/npm:rc-align@4.0.0/lib/index.js",
+      "rc-animate/lib/CSSMotion": "https://ga.jspm.dev/npm:rc-animate@3.1.0/lib/CSSMotion.js",
+      "rc-util/lib/Dom/addEventListener": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/addEventListener.js",
+      "rc-util/lib/Dom/contains": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/contains.js",
+      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/findDOMNode.js",
+      "rc-util/lib/Portal": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Portal.js",
+      "rc-util/lib/ref": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/ref.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:rc-util@5.0.1/": {
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
+      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    }
+  }
+}

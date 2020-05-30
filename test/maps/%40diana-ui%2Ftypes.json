@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@diana-ui/types": "https://ga.jspm.dev/npm:@diana-ui/types@0.1.7/lib/types.js"
+    "@diana-ui/types": "https://ga.jspm.dev/npm:@diana-ui/types@0.1.12/lib/types.js"
   }
 }

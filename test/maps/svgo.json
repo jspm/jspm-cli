@@ -1,0 +1,61 @@
+{
+  "imports": {
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "svgo": "https://ga.jspm.dev/npm:svgo@1.3.2/lib/svgo.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:css-select@2.1.0/": {
+      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js",
+      "css-what": "https://ga.jspm.dev/npm:css-what@3.2.1/lib/index.js",
+      "domutils": "https://ga.jspm.dev/npm:domutils@1.7.0/index.js",
+      "nth-check": "https://ga.jspm.dev/npm:nth-check@1.0.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:css-tree@1.0.0-alpha.37/": {
+      "mdn-data/css/properties.json": "https://ga.jspm.dev/npm:mdn-data@2.0.4/css/properties.json.js",
+      "mdn-data/css/syntaxes.json": "https://ga.jspm.dev/npm:mdn-data@2.0.4/css/syntaxes.json.js",
+      "source-map/lib/source-map-generator": "https://ga.jspm.dev/npm:source-map@0.6.1/lib/source-map-generator.js"
+    },
+    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:dom-serializer@1.0.1/": {
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
+      "entities": "https://ga.jspm.dev/npm:entities@2.0.2/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:domutils@1.7.0/": {
+      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@1.0.1/lib/index.js",
+      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:nth-check@1.0.2/": {
+      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js"
+    },
+    "https://ga.jspm.dev/npm:object.values@1.1.1/": {
+      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
+      "es-abstract/2019/RequireObjectCoercible": "https://ga.jspm.dev/npm:es-abstract@1.17.5/2019/RequireObjectCoercible.js",
+      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js",
+      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js"
+    },
+    "https://ga.jspm.dev/npm:svgo@1.3.2/": {
+      "css-select": "https://ga.jspm.dev/npm:css-select@2.1.0/index.js",
+      "css-select-base-adapter": "https://ga.jspm.dev/npm:css-select-base-adapter@0.1.1/index.js",
+      "css-tree": "https://ga.jspm.dev/npm:css-tree@1.0.0-alpha.37/lib/index.js",
+      "csso/lib/restructure/prepare/specificity": "https://ga.jspm.dev/npm:csso@4.0.3/lib/restructure/prepare/specificity.js",
+      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js",
+      "object.values": "https://ga.jspm.dev/npm:object.values@1.1.1/index.js",
+      "sax": "https://ga.jspm.dev/npm:sax@1.2.4/lib/sax.js",
+      "stable": "https://ga.jspm.dev/npm:stable@0.1.8/stable.js"
+    }
+  }
+}

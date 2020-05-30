@@ -1,23 +1,23 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
     "uglifyjs-webpack-plugin": "https://ga.jspm.dev/npm:uglifyjs-webpack-plugin@2.2.0/dist/cjs.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js",
-    "webpack/": "https://ga.jspm.dev/npm:webpack@4.42.1/",
-    "webpack/lib/ModuleFilenameHelpers": "https://ga.jspm.dev/npm:webpack@4.42.1/lib/ModuleFilenameHelpers.js",
-    "webpack/lib/RequestShortener": "https://ga.jspm.dev/npm:webpack@4.42.1/lib/RequestShortener.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "webpack/lib/ModuleFilenameHelpers": "https://ga.jspm.dev/npm:webpack@4.43.0/lib/ModuleFilenameHelpers.js",
+    "webpack/lib/RequestShortener": "https://ga.jspm.dev/npm:webpack@4.43.0/lib/RequestShortener.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ajv@6.12.0/": {
+    "https://ga.jspm.dev/npm:ajv@6.12.2/": {
       "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js",
       "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
       "json-schema-traverse": "https://ga.jspm.dev/npm:json-schema-traverse@0.4.1/index.js",
@@ -32,7 +32,7 @@
       "chownr": "https://ga.jspm.dev/npm:chownr@1.1.4/chownr.js",
       "figgy-pudding": "https://ga.jspm.dev/npm:figgy-pudding@3.5.2/index.js",
       "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "infer-owner": "https://ga.jspm.dev/npm:infer-owner@1.0.4/index.js",
       "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js",
       "mississippi": "https://ga.jspm.dev/npm:mississippi@3.0.0/index.js",
@@ -86,7 +86,7 @@
       "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js"
     },
     "https://ga.jspm.dev/npm:fs-write-stream-atomic@1.0.10/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "iferr": "https://ga.jspm.dev/npm:iferr@0.1.5/index.js",
       "imurmurhash": "https://ga.jspm.dev/npm:imurmurhash@0.1.4/imurmurhash.js",
       "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js"
@@ -152,6 +152,9 @@
     "https://ga.jspm.dev/npm:pkg-dir@3.0.0/": {
       "find-up": "https://ga.jspm.dev/npm:find-up@3.0.0/index.js"
     },
+    "https://ga.jspm.dev/npm:promise-inflight@1.0.1/": {
+      "bluebird": "https://ga.jspm.dev/npm:bluebird@3.7.2/js/browser/bluebird.js"
+    },
     "https://ga.jspm.dev/npm:pump@2.0.1/": {
       "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
@@ -170,6 +173,7 @@
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
       "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
       "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@2.3.7/lib/internal/streams/stream-browser.js",
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
       "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
       "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
@@ -181,7 +185,7 @@
       "aproba": "https://ga.jspm.dev/npm:aproba@1.2.0/index.js"
     },
     "https://ga.jspm.dev/npm:schema-utils@1.0.0/": {
-      "ajv": "https://ga.jspm.dev/npm:ajv@6.12.0/lib/ajv.js",
+      "ajv": "https://ga.jspm.dev/npm:ajv@6.12.2/lib/ajv.js",
       "ajv-errors": "https://ga.jspm.dev/npm:ajv-errors@1.0.1/index.js",
       "ajv-keywords": "https://ga.jspm.dev/npm:ajv-keywords@3.4.1/index.js"
     },
@@ -206,8 +210,8 @@
       "schema-utils": "https://ga.jspm.dev/npm:schema-utils@1.0.0/src/index.js",
       "serialize-javascript": "https://ga.jspm.dev/npm:serialize-javascript@1.9.1/index.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
-      "uglify-js": "https://ga.jspm.dev/npm:uglify-js@3.9.1/tools/node.js",
-      "uglify-js/": "https://ga.jspm.dev/npm:uglify-js@3.9.1/",
+      "uglify-js": "https://ga.jspm.dev/npm:uglify-js@3.9.4/tools/node.js",
+      "uglify-js/package.json": "https://ga.jspm.dev/npm:uglify-js@3.9.4/package.json.js",
       "webpack-sources": "https://ga.jspm.dev/npm:webpack-sources@1.4.3/lib/index.js",
       "worker-farm": "https://ga.jspm.dev/npm:worker-farm@1.7.0/lib/index.js"
     },

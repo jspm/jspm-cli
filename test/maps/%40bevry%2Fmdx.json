@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@bevry/mdx": "https://ga.jspm.dev/npm:@bevry/mdx@1.1.0/edition-node-12/index.js"
+    "@bevry/mdx": "https://ga.jspm.dev/npm:@bevry/mdx@2.2.0/edition-esnext/index.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@lrnwebcomponents/lrndesign-contentblock": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-contentblock@2.6.4/lrndesign-contentblock.js"
+    "@lrnwebcomponents/lrndesign-contentblock": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-contentblock@2.6.14/lrndesign-contentblock.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-contentblock@2.6.4/": {
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-contentblock@2.6.14/": {
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "vicis": "https://ga.jspm.dev/npm:vicis@1.5.0/dist/vicis.mjs"
-  }
-}

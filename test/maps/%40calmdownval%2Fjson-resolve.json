@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@calmdownval/json-resolve": "https://ga.jspm.dev/npm:@calmdownval/json-resolve@0.0.3/src/index.mjs"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:@calmdownval/json-resolve@0.0.3/": {
+      "@calmdownval/slow-deep-equal": "https://ga.jspm.dev/npm:@calmdownval/slow-deep-equal@1.0.2/src/index.cjs"
+    }
+  }
+}

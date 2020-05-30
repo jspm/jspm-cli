@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@lrnwebcomponents/air-horn": "https://ga.jspm.dev/npm:@lrnwebcomponents/air-horn@2.6.3/air-horn.js"
+    "@lrnwebcomponents/air-horn": "https://ga.jspm.dev/npm:@lrnwebcomponents/air-horn@2.6.12/air-horn.js"
   }
 }

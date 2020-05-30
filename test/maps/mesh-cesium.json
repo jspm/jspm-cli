@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mesh-cesium": "https://ga.jspm.dev/npm:mesh-cesium@1.64.0/index.js"
+  }
+}

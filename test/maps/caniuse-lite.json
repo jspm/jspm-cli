@@ -1,5 +1,5 @@
 {
   "imports": {
-    "caniuse-lite": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001039/dist/unpacker/index.js"
+    "caniuse-lite": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/index.js"
   }
 }

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "htmel": "https://ga.jspm.dev/npm:htmel@1.2.1/src/htmel.js"
+  }
+}

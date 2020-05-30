@@ -1,24 +1,7 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
     "collect-v8-coverage": "https://ga.jspm.dev/npm:collect-v8-coverage@1.0.1/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:collect-v8-coverage@1.0.1/": {
-      "inspector": "https://ga.jspm.dev/npm:inspector@0.5.0/inspector.js"
-    },
-    "https://ga.jspm.dev/npm:endpoint@0.4.5/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
-    },
-    "https://ga.jspm.dev/npm:inspector@0.5.0/": {
-      "endpoint": "https://ga.jspm.dev/npm:endpoint@0.4.5/endpoint.js",
-      "ws": "https://ga.jspm.dev/npm:ws@0.7.2/lib/browser.js"
-    }
+    "inspector": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/@empty.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   }
 }

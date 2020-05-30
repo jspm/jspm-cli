@@ -1,23 +1,19 @@
 {
   "imports": {
-    "@jimp/plugin-blit": "https://ga.jspm.dev/npm:@jimp/plugin-blit@0.10.1/dist/index.js"
+    "@jimp/plugin-blit": "https://ga.jspm.dev/npm:@jimp/plugin-blit@0.12.1/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/": {
+    "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/": {
       "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/plugin-blit@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/typeof.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/dist/index.js"
+    "https://ga.jspm.dev/npm:@jimp/plugin-blit@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
+      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/utils@0.10.1/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/regenerator/index.js",
-      "regenerator-runtime/": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/",
-      "regenerator-runtime/runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
     }
   }
 }

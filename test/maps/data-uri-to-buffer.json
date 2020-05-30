@@ -1,11 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "data-uri-to-buffer": "https://ga.jspm.dev/npm:data-uri-to-buffer@3.0.0/dist/src/index.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:data-uri-to-buffer@3.0.0/": {
-      "buffer-from": "https://ga.jspm.dev/npm:buffer-from@1.1.1/index.js"
-    }
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "data-uri-to-buffer": "https://ga.jspm.dev/npm:data-uri-to-buffer@3.0.1/dist/src/index.js"
   }
 }

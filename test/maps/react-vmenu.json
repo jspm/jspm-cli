@@ -1,32 +1,35 @@
 {
   "imports": {
-    "mobx": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+    "mobx": "https://ga.jspm.dev/npm:mobx@4.15.4/lib/index.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "react": "https://ga.jspm.dev/npm:react@15.6.2/index.js",
     "react-dom": "https://ga.jspm.dev/npm:react-dom@15.6.2/index.js",
     "react-vmenu": "https://ga.jspm.dev/npm:react-vmenu@1.0.2/Dist/index.js",
-    "react/": "https://ga.jspm.dev/npm:react@16.13.1/",
-    "react/lib/React": "https://ga.jspm.dev/npm:react@16.13.1/lib/React.js",
-    "react/lib/ReactComponentTreeHook": "https://ga.jspm.dev/npm:react@16.13.1/lib/ReactComponentTreeHook.js",
-    "react/lib/ReactCurrentOwner": "https://ga.jspm.dev/npm:react@16.13.1/lib/ReactCurrentOwner.js",
-    "react/lib/getNextDebugID": "https://ga.jspm.dev/npm:react@16.13.1/lib/getNextDebugID.js"
+    "react/lib/React": "https://ga.jspm.dev/npm:react@15.6.2/lib/React.js",
+    "react/lib/ReactComponentTreeHook": "https://ga.jspm.dev/npm:react@15.6.2/lib/ReactComponentTreeHook.js",
+    "react/lib/ReactCurrentOwner": "https://ga.jspm.dev/npm:react@15.6.2/lib/ReactCurrentOwner.js",
+    "react/lib/getNextDebugID": "https://ga.jspm.dev/npm:react@15.6.2/lib/getNextDebugID.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:create-react-class@15.6.3/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/emptyObject": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyObject.js",
       "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js",
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:mobx-react@6.2.2/": {
-      "mobx-react-lite": "https://ga.jspm.dev/npm:mobx-react-lite@2.0.6/dist/index.js"
+      "mobx-react-lite": "https://ga.jspm.dev/npm:mobx-react-lite@2.0.7/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:mobx@4.15.4/": {
+      "mobx/lib/mobx.js": "https://ga.jspm.dev/npm:mobx@4.15.4/lib/mobx.min.js"
+    },
+    "https://ga.jspm.dev/npm:mobx@5.15.4/": {
+      "mobx/lib/mobx.js": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/mobx.min.js"
     },
     "https://ga.jspm.dev/npm:prop-types@15.7.2/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
     "https://ga.jspm.dev/npm:react-dom@15.6.2/": {
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/EventListener": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/EventListener.js",
       "fbjs/lib/ExecutionEnvironment": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/ExecutionEnvironment.js",
       "fbjs/lib/camelizeStyleName": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/camelizeStyleName.js",
@@ -43,7 +46,6 @@
       "fbjs/lib/shallowEqual": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/shallowEqual.js",
       "fbjs/lib/warning": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/warning.js",
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "prop-types/": "https://ga.jspm.dev/npm:prop-types@15.7.2/",
       "prop-types/factory": "https://ga.jspm.dev/npm:prop-types@15.7.2/factory.js"
     },
     "https://ga.jspm.dev/npm:react-vmenu@1.0.2/": {
@@ -52,15 +54,12 @@
       "mobx-react": "https://ga.jspm.dev/npm:mobx-react@6.2.2/dist/index.js"
     },
     "https://ga.jspm.dev/npm:react@15.6.2/": {
-      "create-react-class/": "https://ga.jspm.dev/npm:create-react-class@15.6.3/",
       "create-react-class/factory": "https://ga.jspm.dev/npm:create-react-class@15.6.3/factory.js",
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/emptyFunction": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyFunction.js",
       "fbjs/lib/emptyObject": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyObject.js",
       "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js",
       "fbjs/lib/warning": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/warning.js",
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "prop-types/": "https://ga.jspm.dev/npm:prop-types@15.7.2/",
       "prop-types/factory": "https://ga.jspm.dev/npm:prop-types@15.7.2/factory.js"
     },
     "https://ga.jspm.dev/npm:react@16.13.1/": {

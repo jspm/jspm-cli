@@ -1,9 +1,9 @@
 {
   "imports": {
-    "already": "https://ga.jspm.dev/npm:already@1.12.0/dist-mjs/index.js"
+    "already": "https://ga.jspm.dev/npm:already@1.13.0/dist-mjs/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:already@1.12.0/": {
+    "https://ga.jspm.dev/npm:already@1.13.0/": {
       "throat": "https://ga.jspm.dev/npm:throat@5.0.0/index.js"
     }
   }

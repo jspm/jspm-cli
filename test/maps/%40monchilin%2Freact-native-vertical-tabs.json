@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@monchilin/react-native-vertical-tabs": "https://ga.jspm.dev/npm:@monchilin/react-native-vertical-tabs@0.1.1/dist/index.js"
-  }
-}

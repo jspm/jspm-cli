@@ -1,6 +1,6 @@
 {
   "imports": {
     "ent": "https://ga.jspm.dev/npm:ent@2.2.0/index.js",
-    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/punycode.js"
+    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
   }
 }

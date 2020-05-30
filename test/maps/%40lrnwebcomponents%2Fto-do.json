@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@lrnwebcomponents/to-do": "https://ga.jspm.dev/npm:@lrnwebcomponents/to-do@2.6.4/to-do.js"
+    "@lrnwebcomponents/to-do": "https://ga.jspm.dev/npm:@lrnwebcomponents/to-do@2.6.14/to-do.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.4/": {
-      "@lrnwebcomponents/utils/": "https://ga.jspm.dev/npm:@lrnwebcomponents/utils@2.5.0/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.14/": {
+      "@lrnwebcomponents/utils/utils.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/utils@2.6.12/utils.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/to-do@2.6.4/": {
-      "@lrnwebcomponents/schema-behaviors/": "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.4/",
-      "@polymer/polymer/": "https://ga.jspm.dev/npm:@polymer/polymer@3.3.1/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/to-do@2.6.14/": {
+      "@lrnwebcomponents/schema-behaviors/schema-behaviors.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/schema-behaviors@2.6.14/schema-behaviors.js",
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

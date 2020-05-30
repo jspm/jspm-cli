@@ -1,11 +1,11 @@
 {
   "imports": {
-    "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.2.2/index.js"
+    "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@1.0.1/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-serializer@0.2.2/": {
+    "https://ga.jspm.dev/npm:dom-serializer@1.0.1/": {
       "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
-      "entities": "https://ga.jspm.dev/npm:entities@2.0.0/lib/index.js"
+      "entities": "https://ga.jspm.dev/npm:entities@2.0.2/lib/index.js"
     }
   }
 }

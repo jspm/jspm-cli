@@ -4,9 +4,11 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:@ranedrop/utility@2.2.2/": {
-      "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.0/index.js",
-      "uuid/": "https://ga.jspm.dev/npm:uuid@3.4.0/",
+      "@ranedrop/validator": "https://ga.jspm.dev/npm:@ranedrop/validator@2.3.1/index.js",
       "uuid/v4": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
     }
   }
 }

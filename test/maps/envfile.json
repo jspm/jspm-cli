@@ -1,20 +1,5 @@
 {
   "imports": {
-    "envfile": "https://ga.jspm.dev/npm:envfile@5.0.0/edition-browsers/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
-  },
-  "scopes": {
-    "https://ga.jspm.dev/npm:ambi@7.0.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
-    },
-    "https://ga.jspm.dev/npm:eachr@4.5.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
-    },
-    "https://ga.jspm.dev/npm:envfile@5.0.0/": {
-      "ambi": "https://ga.jspm.dev/npm:ambi@7.0.0/edition-browsers/index.js",
-      "eachr": "https://ga.jspm.dev/npm:eachr@4.5.0/edition-browsers/index.js",
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
-    }
+    "envfile": "https://ga.jspm.dev/npm:envfile@6.2.0/edition-browsers/index.js"
   }
 }

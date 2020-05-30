@@ -5,7 +5,6 @@
     "@angular/http": "https://ga.jspm.dev/npm:@angular/http@7.2.16/bundles/http.umd.js",
     "@angular/platform-browser": "https://ga.jspm.dev/npm:@angular/platform-browser@7.2.16/bundles/platform-browser.umd.js",
     "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-    "rxjs/": "https://ga.jspm.dev/npm:rxjs@6.5.5/",
     "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
   }
 }

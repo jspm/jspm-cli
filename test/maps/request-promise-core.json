@@ -4,7 +4,6 @@
   },
   "scopes": {
     "https://ga.jspm.dev/npm:request-promise-core@1.1.3/": {
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/isFunction": "https://ga.jspm.dev/npm:lodash@4.17.15/isFunction.js",
       "lodash/isObjectLike": "https://ga.jspm.dev/npm:lodash@4.17.15/isObjectLike.js",
       "lodash/isString": "https://ga.jspm.dev/npm:lodash@4.17.15/isString.js",

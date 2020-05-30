@@ -28,7 +28,6 @@
   "@alifd/validate",
   "@allquire/core",
   "@allquire/npm",
-  "@anephenix/ui",
   "@angular-devkit/core",
   "@angular-devkit/schematics",
   "@angular/animations",

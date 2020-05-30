@@ -1,21 +1,19 @@
 {
   "imports": {
-    "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.9.4/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js"
+    "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.10.1/lib/index.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/generator@7.9.4/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.0/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/generator@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js",
       "jsesc": "https://ga.jspm.dev/npm:jsesc@2.5.2/jsesc.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/isInteger": "https://ga.jspm.dev/npm:lodash@4.17.15/isInteger.js",
       "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
     },
-    "https://ga.jspm.dev/npm:@babel/types@7.9.0/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.0/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
       "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",

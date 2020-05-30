@@ -1,28 +1,26 @@
 {
   "imports": {
-    "@codaco/ui": "https://ga.jspm.dev/npm:@codaco/ui@3.2.0/lib/components/index.js",
+    "@codaco/ui": "https://ga.jspm.dev/npm:@codaco/ui@3.3.0/lib/components/index.js",
     "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
     "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@codaco/ui@3.2.0/": {
+    "https://ga.jspm.dev/npm:@codaco/ui@3.3.0/": {
       "animejs": "https://ga.jspm.dev/npm:animejs@2.2.0/anime.min.js",
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
       "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-transition-group": "https://ga.jspm.dev/npm:react-transition-group@4.3.0/cjs/index.js",
+      "react-transition-group": "https://ga.jspm.dev/npm:react-transition-group@4.4.1/cjs/index.js",
       "recompose": "https://ga.jspm.dev/npm:recompose@0.30.0/dist/Recompose.cjs.js"
     },
     "https://ga.jspm.dev/npm:dom-helpers@5.1.4/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/interopRequireDefault.js"
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js"
     },
     "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
       "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-transition-group@4.3.0/": {
-      "dom-helpers/": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/",
+    "https://ga.jspm.dev/npm:react-transition-group@4.4.1/": {
       "dom-helpers/addClass": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/cjs/addClass.js",
       "dom-helpers/removeClass": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/cjs/removeClass.js",
       "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
@@ -31,12 +29,10 @@
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
     },
     "https://ga.jspm.dev/npm:recompose@0.30.0/": {
-      "@babel/runtime/": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/extends.js",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/inheritsLoose.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.9.2/helpers/objectWithoutPropertiesLoose.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
       "change-emitter": "https://ga.jspm.dev/npm:change-emitter@0.1.6/lib/index.js",
-      "fbjs/": "https://ga.jspm.dev/npm:fbjs@0.8.17/",
       "fbjs/lib/shallowEqual": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/shallowEqual.js",
       "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@2.5.5/dist/hoist-non-react-statics.cjs.js",
       "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js",

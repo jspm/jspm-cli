@@ -1,58 +1,49 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "rc-tree": "https://ga.jspm.dev/npm:rc-tree@3.1.3/lib/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "rc-tree": "https://ga.jspm.dev/npm:rc-tree@3.3.0/lib/index.js",
+    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/": "https://ga.jspm.dev/npm:core-js@2.6.11/",
-      "core-js/library/fn/object/assign": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/assign.js",
-      "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
-      "core-js/library/fn/object/define-property": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/define-property.js",
-      "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
-      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
-      "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
-    },
     "https://ga.jspm.dev/npm:raf@3.4.1/": {
       "performance-now": "https://ga.jspm.dev/npm:performance-now@2.1.0/lib/performance-now.js"
     },
-    "https://ga.jspm.dev/npm:rc-animate@2.10.3/": {
-      "babel-runtime/": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/",
-      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
-      "babel-runtime/helpers/createClass": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/createClass.js",
-      "babel-runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/defineProperty.js",
-      "babel-runtime/helpers/extends": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/extends.js",
-      "babel-runtime/helpers/inherits": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/inherits.js",
-      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
+    "https://ga.jspm.dev/npm:rc-animate@3.1.0/": {
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
       "raf": "https://ga.jspm.dev/npm:raf@3.4.1/index.js",
-      "rc-util/": "https://ga.jspm.dev/npm:rc-util@4.20.3/",
-      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/Dom/findDOMNode.js",
-      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/findDOMNode.js",
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:rc-tree@3.1.3/": {
+    "https://ga.jspm.dev/npm:rc-tree@3.3.0/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/toConsumableArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "rc-animate/": "https://ga.jspm.dev/npm:rc-animate@2.10.3/",
-      "rc-animate/lib/CSSMotion": "https://ga.jspm.dev/npm:rc-animate@2.10.3/lib/CSSMotion.js",
-      "rc-util/": "https://ga.jspm.dev/npm:rc-util@4.20.3/",
-      "rc-util/lib/Children/toArray": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/Children/toArray.js",
-      "rc-util/lib/KeyCode": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/KeyCode.js",
-      "rc-util/lib/warning": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/warning.js",
-      "rc-virtual-list": "https://ga.jspm.dev/npm:rc-virtual-list@1.1.2/lib/index.js",
-      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+      "rc-animate/lib/CSSMotion": "https://ga.jspm.dev/npm:rc-animate@3.1.0/lib/CSSMotion.js",
+      "rc-util/lib/Children/toArray": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Children/toArray.js",
+      "rc-util/lib/KeyCode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/KeyCode.js",
+      "rc-util/lib/warning": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/warning.js",
+      "rc-virtual-list": "https://ga.jspm.dev/npm:rc-virtual-list@1.1.4/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:rc-util@4.20.3/": {
+    "https://ga.jspm.dev/npm:rc-util@5.0.1/": {
+      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
+      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
       "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:rc-virtual-list@1.1.2/": {
+    "https://ga.jspm.dev/npm:rc-virtual-list@1.1.4/": {
       "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
       "raf": "https://ga.jspm.dev/npm:raf@3.4.1/index.js",
-      "rc-util/": "https://ga.jspm.dev/npm:rc-util@4.20.3/",
-      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@4.20.3/lib/Dom/findDOMNode.js"
+      "rc-util/lib/Dom/findDOMNode": "https://ga.jspm.dev/npm:rc-util@5.0.1/lib/Dom/findDOMNode.js"
     },
     "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
       "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",

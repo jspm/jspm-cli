@@ -1,26 +1,67 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "knex": "https://ga.jspm.dev/npm:knex@0.20.13/knex.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "knex": "https://ga.jspm.dev/npm:knex@0.21.1/knex.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "timers": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:debug@4.1.1/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:knex@0.20.13/": {
+    "https://ga.jspm.dev/npm:knex@0.21.1/": {
       "colorette": "https://ga.jspm.dev/npm:colorette@1.1.0/index.js",
       "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
       "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "pg-connection-string": "https://ga.jspm.dev/npm:pg-connection-string@2.1.0/index.js",
-      "tarn": "https://ga.jspm.dev/npm:tarn@2.0.0/lib/tarn.js",
+      "knex/lib/migrate/Migrator.js": "https://ga.jspm.dev/npm:knex@0.21.1/lib/util/noop.js",
+      "knex/lib/seed/Seeder.js": "https://ga.jspm.dev/npm:knex@0.21.1/lib/util/noop.js",
+      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
+      "lodash/bind": "https://ga.jspm.dev/npm:lodash@4.17.15/bind.js",
+      "lodash/chunk": "https://ga.jspm.dev/npm:lodash@4.17.15/chunk.js",
+      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
+      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/compact": "https://ga.jspm.dev/npm:lodash@4.17.15/compact.js",
+      "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
+      "lodash/each": "https://ga.jspm.dev/npm:lodash@4.17.15/each.js",
+      "lodash/extend": "https://ga.jspm.dev/npm:lodash@4.17.15/extend.js",
+      "lodash/first": "https://ga.jspm.dev/npm:lodash@4.17.15/first.js",
+      "lodash/flatten": "https://ga.jspm.dev/npm:lodash@4.17.15/flatten.js",
+      "lodash/groupBy": "https://ga.jspm.dev/npm:lodash@4.17.15/groupBy.js",
+      "lodash/has": "https://ga.jspm.dev/npm:lodash@4.17.15/has.js",
+      "lodash/indexOf": "https://ga.jspm.dev/npm:lodash@4.17.15/indexOf.js",
+      "lodash/isBoolean": "https://ga.jspm.dev/npm:lodash@4.17.15/isBoolean.js",
+      "lodash/isEmpty": "https://ga.jspm.dev/npm:lodash@4.17.15/isEmpty.js",
+      "lodash/isFunction": "https://ga.jspm.dev/npm:lodash@4.17.15/isFunction.js",
+      "lodash/isNumber": "https://ga.jspm.dev/npm:lodash@4.17.15/isNumber.js",
+      "lodash/isObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isObject.js",
+      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isString": "https://ga.jspm.dev/npm:lodash@4.17.15/isString.js",
+      "lodash/isTypedArray": "https://ga.jspm.dev/npm:lodash@4.17.15/isTypedArray.js",
+      "lodash/isUndefined": "https://ga.jspm.dev/npm:lodash@4.17.15/isUndefined.js",
+      "lodash/last": "https://ga.jspm.dev/npm:lodash@4.17.15/last.js",
+      "lodash/map": "https://ga.jspm.dev/npm:lodash@4.17.15/map.js",
+      "lodash/merge": "https://ga.jspm.dev/npm:lodash@4.17.15/merge.js",
+      "lodash/omitBy": "https://ga.jspm.dev/npm:lodash@4.17.15/omitBy.js",
+      "lodash/reduce": "https://ga.jspm.dev/npm:lodash@4.17.15/reduce.js",
+      "lodash/reject": "https://ga.jspm.dev/npm:lodash@4.17.15/reject.js",
+      "lodash/tail": "https://ga.jspm.dev/npm:lodash@4.17.15/tail.js",
+      "lodash/toArray": "https://ga.jspm.dev/npm:lodash@4.17.15/toArray.js",
+      "lodash/transform": "https://ga.jspm.dev/npm:lodash@4.17.15/transform.js",
+      "lodash/uniqueId": "https://ga.jspm.dev/npm:lodash@4.17.15/uniqueId.js",
+      "pg-connection-string": "https://ga.jspm.dev/npm:pg-connection-string@2.2.0/index.js",
+      "tarn": "https://ga.jspm.dev/npm:tarn@3.0.0/dist/tarn.js",
       "uuid": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/index.js"
+    },
+    "https://ga.jspm.dev/npm:uuid@7.0.3/": {
+      "uuid/dist/md5.js": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/md5-browser.js",
+      "uuid/dist/rng.js": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/rng-browser.js",
+      "uuid/dist/sha1.js": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/sha1-browser.js"
     }
   }
 }

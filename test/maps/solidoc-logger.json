@@ -1,19 +1,19 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
     "dtrace-provider": "https://ga.jspm.dev/npm:dtrace-provider@0.8.8/dtrace-provider.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/http.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
     "mv": "https://ga.jspm.dev/npm:mv@2.1.1/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "safe-json-stringify": "https://ga.jspm.dev/npm:safe-json-stringify@1.2.0/index.js",
     "solidoc-logger": "https://ga.jspm.dev/npm:solidoc-logger@1.0.13/dist/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
@@ -24,6 +24,9 @@
       "ansicolors": "https://ga.jspm.dev/npm:ansicolors@0.2.1/ansicolors.js",
       "ansistyles": "https://ga.jspm.dev/npm:ansistyles@0.1.3/ansistyles.js",
       "xtend": "https://ga.jspm.dev/npm:xtend@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:bunyan@1.8.12/": {
+      "source-map-support": "https://ga.jspm.dev/npm:source-map-support@0.5.19/source-map-support.js"
     },
     "https://ga.jspm.dev/npm:glob@6.0.4/": {
       "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
@@ -53,6 +56,10 @@
     "https://ga.jspm.dev/npm:solidoc-logger@1.0.13/": {
       "bunyan": "https://ga.jspm.dev/npm:bunyan@1.8.12/lib/bunyan.js",
       "bunyan-format": "https://ga.jspm.dev/npm:bunyan-format@0.2.1/index.js"
+    },
+    "https://ga.jspm.dev/npm:source-map-support@0.5.19/": {
+      "buffer-from": "https://ga.jspm.dev/npm:buffer-from@1.1.1/index.js",
+      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
     },
     "https://ga.jspm.dev/npm:xtend@2.1.2/": {
       "object-keys": "https://ga.jspm.dev/npm:object-keys@0.4.0/index.js"

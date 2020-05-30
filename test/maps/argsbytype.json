@@ -1,10 +1,10 @@
 {
   "imports": {
-    "argsbytype": "https://ga.jspm.dev/npm:argsbytype@3.0.0/edition-browsers/index.js"
+    "argsbytype": "https://ga.jspm.dev/npm:argsbytype@3.5.0/edition-browsers/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:argsbytype@3.0.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.3.0/edition-browsers/index.js"
+    "https://ga.jspm.dev/npm:argsbytype@3.5.0/": {
+      "typechecker": "https://ga.jspm.dev/npm:typechecker@7.4.0/edition-browsers/index.js"
     }
   }
 }

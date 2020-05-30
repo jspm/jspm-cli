@@ -1,33 +1,35 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
-    "vizion": "https://ga.jspm.dev/npm:vizion@2.0.2/index.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "vizion": "https://ga.jspm.dev/npm:vizion@2.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:async@2.6.1/": {
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:async@2.6.3/": {
       "lodash/isArray": "https://ga.jspm.dev/npm:lodash@4.17.15/isArray.js",
       "lodash/isArrayLike": "https://ga.jspm.dev/npm:lodash@4.17.15/isArrayLike.js",
       "lodash/isObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isObject.js",
       "lodash/keys": "https://ga.jspm.dev/npm:lodash@4.17.15/keys.js",
       "lodash/noop": "https://ga.jspm.dev/npm:lodash@4.17.15/noop.js"
     },
-    "https://ga.jspm.dev/npm:vizion@2.0.2/": {
-      "async/": "https://ga.jspm.dev/npm:async@2.6.1/",
-      "async/eachSeries": "https://ga.jspm.dev/npm:async@2.6.1/eachSeries.js",
-      "async/waterfall": "https://ga.jspm.dev/npm:async@2.6.1/waterfall.js",
-      "async/whilst": "https://ga.jspm.dev/npm:async@2.6.1/whilst.js",
-      "git-node-fs/": "https://ga.jspm.dev/npm:git-node-fs@1.0.0/",
+    "https://ga.jspm.dev/npm:git-node-fs@1.0.0/": {
+      "js-git/mixins/fs-db": "https://ga.jspm.dev/npm:js-git@0.7.8/mixins/fs-db.js"
+    },
+    "https://ga.jspm.dev/npm:js-git@0.7.8/": {
+      "bodec": "https://ga.jspm.dev/npm:bodec@0.1.0/bodec.js",
+      "git-sha1": "https://ga.jspm.dev/npm:git-sha1@0.1.2/git-sha1.js",
+      "pako": "https://ga.jspm.dev/npm:pako@0.2.9/index.js"
+    },
+    "https://ga.jspm.dev/npm:vizion@2.2.0/": {
+      "async/eachSeries": "https://ga.jspm.dev/npm:async@2.6.3/eachSeries.js",
+      "async/waterfall": "https://ga.jspm.dev/npm:async@2.6.3/waterfall.js",
+      "async/whilst": "https://ga.jspm.dev/npm:async@2.6.3/whilst.js",
       "git-node-fs/mixins/fs-db": "https://ga.jspm.dev/npm:git-node-fs@1.0.0/mixins/fs-db.js",
       "ini": "https://ga.jspm.dev/npm:ini@1.3.5/ini.js",
-      "js-git/": "https://ga.jspm.dev/npm:js-git@0.7.8/",
-      "js-git/mixins/walkers": "https://ga.jspm.dev/npm:js-git@0.7.8/mixins/walkers.js",
-      "lodash.findindex": "https://ga.jspm.dev/npm:lodash.findindex@4.6.0/index.js",
-      "lodash.foreach": "https://ga.jspm.dev/npm:lodash.foreach@4.5.0/index.js",
-      "lodash.get": "https://ga.jspm.dev/npm:lodash.get@4.4.2/index.js",
-      "lodash.last": "https://ga.jspm.dev/npm:lodash.last@3.0.0/index.js"
+      "js-git/mixins/walkers": "https://ga.jspm.dev/npm:js-git@0.7.8/mixins/walkers.js"
     }
   }
 }

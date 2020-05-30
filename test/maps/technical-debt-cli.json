@@ -1,12 +1,12 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "technical-debt-cli": "https://ga.jspm.dev/npm:technical-debt-cli@1.0.0/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
     "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
@@ -25,7 +25,7 @@
     },
     "https://ga.jspm.dev/npm:glob-gitignore@1.0.14/": {
       "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
-      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.4/index.js",
+      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.8/index.js",
       "lodash.difference": "https://ga.jspm.dev/npm:lodash.difference@4.5.0/index.js",
       "lodash.union": "https://ga.jspm.dev/npm:lodash.union@4.6.0/index.js",
       "make-array": "https://ga.jspm.dev/npm:make-array@1.0.5/index.js",
@@ -52,7 +52,7 @@
     "https://ga.jspm.dev/npm:technical-debt-cli@1.0.0/": {
       "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
       "glob-gitignore": "https://ga.jspm.dev/npm:glob-gitignore@1.0.14/src/index.js",
-      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.4/index.js"
+      "ignore": "https://ga.jspm.dev/npm:ignore@5.1.8/index.js"
     }
   }
 }

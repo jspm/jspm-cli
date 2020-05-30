@@ -1,6 +1,6 @@
 {
   "imports": {
     "atob": "https://ga.jspm.dev/npm:atob@2.1.2/browser-atob.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js"
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   }
 }

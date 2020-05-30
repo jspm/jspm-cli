@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@filecoin-shipyard/lotus-client-schema": "https://ga.jspm.dev/npm:@filecoin-shipyard/lotus-client-schema@0.0.2/index.js"
+    "@filecoin-shipyard/lotus-client-schema": "https://ga.jspm.dev/npm:@filecoin-shipyard/lotus-client-schema@0.0.9/index.js"
   }
 }

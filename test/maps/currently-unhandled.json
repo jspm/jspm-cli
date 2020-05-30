@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "currently-unhandled": "https://ga.jspm.dev/npm:currently-unhandled@0.4.1/browser.js"
+  },
+  "scopes": {
+    "https://ga.jspm.dev/npm:currently-unhandled@0.4.1/": {
+      "array-find-index": "https://ga.jspm.dev/npm:array-find-index@1.0.2/index.js"
+    }
+  }
+}

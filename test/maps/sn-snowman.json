@@ -1,126 +1,143 @@
 {
   "imports": {
-    "@babel/core": "https://ga.jspm.dev/npm:@babel/core@7.9.0/lib/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/process-production.js",
+    "@babel/core": "https://ga.jspm.dev/npm:@babel/core@7.10.1/lib/index.js",
+    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
+    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
     "sn-snowman": "https://ga.jspm.dev/npm:sn-snowman@0.5.1/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/util.js"
+    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/": {
-      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/core@7.9.0/": {
-      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
-      "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.9.5/lib/index.js",
-      "@babel/helper-module-transforms": "https://ga.jspm.dev/npm:@babel/helper-module-transforms@7.9.0/lib/index.js",
-      "@babel/helpers": "https://ga.jspm.dev/npm:@babel/helpers@7.9.2/lib/index.js",
-      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js",
-      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
-      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/core@7.10.1/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
+      "@babel/core/lib/config/files/index.js": "https://ga.jspm.dev/npm:@babel/core@7.10.1/lib/config/files/index-browser.js",
+      "@babel/core/lib/transform-file.js": "https://ga.jspm.dev/npm:@babel/core@7.10.1/lib/transform-file-browser.js",
+      "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.10.1/lib/index.js",
+      "@babel/helper-module-transforms": "https://ga.jspm.dev/npm:@babel/helper-module-transforms@7.10.1/lib/index.js",
+      "@babel/helpers": "https://ga.jspm.dev/npm:@babel/helpers@7.10.1/lib/index.js",
+      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.10.1/lib/index.js",
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.10.1/lib/index.js",
+      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js",
       "convert-source-map": "https://ga.jspm.dev/npm:convert-source-map@1.7.0/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "gensync": "https://ga.jspm.dev/npm:gensync@1.0.0-beta.1/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
       "lodash/escapeRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/escapeRegExp.js",
       "lodash/sortBy": "https://ga.jspm.dev/npm:lodash@4.17.15/sortBy.js",
       "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
     },
-    "https://ga.jspm.dev/npm:@babel/generator@7.9.5/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/generator@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js",
       "jsesc": "https://ga.jspm.dev/npm:jsesc@2.5.2/jsesc.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/isInteger": "https://ga.jspm.dev/npm:lodash@4.17.15/isInteger.js",
       "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js",
       "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-function-name@7.9.5/": {
-      "@babel/helper-get-function-arity": "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.8.3/lib/index.js",
-      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-function-name@7.10.1/": {
+      "@babel/helper-get-function-arity": "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.10.1/lib/index.js",
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-get-function-arity@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-member-expression-to-functions@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-member-expression-to-functions@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-module-transforms@7.9.0/": {
-      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/lib/index.js",
-      "@babel/helper-replace-supers": "https://ga.jspm.dev/npm:@babel/helper-replace-supers@7.8.6/lib/index.js",
-      "@babel/helper-simple-access": "https://ga.jspm.dev/npm:@babel/helper-simple-access@7.8.3/lib/index.js",
-      "@babel/helper-split-export-declaration": "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.8.3/lib/index.js",
-      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:@babel/helper-module-transforms@7.10.1/": {
+      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/lib/index.js",
+      "@babel/helper-replace-supers": "https://ga.jspm.dev/npm:@babel/helper-replace-supers@7.10.1/lib/index.js",
+      "@babel/helper-simple-access": "https://ga.jspm.dev/npm:@babel/helper-simple-access@7.10.1/lib/index.js",
+      "@babel/helper-split-export-declaration": "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.10.1/lib/index.js",
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js",
       "lodash/chunk": "https://ga.jspm.dev/npm:lodash@4.17.15/chunk.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-optimise-call-expression@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-optimise-call-expression@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-replace-supers@7.8.6/": {
-      "@babel/helper-member-expression-to-functions": "https://ga.jspm.dev/npm:@babel/helper-member-expression-to-functions@7.8.3/lib/index.js",
-      "@babel/helper-optimise-call-expression": "https://ga.jspm.dev/npm:@babel/helper-optimise-call-expression@7.8.3/lib/index.js",
-      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-replace-supers@7.10.1/": {
+      "@babel/helper-member-expression-to-functions": "https://ga.jspm.dev/npm:@babel/helper-member-expression-to-functions@7.10.1/lib/index.js",
+      "@babel/helper-optimise-call-expression": "https://ga.jspm.dev/npm:@babel/helper-optimise-call-expression@7.10.1/lib/index.js",
+      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-simple-access@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-simple-access@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.8.3/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.10.1/": {
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helpers@7.9.2/": {
-      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.8.6/lib/index.js",
-      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/helpers@7.10.1/": {
+      "@babel/template": "https://ga.jspm.dev/npm:@babel/template@7.10.1/lib/index.js",
+      "@babel/traverse": "https://ga.jspm.dev/npm:@babel/traverse@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/highlight@7.9.0/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
+    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
       "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/template@7.8.6/": {
-      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
-      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js"
+    "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/": {
+      "core-js-pure/features/array/from": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/array/from.js",
+      "core-js-pure/features/array/is-array": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/array/is-array.js",
+      "core-js-pure/features/get-iterator": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/get-iterator.js",
+      "core-js-pure/features/instance/slice": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/instance/slice.js",
+      "core-js-pure/features/is-iterable": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/is-iterable.js",
+      "core-js-pure/features/symbol": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/features/symbol/index.js",
+      "core-js-pure/stable/instance/concat": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/concat.js",
+      "core-js-pure/stable/instance/flags": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/flags.js",
+      "core-js-pure/stable/instance/for-each": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/for-each.js",
+      "core-js-pure/stable/instance/includes": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/includes.js",
+      "core-js-pure/stable/instance/index-of": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/index-of.js",
+      "core-js-pure/stable/instance/map": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/map.js",
+      "core-js-pure/stable/instance/reduce": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/reduce.js",
+      "core-js-pure/stable/instance/slice": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/slice.js",
+      "core-js-pure/stable/instance/sort": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/instance/sort.js",
+      "core-js-pure/stable/object/create": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/object/create.js",
+      "core-js-pure/stable/object/define-property": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/object/define-property.js",
+      "core-js-pure/stable/parse-int": "https://ga.jspm.dev/npm:core-js-pure@3.6.5/stable/parse-int.js"
     },
-    "https://ga.jspm.dev/npm:@babel/traverse@7.9.5/": {
-      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.8.3/lib/index.js",
-      "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.9.5/lib/index.js",
-      "@babel/helper-function-name": "https://ga.jspm.dev/npm:@babel/helper-function-name@7.9.5/lib/index.js",
-      "@babel/helper-split-export-declaration": "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.8.3/lib/index.js",
-      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.9.4/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.9.5/lib/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
+    "https://ga.jspm.dev/npm:@babel/template@7.10.1/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
+      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
+    },
+    "https://ga.jspm.dev/npm:@babel/traverse@7.10.1/": {
+      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
+      "@babel/generator": "https://ga.jspm.dev/npm:@babel/generator@7.10.1/lib/index.js",
+      "@babel/helper-function-name": "https://ga.jspm.dev/npm:@babel/helper-function-name@7.10.1/lib/index.js",
+      "@babel/helper-split-export-declaration": "https://ga.jspm.dev/npm:@babel/helper-split-export-declaration@7.10.1/lib/index.js",
+      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.10.1/lib/index.js",
+      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js",
+      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
       "globals": "https://ga.jspm.dev/npm:globals@11.12.0/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
       "lodash/includes": "https://ga.jspm.dev/npm:lodash@4.17.15/includes.js",
       "lodash/repeat": "https://ga.jspm.dev/npm:lodash@4.17.15/repeat.js"
     },
-    "https://ga.jspm.dev/npm:@babel/types@7.9.5/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.9.5/lib/index.js",
-      "lodash/": "https://ga.jspm.dev/npm:lodash@4.17.15/",
+    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
       "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
       "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
       "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
@@ -133,9 +150,9 @@
     },
     "https://ga.jspm.dev/npm:@nodelib/fs.walk@1.2.4/": {
       "@nodelib/fs.scandir": "https://ga.jspm.dev/npm:@nodelib/fs.scandir@2.1.3/out/index.js",
-      "fastq": "https://ga.jspm.dev/npm:fastq@1.7.0/queue.js"
+      "fastq": "https://ga.jspm.dev/npm:fastq@1.8.0/queue.js"
     },
-    "https://ga.jspm.dev/npm:@rollup/plugin-alias@3.0.1/": {
+    "https://ga.jspm.dev/npm:@rollup/plugin-alias@3.1.0/": {
       "slash": "https://ga.jspm.dev/npm:slash@3.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
@@ -166,19 +183,22 @@
     "https://ga.jspm.dev/npm:convert-source-map@1.7.0/": {
       "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:cross-spawn@7.0.2/": {
+    "https://ga.jspm.dev/npm:cross-spawn@7.0.3/": {
       "path-key": "https://ga.jspm.dev/npm:path-key@3.1.1/index.js",
       "shebang-command": "https://ga.jspm.dev/npm:shebang-command@2.0.0/index.js",
       "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
+    "https://ga.jspm.dev/npm:debug@4.2.0/": {
       "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.dev/npm:decamelize@3.2.0/": {
+      "xregexp": "https://ga.jspm.dev/npm:xregexp@4.3.0/lib/index.js"
     },
     "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:execa@4.0.0/": {
-      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.2/index.js",
+    "https://ga.jspm.dev/npm:execa@4.0.2/": {
+      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.3/index.js",
       "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
       "human-signals": "https://ga.jspm.dev/npm:human-signals@1.1.1/build/src/main.js",
       "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js",
@@ -196,7 +216,7 @@
       "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
       "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:fastq@1.7.0/": {
+    "https://ga.jspm.dev/npm:fastq@1.8.0/": {
       "reusify": "https://ga.jspm.dev/npm:reusify@1.0.4/reusify.js"
     },
     "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
@@ -207,7 +227,7 @@
       "path-exists": "https://ga.jspm.dev/npm:path-exists@4.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:fs-extra@8.1.0/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.3/graceful-fs.js",
+      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
       "jsonfile": "https://ga.jspm.dev/npm:jsonfile@4.0.0/index.js",
       "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
     },
@@ -226,7 +246,6 @@
     "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
       "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
       "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/": "https://ga.jspm.dev/npm:picomatch@2.2.2/",
       "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
     },
     "https://ga.jspm.dev/npm:npm-run-path@4.0.1/": {
@@ -249,27 +268,27 @@
       "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
     },
     "https://ga.jspm.dev/npm:rollup-plugin-babel@4.4.0/": {
-      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.8.3/lib/index.js",
+      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/lib/index.js",
       "rollup-pluginutils": "https://ga.jspm.dev/npm:rollup-pluginutils@2.8.2/dist/pluginutils.cjs.js"
     },
     "https://ga.jspm.dev/npm:rollup-pluginutils@2.8.2/": {
       "estree-walker": "https://ga.jspm.dev/npm:estree-walker@0.6.1/dist/estree-walker.umd.js"
     },
     "https://ga.jspm.dev/npm:rollup@1.32.1/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@7.1.1/dist/acorn.js"
+      "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js"
     },
     "https://ga.jspm.dev/npm:shebang-command@2.0.0/": {
       "shebang-regex": "https://ga.jspm.dev/npm:shebang-regex@3.0.0/index.js"
     },
     "https://ga.jspm.dev/npm:sn-snowman@0.5.1/": {
-      "@rollup/plugin-alias": "https://ga.jspm.dev/npm:@rollup/plugin-alias@3.0.1/dist/index.js",
+      "@rollup/plugin-alias": "https://ga.jspm.dev/npm:@rollup/plugin-alias@3.1.0/dist/index.js",
       "dotenv": "https://ga.jspm.dev/npm:dotenv@8.2.0/lib/main.js",
-      "execa": "https://ga.jspm.dev/npm:execa@4.0.0/index.js",
+      "execa": "https://ga.jspm.dev/npm:execa@4.0.2/index.js",
       "fast-glob": "https://ga.jspm.dev/npm:fast-glob@3.2.2/out/index.js",
       "fs-extra": "https://ga.jspm.dev/npm:fs-extra@8.1.0/lib/index.js",
       "rollup": "https://ga.jspm.dev/npm:rollup@1.32.1/dist/rollup.js",
       "rollup-plugin-babel": "https://ga.jspm.dev/npm:rollup-plugin-babel@4.4.0/dist/rollup-plugin-babel.cjs.js",
-      "yargs": "https://ga.jspm.dev/npm:yargs@15.3.1/index.js"
+      "yargs": "https://ga.jspm.dev/npm:yargs@15.4.0-beta.0/index.js"
     },
     "https://ga.jspm.dev/npm:string-width@4.2.0/": {
       "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@8.0.0/index.js",
@@ -290,13 +309,30 @@
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:yargs-parser@18.1.2/": {
+    "https://ga.jspm.dev/npm:xregexp@4.3.0/": {
+      "@babel/runtime-corejs3/core-js-stable/instance/concat": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/concat.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/flags": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/flags.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/for-each": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/for-each.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/includes": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/includes.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/index-of": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/index-of.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/map": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/map.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/reduce": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/reduce.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/slice": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/slice.js",
+      "@babel/runtime-corejs3/core-js-stable/instance/sort": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/instance/sort.js",
+      "@babel/runtime-corejs3/core-js-stable/object/create": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/object/create.js",
+      "@babel/runtime-corejs3/core-js-stable/object/define-property": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/object/define-property.js",
+      "@babel/runtime-corejs3/core-js-stable/parse-int": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js-stable/parse-int.js",
+      "@babel/runtime-corejs3/core-js/get-iterator": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/core-js/get-iterator.js",
+      "@babel/runtime-corejs3/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/helpers/interopRequireDefault.js",
+      "@babel/runtime-corejs3/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime-corejs3@7.10.1/helpers/slicedToArray.js"
+    },
+    "https://ga.jspm.dev/npm:yargs-parser@18.1.3/": {
       "camelcase": "https://ga.jspm.dev/npm:camelcase@5.3.1/index.js",
       "decamelize": "https://ga.jspm.dev/npm:decamelize@1.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:yargs@15.3.1/": {
+    "https://ga.jspm.dev/npm:yargs@15.4.0-beta.0/": {
       "cliui": "https://ga.jspm.dev/npm:cliui@6.0.0/index.js",
-      "decamelize": "https://ga.jspm.dev/npm:decamelize@1.2.0/index.js",
+      "decamelize": "https://ga.jspm.dev/npm:decamelize@3.2.0/index.js",
       "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js",
       "get-caller-file": "https://ga.jspm.dev/npm:get-caller-file@2.0.5/index.js",
       "require-directory": "https://ga.jspm.dev/npm:require-directory@2.1.1/index.js",
@@ -305,7 +341,7 @@
       "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
       "which-module": "https://ga.jspm.dev/npm:which-module@2.0.0/index.js",
       "y18n": "https://ga.jspm.dev/npm:y18n@4.0.0/index.js",
-      "yargs-parser": "https://ga.jspm.dev/npm:yargs-parser@18.1.2/index.js"
+      "yargs-parser": "https://ga.jspm.dev/npm:yargs-parser@18.1.3/index.js"
     }
   }
 }

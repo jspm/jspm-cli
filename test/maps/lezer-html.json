@@ -1,12 +1,12 @@
 {
   "imports": {
-    "lezer-html": "https://ga.jspm.dev/npm:lezer-html@0.8.3/dist/index.es.js"
+    "lezer-html": "https://ga.jspm.dev/npm:lezer-html@0.8.4/dist/index.es.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lezer-html@0.8.3/": {
-      "lezer": "https://ga.jspm.dev/npm:lezer@0.8.3/dist/index.es.js"
+    "https://ga.jspm.dev/npm:lezer-html@0.8.4/": {
+      "lezer": "https://ga.jspm.dev/npm:lezer@0.8.5/dist/index.es.js"
     },
-    "https://ga.jspm.dev/npm:lezer@0.8.3/": {
+    "https://ga.jspm.dev/npm:lezer@0.8.5/": {
       "lezer-tree": "https://ga.jspm.dev/npm:lezer-tree@0.8.4/dist/tree.es.js"
     }
   }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@dv4all/fs-utils": "https://ga.jspm.dev/npm:@dv4all/fs-utils@0.2.7/lib/dv4fs.utils.cjs.js"
+    "@dv4all/fs-utils": "https://ga.jspm.dev/npm:@dv4all/fs-utils@0.2.8/lib/dv4fs.utils.cjs.js"
   }
 }

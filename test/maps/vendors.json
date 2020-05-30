@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vendors": "https://ga.jspm.dev/npm:vendors@1.0.4/index.json"
+    "vendors": "https://ga.jspm.dev/npm:vendors@1.0.4/index.json.js"
   }
 }

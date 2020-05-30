@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "@mattd3v/jsfs": "https://ga.jspm.dev/npm:@mattd3v/jsfs@1.0.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/@empty.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.3/nodelibs/path.js"
-  }
-}

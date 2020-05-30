@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dom-magic": "https://ga.jspm.dev/npm:dom-magic@1.1.0/dom-magic.js"
+  }
+}

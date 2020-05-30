@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@lrnwebcomponents/exif-data": "https://ga.jspm.dev/npm:@lrnwebcomponents/exif-data@2.6.3/exif-data.js"
+    "@lrnwebcomponents/exif-data": "https://ga.jspm.dev/npm:@lrnwebcomponents/exif-data@2.6.12/exif-data.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/exif-data@2.6.3/": {
-      "@lrnwebcomponents/es-global-bridge/": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.4.0/"
+    "https://ga.jspm.dev/npm:@lrnwebcomponents/exif-data@2.6.12/": {
+      "@lrnwebcomponents/es-global-bridge/es-global-bridge.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.6.12/es-global-bridge.js"
     }
   }
 }
