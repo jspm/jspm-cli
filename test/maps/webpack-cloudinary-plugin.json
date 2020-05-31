@@ -1,5 +1,5 @@
 {
   "imports": {
-    "webpack-cloudinary-plugin": "https://ga.jspm.dev/npm:webpack-cloudinary-plugin@0.1.10-beta/index.js"
+    "webpack-cloudinary-plugin": "https://ga.jspm.io/npm:webpack-cloudinary-plugin@0.1.10-beta/index.js"
   }
 }

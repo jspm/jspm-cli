@@ -1,49 +1,49 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "webpack-dev-middleware": "https://ga.jspm.dev/npm:webpack-dev-middleware@3.7.2/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "webpack-dev-middleware": "https://ga.jspm.io/npm:webpack-dev-middleware@3.7.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:errno@0.1.7/": {
-      "prr": "https://ga.jspm.dev/npm:prr@1.0.1/prr.js"
+    "https://ga.jspm.io/npm:errno@0.1.7/": {
+      "prr": "https://ga.jspm.io/npm:prr@1.0.1/prr.js"
     },
-    "https://ga.jspm.dev/npm:memory-fs@0.4.1/": {
-      "errno": "https://ga.jspm.dev/npm:errno@0.1.7/errno.js",
-      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@2.3.7/readable-browser.js"
+    "https://ga.jspm.io/npm:memory-fs@0.4.1/": {
+      "errno": "https://ga.jspm.io/npm:errno@0.1.7/errno.js",
+      "readable-stream": "https://ga.jspm.io/npm:readable-stream@2.3.7/readable-browser.js"
     },
-    "https://ga.jspm.dev/npm:readable-stream@2.3.7/": {
-      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "isarray": "https://ga.jspm.dev/npm:isarray@1.0.0/index.js",
-      "process-nextick-args": "https://ga.jspm.dev/npm:process-nextick-args@2.0.1/index.js",
-      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@2.3.7/lib/internal/streams/stream-browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js",
-      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.1.1/lib/string_decoder.js",
-      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    "https://ga.jspm.io/npm:readable-stream@2.3.7/": {
+      "core-util-is": "https://ga.jspm.io/npm:core-util-is@1.0.2/lib/util.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "isarray": "https://ga.jspm.io/npm:isarray@1.0.0/index.js",
+      "process-nextick-args": "https://ga.jspm.io/npm:process-nextick-args@2.0.1/index.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.io/npm:readable-stream@2.3.7/lib/internal/streams/stream-browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.1.2/index.js",
+      "string_decoder": "https://ga.jspm.io/npm:string_decoder@1.1.1/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.io/npm:util-deprecate@1.0.2/browser.js"
     },
-    "https://ga.jspm.dev/npm:string_decoder@1.1.1/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    "https://ga.jspm.io/npm:string_decoder@1.1.1/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
-      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
+    "https://ga.jspm.io/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.io/npm:uuid@3.4.0/lib/rng-browser.js"
     },
-    "https://ga.jspm.dev/npm:webpack-dev-middleware@3.7.2/": {
-      "memory-fs": "https://ga.jspm.dev/npm:memory-fs@0.4.1/lib/MemoryFileSystem.js",
-      "mime": "https://ga.jspm.dev/npm:mime@2.4.6/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
-      "range-parser": "https://ga.jspm.dev/npm:range-parser@1.2.1/index.js",
-      "webpack-log": "https://ga.jspm.dev/npm:webpack-log@2.0.0/src/index.js"
+    "https://ga.jspm.io/npm:webpack-dev-middleware@3.7.2/": {
+      "memory-fs": "https://ga.jspm.io/npm:memory-fs@0.4.1/lib/MemoryFileSystem.js",
+      "mime": "https://ga.jspm.io/npm:mime@2.4.6/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@0.5.5/index.js",
+      "range-parser": "https://ga.jspm.io/npm:range-parser@1.2.1/index.js",
+      "webpack-log": "https://ga.jspm.io/npm:webpack-log@2.0.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:webpack-log@2.0.0/": {
-      "ansi-colors": "https://ga.jspm.dev/npm:ansi-colors@3.2.4/index.js",
-      "uuid/v4": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
+    "https://ga.jspm.io/npm:webpack-log@2.0.0/": {
+      "ansi-colors": "https://ga.jspm.io/npm:ansi-colors@3.2.4/index.js",
+      "uuid/v4": "https://ga.jspm.io/npm:uuid@3.4.0/v4.js"
     }
   }
 }

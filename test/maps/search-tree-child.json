@@ -1,5 +1,5 @@
 {
   "imports": {
-    "search-tree-child": "https://ga.jspm.dev/npm:search-tree-child@1.0.15/index.js"
+    "search-tree-child": "https://ga.jspm.io/npm:search-tree-child@1.0.15/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
+    "type-detect": "https://ga.jspm.io/npm:type-detect@4.0.8/type-detect.js"
   }
 }

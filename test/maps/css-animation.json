@@ -1,5 +1,5 @@
 {
   "imports": {
-    "css-animation": "https://ga.jspm.dev/npm:css-animation@2.0.4/dist-node/index.js"
+    "css-animation": "https://ga.jspm.io/npm:css-animation@2.0.4/dist-node/index.js"
   }
 }

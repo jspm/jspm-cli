@@ -1,5 +1,5 @@
 {
   "imports": {
-    "meant": "https://ga.jspm.dev/npm:meant@1.0.1/index.js"
+    "meant": "https://ga.jspm.io/npm:meant@1.0.1/index.js"
   }
 }

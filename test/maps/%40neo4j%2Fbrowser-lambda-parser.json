@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@neo4j/browser-lambda-parser": "https://ga.jspm.dev/npm:@neo4j/browser-lambda-parser@1.0.4/src/index.js"
+    "@neo4j/browser-lambda-parser": "https://ga.jspm.io/npm:@neo4j/browser-lambda-parser@1.0.4/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@neo4j/browser-lambda-parser@1.0.4/": {
-      "nearley": "https://ga.jspm.dev/npm:nearley@2.18.0/lib/nearley.js"
+    "https://ga.jspm.io/npm:@neo4j/browser-lambda-parser@1.0.4/": {
+      "nearley": "https://ga.jspm.io/npm:nearley@2.18.0/lib/nearley.js"
     }
   }
 }

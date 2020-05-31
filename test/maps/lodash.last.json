@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.last": "https://ga.jspm.dev/npm:lodash.last@3.0.0/index.js"
+    "lodash.last": "https://ga.jspm.io/npm:lodash.last@3.0.0/index.js"
   }
 }

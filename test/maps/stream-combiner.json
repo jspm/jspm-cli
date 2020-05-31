@@ -1,13 +1,13 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "stream-combiner": "https://ga.jspm.dev/npm:stream-combiner@0.2.2/index.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "stream-combiner": "https://ga.jspm.io/npm:stream-combiner@0.2.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:stream-combiner@0.2.2/": {
-      "duplexer": "https://ga.jspm.dev/npm:duplexer@0.1.1/index.js",
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:stream-combiner@0.2.2/": {
+      "duplexer": "https://ga.jspm.io/npm:duplexer@0.1.1/index.js",
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     }
   }
 }

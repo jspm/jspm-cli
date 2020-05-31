@@ -1,10 +1,10 @@
 {
   "imports": {
-    "bulib-wc": "https://ga.jspm.dev/npm:bulib-wc@0.1.32-test/src/index.js"
+    "bulib-wc": "https://ga.jspm.io/npm:bulib-wc@0.1.32-test/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:bulib-wc@0.1.32-test/": {
-      "@webcomponents/webcomponentsjs/webcomponents-loader": "https://ga.jspm.dev/npm:@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js"
+    "https://ga.jspm.io/npm:bulib-wc@0.1.32-test/": {
+      "@webcomponents/webcomponentsjs/webcomponents-loader": "https://ga.jspm.io/npm:@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js"
     }
   }
 }

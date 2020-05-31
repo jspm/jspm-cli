@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@warfog/crafter": "https://ga.jspm.dev/npm:@warfog/crafter@1.2.2/dist/index.js"
+    "@warfog/crafter": "https://ga.jspm.io/npm:@warfog/crafter@1.2.2/dist/index.js"
   }
 }

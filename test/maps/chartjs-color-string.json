@@ -1,10 +1,10 @@
 {
   "imports": {
-    "chartjs-color-string": "https://ga.jspm.dev/npm:chartjs-color-string@0.6.0/color-string.js"
+    "chartjs-color-string": "https://ga.jspm.io/npm:chartjs-color-string@0.6.0/color-string.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:chartjs-color-string@0.6.0/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:chartjs-color-string@0.6.0/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     }
   }
 }

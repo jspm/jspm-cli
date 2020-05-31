@@ -1,5 +1,5 @@
 {
   "imports": {
-    "js-cookie": "https://ga.jspm.dev/npm:js-cookie@2.2.1/src/js.cookie.js"
+    "js-cookie": "https://ga.jspm.io/npm:js-cookie@2.2.1/src/js.cookie.js"
   }
 }

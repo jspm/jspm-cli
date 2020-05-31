@@ -1,6 +1,6 @@
 {
   "imports": {
-    "human-signals": "https://ga.jspm.dev/npm:human-signals@2.1.0/build/src/main.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
+    "human-signals": "https://ga.jspm.io/npm:human-signals@2.1.0/build/src/main.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   }
 }

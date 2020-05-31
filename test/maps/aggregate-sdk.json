@@ -1,5 +1,5 @@
 {
   "imports": {
-    "aggregate-sdk": "https://ga.jspm.dev/npm:aggregate-sdk@5.70.15/index.js"
+    "aggregate-sdk": "https://ga.jspm.io/npm:aggregate-sdk@5.70.15/index.js"
   }
 }

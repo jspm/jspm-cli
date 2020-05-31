@@ -1,6 +1,6 @@
 {
   "imports": {
-    "konsum-db": "https://ga.jspm.dev/npm:konsum-db@1.5.11/src/database.mjs",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "konsum-db": "https://ga.jspm.io/npm:konsum-db@1.5.11/src/database.mjs",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

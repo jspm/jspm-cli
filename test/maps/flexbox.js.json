@@ -1,5 +1,5 @@
 {
   "imports": {
-    "flexbox.js": "https://ga.jspm.dev/npm:flexbox.js@1.0.15/lib/index.js"
+    "flexbox.js": "https://ga.jspm.io/npm:flexbox.js@1.0.15/lib/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jestor": "https://ga.jspm.dev/npm:jestor@1.0.3/dist/jestor.js"
+    "jestor": "https://ga.jspm.io/npm:jestor@1.0.3/dist/jestor.js"
   }
 }

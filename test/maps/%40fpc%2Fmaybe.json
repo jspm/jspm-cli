@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@fpc/maybe": "https://ga.jspm.dev/npm:@fpc/maybe@1.0.0/src/index.js"
+    "@fpc/maybe": "https://ga.jspm.io/npm:@fpc/maybe@1.0.0/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@fpc/maybe@1.0.0/": {
-      "@fpc/types": "https://ga.jspm.dev/npm:@fpc/types@0.0.9/src/index.js"
+    "https://ga.jspm.io/npm:@fpc/maybe@1.0.0/": {
+      "@fpc/types": "https://ga.jspm.io/npm:@fpc/types@0.0.9/src/index.js"
     }
   }
 }

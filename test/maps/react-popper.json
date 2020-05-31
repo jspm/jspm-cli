@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@popperjs/core": "https://ga.jspm.dev/npm:@popperjs/core@2.4.0/dist/cjs/popper.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-popper": "https://ga.jspm.dev/npm:react-popper@2.2.3/lib/cjs/index.js"
+    "@popperjs/core": "https://ga.jspm.io/npm:@popperjs/core@2.4.0/dist/cjs/popper.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-popper": "https://ga.jspm.io/npm:react-popper@2.2.3/lib/cjs/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-popper@2.2.3/": {
-      "react-fast-compare": "https://ga.jspm.dev/npm:react-fast-compare@3.2.0/index.js",
-      "warning": "https://ga.jspm.dev/npm:warning@4.0.3/warning.js"
+    "https://ga.jspm.io/npm:react-popper@2.2.3/": {
+      "react-fast-compare": "https://ga.jspm.io/npm:react-fast-compare@3.2.0/index.js",
+      "warning": "https://ga.jspm.io/npm:warning@4.0.3/warning.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

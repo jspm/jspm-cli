@@ -1,22 +1,22 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "diffie-hellman": "https://ga.jspm.dev/npm:diffie-hellman@5.0.3/browser.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "diffie-hellman": "https://ga.jspm.io/npm:diffie-hellman@5.0.3/browser.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:diffie-hellman@5.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "miller-rabin": "https://ga.jspm.dev/npm:miller-rabin@4.0.1/lib/mr.js",
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js"
+    "https://ga.jspm.io/npm:diffie-hellman@5.0.3/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "miller-rabin": "https://ga.jspm.io/npm:miller-rabin@4.0.1/lib/mr.js",
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:miller-rabin@4.0.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js"
+    "https://ga.jspm.io/npm:miller-rabin@4.0.1/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "brorand": "https://ga.jspm.io/npm:brorand@1.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:randombytes@2.1.0/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "split": "https://ga.jspm.dev/npm:split@1.0.1/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "split": "https://ga.jspm.io/npm:split@1.0.1/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:split@1.0.1/": {
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:split@1.0.1/": {
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     }
   }
 }

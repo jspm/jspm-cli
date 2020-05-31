@@ -1,11 +1,11 @@
 {
   "imports": {
-    "is-ci": "https://ga.jspm.dev/npm:is-ci@2.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "is-ci": "https://ga.jspm.io/npm:is-ci@2.0.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:is-ci@2.0.0/": {
-      "ci-info": "https://ga.jspm.dev/npm:ci-info@2.0.0/index.js"
+    "https://ga.jspm.io/npm:is-ci@2.0.0/": {
+      "ci-info": "https://ga.jspm.io/npm:ci-info@2.0.0/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "asn1-codec": "https://ga.jspm.dev/npm:asn1-codec@0.5.0/esm/index.mjs"
+    "asn1-codec": "https://ga.jspm.io/npm:asn1-codec@0.5.0/esm/index.mjs"
   }
 }

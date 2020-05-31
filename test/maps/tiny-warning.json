@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
   }
 }

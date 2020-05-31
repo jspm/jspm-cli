@@ -1,5 +1,5 @@
 {
   "imports": {
-    "oop-timers": "https://ga.jspm.dev/npm:oop-timers@3.0.1/src/index.mjs"
+    "oop-timers": "https://ga.jspm.io/npm:oop-timers@3.0.1/src/index.mjs"
   }
 }

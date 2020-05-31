@@ -1,5 +1,5 @@
 {
   "imports": {
-    "estree-is-function": "https://ga.jspm.dev/npm:estree-is-function@1.0.0/index.js"
+    "estree-is-function": "https://ga.jspm.io/npm:estree-is-function@1.0.0/index.js"
   }
 }

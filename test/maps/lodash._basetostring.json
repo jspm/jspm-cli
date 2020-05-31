@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash._basetostring": "https://ga.jspm.dev/npm:lodash._basetostring@4.12.0/index.js"
+    "lodash._basetostring": "https://ga.jspm.io/npm:lodash._basetostring@4.12.0/index.js"
   }
 }

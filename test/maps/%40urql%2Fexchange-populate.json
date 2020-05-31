@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@urql/exchange-populate": "https://ga.jspm.dev/npm:@urql/exchange-populate@0.1.7/dist/urql-exchange-populate.mjs",
-    "graphql": "https://ga.jspm.dev/npm:graphql@15.0.0/index.js",
-    "graphql/language/kinds": "https://ga.jspm.dev/npm:graphql@15.0.0/language/kinds.js",
-    "graphql/language/visitor": "https://ga.jspm.dev/npm:graphql@15.0.0/language/visitor.js",
-    "graphql/type/definition": "https://ga.jspm.dev/npm:graphql@15.0.0/type/definition.js",
-    "graphql/utilities/TypeInfo": "https://ga.jspm.dev/npm:graphql@15.0.0/utilities/TypeInfo.js",
-    "graphql/utilities/buildClientSchema": "https://ga.jspm.dev/npm:graphql@15.0.0/utilities/buildClientSchema.js"
+    "@urql/exchange-populate": "https://ga.jspm.io/npm:@urql/exchange-populate@0.1.7/dist/urql-exchange-populate.mjs",
+    "graphql": "https://ga.jspm.io/npm:graphql@15.0.0/index.js",
+    "graphql/language/kinds": "https://ga.jspm.io/npm:graphql@15.0.0/language/kinds.js",
+    "graphql/language/visitor": "https://ga.jspm.io/npm:graphql@15.0.0/language/visitor.js",
+    "graphql/type/definition": "https://ga.jspm.io/npm:graphql@15.0.0/type/definition.js",
+    "graphql/utilities/TypeInfo": "https://ga.jspm.io/npm:graphql@15.0.0/utilities/TypeInfo.js",
+    "graphql/utilities/buildClientSchema": "https://ga.jspm.io/npm:graphql@15.0.0/utilities/buildClientSchema.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@urql/exchange-populate@0.1.7/": {
-      "wonka": "https://ga.jspm.dev/npm:wonka@4.0.13/dist/wonka.mjs"
+    "https://ga.jspm.io/npm:@urql/exchange-populate@0.1.7/": {
+      "wonka": "https://ga.jspm.io/npm:wonka@4.0.13/dist/wonka.mjs"
     }
   }
 }

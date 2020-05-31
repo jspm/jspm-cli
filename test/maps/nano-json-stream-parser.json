@@ -1,5 +1,5 @@
 {
   "imports": {
-    "nano-json-stream-parser": "https://ga.jspm.dev/npm:nano-json-stream-parser@0.1.2/dist/index.js"
+    "nano-json-stream-parser": "https://ga.jspm.io/npm:nano-json-stream-parser@0.1.2/dist/index.js"
   }
 }

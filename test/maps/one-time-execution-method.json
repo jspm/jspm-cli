@@ -1,5 +1,5 @@
 {
   "imports": {
-    "one-time-execution-method": "https://ga.jspm.dev/npm:one-time-execution-method@2.0.1/src/one-time-execution-method.mjs"
+    "one-time-execution-method": "https://ga.jspm.io/npm:one-time-execution-method@2.0.1/src/one-time-execution-method.mjs"
   }
 }

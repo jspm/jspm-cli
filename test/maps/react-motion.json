@@ -1,20 +1,20 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-motion": "https://ga.jspm.dev/npm:react-motion@0.5.2/lib/react-motion.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-motion": "https://ga.jspm.io/npm:react-motion@0.5.2/lib/react-motion.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:raf@3.4.1/": {
-      "performance-now": "https://ga.jspm.dev/npm:performance-now@2.1.0/lib/performance-now.js"
+    "https://ga.jspm.io/npm:raf@3.4.1/": {
+      "performance-now": "https://ga.jspm.io/npm:performance-now@2.1.0/lib/performance-now.js"
     },
-    "https://ga.jspm.dev/npm:react-motion@0.5.2/": {
-      "performance-now": "https://ga.jspm.dev/npm:performance-now@0.2.0/lib/performance-now.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "raf": "https://ga.jspm.dev/npm:raf@3.4.1/index.js"
+    "https://ga.jspm.io/npm:react-motion@0.5.2/": {
+      "performance-now": "https://ga.jspm.io/npm:performance-now@0.2.0/lib/performance-now.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "raf": "https://ga.jspm.io/npm:raf@3.4.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

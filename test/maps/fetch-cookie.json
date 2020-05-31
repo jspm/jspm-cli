@@ -1,18 +1,18 @@
 {
   "imports": {
-    "fetch-cookie": "https://ga.jspm.dev/npm:fetch-cookie@0.9.1/index.js",
-    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "fetch-cookie": "https://ga.jspm.io/npm:fetch-cookie@0.9.1/index.js",
+    "punycode": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:fetch-cookie@0.9.1/": {
-      "tough-cookie": "https://ga.jspm.dev/npm:tough-cookie@4.0.0/lib/cookie.js"
+    "https://ga.jspm.io/npm:fetch-cookie@0.9.1/": {
+      "tough-cookie": "https://ga.jspm.io/npm:tough-cookie@4.0.0/lib/cookie.js"
     },
-    "https://ga.jspm.dev/npm:tough-cookie@4.0.0/": {
-      "psl": "https://ga.jspm.dev/npm:psl@1.8.0/index.js",
-      "punycode": "https://ga.jspm.dev/npm:punycode@2.1.1/punycode.js",
-      "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
+    "https://ga.jspm.io/npm:tough-cookie@4.0.0/": {
+      "psl": "https://ga.jspm.io/npm:psl@1.8.0/index.js",
+      "punycode": "https://ga.jspm.io/npm:punycode@2.1.1/punycode.js",
+      "universalify": "https://ga.jspm.io/npm:universalify@0.1.2/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "object-hash": "https://ga.jspm.dev/npm:object-hash@2.0.3/dist/object_hash.js"
+    "object-hash": "https://ga.jspm.io/npm:object-hash@2.0.3/dist/object_hash.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "fragment-cache": "https://ga.jspm.dev/npm:fragment-cache@0.2.1/index.js"
+    "fragment-cache": "https://ga.jspm.io/npm:fragment-cache@0.2.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:fragment-cache@0.2.1/": {
-      "map-cache": "https://ga.jspm.dev/npm:map-cache@0.2.2/index.js"
+    "https://ga.jspm.io/npm:fragment-cache@0.2.1/": {
+      "map-cache": "https://ga.jspm.io/npm:map-cache@0.2.2/index.js"
     }
   }
 }

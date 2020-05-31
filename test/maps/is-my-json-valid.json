@@ -1,21 +1,21 @@
 {
   "imports": {
-    "is-my-json-valid": "https://ga.jspm.dev/npm:is-my-json-valid@2.20.0/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "is-my-json-valid": "https://ga.jspm.io/npm:is-my-json-valid@2.20.0/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:generate-function@2.3.1/": {
-      "is-property": "https://ga.jspm.dev/npm:is-property@1.0.2/is-property.js"
+    "https://ga.jspm.io/npm:generate-function@2.3.1/": {
+      "is-property": "https://ga.jspm.io/npm:is-property@1.0.2/is-property.js"
     },
-    "https://ga.jspm.dev/npm:generate-object-property@1.2.0/": {
-      "is-property": "https://ga.jspm.dev/npm:is-property@1.0.2/is-property.js"
+    "https://ga.jspm.io/npm:generate-object-property@1.2.0/": {
+      "is-property": "https://ga.jspm.io/npm:is-property@1.0.2/is-property.js"
     },
-    "https://ga.jspm.dev/npm:is-my-json-valid@2.20.0/": {
-      "generate-function": "https://ga.jspm.dev/npm:generate-function@2.3.1/index.js",
-      "generate-object-property": "https://ga.jspm.dev/npm:generate-object-property@1.2.0/index.js",
-      "is-my-ip-valid": "https://ga.jspm.dev/npm:is-my-ip-valid@1.0.0/index.js",
-      "jsonpointer": "https://ga.jspm.dev/npm:jsonpointer@4.0.1/jsonpointer.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:is-my-json-valid@2.20.0/": {
+      "generate-function": "https://ga.jspm.io/npm:generate-function@2.3.1/index.js",
+      "generate-object-property": "https://ga.jspm.io/npm:generate-object-property@1.2.0/index.js",
+      "is-my-ip-valid": "https://ga.jspm.io/npm:is-my-ip-valid@1.0.0/index.js",
+      "jsonpointer": "https://ga.jspm.io/npm:jsonpointer@4.0.1/jsonpointer.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     }
   }
 }

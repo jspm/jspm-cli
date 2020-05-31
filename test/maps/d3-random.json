@@ -1,5 +1,5 @@
 {
   "imports": {
-    "d3-random": "https://ga.jspm.dev/npm:d3-random@2.1.0/dist/d3-random.js"
+    "d3-random": "https://ga.jspm.io/npm:d3-random@2.1.0/dist/d3-random.js"
   }
 }

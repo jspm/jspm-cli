@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@ssttevee/multipart-parser": "https://ga.jspm.dev/npm:@ssttevee/multipart-parser@0.1.6/lib/index.js"
+    "@ssttevee/multipart-parser": "https://ga.jspm.io/npm:@ssttevee/multipart-parser@0.1.6/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@ssttevee/multipart-parser@0.1.6/": {
-      "@ssttevee/streamsearch": "https://ga.jspm.dev/npm:@ssttevee/streamsearch@0.1.4/lib/index.js",
-      "@ssttevee/u8-utils": "https://ga.jspm.dev/npm:@ssttevee/u8-utils@0.1.4/lib/index.js"
+    "https://ga.jspm.io/npm:@ssttevee/multipart-parser@0.1.6/": {
+      "@ssttevee/streamsearch": "https://ga.jspm.io/npm:@ssttevee/streamsearch@0.1.4/lib/index.js",
+      "@ssttevee/u8-utils": "https://ga.jspm.io/npm:@ssttevee/u8-utils@0.1.4/lib/index.js"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "actus-state-validator": "https://ga.jspm.dev/npm:actus-state-validator@0.1.0-alpha.0/index.js"
+    "actus-state-validator": "https://ga.jspm.io/npm:actus-state-validator@0.1.0-alpha.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:actus-state-validator@0.1.0-alpha.0/": {
-      "@hapi/joi": "https://ga.jspm.dev/npm:@hapi/joi@17.1.1/dist/joi-browser.min.js",
-      "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js"
+    "https://ga.jspm.io/npm:actus-state-validator@0.1.0-alpha.0/": {
+      "@hapi/joi": "https://ga.jspm.io/npm:@hapi/joi@17.1.1/dist/joi-browser.min.js",
+      "fast-deep-equal": "https://ga.jspm.io/npm:fast-deep-equal@3.1.1/index.js"
     }
   }
 }

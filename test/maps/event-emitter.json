@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "event-emitter": "https://ga.jspm.io/npm:event-emitter@0.3.5/index.js"
+  },
+  "scopes": {
+    "https://ga.jspm.io/npm:d@1.0.1/": {
+      "es5-ext/object/assign": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/assign/index.js",
+      "es5-ext/object/normalize-options": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/normalize-options.js",
+      "es5-ext/string/#/contains": "https://ga.jspm.io/npm:es5-ext@0.10.53/string/%23/contains/index.js",
+      "type/plain-function/is": "https://ga.jspm.io/npm:type@1.2.0/plain-function/is.js",
+      "type/value/is": "https://ga.jspm.io/npm:type@1.2.0/value/is.js"
+    },
+    "https://ga.jspm.io/npm:event-emitter@0.3.5/": {
+      "d": "https://ga.jspm.io/npm:d@1.0.1/index.js",
+      "es5-ext/object/valid-callable": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/valid-callable.js"
+    }
+  }
+}

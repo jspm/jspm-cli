@@ -1,27 +1,27 @@
 {
   "imports": {
-    "rmc-feedback": "https://ga.jspm.dev/npm:rmc-feedback@2.0.0/lib/index.js"
+    "rmc-feedback": "https://ga.jspm.io/npm:rmc-feedback@2.0.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/library/fn/object/assign": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/assign.js",
-      "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
-      "core-js/library/fn/object/define-property": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/define-property.js",
-      "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
-      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
-      "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
+    "https://ga.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/library/fn/object/assign": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/assign.js",
+      "core-js/library/fn/object/create": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/create.js",
+      "core-js/library/fn/object/define-property": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/define-property.js",
+      "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
+      "core-js/library/fn/symbol": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/symbol/index.js",
+      "core-js/library/fn/symbol/iterator": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:rmc-feedback@2.0.0/": {
-      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
-      "babel-runtime/helpers/createClass": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/createClass.js",
-      "babel-runtime/helpers/extends": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/extends.js",
-      "babel-runtime/helpers/inherits": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/inherits.js",
-      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
-      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "https://ga.jspm.io/npm:rmc-feedback@2.0.0/": {
+      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
+      "babel-runtime/helpers/createClass": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/createClass.js",
+      "babel-runtime/helpers/extends": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/extends.js",
+      "babel-runtime/helpers/inherits": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/inherits.js",
+      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
+      "classnames": "https://ga.jspm.io/npm:classnames@2.2.6/index.js",
+      "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
     }
   }
 }

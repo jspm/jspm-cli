@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ast-types": "https://ga.jspm.dev/npm:ast-types@0.13.3/main.js"
+    "ast-types": "https://ga.jspm.io/npm:ast-types@0.13.3/main.js"
   }
 }

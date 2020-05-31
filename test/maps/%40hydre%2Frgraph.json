@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@hydre/rgraph/operators": "https://ga.jspm.dev/npm:@hydre/rgraph@2.0.3/src/operators/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@hydre/rgraph/operators": "https://ga.jspm.io/npm:@hydre/rgraph@2.0.3/src/operators/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@hydre/rgraph@2.0.3/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
-      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
+    "https://ga.jspm.io/npm:@hydre/rgraph@2.0.3/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js",
+      "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+      "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.2.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     }
   }
 }

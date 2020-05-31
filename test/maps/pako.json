@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pako": "https://ga.jspm.dev/npm:pako@1.0.11/index.js"
+    "pako": "https://ga.jspm.io/npm:pako@1.0.11/index.js"
   }
 }

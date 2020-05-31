@@ -1,78 +1,78 @@
 {
   "imports": {
-    "@alifd/next": "https://ga.jspm.dev/npm:@alifd/next@1.20.7/index.js",
-    "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    "@alifd/next": "https://ga.jspm.io/npm:@alifd/next@1.20.7/index.js",
+    "moment": "https://ga.jspm.io/npm:moment@2.26.0/moment.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.io/npm:react-dom@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@alifd/field@1.4.4/": {
-      "@alifd/validate": "https://ga.jspm.dev/npm:@alifd/validate@1.2.0/lib/index.js",
-      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/asyncToGenerator.js",
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
+    "https://ga.jspm.io/npm:@alifd/field@1.4.4/": {
+      "@alifd/validate": "https://ga.jspm.io/npm:@alifd/validate@1.2.0/lib/index.js",
+      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/asyncToGenerator.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/typeof.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/regenerator/index.js"
     },
-    "https://ga.jspm.dev/npm:@alifd/next@1.20.7/": {
-      "@alifd/field": "https://ga.jspm.dev/npm:@alifd/field@1.4.4/lib/index.js",
-      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
-      "babel-runtime/helpers/createClass": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/createClass.js",
-      "babel-runtime/helpers/extends": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/extends.js",
-      "babel-runtime/helpers/inherits": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/inherits.js",
-      "babel-runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/objectWithoutProperties.js",
-      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
-      "babel-runtime/helpers/typeof": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/typeof.js",
-      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@2.5.5/dist/hoist-non-react-statics.cjs.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js",
-      "react-transition-group": "https://ga.jspm.dev/npm:react-transition-group@2.9.0/index.js",
-      "shallow-element-equals": "https://ga.jspm.dev/npm:shallow-element-equals@1.0.1/index.js"
+    "https://ga.jspm.io/npm:@alifd/next@1.20.7/": {
+      "@alifd/field": "https://ga.jspm.io/npm:@alifd/field@1.4.4/lib/index.js",
+      "babel-runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/classCallCheck.js",
+      "babel-runtime/helpers/createClass": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/createClass.js",
+      "babel-runtime/helpers/extends": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/extends.js",
+      "babel-runtime/helpers/inherits": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/inherits.js",
+      "babel-runtime/helpers/objectWithoutProperties": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/objectWithoutProperties.js",
+      "babel-runtime/helpers/possibleConstructorReturn": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/possibleConstructorReturn.js",
+      "babel-runtime/helpers/typeof": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/typeof.js",
+      "classnames": "https://ga.jspm.io/npm:classnames@2.2.6/index.js",
+      "hoist-non-react-statics": "https://ga.jspm.io/npm:hoist-non-react-statics@2.5.5/dist/hoist-non-react-statics.cjs.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-lifecycles-compat": "https://ga.jspm.io/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js",
+      "react-transition-group": "https://ga.jspm.io/npm:react-transition-group@2.9.0/index.js",
+      "shallow-element-equals": "https://ga.jspm.io/npm:shallow-element-equals@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:@alifd/validate@1.2.0/": {
-      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/asyncToGenerator.js",
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
+    "https://ga.jspm.io/npm:@alifd/validate@1.2.0/": {
+      "@babel/runtime/helpers/asyncToGenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/asyncToGenerator.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/regenerator/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/": {
-      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.io/npm:@babel/runtime@7.10.2/": {
+      "regenerator-runtime": "https://ga.jspm.io/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/library/fn/object/assign": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/assign.js",
-      "core-js/library/fn/object/create": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/create.js",
-      "core-js/library/fn/object/define-property": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/define-property.js",
-      "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
-      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js",
-      "core-js/library/fn/symbol/iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
+    "https://ga.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/library/fn/object/assign": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/assign.js",
+      "core-js/library/fn/object/create": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/create.js",
+      "core-js/library/fn/object/define-property": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/define-property.js",
+      "core-js/library/fn/object/set-prototype-of": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/set-prototype-of.js",
+      "core-js/library/fn/symbol": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/symbol/index.js",
+      "core-js/library/fn/symbol/iterator": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/symbol/iterator.js"
     },
-    "https://ga.jspm.dev/npm:dom-helpers@3.4.0/": {
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js"
+    "https://ga.jspm.io/npm:dom-helpers@3.4.0/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js"
     },
-    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    "https://ga.jspm.io/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.io/npm:scheduler@0.19.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-transition-group@2.9.0/": {
-      "dom-helpers/class/addClass": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/class/addClass.js",
-      "dom-helpers/class/removeClass": "https://ga.jspm.dev/npm:dom-helpers@3.4.0/class/removeClass.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-lifecycles-compat": "https://ga.jspm.dev/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
+    "https://ga.jspm.io/npm:react-transition-group@2.9.0/": {
+      "dom-helpers/class/addClass": "https://ga.jspm.io/npm:dom-helpers@3.4.0/class/addClass.js",
+      "dom-helpers/class/removeClass": "https://ga.jspm.io/npm:dom-helpers@3.4.0/class/removeClass.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-lifecycles-compat": "https://ga.jspm.io/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:shallow-element-equals@1.0.1/": {
-      "style-equal": "https://ga.jspm.dev/npm:style-equal@1.0.0/index.js"
+    "https://ga.jspm.io/npm:shallow-element-equals@1.0.1/": {
+      "style-equal": "https://ga.jspm.io/npm:style-equal@1.0.0/index.js"
     }
   }
 }

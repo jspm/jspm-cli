@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@wry/context": "https://ga.jspm.dev/npm:@wry/context@0.5.2/lib/context.js"
+    "@wry/context": "https://ga.jspm.io/npm:@wry/context@0.5.2/lib/context.js"
   }
 }

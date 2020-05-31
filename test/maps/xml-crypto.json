@@ -1,15 +1,15 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "xml-crypto": "https://ga.jspm.dev/npm:xml-crypto@1.5.3/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "xml-crypto": "https://ga.jspm.io/npm:xml-crypto@1.5.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:xml-crypto@1.5.3/": {
-      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.27/dom-parser.js",
-      "xpath": "https://ga.jspm.dev/npm:xpath@0.0.27/xpath.js"
+    "https://ga.jspm.io/npm:xml-crypto@1.5.3/": {
+      "xmldom": "https://ga.jspm.io/npm:xmldom@0.1.27/dom-parser.js",
+      "xpath": "https://ga.jspm.io/npm:xpath@0.0.27/xpath.js"
     }
   }
 }

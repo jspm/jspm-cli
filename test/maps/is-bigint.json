@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-bigint": "https://ga.jspm.dev/npm:is-bigint@1.0.0/index.js"
+    "is-bigint": "https://ga.jspm.io/npm:is-bigint@1.0.0/index.js"
   }
 }

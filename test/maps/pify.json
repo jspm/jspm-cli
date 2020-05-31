@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pify": "https://ga.jspm.dev/npm:pify@5.0.0/index.js"
+    "pify": "https://ga.jspm.io/npm:pify@5.0.0/index.js"
   }
 }

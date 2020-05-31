@@ -1,5 +1,5 @@
 {
   "imports": {
-    "gl-bench": "https://ga.jspm.dev/npm:gl-bench@0.3.91/dist/gl-bench.min.js"
+    "gl-bench": "https://ga.jspm.io/npm:gl-bench@0.3.92/dist/gl-bench.min.js"
   }
 }

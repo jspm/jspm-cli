@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "buffer-alloc-unsafe": "https://ga.jspm.dev/npm:buffer-alloc-unsafe@1.1.0/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "buffer-alloc-unsafe": "https://ga.jspm.io/npm:buffer-alloc-unsafe@1.1.0/index.js"
   }
 }

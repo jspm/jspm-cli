@@ -1,7 +1,7 @@
 {
   "imports": {
-    "dirname-filename-esm": "https://ga.jspm.dev/npm:dirname-filename-esm@1.0.1/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "dirname-filename-esm": "https://ga.jspm.io/npm:dirname-filename-esm@1.0.1/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   }
 }

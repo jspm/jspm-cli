@@ -1,6 +1,6 @@
 {
   "imports": {
-    "defer-to-connect": "https://ga.jspm.dev/npm:defer-to-connect@2.0.0/dist/source/index.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js"
+    "defer-to-connect": "https://ga.jspm.io/npm:defer-to-connect@2.0.0/dist/source/index.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js"
   }
 }

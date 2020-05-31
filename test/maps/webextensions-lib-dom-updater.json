@@ -1,5 +1,5 @@
 {
   "imports": {
-    "webextensions-lib-dom-updater": "https://ga.jspm.dev/npm:webextensions-lib-dom-updater@1.0.2/index.js"
+    "webextensions-lib-dom-updater": "https://ga.jspm.io/npm:webextensions-lib-dom-updater@1.0.2/index.js"
   }
 }

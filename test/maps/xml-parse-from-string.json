@@ -1,5 +1,5 @@
 {
   "imports": {
-    "xml-parse-from-string": "https://ga.jspm.dev/npm:xml-parse-from-string@1.0.1/index.js"
+    "xml-parse-from-string": "https://ga.jspm.io/npm:xml-parse-from-string@1.0.1/index.js"
   }
 }

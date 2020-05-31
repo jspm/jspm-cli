@@ -1,17 +1,17 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "jshint": "https://ga.jspm.dev/npm:jshint@2.11.1/src/jshint.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "jshint": "https://ga.jspm.io/npm:jshint@2.11.1/src/jshint.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:console-browserify@1.1.0/": {
-      "date-now": "https://ga.jspm.dev/npm:date-now@0.1.4/index.js"
+    "https://ga.jspm.io/npm:console-browserify@1.1.0/": {
+      "date-now": "https://ga.jspm.io/npm:date-now@0.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:jshint@2.11.1/": {
-      "console-browserify": "https://ga.jspm.dev/npm:console-browserify@1.1.0/index.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    "https://ga.jspm.io/npm:jshint@2.11.1/": {
+      "console-browserify": "https://ga.jspm.io/npm:console-browserify@1.1.0/index.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
     }
   }
 }

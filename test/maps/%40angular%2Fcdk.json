@@ -1,8 +1,8 @@
 {
   "imports": {
-    "@angular/cdk": "https://ga.jspm.dev/npm:@angular/cdk@9.2.4/bundles/cdk.umd.js",
-    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@10.0.0-rc.0/bundles/core.umd.js",
-    "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-    "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
+    "@angular/cdk": "https://ga.jspm.io/npm:@angular/cdk@9.2.4/bundles/cdk.umd.js",
+    "@angular/core": "https://ga.jspm.io/npm:@angular/core@10.0.0-rc.0/bundles/core.umd.js",
+    "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+    "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js"
   }
 }

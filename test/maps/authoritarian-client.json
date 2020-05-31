@@ -1,26 +1,26 @@
 {
   "imports": {
-    "authoritarian-client": "https://ga.jspm.dev/npm:authoritarian-client@0.0.0-dev.27/dist/main.js"
+    "authoritarian-client": "https://ga.jspm.io/npm:authoritarian-client@0.0.0-dev.27/dist/main.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:authoritarian-client@0.0.0-dev.27/": {
-      "authoritarian/dist/bdecode.js": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.35/dist/bdecode.js",
-      "authoritarian/dist/clients.js": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.35/dist/clients.js",
-      "authoritarian/dist/crypto.js": "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.35/dist/crypto.js",
-      "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js",
-      "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js",
-      "menutown/dist/register-all.js": "https://ga.jspm.dev/npm:menutown@0.0.1/dist/register-all.js"
+    "https://ga.jspm.io/npm:authoritarian-client@0.0.0-dev.27/": {
+      "authoritarian/dist/bdecode.js": "https://ga.jspm.io/npm:authoritarian@0.0.0-dev.35/dist/bdecode.js",
+      "authoritarian/dist/clients.js": "https://ga.jspm.io/npm:authoritarian@0.0.0-dev.35/dist/clients.js",
+      "authoritarian/dist/crypto.js": "https://ga.jspm.io/npm:authoritarian@0.0.0-dev.35/dist/crypto.js",
+      "lit-element": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js",
+      "lit-html": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js",
+      "menutown/dist/register-all.js": "https://ga.jspm.io/npm:menutown@0.0.1/dist/register-all.js"
     },
-    "https://ga.jspm.dev/npm:authoritarian@0.0.0-dev.35/": {
-      "crosscall/dist/create-iframe.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.16/dist/create-iframe.js",
-      "crosscall/dist/crosscall-client.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.16/dist/crosscall-client.js"
+    "https://ga.jspm.io/npm:authoritarian@0.0.0-dev.35/": {
+      "crosscall/dist/create-iframe.js": "https://ga.jspm.io/npm:crosscall@0.0.6-dev.16/dist/create-iframe.js",
+      "crosscall/dist/crosscall-client.js": "https://ga.jspm.io/npm:crosscall@0.0.6-dev.16/dist/crosscall-client.js"
     },
-    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
-      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "https://ga.jspm.io/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
     },
-    "https://ga.jspm.dev/npm:menutown@0.0.1/": {
-      "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:menutown@0.0.1/": {
+      "lit-element": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     }
   }
 }

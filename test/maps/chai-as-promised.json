@@ -1,10 +1,10 @@
 {
   "imports": {
-    "chai-as-promised": "https://ga.jspm.dev/npm:chai-as-promised@7.1.1/lib/chai-as-promised.js"
+    "chai-as-promised": "https://ga.jspm.io/npm:chai-as-promised@7.1.1/lib/chai-as-promised.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:chai-as-promised@7.1.1/": {
-      "check-error": "https://ga.jspm.dev/npm:check-error@1.0.2/index.js"
+    "https://ga.jspm.io/npm:chai-as-promised@7.1.1/": {
+      "check-error": "https://ga.jspm.io/npm:check-error@1.0.2/index.js"
     }
   }
 }

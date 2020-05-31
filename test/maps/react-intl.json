@@ -1,25 +1,25 @@
 {
   "imports": {
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-intl": "https://ga.jspm.dev/npm:react-intl@4.6.3/dist/index.js"
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-intl": "https://ga.jspm.io/npm:react-intl@4.6.3/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:intl-messageformat@8.3.18/": {
-      "intl-format-cache": "https://ga.jspm.dev/npm:intl-format-cache@4.2.33/dist/index.js",
-      "intl-messageformat-parser": "https://ga.jspm.dev/npm:intl-messageformat-parser@5.0.11/dist/index.js"
+    "https://ga.jspm.io/npm:intl-messageformat@8.3.18/": {
+      "intl-format-cache": "https://ga.jspm.io/npm:intl-format-cache@4.2.33/dist/index.js",
+      "intl-messageformat-parser": "https://ga.jspm.io/npm:intl-messageformat-parser@5.0.11/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:react-intl@4.6.3/": {
-      "@formatjs/intl-utils": "https://ga.jspm.dev/npm:@formatjs/intl-utils@3.1.0/dist/index.js",
-      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
-      "intl-format-cache": "https://ga.jspm.dev/npm:intl-format-cache@4.2.33/dist/index.js",
-      "intl-messageformat": "https://ga.jspm.dev/npm:intl-messageformat@8.3.18/dist/index.js",
-      "shallow-equal/objects": "https://ga.jspm.dev/npm:shallow-equal@1.2.1/objects/index.js"
+    "https://ga.jspm.io/npm:react-intl@4.6.3/": {
+      "@formatjs/intl-utils": "https://ga.jspm.io/npm:@formatjs/intl-utils@3.1.0/dist/index.js",
+      "hoist-non-react-statics": "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
+      "intl-format-cache": "https://ga.jspm.io/npm:intl-format-cache@4.2.33/dist/index.js",
+      "intl-messageformat": "https://ga.jspm.io/npm:intl-messageformat@8.3.18/dist/index.js",
+      "shallow-equal/objects": "https://ga.jspm.io/npm:shallow-equal@1.2.1/objects/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

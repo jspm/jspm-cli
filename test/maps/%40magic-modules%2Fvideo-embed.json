@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@magic-modules/video-embed": "https://ga.jspm.dev/npm:@magic-modules/video-embed@0.0.4/src/index.mjs"
+    "@magic-modules/video-embed": "https://ga.jspm.io/npm:@magic-modules/video-embed@0.0.4/src/index.mjs"
   }
 }

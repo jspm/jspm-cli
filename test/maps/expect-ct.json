@@ -1,5 +1,5 @@
 {
   "imports": {
-    "expect-ct": "https://ga.jspm.dev/npm:expect-ct@0.3.0/dist/index.js"
+    "expect-ct": "https://ga.jspm.io/npm:expect-ct@0.3.0/dist/index.js"
   }
 }

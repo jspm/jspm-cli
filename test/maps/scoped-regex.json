@@ -1,5 +1,5 @@
 {
   "imports": {
-    "scoped-regex": "https://ga.jspm.dev/npm:scoped-regex@2.1.0/index.js"
+    "scoped-regex": "https://ga.jspm.io/npm:scoped-regex@2.1.0/index.js"
   }
 }

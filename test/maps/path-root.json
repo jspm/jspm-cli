@@ -1,10 +1,10 @@
 {
   "imports": {
-    "path-root": "https://ga.jspm.dev/npm:path-root@0.1.1/index.js"
+    "path-root": "https://ga.jspm.io/npm:path-root@0.1.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:path-root@0.1.1/": {
-      "path-root-regex": "https://ga.jspm.dev/npm:path-root-regex@0.1.2/index.js"
+    "https://ga.jspm.io/npm:path-root@0.1.1/": {
+      "path-root-regex": "https://ga.jspm.io/npm:path-root-regex@0.1.2/index.js"
     }
   }
 }

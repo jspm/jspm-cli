@@ -1,22 +1,22 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "es6-templates": "https://ga.jspm.dev/npm:es6-templates@0.2.3/lib/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "es6-templates": "https://ga.jspm.io/npm:es6-templates@0.2.3/lib/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:es6-templates@0.2.3/": {
-      "recast": "https://ga.jspm.dev/npm:recast@0.11.23/main.js",
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:es6-templates@0.2.3/": {
+      "recast": "https://ga.jspm.io/npm:recast@0.11.23/main.js",
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     },
-    "https://ga.jspm.dev/npm:recast@0.11.23/": {
-      "ast-types": "https://ga.jspm.dev/npm:ast-types@0.9.6/main.js",
-      "esprima": "https://ga.jspm.dev/npm:esprima@3.1.3/dist/esprima.js",
-      "private": "https://ga.jspm.dev/npm:private@0.1.8/private.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
+    "https://ga.jspm.io/npm:recast@0.11.23/": {
+      "ast-types": "https://ga.jspm.io/npm:ast-types@0.9.6/main.js",
+      "esprima": "https://ga.jspm.io/npm:esprima@3.1.3/dist/esprima.js",
+      "private": "https://ga.jspm.io/npm:private@0.1.8/private.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.5.7/source-map.js"
     }
   }
 }

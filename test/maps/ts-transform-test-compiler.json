@@ -1,39 +1,39 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "ts-transform-test-compiler": "https://ga.jspm.dev/npm:ts-transform-test-compiler@1.0.0/dist/index.js",
-    "typescript": "https://ga.jspm.dev/npm:typescript@3.9.4/lib/typescript.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "ts-transform-test-compiler": "https://ga.jspm.io/npm:ts-transform-test-compiler@1.0.0/dist/index.js",
+    "typescript": "https://ga.jspm.io/npm:typescript@3.9.4/lib/typescript.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
-      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    "https://ga.jspm.io/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.io/npm:concat-map@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:glob@7.1.6/": {
-      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
-      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
-      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    "https://ga.jspm.io/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.io/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.io/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.io/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.io/npm:path-is-absolute@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
-      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    "https://ga.jspm.io/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.io/npm:brace-expansion@1.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:ts-transform-test-compiler@1.0.0/": {
-      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js"
+    "https://ga.jspm.io/npm:ts-transform-test-compiler@1.0.0/": {
+      "glob": "https://ga.jspm.io/npm:glob@7.1.6/glob.js"
     }
   }
 }

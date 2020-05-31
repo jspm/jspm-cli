@@ -1,5 +1,5 @@
 {
   "imports": {
-    "style-equal": "https://ga.jspm.dev/npm:style-equal@1.0.0/index.js"
+    "style-equal": "https://ga.jspm.io/npm:style-equal@1.0.0/index.js"
   }
 }

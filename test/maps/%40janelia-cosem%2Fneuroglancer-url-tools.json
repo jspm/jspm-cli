@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@janelia-cosem/neuroglancer-url-tools": "https://ga.jspm.dev/npm:@janelia-cosem/neuroglancer-url-tools@0.1.1/dist/neuroglancer-url-tools.umd.js"
+    "@janelia-cosem/neuroglancer-url-tools": "https://ga.jspm.io/npm:@janelia-cosem/neuroglancer-url-tools@0.1.1/dist/neuroglancer-url-tools.umd.js"
   }
 }

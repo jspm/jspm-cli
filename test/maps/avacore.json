@@ -1,6 +1,6 @@
 {
   "imports": {
-    "avacore": "https://ga.jspm.dev/npm:avacore@0.5.58/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
+    "avacore": "https://ga.jspm.io/npm:avacore@0.5.58/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   }
 }

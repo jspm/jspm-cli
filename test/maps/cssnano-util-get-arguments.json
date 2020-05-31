@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cssnano-util-get-arguments": "https://ga.jspm.dev/npm:cssnano-util-get-arguments@4.0.0/dist/index.js"
+    "cssnano-util-get-arguments": "https://ga.jspm.io/npm:cssnano-util-get-arguments@4.0.0/dist/index.js"
   }
 }

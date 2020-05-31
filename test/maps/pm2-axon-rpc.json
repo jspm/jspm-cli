@@ -1,14 +1,14 @@
 {
   "imports": {
-    "pm2-axon-rpc": "https://ga.jspm.dev/npm:pm2-axon-rpc@0.5.1/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "pm2-axon-rpc": "https://ga.jspm.io/npm:pm2-axon-rpc@0.5.1/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:pm2-axon-rpc@0.5.1/": {
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js"
+    "https://ga.jspm.io/npm:pm2-axon-rpc@0.5.1/": {
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js"
     }
   }
 }

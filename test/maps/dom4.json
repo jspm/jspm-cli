@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dom4": "https://ga.jspm.dev/npm:dom4@2.1.5/build/dom4.max.js"
+    "dom4": "https://ga.jspm.io/npm:dom4@2.1.5/build/dom4.max.js"
   }
 }

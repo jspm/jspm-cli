@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@ember-data/rfc395-data": "https://ga.jspm.dev/npm:@ember-data/rfc395-data@0.0.4/mappings.json.js"
+    "@ember-data/rfc395-data": "https://ga.jspm.io/npm:@ember-data/rfc395-data@0.0.4/mappings.json.js"
   }
 }

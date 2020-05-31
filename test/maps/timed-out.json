@@ -1,5 +1,5 @@
 {
   "imports": {
-    "timed-out": "https://ga.jspm.dev/npm:timed-out@5.0.0/index.js"
+    "timed-out": "https://ga.jspm.io/npm:timed-out@5.0.0/index.js"
   }
 }

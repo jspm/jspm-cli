@@ -1,10 +1,10 @@
 {
   "imports": {
-    "deep-assign": "https://ga.jspm.dev/npm:deep-assign@3.0.0/index.js"
+    "deep-assign": "https://ga.jspm.io/npm:deep-assign@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:deep-assign@3.0.0/": {
-      "is-obj": "https://ga.jspm.dev/npm:is-obj@1.0.1/index.js"
+    "https://ga.jspm.io/npm:deep-assign@3.0.0/": {
+      "is-obj": "https://ga.jspm.io/npm:is-obj@1.0.1/index.js"
     }
   }
 }

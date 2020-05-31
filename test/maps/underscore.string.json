@@ -1,11 +1,11 @@
 {
   "imports": {
-    "underscore.string": "https://ga.jspm.dev/npm:underscore.string@3.3.5/index.js"
+    "underscore.string": "https://ga.jspm.io/npm:underscore.string@3.3.5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:underscore.string@3.3.5/": {
-      "sprintf-js": "https://ga.jspm.dev/npm:sprintf-js@1.1.2/src/sprintf.js",
-      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    "https://ga.jspm.io/npm:underscore.string@3.3.5/": {
+      "sprintf-js": "https://ga.jspm.io/npm:sprintf-js@1.1.2/src/sprintf.js",
+      "util-deprecate": "https://ga.jspm.io/npm:util-deprecate@1.0.2/browser.js"
     }
   }
 }

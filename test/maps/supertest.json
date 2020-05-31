@@ -1,18 +1,18 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "supertest": "https://ga.jspm.dev/npm:supertest@4.0.2/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "supertest": "https://ga.jspm.io/npm:supertest@4.0.2/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:superagent@3.8.3/": {
-      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.3.0/index.js"
+    "https://ga.jspm.io/npm:superagent@3.8.3/": {
+      "component-emitter": "https://ga.jspm.io/npm:component-emitter@1.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:supertest@4.0.2/": {
-      "methods": "https://ga.jspm.dev/npm:methods@1.1.2/index.js",
-      "superagent": "https://ga.jspm.dev/npm:superagent@3.8.3/lib/client.js"
+    "https://ga.jspm.io/npm:supertest@4.0.2/": {
+      "methods": "https://ga.jspm.io/npm:methods@1.1.2/index.js",
+      "superagent": "https://ga.jspm.io/npm:superagent@3.8.3/lib/client.js"
     }
   }
 }

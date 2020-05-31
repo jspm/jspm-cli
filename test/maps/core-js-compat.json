@@ -1,21 +1,21 @@
 {
   "imports": {
-    "core-js-compat": "https://ga.jspm.dev/npm:core-js-compat@3.6.5/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "core-js-compat": "https://ga.jspm.io/npm:core-js-compat@3.6.5/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:browserslist@4.12.0/": {
-      "browserslist/node.js": "https://ga.jspm.dev/npm:browserslist@4.12.0/browser.js",
-      "caniuse-lite/dist/unpacker/agents": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/agents.js",
-      "electron-to-chromium/versions": "https://ga.jspm.dev/npm:electron-to-chromium@1.3.455/versions.js",
-      "node-releases/data/processed/envs.json": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/processed/envs.json.js",
-      "node-releases/data/release-schedule/release-schedule.json": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js"
+    "https://ga.jspm.io/npm:browserslist@4.12.0/": {
+      "browserslist/node.js": "https://ga.jspm.io/npm:browserslist@4.12.0/browser.js",
+      "caniuse-lite/dist/unpacker/agents": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/dist/unpacker/agents.js",
+      "electron-to-chromium/versions": "https://ga.jspm.io/npm:electron-to-chromium@1.3.455/versions.js",
+      "node-releases/data/processed/envs.json": "https://ga.jspm.io/npm:node-releases@1.1.57/data/processed/envs.json.js",
+      "node-releases/data/release-schedule/release-schedule.json": "https://ga.jspm.io/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js"
     },
-    "https://ga.jspm.dev/npm:core-js-compat@3.6.5/": {
-      "browserslist": "https://ga.jspm.dev/npm:browserslist@4.12.0/index.js",
-      "semver/functions/cmp": "https://ga.jspm.dev/npm:semver@7.0.0/functions/cmp.js",
-      "semver/functions/coerce": "https://ga.jspm.dev/npm:semver@7.0.0/functions/coerce.js"
+    "https://ga.jspm.io/npm:core-js-compat@3.6.5/": {
+      "browserslist": "https://ga.jspm.io/npm:browserslist@4.12.0/index.js",
+      "semver/functions/cmp": "https://ga.jspm.io/npm:semver@7.0.0/functions/cmp.js",
+      "semver/functions/coerce": "https://ga.jspm.io/npm:semver@7.0.0/functions/coerce.js"
     }
   }
 }

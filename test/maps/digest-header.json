@@ -1,19 +1,19 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "digest-header": "https://ga.jspm.dev/npm:digest-header@0.0.1/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "digest-header": "https://ga.jspm.io/npm:digest-header@0.0.1/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:digest-header@0.0.1/": {
-      "utility": "https://ga.jspm.dev/npm:utility@0.1.11/index.js"
+    "https://ga.jspm.io/npm:digest-header@0.0.1/": {
+      "utility": "https://ga.jspm.io/npm:utility@0.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:utility@0.1.11/": {
-      "address": "https://ga.jspm.dev/npm:address@1.1.2/lib/address.js"
+    "https://ga.jspm.io/npm:utility@0.1.11/": {
+      "address": "https://ga.jspm.io/npm:address@1.1.2/lib/address.js"
     }
   }
 }

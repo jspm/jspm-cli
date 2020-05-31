@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cssesc": "https://ga.jspm.dev/npm:cssesc@3.0.0/cssesc.js"
+    "cssesc": "https://ga.jspm.io/npm:cssesc@3.0.0/cssesc.js"
   }
 }

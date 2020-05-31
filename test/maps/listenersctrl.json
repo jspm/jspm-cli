@@ -1,5 +1,5 @@
 {
   "imports": {
-    "listenersctrl/esm": "https://ga.jspm.dev/npm:listenersctrl@1.0.1/esm/listenersctrl.js"
+    "listenersctrl/esm": "https://ga.jspm.io/npm:listenersctrl@1.0.1/esm/listenersctrl.js"
   }
 }

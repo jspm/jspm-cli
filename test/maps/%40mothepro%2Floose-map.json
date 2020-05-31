@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@mothepro/loose-map": "https://ga.jspm.dev/npm:@mothepro/loose-map@1.0.0/dist/npm/index.js"
+    "@mothepro/loose-map": "https://ga.jspm.io/npm:@mothepro/loose-map@1.0.0/dist/npm/index.js"
   }
 }

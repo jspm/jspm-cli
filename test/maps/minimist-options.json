@@ -1,12 +1,12 @@
 {
   "imports": {
-    "minimist-options": "https://ga.jspm.dev/npm:minimist-options@4.1.0/index.js"
+    "minimist-options": "https://ga.jspm.io/npm:minimist-options@4.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:minimist-options@4.1.0/": {
-      "arrify": "https://ga.jspm.dev/npm:arrify@1.0.1/index.js",
-      "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@1.1.0/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "https://ga.jspm.io/npm:minimist-options@4.1.0/": {
+      "arrify": "https://ga.jspm.io/npm:arrify@1.0.1/index.js",
+      "is-plain-obj": "https://ga.jspm.io/npm:is-plain-obj@1.1.0/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "@jimp/gif": "https://ga.jspm.dev/npm:@jimp/gif@0.12.1/dist/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "@jimp/gif": "https://ga.jspm.io/npm:@jimp/gif@0.12.1/dist/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jimp/gif@0.12.1/": {
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "omggif": "https://ga.jspm.dev/npm:omggif@1.0.10/omggif.js"
+    "https://ga.jspm.io/npm:@jimp/gif@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "omggif": "https://ga.jspm.io/npm:omggif@1.0.10/omggif.js"
     }
   }
 }

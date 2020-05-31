@@ -1,79 +1,79 @@
 {
   "imports": {
-    "@material-ui/styles": "https://ga.jspm.dev/npm:@material-ui/styles@4.10.0/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "@material-ui/styles": "https://ga.jspm.io/npm:@material-ui/styles@4.10.0/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@material-ui/styles@4.10.0/": {
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutProperties.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
-      "@material-ui/utils": "https://ga.jspm.dev/npm:@material-ui/utils@4.9.12/index.js",
-      "clsx": "https://ga.jspm.dev/npm:clsx@1.1.1/dist/clsx.js",
-      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
-      "jss": "https://ga.jspm.dev/npm:jss@10.1.1/dist/jss.cjs.js",
-      "jss-plugin-camel-case": "https://ga.jspm.dev/npm:jss-plugin-camel-case@10.1.1/dist/jss-plugin-camel-case.cjs.js",
-      "jss-plugin-default-unit": "https://ga.jspm.dev/npm:jss-plugin-default-unit@10.1.1/dist/jss-plugin-default-unit.cjs.js",
-      "jss-plugin-global": "https://ga.jspm.dev/npm:jss-plugin-global@10.1.1/dist/jss-plugin-global.cjs.js",
-      "jss-plugin-nested": "https://ga.jspm.dev/npm:jss-plugin-nested@10.1.1/dist/jss-plugin-nested.cjs.js",
-      "jss-plugin-props-sort": "https://ga.jspm.dev/npm:jss-plugin-props-sort@10.1.1/dist/jss-plugin-props-sort.cjs.js",
-      "jss-plugin-rule-value-function": "https://ga.jspm.dev/npm:jss-plugin-rule-value-function@10.1.1/dist/jss-plugin-rule-value-function.cjs.js",
-      "jss-plugin-vendor-prefixer": "https://ga.jspm.dev/npm:jss-plugin-vendor-prefixer@10.1.1/dist/jss-plugin-vendor-prefixer.cjs.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    "https://ga.jspm.io/npm:@material-ui/styles@4.10.0/": {
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/createClass.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutProperties": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/objectWithoutProperties.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/typeof.js",
+      "@material-ui/utils": "https://ga.jspm.io/npm:@material-ui/utils@4.9.12/index.js",
+      "clsx": "https://ga.jspm.io/npm:clsx@1.1.1/dist/clsx.js",
+      "hoist-non-react-statics": "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
+      "jss": "https://ga.jspm.io/npm:jss@10.1.1/dist/jss.cjs.js",
+      "jss-plugin-camel-case": "https://ga.jspm.io/npm:jss-plugin-camel-case@10.1.1/dist/jss-plugin-camel-case.cjs.js",
+      "jss-plugin-default-unit": "https://ga.jspm.io/npm:jss-plugin-default-unit@10.1.1/dist/jss-plugin-default-unit.cjs.js",
+      "jss-plugin-global": "https://ga.jspm.io/npm:jss-plugin-global@10.1.1/dist/jss-plugin-global.cjs.js",
+      "jss-plugin-nested": "https://ga.jspm.io/npm:jss-plugin-nested@10.1.1/dist/jss-plugin-nested.cjs.js",
+      "jss-plugin-props-sort": "https://ga.jspm.io/npm:jss-plugin-props-sort@10.1.1/dist/jss-plugin-props-sort.cjs.js",
+      "jss-plugin-rule-value-function": "https://ga.jspm.io/npm:jss-plugin-rule-value-function@10.1.1/dist/jss-plugin-rule-value-function.cjs.js",
+      "jss-plugin-vendor-prefixer": "https://ga.jspm.io/npm:jss-plugin-vendor-prefixer@10.1.1/dist/jss-plugin-vendor-prefixer.cjs.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js"
     },
-    "https://ga.jspm.dev/npm:@material-ui/utils@4.9.12/": {
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:@material-ui/utils@4.9.12/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/typeof.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:css-vendor@2.0.8/": {
-      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/toConsumableArray.js",
-      "is-in-browser": "https://ga.jspm.dev/npm:is-in-browser@1.1.3/dist/index.js"
+    "https://ga.jspm.io/npm:css-vendor@2.0.8/": {
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/toConsumableArray.js",
+      "is-in-browser": "https://ga.jspm.io/npm:is-in-browser@1.1.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:jss-plugin-camel-case@10.1.1/": {
-      "hyphenate-style-name": "https://ga.jspm.dev/npm:hyphenate-style-name@1.0.3/index.cjs.js"
+    "https://ga.jspm.io/npm:jss-plugin-camel-case@10.1.1/": {
+      "hyphenate-style-name": "https://ga.jspm.io/npm:hyphenate-style-name@1.0.3/index.cjs.js"
     },
-    "https://ga.jspm.dev/npm:jss-plugin-default-unit@10.1.1/": {
-      "jss": "https://ga.jspm.dev/npm:jss@10.1.1/dist/jss.cjs.js"
+    "https://ga.jspm.io/npm:jss-plugin-default-unit@10.1.1/": {
+      "jss": "https://ga.jspm.io/npm:jss@10.1.1/dist/jss.cjs.js"
     },
-    "https://ga.jspm.dev/npm:jss-plugin-global@10.1.1/": {
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "jss": "https://ga.jspm.dev/npm:jss@10.1.1/dist/jss.cjs.js"
+    "https://ga.jspm.io/npm:jss-plugin-global@10.1.1/": {
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "jss": "https://ga.jspm.io/npm:jss@10.1.1/dist/jss.cjs.js"
     },
-    "https://ga.jspm.dev/npm:jss-plugin-nested@10.1.1/": {
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    "https://ga.jspm.io/npm:jss-plugin-nested@10.1.1/": {
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
-    "https://ga.jspm.dev/npm:jss-plugin-rule-value-function@10.1.1/": {
-      "jss": "https://ga.jspm.dev/npm:jss@10.1.1/dist/jss.cjs.js",
-      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    "https://ga.jspm.io/npm:jss-plugin-rule-value-function@10.1.1/": {
+      "jss": "https://ga.jspm.io/npm:jss@10.1.1/dist/jss.cjs.js",
+      "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
-    "https://ga.jspm.dev/npm:jss-plugin-vendor-prefixer@10.1.1/": {
-      "css-vendor": "https://ga.jspm.dev/npm:css-vendor@2.0.8/dist/css-vendor.cjs.js",
-      "jss": "https://ga.jspm.dev/npm:jss@10.1.1/dist/jss.cjs.js"
+    "https://ga.jspm.io/npm:jss-plugin-vendor-prefixer@10.1.1/": {
+      "css-vendor": "https://ga.jspm.io/npm:css-vendor@2.0.8/dist/css-vendor.cjs.js",
+      "jss": "https://ga.jspm.io/npm:jss@10.1.1/dist/jss.cjs.js"
     },
-    "https://ga.jspm.dev/npm:jss@10.1.1/": {
-      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
-      "is-in-browser": "https://ga.jspm.dev/npm:is-in-browser@1.1.3/dist/index.js",
-      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    "https://ga.jspm.io/npm:jss@10.1.1/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/createClass.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/objectWithoutPropertiesLoose.js",
+      "is-in-browser": "https://ga.jspm.io/npm:is-in-browser@1.1.3/dist/index.js",
+      "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

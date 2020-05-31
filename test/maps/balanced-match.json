@@ -1,5 +1,5 @@
 {
   "imports": {
-    "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js"
+    "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js"
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "ltgt": "https://ga.jspm.dev/npm:ltgt@2.2.1/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "ltgt": "https://ga.jspm.io/npm:ltgt@2.2.1/index.js"
   }
 }

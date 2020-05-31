@@ -1,24 +1,24 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "get-stream": "https://ga.jspm.io/npm:get-stream@5.1.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:get-stream@5.1.0/": {
-      "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    "https://ga.jspm.io/npm:get-stream@5.1.0/": {
+      "pump": "https://ga.jspm.io/npm:pump@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:pump@3.0.0/": {
-      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:pump@3.0.0/": {
+      "end-of-stream": "https://ga.jspm.io/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     }
   }
 }

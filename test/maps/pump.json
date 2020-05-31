@@ -1,19 +1,19 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "pump": "https://ga.jspm.io/npm:pump@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:pump@3.0.0/": {
-      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:pump@3.0.0/": {
+      "end-of-stream": "https://ga.jspm.io/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     }
   }
 }

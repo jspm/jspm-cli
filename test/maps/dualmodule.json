@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dualmodule": "https://ga.jspm.dev/npm:dualmodule@0.1.0/cjs/index.js"
+    "dualmodule": "https://ga.jspm.io/npm:dualmodule@0.1.0/cjs/index.js"
   }
 }

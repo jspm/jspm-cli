@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vue-rt-style-kit-atoms": "https://ga.jspm.dev/npm:vue-rt-style-kit-atoms@0.3.15/lib/vue-rt-style-kit-atoms.js"
+    "vue-rt-style-kit-atoms": "https://ga.jspm.io/npm:vue-rt-style-kit-atoms@0.3.15/lib/vue-rt-style-kit-atoms.js"
   }
 }

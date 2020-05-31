@@ -1,5 +1,5 @@
 {
   "imports": {
-    "level-concat-iterator": "https://ga.jspm.dev/npm:level-concat-iterator@2.0.1/index.js"
+    "level-concat-iterator": "https://ga.jspm.io/npm:level-concat-iterator@2.0.1/index.js"
   }
 }

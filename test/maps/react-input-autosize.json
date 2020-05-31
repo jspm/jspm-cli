@@ -1,14 +1,14 @@
 {
   "imports": {
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-input-autosize": "https://ga.jspm.dev/npm:react-input-autosize@2.2.2/lib/AutosizeInput.js"
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-input-autosize": "https://ga.jspm.io/npm:react-input-autosize@2.2.2/lib/AutosizeInput.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-input-autosize@2.2.2/": {
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    "https://ga.jspm.io/npm:react-input-autosize@2.2.2/": {
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

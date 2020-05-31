@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@web3-js/websocket": "https://ga.jspm.dev/npm:@web3-js/websocket@1.0.30/lib/browser.js"
+    "@web3-js/websocket": "https://ga.jspm.io/npm:@web3-js/websocket@1.0.30/lib/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@web3-js/websocket@1.0.30/": {
-      "es5-ext/global": "https://ga.jspm.dev/npm:es5-ext@0.10.53/global.js"
+    "https://ga.jspm.io/npm:@web3-js/websocket@1.0.30/": {
+      "es5-ext/global": "https://ga.jspm.io/npm:es5-ext@0.10.53/global.js"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fclone": "https://ga.jspm.dev/npm:fclone@1.0.11/dist/fclone.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fclone": "https://ga.jspm.io/npm:fclone@1.0.11/dist/fclone.js"
   }
 }

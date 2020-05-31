@@ -1,5 +1,6 @@
 {
   "imports": {
-    "sin": "https://ga.jspm.dev/npm:sin@1.0.0-rc.0/browser/sin.umd.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "sin": "https://ga.jspm.io/npm:sin@1.0.0-rc.0/browser/sin.umd.js"
   }
 }

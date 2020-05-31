@@ -1,37 +1,37 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "tbk_signer": "https://ga.jspm.dev/npm:tbk_signer@1.0.5/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "tbk_signer": "https://ga.jspm.io/npm:tbk_signer@1.0.5/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pem@1.14.4/": {
-      "es6-promisify": "https://ga.jspm.dev/npm:es6-promisify@6.1.1/dist/promisify.js",
-      "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js",
-      "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
+    "https://ga.jspm.io/npm:pem@1.14.4/": {
+      "es6-promisify": "https://ga.jspm.io/npm:es6-promisify@6.1.1/dist/promisify.js",
+      "os-tmpdir": "https://ga.jspm.io/npm:os-tmpdir@1.0.2/index.js",
+      "which": "https://ga.jspm.io/npm:which@2.0.2/which.js"
     },
-    "https://ga.jspm.dev/npm:tbk_signer@1.0.5/": {
-      "ejs": "https://ga.jspm.dev/npm:ejs@3.1.3/lib/ejs.js",
-      "pem": "https://ga.jspm.dev/npm:pem@1.14.4/lib/pem.js",
-      "uuid": "https://ga.jspm.dev/npm:uuid@3.4.0/index.js",
-      "xml-crypto": "https://ga.jspm.dev/npm:xml-crypto@1.5.3/index.js",
-      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.2.1/dom-parser.js"
+    "https://ga.jspm.io/npm:tbk_signer@1.0.5/": {
+      "ejs": "https://ga.jspm.io/npm:ejs@3.1.3/lib/ejs.js",
+      "pem": "https://ga.jspm.io/npm:pem@1.14.4/lib/pem.js",
+      "uuid": "https://ga.jspm.io/npm:uuid@3.4.0/index.js",
+      "xml-crypto": "https://ga.jspm.io/npm:xml-crypto@1.5.3/index.js",
+      "xmldom": "https://ga.jspm.io/npm:xmldom@0.2.1/dom-parser.js"
     },
-    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
-      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
+    "https://ga.jspm.io/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.io/npm:uuid@3.4.0/lib/rng-browser.js"
     },
-    "https://ga.jspm.dev/npm:which@2.0.2/": {
-      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    "https://ga.jspm.io/npm:which@2.0.2/": {
+      "isexe": "https://ga.jspm.io/npm:isexe@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:xml-crypto@1.5.3/": {
-      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.27/dom-parser.js",
-      "xpath": "https://ga.jspm.dev/npm:xpath@0.0.27/xpath.js"
+    "https://ga.jspm.io/npm:xml-crypto@1.5.3/": {
+      "xmldom": "https://ga.jspm.io/npm:xmldom@0.1.27/dom-parser.js",
+      "xpath": "https://ga.jspm.io/npm:xpath@0.0.27/xpath.js"
     }
   }
 }

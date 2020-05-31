@@ -1,5 +1,5 @@
 {
   "imports": {
-    "chai-moment-esm": "https://ga.jspm.dev/npm:chai-moment-esm@1.2.0/index.js"
+    "chai-moment-esm": "https://ga.jspm.io/npm:chai-moment-esm@1.2.0/index.js"
   }
 }

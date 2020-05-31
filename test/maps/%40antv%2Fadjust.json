@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@antv/adjust": "https://ga.jspm.dev/npm:@antv/adjust@0.2.2/lib/index.js"
+    "@antv/adjust": "https://ga.jspm.io/npm:@antv/adjust@0.2.2/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@antv/adjust@0.2.2/": {
-      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.9/lib/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:@antv/adjust@0.2.2/": {
+      "@antv/util": "https://ga.jspm.io/npm:@antv/util@2.0.9/lib/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

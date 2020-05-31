@@ -1,6 +1,6 @@
 {
   "imports": {
-    "http2-router": "https://ga.jspm.dev/npm:http2-router@3.0.0/build/src/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "http2-router": "https://ga.jspm.io/npm:http2-router@3.0.0/build/src/index.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "backbone": "https://ga.jspm.dev/npm:backbone@1.4.0/backbone.js"
+    "backbone": "https://ga.jspm.io/npm:backbone@1.4.0/backbone.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:backbone@1.4.0/": {
-      "jquery": "https://ga.jspm.dev/npm:jquery@3.5.1/dist/jquery.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.10.2/underscore.js"
+    "https://ga.jspm.io/npm:backbone@1.4.0/": {
+      "jquery": "https://ga.jspm.io/npm:jquery@3.5.1/dist/jquery.js",
+      "underscore": "https://ga.jspm.io/npm:underscore@1.10.2/underscore.js"
     }
   }
 }

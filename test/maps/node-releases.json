@@ -1,12 +1,12 @@
 {
   "imports": {
-    "node-releases/data/processed/envs": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/processed/envs.json.js",
-    "node-releases/data/processed/envs.json": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/processed/envs.json.js",
-    "node-releases/data/processed/envs.json.js!cjs": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/processed/envs.json.js",
-    "node-releases/data/raw/nodejs": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/raw/nodejs.json.js",
-    "node-releases/data/raw/nodejs.json.js!cjs": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/raw/nodejs.json.js",
-    "node-releases/data/release-schedule/release-schedule": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js",
-    "node-releases/data/release-schedule/release-schedule.json": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js",
-    "node-releases/data/release-schedule/release-schedule.json.js!cjs": "https://ga.jspm.dev/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js"
+    "node-releases/data/processed/envs": "https://ga.jspm.io/npm:node-releases@1.1.57/data/processed/envs.json.js",
+    "node-releases/data/processed/envs.json": "https://ga.jspm.io/npm:node-releases@1.1.57/data/processed/envs.json.js",
+    "node-releases/data/processed/envs.json.js!cjs": "https://ga.jspm.io/npm:node-releases@1.1.57/data/processed/envs.json.js",
+    "node-releases/data/raw/nodejs": "https://ga.jspm.io/npm:node-releases@1.1.57/data/raw/nodejs.json.js",
+    "node-releases/data/raw/nodejs.json.js!cjs": "https://ga.jspm.io/npm:node-releases@1.1.57/data/raw/nodejs.json.js",
+    "node-releases/data/release-schedule/release-schedule": "https://ga.jspm.io/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js",
+    "node-releases/data/release-schedule/release-schedule.json": "https://ga.jspm.io/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js",
+    "node-releases/data/release-schedule/release-schedule.json.js!cjs": "https://ga.jspm.io/npm:node-releases@1.1.57/data/release-schedule/release-schedule.json.js"
   }
 }

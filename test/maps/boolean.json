@@ -1,5 +1,5 @@
 {
   "imports": {
-    "boolean": "https://ga.jspm.dev/npm:boolean@3.0.1/build/lib/boolean.js"
+    "boolean": "https://ga.jspm.io/npm:boolean@3.0.1/build/lib/boolean.js"
   }
 }

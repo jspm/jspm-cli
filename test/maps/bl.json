@@ -1,30 +1,30 @@
 {
   "imports": {
-    "bl": "https://ga.jspm.dev/npm:bl@4.0.2/bl.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "bl": "https://ga.jspm.io/npm:bl@4.0.2/bl.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:bl@4.0.2/": {
-      "buffer": "https://ga.jspm.dev/npm:buffer@5.6.0/index.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js"
+    "https://ga.jspm.io/npm:bl@4.0.2/": {
+      "buffer": "https://ga.jspm.io/npm:buffer@5.6.0/index.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream": "https://ga.jspm.io/npm:readable-stream@3.6.0/readable-browser.js"
     },
-    "https://ga.jspm.dev/npm:buffer@5.6.0/": {
-      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
-      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    "https://ga.jspm.io/npm:buffer@5.6.0/": {
+      "base64-js": "https://ga.jspm.io/npm:base64-js@1.3.1/index.js",
+      "ieee754": "https://ga.jspm.io/npm:ieee754@1.1.13/index.js"
     },
-    "https://ga.jspm.dev/npm:readable-stream@3.6.0/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
-      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
-      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js",
-      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    "https://ga.jspm.io/npm:readable-stream@3.6.0/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.io/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.io/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
+      "string_decoder": "https://ga.jspm.io/npm:string_decoder@1.3.0/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.io/npm:util-deprecate@1.0.2/browser.js"
     },
-    "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:string_decoder@1.3.0/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     }
   }
 }

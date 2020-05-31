@@ -1,5 +1,5 @@
 {
   "imports": {
-    "d3-selection": "https://ga.jspm.dev/npm:d3-selection@1.4.1/dist/d3-selection.js"
+    "d3-selection": "https://ga.jspm.io/npm:d3-selection@1.4.1/dist/d3-selection.js"
   }
 }

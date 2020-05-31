@@ -1,5 +1,5 @@
 {
   "imports": {
-    "value-or-function": "https://ga.jspm.dev/npm:value-or-function@3.0.0/index.js"
+    "value-or-function": "https://ga.jspm.io/npm:value-or-function@3.0.0/index.js"
   }
 }

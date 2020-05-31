@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@augu/immutable": "https://ga.jspm.dev/npm:@augu/immutable@0.2.3/esm.mjs",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@augu/immutable": "https://ga.jspm.io/npm:@augu/immutable@0.2.3/esm.mjs",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

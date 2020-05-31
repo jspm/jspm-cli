@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@configura/web-core": "https://ga.jspm.dev/npm:@configura/web-core@0.0.19/dist/index.js"
-  }
-}

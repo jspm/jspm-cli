@@ -1,5 +1,5 @@
 {
   "imports": {
-    "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js"
+    "acorn": "https://ga.jspm.io/npm:acorn@7.2.0/dist/acorn.js"
   }
 }

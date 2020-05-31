@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@butlerlogic/browser-iam": "https://ga.jspm.dev/npm:@butlerlogic/browser-iam@1.0.1/iam-1.0.1.min.js"
+    "@butlerlogic/browser-iam": "https://ga.jspm.io/npm:@butlerlogic/browser-iam@1.0.1/iam-1.0.1.min.js"
   }
 }

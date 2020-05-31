@@ -1,5 +1,5 @@
 {
   "imports": {
-    "electron-extensions/": "https://ga.jspm.dev/npm:electron-extensions@6.0.4/build/"
+    "electron-extensions/": "https://ga.jspm.io/npm:electron-extensions@6.0.4/build/"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "compute-scroll-into-view": "https://ga.jspm.dev/npm:compute-scroll-into-view@1.0.14/index.js"
+    "compute-scroll-into-view": "https://ga.jspm.io/npm:compute-scroll-into-view@1.0.14/index.js"
   }
 }

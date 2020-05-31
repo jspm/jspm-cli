@@ -1,5 +1,5 @@
 {
   "imports": {
-    "stackframe": "https://ga.jspm.dev/npm:stackframe@1.2.0/stackframe.js"
+    "stackframe": "https://ga.jspm.io/npm:stackframe@1.2.0/stackframe.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "undefsafe": "https://ga.jspm.dev/npm:undefsafe@2.0.3/lib/undefsafe.js"
+    "undefsafe": "https://ga.jspm.io/npm:undefsafe@2.0.3/lib/undefsafe.js"
   }
 }

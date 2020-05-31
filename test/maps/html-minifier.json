@@ -1,24 +1,24 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "html-minifier": "https://ga.jspm.dev/npm:html-minifier@4.0.0/src/htmlminifier.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "html-minifier": "https://ga.jspm.io/npm:html-minifier@4.0.0/src/htmlminifier.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:clean-css@4.2.3/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:clean-css@4.2.3/": {
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     },
-    "https://ga.jspm.dev/npm:html-minifier@4.0.0/": {
-      "clean-css": "https://ga.jspm.dev/npm:clean-css@4.2.3/index.js",
-      "he": "https://ga.jspm.dev/npm:he@1.2.0/he.js",
-      "relateurl": "https://ga.jspm.dev/npm:relateurl@0.2.7/lib/index.js",
-      "uglify-js": "https://ga.jspm.dev/npm:uglify-js@3.9.4/tools/node.js"
+    "https://ga.jspm.io/npm:html-minifier@4.0.0/": {
+      "clean-css": "https://ga.jspm.io/npm:clean-css@4.2.3/index.js",
+      "he": "https://ga.jspm.io/npm:he@1.2.0/he.js",
+      "relateurl": "https://ga.jspm.io/npm:relateurl@0.2.7/lib/index.js",
+      "uglify-js": "https://ga.jspm.io/npm:uglify-js@3.9.4/tools/node.js"
     }
   }
 }

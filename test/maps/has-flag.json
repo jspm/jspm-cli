@@ -1,6 +1,6 @@
 {
   "imports": {
-    "has-flag": "https://ga.jspm.dev/npm:has-flag@4.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "has-flag": "https://ga.jspm.io/npm:has-flag@4.0.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

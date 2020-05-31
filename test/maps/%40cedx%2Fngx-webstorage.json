@@ -1,8 +1,8 @@
 {
   "imports": {
-    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.9/bundles/core.umd.js",
-    "@cedx/ngx-webstorage": "https://ga.jspm.dev/npm:@cedx/ngx-webstorage@4.1.0/lib/index.js",
-    "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-    "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js"
+    "@angular/core": "https://ga.jspm.io/npm:@angular/core@9.1.9/bundles/core.umd.js",
+    "@cedx/ngx-webstorage": "https://ga.jspm.io/npm:@cedx/ngx-webstorage@4.1.0/lib/index.js",
+    "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+    "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js"
   }
 }

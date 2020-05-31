@@ -1,5 +1,5 @@
 {
   "imports": {
-    "scope-reporter": "https://ga.jspm.dev/npm:scope-reporter@4.0.5/src/scope-reporter.mjs"
+    "scope-reporter": "https://ga.jspm.io/npm:scope-reporter@4.0.5/src/scope-reporter.mjs"
   }
 }

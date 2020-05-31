@@ -1,0 +1,62 @@
+{
+  "imports": {
+    "debug-fabulous": "https://ga.jspm.io/npm:debug-fabulous@2.0.1/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+  },
+  "scopes": {
+    "https://ga.jspm.io/npm:d@1.0.1/": {
+      "es5-ext/object/assign": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/assign/index.js",
+      "es5-ext/object/normalize-options": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/normalize-options.js",
+      "es5-ext/string/#/contains": "https://ga.jspm.io/npm:es5-ext@0.10.53/string/%23/contains/index.js",
+      "type/plain-function/is": "https://ga.jspm.io/npm:type@1.2.0/plain-function/is.js",
+      "type/value/is": "https://ga.jspm.io/npm:type@1.2.0/value/is.js"
+    },
+    "https://ga.jspm.io/npm:debug-fabulous@2.0.1/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js",
+      "memoizee": "https://ga.jspm.io/npm:memoizee@0.4.14/index.js"
+    },
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
+    },
+    "https://ga.jspm.io/npm:es5-ext@0.10.53/": {
+      "es6-symbol": "https://ga.jspm.io/npm:es6-symbol@3.1.3/index.js"
+    },
+    "https://ga.jspm.io/npm:es6-symbol@3.1.3/": {
+      "d": "https://ga.jspm.io/npm:d@1.0.1/index.js",
+      "ext/global-this": "https://ga.jspm.io/npm:ext@1.4.0/global-this/index.js"
+    },
+    "https://ga.jspm.io/npm:event-emitter@0.3.5/": {
+      "d": "https://ga.jspm.io/npm:d@1.0.1/index.js",
+      "es5-ext/object/valid-callable": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/valid-callable.js"
+    },
+    "https://ga.jspm.io/npm:lru-queue@0.1.0/": {
+      "es5-ext/number/to-pos-integer": "https://ga.jspm.io/npm:es5-ext@0.10.53/number/to-pos-integer.js"
+    },
+    "https://ga.jspm.io/npm:memoizee@0.4.14/": {
+      "d": "https://ga.jspm.io/npm:d@1.0.1/index.js",
+      "es5-ext/array/#/e-index-of": "https://ga.jspm.io/npm:es5-ext@0.10.53/array/%23/e-index-of.js",
+      "es5-ext/array/from": "https://ga.jspm.io/npm:es5-ext@0.10.53/array/from/index.js",
+      "es5-ext/array/to-array": "https://ga.jspm.io/npm:es5-ext@0.10.53/array/to-array.js",
+      "es5-ext/error/custom": "https://ga.jspm.io/npm:es5-ext@0.10.53/error/custom.js",
+      "es5-ext/function/_define-length": "https://ga.jspm.io/npm:es5-ext@0.10.53/function/_define-length.js",
+      "es5-ext/number/to-pos-integer": "https://ga.jspm.io/npm:es5-ext@0.10.53/number/to-pos-integer.js",
+      "es5-ext/object/for-each": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/for-each.js",
+      "es5-ext/object/is-value": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/is-value.js",
+      "es5-ext/object/map": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/map.js",
+      "es5-ext/object/mixin": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/mixin.js",
+      "es5-ext/object/normalize-options": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/normalize-options.js",
+      "es5-ext/object/primitive-set": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/primitive-set.js",
+      "es5-ext/object/valid-callable": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/valid-callable.js",
+      "es5-ext/object/validate-stringifiable-value": "https://ga.jspm.io/npm:es5-ext@0.10.53/object/validate-stringifiable-value.js",
+      "es5-ext/to-short-string-representation": "https://ga.jspm.io/npm:es5-ext@0.10.53/to-short-string-representation.js",
+      "event-emitter": "https://ga.jspm.io/npm:event-emitter@0.3.5/index.js",
+      "is-promise": "https://ga.jspm.io/npm:is-promise@2.2.2/index.js",
+      "lru-queue": "https://ga.jspm.io/npm:lru-queue@0.1.0/index.js",
+      "next-tick": "https://ga.jspm.io/npm:next-tick@1.1.0/index.js",
+      "timers-ext/valid-timeout": "https://ga.jspm.io/npm:timers-ext@0.1.7/valid-timeout.js"
+    },
+    "https://ga.jspm.io/npm:timers-ext@0.1.7/": {
+      "es5-ext/number/to-pos-integer": "https://ga.jspm.io/npm:es5-ext@0.10.53/number/to-pos-integer.js"
+    }
+  }
+}

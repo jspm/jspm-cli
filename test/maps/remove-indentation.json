@@ -1,10 +1,10 @@
 {
   "imports": {
-    "remove-indentation": "https://ga.jspm.dev/npm:remove-indentation@4.2.0/edition-browsers/index.js"
+    "remove-indentation": "https://ga.jspm.io/npm:remove-indentation@4.2.0/edition-browsers/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:remove-indentation@4.2.0/": {
-      "detect-indentation": "https://ga.jspm.dev/npm:detect-indentation@5.2.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:remove-indentation@4.2.0/": {
+      "detect-indentation": "https://ga.jspm.io/npm:detect-indentation@5.2.0/edition-browsers/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@react-native-community/cli-types": "https://ga.jspm.dev/npm:@react-native-community/cli-types@4.9.0/build/index.js"
+    "@react-native-community/cli-types": "https://ga.jspm.io/npm:@react-native-community/cli-types@4.9.0/build/index.js"
   }
 }

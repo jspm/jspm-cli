@@ -1,10 +1,10 @@
 {
   "imports": {
-    "type-check": "https://ga.jspm.dev/npm:type-check@0.4.0/lib/index.js"
+    "type-check": "https://ga.jspm.io/npm:type-check@0.4.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:type-check@0.4.0/": {
-      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.2.1/lib/index.js"
+    "https://ga.jspm.io/npm:type-check@0.4.0/": {
+      "prelude-ls": "https://ga.jspm.io/npm:prelude-ls@1.2.1/lib/index.js"
     }
   }
 }

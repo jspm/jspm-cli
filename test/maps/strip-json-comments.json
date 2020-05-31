@@ -1,5 +1,5 @@
 {
   "imports": {
-    "strip-json-comments": "https://ga.jspm.dev/npm:strip-json-comments@3.1.0/index.js"
+    "strip-json-comments": "https://ga.jspm.io/npm:strip-json-comments@3.1.0/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@baine/kitchen-combinators": "https://ga.jspm.dev/npm:@baine/kitchen-combinators@0.0.6/index.js"
+    "@baine/kitchen-combinators": "https://ga.jspm.io/npm:@baine/kitchen-combinators@0.0.6/index.js"
   }
 }

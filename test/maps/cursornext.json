@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cursornext/module": "https://ga.jspm.dev/npm:cursornext@0.2.2/esm/index.js"
+    "cursornext/module": "https://ga.jspm.io/npm:cursornext@0.2.2/esm/index.js"
   }
 }

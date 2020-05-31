@@ -1,42 +1,42 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "html-to-react": "https://ga.jspm.dev/npm:html-to-react@1.4.3/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "html-to-react": "https://ga.jspm.io/npm:html-to-react@1.4.3/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-serializer@0.2.2/": {
-      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
-      "entities": "https://ga.jspm.dev/npm:entities@2.0.2/lib/index.js"
+    "https://ga.jspm.io/npm:dom-serializer@0.2.2/": {
+      "domelementtype": "https://ga.jspm.io/npm:domelementtype@2.0.1/lib/index.js",
+      "entities": "https://ga.jspm.io/npm:entities@2.0.2/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:domutils@2.1.0/": {
-      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@0.2.2/index.js",
-      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js"
+    "https://ga.jspm.io/npm:domutils@2.1.0/": {
+      "dom-serializer": "https://ga.jspm.io/npm:dom-serializer@0.2.2/index.js",
+      "domelementtype": "https://ga.jspm.io/npm:domelementtype@2.0.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:html-to-react@1.4.3/": {
-      "domhandler": "https://ga.jspm.dev/npm:domhandler@3.0.0/lib/index.js",
-      "htmlparser2": "https://ga.jspm.dev/npm:htmlparser2@4.1.0/lib/index.js",
-      "lodash.camelcase": "https://ga.jspm.dev/npm:lodash.camelcase@4.3.0/index.js",
-      "ramda/src/addIndex": "https://ga.jspm.dev/npm:ramda@0.27.0/src/addIndex.js",
-      "ramda/src/find": "https://ga.jspm.dev/npm:ramda@0.27.0/src/find.js",
-      "ramda/src/forEach": "https://ga.jspm.dev/npm:ramda@0.27.0/src/forEach.js",
-      "ramda/src/includes": "https://ga.jspm.dev/npm:ramda@0.27.0/src/includes.js",
-      "ramda/src/map": "https://ga.jspm.dev/npm:ramda@0.27.0/src/map.js",
-      "ramda/src/reduce": "https://ga.jspm.dev/npm:ramda@0.27.0/src/reduce.js",
-      "ramda/src/reject": "https://ga.jspm.dev/npm:ramda@0.27.0/src/reject.js",
-      "ramda/src/toPairs": "https://ga.jspm.dev/npm:ramda@0.27.0/src/toPairs.js"
+    "https://ga.jspm.io/npm:html-to-react@1.4.3/": {
+      "domhandler": "https://ga.jspm.io/npm:domhandler@3.0.0/lib/index.js",
+      "htmlparser2": "https://ga.jspm.io/npm:htmlparser2@4.1.0/lib/index.js",
+      "lodash.camelcase": "https://ga.jspm.io/npm:lodash.camelcase@4.3.0/index.js",
+      "ramda/src/addIndex": "https://ga.jspm.io/npm:ramda@0.27.0/src/addIndex.js",
+      "ramda/src/find": "https://ga.jspm.io/npm:ramda@0.27.0/src/find.js",
+      "ramda/src/forEach": "https://ga.jspm.io/npm:ramda@0.27.0/src/forEach.js",
+      "ramda/src/includes": "https://ga.jspm.io/npm:ramda@0.27.0/src/includes.js",
+      "ramda/src/map": "https://ga.jspm.io/npm:ramda@0.27.0/src/map.js",
+      "ramda/src/reduce": "https://ga.jspm.io/npm:ramda@0.27.0/src/reduce.js",
+      "ramda/src/reject": "https://ga.jspm.io/npm:ramda@0.27.0/src/reject.js",
+      "ramda/src/toPairs": "https://ga.jspm.io/npm:ramda@0.27.0/src/toPairs.js"
     },
-    "https://ga.jspm.dev/npm:htmlparser2@4.1.0/": {
-      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
-      "domhandler": "https://ga.jspm.dev/npm:domhandler@3.0.0/lib/index.js",
-      "domutils": "https://ga.jspm.dev/npm:domutils@2.1.0/lib/index.js",
-      "entities/lib/decode_codepoint": "https://ga.jspm.dev/npm:entities@2.0.2/lib/decode_codepoint.js",
-      "entities/lib/maps/entities.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/entities.json.js",
-      "entities/lib/maps/legacy.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/legacy.json.js",
-      "entities/lib/maps/xml.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/xml.json.js"
+    "https://ga.jspm.io/npm:htmlparser2@4.1.0/": {
+      "domelementtype": "https://ga.jspm.io/npm:domelementtype@2.0.1/lib/index.js",
+      "domhandler": "https://ga.jspm.io/npm:domhandler@3.0.0/lib/index.js",
+      "domutils": "https://ga.jspm.io/npm:domutils@2.1.0/lib/index.js",
+      "entities/lib/decode_codepoint": "https://ga.jspm.io/npm:entities@2.0.2/lib/decode_codepoint.js",
+      "entities/lib/maps/entities.json": "https://ga.jspm.io/npm:entities@2.0.2/lib/maps/entities.json.js",
+      "entities/lib/maps/legacy.json": "https://ga.jspm.io/npm:entities@2.0.2/lib/maps/legacy.json.js",
+      "entities/lib/maps/xml.json": "https://ga.jspm.io/npm:entities@2.0.2/lib/maps/xml.json.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

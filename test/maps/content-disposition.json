@@ -1,12 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "content-disposition": "https://ga.jspm.dev/npm:content-disposition@0.5.3/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "content-disposition": "https://ga.jspm.io/npm:content-disposition@0.5.3/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:content-disposition@0.5.3/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    "https://ga.jspm.io/npm:content-disposition@0.5.3/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.1.2/index.js"
     }
   }
 }

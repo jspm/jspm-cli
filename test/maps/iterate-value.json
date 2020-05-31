@@ -1,11 +1,11 @@
 {
   "imports": {
-    "iterate-value": "https://ga.jspm.dev/npm:iterate-value@1.0.2/index.js"
+    "iterate-value": "https://ga.jspm.io/npm:iterate-value@1.0.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:iterate-value@1.0.2/": {
-      "es-get-iterator": "https://ga.jspm.dev/npm:es-get-iterator@1.1.0/node.js",
-      "iterate-iterator": "https://ga.jspm.dev/npm:iterate-iterator@1.0.1/index.js"
+    "https://ga.jspm.io/npm:iterate-value@1.0.2/": {
+      "es-get-iterator": "https://ga.jspm.io/npm:es-get-iterator@1.1.0/node.js",
+      "iterate-iterator": "https://ga.jspm.io/npm:iterate-iterator@1.0.1/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tiny-tfidf-node": "https://ga.jspm.dev/npm:tiny-tfidf-node@0.0.1/index.js"
+    "tiny-tfidf-node": "https://ga.jspm.io/npm:tiny-tfidf-node@0.0.1/index.js"
   }
 }

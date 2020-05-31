@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pathstuff": "https://ga.jspm.dev/npm:pathstuff@1.0.1/index.js"
+    "pathstuff": "https://ga.jspm.io/npm:pathstuff@1.0.1/index.js"
   }
 }

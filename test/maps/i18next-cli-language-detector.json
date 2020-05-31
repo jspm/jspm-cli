@@ -1,6 +1,6 @@
 {
   "imports": {
-    "i18next-cli-language-detector": "https://ga.jspm.dev/npm:i18next-cli-language-detector@1.0.0/dist/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "i18next-cli-language-detector": "https://ga.jspm.io/npm:i18next-cli-language-detector@1.0.0/dist/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

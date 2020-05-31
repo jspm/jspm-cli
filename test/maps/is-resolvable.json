@@ -1,6 +1,6 @@
 {
   "imports": {
-    "is-resolvable": "https://ga.jspm.dev/npm:is-resolvable@1.1.0/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "is-resolvable": "https://ga.jspm.io/npm:is-resolvable@1.1.0/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   }
 }

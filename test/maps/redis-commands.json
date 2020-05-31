@@ -1,5 +1,5 @@
 {
   "imports": {
-    "redis-commands": "https://ga.jspm.dev/npm:redis-commands@1.5.0/index.js"
+    "redis-commands": "https://ga.jspm.io/npm:redis-commands@1.5.0/index.js"
   }
 }

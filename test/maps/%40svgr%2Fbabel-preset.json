@@ -1,17 +1,17 @@
 {
   "imports": {
-    "@svgr/babel-preset": "https://ga.jspm.dev/npm:@svgr/babel-preset@5.4.0/lib/index.js"
+    "@svgr/babel-preset": "https://ga.jspm.io/npm:@svgr/babel-preset@5.4.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@svgr/babel-preset@5.4.0/": {
-      "@svgr/babel-plugin-add-jsx-attribute": "https://ga.jspm.dev/npm:@svgr/babel-plugin-add-jsx-attribute@5.4.0/lib/index.js",
-      "@svgr/babel-plugin-remove-jsx-attribute": "https://ga.jspm.dev/npm:@svgr/babel-plugin-remove-jsx-attribute@5.4.0/lib/index.js",
-      "@svgr/babel-plugin-remove-jsx-empty-expression": "https://ga.jspm.dev/npm:@svgr/babel-plugin-remove-jsx-empty-expression@5.0.1/lib/index.js",
-      "@svgr/babel-plugin-replace-jsx-attribute-value": "https://ga.jspm.dev/npm:@svgr/babel-plugin-replace-jsx-attribute-value@5.0.1/lib/index.js",
-      "@svgr/babel-plugin-svg-dynamic-title": "https://ga.jspm.dev/npm:@svgr/babel-plugin-svg-dynamic-title@5.4.0/lib/index.js",
-      "@svgr/babel-plugin-svg-em-dimensions": "https://ga.jspm.dev/npm:@svgr/babel-plugin-svg-em-dimensions@5.4.0/lib/index.js",
-      "@svgr/babel-plugin-transform-react-native-svg": "https://ga.jspm.dev/npm:@svgr/babel-plugin-transform-react-native-svg@5.4.0/lib/index.js",
-      "@svgr/babel-plugin-transform-svg-component": "https://ga.jspm.dev/npm:@svgr/babel-plugin-transform-svg-component@5.4.0/lib/index.js"
+    "https://ga.jspm.io/npm:@svgr/babel-preset@5.4.0/": {
+      "@svgr/babel-plugin-add-jsx-attribute": "https://ga.jspm.io/npm:@svgr/babel-plugin-add-jsx-attribute@5.4.0/lib/index.js",
+      "@svgr/babel-plugin-remove-jsx-attribute": "https://ga.jspm.io/npm:@svgr/babel-plugin-remove-jsx-attribute@5.4.0/lib/index.js",
+      "@svgr/babel-plugin-remove-jsx-empty-expression": "https://ga.jspm.io/npm:@svgr/babel-plugin-remove-jsx-empty-expression@5.0.1/lib/index.js",
+      "@svgr/babel-plugin-replace-jsx-attribute-value": "https://ga.jspm.io/npm:@svgr/babel-plugin-replace-jsx-attribute-value@5.0.1/lib/index.js",
+      "@svgr/babel-plugin-svg-dynamic-title": "https://ga.jspm.io/npm:@svgr/babel-plugin-svg-dynamic-title@5.4.0/lib/index.js",
+      "@svgr/babel-plugin-svg-em-dimensions": "https://ga.jspm.io/npm:@svgr/babel-plugin-svg-em-dimensions@5.4.0/lib/index.js",
+      "@svgr/babel-plugin-transform-react-native-svg": "https://ga.jspm.io/npm:@svgr/babel-plugin-transform-react-native-svg@5.4.0/lib/index.js",
+      "@svgr/babel-plugin-transform-svg-component": "https://ga.jspm.io/npm:@svgr/babel-plugin-transform-svg-component@5.4.0/lib/index.js"
     }
   }
 }

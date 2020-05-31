@@ -1,16 +1,16 @@
 {
   "imports": {
-    "apollo-link-http-common": "https://ga.jspm.dev/npm:apollo-link-http-common@0.2.16/lib/index.js",
-    "graphql/language/printer": "https://ga.jspm.dev/npm:graphql@15.0.0/language/printer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "apollo-link-http-common": "https://ga.jspm.io/npm:apollo-link-http-common@0.2.16/lib/index.js",
+    "graphql/language/printer": "https://ga.jspm.io/npm:graphql@15.0.0/language/printer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:apollo-link-http-common@0.2.16/": {
-      "ts-invariant": "https://ga.jspm.dev/npm:ts-invariant@0.4.4/lib/invariant.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:apollo-link-http-common@0.2.16/": {
+      "ts-invariant": "https://ga.jspm.io/npm:ts-invariant@0.4.4/lib/invariant.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:ts-invariant@0.4.4/": {
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:ts-invariant@0.4.4/": {
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

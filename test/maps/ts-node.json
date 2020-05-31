@@ -1,21 +1,21 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "ts-node": "https://ga.jspm.dev/npm:ts-node@8.10.2/dist/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "ts-node": "https://ga.jspm.io/npm:ts-node@8.10.2/dist/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:source-map-support@0.5.19/": {
-      "buffer-from": "https://ga.jspm.dev/npm:buffer-from@1.1.1/index.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:source-map-support@0.5.19/": {
+      "buffer-from": "https://ga.jspm.io/npm:buffer-from@1.1.1/index.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     },
-    "https://ga.jspm.dev/npm:ts-node@8.10.2/": {
-      "make-error": "https://ga.jspm.dev/npm:make-error@1.3.6/index.js",
-      "source-map-support": "https://ga.jspm.dev/npm:source-map-support@0.5.19/source-map-support.js",
-      "yn": "https://ga.jspm.dev/npm:yn@3.1.1/index.js"
+    "https://ga.jspm.io/npm:ts-node@8.10.2/": {
+      "make-error": "https://ga.jspm.io/npm:make-error@1.3.6/index.js",
+      "source-map-support": "https://ga.jspm.io/npm:source-map-support@0.5.19/source-map-support.js",
+      "yn": "https://ga.jspm.io/npm:yn@3.1.1/index.js"
     }
   }
 }

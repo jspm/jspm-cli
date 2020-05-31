@@ -1,5 +1,5 @@
 {
   "imports": {
-    "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js"
+    "classnames": "https://ga.jspm.io/npm:classnames@2.2.6/index.js"
   }
 }

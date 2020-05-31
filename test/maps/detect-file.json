@@ -1,7 +1,7 @@
 {
   "imports": {
-    "detect-file": "https://ga.jspm.dev/npm:detect-file@1.0.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "detect-file": "https://ga.jspm.io/npm:detect-file@1.0.0/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

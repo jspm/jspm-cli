@@ -1,19 +1,19 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "resolve-path": "https://ga.jspm.dev/npm:resolve-path@1.4.0/index.js"
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "resolve-path": "https://ga.jspm.io/npm:resolve-path@1.4.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:http-errors@1.6.3/": {
-      "depd": "https://ga.jspm.dev/npm:depd@1.1.2/lib/browser/index.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.3/inherits_browser.js",
-      "setprototypeof": "https://ga.jspm.dev/npm:setprototypeof@1.1.0/index.js",
-      "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js"
+    "https://ga.jspm.io/npm:http-errors@1.6.3/": {
+      "depd": "https://ga.jspm.io/npm:depd@1.1.2/lib/browser/index.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.3/inherits_browser.js",
+      "setprototypeof": "https://ga.jspm.io/npm:setprototypeof@1.1.0/index.js",
+      "statuses": "https://ga.jspm.io/npm:statuses@1.5.0/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve-path@1.4.0/": {
-      "http-errors": "https://ga.jspm.dev/npm:http-errors@1.6.3/index.js",
-      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    "https://ga.jspm.io/npm:resolve-path@1.4.0/": {
+      "http-errors": "https://ga.jspm.io/npm:http-errors@1.6.3/index.js",
+      "path-is-absolute": "https://ga.jspm.io/npm:path-is-absolute@1.0.1/index.js"
     }
   }
 }

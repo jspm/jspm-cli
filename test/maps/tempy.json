@@ -1,21 +1,21 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "tempy": "https://ga.jspm.dev/npm:tempy@0.5.0/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tempy": "https://ga.jspm.io/npm:tempy@0.5.0/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:tempy@0.5.0/": {
-      "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js",
-      "temp-dir": "https://ga.jspm.dev/npm:temp-dir@2.0.0/index.js",
-      "unique-string": "https://ga.jspm.dev/npm:unique-string@2.0.0/index.js"
+    "https://ga.jspm.io/npm:tempy@0.5.0/": {
+      "is-stream": "https://ga.jspm.io/npm:is-stream@2.0.0/index.js",
+      "temp-dir": "https://ga.jspm.io/npm:temp-dir@2.0.0/index.js",
+      "unique-string": "https://ga.jspm.io/npm:unique-string@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:unique-string@2.0.0/": {
-      "crypto-random-string": "https://ga.jspm.dev/npm:crypto-random-string@2.0.0/index.js"
+    "https://ga.jspm.io/npm:unique-string@2.0.0/": {
+      "crypto-random-string": "https://ga.jspm.io/npm:crypto-random-string@2.0.0/index.js"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "front-matter": "https://ga.jspm.dev/npm:front-matter@4.0.2/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "front-matter": "https://ga.jspm.io/npm:front-matter@4.0.2/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:front-matter@4.0.2/": {
-      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js"
+    "https://ga.jspm.io/npm:front-matter@4.0.2/": {
+      "js-yaml": "https://ga.jspm.io/npm:js-yaml@3.14.0/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "whatwg-fetch": "https://ga.jspm.dev/npm:whatwg-fetch@3.0.0/dist/fetch.umd.js"
+    "whatwg-fetch": "https://ga.jspm.io/npm:whatwg-fetch@3.0.0/dist/fetch.umd.js"
   }
 }

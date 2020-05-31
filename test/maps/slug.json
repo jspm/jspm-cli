@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "slug": "https://ga.jspm.dev/npm:slug@3.3.0/slug.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "slug": "https://ga.jspm.io/npm:slug@3.3.0/slug.js"
   }
 }

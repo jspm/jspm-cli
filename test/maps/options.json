@@ -1,6 +1,6 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "options": "https://ga.jspm.dev/npm:options@0.0.6/lib/options.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "options": "https://ga.jspm.io/npm:options@0.0.6/lib/options.js"
   }
 }

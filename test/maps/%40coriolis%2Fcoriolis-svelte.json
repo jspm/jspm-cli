@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@coriolis/coriolis-svelte": "https://ga.jspm.dev/npm:@coriolis/coriolis-svelte@1.0.0-alpha1/cjs/provideStore.js"
+    "@coriolis/coriolis-svelte": "https://ga.jspm.io/npm:@coriolis/coriolis-svelte@1.0.0-alpha1/cjs/provideStore.js"
   }
 }

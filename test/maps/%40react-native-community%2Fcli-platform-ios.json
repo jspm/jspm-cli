@@ -1,99 +1,99 @@
 {
   "imports": {
-    "@react-native-community/cli-platform-ios": "https://ga.jspm.dev/npm:@react-native-community/cli-platform-ios@4.9.0/build/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@react-native-community/cli-platform-ios": "https://ga.jspm.io/npm:@react-native-community/cli-platform-ios@4.9.0/build/index.js",
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@react-native-community/cli-platform-ios@4.9.0/": {
-      "@react-native-community/cli-tools": "https://ga.jspm.dev/npm:@react-native-community/cli-tools@4.9.0/build/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
-      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "plist": "https://ga.jspm.dev/npm:plist@3.0.1/index.js",
-      "xcode": "https://ga.jspm.dev/npm:xcode@2.1.0/index.js",
-      "xcode/lib/pbxFile": "https://ga.jspm.dev/npm:xcode@2.1.0/lib/pbxFile.js"
+    "https://ga.jspm.io/npm:@react-native-community/cli-platform-ios@4.9.0/": {
+      "@react-native-community/cli-tools": "https://ga.jspm.io/npm:@react-native-community/cli-tools@4.9.0/build/index.js",
+      "chalk": "https://ga.jspm.io/npm:chalk@3.0.0/source/index.js",
+      "glob": "https://ga.jspm.io/npm:glob@7.1.6/glob.js",
+      "js-yaml": "https://ga.jspm.io/npm:js-yaml@3.14.0/index.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js",
+      "plist": "https://ga.jspm.io/npm:plist@3.0.1/index.js",
+      "xcode": "https://ga.jspm.io/npm:xcode@2.1.0/index.js",
+      "xcode/lib/pbxFile": "https://ga.jspm.io/npm:xcode@2.1.0/lib/pbxFile.js"
     },
-    "https://ga.jspm.dev/npm:@react-native-community/cli-tools@4.9.0/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "mime": "https://ga.jspm.dev/npm:mime@2.4.6/index.js",
-      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js",
-      "open": "https://ga.jspm.dev/npm:open@6.4.0/index.js",
-      "shell-quote": "https://ga.jspm.dev/npm:shell-quote@1.6.1/index.js"
+    "https://ga.jspm.io/npm:@react-native-community/cli-tools@4.9.0/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@3.0.0/source/index.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js",
+      "mime": "https://ga.jspm.io/npm:mime@2.4.6/index.js",
+      "node-fetch": "https://ga.jspm.io/npm:node-fetch@2.6.0/browser.js",
+      "open": "https://ga.jspm.io/npm:open@6.4.0/index.js",
+      "shell-quote": "https://ga.jspm.io/npm:shell-quote@1.6.1/index.js"
     },
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:bplist-creator@0.0.8/": {
-      "stream-buffers": "https://ga.jspm.dev/npm:stream-buffers@2.2.0/lib/streambuffer.js"
+    "https://ga.jspm.io/npm:bplist-creator@0.0.8/": {
+      "stream-buffers": "https://ga.jspm.io/npm:stream-buffers@2.2.0/lib/streambuffer.js"
     },
-    "https://ga.jspm.dev/npm:bplist-parser@0.2.0/": {
-      "big-integer": "https://ga.jspm.dev/npm:big-integer@1.6.48/BigInteger.js"
+    "https://ga.jspm.io/npm:bplist-parser@0.2.0/": {
+      "big-integer": "https://ga.jspm.io/npm:big-integer@1.6.48/BigInteger.js"
     },
-    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
-      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    "https://ga.jspm.io/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.io/npm:concat-map@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@7.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:glob@7.1.6/": {
-      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
-      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
-      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    "https://ga.jspm.io/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.io/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.io/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.io/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.io/npm:path-is-absolute@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
-      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    "https://ga.jspm.io/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.io/npm:brace-expansion@1.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:open@6.4.0/": {
-      "is-wsl": "https://ga.jspm.dev/npm:is-wsl@1.1.0/index.js"
+    "https://ga.jspm.io/npm:open@6.4.0/": {
+      "is-wsl": "https://ga.jspm.io/npm:is-wsl@1.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:plist@3.0.1/": {
-      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
-      "xmlbuilder": "https://ga.jspm.dev/npm:xmlbuilder@9.0.7/lib/index.js",
-      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.31/dom-parser.js"
+    "https://ga.jspm.io/npm:plist@3.0.1/": {
+      "base64-js": "https://ga.jspm.io/npm:base64-js@1.3.1/index.js",
+      "xmlbuilder": "https://ga.jspm.io/npm:xmlbuilder@9.0.7/lib/index.js",
+      "xmldom": "https://ga.jspm.io/npm:xmldom@0.1.31/dom-parser.js"
     },
-    "https://ga.jspm.dev/npm:shell-quote@1.6.1/": {
-      "array-filter": "https://ga.jspm.dev/npm:array-filter@0.0.1/index.js",
-      "array-map": "https://ga.jspm.dev/npm:array-map@0.0.0/index.js",
-      "array-reduce": "https://ga.jspm.dev/npm:array-reduce@0.0.0/index.js",
-      "jsonify": "https://ga.jspm.dev/npm:jsonify@0.0.0/index.js"
+    "https://ga.jspm.io/npm:shell-quote@1.6.1/": {
+      "array-filter": "https://ga.jspm.io/npm:array-filter@0.0.1/index.js",
+      "array-map": "https://ga.jspm.io/npm:array-map@0.0.0/index.js",
+      "array-reduce": "https://ga.jspm.io/npm:array-reduce@0.0.0/index.js",
+      "jsonify": "https://ga.jspm.io/npm:jsonify@0.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:simple-plist@1.1.0/": {
-      "bplist-creator": "https://ga.jspm.dev/npm:bplist-creator@0.0.8/bplistCreator.js",
-      "bplist-parser": "https://ga.jspm.dev/npm:bplist-parser@0.2.0/bplistParser.js",
-      "plist": "https://ga.jspm.dev/npm:plist@3.0.1/index.js"
+    "https://ga.jspm.io/npm:simple-plist@1.1.0/": {
+      "bplist-creator": "https://ga.jspm.io/npm:bplist-creator@0.0.8/bplistCreator.js",
+      "bplist-parser": "https://ga.jspm.io/npm:bplist-parser@0.2.0/bplistParser.js",
+      "plist": "https://ga.jspm.io/npm:plist@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
-      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
+    "https://ga.jspm.io/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.io/npm:uuid@3.4.0/lib/rng-browser.js"
     },
-    "https://ga.jspm.dev/npm:xcode@2.1.0/": {
-      "simple-plist": "https://ga.jspm.dev/npm:simple-plist@1.1.0/simple-plist.js",
-      "uuid": "https://ga.jspm.dev/npm:uuid@3.4.0/index.js"
+    "https://ga.jspm.io/npm:xcode@2.1.0/": {
+      "simple-plist": "https://ga.jspm.io/npm:simple-plist@1.1.0/simple-plist.js",
+      "uuid": "https://ga.jspm.io/npm:uuid@3.4.0/index.js"
     }
   }
 }

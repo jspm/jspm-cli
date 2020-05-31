@@ -1,10 +1,10 @@
 {
   "imports": {
-    "flat": "https://ga.jspm.dev/npm:flat@5.0.0/index.js"
+    "flat": "https://ga.jspm.io/npm:flat@5.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:flat@5.0.0/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js"
+    "https://ga.jspm.io/npm:flat@5.0.0/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@2.0.4/index.js"
     }
   }
 }

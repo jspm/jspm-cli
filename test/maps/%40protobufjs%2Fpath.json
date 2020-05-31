@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@protobufjs/path": "https://ga.jspm.dev/npm:@protobufjs/path@1.1.2/index.js"
+    "@protobufjs/path": "https://ga.jspm.io/npm:@protobufjs/path@1.1.2/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@calmdownval/casey": "https://ga.jspm.dev/npm:@calmdownval/casey@1.1.2/src/index.mjs"
+    "@calmdownval/casey": "https://ga.jspm.io/npm:@calmdownval/casey@1.1.2/src/index.mjs"
   }
 }

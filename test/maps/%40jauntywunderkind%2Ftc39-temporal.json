@@ -1,64 +1,64 @@
 {
   "imports": {
-    "@jauntywunderkind/tc39-temporal": "https://ga.jspm.dev/npm:@jauntywunderkind/tc39-temporal@2020.203.0/lib/index.mjs"
+    "@jauntywunderkind/tc39-temporal": "https://ga.jspm.io/npm:@jauntywunderkind/tc39-temporal@2020.203.0/lib/index.mjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jauntywunderkind/tc39-temporal@2020.203.0/": {
-      "big-integer": "https://ga.jspm.dev/npm:big-integer@1.6.48/BigInteger.js",
-      "es-abstract/GetIntrinsic.js": "https://ga.jspm.dev/npm:es-abstract@1.17.5/GetIntrinsic.js",
-      "es-abstract/es2019.js": "https://ga.jspm.dev/npm:es-abstract@1.17.5/es2019.js"
+    "https://ga.jspm.io/npm:@jauntywunderkind/tc39-temporal@2020.203.0/": {
+      "big-integer": "https://ga.jspm.io/npm:big-integer@1.6.48/BigInteger.js",
+      "es-abstract/GetIntrinsic.js": "https://ga.jspm.io/npm:es-abstract@1.17.5/GetIntrinsic.js",
+      "es-abstract/es2019.js": "https://ga.jspm.io/npm:es-abstract@1.17.5/es2019.js"
     },
-    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
-      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    "https://ga.jspm.io/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.io/npm:object-keys@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
-      "es-to-primitive/es2015": "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/es2015.js",
-      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
-      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js",
-      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js",
-      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js",
-      "is-regex": "https://ga.jspm.dev/npm:is-regex@1.0.5/index.js",
-      "object-inspect": "https://ga.jspm.dev/npm:object-inspect@1.7.0/index.js",
-      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js",
-      "object.assign": "https://ga.jspm.dev/npm:object.assign@4.1.0/index.js",
-      "string.prototype.trimleft": "https://ga.jspm.dev/npm:string.prototype.trimleft@2.1.2/index.js",
-      "string.prototype.trimright": "https://ga.jspm.dev/npm:string.prototype.trimright@2.1.2/index.js"
+    "https://ga.jspm.io/npm:es-abstract@1.17.5/": {
+      "es-to-primitive/es2015": "https://ga.jspm.io/npm:es-to-primitive@1.2.1/es2015.js",
+      "function-bind": "https://ga.jspm.io/npm:function-bind@1.1.1/index.js",
+      "has": "https://ga.jspm.io/npm:has@1.0.3/src/index.js",
+      "has-symbols": "https://ga.jspm.io/npm:has-symbols@1.0.1/index.js",
+      "is-callable": "https://ga.jspm.io/npm:is-callable@1.1.5/index.js",
+      "is-regex": "https://ga.jspm.io/npm:is-regex@1.0.5/index.js",
+      "object-inspect": "https://ga.jspm.io/npm:object-inspect@1.7.0/index.js",
+      "object-keys": "https://ga.jspm.io/npm:object-keys@1.1.1/index.js",
+      "object.assign": "https://ga.jspm.io/npm:object.assign@4.1.0/index.js",
+      "string.prototype.trimleft": "https://ga.jspm.io/npm:string.prototype.trimleft@2.1.2/index.js",
+      "string.prototype.trimright": "https://ga.jspm.io/npm:string.prototype.trimright@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:es-to-primitive@1.2.1/": {
-      "is-callable": "https://ga.jspm.dev/npm:is-callable@1.1.5/index.js",
-      "is-date-object": "https://ga.jspm.dev/npm:is-date-object@1.0.2/index.js",
-      "is-symbol": "https://ga.jspm.dev/npm:is-symbol@1.0.3/index.js"
+    "https://ga.jspm.io/npm:es-to-primitive@1.2.1/": {
+      "is-callable": "https://ga.jspm.io/npm:is-callable@1.1.5/index.js",
+      "is-date-object": "https://ga.jspm.io/npm:is-date-object@1.0.2/index.js",
+      "is-symbol": "https://ga.jspm.io/npm:is-symbol@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:has@1.0.3/": {
-      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    "https://ga.jspm.io/npm:has@1.0.3/": {
+      "function-bind": "https://ga.jspm.io/npm:function-bind@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:is-regex@1.0.5/": {
-      "has": "https://ga.jspm.dev/npm:has@1.0.3/src/index.js"
+    "https://ga.jspm.io/npm:is-regex@1.0.5/": {
+      "has": "https://ga.jspm.io/npm:has@1.0.3/src/index.js"
     },
-    "https://ga.jspm.dev/npm:is-symbol@1.0.3/": {
-      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    "https://ga.jspm.io/npm:is-symbol@1.0.3/": {
+      "has-symbols": "https://ga.jspm.io/npm:has-symbols@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:object.assign@4.1.0/": {
-      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
-      "has-symbols/shams": "https://ga.jspm.dev/npm:has-symbols@1.0.1/shams.js",
-      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    "https://ga.jspm.io/npm:object.assign@4.1.0/": {
+      "define-properties": "https://ga.jspm.io/npm:define-properties@1.1.3/index.js",
+      "function-bind": "https://ga.jspm.io/npm:function-bind@1.1.1/index.js",
+      "has-symbols/shams": "https://ga.jspm.io/npm:has-symbols@1.0.1/shams.js",
+      "object-keys": "https://ga.jspm.io/npm:object-keys@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:string.prototype.trimend@1.0.1/": {
-      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js"
+    "https://ga.jspm.io/npm:string.prototype.trimend@1.0.1/": {
+      "es-abstract/helpers/callBound": "https://ga.jspm.io/npm:es-abstract@1.17.5/helpers/callBound.js"
     },
-    "https://ga.jspm.dev/npm:string.prototype.trimleft@2.1.2/": {
-      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js",
-      "string.prototype.trimstart/implementation": "https://ga.jspm.dev/npm:string.prototype.trimstart@1.0.1/implementation.js"
+    "https://ga.jspm.io/npm:string.prototype.trimleft@2.1.2/": {
+      "define-properties": "https://ga.jspm.io/npm:define-properties@1.1.3/index.js",
+      "es-abstract/helpers/callBind": "https://ga.jspm.io/npm:es-abstract@1.17.5/helpers/callBind.js",
+      "string.prototype.trimstart/implementation": "https://ga.jspm.io/npm:string.prototype.trimstart@1.0.1/implementation.js"
     },
-    "https://ga.jspm.dev/npm:string.prototype.trimright@2.1.2/": {
-      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js",
-      "string.prototype.trimend/implementation": "https://ga.jspm.dev/npm:string.prototype.trimend@1.0.1/implementation.js"
+    "https://ga.jspm.io/npm:string.prototype.trimright@2.1.2/": {
+      "define-properties": "https://ga.jspm.io/npm:define-properties@1.1.3/index.js",
+      "es-abstract/helpers/callBind": "https://ga.jspm.io/npm:es-abstract@1.17.5/helpers/callBind.js",
+      "string.prototype.trimend/implementation": "https://ga.jspm.io/npm:string.prototype.trimend@1.0.1/implementation.js"
     },
-    "https://ga.jspm.dev/npm:string.prototype.trimstart@1.0.1/": {
-      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js"
+    "https://ga.jspm.io/npm:string.prototype.trimstart@1.0.1/": {
+      "es-abstract/helpers/callBind": "https://ga.jspm.io/npm:es-abstract@1.17.5/helpers/callBind.js"
     }
   }
 }

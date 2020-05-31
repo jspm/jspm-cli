@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@wheelroom/graphql-query-builder": "https://ga.jspm.dev/npm:@wheelroom/graphql-query-builder@1.4.1/dist/index.js"
+    "@wheelroom/graphql-query-builder": "https://ga.jspm.io/npm:@wheelroom/graphql-query-builder@1.4.1/dist/index.js"
   }
 }

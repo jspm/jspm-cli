@@ -1,11 +1,11 @@
 {
   "imports": {
-    "end-stream": "https://ga.jspm.dev/npm:end-stream@0.1.0/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "end-stream": "https://ga.jspm.io/npm:end-stream@0.1.0/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:end-stream@0.1.0/": {
-      "write-stream": "https://ga.jspm.dev/npm:write-stream@0.4.3/index.js"
+    "https://ga.jspm.io/npm:end-stream@0.1.0/": {
+      "write-stream": "https://ga.jspm.io/npm:write-stream@0.4.3/index.js"
     }
   }
 }

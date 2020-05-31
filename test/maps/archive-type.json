@@ -1,10 +1,10 @@
 {
   "imports": {
-    "archive-type": "https://ga.jspm.dev/npm:archive-type@4.0.0/index.js"
+    "archive-type": "https://ga.jspm.io/npm:archive-type@4.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:archive-type@4.0.0/": {
-      "file-type": "https://ga.jspm.dev/npm:file-type@4.4.0/index.js"
+    "https://ga.jspm.io/npm:archive-type@4.0.0/": {
+      "file-type": "https://ga.jspm.io/npm:file-type@4.4.0/index.js"
     }
   }
 }

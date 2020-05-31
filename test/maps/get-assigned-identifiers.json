@@ -1,6 +1,6 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "get-assigned-identifiers": "https://ga.jspm.dev/npm:get-assigned-identifiers@1.2.0/index.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "get-assigned-identifiers": "https://ga.jspm.io/npm:get-assigned-identifiers@1.2.0/index.js"
   }
 }

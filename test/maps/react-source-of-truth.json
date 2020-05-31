@@ -1,5 +1,5 @@
 {
   "imports": {
-    "react-source-of-truth": "https://ga.jspm.dev/npm:react-source-of-truth@2.1.1/src/index.js"
+    "react-source-of-truth": "https://ga.jspm.io/npm:react-source-of-truth@2.1.1/src/index.js"
   }
 }

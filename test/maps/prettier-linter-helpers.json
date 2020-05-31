@@ -1,10 +1,10 @@
 {
   "imports": {
-    "prettier-linter-helpers": "https://ga.jspm.dev/npm:prettier-linter-helpers@1.0.0/index.js"
+    "prettier-linter-helpers": "https://ga.jspm.io/npm:prettier-linter-helpers@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:prettier-linter-helpers@1.0.0/": {
-      "fast-diff": "https://ga.jspm.dev/npm:fast-diff@1.2.0/diff.js"
+    "https://ga.jspm.io/npm:prettier-linter-helpers@1.0.0/": {
+      "fast-diff": "https://ga.jspm.io/npm:fast-diff@1.2.0/diff.js"
     }
   }
 }

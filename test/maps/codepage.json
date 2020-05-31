@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "codepage": "https://ga.jspm.dev/npm:codepage@1.14.0/cputils.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "codepage": "https://ga.jspm.io/npm:codepage@1.14.0/cputils.js"
   }
 }

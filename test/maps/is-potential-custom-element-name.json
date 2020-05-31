@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-potential-custom-element-name": "https://ga.jspm.dev/npm:is-potential-custom-element-name@1.0.0/index.js"
+    "is-potential-custom-element-name": "https://ga.jspm.io/npm:is-potential-custom-element-name@1.0.0/index.js"
   }
 }

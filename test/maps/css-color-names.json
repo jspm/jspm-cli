@@ -1,5 +1,5 @@
 {
   "imports": {
-    "css-color-names": "https://ga.jspm.dev/npm:css-color-names@1.0.1/css-color-names.json.js"
+    "css-color-names": "https://ga.jspm.io/npm:css-color-names@1.0.1/css-color-names.json.js"
   }
 }

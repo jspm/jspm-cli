@@ -1,17 +1,17 @@
 {
   "imports": {
-    "has-value": "https://ga.jspm.dev/npm:has-value@2.0.2/index.js"
+    "has-value": "https://ga.jspm.io/npm:has-value@2.0.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:get-value@3.0.1/": {
-      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    "https://ga.jspm.io/npm:get-value@3.0.1/": {
+      "isobject": "https://ga.jspm.io/npm:isobject@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:has-value@2.0.2/": {
-      "get-value": "https://ga.jspm.dev/npm:get-value@3.0.1/index.js",
-      "has-values": "https://ga.jspm.dev/npm:has-values@2.0.1/index.js"
+    "https://ga.jspm.io/npm:has-value@2.0.2/": {
+      "get-value": "https://ga.jspm.io/npm:get-value@3.0.1/index.js",
+      "has-values": "https://ga.jspm.io/npm:has-values@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:has-values@2.0.1/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "https://ga.jspm.io/npm:has-values@2.0.1/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
     }
   }
 }

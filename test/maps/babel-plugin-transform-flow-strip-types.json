@@ -1,14 +1,14 @@
 {
   "imports": {
-    "babel-plugin-transform-flow-strip-types": "https://ga.jspm.dev/npm:babel-plugin-transform-flow-strip-types@6.22.0/lib/index.js"
+    "babel-plugin-transform-flow-strip-types": "https://ga.jspm.io/npm:babel-plugin-transform-flow-strip-types@6.22.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-plugin-transform-flow-strip-types@6.22.0/": {
-      "babel-plugin-syntax-flow": "https://ga.jspm.dev/npm:babel-plugin-syntax-flow@6.18.0/lib/index.js",
-      "babel-runtime/core-js/get-iterator": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/get-iterator.js"
+    "https://ga.jspm.io/npm:babel-plugin-transform-flow-strip-types@6.22.0/": {
+      "babel-plugin-syntax-flow": "https://ga.jspm.io/npm:babel-plugin-syntax-flow@6.18.0/lib/index.js",
+      "babel-runtime/core-js/get-iterator": "https://ga.jspm.io/npm:babel-runtime@6.26.0/core-js/get-iterator.js"
     },
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/library/fn/get-iterator": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/get-iterator.js"
+    "https://ga.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/library/fn/get-iterator": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/get-iterator.js"
     }
   }
 }

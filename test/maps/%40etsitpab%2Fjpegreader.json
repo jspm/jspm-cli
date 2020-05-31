@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@etsitpab/jpegreader": "https://ga.jspm.dev/npm:@etsitpab/jpegreader@1.0.3/src/JPEGReader.js"
+    "@etsitpab/jpegreader": "https://ga.jspm.io/npm:@etsitpab/jpegreader@1.0.3/src/JPEGReader.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@etsitpab/jpegreader@1.0.3/": {
-      "@etsitpab/logger": "https://ga.jspm.dev/npm:@etsitpab/logger@1.0.4/src/Logger.js"
+    "https://ga.jspm.io/npm:@etsitpab/jpegreader@1.0.3/": {
+      "@etsitpab/logger": "https://ga.jspm.io/npm:@etsitpab/logger@1.0.4/src/Logger.js"
     }
   }
 }

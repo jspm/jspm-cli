@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@stool/dom": "https://ga.jspm.dev/npm:@stool/dom@2.4.1/dist/dom.mjs"
+    "@stool/dom": "https://ga.jspm.io/npm:@stool/dom@2.4.1/dist/dom.mjs"
   }
 }

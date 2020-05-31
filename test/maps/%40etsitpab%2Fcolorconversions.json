@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@etsitpab/colorconversions": "https://ga.jspm.dev/npm:@etsitpab/colorconversions@1.0.1/src/ColorConversions.js"
+    "@etsitpab/colorconversions": "https://ga.jspm.io/npm:@etsitpab/colorconversions@1.0.1/src/ColorConversions.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@etsitpab/colorconversions@1.0.1/": {
-      "@etsitpab/matrix3x3": "https://ga.jspm.dev/npm:@etsitpab/matrix3x3@1.0.0/src/Matrix3x3.js"
+    "https://ga.jspm.io/npm:@etsitpab/colorconversions@1.0.1/": {
+      "@etsitpab/matrix3x3": "https://ga.jspm.io/npm:@etsitpab/matrix3x3@1.0.0/src/Matrix3x3.js"
     }
   }
 }

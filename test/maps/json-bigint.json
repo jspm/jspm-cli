@@ -1,10 +1,10 @@
 {
   "imports": {
-    "json-bigint": "https://ga.jspm.dev/npm:json-bigint@0.3.0/index.js"
+    "json-bigint": "https://ga.jspm.io/npm:json-bigint@0.3.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:json-bigint@0.3.0/": {
-      "bignumber.js": "https://ga.jspm.dev/npm:bignumber.js@7.2.1/bignumber.js"
+    "https://ga.jspm.io/npm:json-bigint@0.3.0/": {
+      "bignumber.js": "https://ga.jspm.io/npm:bignumber.js@7.2.1/bignumber.js"
     }
   }
 }

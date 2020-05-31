@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@build-script/dual-package-runtime": "https://ga.jspm.dev/npm:@build-script/dual-package-runtime@1.0.1/ignore.mjs"
+    "@build-script/dual-package-runtime": "https://ga.jspm.io/npm:@build-script/dual-package-runtime@1.0.1/ignore.mjs"
   }
 }

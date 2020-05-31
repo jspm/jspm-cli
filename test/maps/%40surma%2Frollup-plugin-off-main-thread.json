@@ -1,17 +1,17 @@
 {
   "imports": {
-    "@surma/rollup-plugin-off-main-thread": "https://ga.jspm.dev/npm:@surma/rollup-plugin-off-main-thread@1.4.1/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "@surma/rollup-plugin-off-main-thread": "https://ga.jspm.io/npm:@surma/rollup-plugin-off-main-thread@1.4.1/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@surma/rollup-plugin-off-main-thread@1.4.1/": {
-      "ejs": "https://ga.jspm.dev/npm:ejs@2.7.4/lib/ejs.js",
-      "magic-string": "https://ga.jspm.dev/npm:magic-string@0.25.7/dist/magic-string.cjs.js"
+    "https://ga.jspm.io/npm:@surma/rollup-plugin-off-main-thread@1.4.1/": {
+      "ejs": "https://ga.jspm.io/npm:ejs@2.7.4/lib/ejs.js",
+      "magic-string": "https://ga.jspm.io/npm:magic-string@0.25.7/dist/magic-string.cjs.js"
     },
-    "https://ga.jspm.dev/npm:magic-string@0.25.7/": {
-      "sourcemap-codec": "https://ga.jspm.dev/npm:sourcemap-codec@1.4.8/dist/sourcemap-codec.umd.js"
+    "https://ga.jspm.io/npm:magic-string@0.25.7/": {
+      "sourcemap-codec": "https://ga.jspm.io/npm:sourcemap-codec@1.4.8/dist/sourcemap-codec.umd.js"
     }
   }
 }

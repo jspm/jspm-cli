@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@candlefw/whind": "https://ga.jspm.dev/npm:@candlefw/whind@0.4.0/build/library/whind.js"
+    "@candlefw/whind": "https://ga.jspm.io/npm:@candlefw/whind@0.4.0/build/library/whind.js"
   }
 }

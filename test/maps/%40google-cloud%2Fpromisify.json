@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@google-cloud/promisify": "https://ga.jspm.dev/npm:@google-cloud/promisify@2.0.0/build/src/index.js"
+    "@google-cloud/promisify": "https://ga.jspm.io/npm:@google-cloud/promisify@2.0.0/build/src/index.js"
   }
 }

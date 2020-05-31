@@ -1,5 +1,5 @@
 {
   "imports": {
-    "memory-cache": "https://ga.jspm.dev/npm:memory-cache@0.2.0/index.js"
+    "memory-cache": "https://ga.jspm.io/npm:memory-cache@0.2.0/index.js"
   }
 }

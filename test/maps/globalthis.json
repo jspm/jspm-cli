@@ -1,13 +1,13 @@
 {
   "imports": {
-    "globalthis": "https://ga.jspm.dev/npm:globalthis@1.0.1/index.js"
+    "globalthis": "https://ga.jspm.io/npm:globalthis@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
-      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    "https://ga.jspm.io/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.io/npm:object-keys@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:globalthis@1.0.1/": {
-      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js"
+    "https://ga.jspm.io/npm:globalthis@1.0.1/": {
+      "define-properties": "https://ga.jspm.io/npm:define-properties@1.1.3/index.js"
     }
   }
 }

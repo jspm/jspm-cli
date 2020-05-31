@@ -1,5 +1,5 @@
 {
   "imports": {
-    "investira.data": "https://ga.jspm.dev/npm:investira.data@1.1.9/index.js"
+    "investira.data": "https://ga.jspm.io/npm:investira.data@1.1.9/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ajv-errors": "https://ga.jspm.dev/npm:ajv-errors@1.0.1/index.js"
+    "ajv-errors": "https://ga.jspm.io/npm:ajv-errors@1.0.1/index.js"
   }
 }

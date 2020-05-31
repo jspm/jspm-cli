@@ -1,35 +1,35 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "loader-fs-cache": "https://ga.jspm.dev/npm:loader-fs-cache@1.0.3/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "loader-fs-cache": "https://ga.jspm.io/npm:loader-fs-cache@1.0.3/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:find-cache-dir@0.1.1/": {
-      "commondir": "https://ga.jspm.dev/npm:commondir@1.0.1/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
-      "pkg-dir": "https://ga.jspm.dev/npm:pkg-dir@1.0.0/index.js"
+    "https://ga.jspm.io/npm:find-cache-dir@0.1.1/": {
+      "commondir": "https://ga.jspm.io/npm:commondir@1.0.1/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@0.5.5/index.js",
+      "pkg-dir": "https://ga.jspm.io/npm:pkg-dir@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:find-up@1.1.2/": {
-      "path-exists": "https://ga.jspm.dev/npm:path-exists@2.1.0/index.js",
-      "pinkie-promise": "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/index.js"
+    "https://ga.jspm.io/npm:find-up@1.1.2/": {
+      "path-exists": "https://ga.jspm.io/npm:path-exists@2.1.0/index.js",
+      "pinkie-promise": "https://ga.jspm.io/npm:pinkie-promise@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:loader-fs-cache@1.0.3/": {
-      "find-cache-dir": "https://ga.jspm.dev/npm:find-cache-dir@0.1.1/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js"
+    "https://ga.jspm.io/npm:loader-fs-cache@1.0.3/": {
+      "find-cache-dir": "https://ga.jspm.io/npm:find-cache-dir@0.1.1/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@0.5.5/index.js"
     },
-    "https://ga.jspm.dev/npm:path-exists@2.1.0/": {
-      "pinkie-promise": "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/index.js"
+    "https://ga.jspm.io/npm:path-exists@2.1.0/": {
+      "pinkie-promise": "https://ga.jspm.io/npm:pinkie-promise@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:pinkie-promise@2.0.1/": {
-      "pinkie": "https://ga.jspm.dev/npm:pinkie@2.0.4/index.js"
+    "https://ga.jspm.io/npm:pinkie-promise@2.0.1/": {
+      "pinkie": "https://ga.jspm.io/npm:pinkie@2.0.4/index.js"
     },
-    "https://ga.jspm.dev/npm:pkg-dir@1.0.0/": {
-      "find-up": "https://ga.jspm.dev/npm:find-up@1.1.2/index.js"
+    "https://ga.jspm.io/npm:pkg-dir@1.0.0/": {
+      "find-up": "https://ga.jspm.io/npm:find-up@1.1.2/index.js"
     }
   }
 }

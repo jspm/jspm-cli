@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@eyalsh/use-fetch": "https://ga.jspm.dev/npm:@eyalsh/use-fetch@1.1.0/lib/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "@eyalsh/use-fetch": "https://ga.jspm.io/npm:@eyalsh/use-fetch@1.1.0/lib/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "stack-trace": "https://ga.jspm.dev/npm:stack-trace@0.0.10/lib/stack-trace.js"
+    "stack-trace": "https://ga.jspm.io/npm:stack-trace@0.0.10/lib/stack-trace.js"
   }
 }

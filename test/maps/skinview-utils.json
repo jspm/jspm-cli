@@ -1,5 +1,5 @@
 {
   "imports": {
-    "skinview-utils": "https://ga.jspm.dev/npm:skinview-utils@0.3.0/build/index.js"
+    "skinview-utils": "https://ga.jspm.io/npm:skinview-utils@0.3.0/build/index.js"
   }
 }

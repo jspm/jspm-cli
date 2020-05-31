@@ -1,5 +1,5 @@
 {
   "imports": {
-    "before-after-hook": "https://ga.jspm.dev/npm:before-after-hook@2.1.0/index.js"
+    "before-after-hook": "https://ga.jspm.io/npm:before-after-hook@2.1.0/index.js"
   }
 }

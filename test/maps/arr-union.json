@@ -1,5 +1,5 @@
 {
   "imports": {
-    "arr-union": "https://ga.jspm.dev/npm:arr-union@3.1.0/index.js"
+    "arr-union": "https://ga.jspm.io/npm:arr-union@3.1.0/index.js"
   }
 }

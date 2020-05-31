@@ -1,6 +1,6 @@
 {
   "imports": {
-    "btoa": "https://ga.jspm.dev/npm:btoa@1.2.1/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "btoa": "https://ga.jspm.io/npm:btoa@1.2.1/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   }
 }

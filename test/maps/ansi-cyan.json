@@ -1,10 +1,10 @@
 {
   "imports": {
-    "ansi-cyan": "https://ga.jspm.dev/npm:ansi-cyan@0.1.1/index.js"
+    "ansi-cyan": "https://ga.jspm.io/npm:ansi-cyan@0.1.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-cyan@0.1.1/": {
-      "ansi-wrap": "https://ga.jspm.dev/npm:ansi-wrap@0.1.0/index.js"
+    "https://ga.jspm.io/npm:ansi-cyan@0.1.1/": {
+      "ansi-wrap": "https://ga.jspm.io/npm:ansi-wrap@0.1.0/index.js"
     }
   }
 }

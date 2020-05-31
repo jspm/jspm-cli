@@ -1,5 +1,5 @@
 {
   "imports": {
-    "damerau-levenshtein": "https://ga.jspm.dev/npm:damerau-levenshtein@1.0.6/index.js"
+    "damerau-levenshtein": "https://ga.jspm.io/npm:damerau-levenshtein@1.0.6/index.js"
   }
 }

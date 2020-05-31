@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@gedalos.dev/callbag-map": "https://ga.jspm.dev/npm:@gedalos.dev/callbag-map@1.0.2/index.js"
+    "@gedalos.dev/callbag-map": "https://ga.jspm.io/npm:@gedalos.dev/callbag-map@1.0.2/index.js"
   }
 }

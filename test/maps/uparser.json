@@ -1,5 +1,5 @@
 {
   "imports": {
-    "uparser": "https://ga.jspm.dev/npm:uparser@0.2.1/cjs/index.js"
+    "uparser": "https://ga.jspm.io/npm:uparser@0.2.1/cjs/index.js"
   }
 }

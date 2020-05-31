@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@hapi/hoek": "https://ga.jspm.dev/npm:@hapi/hoek@9.0.4/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@hapi/hoek": "https://ga.jspm.io/npm:@hapi/hoek@9.0.4/lib/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "inline-style-prefixer": "https://ga.jspm.dev/npm:inline-style-prefixer@6.0.0/lib/index.js"
+    "inline-style-prefixer": "https://ga.jspm.io/npm:inline-style-prefixer@6.0.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:css-in-js-utils@2.0.1/": {
-      "hyphenate-style-name": "https://ga.jspm.dev/npm:hyphenate-style-name@1.0.3/index.cjs.js"
+    "https://ga.jspm.io/npm:css-in-js-utils@2.0.1/": {
+      "hyphenate-style-name": "https://ga.jspm.io/npm:hyphenate-style-name@1.0.3/index.cjs.js"
     },
-    "https://ga.jspm.dev/npm:inline-style-prefixer@6.0.0/": {
-      "css-in-js-utils/lib/hyphenateProperty": "https://ga.jspm.dev/npm:css-in-js-utils@2.0.1/lib/hyphenateProperty.js",
-      "css-in-js-utils/lib/isPrefixedValue": "https://ga.jspm.dev/npm:css-in-js-utils@2.0.1/lib/isPrefixedValue.js"
+    "https://ga.jspm.io/npm:inline-style-prefixer@6.0.0/": {
+      "css-in-js-utils/lib/hyphenateProperty": "https://ga.jspm.io/npm:css-in-js-utils@2.0.1/lib/hyphenateProperty.js",
+      "css-in-js-utils/lib/isPrefixedValue": "https://ga.jspm.io/npm:css-in-js-utils@2.0.1/lib/isPrefixedValue.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@phosphor/domutils": "https://ga.jspm.dev/npm:@phosphor/domutils@1.1.4/lib/index.js"
+    "@phosphor/domutils": "https://ga.jspm.io/npm:@phosphor/domutils@1.1.4/lib/index.js"
   }
 }

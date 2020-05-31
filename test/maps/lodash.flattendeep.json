@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.flattendeep": "https://ga.jspm.dev/npm:lodash.flattendeep@4.4.0/index.js"
+    "lodash.flattendeep": "https://ga.jspm.io/npm:lodash.flattendeep@4.4.0/index.js"
   }
 }

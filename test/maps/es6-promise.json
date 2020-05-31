@@ -1,6 +1,6 @@
 {
   "imports": {
-    "es6-promise": "https://ga.jspm.dev/npm:es6-promise@4.2.8/dist/es6-promise.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "es6-promise": "https://ga.jspm.io/npm:es6-promise@4.2.8/dist/es6-promise.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

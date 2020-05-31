@@ -1,38 +1,38 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "swagger-parser": "https://ga.jspm.dev/npm:swagger-parser@9.0.1/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "swagger-parser": "https://ga.jspm.io/npm:swagger-parser@9.0.1/index.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/": {
-      "@jsdevtools/ono": "https://ga.jspm.dev/npm:@jsdevtools/ono@7.1.2/cjs/index.js",
-      "call-me-maybe": "https://ga.jspm.dev/npm:call-me-maybe@1.0.1/index.js",
-      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js"
+    "https://ga.jspm.io/npm:@apidevtools/json-schema-ref-parser@8.0.0/": {
+      "@jsdevtools/ono": "https://ga.jspm.io/npm:@jsdevtools/ono@7.1.2/cjs/index.js",
+      "call-me-maybe": "https://ga.jspm.io/npm:call-me-maybe@1.0.1/index.js",
+      "js-yaml": "https://ga.jspm.io/npm:js-yaml@3.14.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@apidevtools/swagger-parser@9.0.1/": {
-      "@apidevtools/json-schema-ref-parser": "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/index.js",
-      "@apidevtools/json-schema-ref-parser/lib/dereference": "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/dereference.js",
-      "@apidevtools/json-schema-ref-parser/lib/normalize-args": "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/normalize-args.js",
-      "@apidevtools/json-schema-ref-parser/lib/options": "https://ga.jspm.dev/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/options.js",
-      "@apidevtools/openapi-schemas": "https://ga.jspm.dev/npm:@apidevtools/openapi-schemas@2.0.3/lib/index.js",
-      "@apidevtools/swagger-methods": "https://ga.jspm.dev/npm:@apidevtools/swagger-methods@3.0.1/lib/index.js",
-      "@jsdevtools/ono": "https://ga.jspm.dev/npm:@jsdevtools/ono@7.1.2/cjs/index.js",
-      "call-me-maybe": "https://ga.jspm.dev/npm:call-me-maybe@1.0.1/index.js",
-      "z-schema": "https://ga.jspm.dev/npm:z-schema@4.2.3/src/ZSchema.js"
+    "https://ga.jspm.io/npm:@apidevtools/swagger-parser@9.0.1/": {
+      "@apidevtools/json-schema-ref-parser": "https://ga.jspm.io/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/index.js",
+      "@apidevtools/json-schema-ref-parser/lib/dereference": "https://ga.jspm.io/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/dereference.js",
+      "@apidevtools/json-schema-ref-parser/lib/normalize-args": "https://ga.jspm.io/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/normalize-args.js",
+      "@apidevtools/json-schema-ref-parser/lib/options": "https://ga.jspm.io/npm:@apidevtools/json-schema-ref-parser@8.0.0/lib/options.js",
+      "@apidevtools/openapi-schemas": "https://ga.jspm.io/npm:@apidevtools/openapi-schemas@2.0.3/lib/index.js",
+      "@apidevtools/swagger-methods": "https://ga.jspm.io/npm:@apidevtools/swagger-methods@3.0.1/lib/index.js",
+      "@jsdevtools/ono": "https://ga.jspm.io/npm:@jsdevtools/ono@7.1.2/cjs/index.js",
+      "call-me-maybe": "https://ga.jspm.io/npm:call-me-maybe@1.0.1/index.js",
+      "z-schema": "https://ga.jspm.io/npm:z-schema@4.2.3/src/ZSchema.js"
     },
-    "https://ga.jspm.dev/npm:swagger-parser@9.0.1/": {
-      "@apidevtools/swagger-parser": "https://ga.jspm.dev/npm:@apidevtools/swagger-parser@9.0.1/lib/index.js"
+    "https://ga.jspm.io/npm:swagger-parser@9.0.1/": {
+      "@apidevtools/swagger-parser": "https://ga.jspm.io/npm:@apidevtools/swagger-parser@9.0.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:z-schema@4.2.3/": {
-      "lodash.get": "https://ga.jspm.dev/npm:lodash.get@4.4.2/index.js",
-      "lodash.isequal": "https://ga.jspm.dev/npm:lodash.isequal@4.5.0/index.js",
-      "validator": "https://ga.jspm.dev/npm:validator@12.2.0/index.js"
+    "https://ga.jspm.io/npm:z-schema@4.2.3/": {
+      "lodash.get": "https://ga.jspm.io/npm:lodash.get@4.4.2/index.js",
+      "lodash.isequal": "https://ga.jspm.io/npm:lodash.isequal@4.5.0/index.js",
+      "validator": "https://ga.jspm.io/npm:validator@12.2.0/index.js"
     }
   }
 }

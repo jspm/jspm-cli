@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jsonbox-client": "https://ga.jspm.dev/npm:jsonbox-client@0.1.4/dist/index.js"
+    "jsonbox-client": "https://ga.jspm.io/npm:jsonbox-client@0.1.4/dist/index.js"
   }
 }

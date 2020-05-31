@@ -1,5 +1,5 @@
 {
   "imports": {
-    "typed-function": "https://ga.jspm.dev/npm:typed-function@1.1.1/typed-function.js"
+    "typed-function": "https://ga.jspm.io/npm:typed-function@1.1.1/typed-function.js"
   }
 }

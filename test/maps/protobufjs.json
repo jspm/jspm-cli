@@ -1,23 +1,23 @@
 {
   "imports": {
-    "protobufjs": "https://ga.jspm.dev/npm:protobufjs@6.9.0/index.js"
+    "protobufjs": "https://ga.jspm.io/npm:protobufjs@6.9.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@protobufjs/fetch@1.1.0/": {
-      "@protobufjs/aspromise": "https://ga.jspm.dev/npm:@protobufjs/aspromise@1.1.2/index.js",
-      "@protobufjs/inquire": "https://ga.jspm.dev/npm:@protobufjs/inquire@1.1.0/index.js"
+    "https://ga.jspm.io/npm:@protobufjs/fetch@1.1.0/": {
+      "@protobufjs/aspromise": "https://ga.jspm.io/npm:@protobufjs/aspromise@1.1.2/index.js",
+      "@protobufjs/inquire": "https://ga.jspm.io/npm:@protobufjs/inquire@1.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:protobufjs@6.9.0/": {
-      "@protobufjs/aspromise": "https://ga.jspm.dev/npm:@protobufjs/aspromise@1.1.2/index.js",
-      "@protobufjs/base64": "https://ga.jspm.dev/npm:@protobufjs/base64@1.1.2/index.js",
-      "@protobufjs/codegen": "https://ga.jspm.dev/npm:@protobufjs/codegen@2.0.4/index.js",
-      "@protobufjs/eventemitter": "https://ga.jspm.dev/npm:@protobufjs/eventemitter@1.1.0/index.js",
-      "@protobufjs/fetch": "https://ga.jspm.dev/npm:@protobufjs/fetch@1.1.0/index.js",
-      "@protobufjs/float": "https://ga.jspm.dev/npm:@protobufjs/float@1.0.2/index.js",
-      "@protobufjs/inquire": "https://ga.jspm.dev/npm:@protobufjs/inquire@1.1.0/index.js",
-      "@protobufjs/path": "https://ga.jspm.dev/npm:@protobufjs/path@1.1.2/index.js",
-      "@protobufjs/pool": "https://ga.jspm.dev/npm:@protobufjs/pool@1.1.0/index.js",
-      "@protobufjs/utf8": "https://ga.jspm.dev/npm:@protobufjs/utf8@1.1.0/index.js"
+    "https://ga.jspm.io/npm:protobufjs@6.9.0/": {
+      "@protobufjs/aspromise": "https://ga.jspm.io/npm:@protobufjs/aspromise@1.1.2/index.js",
+      "@protobufjs/base64": "https://ga.jspm.io/npm:@protobufjs/base64@1.1.2/index.js",
+      "@protobufjs/codegen": "https://ga.jspm.io/npm:@protobufjs/codegen@2.0.4/index.js",
+      "@protobufjs/eventemitter": "https://ga.jspm.io/npm:@protobufjs/eventemitter@1.1.0/index.js",
+      "@protobufjs/fetch": "https://ga.jspm.io/npm:@protobufjs/fetch@1.1.0/index.js",
+      "@protobufjs/float": "https://ga.jspm.io/npm:@protobufjs/float@1.0.2/index.js",
+      "@protobufjs/inquire": "https://ga.jspm.io/npm:@protobufjs/inquire@1.1.0/index.js",
+      "@protobufjs/path": "https://ga.jspm.io/npm:@protobufjs/path@1.1.2/index.js",
+      "@protobufjs/pool": "https://ga.jspm.io/npm:@protobufjs/pool@1.1.0/index.js",
+      "@protobufjs/utf8": "https://ga.jspm.io/npm:@protobufjs/utf8@1.1.0/index.js"
     }
   }
 }

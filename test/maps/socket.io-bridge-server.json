@@ -1,13 +1,13 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "socket.io-bridge-server": "https://ga.jspm.dev/npm:socket.io-bridge-server@1.0.0/src/server.js"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "socket.io-bridge-server": "https://ga.jspm.io/npm:socket.io-bridge-server@1.0.0/src/server.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:socket.io-bridge-server@1.0.0/": {
-      "socketio-wildcard": "https://ga.jspm.dev/npm:socketio-wildcard@2.0.0/index.js",
-      "uuid-random": "https://ga.jspm.dev/npm:uuid-random@1.3.0/index.js"
+    "https://ga.jspm.io/npm:socket.io-bridge-server@1.0.0/": {
+      "socketio-wildcard": "https://ga.jspm.io/npm:socketio-wildcard@2.0.0/index.js",
+      "uuid-random": "https://ga.jspm.io/npm:uuid-random@1.3.0/index.js"
     }
   }
 }

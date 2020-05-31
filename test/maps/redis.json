@@ -1,25 +1,25 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "redis": "https://ga.jspm.dev/npm:redis@3.0.2/index.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "redis": "https://ga.jspm.io/npm:redis@3.0.2/index.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:redis-parser@3.0.0/": {
-      "redis-errors": "https://ga.jspm.dev/npm:redis-errors@1.2.0/index.js"
+    "https://ga.jspm.io/npm:redis-parser@3.0.0/": {
+      "redis-errors": "https://ga.jspm.io/npm:redis-errors@1.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:redis@3.0.2/": {
-      "denque": "https://ga.jspm.dev/npm:denque@1.4.1/index.js",
-      "redis-commands": "https://ga.jspm.dev/npm:redis-commands@1.5.0/index.js",
-      "redis-errors": "https://ga.jspm.dev/npm:redis-errors@1.2.0/index.js",
-      "redis-parser": "https://ga.jspm.dev/npm:redis-parser@3.0.0/index.js"
+    "https://ga.jspm.io/npm:redis@3.0.2/": {
+      "denque": "https://ga.jspm.io/npm:denque@1.4.1/index.js",
+      "redis-commands": "https://ga.jspm.io/npm:redis-commands@1.5.0/index.js",
+      "redis-errors": "https://ga.jspm.io/npm:redis-errors@1.2.0/index.js",
+      "redis-parser": "https://ga.jspm.io/npm:redis-parser@3.0.0/index.js"
     }
   }
 }

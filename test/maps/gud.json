@@ -1,5 +1,5 @@
 {
   "imports": {
-    "gud": "https://ga.jspm.dev/npm:gud@1.0.0/index.js"
+    "gud": "https://ga.jspm.io/npm:gud@1.0.0/index.js"
   }
 }

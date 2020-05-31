@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@formatjs/intl-listformat": "https://ga.jspm.dev/npm:@formatjs/intl-listformat@2.2.1/dist/index.js"
+    "@formatjs/intl-listformat": "https://ga.jspm.io/npm:@formatjs/intl-listformat@2.2.1/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@formatjs/intl-listformat@2.2.1/": {
-      "@formatjs/intl-utils": "https://ga.jspm.dev/npm:@formatjs/intl-utils@3.1.0/dist/index.js"
+    "https://ga.jspm.io/npm:@formatjs/intl-listformat@2.2.1/": {
+      "@formatjs/intl-utils": "https://ga.jspm.io/npm:@formatjs/intl-utils@3.1.0/dist/index.js"
     }
   }
 }

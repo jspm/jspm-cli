@@ -1,11 +1,11 @@
 {
   "imports": {
-    "actus": "https://ga.jspm.dev/npm:actus@0.2.0-alpha.5/index.js"
+    "actus": "https://ga.jspm.io/npm:actus@0.2.0-alpha.5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:actus@0.2.0-alpha.5/": {
-      "ramda/src/assocPath.js": "https://ga.jspm.dev/npm:ramda@0.27.0/src/assocPath.js",
-      "ramda/src/mergeDeepRight.js": "https://ga.jspm.dev/npm:ramda@0.27.0/src/mergeDeepRight.js"
+    "https://ga.jspm.io/npm:actus@0.2.0-alpha.5/": {
+      "ramda/src/assocPath.js": "https://ga.jspm.io/npm:ramda@0.27.0/src/assocPath.js",
+      "ramda/src/mergeDeepRight.js": "https://ga.jspm.io/npm:ramda@0.27.0/src/mergeDeepRight.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@protobufjs/pool": "https://ga.jspm.dev/npm:@protobufjs/pool@1.1.0/index.js"
+    "@protobufjs/pool": "https://ga.jspm.io/npm:@protobufjs/pool@1.1.0/index.js"
   }
 }

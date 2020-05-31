@@ -1,5 +1,5 @@
 {
   "imports": {
-    "art": "https://ga.jspm.dev/npm:art@0.10.3/index.js"
+    "art": "https://ga.jspm.io/npm:art@0.10.3/index.js"
   }
 }

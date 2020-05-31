@@ -1,43 +1,43 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "merge-deep": "https://ga.jspm.dev/npm:merge-deep@3.0.2/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "merge-deep": "https://ga.jspm.io/npm:merge-deep@3.0.2/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:clone-deep@0.2.4/": {
-      "for-own": "https://ga.jspm.dev/npm:for-own@0.1.5/index.js",
-      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js",
-      "lazy-cache": "https://ga.jspm.dev/npm:lazy-cache@1.0.4/index.js",
-      "shallow-clone": "https://ga.jspm.dev/npm:shallow-clone@0.1.2/index.js"
+    "https://ga.jspm.io/npm:clone-deep@0.2.4/": {
+      "for-own": "https://ga.jspm.io/npm:for-own@0.1.5/index.js",
+      "is-plain-object": "https://ga.jspm.io/npm:is-plain-object@2.0.4/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@3.2.2/index.js",
+      "lazy-cache": "https://ga.jspm.io/npm:lazy-cache@1.0.4/index.js",
+      "shallow-clone": "https://ga.jspm.io/npm:shallow-clone@0.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:for-own@0.1.5/": {
-      "for-in": "https://ga.jspm.dev/npm:for-in@1.0.2/index.js"
+    "https://ga.jspm.io/npm:for-own@0.1.5/": {
+      "for-in": "https://ga.jspm.io/npm:for-in@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
-      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    "https://ga.jspm.io/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.io/npm:isobject@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:kind-of@2.0.1/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    "https://ga.jspm.io/npm:kind-of@2.0.1/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@1.1.6/index.js"
     },
-    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    "https://ga.jspm.io/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@1.1.6/index.js"
     },
-    "https://ga.jspm.dev/npm:merge-deep@3.0.2/": {
-      "arr-union": "https://ga.jspm.dev/npm:arr-union@3.1.0/index.js",
-      "clone-deep": "https://ga.jspm.dev/npm:clone-deep@0.2.4/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    "https://ga.jspm.io/npm:merge-deep@3.0.2/": {
+      "arr-union": "https://ga.jspm.io/npm:arr-union@3.1.0/index.js",
+      "clone-deep": "https://ga.jspm.io/npm:clone-deep@0.2.4/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@3.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:mixin-object@2.0.1/": {
-      "for-in": "https://ga.jspm.dev/npm:for-in@0.1.8/index.js",
-      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js"
+    "https://ga.jspm.io/npm:mixin-object@2.0.1/": {
+      "for-in": "https://ga.jspm.io/npm:for-in@0.1.8/index.js",
+      "is-extendable": "https://ga.jspm.io/npm:is-extendable@0.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:shallow-clone@0.1.2/": {
-      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@2.0.1/index.js",
-      "lazy-cache": "https://ga.jspm.dev/npm:lazy-cache@0.2.7/index.js",
-      "mixin-object": "https://ga.jspm.dev/npm:mixin-object@2.0.1/index.js"
+    "https://ga.jspm.io/npm:shallow-clone@0.1.2/": {
+      "is-extendable": "https://ga.jspm.io/npm:is-extendable@0.1.1/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@2.0.1/index.js",
+      "lazy-cache": "https://ga.jspm.io/npm:lazy-cache@0.2.7/index.js",
+      "mixin-object": "https://ga.jspm.io/npm:mixin-object@2.0.1/index.js"
     }
   }
 }

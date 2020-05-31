@@ -1,32 +1,32 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "projectz": "https://ga.jspm.dev/npm:projectz@2.4.0/edition-es2019/index.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "projectz": "https://ga.jspm.io/npm:projectz@2.4.0/edition-es2019/index.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cson-parser@4.0.4/": {
-      "coffeescript": "https://ga.jspm.dev/npm:coffeescript@1.12.7/lib/coffee-script/coffee-script.js"
+    "https://ga.jspm.io/npm:cson-parser@4.0.4/": {
+      "coffeescript": "https://ga.jspm.io/npm:coffeescript@1.12.7/lib/coffee-script/coffee-script.js"
     },
-    "https://ga.jspm.dev/npm:projectz@2.4.0/": {
-      "badges": "https://ga.jspm.dev/npm:badges@4.6.0/edition-browsers/index.js",
-      "cson-parser": "https://ga.jspm.dev/npm:cson-parser@4.0.4/lib/cson-parser.js",
-      "errlop": "https://ga.jspm.dev/npm:errlop@3.3.0/edition-browsers/index.js",
-      "fellow": "https://ga.jspm.dev/npm:fellow@6.9.0/edition-browsers/index.js",
-      "spdx-expression-parse": "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/index.js",
-      "spdx-license-list/full": "https://ga.jspm.dev/npm:spdx-license-list@6.2.0/full.js",
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@7.4.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:projectz@2.4.0/": {
+      "badges": "https://ga.jspm.io/npm:badges@4.6.0/edition-browsers/index.js",
+      "cson-parser": "https://ga.jspm.io/npm:cson-parser@4.0.4/lib/cson-parser.js",
+      "errlop": "https://ga.jspm.io/npm:errlop@3.3.0/edition-browsers/index.js",
+      "fellow": "https://ga.jspm.io/npm:fellow@6.9.0/edition-browsers/index.js",
+      "spdx-expression-parse": "https://ga.jspm.io/npm:spdx-expression-parse@3.0.1/index.js",
+      "spdx-license-list/full": "https://ga.jspm.io/npm:spdx-license-list@6.2.0/full.js",
+      "typechecker": "https://ga.jspm.io/npm:typechecker@7.4.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:spdx-expression-parse@3.0.1/": {
-      "spdx-exceptions": "https://ga.jspm.dev/npm:spdx-exceptions@2.3.0/index.json.js",
-      "spdx-license-ids": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/index.json.js",
-      "spdx-license-ids/deprecated": "https://ga.jspm.dev/npm:spdx-license-ids@3.0.5/deprecated.json.js"
+    "https://ga.jspm.io/npm:spdx-expression-parse@3.0.1/": {
+      "spdx-exceptions": "https://ga.jspm.io/npm:spdx-exceptions@2.3.0/index.json.js",
+      "spdx-license-ids": "https://ga.jspm.io/npm:spdx-license-ids@3.0.5/index.json.js",
+      "spdx-license-ids/deprecated": "https://ga.jspm.io/npm:spdx-license-ids@3.0.5/deprecated.json.js"
     }
   }
 }

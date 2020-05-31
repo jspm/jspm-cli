@@ -1,5 +1,5 @@
 {
   "imports": {
-    "functions-have-names": "https://ga.jspm.dev/npm:functions-have-names@1.2.1/index.js"
+    "functions-have-names": "https://ga.jspm.io/npm:functions-have-names@1.2.1/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "triple-beam": "https://ga.jspm.dev/npm:triple-beam@1.3.0/index.js"
+    "triple-beam": "https://ga.jspm.io/npm:triple-beam@1.3.0/index.js"
   }
 }

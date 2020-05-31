@@ -1,7 +1,7 @@
 {
   "imports": {
-    "hard-rejection": "https://ga.jspm.dev/npm:hard-rejection@2.1.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "hard-rejection": "https://ga.jspm.io/npm:hard-rejection@2.1.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@witzbould/utils-map-value-range": "https://ga.jspm.dev/npm:@witzbould/utils-map-value-range@1.0.0/index.js"
+    "@witzbould/utils-map-value-range": "https://ga.jspm.io/npm:@witzbould/utils-map-value-range@1.0.0/index.js"
   }
 }

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@bevry/pluginloader": "https://ga.jspm.dev/npm:@bevry/pluginloader@4.3.0/edition-esnext/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@bevry/pluginloader": "https://ga.jspm.io/npm:@bevry/pluginloader@4.3.0/edition-esnext/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@bevry/pluginloader@4.3.0/": {
-      "errlop": "https://ga.jspm.dev/npm:errlop@3.3.0/edition-browsers/index.js",
-      "semver/functions/satisfies.js": "https://ga.jspm.dev/npm:semver@7.3.2/functions/satisfies.js",
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@7.4.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:@bevry/pluginloader@4.3.0/": {
+      "errlop": "https://ga.jspm.io/npm:errlop@3.3.0/edition-browsers/index.js",
+      "semver/functions/satisfies.js": "https://ga.jspm.io/npm:semver@7.3.2/functions/satisfies.js",
+      "typechecker": "https://ga.jspm.io/npm:typechecker@7.4.0/edition-browsers/index.js"
     }
   }
 }

@@ -1,39 +1,39 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "extract-text-webpack-plugin": "https://ga.jspm.dev/npm:extract-text-webpack-plugin@3.0.2/dist/cjs.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "webpack/lib/Chunk": "https://ga.jspm.dev/npm:webpack@3.12.0/lib/Chunk.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "extract-text-webpack-plugin": "https://ga.jspm.io/npm:extract-text-webpack-plugin@3.0.2/dist/cjs.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "webpack/lib/Chunk": "https://ga.jspm.io/npm:webpack@3.12.0/lib/Chunk.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ajv@5.5.2/": {
-      "co": "https://ga.jspm.dev/npm:co@4.6.0/index.js",
-      "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@1.1.0/index.js",
-      "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
-      "json-schema-traverse": "https://ga.jspm.dev/npm:json-schema-traverse@0.3.1/index.js"
+    "https://ga.jspm.io/npm:ajv@5.5.2/": {
+      "co": "https://ga.jspm.io/npm:co@4.6.0/index.js",
+      "fast-deep-equal": "https://ga.jspm.io/npm:fast-deep-equal@1.1.0/index.js",
+      "fast-json-stable-stringify": "https://ga.jspm.io/npm:fast-json-stable-stringify@2.1.0/index.js",
+      "json-schema-traverse": "https://ga.jspm.io/npm:json-schema-traverse@0.3.1/index.js"
     },
-    "https://ga.jspm.dev/npm:extract-text-webpack-plugin@3.0.2/": {
-      "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
-      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@1.4.0/lib/index.js",
-      "schema-utils": "https://ga.jspm.dev/npm:schema-utils@0.3.0/dist/cjs.js",
-      "webpack-sources": "https://ga.jspm.dev/npm:webpack-sources@1.4.3/lib/index.js"
+    "https://ga.jspm.io/npm:extract-text-webpack-plugin@3.0.2/": {
+      "async": "https://ga.jspm.io/npm:async@2.6.3/dist/async.js",
+      "loader-utils": "https://ga.jspm.io/npm:loader-utils@1.4.0/lib/index.js",
+      "schema-utils": "https://ga.jspm.io/npm:schema-utils@0.3.0/dist/cjs.js",
+      "webpack-sources": "https://ga.jspm.io/npm:webpack-sources@1.4.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:loader-utils@1.4.0/": {
-      "big.js": "https://ga.jspm.dev/npm:big.js@5.2.2/big.js",
-      "emojis-list": "https://ga.jspm.dev/npm:emojis-list@3.0.0/index.js",
-      "json5": "https://ga.jspm.dev/npm:json5@1.0.1/dist/index.js"
+    "https://ga.jspm.io/npm:loader-utils@1.4.0/": {
+      "big.js": "https://ga.jspm.io/npm:big.js@5.2.2/big.js",
+      "emojis-list": "https://ga.jspm.io/npm:emojis-list@3.0.0/index.js",
+      "json5": "https://ga.jspm.io/npm:json5@1.0.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:schema-utils@0.3.0/": {
-      "ajv": "https://ga.jspm.dev/npm:ajv@5.5.2/lib/ajv.js"
+    "https://ga.jspm.io/npm:schema-utils@0.3.0/": {
+      "ajv": "https://ga.jspm.io/npm:ajv@5.5.2/lib/ajv.js"
     },
-    "https://ga.jspm.dev/npm:webpack-sources@1.4.3/": {
-      "source-list-map": "https://ga.jspm.dev/npm:source-list-map@2.0.1/lib/index.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:webpack-sources@1.4.3/": {
+      "source-list-map": "https://ga.jspm.io/npm:source-list-map@2.0.1/lib/index.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     }
   }
 }

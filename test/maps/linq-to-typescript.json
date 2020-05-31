@@ -1,6 +1,6 @@
 {
   "imports": {
-    "linq-to-typescript": "https://ga.jspm.dev/npm:linq-to-typescript@6.0.1/index.js",
-    "tslib": "https://ga.jspm.dev/npm:tslib@2.0.0/tslib.js"
+    "linq-to-typescript": "https://ga.jspm.io/npm:linq-to-typescript@6.0.1/index.js",
+    "tslib": "https://ga.jspm.io/npm:tslib@2.0.0/tslib.js"
   }
 }

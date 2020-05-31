@@ -1,14 +1,14 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "co-prompt": "https://ga.jspm.dev/npm:co-prompt@1.0.0/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "co-prompt": "https://ga.jspm.io/npm:co-prompt@1.0.0/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:co-prompt@1.0.0/": {
-      "keypress": "https://ga.jspm.dev/npm:keypress@0.2.1/index.js"
+    "https://ga.jspm.io/npm:co-prompt@1.0.0/": {
+      "keypress": "https://ga.jspm.io/npm:keypress@0.2.1/index.js"
     }
   }
 }

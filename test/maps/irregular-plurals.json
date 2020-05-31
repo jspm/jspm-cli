@@ -1,5 +1,5 @@
 {
   "imports": {
-    "irregular-plurals": "https://ga.jspm.dev/npm:irregular-plurals@3.2.0/index.js"
+    "irregular-plurals": "https://ga.jspm.io/npm:irregular-plurals@3.2.0/index.js"
   }
 }

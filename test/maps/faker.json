@@ -1,5 +1,5 @@
 {
   "imports": {
-    "faker": "https://ga.jspm.dev/npm:faker@4.1.0/index.js"
+    "faker": "https://ga.jspm.io/npm:faker@4.1.0/index.js"
   }
 }

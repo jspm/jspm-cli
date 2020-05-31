@@ -1,15 +1,15 @@
 {
   "imports": {
-    "rxjs-compat": "https://ga.jspm.dev/npm:rxjs-compat@6.5.5/Rx.js"
+    "rxjs-compat": "https://ga.jspm.io/npm:rxjs-compat@6.5.5/Rx.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rxjs-compat@6.5.5/": {
-      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/ajax": "https://ga.jspm.dev/npm:rxjs@6.5.5/ajax/index.js",
-      "rxjs/internal-compatibility": "https://ga.jspm.dev/npm:rxjs@6.5.5/internal-compatibility/index.js",
-      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
-      "rxjs/testing": "https://ga.jspm.dev/npm:rxjs@6.5.5/testing/index.js",
-      "rxjs/webSocket": "https://ga.jspm.dev/npm:rxjs@6.5.5/webSocket/index.js"
+    "https://ga.jspm.io/npm:rxjs-compat@6.5.5/": {
+      "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+      "rxjs/ajax": "https://ga.jspm.io/npm:rxjs@6.5.5/ajax/index.js",
+      "rxjs/internal-compatibility": "https://ga.jspm.io/npm:rxjs@6.5.5/internal-compatibility/index.js",
+      "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js",
+      "rxjs/testing": "https://ga.jspm.io/npm:rxjs@6.5.5/testing/index.js",
+      "rxjs/webSocket": "https://ga.jspm.io/npm:rxjs@6.5.5/webSocket/index.js"
     }
   }
 }

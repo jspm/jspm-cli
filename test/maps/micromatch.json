@@ -1,24 +1,24 @@
 {
   "imports": {
-    "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "micromatch": "https://ga.jspm.io/npm:micromatch@4.0.2/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:braces@3.0.2/": {
-      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    "https://ga.jspm.io/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.io/npm:fill-range@7.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
-      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    "https://ga.jspm.io/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.io/npm:to-regex-range@5.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
-      "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
-      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
+    "https://ga.jspm.io/npm:micromatch@4.0.2/": {
+      "braces": "https://ga.jspm.io/npm:braces@3.0.2/index.js",
+      "picomatch": "https://ga.jspm.io/npm:picomatch@2.2.2/index.js",
+      "picomatch/lib/utils": "https://ga.jspm.io/npm:picomatch@2.2.2/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
-      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    "https://ga.jspm.io/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.io/npm:is-number@7.0.0/index.js"
     }
   }
 }

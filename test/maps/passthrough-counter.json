@@ -1,7 +1,7 @@
 {
   "imports": {
-    "passthrough-counter": "https://ga.jspm.dev/npm:passthrough-counter@1.0.0/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "passthrough-counter": "https://ga.jspm.io/npm:passthrough-counter@1.0.0/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   }
 }

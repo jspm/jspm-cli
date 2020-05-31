@@ -1,5 +1,5 @@
 {
   "imports": {
-    "event-type": "https://ga.jspm.dev/npm:event-type@0.4.1/lib/mod.js"
+    "event-type": "https://ga.jspm.io/npm:event-type@0.4.1/lib/mod.js"
   }
 }

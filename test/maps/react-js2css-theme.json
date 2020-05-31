@@ -1,13 +1,13 @@
 {
   "imports": {
-    "react-js2css-theme": "https://ga.jspm.dev/npm:react-js2css-theme@2.0.0/dist/bundle.js"
+    "react-js2css-theme": "https://ga.jspm.io/npm:react-js2css-theme@2.0.0/dist/bundle.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-js2css-theme@2.0.0/": {
-      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "https://ga.jspm.io/npm:react-js2css-theme@2.0.0/": {
+      "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

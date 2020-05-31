@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@livy/tags-processor": "https://ga.jspm.dev/npm:@livy/tags-processor@1.0.2/lib/tags-processor.js"
+    "@livy/tags-processor": "https://ga.jspm.io/npm:@livy/tags-processor@1.0.2/lib/tags-processor.js"
   }
 }

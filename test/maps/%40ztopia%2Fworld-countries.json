@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@ztopia/world-countries": "https://ga.jspm.dev/npm:@ztopia/world-countries@1.0.0/index.js"
+    "@ztopia/world-countries": "https://ga.jspm.io/npm:@ztopia/world-countries@1.0.0/index.js"
   }
 }

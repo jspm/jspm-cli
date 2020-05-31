@@ -1,5 +1,5 @@
 {
   "imports": {
-    "for-in": "https://ga.jspm.dev/npm:for-in@1.0.2/index.js"
+    "for-in": "https://ga.jspm.io/npm:for-in@1.0.2/index.js"
   }
 }

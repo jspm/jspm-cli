@@ -1,5 +1,5 @@
 {
   "imports": {
-    "date-utils": "https://ga.jspm.dev/npm:date-utils@1.2.21/lib/date-utils.js"
+    "date-utils": "https://ga.jspm.io/npm:date-utils@1.2.21/lib/date-utils.js"
   }
 }

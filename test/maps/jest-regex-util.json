@@ -1,6 +1,6 @@
 {
   "imports": {
-    "jest-regex-util": "https://ga.jspm.dev/npm:jest-regex-util@26.0.0/build/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "jest-regex-util": "https://ga.jspm.io/npm:jest-regex-util@26.0.0/build/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

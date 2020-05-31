@@ -1,13 +1,13 @@
 {
   "imports": {
-    "which-collection": "https://ga.jspm.dev/npm:which-collection@1.0.1/index.js"
+    "which-collection": "https://ga.jspm.io/npm:which-collection@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:which-collection@1.0.1/": {
-      "is-map": "https://ga.jspm.dev/npm:is-map@2.0.1/index.js",
-      "is-set": "https://ga.jspm.dev/npm:is-set@2.0.1/index.js",
-      "is-weakmap": "https://ga.jspm.dev/npm:is-weakmap@2.0.1/index.js",
-      "is-weakset": "https://ga.jspm.dev/npm:is-weakset@2.0.1/index.js"
+    "https://ga.jspm.io/npm:which-collection@1.0.1/": {
+      "is-map": "https://ga.jspm.io/npm:is-map@2.0.1/index.js",
+      "is-set": "https://ga.jspm.io/npm:is-set@2.0.1/index.js",
+      "is-weakmap": "https://ga.jspm.io/npm:is-weakmap@2.0.1/index.js",
+      "is-weakset": "https://ga.jspm.io/npm:is-weakset@2.0.1/index.js"
     }
   }
 }

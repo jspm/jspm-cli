@@ -1,19 +1,19 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "follow-redirects": "https://ga.jspm.dev/npm:follow-redirects@1.11.0/index.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "follow-redirects": "https://ga.jspm.io/npm:follow-redirects@1.11.0/index.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:follow-redirects@1.11.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js"
+    "https://ga.jspm.io/npm:follow-redirects@1.11.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js"
     }
   }
 }

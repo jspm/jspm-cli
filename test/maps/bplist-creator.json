@@ -1,13 +1,13 @@
 {
   "imports": {
-    "bplist-creator": "https://ga.jspm.dev/npm:bplist-creator@0.0.8/bplistCreator.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "bplist-creator": "https://ga.jspm.io/npm:bplist-creator@0.0.8/bplistCreator.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:bplist-creator@0.0.8/": {
-      "stream-buffers": "https://ga.jspm.dev/npm:stream-buffers@2.2.0/lib/streambuffer.js"
+    "https://ga.jspm.io/npm:bplist-creator@0.0.8/": {
+      "stream-buffers": "https://ga.jspm.io/npm:stream-buffers@2.2.0/lib/streambuffer.js"
     }
   }
 }

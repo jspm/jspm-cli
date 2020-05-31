@@ -1,5 +1,5 @@
 {
   "imports": {
-    "css-has-pseudo": "https://ga.jspm.dev/npm:css-has-pseudo@1.0.0/index.js"
+    "css-has-pseudo": "https://ga.jspm.io/npm:css-has-pseudo@1.0.0/index.js"
   }
 }

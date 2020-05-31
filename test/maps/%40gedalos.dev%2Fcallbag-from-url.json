@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@gedalos.dev/callbag-from-url": "https://ga.jspm.dev/npm:@gedalos.dev/callbag-from-url@1.0.3/index.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js"
+    "@gedalos.dev/callbag-from-url": "https://ga.jspm.io/npm:@gedalos.dev/callbag-from-url@1.0.3/index.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js"
   }
 }

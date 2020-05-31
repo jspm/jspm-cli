@@ -1,5 +1,5 @@
 {
   "imports": {
-    "json-stable-stringify-without-jsonify": "https://ga.jspm.dev/npm:json-stable-stringify-without-jsonify@1.0.1/index.js"
+    "json-stable-stringify-without-jsonify": "https://ga.jspm.io/npm:json-stable-stringify-without-jsonify@1.0.1/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cesium-subsurface": "https://ga.jspm.dev/npm:cesium-subsurface@1.0.0/index.js"
+    "cesium-subsurface": "https://ga.jspm.io/npm:cesium-subsurface@1.0.0/index.js"
   }
 }

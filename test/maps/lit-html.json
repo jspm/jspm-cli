@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "lit-html": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
   }
 }

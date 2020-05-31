@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@j5e/led": "https://ga.jspm.dev/npm:@j5e/led@0.1.0/index.js"
+    "@j5e/led": "https://ga.jspm.io/npm:@j5e/led@0.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@j5e/animation@0.1.0/": {
-      "@j5e/fn": "https://ga.jspm.dev/npm:@j5e/fn@0.1.0/index.js"
+    "https://ga.jspm.io/npm:@j5e/animation@0.1.0/": {
+      "@j5e/fn": "https://ga.jspm.io/npm:@j5e/fn@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@j5e/led@0.1.0/": {
-      "@j5e/animation": "https://ga.jspm.dev/npm:@j5e/animation@0.1.0/index.js",
-      "@j5e/easing": "https://ga.jspm.dev/npm:@j5e/easing@0.1.0/index.js",
-      "@j5e/fn": "https://ga.jspm.dev/npm:@j5e/fn@0.1.0/index.js"
+    "https://ga.jspm.io/npm:@j5e/led@0.1.0/": {
+      "@j5e/animation": "https://ga.jspm.io/npm:@j5e/animation@0.1.0/index.js",
+      "@j5e/easing": "https://ga.jspm.io/npm:@j5e/easing@0.1.0/index.js",
+      "@j5e/fn": "https://ga.jspm.io/npm:@j5e/fn@0.1.0/index.js"
     }
   }
 }

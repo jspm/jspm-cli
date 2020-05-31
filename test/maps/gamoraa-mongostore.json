@@ -1,5 +1,5 @@
 {
   "imports": {
-    "gamoraa-mongostore": "https://ga.jspm.dev/npm:gamoraa-mongostore@1.0.1/dist/src/mongo-store-service.js"
+    "gamoraa-mongostore": "https://ga.jspm.io/npm:gamoraa-mongostore@1.0.1/dist/src/mongo-store-service.js"
   }
 }

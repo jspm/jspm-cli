@@ -1,18 +1,18 @@
 {
   "imports": {
-    "binary": "https://ga.jspm.dev/npm:binary@0.3.0/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "binary": "https://ga.jspm.io/npm:binary@0.3.0/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:binary@0.3.0/": {
-      "buffers": "https://ga.jspm.dev/npm:buffers@0.1.1/index.js",
-      "chainsaw": "https://ga.jspm.dev/npm:chainsaw@0.1.0/index.js"
+    "https://ga.jspm.io/npm:binary@0.3.0/": {
+      "buffers": "https://ga.jspm.io/npm:buffers@0.1.1/index.js",
+      "chainsaw": "https://ga.jspm.io/npm:chainsaw@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:chainsaw@0.1.0/": {
-      "traverse": "https://ga.jspm.dev/npm:traverse@0.3.9/index.js"
+    "https://ga.jspm.io/npm:chainsaw@0.1.0/": {
+      "traverse": "https://ga.jspm.io/npm:traverse@0.3.9/index.js"
     }
   }
 }

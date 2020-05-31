@@ -1,5 +1,5 @@
 {
   "imports": {
-    "log-symbols": "https://ga.jspm.dev/npm:log-symbols@4.0.0/browser.js"
+    "log-symbols": "https://ga.jspm.io/npm:log-symbols@4.0.0/browser.js"
   }
 }

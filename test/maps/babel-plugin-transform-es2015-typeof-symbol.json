@@ -1,13 +1,13 @@
 {
   "imports": {
-    "babel-plugin-transform-es2015-typeof-symbol": "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-typeof-symbol@6.23.0/lib/index.js"
+    "babel-plugin-transform-es2015-typeof-symbol": "https://ga.jspm.io/npm:babel-plugin-transform-es2015-typeof-symbol@6.23.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-plugin-transform-es2015-typeof-symbol@6.23.0/": {
-      "babel-runtime/core-js/symbol": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/symbol.js"
+    "https://ga.jspm.io/npm:babel-plugin-transform-es2015-typeof-symbol@6.23.0/": {
+      "babel-runtime/core-js/symbol": "https://ga.jspm.io/npm:babel-runtime@6.26.0/core-js/symbol.js"
     },
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/library/fn/symbol": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/symbol/index.js"
+    "https://ga.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/library/fn/symbol": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/symbol/index.js"
     }
   }
 }

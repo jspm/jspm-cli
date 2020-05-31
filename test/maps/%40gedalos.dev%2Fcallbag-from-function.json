@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@gedalos.dev/callbag-from-function": "https://ga.jspm.dev/npm:@gedalos.dev/callbag-from-function@1.0.2/index.js"
+    "@gedalos.dev/callbag-from-function": "https://ga.jspm.io/npm:@gedalos.dev/callbag-from-function@1.0.2/index.js"
   }
 }

@@ -1,20 +1,20 @@
 {
   "imports": {
-    "@lrnwebcomponents/paper-search": "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-search@2.6.14/paper-search.js"
+    "@lrnwebcomponents/paper-search": "https://ga.jspm.io/npm:@lrnwebcomponents/paper-search@2.6.14/paper-search.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/paper-search@2.6.14/": {
-      "@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/iron-a11y-keys-behavior.js",
-      "@polymer/polymer/lib/legacy/class.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/class.js",
-      "@polymer/polymer/lib/utils/render-status.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/render-status.js",
-      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/paper-search@2.6.14/": {
+      "@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js": "https://ga.jspm.io/npm:@polymer/iron-a11y-keys-behavior@3.0.1/iron-a11y-keys-behavior.js",
+      "@polymer/polymer/lib/legacy/class.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/class.js",
+      "@polymer/polymer/lib/utils/render-status.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/render-status.js",
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-element.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/": {
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/iron-a11y-keys-behavior@3.0.1/": {
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/": {
-      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
-      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
+    "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/": {
+      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.io/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
+      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.io/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
     }
   }
 }

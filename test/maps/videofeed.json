@@ -1,14 +1,14 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "videofeed": "https://ga.jspm.dev/npm:videofeed@1.2.0/index.js"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "videofeed": "https://ga.jspm.io/npm:videofeed@1.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:videofeed@1.2.0/": {
-      "toml": "https://ga.jspm.dev/npm:toml@3.0.0/index.js"
+    "https://ga.jspm.io/npm:videofeed@1.2.0/": {
+      "toml": "https://ga.jspm.io/npm:toml@3.0.0/index.js"
     }
   }
 }

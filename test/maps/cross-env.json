@@ -1,26 +1,26 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "cross-env": "https://ga.jspm.dev/npm:cross-env@7.0.2/src/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "cross-env": "https://ga.jspm.io/npm:cross-env@7.0.2/src/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cross-env@7.0.2/": {
-      "cross-spawn": "https://ga.jspm.dev/npm:cross-spawn@7.0.3/index.js"
+    "https://ga.jspm.io/npm:cross-env@7.0.2/": {
+      "cross-spawn": "https://ga.jspm.io/npm:cross-spawn@7.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:cross-spawn@7.0.3/": {
-      "path-key": "https://ga.jspm.dev/npm:path-key@3.1.1/index.js",
-      "shebang-command": "https://ga.jspm.dev/npm:shebang-command@2.0.0/index.js",
-      "which": "https://ga.jspm.dev/npm:which@2.0.2/which.js"
+    "https://ga.jspm.io/npm:cross-spawn@7.0.3/": {
+      "path-key": "https://ga.jspm.io/npm:path-key@3.1.1/index.js",
+      "shebang-command": "https://ga.jspm.io/npm:shebang-command@2.0.0/index.js",
+      "which": "https://ga.jspm.io/npm:which@2.0.2/which.js"
     },
-    "https://ga.jspm.dev/npm:shebang-command@2.0.0/": {
-      "shebang-regex": "https://ga.jspm.dev/npm:shebang-regex@3.0.0/index.js"
+    "https://ga.jspm.io/npm:shebang-command@2.0.0/": {
+      "shebang-regex": "https://ga.jspm.io/npm:shebang-regex@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:which@2.0.2/": {
-      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    "https://ga.jspm.io/npm:which@2.0.2/": {
+      "isexe": "https://ga.jspm.io/npm:isexe@2.0.0/index.js"
     }
   }
 }

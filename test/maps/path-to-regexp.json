@@ -1,5 +1,5 @@
 {
   "imports": {
-    "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@6.1.0/dist/index.js"
+    "path-to-regexp": "https://ga.jspm.io/npm:path-to-regexp@6.1.0/dist/index.js"
   }
 }

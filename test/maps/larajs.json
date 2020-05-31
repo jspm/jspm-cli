@@ -1,5 +1,5 @@
 {
   "imports": {
-    "larajs": "https://ga.jspm.dev/npm:larajs@1.0.6/cli.js"
+    "larajs": "https://ga.jspm.io/npm:larajs@1.0.6/cli.js"
   }
 }

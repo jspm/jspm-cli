@@ -1,16 +1,16 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "pkg-config": "https://ga.jspm.dev/npm:pkg-config@1.1.1/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "pkg-config": "https://ga.jspm.io/npm:pkg-config@1.1.1/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pkg-config@1.1.1/": {
-      "debug-log": "https://ga.jspm.dev/npm:debug-log@1.0.1/index.js",
-      "find-root": "https://ga.jspm.dev/npm:find-root@1.1.0/index.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:pkg-config@1.1.1/": {
+      "debug-log": "https://ga.jspm.io/npm:debug-log@1.0.1/index.js",
+      "find-root": "https://ga.jspm.io/npm:find-root@1.1.0/index.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     }
   }
 }

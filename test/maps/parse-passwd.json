@@ -1,5 +1,5 @@
 {
   "imports": {
-    "parse-passwd": "https://ga.jspm.dev/npm:parse-passwd@1.0.0/index.js"
+    "parse-passwd": "https://ga.jspm.io/npm:parse-passwd@1.0.0/index.js"
   }
 }

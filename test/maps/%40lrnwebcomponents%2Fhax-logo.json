@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@lrnwebcomponents/hax-logo": "https://ga.jspm.dev/npm:@lrnwebcomponents/hax-logo@2.6.12/hax-logo.js"
+    "@lrnwebcomponents/hax-logo": "https://ga.jspm.io/npm:@lrnwebcomponents/hax-logo@2.6.12/hax-logo.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "css-blank-pseudo": "https://ga.jspm.dev/npm:css-blank-pseudo@1.0.0/index.js"
+    "css-blank-pseudo": "https://ga.jspm.io/npm:css-blank-pseudo@1.0.0/index.js"
   }
 }

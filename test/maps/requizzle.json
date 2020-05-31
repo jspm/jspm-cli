@@ -1,13 +1,13 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "requizzle": "https://ga.jspm.dev/npm:requizzle@0.2.3/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "requizzle": "https://ga.jspm.io/npm:requizzle@0.2.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:requizzle@0.2.3/": {
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    "https://ga.jspm.io/npm:requizzle@0.2.3/": {
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
     }
   }
 }

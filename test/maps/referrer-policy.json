@@ -1,5 +1,5 @@
 {
   "imports": {
-    "referrer-policy": "https://ga.jspm.dev/npm:referrer-policy@1.2.0/dist/index.js"
+    "referrer-policy": "https://ga.jspm.io/npm:referrer-policy@1.2.0/dist/index.js"
   }
 }

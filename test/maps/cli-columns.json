@@ -1,22 +1,22 @@
 {
   "imports": {
-    "cli-columns": "https://ga.jspm.dev/npm:cli-columns@3.1.2/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "cli-columns": "https://ga.jspm.io/npm:cli-columns@3.1.2/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cli-columns@3.1.2/": {
-      "string-width": "https://ga.jspm.dev/npm:string-width@2.1.1/index.js",
-      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@3.0.1/index.js"
+    "https://ga.jspm.io/npm:cli-columns@3.1.2/": {
+      "string-width": "https://ga.jspm.io/npm:string-width@2.1.1/index.js",
+      "strip-ansi": "https://ga.jspm.io/npm:strip-ansi@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:string-width@2.1.1/": {
-      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@2.0.0/index.js",
-      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@4.0.0/index.js"
+    "https://ga.jspm.io/npm:string-width@2.1.1/": {
+      "is-fullwidth-code-point": "https://ga.jspm.io/npm:is-fullwidth-code-point@2.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.io/npm:strip-ansi@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:strip-ansi@3.0.1/": {
-      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@2.1.1/index.js"
+    "https://ga.jspm.io/npm:strip-ansi@3.0.1/": {
+      "ansi-regex": "https://ga.jspm.io/npm:ansi-regex@2.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:strip-ansi@4.0.0/": {
-      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@3.0.0/index.js"
+    "https://ga.jspm.io/npm:strip-ansi@4.0.0/": {
+      "ansi-regex": "https://ga.jspm.io/npm:ansi-regex@3.0.0/index.js"
     }
   }
 }

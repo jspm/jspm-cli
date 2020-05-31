@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.clonedeep": "https://ga.jspm.dev/npm:lodash.clonedeep@4.5.0/index.js"
+    "lodash.clonedeep": "https://ga.jspm.io/npm:lodash.clonedeep@4.5.0/index.js"
   }
 }

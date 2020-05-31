@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.isstring": "https://ga.jspm.dev/npm:lodash.isstring@4.0.1/index.js"
+    "lodash.isstring": "https://ga.jspm.io/npm:lodash.isstring@4.0.1/index.js"
   }
 }

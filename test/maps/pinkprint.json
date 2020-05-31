@@ -1,49 +1,49 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "pinkprint": "https://ga.jspm.dev/npm:pinkprint@1.2.2/src/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "pinkprint": "https://ga.jspm.io/npm:pinkprint@1.2.2/src/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@7.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:date.js@0.3.3/": {
-      "debug": "https://ga.jspm.dev/npm:debug@3.1.0/src/browser.js"
+    "https://ga.jspm.io/npm:date.js@0.3.3/": {
+      "debug": "https://ga.jspm.io/npm:debug@3.1.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@3.1.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.io/npm:debug@3.1.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:handlebars-utils@1.0.6/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js",
-      "typeof-article": "https://ga.jspm.dev/npm:typeof-article@0.1.1/index.js"
+    "https://ga.jspm.io/npm:handlebars-utils@1.0.6/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js",
+      "typeof-article": "https://ga.jspm.io/npm:typeof-article@0.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:helper-date@1.0.1/": {
-      "date.js": "https://ga.jspm.dev/npm:date.js@0.3.3/index.js",
-      "handlebars-utils": "https://ga.jspm.dev/npm:handlebars-utils@1.0.6/index.js",
-      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
+    "https://ga.jspm.io/npm:helper-date@1.0.1/": {
+      "date.js": "https://ga.jspm.io/npm:date.js@0.3.3/index.js",
+      "handlebars-utils": "https://ga.jspm.io/npm:handlebars-utils@1.0.6/index.js",
+      "moment": "https://ga.jspm.io/npm:moment@2.26.0/moment.js"
     },
-    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    "https://ga.jspm.io/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@1.1.6/index.js"
     },
-    "https://ga.jspm.dev/npm:pinkprint@1.2.2/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "helper-date": "https://ga.jspm.dev/npm:helper-date@1.0.1/index.js",
-      "humps": "https://ga.jspm.dev/npm:humps@2.0.1/humps.js",
-      "pluralize": "https://ga.jspm.dev/npm:pluralize@8.0.0/pluralize.js"
+    "https://ga.jspm.io/npm:pinkprint@1.2.2/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@3.0.0/source/index.js",
+      "helper-date": "https://ga.jspm.io/npm:helper-date@1.0.1/index.js",
+      "humps": "https://ga.jspm.io/npm:humps@2.0.1/humps.js",
+      "pluralize": "https://ga.jspm.io/npm:pluralize@8.0.0/pluralize.js"
     },
-    "https://ga.jspm.dev/npm:typeof-article@0.1.1/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    "https://ga.jspm.io/npm:typeof-article@0.1.1/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@3.2.2/index.js"
     }
   }
 }

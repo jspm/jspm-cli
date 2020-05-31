@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tst": "https://ga.jspm.dev/npm:tst@6.1.1/index.js"
+    "tst": "https://ga.jspm.io/npm:tst@6.1.1/index.js"
   }
 }

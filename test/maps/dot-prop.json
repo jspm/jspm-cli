@@ -1,10 +1,10 @@
 {
   "imports": {
-    "dot-prop": "https://ga.jspm.dev/npm:dot-prop@5.2.0/index.js"
+    "dot-prop": "https://ga.jspm.io/npm:dot-prop@5.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dot-prop@5.2.0/": {
-      "is-obj": "https://ga.jspm.dev/npm:is-obj@2.0.0/index.js"
+    "https://ga.jspm.io/npm:dot-prop@5.2.0/": {
+      "is-obj": "https://ga.jspm.io/npm:is-obj@2.0.0/index.js"
     }
   }
 }

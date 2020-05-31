@@ -1,6 +1,6 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "split-ca": "https://ga.jspm.dev/npm:split-ca@1.0.1/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "split-ca": "https://ga.jspm.io/npm:split-ca@1.0.1/index.js"
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "now-and-later": "https://ga.jspm.dev/npm:now-and-later@2.0.1/index.js"
+    "now-and-later": "https://ga.jspm.io/npm:now-and-later@2.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:now-and-later@2.0.1/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:now-and-later@2.0.1/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     }
   }
 }

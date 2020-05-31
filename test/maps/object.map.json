@@ -1,17 +1,17 @@
 {
   "imports": {
-    "object.map": "https://ga.jspm.dev/npm:object.map@1.0.1/index.js"
+    "object.map": "https://ga.jspm.io/npm:object.map@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:for-own@1.0.0/": {
-      "for-in": "https://ga.jspm.dev/npm:for-in@1.0.2/index.js"
+    "https://ga.jspm.io/npm:for-own@1.0.0/": {
+      "for-in": "https://ga.jspm.io/npm:for-in@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:make-iterator@1.0.1/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "https://ga.jspm.io/npm:make-iterator@1.0.1/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:object.map@1.0.1/": {
-      "for-own": "https://ga.jspm.dev/npm:for-own@1.0.0/index.js",
-      "make-iterator": "https://ga.jspm.dev/npm:make-iterator@1.0.1/index.js"
+    "https://ga.jspm.io/npm:object.map@1.0.1/": {
+      "for-own": "https://ga.jspm.io/npm:for-own@1.0.0/index.js",
+      "make-iterator": "https://ga.jspm.io/npm:make-iterator@1.0.1/index.js"
     }
   }
 }

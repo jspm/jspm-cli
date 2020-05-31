@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mpath": "https://ga.jspm.dev/npm:mpath@0.7.0/index.js"
+    "mpath": "https://ga.jspm.io/npm:mpath@0.7.0/index.js"
   }
 }

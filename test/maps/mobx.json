@@ -1,11 +1,11 @@
 {
   "imports": {
-    "mobx": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "mobx": "https://ga.jspm.io/npm:mobx@5.15.4/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:mobx@5.15.4/": {
-      "mobx/lib/mobx.js": "https://ga.jspm.dev/npm:mobx@5.15.4/lib/mobx.min.js"
+    "https://ga.jspm.io/npm:mobx@5.15.4/": {
+      "mobx/lib/mobx.js": "https://ga.jspm.io/npm:mobx@5.15.4/lib/mobx.min.js"
     }
   }
 }

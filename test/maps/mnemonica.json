@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mnemonica": "https://ga.jspm.dev/npm:mnemonica@0.9.79/build/index.js"
+    "mnemonica": "https://ga.jspm.io/npm:mnemonica@0.9.79/build/index.js"
   }
 }

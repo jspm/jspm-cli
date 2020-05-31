@@ -1,6 +1,6 @@
 {
   "imports": {
-    "exit": "https://ga.jspm.dev/npm:exit@0.1.2/lib/exit.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "exit": "https://ga.jspm.io/npm:exit@0.1.2/lib/exit.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

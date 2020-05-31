@@ -1,5 +1,5 @@
 {
   "imports": {
-    "x-xss-protection": "https://ga.jspm.dev/npm:x-xss-protection@1.3.0/dist/index.js"
+    "x-xss-protection": "https://ga.jspm.io/npm:x-xss-protection@1.3.0/dist/index.js"
   }
 }

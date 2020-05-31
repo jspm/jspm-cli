@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cntdys": "https://ga.jspm.dev/npm:cntdys@0.3.2/dist/main.commonjs.js"
+    "cntdys": "https://ga.jspm.io/npm:cntdys@0.3.2/dist/main.commonjs.js"
   }
 }

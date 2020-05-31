@@ -1,5 +1,5 @@
 {
   "imports": {
-    "util-extend": "https://ga.jspm.dev/npm:util-extend@1.0.3/extend.js"
+    "util-extend": "https://ga.jspm.io/npm:util-extend@1.0.3/extend.js"
   }
 }

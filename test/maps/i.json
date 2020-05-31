@@ -1,5 +1,5 @@
 {
   "imports": {
-    "i": "https://ga.jspm.dev/npm:i@0.3.6/lib/inflect.js"
+    "i": "https://ga.jspm.io/npm:i@0.3.6/lib/inflect.js"
   }
 }

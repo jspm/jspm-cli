@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@svgr/babel-plugin-replace-jsx-attribute-value": "https://ga.jspm.dev/npm:@svgr/babel-plugin-replace-jsx-attribute-value@5.0.1/lib/index.js"
+    "@svgr/babel-plugin-replace-jsx-attribute-value": "https://ga.jspm.io/npm:@svgr/babel-plugin-replace-jsx-attribute-value@5.0.1/lib/index.js"
   }
 }

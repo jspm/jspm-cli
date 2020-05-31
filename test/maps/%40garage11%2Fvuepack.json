@@ -1,14 +1,15 @@
 {
   "imports": {
-    "@garage11/vuepack": "https://ga.jspm.dev/npm:@garage11/vuepack@2.1.0/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "@garage11/vuepack": "https://ga.jspm.io/npm:@garage11/vuepack@2.1.0/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@garage11/vuepack@2.1.0/": {
-      "vue-template-compiler": "https://ga.jspm.dev/npm:vue-template-compiler@2.6.11/browser.js",
-      "vue-template-es2015-compiler": "https://ga.jspm.dev/npm:vue-template-es2015-compiler@1.9.1/index.js"
+    "https://ga.jspm.io/npm:@garage11/vuepack@2.1.0/": {
+      "vue-template-compiler": "https://ga.jspm.io/npm:vue-template-compiler@2.6.11/browser.js",
+      "vue-template-es2015-compiler": "https://ga.jspm.io/npm:vue-template-es2015-compiler@1.9.1/index.js"
     }
   }
 }

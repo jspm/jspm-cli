@@ -1,5 +1,5 @@
 {
   "imports": {
-    "web-material": "https://ga.jspm.dev/npm:web-material@1.19.21/index.js"
+    "web-material": "https://ga.jspm.io/npm:web-material@1.19.21/index.js"
   }
 }

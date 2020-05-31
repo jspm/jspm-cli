@@ -1,5 +1,5 @@
 {
   "imports": {
-    "modern-error": "https://ga.jspm.dev/npm:modern-error@1.1.0/src/ModernError.js"
+    "modern-error": "https://ga.jspm.io/npm:modern-error@1.1.0/src/ModernError.js"
   }
 }

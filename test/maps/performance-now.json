@@ -1,6 +1,6 @@
 {
   "imports": {
-    "performance-now": "https://ga.jspm.dev/npm:performance-now@2.1.0/lib/performance-now.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "performance-now": "https://ga.jspm.io/npm:performance-now@2.1.0/lib/performance-now.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

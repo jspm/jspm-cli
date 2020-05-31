@@ -1,18 +1,18 @@
 {
   "imports": {
-    "workbox-expiration": "https://ga.jspm.dev/npm:workbox-expiration@5.1.3/index.js"
+    "workbox-expiration": "https://ga.jspm.io/npm:workbox-expiration@5.1.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:workbox-expiration@5.1.3/": {
-      "workbox-core/_private/DBWrapper.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/DBWrapper.js",
-      "workbox-core/_private/WorkboxError.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/WorkboxError.js",
-      "workbox-core/_private/assert.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/assert.js",
-      "workbox-core/_private/cacheNames.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/cacheNames.js",
-      "workbox-core/_private/deleteDatabase.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/deleteDatabase.js",
-      "workbox-core/_private/dontWaitFor.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/dontWaitFor.js",
-      "workbox-core/_private/getFriendlyURL.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/getFriendlyURL.js",
-      "workbox-core/_private/logger.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/logger.js",
-      "workbox-core/registerQuotaErrorCallback.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/registerQuotaErrorCallback.js"
+    "https://ga.jspm.io/npm:workbox-expiration@5.1.3/": {
+      "workbox-core/_private/DBWrapper.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/DBWrapper.js",
+      "workbox-core/_private/WorkboxError.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/WorkboxError.js",
+      "workbox-core/_private/assert.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/assert.js",
+      "workbox-core/_private/cacheNames.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/cacheNames.js",
+      "workbox-core/_private/deleteDatabase.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/deleteDatabase.js",
+      "workbox-core/_private/dontWaitFor.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/dontWaitFor.js",
+      "workbox-core/_private/getFriendlyURL.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/getFriendlyURL.js",
+      "workbox-core/_private/logger.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/logger.js",
+      "workbox-core/registerQuotaErrorCallback.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/registerQuotaErrorCallback.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "notabase": "https://ga.jspm.dev/npm:notabase@0.9.4/dist/index.js"
+    "notabase": "https://ga.jspm.io/npm:notabase@0.9.4/dist/index.js"
   }
 }

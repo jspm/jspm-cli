@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@independentsoft/msg": "https://ga.jspm.dev/npm:@independentsoft/msg@1.0.2/independentsoft/msg.js"
+    "@independentsoft/msg": "https://ga.jspm.io/npm:@independentsoft/msg@1.0.2/independentsoft/msg.js"
   }
 }

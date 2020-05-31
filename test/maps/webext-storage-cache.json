@@ -1,10 +1,10 @@
 {
   "imports": {
-    "webext-storage-cache": "https://ga.jspm.dev/npm:webext-storage-cache@3.0.0/index.js"
+    "webext-storage-cache": "https://ga.jspm.io/npm:webext-storage-cache@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:webext-storage-cache@3.0.0/": {
-      "webext-detect-page": "https://ga.jspm.dev/npm:webext-detect-page@2.0.4/index.js"
+    "https://ga.jspm.io/npm:webext-storage-cache@3.0.0/": {
+      "webext-detect-page": "https://ga.jspm.io/npm:webext-detect-page@2.0.4/index.js"
     }
   }
 }

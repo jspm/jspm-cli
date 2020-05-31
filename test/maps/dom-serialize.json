@@ -1,14 +1,14 @@
 {
   "imports": {
-    "dom-serialize": "https://ga.jspm.dev/npm:dom-serialize@2.2.1/index.js",
-    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
+    "dom-serialize": "https://ga.jspm.io/npm:dom-serialize@2.2.1/index.js",
+    "punycode": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-serialize@2.2.1/": {
-      "custom-event": "https://ga.jspm.dev/npm:custom-event@1.0.1/index.js",
-      "ent/encode": "https://ga.jspm.dev/npm:ent@2.2.0/encode.js",
-      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
-      "void-elements": "https://ga.jspm.dev/npm:void-elements@2.0.1/index.js"
+    "https://ga.jspm.io/npm:dom-serialize@2.2.1/": {
+      "custom-event": "https://ga.jspm.io/npm:custom-event@1.0.1/index.js",
+      "ent/encode": "https://ga.jspm.io/npm:ent@2.2.0/encode.js",
+      "extend": "https://ga.jspm.io/npm:extend@3.0.2/index.js",
+      "void-elements": "https://ga.jspm.io/npm:void-elements@2.0.1/index.js"
     }
   }
 }

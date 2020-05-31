@@ -1,29 +1,29 @@
 {
   "imports": {
-    "domain": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/domain.js",
-    "event-emitter-grouped": "https://ga.jspm.dev/npm:event-emitter-grouped@4.4.0/edition-browsers/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "domain": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/domain.js",
+    "event-emitter-grouped": "https://ga.jspm.io/npm:event-emitter-grouped@4.4.0/edition-browsers/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ambi@3.2.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@4.11.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:ambi@3.2.0/": {
+      "typechecker": "https://ga.jspm.io/npm:typechecker@4.11.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:eachr@4.5.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@6.4.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:eachr@4.5.0/": {
+      "typechecker": "https://ga.jspm.io/npm:typechecker@6.4.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:event-emitter-grouped@4.4.0/": {
-      "taskgroup": "https://ga.jspm.dev/npm:taskgroup@7.6.0/edition-browsers/index.js",
-      "unbounded": "https://ga.jspm.dev/npm:unbounded@3.3.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:event-emitter-grouped@4.4.0/": {
+      "taskgroup": "https://ga.jspm.io/npm:taskgroup@7.6.0/edition-browsers/index.js",
+      "unbounded": "https://ga.jspm.io/npm:unbounded@3.3.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:extendr@5.4.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@7.4.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:extendr@5.4.0/": {
+      "typechecker": "https://ga.jspm.io/npm:typechecker@7.4.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:taskgroup@7.6.0/": {
-      "ambi": "https://ga.jspm.dev/npm:ambi@3.2.0/edition-browsers/index.js",
-      "eachr": "https://ga.jspm.dev/npm:eachr@4.5.0/edition-browsers/index.js",
-      "extendr": "https://ga.jspm.dev/npm:extendr@5.4.0/edition-browsers/index.js",
-      "unbounded": "https://ga.jspm.dev/npm:unbounded@3.3.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:taskgroup@7.6.0/": {
+      "ambi": "https://ga.jspm.io/npm:ambi@3.2.0/edition-browsers/index.js",
+      "eachr": "https://ga.jspm.io/npm:eachr@4.5.0/edition-browsers/index.js",
+      "extendr": "https://ga.jspm.io/npm:extendr@5.4.0/edition-browsers/index.js",
+      "unbounded": "https://ga.jspm.io/npm:unbounded@3.3.0/edition-browsers/index.js"
     }
   }
 }

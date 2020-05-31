@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@bcoe/v8-coverage": "https://ga.jspm.dev/npm:@bcoe/v8-coverage@0.2.3/dist/lib/index.js"
+    "@bcoe/v8-coverage": "https://ga.jspm.io/npm:@bcoe/v8-coverage@0.2.3/dist/lib/index.js"
   }
 }

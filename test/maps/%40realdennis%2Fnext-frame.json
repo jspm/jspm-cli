@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@realdennis/next-frame": "https://ga.jspm.dev/npm:@realdennis/next-frame@1.0.0/dist/index.js"
+    "@realdennis/next-frame": "https://ga.jspm.io/npm:@realdennis/next-frame@1.0.0/dist/index.js"
   }
 }

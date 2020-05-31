@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@server/next": "https://ga.jspm.dev/npm:@server/next@0.12.1/index.js"
+    "@server/next": "https://ga.jspm.io/npm:@server/next@0.12.1/index.js"
   }
 }

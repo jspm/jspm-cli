@@ -1,10 +1,10 @@
 {
   "imports": {
-    "openapi-schemas": "https://ga.jspm.dev/npm:openapi-schemas@2.0.3/index.js"
+    "openapi-schemas": "https://ga.jspm.io/npm:openapi-schemas@2.0.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:openapi-schemas@2.0.3/": {
-      "@apidevtools/openapi-schemas": "https://ga.jspm.dev/npm:@apidevtools/openapi-schemas@2.0.3/lib/index.js"
+    "https://ga.jspm.io/npm:openapi-schemas@2.0.3/": {
+      "@apidevtools/openapi-schemas": "https://ga.jspm.io/npm:@apidevtools/openapi-schemas@2.0.3/lib/index.js"
     }
   }
 }

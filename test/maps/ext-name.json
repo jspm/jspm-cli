@@ -1,20 +1,20 @@
 {
   "imports": {
-    "ext-name": "https://ga.jspm.dev/npm:ext-name@5.0.0/index.js"
+    "ext-name": "https://ga.jspm.io/npm:ext-name@5.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ext-list@2.2.2/": {
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
+    "https://ga.jspm.io/npm:ext-list@2.2.2/": {
+      "mime-db": "https://ga.jspm.io/npm:mime-db@1.44.0/index.js"
     },
-    "https://ga.jspm.dev/npm:ext-name@5.0.0/": {
-      "ext-list": "https://ga.jspm.dev/npm:ext-list@2.2.2/index.js",
-      "sort-keys-length": "https://ga.jspm.dev/npm:sort-keys-length@1.0.1/index.js"
+    "https://ga.jspm.io/npm:ext-name@5.0.0/": {
+      "ext-list": "https://ga.jspm.io/npm:ext-list@2.2.2/index.js",
+      "sort-keys-length": "https://ga.jspm.io/npm:sort-keys-length@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:sort-keys-length@1.0.1/": {
-      "sort-keys": "https://ga.jspm.dev/npm:sort-keys@1.1.2/index.js"
+    "https://ga.jspm.io/npm:sort-keys-length@1.0.1/": {
+      "sort-keys": "https://ga.jspm.io/npm:sort-keys@1.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:sort-keys@1.1.2/": {
-      "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@1.1.0/index.js"
+    "https://ga.jspm.io/npm:sort-keys@1.1.2/": {
+      "is-plain-obj": "https://ga.jspm.io/npm:is-plain-obj@1.1.0/index.js"
     }
   }
 }

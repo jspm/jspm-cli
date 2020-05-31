@@ -1,19 +1,19 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "pg-types": "https://ga.jspm.dev/npm:pg-types@3.0.0/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "pg-types": "https://ga.jspm.io/npm:pg-types@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pg-types@3.0.0/": {
-      "pg-int8": "https://ga.jspm.dev/npm:pg-int8@1.0.1/index.js",
-      "pg-numeric": "https://ga.jspm.dev/npm:pg-numeric@1.0.2/index.js",
-      "postgres-array": "https://ga.jspm.dev/npm:postgres-array@2.0.0/index.js",
-      "postgres-bytea": "https://ga.jspm.dev/npm:postgres-bytea@2.0.0/index.js",
-      "postgres-date": "https://ga.jspm.dev/npm:postgres-date@1.0.5/index.js",
-      "postgres-interval": "https://ga.jspm.dev/npm:postgres-interval@1.2.0/index.js"
+    "https://ga.jspm.io/npm:pg-types@3.0.0/": {
+      "pg-int8": "https://ga.jspm.io/npm:pg-int8@1.0.1/index.js",
+      "pg-numeric": "https://ga.jspm.io/npm:pg-numeric@1.0.2/index.js",
+      "postgres-array": "https://ga.jspm.io/npm:postgres-array@2.0.0/index.js",
+      "postgres-bytea": "https://ga.jspm.io/npm:postgres-bytea@2.0.0/index.js",
+      "postgres-date": "https://ga.jspm.io/npm:postgres-date@1.0.5/index.js",
+      "postgres-interval": "https://ga.jspm.io/npm:postgres-interval@1.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:postgres-interval@1.2.0/": {
-      "xtend/mutable": "https://ga.jspm.dev/npm:xtend@4.0.2/mutable.js"
+    "https://ga.jspm.io/npm:postgres-interval@1.2.0/": {
+      "xtend/mutable": "https://ga.jspm.io/npm:xtend@4.0.2/mutable.js"
     }
   }
 }

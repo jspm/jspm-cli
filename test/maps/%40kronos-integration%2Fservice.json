@@ -1,21 +1,21 @@
 {
   "imports": {
-    "@kronos-integration/service": "https://ga.jspm.dev/npm:@kronos-integration/service@8.5.12/src/module.mjs",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "@kronos-integration/service": "https://ga.jspm.io/npm:@kronos-integration/service@8.5.12/src/module.mjs",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@kronos-integration/endpoint@9.0.1/": {
-      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/src/index.mjs"
+    "https://ga.jspm.io/npm:@kronos-integration/endpoint@9.0.1/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.io/npm:@kronos-integration/interceptor@9.2.1/src/index.mjs"
     },
-    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/": {
-      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.6/src/attributes.mjs"
+    "https://ga.jspm.io/npm:@kronos-integration/interceptor@9.2.1/": {
+      "model-attributes": "https://ga.jspm.io/npm:model-attributes@4.1.6/src/attributes.mjs"
     },
-    "https://ga.jspm.dev/npm:@kronos-integration/service@8.5.12/": {
-      "@kronos-integration/endpoint": "https://ga.jspm.dev/npm:@kronos-integration/endpoint@9.0.1/src/module.mjs",
-      "loglevel-mixin": "https://ga.jspm.dev/npm:loglevel-mixin@5.0.6/src/loglevel-mixin.mjs",
-      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.6/src/attributes.mjs",
-      "statetransition-mixin": "https://ga.jspm.dev/npm:statetransition-mixin@6.0.7/src/statetransition-mixin.mjs"
+    "https://ga.jspm.io/npm:@kronos-integration/service@8.5.12/": {
+      "@kronos-integration/endpoint": "https://ga.jspm.io/npm:@kronos-integration/endpoint@9.0.1/src/module.mjs",
+      "loglevel-mixin": "https://ga.jspm.io/npm:loglevel-mixin@5.0.6/src/loglevel-mixin.mjs",
+      "model-attributes": "https://ga.jspm.io/npm:model-attributes@4.1.6/src/attributes.mjs",
+      "statetransition-mixin": "https://ga.jspm.io/npm:statetransition-mixin@6.0.7/src/statetransition-mixin.mjs"
     }
   }
 }

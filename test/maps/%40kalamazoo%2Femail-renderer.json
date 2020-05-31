@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@kalamazoo/email-renderer": "https://ga.jspm.dev/npm:@kalamazoo/email-renderer@1.0.2/dist/cjs/index.js"
+    "@kalamazoo/email-renderer": "https://ga.jspm.io/npm:@kalamazoo/email-renderer@1.0.2/dist/cjs/index.js"
   }
 }

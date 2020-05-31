@@ -1,5 +1,5 @@
 {
   "imports": {
-    "sequent-promises": "https://ga.jspm.dev/npm:sequent-promises@0.0.3/dist/index.mjs"
+    "sequent-promises": "https://ga.jspm.io/npm:sequent-promises@0.0.3/dist/index.mjs"
   }
 }

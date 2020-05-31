@@ -1,78 +1,78 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "inquirer": "https://ga.jspm.dev/npm:inquirer@7.1.0/lib/inquirer.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
-    "tty": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tty.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "inquirer": "https://ga.jspm.io/npm:inquirer@7.1.0/lib/inquirer.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "tty": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tty.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@7.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:cli-cursor@3.1.0/": {
-      "restore-cursor": "https://ga.jspm.dev/npm:restore-cursor@3.1.0/index.js"
+    "https://ga.jspm.io/npm:cli-cursor@3.1.0/": {
+      "restore-cursor": "https://ga.jspm.io/npm:restore-cursor@3.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:external-editor@3.1.0/": {
-      "chardet": "https://ga.jspm.dev/npm:chardet@0.7.0/index.js",
-      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js",
-      "tmp": "https://ga.jspm.dev/npm:tmp@0.0.33/lib/tmp.js"
+    "https://ga.jspm.io/npm:external-editor@3.1.0/": {
+      "chardet": "https://ga.jspm.io/npm:chardet@0.7.0/index.js",
+      "iconv-lite": "https://ga.jspm.io/npm:iconv-lite@0.4.24/lib/index.js",
+      "tmp": "https://ga.jspm.io/npm:tmp@0.0.33/lib/tmp.js"
     },
-    "https://ga.jspm.dev/npm:figures@3.2.0/": {
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    "https://ga.jspm.io/npm:figures@3.2.0/": {
+      "escape-string-regexp": "https://ga.jspm.io/npm:escape-string-regexp@1.0.5/index.js"
     },
-    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
-      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    "https://ga.jspm.io/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.io/npm:safer-buffer@2.1.2/safer.js"
     },
-    "https://ga.jspm.dev/npm:inquirer@7.1.0/": {
-      "ansi-escapes": "https://ga.jspm.dev/npm:ansi-escapes@4.3.1/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "cli-cursor": "https://ga.jspm.dev/npm:cli-cursor@3.1.0/index.js",
-      "cli-width": "https://ga.jspm.dev/npm:cli-width@2.2.1/index.js",
-      "external-editor": "https://ga.jspm.dev/npm:external-editor@3.1.0/main/index.js",
-      "figures": "https://ga.jspm.dev/npm:figures@3.2.0/index.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "mute-stream": "https://ga.jspm.dev/npm:mute-stream@0.0.8/mute.js",
-      "run-async": "https://ga.jspm.dev/npm:run-async@2.4.1/index.js",
-      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
-      "string-width": "https://ga.jspm.dev/npm:string-width@4.2.0/index.js",
-      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js",
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:inquirer@7.1.0/": {
+      "ansi-escapes": "https://ga.jspm.io/npm:ansi-escapes@4.3.1/index.js",
+      "chalk": "https://ga.jspm.io/npm:chalk@3.0.0/source/index.js",
+      "cli-cursor": "https://ga.jspm.io/npm:cli-cursor@3.1.0/index.js",
+      "cli-width": "https://ga.jspm.io/npm:cli-width@2.2.1/index.js",
+      "external-editor": "https://ga.jspm.io/npm:external-editor@3.1.0/main/index.js",
+      "figures": "https://ga.jspm.io/npm:figures@3.2.0/index.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js",
+      "mute-stream": "https://ga.jspm.io/npm:mute-stream@0.0.8/mute.js",
+      "run-async": "https://ga.jspm.io/npm:run-async@2.4.1/index.js",
+      "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+      "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js",
+      "string-width": "https://ga.jspm.io/npm:string-width@4.2.0/index.js",
+      "strip-ansi": "https://ga.jspm.io/npm:strip-ansi@6.0.0/index.js",
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     },
-    "https://ga.jspm.dev/npm:onetime@5.1.0/": {
-      "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@2.1.0/index.js"
+    "https://ga.jspm.io/npm:onetime@5.1.0/": {
+      "mimic-fn": "https://ga.jspm.io/npm:mimic-fn@2.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:restore-cursor@3.1.0/": {
-      "onetime": "https://ga.jspm.dev/npm:onetime@5.1.0/index.js",
-      "signal-exit": "https://ga.jspm.dev/npm:signal-exit@3.0.3/index.js"
+    "https://ga.jspm.io/npm:restore-cursor@3.1.0/": {
+      "onetime": "https://ga.jspm.io/npm:onetime@5.1.0/index.js",
+      "signal-exit": "https://ga.jspm.io/npm:signal-exit@3.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:string-width@4.2.0/": {
-      "emoji-regex": "https://ga.jspm.dev/npm:emoji-regex@8.0.0/index.js",
-      "is-fullwidth-code-point": "https://ga.jspm.dev/npm:is-fullwidth-code-point@3.0.0/index.js",
-      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@6.0.0/index.js"
+    "https://ga.jspm.io/npm:string-width@4.2.0/": {
+      "emoji-regex": "https://ga.jspm.io/npm:emoji-regex@8.0.0/index.js",
+      "is-fullwidth-code-point": "https://ga.jspm.io/npm:is-fullwidth-code-point@3.0.0/index.js",
+      "strip-ansi": "https://ga.jspm.io/npm:strip-ansi@6.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:strip-ansi@6.0.0/": {
-      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js"
+    "https://ga.jspm.io/npm:strip-ansi@6.0.0/": {
+      "ansi-regex": "https://ga.jspm.io/npm:ansi-regex@5.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:tmp@0.0.33/": {
-      "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js"
+    "https://ga.jspm.io/npm:tmp@0.0.33/": {
+      "os-tmpdir": "https://ga.jspm.io/npm:os-tmpdir@1.0.2/index.js"
     }
   }
 }

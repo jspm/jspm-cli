@@ -1,5 +1,5 @@
 {
   "imports": {
-    "oboe": "https://ga.jspm.dev/npm:oboe@2.1.5/dist/oboe-browser.js"
+    "oboe": "https://ga.jspm.io/npm:oboe@2.1.5/dist/oboe-browser.js"
   }
 }

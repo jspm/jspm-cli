@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@vanillawc/wc-codemirror": "https://ga.jspm.dev/npm:@vanillawc/wc-codemirror@1.5.3/index.js"
+    "@vanillawc/wc-codemirror": "https://ga.jspm.io/npm:@vanillawc/wc-codemirror@1.5.3/index.js"
   }
 }

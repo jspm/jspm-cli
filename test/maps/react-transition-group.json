@@ -1,24 +1,24 @@
 {
   "imports": {
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
-    "react-transition-group": "https://ga.jspm.dev/npm:react-transition-group@4.4.1/cjs/index.js"
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.io/npm:react-dom@16.13.1/index.js",
+    "react-transition-group": "https://ga.jspm.io/npm:react-transition-group@4.4.1/cjs/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-helpers@5.1.4/": {
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js"
+    "https://ga.jspm.io/npm:dom-helpers@5.1.4/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js"
     },
-    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    "https://ga.jspm.io/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.io/npm:scheduler@0.19.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-transition-group@4.4.1/": {
-      "dom-helpers/addClass": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/cjs/addClass.js",
-      "dom-helpers/removeClass": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/cjs/removeClass.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    "https://ga.jspm.io/npm:react-transition-group@4.4.1/": {
+      "dom-helpers/addClass": "https://ga.jspm.io/npm:dom-helpers@5.1.4/cjs/addClass.js",
+      "dom-helpers/removeClass": "https://ga.jspm.io/npm:dom-helpers@5.1.4/cjs/removeClass.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

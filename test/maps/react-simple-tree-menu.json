@@ -1,5 +1,5 @@
 {
   "imports": {
-    "react-simple-tree-menu": "https://ga.jspm.dev/npm:react-simple-tree-menu@1.1.15/dist/main.cjs.js"
+    "react-simple-tree-menu": "https://ga.jspm.io/npm:react-simple-tree-menu@1.1.15/dist/main.cjs.js"
   }
 }

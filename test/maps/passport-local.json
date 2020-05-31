@@ -1,11 +1,11 @@
 {
   "imports": {
-    "passport-local": "https://ga.jspm.dev/npm:passport-local@1.0.0/lib/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "passport-local": "https://ga.jspm.io/npm:passport-local@1.0.0/lib/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:passport-local@1.0.0/": {
-      "passport-strategy": "https://ga.jspm.dev/npm:passport-strategy@1.0.0/lib/index.js"
+    "https://ga.jspm.io/npm:passport-local@1.0.0/": {
+      "passport-strategy": "https://ga.jspm.io/npm:passport-strategy@1.0.0/lib/index.js"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "min-document": "https://ga.jspm.dev/npm:min-document@2.19.0/index.js"
+    "min-document": "https://ga.jspm.io/npm:min-document@2.19.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:min-document@2.19.0/": {
-      "dom-walk": "https://ga.jspm.dev/npm:dom-walk@0.1.2/index.js"
+    "https://ga.jspm.io/npm:min-document@2.19.0/": {
+      "dom-walk": "https://ga.jspm.io/npm:dom-walk@0.1.2/index.js"
     }
   }
 }

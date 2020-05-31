@@ -1,17 +1,17 @@
 {
   "imports": {
-    "detective": "https://ga.jspm.dev/npm:detective@5.2.0/index.js"
+    "detective": "https://ga.jspm.io/npm:detective@5.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:acorn-node@1.8.2/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@7.2.0/dist/acorn.js",
-      "acorn-walk": "https://ga.jspm.dev/npm:acorn-walk@7.1.1/dist/walk.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:acorn-node@1.8.2/": {
+      "acorn": "https://ga.jspm.io/npm:acorn@7.2.0/dist/acorn.js",
+      "acorn-walk": "https://ga.jspm.io/npm:acorn-walk@7.1.1/dist/walk.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     },
-    "https://ga.jspm.dev/npm:detective@5.2.0/": {
-      "acorn-node": "https://ga.jspm.dev/npm:acorn-node@1.8.2/index.js",
-      "acorn-node/walk": "https://ga.jspm.dev/npm:acorn-node@1.8.2/walk.js",
-      "defined": "https://ga.jspm.dev/npm:defined@1.0.0/index.js"
+    "https://ga.jspm.io/npm:detective@5.2.0/": {
+      "acorn-node": "https://ga.jspm.io/npm:acorn-node@1.8.2/index.js",
+      "acorn-node/walk": "https://ga.jspm.io/npm:acorn-node@1.8.2/walk.js",
+      "defined": "https://ga.jspm.io/npm:defined@1.0.0/index.js"
     }
   }
 }

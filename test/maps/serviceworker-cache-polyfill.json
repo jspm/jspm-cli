@@ -1,5 +1,5 @@
 {
   "imports": {
-    "serviceworker-cache-polyfill": "https://ga.jspm.dev/npm:serviceworker-cache-polyfill@4.0.0/index.js"
+    "serviceworker-cache-polyfill": "https://ga.jspm.io/npm:serviceworker-cache-polyfill@4.0.0/index.js"
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "jss-reset/form": "https://ga.jspm.dev/npm:jss-reset@1.1.3/src/form.js",
-    "jss-reset/typography": "https://ga.jspm.dev/npm:jss-reset@1.1.3/src/typography.js"
+    "jss-reset/form": "https://ga.jspm.io/npm:jss-reset@1.1.3/src/form.js",
+    "jss-reset/typography": "https://ga.jspm.io/npm:jss-reset@1.1.3/src/typography.js"
   }
 }

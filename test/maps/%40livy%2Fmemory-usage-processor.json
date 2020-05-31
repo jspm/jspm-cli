@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@livy/memory-usage-processor": "https://ga.jspm.dev/npm:@livy/memory-usage-processor@1.0.2/lib/memory-usage-processor.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@livy/memory-usage-processor": "https://ga.jspm.io/npm:@livy/memory-usage-processor@1.0.2/lib/memory-usage-processor.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

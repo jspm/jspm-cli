@@ -1,5 +1,5 @@
 {
   "imports": {
-    "toml": "https://ga.jspm.dev/npm:toml@3.0.0/index.js"
+    "toml": "https://ga.jspm.io/npm:toml@3.0.0/index.js"
   }
 }

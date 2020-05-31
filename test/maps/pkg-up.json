@@ -1,26 +1,26 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "pkg-up": "https://ga.jspm.dev/npm:pkg-up@3.1.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "pkg-up": "https://ga.jspm.io/npm:pkg-up@3.1.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:find-up@3.0.0/": {
-      "locate-path": "https://ga.jspm.dev/npm:locate-path@3.0.0/index.js"
+    "https://ga.jspm.io/npm:find-up@3.0.0/": {
+      "locate-path": "https://ga.jspm.io/npm:locate-path@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:locate-path@3.0.0/": {
-      "p-locate": "https://ga.jspm.dev/npm:p-locate@3.0.0/index.js",
-      "path-exists": "https://ga.jspm.dev/npm:path-exists@3.0.0/index.js"
+    "https://ga.jspm.io/npm:locate-path@3.0.0/": {
+      "p-locate": "https://ga.jspm.io/npm:p-locate@3.0.0/index.js",
+      "path-exists": "https://ga.jspm.io/npm:path-exists@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
-      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    "https://ga.jspm.io/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.io/npm:p-try@2.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-locate@3.0.0/": {
-      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    "https://ga.jspm.io/npm:p-locate@3.0.0/": {
+      "p-limit": "https://ga.jspm.io/npm:p-limit@2.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:pkg-up@3.1.0/": {
-      "find-up": "https://ga.jspm.dev/npm:find-up@3.0.0/index.js"
+    "https://ga.jspm.io/npm:pkg-up@3.1.0/": {
+      "find-up": "https://ga.jspm.io/npm:find-up@3.0.0/index.js"
     }
   }
 }

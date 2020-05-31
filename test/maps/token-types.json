@@ -1,11 +1,11 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "token-types": "https://ga.jspm.dev/npm:token-types@2.0.0/lib/index.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "token-types": "https://ga.jspm.io/npm:token-types@2.0.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:token-types@2.0.0/": {
-      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    "https://ga.jspm.io/npm:token-types@2.0.0/": {
+      "ieee754": "https://ga.jspm.io/npm:ieee754@1.1.13/index.js"
     }
   }
 }

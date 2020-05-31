@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@composi/runtime": "https://ga.jspm.dev/npm:@composi/runtime@1.3.9/src/index.js"
+    "@composi/runtime": "https://ga.jspm.io/npm:@composi/runtime@1.3.9/src/index.js"
   }
 }

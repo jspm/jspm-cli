@@ -1,31 +1,31 @@
 {
   "imports": {
-    "@cfware/full-center": "https://ga.jspm.dev/npm:@cfware/full-center@0.6.0/full-center.js"
+    "@cfware/full-center": "https://ga.jspm.io/npm:@cfware/full-center@0.6.0/full-center.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@cfware/full-center@0.6.0/": {
-      "@cfware/shadow-element": "https://ga.jspm.dev/npm:@cfware/shadow-element@0.13.0/shadow-element.js"
+    "https://ga.jspm.io/npm:@cfware/full-center@0.6.0/": {
+      "@cfware/shadow-element": "https://ga.jspm.io/npm:@cfware/shadow-element@0.13.0/shadow-element.js"
     },
-    "https://ga.jspm.dev/npm:@cfware/shadow-element@0.13.0/": {
-      "@cfware/add-event-listener": "https://ga.jspm.dev/npm:@cfware/add-event-listener@0.1.2/add-event-listener.js",
-      "@cfware/callback-array-once": "https://ga.jspm.dev/npm:@cfware/callback-array-once@1.0.3/callback-array-once.js",
-      "@cfware/debouncer": "https://ga.jspm.dev/npm:@cfware/debouncer@0.3.3/debouncer.js",
-      "uhtml": "https://ga.jspm.dev/npm:uhtml@1.11.6/cjs/index.js"
+    "https://ga.jspm.io/npm:@cfware/shadow-element@0.13.0/": {
+      "@cfware/add-event-listener": "https://ga.jspm.io/npm:@cfware/add-event-listener@0.1.2/add-event-listener.js",
+      "@cfware/callback-array-once": "https://ga.jspm.io/npm:@cfware/callback-array-once@1.0.3/callback-array-once.js",
+      "@cfware/debouncer": "https://ga.jspm.io/npm:@cfware/debouncer@0.3.3/debouncer.js",
+      "uhtml": "https://ga.jspm.io/npm:uhtml@1.11.6/cjs/index.js"
     },
-    "https://ga.jspm.dev/npm:uhandlers@0.3.5/": {
-      "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/cjs/index.js"
+    "https://ga.jspm.io/npm:uhandlers@0.3.5/": {
+      "uarray": "https://ga.jspm.io/npm:uarray@1.0.0/cjs/index.js"
     },
-    "https://ga.jspm.dev/npm:uhtml@1.11.6/": {
-      "@ungap/create-content": "https://ga.jspm.dev/npm:@ungap/create-content@0.2.0/cjs/index.js",
-      "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/cjs/index.js",
-      "udomdiff": "https://ga.jspm.dev/npm:udomdiff@1.1.0/cjs/index.js",
-      "uhandlers": "https://ga.jspm.dev/npm:uhandlers@0.3.5/cjs/index.js",
-      "umap": "https://ga.jspm.dev/npm:umap@1.0.2/cjs/index.js",
-      "uparser": "https://ga.jspm.dev/npm:uparser@0.2.1/cjs/index.js",
-      "uwire": "https://ga.jspm.dev/npm:uwire@1.0.1/cjs/index.js"
+    "https://ga.jspm.io/npm:uhtml@1.11.6/": {
+      "@ungap/create-content": "https://ga.jspm.io/npm:@ungap/create-content@0.2.0/cjs/index.js",
+      "uarray": "https://ga.jspm.io/npm:uarray@1.0.0/cjs/index.js",
+      "udomdiff": "https://ga.jspm.io/npm:udomdiff@1.1.0/cjs/index.js",
+      "uhandlers": "https://ga.jspm.io/npm:uhandlers@0.3.5/cjs/index.js",
+      "umap": "https://ga.jspm.io/npm:umap@1.0.2/cjs/index.js",
+      "uparser": "https://ga.jspm.io/npm:uparser@0.2.1/cjs/index.js",
+      "uwire": "https://ga.jspm.io/npm:uwire@1.0.1/cjs/index.js"
     },
-    "https://ga.jspm.dev/npm:uwire@1.0.1/": {
-      "uarray": "https://ga.jspm.dev/npm:uarray@1.0.0/cjs/index.js"
+    "https://ga.jspm.io/npm:uwire@1.0.1/": {
+      "uarray": "https://ga.jspm.io/npm:uarray@1.0.0/cjs/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "nullthrows": "https://ga.jspm.dev/npm:nullthrows@1.1.1/nullthrows.js"
+    "nullthrows": "https://ga.jspm.io/npm:nullthrows@1.1.1/nullthrows.js"
   }
 }

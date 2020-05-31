@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pull-stream": "https://ga.jspm.dev/npm:pull-stream@3.6.14/index.js"
+    "pull-stream": "https://ga.jspm.io/npm:pull-stream@3.6.14/index.js"
   }
 }

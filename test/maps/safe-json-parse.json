@@ -1,5 +1,5 @@
 {
   "imports": {
-    "safe-json-parse": "https://ga.jspm.dev/npm:safe-json-parse@4.0.0/callback.js"
+    "safe-json-parse": "https://ga.jspm.io/npm:safe-json-parse@4.0.0/callback.js"
   }
 }

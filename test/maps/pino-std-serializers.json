@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pino-std-serializers": "https://ga.jspm.dev/npm:pino-std-serializers@2.4.2/index.js"
+    "pino-std-serializers": "https://ga.jspm.io/npm:pino-std-serializers@2.4.2/index.js"
   }
 }

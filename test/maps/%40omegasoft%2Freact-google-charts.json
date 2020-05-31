@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@omegasoft/react-google-charts": "https://ga.jspm.dev/npm:@omegasoft/react-google-charts@3.0.15/dist/index.cjs.js",
-    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "@omegasoft/react-google-charts": "https://ga.jspm.io/npm:@omegasoft/react-google-charts@3.0.15/dist/index.cjs.js",
+    "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@omegasoft/react-google-charts@3.0.15/": {
-      "react-load-script": "https://ga.jspm.dev/npm:react-load-script@0.0.6/lib/index.js"
+    "https://ga.jspm.io/npm:@omegasoft/react-google-charts@3.0.15/": {
+      "react-load-script": "https://ga.jspm.io/npm:react-load-script@0.0.6/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

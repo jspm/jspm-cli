@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cli-spinners": "https://ga.jspm.dev/npm:cli-spinners@2.3.0/index.js"
+    "cli-spinners": "https://ga.jspm.io/npm:cli-spinners@2.3.0/index.js"
   }
 }

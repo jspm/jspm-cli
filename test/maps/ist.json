@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ist": "https://ga.jspm.dev/npm:ist@1.1.6/ist.js"
+    "ist": "https://ga.jspm.io/npm:ist@1.1.6/ist.js"
   }
 }

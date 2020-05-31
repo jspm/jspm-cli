@@ -1,5 +1,5 @@
 {
   "imports": {
-    "obdo": "https://ga.jspm.dev/npm:obdo@1.0.0/index.js"
+    "obdo": "https://ga.jspm.io/npm:obdo@1.0.0/index.js"
   }
 }

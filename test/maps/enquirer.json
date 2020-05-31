@@ -1,15 +1,15 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "enquirer": "https://ga.jspm.dev/npm:enquirer@2.3.5/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "enquirer": "https://ga.jspm.io/npm:enquirer@2.3.5/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:enquirer@2.3.5/": {
-      "ansi-colors": "https://ga.jspm.dev/npm:ansi-colors@3.2.4/index.js"
+    "https://ga.jspm.io/npm:enquirer@2.3.5/": {
+      "ansi-colors": "https://ga.jspm.io/npm:ansi-colors@3.2.4/index.js"
     }
   }
 }

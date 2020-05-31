@@ -1,20 +1,20 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "table-layout": "https://ga.jspm.dev/npm:table-layout@1.0.1/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "table-layout": "https://ga.jspm.io/npm:table-layout@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:table-layout@1.0.1/": {
-      "array-back": "https://ga.jspm.dev/npm:array-back@4.0.1/dist/index.js",
-      "deep-extend": "https://ga.jspm.dev/npm:deep-extend@0.6.0/lib/deep-extend.js",
-      "typical": "https://ga.jspm.dev/npm:typical@5.2.0/dist/index.js",
-      "wordwrapjs": "https://ga.jspm.dev/npm:wordwrapjs@4.0.0/index.js"
+    "https://ga.jspm.io/npm:table-layout@1.0.1/": {
+      "array-back": "https://ga.jspm.io/npm:array-back@4.0.1/dist/index.js",
+      "deep-extend": "https://ga.jspm.io/npm:deep-extend@0.6.0/lib/deep-extend.js",
+      "typical": "https://ga.jspm.io/npm:typical@5.2.0/dist/index.js",
+      "wordwrapjs": "https://ga.jspm.io/npm:wordwrapjs@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:wordwrapjs@4.0.0/": {
-      "reduce-flatten": "https://ga.jspm.dev/npm:reduce-flatten@2.0.0/index.js",
-      "typical": "https://ga.jspm.dev/npm:typical@5.2.0/dist/index.js"
+    "https://ga.jspm.io/npm:wordwrapjs@4.0.0/": {
+      "reduce-flatten": "https://ga.jspm.io/npm:reduce-flatten@2.0.0/index.js",
+      "typical": "https://ga.jspm.io/npm:typical@5.2.0/dist/index.js"
     }
   }
 }

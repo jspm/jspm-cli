@@ -1,49 +1,49 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fead": "https://ga.jspm.dev/npm:fead@1.0.4/lib/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fead": "https://ga.jspm.io/npm:fead@1.0.4/lib/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@serialport/binding-abstract@8.0.6/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:@serialport/binding-abstract@8.0.6/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:@serialport/bindings@8.0.8/": {
-      "@serialport/binding-abstract": "https://ga.jspm.dev/npm:@serialport/binding-abstract@8.0.6/lib/index.js",
-      "@serialport/parser-readline": "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/lib/index.js",
-      "bindings": "https://ga.jspm.dev/npm:bindings@1.5.0/bindings.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:@serialport/bindings@8.0.8/": {
+      "@serialport/binding-abstract": "https://ga.jspm.io/npm:@serialport/binding-abstract@8.0.6/lib/index.js",
+      "@serialport/parser-readline": "https://ga.jspm.io/npm:@serialport/parser-readline@8.0.6/lib/index.js",
+      "bindings": "https://ga.jspm.io/npm:bindings@1.5.0/bindings.js",
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/": {
-      "@serialport/parser-delimiter": "https://ga.jspm.dev/npm:@serialport/parser-delimiter@8.0.6/lib/index.js"
+    "https://ga.jspm.io/npm:@serialport/parser-readline@8.0.6/": {
+      "@serialport/parser-delimiter": "https://ga.jspm.io/npm:@serialport/parser-delimiter@8.0.6/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@serialport/stream@8.0.6/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:@serialport/stream@8.0.6/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:bindings@1.5.0/": {
-      "file-uri-to-path": "https://ga.jspm.dev/npm:file-uri-to-path@1.0.0/index.js"
+    "https://ga.jspm.io/npm:bindings@1.5.0/": {
+      "file-uri-to-path": "https://ga.jspm.io/npm:file-uri-to-path@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.2.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:fead@1.0.4/": {
-      "serialport": "https://ga.jspm.dev/npm:serialport@8.0.8/lib/index.js"
+    "https://ga.jspm.io/npm:fead@1.0.4/": {
+      "serialport": "https://ga.jspm.io/npm:serialport@8.0.8/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:serialport@8.0.8/": {
-      "@serialport/bindings": "https://ga.jspm.dev/npm:@serialport/bindings@8.0.8/lib/index.js",
-      "@serialport/parser-byte-length": "https://ga.jspm.dev/npm:@serialport/parser-byte-length@8.0.6/lib/index.js",
-      "@serialport/parser-cctalk": "https://ga.jspm.dev/npm:@serialport/parser-cctalk@8.0.6/lib/index.js",
-      "@serialport/parser-delimiter": "https://ga.jspm.dev/npm:@serialport/parser-delimiter@8.0.6/lib/index.js",
-      "@serialport/parser-readline": "https://ga.jspm.dev/npm:@serialport/parser-readline@8.0.6/lib/index.js",
-      "@serialport/parser-ready": "https://ga.jspm.dev/npm:@serialport/parser-ready@8.0.6/lib/index.js",
-      "@serialport/parser-regex": "https://ga.jspm.dev/npm:@serialport/parser-regex@8.0.6/lib/index.js",
-      "@serialport/stream": "https://ga.jspm.dev/npm:@serialport/stream@8.0.6/lib/index.js"
+    "https://ga.jspm.io/npm:serialport@8.0.8/": {
+      "@serialport/bindings": "https://ga.jspm.io/npm:@serialport/bindings@8.0.8/lib/index.js",
+      "@serialport/parser-byte-length": "https://ga.jspm.io/npm:@serialport/parser-byte-length@8.0.6/lib/index.js",
+      "@serialport/parser-cctalk": "https://ga.jspm.io/npm:@serialport/parser-cctalk@8.0.6/lib/index.js",
+      "@serialport/parser-delimiter": "https://ga.jspm.io/npm:@serialport/parser-delimiter@8.0.6/lib/index.js",
+      "@serialport/parser-readline": "https://ga.jspm.io/npm:@serialport/parser-readline@8.0.6/lib/index.js",
+      "@serialport/parser-ready": "https://ga.jspm.io/npm:@serialport/parser-ready@8.0.6/lib/index.js",
+      "@serialport/parser-regex": "https://ga.jspm.io/npm:@serialport/parser-regex@8.0.6/lib/index.js",
+      "@serialport/stream": "https://ga.jspm.io/npm:@serialport/stream@8.0.6/lib/index.js"
     }
   }
 }

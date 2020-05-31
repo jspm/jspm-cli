@@ -1,5 +1,5 @@
 {
   "imports": {
-    "has-package-exports": "https://ga.jspm.dev/npm:has-package-exports@1.1.0/yes.js"
+    "has-package-exports": "https://ga.jspm.io/npm:has-package-exports@1.1.0/yes.js"
   }
 }

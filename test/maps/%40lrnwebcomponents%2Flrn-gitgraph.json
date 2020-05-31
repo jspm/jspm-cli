@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@lrnwebcomponents/lrn-gitgraph": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-gitgraph@2.6.14/lrn-gitgraph.js"
+    "@lrnwebcomponents/lrn-gitgraph": "https://ga.jspm.io/npm:@lrnwebcomponents/lrn-gitgraph@2.6.14/lrn-gitgraph.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-gitgraph@2.6.14/": {
-      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/lrn-gitgraph@2.6.14/": {
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "delegate": "https://ga.jspm.dev/npm:delegate@3.2.0/src/delegate.js"
+    "delegate": "https://ga.jspm.io/npm:delegate@3.2.0/src/delegate.js"
   }
 }

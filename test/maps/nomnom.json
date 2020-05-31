@@ -1,18 +1,18 @@
 {
   "imports": {
-    "nomnom": "https://ga.jspm.dev/npm:nomnom@1.8.1/nomnom.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "nomnom": "https://ga.jspm.io/npm:nomnom@1.8.1/nomnom.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:chalk@0.4.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@1.0.0/ansi-styles.js",
-      "has-color": "https://ga.jspm.dev/npm:has-color@0.1.7/index.js",
-      "strip-ansi": "https://ga.jspm.dev/npm:strip-ansi@0.1.1/index.js"
+    "https://ga.jspm.io/npm:chalk@0.4.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@1.0.0/ansi-styles.js",
+      "has-color": "https://ga.jspm.io/npm:has-color@0.1.7/index.js",
+      "strip-ansi": "https://ga.jspm.io/npm:strip-ansi@0.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:nomnom@1.8.1/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@0.4.0/index.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.6.0/underscore.js"
+    "https://ga.jspm.io/npm:nomnom@1.8.1/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@0.4.0/index.js",
+      "underscore": "https://ga.jspm.io/npm:underscore@1.6.0/underscore.js"
     }
   }
 }

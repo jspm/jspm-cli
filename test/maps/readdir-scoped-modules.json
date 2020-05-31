@@ -1,30 +1,30 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "readdir-scoped-modules": "https://ga.jspm.dev/npm:readdir-scoped-modules@1.1.0/readdir.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "constants": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readdir-scoped-modules": "https://ga.jspm.io/npm:readdir-scoped-modules@1.1.0/readdir.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:asap@2.0.6/": {
-      "asap/raw.js": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    "https://ga.jspm.io/npm:asap@2.0.6/": {
+      "asap/raw.js": "https://ga.jspm.io/npm:asap@2.0.6/browser-raw.js"
     },
-    "https://ga.jspm.dev/npm:dezalgo@1.0.3/": {
-      "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js",
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:dezalgo@1.0.3/": {
+      "asap": "https://ga.jspm.io/npm:asap@2.0.6/browser-asap.js",
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:readdir-scoped-modules@1.1.0/": {
-      "debuglog": "https://ga.jspm.dev/npm:debuglog@1.0.1/debuglog.js",
-      "dezalgo": "https://ga.jspm.dev/npm:dezalgo@1.0.3/dezalgo.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:readdir-scoped-modules@1.1.0/": {
+      "debuglog": "https://ga.jspm.io/npm:debuglog@1.0.1/debuglog.js",
+      "dezalgo": "https://ga.jspm.io/npm:dezalgo@1.0.3/dezalgo.js",
+      "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     }
   }
 }

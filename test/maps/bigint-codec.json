@@ -1,5 +1,5 @@
 {
   "imports": {
-    "bigint-codec": "https://ga.jspm.dev/npm:bigint-codec@0.1.1/esm/index.mjs"
+    "bigint-codec": "https://ga.jspm.io/npm:bigint-codec@0.1.1/esm/index.mjs"
   }
 }

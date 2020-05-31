@@ -1,20 +1,20 @@
 {
   "imports": {
-    "@lbu/stdlib": "https://ga.jspm.dev/npm:@lbu/stdlib@0.0.20/index.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
+    "@lbu/stdlib": "https://ga.jspm.io/npm:@lbu/stdlib@0.0.20/index.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lbu/stdlib@0.0.20/": {
-      "dotenv": "https://ga.jspm.dev/npm:dotenv@8.2.0/lib/main.js",
-      "lodash.merge": "https://ga.jspm.dev/npm:lodash.merge@4.6.2/index.js",
-      "v8": "https://ga.jspm.dev/npm:v8@0.1.0/index.js"
+    "https://ga.jspm.io/npm:@lbu/stdlib@0.0.20/": {
+      "dotenv": "https://ga.jspm.io/npm:dotenv@8.2.0/lib/main.js",
+      "lodash.merge": "https://ga.jspm.io/npm:lodash.merge@4.6.2/index.js",
+      "v8": "https://ga.jspm.io/npm:v8@0.1.0/index.js"
     }
   }
 }

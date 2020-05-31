@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pug-error": "https://ga.jspm.dev/npm:pug-error@2.0.0/index.js"
+    "pug-error": "https://ga.jspm.io/npm:pug-error@2.0.0/index.js"
   }
 }

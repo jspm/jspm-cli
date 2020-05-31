@@ -1,5 +1,5 @@
 {
   "imports": {
-    "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    "p-defer": "https://ga.jspm.io/npm:p-defer@3.0.0/index.js"
   }
 }

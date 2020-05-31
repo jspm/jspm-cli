@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@diervo/es6-node-interop-test-tmp": "https://ga.jspm.dev/npm:@diervo/es6-node-interop-test-tmp@0.0.2/build/es6/index.js"
+    "@diervo/es6-node-interop-test-tmp": "https://ga.jspm.io/npm:@diervo/es6-node-interop-test-tmp@0.0.2/build/es6/index.js"
   }
 }

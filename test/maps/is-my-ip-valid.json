@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-my-ip-valid": "https://ga.jspm.dev/npm:is-my-ip-valid@1.0.0/index.js"
+    "is-my-ip-valid": "https://ga.jspm.io/npm:is-my-ip-valid@1.0.0/index.js"
   }
 }

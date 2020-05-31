@@ -1,5 +1,5 @@
 {
   "imports": {
-    "toposort-class": "https://ga.jspm.dev/npm:toposort-class@1.0.1/index.js"
+    "toposort-class": "https://ga.jspm.io/npm:toposort-class@1.0.1/index.js"
   }
 }

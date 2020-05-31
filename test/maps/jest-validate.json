@@ -1,29 +1,29 @@
 {
   "imports": {
-    "jest-validate": "https://ga.jspm.dev/npm:jest-validate@26.0.1/build/index.js"
+    "jest-validate": "https://ga.jspm.io/npm:jest-validate@26.0.1/build/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@4.0.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@7.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-validate@26.0.1/": {
-      "camelcase": "https://ga.jspm.dev/npm:camelcase@6.0.0/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
-      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js",
-      "leven": "https://ga.jspm.dev/npm:leven@3.1.0/index.js",
-      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@26.0.1/build/index.js"
+    "https://ga.jspm.io/npm:jest-validate@26.0.1/": {
+      "camelcase": "https://ga.jspm.io/npm:camelcase@6.0.0/index.js",
+      "chalk": "https://ga.jspm.io/npm:chalk@4.0.0/source/index.js",
+      "jest-get-type": "https://ga.jspm.io/npm:jest-get-type@26.0.0/build/index.js",
+      "leven": "https://ga.jspm.io/npm:leven@3.1.0/index.js",
+      "pretty-format": "https://ga.jspm.io/npm:pretty-format@26.0.1/build/index.js"
     },
-    "https://ga.jspm.dev/npm:pretty-format@26.0.1/": {
-      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js",
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:pretty-format@26.0.1/": {
+      "ansi-regex": "https://ga.jspm.io/npm:ansi-regex@5.0.0/index.js",
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     }
   }
 }

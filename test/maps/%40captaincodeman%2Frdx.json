@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@captaincodeman/rdx": "https://ga.jspm.dev/npm:@captaincodeman/rdx@1.0.0-rc.4/lib/index.js"
+    "@captaincodeman/rdx": "https://ga.jspm.io/npm:@captaincodeman/rdx@1.0.0-rc.4/lib/index.js"
   }
 }

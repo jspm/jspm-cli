@@ -1,61 +1,61 @@
 {
   "imports": {
-    "@reactioncommerce/plugin-navigation": "https://ga.jspm.dev/npm:@reactioncommerce/plugin-navigation@1.0.2/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "@reactioncommerce/plugin-navigation": "https://ga.jspm.io/npm:@reactioncommerce/plugin-navigation@1.0.2/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/": {
-      "callsite": "https://ga.jspm.dev/npm:callsite@1.0.0/index.js",
-      "envalid": "https://ga.jspm.dev/npm:envalid@6.0.2/src/envalidWithoutDotenv.js",
-      "graphql-fields": "https://ga.jspm.dev/npm:graphql-fields@2.0.3/build/index.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/": {
+      "callsite": "https://ga.jspm.io/npm:callsite@1.0.0/index.js",
+      "envalid": "https://ga.jspm.io/npm:envalid@6.0.2/src/envalidWithoutDotenv.js",
+      "graphql-fields": "https://ga.jspm.io/npm:graphql-fields@2.0.3/build/index.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
     },
-    "https://ga.jspm.dev/npm:@reactioncommerce/plugin-navigation@1.0.2/": {
-      "@reactioncommerce/api-utils/decodeOpaqueIdForNamespace.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/decodeOpaqueIdForNamespace.js",
-      "@reactioncommerce/api-utils/encodeOpaqueId.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/encodeOpaqueId.js",
-      "@reactioncommerce/api-utils/graphql/getConnectionTypeResolvers.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/graphql/getConnectionTypeResolvers.js",
-      "@reactioncommerce/api-utils/graphql/getPaginatedResponse.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/graphql/getPaginatedResponse.js",
-      "@reactioncommerce/api-utils/graphql/wasFieldRequested.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/graphql/wasFieldRequested.js",
-      "@reactioncommerce/api-utils/importAsString.js": "https://ga.jspm.dev/npm:@reactioncommerce/api-utils@1.14.0/lib/importAsString.js",
-      "@reactioncommerce/random": "https://ga.jspm.dev/npm:@reactioncommerce/random@1.0.2/dist/browser.js",
-      "@reactioncommerce/reaction-error": "https://ga.jspm.dev/npm:@reactioncommerce/reaction-error@1.0.1/index.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "simpl-schema": "https://ga.jspm.dev/npm:simpl-schema@1.7.3/dist/main.js"
+    "https://ga.jspm.io/npm:@reactioncommerce/plugin-navigation@1.0.2/": {
+      "@reactioncommerce/api-utils/decodeOpaqueIdForNamespace.js": "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/lib/decodeOpaqueIdForNamespace.js",
+      "@reactioncommerce/api-utils/encodeOpaqueId.js": "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/lib/encodeOpaqueId.js",
+      "@reactioncommerce/api-utils/graphql/getConnectionTypeResolvers.js": "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/lib/graphql/getConnectionTypeResolvers.js",
+      "@reactioncommerce/api-utils/graphql/getPaginatedResponse.js": "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/lib/graphql/getPaginatedResponse.js",
+      "@reactioncommerce/api-utils/graphql/wasFieldRequested.js": "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/lib/graphql/wasFieldRequested.js",
+      "@reactioncommerce/api-utils/importAsString.js": "https://ga.jspm.io/npm:@reactioncommerce/api-utils@1.14.0/lib/importAsString.js",
+      "@reactioncommerce/random": "https://ga.jspm.io/npm:@reactioncommerce/random@1.0.2/dist/browser.js",
+      "@reactioncommerce/reaction-error": "https://ga.jspm.io/npm:@reactioncommerce/reaction-error@1.0.1/index.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js",
+      "simpl-schema": "https://ga.jspm.io/npm:simpl-schema@1.7.3/dist/main.js"
     },
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@3.0.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@3.0.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@7.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:envalid@6.0.2/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@3.0.0/source/index.js",
-      "meant": "https://ga.jspm.dev/npm:meant@1.0.1/index.js",
-      "validator/lib/isFQDN": "https://ga.jspm.dev/npm:validator@13.0.0/lib/isFQDN.js",
-      "validator/lib/isIP": "https://ga.jspm.dev/npm:validator@13.0.0/lib/isIP.js"
+    "https://ga.jspm.io/npm:envalid@6.0.2/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@3.0.0/source/index.js",
+      "meant": "https://ga.jspm.io/npm:meant@1.0.1/index.js",
+      "validator/lib/isFQDN": "https://ga.jspm.io/npm:validator@13.0.0/lib/isFQDN.js",
+      "validator/lib/isIP": "https://ga.jspm.io/npm:validator@13.0.0/lib/isIP.js"
     },
-    "https://ga.jspm.dev/npm:lodash.template@4.5.0/": {
-      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js",
-      "lodash.templatesettings": "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/index.js"
+    "https://ga.jspm.io/npm:lodash.template@4.5.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.io/npm:lodash._reinterpolate@3.0.0/index.js",
+      "lodash.templatesettings": "https://ga.jspm.io/npm:lodash.templatesettings@4.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/": {
-      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js"
+    "https://ga.jspm.io/npm:lodash.templatesettings@4.2.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.io/npm:lodash._reinterpolate@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:message-box@0.2.7/": {
-      "lodash.template": "https://ga.jspm.dev/npm:lodash.template@4.5.0/index.js"
+    "https://ga.jspm.io/npm:message-box@0.2.7/": {
+      "lodash.template": "https://ga.jspm.io/npm:lodash.template@4.5.0/index.js"
     },
-    "https://ga.jspm.dev/npm:simpl-schema@1.7.3/": {
-      "clone": "https://ga.jspm.dev/npm:clone@2.1.2/clone.js",
-      "message-box": "https://ga.jspm.dev/npm:message-box@0.2.7/dist/MessageBox.js",
-      "mongo-object": "https://ga.jspm.dev/npm:mongo-object@0.1.4/dist/mongo-object.js"
+    "https://ga.jspm.io/npm:simpl-schema@1.7.3/": {
+      "clone": "https://ga.jspm.io/npm:clone@2.1.2/clone.js",
+      "message-box": "https://ga.jspm.io/npm:message-box@0.2.7/dist/MessageBox.js",
+      "mongo-object": "https://ga.jspm.io/npm:mongo-object@0.1.4/dist/mongo-object.js"
     }
   }
 }

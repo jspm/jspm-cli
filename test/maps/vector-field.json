@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vector-field": "https://ga.jspm.dev/npm:vector-field@1.0.0/index.js"
+    "vector-field": "https://ga.jspm.io/npm:vector-field@1.0.0/index.js"
   }
 }

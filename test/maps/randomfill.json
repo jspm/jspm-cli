@@ -1,16 +1,16 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "randomfill": "https://ga.jspm.dev/npm:randomfill@1.0.4/browser.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "randomfill": "https://ga.jspm.io/npm:randomfill@1.0.4/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:randombytes@2.1.0/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:randomfill@1.0.4/": {
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:randomfill@1.0.4/": {
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     }
   }
 }

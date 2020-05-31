@@ -1,5 +1,5 @@
 {
   "imports": {
-    "date-now": "https://ga.jspm.dev/npm:date-now@1.0.1/index.js"
+    "date-now": "https://ga.jspm.io/npm:date-now@1.0.1/index.js"
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@webassemblyjs/helper-buffer": "https://ga.jspm.dev/npm:@webassemblyjs/helper-buffer@1.9.0/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "@webassemblyjs/helper-buffer": "https://ga.jspm.io/npm:@webassemblyjs/helper-buffer@1.9.0/lib/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   }
 }

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "lazy-lit-element": "https://ga.jspm.dev/npm:lazy-lit-element@0.1.0-pre.1/lazy-lit-element.js"
+    "lazy-lit-element": "https://ga.jspm.io/npm:lazy-lit-element@0.1.0-pre.1/lazy-lit-element.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lazy-lit-element@0.1.0-pre.1/": {
-      "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:lazy-lit-element@0.1.0-pre.1/": {
+      "lit-element": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
-      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "https://ga.jspm.io/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

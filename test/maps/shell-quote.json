@@ -1,5 +1,5 @@
 {
   "imports": {
-    "shell-quote": "https://ga.jspm.dev/npm:shell-quote@1.7.2/index.js"
+    "shell-quote": "https://ga.jspm.io/npm:shell-quote@1.7.2/index.js"
   }
 }

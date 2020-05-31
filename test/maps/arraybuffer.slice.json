@@ -1,5 +1,5 @@
 {
   "imports": {
-    "arraybuffer.slice": "https://ga.jspm.dev/npm:arraybuffer.slice@0.0.7/index.js"
+    "arraybuffer.slice": "https://ga.jspm.io/npm:arraybuffer.slice@0.0.7/index.js"
   }
 }

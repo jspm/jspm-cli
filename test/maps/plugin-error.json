@@ -1,27 +1,27 @@
 {
   "imports": {
-    "plugin-error": "https://ga.jspm.dev/npm:plugin-error@1.0.1/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "plugin-error": "https://ga.jspm.io/npm:plugin-error@1.0.1/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-colors@1.1.0/": {
-      "ansi-wrap": "https://ga.jspm.dev/npm:ansi-wrap@0.1.0/index.js"
+    "https://ga.jspm.io/npm:ansi-colors@1.1.0/": {
+      "ansi-wrap": "https://ga.jspm.io/npm:ansi-wrap@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:extend-shallow@3.0.2/": {
-      "assign-symbols": "https://ga.jspm.dev/npm:assign-symbols@1.0.0/index.js",
-      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+    "https://ga.jspm.io/npm:extend-shallow@3.0.2/": {
+      "assign-symbols": "https://ga.jspm.io/npm:assign-symbols@1.0.0/index.js",
+      "is-extendable": "https://ga.jspm.io/npm:is-extendable@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:is-extendable@1.0.1/": {
-      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    "https://ga.jspm.io/npm:is-extendable@1.0.1/": {
+      "is-plain-object": "https://ga.jspm.io/npm:is-plain-object@2.0.4/index.js"
     },
-    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
-      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    "https://ga.jspm.io/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.io/npm:isobject@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:plugin-error@1.0.1/": {
-      "ansi-colors": "https://ga.jspm.dev/npm:ansi-colors@1.1.0/index.js",
-      "arr-diff": "https://ga.jspm.dev/npm:arr-diff@4.0.0/index.js",
-      "arr-union": "https://ga.jspm.dev/npm:arr-union@3.1.0/index.js",
-      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@3.0.2/index.js"
+    "https://ga.jspm.io/npm:plugin-error@1.0.1/": {
+      "ansi-colors": "https://ga.jspm.io/npm:ansi-colors@1.1.0/index.js",
+      "arr-diff": "https://ga.jspm.io/npm:arr-diff@4.0.0/index.js",
+      "arr-union": "https://ga.jspm.io/npm:arr-union@3.1.0/index.js",
+      "extend-shallow": "https://ga.jspm.io/npm:extend-shallow@3.0.2/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "left-pad": "https://ga.jspm.dev/npm:left-pad@1.3.0/index.js"
+    "left-pad": "https://ga.jspm.io/npm:left-pad@1.3.0/index.js"
   }
 }

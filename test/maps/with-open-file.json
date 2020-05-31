@@ -1,13 +1,13 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "with-open-file": "https://ga.jspm.dev/npm:with-open-file@0.1.7/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "with-open-file": "https://ga.jspm.io/npm:with-open-file@0.1.7/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:with-open-file@0.1.7/": {
-      "p-finally": "https://ga.jspm.dev/npm:p-finally@1.0.0/index.js",
-      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js",
-      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js"
+    "https://ga.jspm.io/npm:with-open-file@0.1.7/": {
+      "p-finally": "https://ga.jspm.io/npm:p-finally@1.0.0/index.js",
+      "p-try": "https://ga.jspm.io/npm:p-try@2.2.0/index.js",
+      "pify": "https://ga.jspm.io/npm:pify@4.0.1/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "common-tags": "https://ga.jspm.dev/npm:common-tags@1.8.0/lib/index.js"
+    "common-tags": "https://ga.jspm.io/npm:common-tags@1.8.0/lib/index.js"
   }
 }

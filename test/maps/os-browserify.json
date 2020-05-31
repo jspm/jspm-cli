@@ -1,5 +1,5 @@
 {
   "imports": {
-    "os-browserify": "https://ga.jspm.dev/npm:os-browserify@0.3.0/browser.js"
+    "os-browserify": "https://ga.jspm.io/npm:os-browserify@0.3.0/browser.js"
   }
 }

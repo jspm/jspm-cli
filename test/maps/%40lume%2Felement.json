@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@lume/element": "https://ga.jspm.dev/npm:@lume/element@0.0.14/dist/index.js"
+    "@lume/element": "https://ga.jspm.io/npm:@lume/element@0.0.14/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lume/element@0.0.14/": {
-      "@lume/variable": "https://ga.jspm.dev/npm:@lume/variable@0.0.8/dist/index.js"
+    "https://ga.jspm.io/npm:@lume/element@0.0.14/": {
+      "@lume/variable": "https://ga.jspm.io/npm:@lume/variable@0.0.8/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@lume/variable@0.0.8/": {
-      "solid-js": "https://ga.jspm.dev/npm:solid-js@0.18.0/lib/index.js",
-      "solid-js/dom": "https://ga.jspm.dev/npm:solid-js@0.18.0/lib/dom/index.js"
+    "https://ga.jspm.io/npm:@lume/variable@0.0.8/": {
+      "solid-js": "https://ga.jspm.io/npm:solid-js@0.18.0/lib/index.js",
+      "solid-js/dom": "https://ga.jspm.io/npm:solid-js@0.18.0/lib/dom/index.js"
     }
   }
 }

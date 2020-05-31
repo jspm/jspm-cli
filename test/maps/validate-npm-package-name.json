@@ -1,10 +1,10 @@
 {
   "imports": {
-    "validate-npm-package-name": "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/index.js"
+    "validate-npm-package-name": "https://ga.jspm.io/npm:validate-npm-package-name@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/": {
-      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json.js"
+    "https://ga.jspm.io/npm:validate-npm-package-name@3.0.0/": {
+      "builtins": "https://ga.jspm.io/npm:builtins@1.0.3/builtins.json.js"
     }
   }
 }

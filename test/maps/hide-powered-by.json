@@ -1,5 +1,5 @@
 {
   "imports": {
-    "hide-powered-by": "https://ga.jspm.dev/npm:hide-powered-by@1.1.0/dist/index.js"
+    "hide-powered-by": "https://ga.jspm.io/npm:hide-powered-by@1.1.0/dist/index.js"
   }
 }

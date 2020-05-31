@@ -1,10 +1,10 @@
 {
   "imports": {
-    "optimism": "https://ga.jspm.dev/npm:optimism@0.12.1/lib/bundle.cjs.js"
+    "optimism": "https://ga.jspm.io/npm:optimism@0.12.1/lib/bundle.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:optimism@0.12.1/": {
-      "@wry/context": "https://ga.jspm.dev/npm:@wry/context@0.5.2/lib/context.js"
+    "https://ga.jspm.io/npm:optimism@0.12.1/": {
+      "@wry/context": "https://ga.jspm.io/npm:@wry/context@0.5.2/lib/context.js"
     }
   }
 }

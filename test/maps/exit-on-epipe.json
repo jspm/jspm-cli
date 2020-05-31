@@ -1,6 +1,6 @@
 {
   "imports": {
-    "exit-on-epipe": "https://ga.jspm.dev/npm:exit-on-epipe@1.0.1/exit-on-epipe.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "exit-on-epipe": "https://ga.jspm.io/npm:exit-on-epipe@1.0.1/exit-on-epipe.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

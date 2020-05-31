@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ast-types-flow": "https://ga.jspm.dev/npm:ast-types-flow@0.0.7/lib/types.js"
-  }
-}

@@ -1,5 +1,6 @@
 {
   "imports": {
-    "promise-polyfill": "https://ga.jspm.dev/npm:promise-polyfill@8.1.3/lib/index.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "promise-polyfill": "https://ga.jspm.io/npm:promise-polyfill@8.1.3/lib/index.js"
   }
 }

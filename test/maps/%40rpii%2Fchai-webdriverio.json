@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@rpii/chai-webdriverio": "https://ga.jspm.dev/npm:@rpii/chai-webdriverio@1.0.5/dist/index.js"
+    "@rpii/chai-webdriverio": "https://ga.jspm.io/npm:@rpii/chai-webdriverio@1.0.5/dist/index.js"
   }
 }

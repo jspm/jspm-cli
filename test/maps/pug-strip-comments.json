@@ -1,10 +1,10 @@
 {
   "imports": {
-    "pug-strip-comments": "https://ga.jspm.dev/npm:pug-strip-comments@2.0.0/index.js"
+    "pug-strip-comments": "https://ga.jspm.io/npm:pug-strip-comments@2.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pug-strip-comments@2.0.0/": {
-      "pug-error": "https://ga.jspm.dev/npm:pug-error@2.0.0/index.js"
+    "https://ga.jspm.io/npm:pug-strip-comments@2.0.0/": {
+      "pug-error": "https://ga.jspm.io/npm:pug-error@2.0.0/index.js"
     }
   }
 }

@@ -1,15 +1,15 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "sonic-boom": "https://ga.jspm.dev/npm:sonic-boom@1.0.1/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "sonic-boom": "https://ga.jspm.io/npm:sonic-boom@1.0.1/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:sonic-boom@1.0.1/": {
-      "atomic-sleep": "https://ga.jspm.dev/npm:atomic-sleep@1.0.0/index.js",
-      "flatstr": "https://ga.jspm.dev/npm:flatstr@1.0.12/index.js"
+    "https://ga.jspm.io/npm:sonic-boom@1.0.1/": {
+      "atomic-sleep": "https://ga.jspm.io/npm:atomic-sleep@1.0.0/index.js",
+      "flatstr": "https://ga.jspm.io/npm:flatstr@1.0.12/index.js"
     }
   }
 }

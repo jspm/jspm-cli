@@ -1,21 +1,21 @@
 {
   "imports": {
-    "abort-controller": "https://ga.jspm.dev/npm:abort-controller@3.0.0/browser.js",
-    "abuseipdb": "https://ga.jspm.dev/npm:abuseipdb@1.0.1/src/index.mjs",
-    "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+    "abort-controller": "https://ga.jspm.io/npm:abort-controller@3.0.0/browser.js",
+    "abuseipdb": "https://ga.jspm.io/npm:abuseipdb@1.0.1/src/index.mjs",
+    "node-fetch": "https://ga.jspm.io/npm:node-fetch@2.6.0/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:abuseipdb@1.0.1/": {
-      "api-reach": "https://ga.jspm.dev/npm:api-reach@0.7.0/src/index.mjs",
-      "bottom-line-utils": "https://ga.jspm.dev/npm:bottom-line-utils@0.8.0/src/index.mjs"
+    "https://ga.jspm.io/npm:abuseipdb@1.0.1/": {
+      "api-reach": "https://ga.jspm.io/npm:api-reach@0.7.0/src/index.mjs",
+      "bottom-line-utils": "https://ga.jspm.io/npm:bottom-line-utils@0.8.0/src/index.mjs"
     },
-    "https://ga.jspm.dev/npm:api-reach@0.7.0/": {
-      "better-custom-error": "https://ga.jspm.dev/npm:better-custom-error@3.0.1/src/index.mjs",
-      "isomorphic-abort-controller": "https://ga.jspm.dev/npm:isomorphic-abort-controller@1.0.0/src/index.js",
-      "light-isomorphic-fetch": "https://ga.jspm.dev/npm:light-isomorphic-fetch@1.0.0/src/index.js",
-      "oop-timers": "https://ga.jspm.dev/npm:oop-timers@3.0.1/src/index.mjs",
-      "qs": "https://ga.jspm.dev/npm:qs@6.9.4/lib/index.js",
-      "url-join": "https://ga.jspm.dev/npm:url-join@4.0.1/lib/url-join.js"
+    "https://ga.jspm.io/npm:api-reach@0.7.0/": {
+      "better-custom-error": "https://ga.jspm.io/npm:better-custom-error@3.0.1/src/index.mjs",
+      "isomorphic-abort-controller": "https://ga.jspm.io/npm:isomorphic-abort-controller@1.0.0/src/index.js",
+      "light-isomorphic-fetch": "https://ga.jspm.io/npm:light-isomorphic-fetch@1.0.0/src/index.js",
+      "oop-timers": "https://ga.jspm.io/npm:oop-timers@3.0.1/src/index.mjs",
+      "qs": "https://ga.jspm.io/npm:qs@6.9.4/lib/index.js",
+      "url-join": "https://ga.jspm.io/npm:url-join@4.0.1/lib/url-join.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "deep-diff": "https://ga.jspm.dev/npm:deep-diff@1.0.2/index.js"
+    "deep-diff": "https://ga.jspm.io/npm:deep-diff@1.0.2/index.js"
   }
 }

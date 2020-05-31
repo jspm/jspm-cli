@@ -1,5 +1,5 @@
 {
   "imports": {
-    "regjsparser": "https://ga.jspm.dev/npm:regjsparser@0.6.4/parser.js"
+    "regjsparser": "https://ga.jspm.io/npm:regjsparser@0.6.4/parser.js"
   }
 }

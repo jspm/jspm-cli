@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.groupby": "https://ga.jspm.dev/npm:lodash.groupby@4.6.0/index.js"
+    "lodash.groupby": "https://ga.jspm.io/npm:lodash.groupby@4.6.0/index.js"
   }
 }

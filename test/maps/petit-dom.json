@@ -1,5 +1,5 @@
 {
   "imports": {
-    "petit-dom": "https://ga.jspm.dev/npm:petit-dom@0.3.4/src/index.js"
+    "petit-dom": "https://ga.jspm.io/npm:petit-dom@0.3.4/src/index.js"
   }
 }

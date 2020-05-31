@@ -1,22 +1,22 @@
 {
   "imports": {
-    "venn.js": "https://ga.jspm.dev/npm:venn.js@0.2.20/build/venn.js"
+    "venn.js": "https://ga.jspm.io/npm:venn.js@0.2.20/build/venn.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/": {
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js"
+    "https://ga.jspm.io/npm:d3-interpolate@1.4.0/": {
+      "d3-color": "https://ga.jspm.io/npm:d3-color@1.4.1/dist/d3-color.js"
     },
-    "https://ga.jspm.dev/npm:d3-transition@1.3.2/": {
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js",
-      "d3-dispatch": "https://ga.jspm.dev/npm:d3-dispatch@1.0.6/dist/d3-dispatch.js",
-      "d3-ease": "https://ga.jspm.dev/npm:d3-ease@1.0.6/dist/d3-ease.js",
-      "d3-interpolate": "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
-      "d3-selection": "https://ga.jspm.dev/npm:d3-selection@1.4.1/dist/d3-selection.js",
-      "d3-timer": "https://ga.jspm.dev/npm:d3-timer@1.0.10/dist/d3-timer.js"
+    "https://ga.jspm.io/npm:d3-transition@1.3.2/": {
+      "d3-color": "https://ga.jspm.io/npm:d3-color@1.4.1/dist/d3-color.js",
+      "d3-dispatch": "https://ga.jspm.io/npm:d3-dispatch@1.0.6/dist/d3-dispatch.js",
+      "d3-ease": "https://ga.jspm.io/npm:d3-ease@1.0.6/dist/d3-ease.js",
+      "d3-interpolate": "https://ga.jspm.io/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
+      "d3-selection": "https://ga.jspm.io/npm:d3-selection@1.4.1/dist/d3-selection.js",
+      "d3-timer": "https://ga.jspm.io/npm:d3-timer@1.0.10/dist/d3-timer.js"
     },
-    "https://ga.jspm.dev/npm:venn.js@0.2.20/": {
-      "d3-selection": "https://ga.jspm.dev/npm:d3-selection@1.4.1/dist/d3-selection.js",
-      "d3-transition": "https://ga.jspm.dev/npm:d3-transition@1.3.2/dist/d3-transition.js"
+    "https://ga.jspm.io/npm:venn.js@0.2.20/": {
+      "d3-selection": "https://ga.jspm.io/npm:d3-selection@1.4.1/dist/d3-selection.js",
+      "d3-transition": "https://ga.jspm.io/npm:d3-transition@1.3.2/dist/d3-transition.js"
     }
   }
 }

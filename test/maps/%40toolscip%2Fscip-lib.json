@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@toolscip/scip-lib": "https://ga.jspm.dev/npm:@toolscip/scip-lib@1.4.0/dist/index.js"
+    "@toolscip/scip-lib": "https://ga.jspm.io/npm:@toolscip/scip-lib@1.4.0/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@toolscip/scip-lib@1.4.0/": {
-      "@lampajr/jsonrpc-lib": "https://ga.jspm.dev/npm:@lampajr/jsonrpc-lib@1.0.0/dist/jsonrpc.js"
+    "https://ga.jspm.io/npm:@toolscip/scip-lib@1.4.0/": {
+      "@lampajr/jsonrpc-lib": "https://ga.jspm.io/npm:@lampajr/jsonrpc-lib@1.0.0/dist/jsonrpc.js"
     }
   }
 }

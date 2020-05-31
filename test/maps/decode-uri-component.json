@@ -1,5 +1,5 @@
 {
   "imports": {
-    "decode-uri-component": "https://ga.jspm.dev/npm:decode-uri-component@0.2.0/index.js"
+    "decode-uri-component": "https://ga.jspm.io/npm:decode-uri-component@0.2.0/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "arrify": "https://ga.jspm.dev/npm:arrify@2.0.1/index.js"
+    "arrify": "https://ga.jspm.io/npm:arrify@2.0.1/index.js"
   }
 }

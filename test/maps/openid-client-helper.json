@@ -1,118 +1,118 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "openid-client-helper": "https://ga.jspm.dev/npm:openid-client-helper@0.1.2/lib/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "openid-client-helper": "https://ga.jspm.io/npm:openid-client-helper@0.1.2/lib/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@szmarczak/http-timer@1.1.2/": {
-      "defer-to-connect": "https://ga.jspm.dev/npm:defer-to-connect@1.1.3/dist/index.js"
+    "https://ga.jspm.io/npm:@szmarczak/http-timer@1.1.2/": {
+      "defer-to-connect": "https://ga.jspm.io/npm:defer-to-connect@1.1.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:aggregate-error@3.0.1/": {
-      "clean-stack": "https://ga.jspm.dev/npm:clean-stack@2.2.0/index.js",
-      "indent-string": "https://ga.jspm.dev/npm:indent-string@4.0.0/index.js"
+    "https://ga.jspm.io/npm:aggregate-error@3.0.1/": {
+      "clean-stack": "https://ga.jspm.io/npm:clean-stack@2.2.0/index.js",
+      "indent-string": "https://ga.jspm.io/npm:indent-string@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:cacheable-request@6.1.0/": {
-      "clone-response": "https://ga.jspm.dev/npm:clone-response@1.0.2/src/index.js",
-      "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
-      "http-cache-semantics": "https://ga.jspm.dev/npm:http-cache-semantics@4.1.0/index.js",
-      "keyv": "https://ga.jspm.dev/npm:keyv@3.1.0/src/index.js",
-      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js",
-      "normalize-url": "https://ga.jspm.dev/npm:normalize-url@4.5.0/index.js",
-      "responselike": "https://ga.jspm.dev/npm:responselike@1.0.2/src/index.js"
+    "https://ga.jspm.io/npm:cacheable-request@6.1.0/": {
+      "clone-response": "https://ga.jspm.io/npm:clone-response@1.0.2/src/index.js",
+      "get-stream": "https://ga.jspm.io/npm:get-stream@5.1.0/index.js",
+      "http-cache-semantics": "https://ga.jspm.io/npm:http-cache-semantics@4.1.0/index.js",
+      "keyv": "https://ga.jspm.io/npm:keyv@3.1.0/src/index.js",
+      "lowercase-keys": "https://ga.jspm.io/npm:lowercase-keys@2.0.0/index.js",
+      "normalize-url": "https://ga.jspm.io/npm:normalize-url@4.5.0/index.js",
+      "responselike": "https://ga.jspm.io/npm:responselike@1.0.2/src/index.js"
     },
-    "https://ga.jspm.dev/npm:clone-response@1.0.2/": {
-      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js"
+    "https://ga.jspm.io/npm:clone-response@1.0.2/": {
+      "mimic-response": "https://ga.jspm.io/npm:mimic-response@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:decompress-response@3.3.0/": {
-      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js"
+    "https://ga.jspm.io/npm:decompress-response@3.3.0/": {
+      "mimic-response": "https://ga.jspm.io/npm:mimic-response@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:get-stream@4.1.0/": {
-      "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    "https://ga.jspm.io/npm:get-stream@4.1.0/": {
+      "pump": "https://ga.jspm.io/npm:pump@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:get-stream@5.1.0/": {
-      "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    "https://ga.jspm.io/npm:get-stream@5.1.0/": {
+      "pump": "https://ga.jspm.io/npm:pump@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:got@9.6.0/": {
-      "@sindresorhus/is": "https://ga.jspm.dev/npm:@sindresorhus/is@0.14.0/dist/index.js",
-      "@szmarczak/http-timer": "https://ga.jspm.dev/npm:@szmarczak/http-timer@1.1.2/source/index.js",
-      "cacheable-request": "https://ga.jspm.dev/npm:cacheable-request@6.1.0/src/index.js",
-      "decompress-response": "https://ga.jspm.dev/npm:decompress-response@3.3.0/index.js",
-      "duplexer3": "https://ga.jspm.dev/npm:duplexer3@0.1.4/index.js",
-      "get-stream": "https://ga.jspm.dev/npm:get-stream@4.1.0/index.js",
-      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@1.0.1/index.js",
-      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js",
-      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@1.1.0/index.js",
-      "to-readable-stream": "https://ga.jspm.dev/npm:to-readable-stream@1.0.0/index.js",
-      "url-parse-lax": "https://ga.jspm.dev/npm:url-parse-lax@3.0.0/index.js"
+    "https://ga.jspm.io/npm:got@9.6.0/": {
+      "@sindresorhus/is": "https://ga.jspm.io/npm:@sindresorhus/is@0.14.0/dist/index.js",
+      "@szmarczak/http-timer": "https://ga.jspm.io/npm:@szmarczak/http-timer@1.1.2/source/index.js",
+      "cacheable-request": "https://ga.jspm.io/npm:cacheable-request@6.1.0/src/index.js",
+      "decompress-response": "https://ga.jspm.io/npm:decompress-response@3.3.0/index.js",
+      "duplexer3": "https://ga.jspm.io/npm:duplexer3@0.1.4/index.js",
+      "get-stream": "https://ga.jspm.io/npm:get-stream@4.1.0/index.js",
+      "lowercase-keys": "https://ga.jspm.io/npm:lowercase-keys@1.0.1/index.js",
+      "mimic-response": "https://ga.jspm.io/npm:mimic-response@1.0.1/index.js",
+      "p-cancelable": "https://ga.jspm.io/npm:p-cancelable@1.1.0/index.js",
+      "to-readable-stream": "https://ga.jspm.io/npm:to-readable-stream@1.0.0/index.js",
+      "url-parse-lax": "https://ga.jspm.io/npm:url-parse-lax@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jose@1.27.0/": {
-      "@panva/asn1.js": "https://ga.jspm.dev/npm:@panva/asn1.js@1.0.0/lib/asn1.js"
+    "https://ga.jspm.io/npm:jose@1.27.0/": {
+      "@panva/asn1.js": "https://ga.jspm.io/npm:@panva/asn1.js@1.0.0/lib/asn1.js"
     },
-    "https://ga.jspm.dev/npm:keyv@3.1.0/": {
-      "json-buffer": "https://ga.jspm.dev/npm:json-buffer@3.0.0/index.js"
+    "https://ga.jspm.io/npm:keyv@3.1.0/": {
+      "json-buffer": "https://ga.jspm.io/npm:json-buffer@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:lru-cache@5.1.1/": {
-      "yallist": "https://ga.jspm.dev/npm:yallist@3.1.1/yallist.js"
+    "https://ga.jspm.io/npm:lru-cache@5.1.1/": {
+      "yallist": "https://ga.jspm.io/npm:yallist@3.1.1/yallist.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:openid-client-helper@0.1.2/": {
-      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js",
-      "openid-client": "https://ga.jspm.dev/npm:openid-client@3.15.1/lib/index.js"
+    "https://ga.jspm.io/npm:openid-client-helper@0.1.2/": {
+      "node-fetch": "https://ga.jspm.io/npm:node-fetch@2.6.0/browser.js",
+      "openid-client": "https://ga.jspm.io/npm:openid-client@3.15.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:openid-client@3.15.1/": {
-      "base64url": "https://ga.jspm.dev/npm:base64url@3.0.1/index.js",
-      "got": "https://ga.jspm.dev/npm:got@9.6.0/source/index.js",
-      "jose": "https://ga.jspm.dev/npm:jose@1.27.0/lib/index.js",
-      "lodash/assign": "https://ga.jspm.dev/npm:lodash@4.17.15/assign.js",
-      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
-      "lodash/defaults": "https://ga.jspm.dev/npm:lodash@4.17.15/defaults.js",
-      "lodash/defaultsDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/defaultsDeep.js",
-      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
-      "lodash/merge": "https://ga.jspm.dev/npm:lodash@4.17.15/merge.js",
-      "lodash/omitBy": "https://ga.jspm.dev/npm:lodash@4.17.15/omitBy.js",
-      "lru-cache": "https://ga.jspm.dev/npm:lru-cache@5.1.1/index.js",
-      "make-error": "https://ga.jspm.dev/npm:make-error@1.3.6/index.js",
-      "object-hash": "https://ga.jspm.dev/npm:object-hash@2.0.3/dist/object_hash.js",
-      "oidc-token-hash": "https://ga.jspm.dev/npm:oidc-token-hash@5.0.0/lib/index.js",
-      "p-any": "https://ga.jspm.dev/npm:p-any@3.0.0/index.js"
+    "https://ga.jspm.io/npm:openid-client@3.15.1/": {
+      "base64url": "https://ga.jspm.io/npm:base64url@3.0.1/index.js",
+      "got": "https://ga.jspm.io/npm:got@9.6.0/source/index.js",
+      "jose": "https://ga.jspm.io/npm:jose@1.27.0/lib/index.js",
+      "lodash/assign": "https://ga.jspm.io/npm:lodash@4.17.15/assign.js",
+      "lodash/cloneDeep": "https://ga.jspm.io/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/defaults": "https://ga.jspm.io/npm:lodash@4.17.15/defaults.js",
+      "lodash/defaultsDeep": "https://ga.jspm.io/npm:lodash@4.17.15/defaultsDeep.js",
+      "lodash/isPlainObject": "https://ga.jspm.io/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/merge": "https://ga.jspm.io/npm:lodash@4.17.15/merge.js",
+      "lodash/omitBy": "https://ga.jspm.io/npm:lodash@4.17.15/omitBy.js",
+      "lru-cache": "https://ga.jspm.io/npm:lru-cache@5.1.1/index.js",
+      "make-error": "https://ga.jspm.io/npm:make-error@1.3.6/index.js",
+      "object-hash": "https://ga.jspm.io/npm:object-hash@2.0.3/dist/object_hash.js",
+      "oidc-token-hash": "https://ga.jspm.io/npm:oidc-token-hash@5.0.0/lib/index.js",
+      "p-any": "https://ga.jspm.io/npm:p-any@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-any@3.0.0/": {
-      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js",
-      "p-some": "https://ga.jspm.dev/npm:p-some@5.0.0/index.js"
+    "https://ga.jspm.io/npm:p-any@3.0.0/": {
+      "p-cancelable": "https://ga.jspm.io/npm:p-cancelable@2.0.0/index.js",
+      "p-some": "https://ga.jspm.io/npm:p-some@5.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-some@5.0.0/": {
-      "aggregate-error": "https://ga.jspm.dev/npm:aggregate-error@3.0.1/index.js",
-      "p-cancelable": "https://ga.jspm.dev/npm:p-cancelable@2.0.0/index.js"
+    "https://ga.jspm.io/npm:p-some@5.0.0/": {
+      "aggregate-error": "https://ga.jspm.io/npm:aggregate-error@3.0.1/index.js",
+      "p-cancelable": "https://ga.jspm.io/npm:p-cancelable@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:pump@3.0.0/": {
-      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:pump@3.0.0/": {
+      "end-of-stream": "https://ga.jspm.io/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:responselike@1.0.2/": {
-      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@1.0.1/index.js"
+    "https://ga.jspm.io/npm:responselike@1.0.2/": {
+      "lowercase-keys": "https://ga.jspm.io/npm:lowercase-keys@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:url-parse-lax@3.0.0/": {
-      "prepend-http": "https://ga.jspm.dev/npm:prepend-http@2.0.0/index.js"
+    "https://ga.jspm.io/npm:url-parse-lax@3.0.0/": {
+      "prepend-http": "https://ga.jspm.io/npm:prepend-http@2.0.0/index.js"
     }
   }
 }

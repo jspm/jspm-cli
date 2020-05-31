@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@iamproperty/support": "https://ga.jspm.dev/npm:@iamproperty/support@1.1.0/support.js"
+    "@iamproperty/support": "https://ga.jspm.io/npm:@iamproperty/support@1.1.0/support.js"
   }
 }

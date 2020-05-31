@@ -1,5 +1,5 @@
 {
   "imports": {
-    "argsarray": "https://ga.jspm.dev/npm:argsarray@0.0.1/index.js"
+    "argsarray": "https://ga.jspm.io/npm:argsarray@0.0.1/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "copy-to": "https://ga.jspm.dev/npm:copy-to@2.0.1/index.js"
+    "copy-to": "https://ga.jspm.io/npm:copy-to@2.0.1/index.js"
   }
 }

@@ -1,91 +1,91 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "grunt-contrib-watch": "https://ga.jspm.dev/npm:grunt-contrib-watch@1.1.0/tasks/watch.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "timers": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "grunt-contrib-watch": "https://ga.jspm.io/npm:grunt-contrib-watch@1.1.0/tasks/watch.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "timers": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:body@5.1.0/": {
-      "continuable-cache": "https://ga.jspm.dev/npm:continuable-cache@0.3.1/index.js",
-      "error/typed": "https://ga.jspm.dev/npm:error@7.2.1/typed.js",
-      "raw-body": "https://ga.jspm.dev/npm:raw-body@1.1.7/index.js",
-      "safe-json-parse": "https://ga.jspm.dev/npm:safe-json-parse@1.0.1/index.js"
+    "https://ga.jspm.io/npm:body@5.1.0/": {
+      "continuable-cache": "https://ga.jspm.io/npm:continuable-cache@0.3.1/index.js",
+      "error/typed": "https://ga.jspm.io/npm:error@7.2.1/typed.js",
+      "raw-body": "https://ga.jspm.io/npm:raw-body@1.1.7/index.js",
+      "safe-json-parse": "https://ga.jspm.io/npm:safe-json-parse@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
-      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    "https://ga.jspm.io/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.io/npm:concat-map@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:error@7.2.1/": {
-      "string-template": "https://ga.jspm.dev/npm:string-template@0.2.1/index.js"
+    "https://ga.jspm.io/npm:error@7.2.1/": {
+      "string-template": "https://ga.jspm.io/npm:string-template@0.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:faye-websocket@0.10.0/": {
-      "websocket-driver": "https://ga.jspm.dev/npm:websocket-driver@0.7.4/lib/websocket/driver.js",
-      "websocket-driver/lib/websocket/driver/headers": "https://ga.jspm.dev/npm:websocket-driver@0.7.4/lib/websocket/driver/headers.js"
+    "https://ga.jspm.io/npm:faye-websocket@0.10.0/": {
+      "websocket-driver": "https://ga.jspm.io/npm:websocket-driver@0.7.4/lib/websocket/driver.js",
+      "websocket-driver/lib/websocket/driver/headers": "https://ga.jspm.io/npm:websocket-driver@0.7.4/lib/websocket/driver/headers.js"
     },
-    "https://ga.jspm.dev/npm:gaze@1.1.3/": {
-      "globule": "https://ga.jspm.dev/npm:globule@1.3.1/lib/globule.js"
+    "https://ga.jspm.io/npm:gaze@1.1.3/": {
+      "globule": "https://ga.jspm.io/npm:globule@1.3.1/lib/globule.js"
     },
-    "https://ga.jspm.dev/npm:glob@7.1.6/": {
-      "fs.realpath": "https://ga.jspm.dev/npm:fs.realpath@1.0.0/index.js",
-      "inflight": "https://ga.jspm.dev/npm:inflight@1.0.6/inflight.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
-      "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@1.0.1/index.js"
+    "https://ga.jspm.io/npm:glob@7.1.6/": {
+      "fs.realpath": "https://ga.jspm.io/npm:fs.realpath@1.0.0/index.js",
+      "inflight": "https://ga.jspm.io/npm:inflight@1.0.6/inflight.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimatch": "https://ga.jspm.io/npm:minimatch@3.0.4/minimatch.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js",
+      "path-is-absolute": "https://ga.jspm.io/npm:path-is-absolute@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:globule@1.3.1/": {
-      "glob": "https://ga.jspm.dev/npm:glob@7.1.6/glob.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js"
+    "https://ga.jspm.io/npm:globule@1.3.1/": {
+      "glob": "https://ga.jspm.io/npm:glob@7.1.6/glob.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js",
+      "minimatch": "https://ga.jspm.io/npm:minimatch@3.0.4/minimatch.js"
     },
-    "https://ga.jspm.dev/npm:grunt-contrib-watch@1.1.0/": {
-      "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
-      "gaze": "https://ga.jspm.dev/npm:gaze@1.1.3/lib/gaze.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js",
-      "tiny-lr": "https://ga.jspm.dev/npm:tiny-lr@1.1.1/src/index.js"
+    "https://ga.jspm.io/npm:grunt-contrib-watch@1.1.0/": {
+      "async": "https://ga.jspm.io/npm:async@2.6.3/dist/async.js",
+      "gaze": "https://ga.jspm.io/npm:gaze@1.1.3/lib/gaze.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js",
+      "tiny-lr": "https://ga.jspm.io/npm:tiny-lr@1.1.1/src/index.js"
     },
-    "https://ga.jspm.dev/npm:inflight@1.0.6/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js",
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:inflight@1.0.6/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js",
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
-      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    "https://ga.jspm.io/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.io/npm:brace-expansion@1.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:raw-body@1.1.7/": {
-      "bytes": "https://ga.jspm.dev/npm:bytes@1.0.0/index.js",
-      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@0.10.31/index.js"
+    "https://ga.jspm.io/npm:raw-body@1.1.7/": {
+      "bytes": "https://ga.jspm.io/npm:bytes@1.0.0/index.js",
+      "string_decoder": "https://ga.jspm.io/npm:string_decoder@0.10.31/index.js"
     },
-    "https://ga.jspm.dev/npm:tiny-lr@1.1.1/": {
-      "body/any": "https://ga.jspm.dev/npm:body@5.1.0/any.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
-      "faye-websocket": "https://ga.jspm.dev/npm:faye-websocket@0.10.0/lib/faye/websocket.js",
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "qs": "https://ga.jspm.dev/npm:qs@6.9.4/lib/index.js"
+    "https://ga.jspm.io/npm:tiny-lr@1.1.1/": {
+      "body/any": "https://ga.jspm.io/npm:body@5.1.0/any.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js",
+      "faye-websocket": "https://ga.jspm.io/npm:faye-websocket@0.10.0/lib/faye/websocket.js",
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "qs": "https://ga.jspm.io/npm:qs@6.9.4/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:websocket-driver@0.7.4/": {
-      "http-parser-js": "https://ga.jspm.dev/npm:http-parser-js@0.5.2/http-parser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
-      "websocket-extensions": "https://ga.jspm.dev/npm:websocket-extensions@0.1.3/lib/websocket_extensions.js"
+    "https://ga.jspm.io/npm:websocket-driver@0.7.4/": {
+      "http-parser-js": "https://ga.jspm.io/npm:http-parser-js@0.5.2/http-parser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js",
+      "websocket-extensions": "https://ga.jspm.io/npm:websocket-extensions@0.1.3/lib/websocket_extensions.js"
     }
   }
 }

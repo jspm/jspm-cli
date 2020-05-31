@@ -1,5 +1,5 @@
 {
   "imports": {
-    "forwarded": "https://ga.jspm.dev/npm:forwarded@0.1.2/index.js"
+    "forwarded": "https://ga.jspm.io/npm:forwarded@0.1.2/index.js"
   }
 }

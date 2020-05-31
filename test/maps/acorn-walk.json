@@ -1,5 +1,5 @@
 {
   "imports": {
-    "acorn-walk": "https://ga.jspm.dev/npm:acorn-walk@7.1.1/dist/walk.js"
+    "acorn-walk": "https://ga.jspm.io/npm:acorn-walk@7.1.1/dist/walk.js"
   }
 }

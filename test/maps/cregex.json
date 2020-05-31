@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cregex": "https://ga.jspm.dev/npm:cregex@1.0.5/dist/index.js"
+    "cregex": "https://ga.jspm.io/npm:cregex@1.0.5/dist/index.js"
   }
 }

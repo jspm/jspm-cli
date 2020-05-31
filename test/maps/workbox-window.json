@@ -1,5 +1,5 @@
 {
   "imports": {
-    "workbox-window": "https://ga.jspm.dev/npm:workbox-window@5.1.3/build/workbox-window.prod.umd.js"
+    "workbox-window": "https://ga.jspm.io/npm:workbox-window@5.1.3/build/workbox-window.prod.umd.js"
   }
 }

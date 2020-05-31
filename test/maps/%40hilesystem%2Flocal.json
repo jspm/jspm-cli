@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@hilesystem/local": "https://ga.jspm.dev/npm:@hilesystem/local@0.1.4/dist/index.js"
+    "@hilesystem/local": "https://ga.jspm.io/npm:@hilesystem/local@0.1.4/dist/index.js"
   }
 }

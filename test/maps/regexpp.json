@@ -1,5 +1,5 @@
 {
   "imports": {
-    "regexpp": "https://ga.jspm.dev/npm:regexpp@3.1.0/index.js"
+    "regexpp": "https://ga.jspm.io/npm:regexpp@3.1.0/index.js"
   }
 }

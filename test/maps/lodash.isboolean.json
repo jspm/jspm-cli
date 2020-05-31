@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.isboolean": "https://ga.jspm.dev/npm:lodash.isboolean@3.0.3/index.js"
+    "lodash.isboolean": "https://ga.jspm.io/npm:lodash.isboolean@3.0.3/index.js"
   }
 }

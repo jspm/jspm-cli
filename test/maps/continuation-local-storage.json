@@ -1,29 +1,29 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "continuation-local-storage": "https://ga.jspm.dev/npm:continuation-local-storage@3.2.1/context.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "dns": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dns.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "timers": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "continuation-local-storage": "https://ga.jspm.io/npm:continuation-local-storage@3.2.1/context.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "dns": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/dns.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "timers": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:async-listener@0.6.10/": {
-      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
-      "shimmer": "https://ga.jspm.dev/npm:shimmer@1.2.1/index.js"
+    "https://ga.jspm.io/npm:async-listener@0.6.10/": {
+      "semver": "https://ga.jspm.io/npm:semver@5.7.1/semver.js",
+      "shimmer": "https://ga.jspm.io/npm:shimmer@1.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:continuation-local-storage@3.2.1/": {
-      "async-listener": "https://ga.jspm.dev/npm:async-listener@0.6.10/index.js",
-      "emitter-listener": "https://ga.jspm.dev/npm:emitter-listener@1.1.2/listener.js"
+    "https://ga.jspm.io/npm:continuation-local-storage@3.2.1/": {
+      "async-listener": "https://ga.jspm.io/npm:async-listener@0.6.10/index.js",
+      "emitter-listener": "https://ga.jspm.io/npm:emitter-listener@1.1.2/listener.js"
     },
-    "https://ga.jspm.dev/npm:emitter-listener@1.1.2/": {
-      "shimmer": "https://ga.jspm.dev/npm:shimmer@1.2.1/index.js"
+    "https://ga.jspm.io/npm:emitter-listener@1.1.2/": {
+      "shimmer": "https://ga.jspm.io/npm:shimmer@1.2.1/index.js"
     }
   }
 }

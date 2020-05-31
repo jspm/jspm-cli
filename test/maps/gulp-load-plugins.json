@@ -1,91 +1,91 @@
 {
   "imports": {
-    "console": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/console.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "gulp-load-plugins": "https://ga.jspm.dev/npm:gulp-load-plugins@2.0.3/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "console": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/console.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "gulp-load-plugins": "https://ga.jspm.io/npm:gulp-load-plugins@2.0.3/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-gray@0.1.1/": {
-      "ansi-wrap": "https://ga.jspm.dev/npm:ansi-wrap@0.1.0/index.js"
+    "https://ga.jspm.io/npm:ansi-gray@0.1.1/": {
+      "ansi-wrap": "https://ga.jspm.io/npm:ansi-wrap@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:braces@3.0.2/": {
-      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    "https://ga.jspm.io/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.io/npm:fill-range@7.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:expand-tilde@2.0.2/": {
-      "homedir-polyfill": "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/index.js"
+    "https://ga.jspm.io/npm:expand-tilde@2.0.2/": {
+      "homedir-polyfill": "https://ga.jspm.io/npm:homedir-polyfill@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:fancy-log@1.3.3/": {
-      "ansi-gray": "https://ga.jspm.dev/npm:ansi-gray@0.1.1/index.js",
-      "color-support": "https://ga.jspm.dev/npm:color-support@1.1.3/browser.js",
-      "parse-node-version": "https://ga.jspm.dev/npm:parse-node-version@1.0.1/index.js",
-      "time-stamp": "https://ga.jspm.dev/npm:time-stamp@1.1.0/index.js"
+    "https://ga.jspm.io/npm:fancy-log@1.3.3/": {
+      "ansi-gray": "https://ga.jspm.io/npm:ansi-gray@0.1.1/index.js",
+      "color-support": "https://ga.jspm.io/npm:color-support@1.1.3/browser.js",
+      "parse-node-version": "https://ga.jspm.io/npm:parse-node-version@1.0.1/index.js",
+      "time-stamp": "https://ga.jspm.io/npm:time-stamp@1.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
-      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    "https://ga.jspm.io/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.io/npm:to-regex-range@5.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:findup-sync@4.0.0/": {
-      "detect-file": "https://ga.jspm.dev/npm:detect-file@1.0.0/index.js",
-      "is-glob": "https://ga.jspm.dev/npm:is-glob@4.0.1/index.js",
-      "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
-      "resolve-dir": "https://ga.jspm.dev/npm:resolve-dir@1.0.1/index.js"
+    "https://ga.jspm.io/npm:findup-sync@4.0.0/": {
+      "detect-file": "https://ga.jspm.io/npm:detect-file@1.0.0/index.js",
+      "is-glob": "https://ga.jspm.io/npm:is-glob@4.0.1/index.js",
+      "micromatch": "https://ga.jspm.io/npm:micromatch@4.0.2/index.js",
+      "resolve-dir": "https://ga.jspm.io/npm:resolve-dir@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:global-modules@1.0.0/": {
-      "global-prefix": "https://ga.jspm.dev/npm:global-prefix@1.0.2/index.js",
-      "is-windows": "https://ga.jspm.dev/npm:is-windows@1.0.2/index.js"
+    "https://ga.jspm.io/npm:global-modules@1.0.0/": {
+      "global-prefix": "https://ga.jspm.io/npm:global-prefix@1.0.2/index.js",
+      "is-windows": "https://ga.jspm.io/npm:is-windows@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:global-prefix@1.0.2/": {
-      "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
-      "homedir-polyfill": "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/index.js",
-      "ini": "https://ga.jspm.dev/npm:ini@1.3.5/ini.js",
-      "is-windows": "https://ga.jspm.dev/npm:is-windows@1.0.2/index.js",
-      "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js"
+    "https://ga.jspm.io/npm:global-prefix@1.0.2/": {
+      "expand-tilde": "https://ga.jspm.io/npm:expand-tilde@2.0.2/index.js",
+      "homedir-polyfill": "https://ga.jspm.io/npm:homedir-polyfill@1.0.3/index.js",
+      "ini": "https://ga.jspm.io/npm:ini@1.3.5/ini.js",
+      "is-windows": "https://ga.jspm.io/npm:is-windows@1.0.2/index.js",
+      "which": "https://ga.jspm.io/npm:which@1.3.1/which.js"
     },
-    "https://ga.jspm.dev/npm:glogg@1.0.2/": {
-      "sparkles": "https://ga.jspm.dev/npm:sparkles@1.0.1/index.js"
+    "https://ga.jspm.io/npm:glogg@1.0.2/": {
+      "sparkles": "https://ga.jspm.io/npm:sparkles@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:gulp-load-plugins@2.0.3/": {
-      "array-unique": "https://ga.jspm.dev/npm:array-unique@0.3.2/index.js",
-      "fancy-log": "https://ga.jspm.dev/npm:fancy-log@1.3.3/index.js",
-      "findup-sync": "https://ga.jspm.dev/npm:findup-sync@4.0.0/index.js",
-      "gulplog": "https://ga.jspm.dev/npm:gulplog@1.0.0/index.js",
-      "has-gulplog": "https://ga.jspm.dev/npm:has-gulplog@0.1.0/index.js",
-      "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js"
+    "https://ga.jspm.io/npm:gulp-load-plugins@2.0.3/": {
+      "array-unique": "https://ga.jspm.io/npm:array-unique@0.3.2/index.js",
+      "fancy-log": "https://ga.jspm.io/npm:fancy-log@1.3.3/index.js",
+      "findup-sync": "https://ga.jspm.io/npm:findup-sync@4.0.0/index.js",
+      "gulplog": "https://ga.jspm.io/npm:gulplog@1.0.0/index.js",
+      "has-gulplog": "https://ga.jspm.io/npm:has-gulplog@0.1.0/index.js",
+      "micromatch": "https://ga.jspm.io/npm:micromatch@4.0.2/index.js",
+      "resolve": "https://ga.jspm.io/npm:resolve@1.17.0/index.js"
     },
-    "https://ga.jspm.dev/npm:gulplog@1.0.0/": {
-      "glogg": "https://ga.jspm.dev/npm:glogg@1.0.2/index.js"
+    "https://ga.jspm.io/npm:gulplog@1.0.0/": {
+      "glogg": "https://ga.jspm.io/npm:glogg@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:has-gulplog@0.1.0/": {
-      "sparkles": "https://ga.jspm.dev/npm:sparkles@1.0.1/index.js"
+    "https://ga.jspm.io/npm:has-gulplog@0.1.0/": {
+      "sparkles": "https://ga.jspm.io/npm:sparkles@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/": {
-      "parse-passwd": "https://ga.jspm.dev/npm:parse-passwd@1.0.0/index.js"
+    "https://ga.jspm.io/npm:homedir-polyfill@1.0.3/": {
+      "parse-passwd": "https://ga.jspm.io/npm:parse-passwd@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:is-glob@4.0.1/": {
-      "is-extglob": "https://ga.jspm.dev/npm:is-extglob@2.1.1/index.js"
+    "https://ga.jspm.io/npm:is-glob@4.0.1/": {
+      "is-extglob": "https://ga.jspm.io/npm:is-extglob@2.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
-      "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
-      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
+    "https://ga.jspm.io/npm:micromatch@4.0.2/": {
+      "braces": "https://ga.jspm.io/npm:braces@3.0.2/index.js",
+      "picomatch": "https://ga.jspm.io/npm:picomatch@2.2.2/index.js",
+      "picomatch/lib/utils": "https://ga.jspm.io/npm:picomatch@2.2.2/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:resolve-dir@1.0.1/": {
-      "expand-tilde": "https://ga.jspm.dev/npm:expand-tilde@2.0.2/index.js",
-      "global-modules": "https://ga.jspm.dev/npm:global-modules@1.0.0/index.js"
+    "https://ga.jspm.io/npm:resolve-dir@1.0.1/": {
+      "expand-tilde": "https://ga.jspm.io/npm:expand-tilde@2.0.2/index.js",
+      "global-modules": "https://ga.jspm.io/npm:global-modules@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
-      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    "https://ga.jspm.io/npm:resolve@1.17.0/": {
+      "path-parse": "https://ga.jspm.io/npm:path-parse@1.0.6/index.js"
     },
-    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
-      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    "https://ga.jspm.io/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.io/npm:is-number@7.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:which@1.3.1/": {
-      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    "https://ga.jspm.io/npm:which@1.3.1/": {
+      "isexe": "https://ga.jspm.io/npm:isexe@2.0.0/index.js"
     }
   }
 }

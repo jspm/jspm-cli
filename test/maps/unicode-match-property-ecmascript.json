@@ -1,11 +1,11 @@
 {
   "imports": {
-    "unicode-match-property-ecmascript": "https://ga.jspm.dev/npm:unicode-match-property-ecmascript@1.0.4/index.js"
+    "unicode-match-property-ecmascript": "https://ga.jspm.io/npm:unicode-match-property-ecmascript@1.0.4/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:unicode-match-property-ecmascript@1.0.4/": {
-      "unicode-canonical-property-names-ecmascript": "https://ga.jspm.dev/npm:unicode-canonical-property-names-ecmascript@1.0.4/index.js",
-      "unicode-property-aliases-ecmascript": "https://ga.jspm.dev/npm:unicode-property-aliases-ecmascript@1.1.0/index.js"
+    "https://ga.jspm.io/npm:unicode-match-property-ecmascript@1.0.4/": {
+      "unicode-canonical-property-names-ecmascript": "https://ga.jspm.io/npm:unicode-canonical-property-names-ecmascript@1.0.4/index.js",
+      "unicode-property-aliases-ecmascript": "https://ga.jspm.io/npm:unicode-property-aliases-ecmascript@1.1.0/index.js"
     }
   }
 }

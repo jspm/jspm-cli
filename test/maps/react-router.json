@@ -1,38 +1,38 @@
 {
   "imports": {
-    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-router": "https://ga.jspm.dev/npm:react-router@5.2.0/index.js"
+    "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-router": "https://ga.jspm.io/npm:react-router@5.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:history@4.10.1/": {
-      "resolve-pathname": "https://ga.jspm.dev/npm:resolve-pathname@3.0.0/index.js",
-      "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
-      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js",
-      "value-equal": "https://ga.jspm.dev/npm:value-equal@1.0.1/index.js"
+    "https://ga.jspm.io/npm:history@4.10.1/": {
+      "resolve-pathname": "https://ga.jspm.io/npm:resolve-pathname@3.0.0/index.js",
+      "tiny-invariant": "https://ga.jspm.io/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
+      "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js",
+      "value-equal": "https://ga.jspm.io/npm:value-equal@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/": {
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
-      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    "https://ga.jspm.io/npm:mini-create-react-context@0.4.0/": {
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/inheritsLoose.js",
+      "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
-    "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/": {
-      "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js"
+    "https://ga.jspm.io/npm:path-to-regexp@1.8.0/": {
+      "isarray": "https://ga.jspm.io/npm:isarray@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-router@5.2.0/": {
-      "history": "https://ga.jspm.dev/npm:history@4.10.1/index.js",
-      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
-      "mini-create-react-context": "https://ga.jspm.dev/npm:mini-create-react-context@0.4.0/dist/cjs/index.js",
-      "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/index.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js",
-      "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
-      "tiny-warning": "https://ga.jspm.dev/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
+    "https://ga.jspm.io/npm:react-router@5.2.0/": {
+      "history": "https://ga.jspm.io/npm:history@4.10.1/index.js",
+      "hoist-non-react-statics": "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
+      "mini-create-react-context": "https://ga.jspm.io/npm:mini-create-react-context@0.4.0/dist/cjs/index.js",
+      "path-to-regexp": "https://ga.jspm.io/npm:path-to-regexp@1.8.0/index.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js",
+      "tiny-invariant": "https://ga.jspm.io/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js",
+      "tiny-warning": "https://ga.jspm.io/npm:tiny-warning@1.0.3/dist/tiny-warning.cjs.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "uid-safe": "https://ga.jspm.dev/npm:uid-safe@2.1.5/index.js"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "uid-safe": "https://ga.jspm.io/npm:uid-safe@2.1.5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:uid-safe@2.1.5/": {
-      "random-bytes": "https://ga.jspm.dev/npm:random-bytes@1.0.0/index.js"
+    "https://ga.jspm.io/npm:uid-safe@2.1.5/": {
+      "random-bytes": "https://ga.jspm.io/npm:random-bytes@1.0.0/index.js"
     }
   }
 }

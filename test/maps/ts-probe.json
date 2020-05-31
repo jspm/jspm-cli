@@ -1,10 +1,10 @@
 {
   "imports": {
-    "ts-probe": "https://ga.jspm.dev/npm:ts-probe@0.1.1/lib/index.js"
+    "ts-probe": "https://ga.jspm.io/npm:ts-probe@0.1.1/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ts-probe@0.1.1/": {
-      "typescript": "https://ga.jspm.dev/npm:typescript@3.9.4/lib/typescript.js"
+    "https://ga.jspm.io/npm:ts-probe@0.1.1/": {
+      "typescript": "https://ga.jspm.io/npm:typescript@3.9.4/lib/typescript.js"
     }
   }
 }

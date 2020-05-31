@@ -1,5 +1,5 @@
 {
   "imports": {
-    "bitmelo": "https://ga.jspm.dev/npm:bitmelo@1.2.0/src/index.js"
+    "bitmelo": "https://ga.jspm.io/npm:bitmelo@1.2.0/src/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vlq": "https://ga.jspm.dev/npm:vlq@1.0.1/dist/vlq.js"
+    "vlq": "https://ga.jspm.io/npm:vlq@1.0.1/dist/vlq.js"
   }
 }

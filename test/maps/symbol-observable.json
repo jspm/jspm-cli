@@ -1,5 +1,5 @@
 {
   "imports": {
-    "symbol-observable": "https://ga.jspm.dev/npm:symbol-observable@1.2.0/lib/index.js"
+    "symbol-observable": "https://ga.jspm.io/npm:symbol-observable@1.2.0/lib/index.js"
   }
 }

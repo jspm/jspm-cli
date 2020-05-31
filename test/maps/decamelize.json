@@ -1,5 +1,5 @@
 {
   "imports": {
-    "decamelize": "https://ga.jspm.dev/npm:decamelize@4.0.0/index.js"
+    "decamelize": "https://ga.jspm.io/npm:decamelize@4.0.0/index.js"
   }
 }

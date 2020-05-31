@@ -1,5 +1,5 @@
 {
   "imports": {
-    "prismjs": "https://ga.jspm.dev/npm:prismjs@1.20.0/prism.js"
+    "prismjs": "https://ga.jspm.io/npm:prismjs@1.20.0/prism.js"
   }
 }

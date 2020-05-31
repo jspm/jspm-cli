@@ -1,5 +1,5 @@
 {
   "imports": {
-    "teamwork": "https://ga.jspm.dev/npm:teamwork@3.2.0/lib/index.js"
+    "teamwork": "https://ga.jspm.io/npm:teamwork@3.2.0/lib/index.js"
   }
 }

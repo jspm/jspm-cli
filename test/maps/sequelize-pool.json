@@ -1,6 +1,6 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "sequelize-pool": "https://ga.jspm.dev/npm:sequelize-pool@5.0.0/lib/index.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "sequelize-pool": "https://ga.jspm.io/npm:sequelize-pool@5.0.0/lib/index.js"
   }
 }

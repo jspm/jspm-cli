@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@mosteast/common_eid": "https://ga.jspm.dev/npm:@mosteast/common_eid@0.1.3/index.js"
+    "@mosteast/common_eid": "https://ga.jspm.io/npm:@mosteast/common_eid@0.1.3/index.js"
   }
 }

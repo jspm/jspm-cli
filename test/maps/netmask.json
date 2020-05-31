@@ -1,5 +1,5 @@
 {
   "imports": {
-    "netmask": "https://ga.jspm.dev/npm:netmask@1.0.6/lib/netmask.js"
+    "netmask": "https://ga.jspm.io/npm:netmask@1.0.6/lib/netmask.js"
   }
 }

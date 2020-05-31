@@ -1,10 +1,10 @@
 {
   "imports": {
-    "chart.js": "https://ga.jspm.dev/npm:chart.js@2.9.3/dist/Chart.js"
+    "chart.js": "https://ga.jspm.io/npm:chart.js@2.9.3/dist/Chart.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:chart.js@2.9.3/": {
-      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
+    "https://ga.jspm.io/npm:chart.js@2.9.3/": {
+      "moment": "https://ga.jspm.io/npm:moment@2.26.0/moment.js"
     }
   }
 }

@@ -1,18 +1,18 @@
 {
   "imports": {
-    "regexpu-core": "https://ga.jspm.dev/npm:regexpu-core@4.7.0/rewrite-pattern.js"
+    "regexpu-core": "https://ga.jspm.io/npm:regexpu-core@4.7.0/rewrite-pattern.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:regexpu-core@4.7.0/": {
-      "regenerate": "https://ga.jspm.dev/npm:regenerate@1.4.0/regenerate.js",
-      "regjsgen": "https://ga.jspm.dev/npm:regjsgen@0.5.2/regjsgen.js",
-      "regjsparser": "https://ga.jspm.dev/npm:regjsparser@0.6.4/parser.js",
-      "unicode-match-property-ecmascript": "https://ga.jspm.dev/npm:unicode-match-property-ecmascript@1.0.4/index.js",
-      "unicode-match-property-value-ecmascript": "https://ga.jspm.dev/npm:unicode-match-property-value-ecmascript@1.2.0/index.js"
+    "https://ga.jspm.io/npm:regexpu-core@4.7.0/": {
+      "regenerate": "https://ga.jspm.io/npm:regenerate@1.4.0/regenerate.js",
+      "regjsgen": "https://ga.jspm.io/npm:regjsgen@0.5.2/regjsgen.js",
+      "regjsparser": "https://ga.jspm.io/npm:regjsparser@0.6.4/parser.js",
+      "unicode-match-property-ecmascript": "https://ga.jspm.io/npm:unicode-match-property-ecmascript@1.0.4/index.js",
+      "unicode-match-property-value-ecmascript": "https://ga.jspm.io/npm:unicode-match-property-value-ecmascript@1.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:unicode-match-property-ecmascript@1.0.4/": {
-      "unicode-canonical-property-names-ecmascript": "https://ga.jspm.dev/npm:unicode-canonical-property-names-ecmascript@1.0.4/index.js",
-      "unicode-property-aliases-ecmascript": "https://ga.jspm.dev/npm:unicode-property-aliases-ecmascript@1.1.0/index.js"
+    "https://ga.jspm.io/npm:unicode-match-property-ecmascript@1.0.4/": {
+      "unicode-canonical-property-names-ecmascript": "https://ga.jspm.io/npm:unicode-canonical-property-names-ecmascript@1.0.4/index.js",
+      "unicode-property-aliases-ecmascript": "https://ga.jspm.io/npm:unicode-property-aliases-ecmascript@1.1.0/index.js"
     }
   }
 }

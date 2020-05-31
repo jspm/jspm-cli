@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.sortby": "https://ga.jspm.dev/npm:lodash.sortby@4.7.0/index.js"
+    "lodash.sortby": "https://ga.jspm.io/npm:lodash.sortby@4.7.0/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "uri-tag": "https://ga.jspm.dev/npm:uri-tag@1.2.3/lib-cjs/uri.cjs"
+    "uri-tag": "https://ga.jspm.io/npm:uri-tag@1.2.3/lib-cjs/uri.cjs"
   }
 }

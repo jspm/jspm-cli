@@ -1,22 +1,22 @@
 {
   "imports": {
-    "string.prototype.trimright": "https://ga.jspm.dev/npm:string.prototype.trimright@2.1.2/index.js"
+    "string.prototype.trimright": "https://ga.jspm.io/npm:string.prototype.trimright@2.1.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
-      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    "https://ga.jspm.io/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.io/npm:object-keys@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:es-abstract@1.17.5/": {
-      "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js",
-      "has-symbols": "https://ga.jspm.dev/npm:has-symbols@1.0.1/index.js"
+    "https://ga.jspm.io/npm:es-abstract@1.17.5/": {
+      "function-bind": "https://ga.jspm.io/npm:function-bind@1.1.1/index.js",
+      "has-symbols": "https://ga.jspm.io/npm:has-symbols@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:string.prototype.trimend@1.0.1/": {
-      "es-abstract/helpers/callBound": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBound.js"
+    "https://ga.jspm.io/npm:string.prototype.trimend@1.0.1/": {
+      "es-abstract/helpers/callBound": "https://ga.jspm.io/npm:es-abstract@1.17.5/helpers/callBound.js"
     },
-    "https://ga.jspm.dev/npm:string.prototype.trimright@2.1.2/": {
-      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js",
-      "es-abstract/helpers/callBind": "https://ga.jspm.dev/npm:es-abstract@1.17.5/helpers/callBind.js",
-      "string.prototype.trimend/implementation": "https://ga.jspm.dev/npm:string.prototype.trimend@1.0.1/implementation.js"
+    "https://ga.jspm.io/npm:string.prototype.trimright@2.1.2/": {
+      "define-properties": "https://ga.jspm.io/npm:define-properties@1.1.3/index.js",
+      "es-abstract/helpers/callBind": "https://ga.jspm.io/npm:es-abstract@1.17.5/helpers/callBind.js",
+      "string.prototype.trimend/implementation": "https://ga.jspm.io/npm:string.prototype.trimend@1.0.1/implementation.js"
     }
   }
 }

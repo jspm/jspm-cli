@@ -1,5 +1,5 @@
 {
   "imports": {
-    "arch": "https://ga.jspm.dev/npm:arch@2.1.2/browser.js"
+    "arch": "https://ga.jspm.io/npm:arch@2.1.2/browser.js"
   }
 }

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "sync-request": "https://ga.jspm.dev/npm:sync-request@6.1.0/lib/browser.js"
+    "sync-request": "https://ga.jspm.io/npm:sync-request@6.1.0/lib/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:sync-request@6.1.0/": {
-      "http-response-object": "https://ga.jspm.dev/npm:http-response-object@3.0.2/lib/index.js",
-      "then-request/lib/handle-qs.js": "https://ga.jspm.dev/npm:then-request@6.0.2/lib/handle-qs.js"
+    "https://ga.jspm.io/npm:sync-request@6.1.0/": {
+      "http-response-object": "https://ga.jspm.io/npm:http-response-object@3.0.2/lib/index.js",
+      "then-request/lib/handle-qs.js": "https://ga.jspm.io/npm:then-request@6.0.2/lib/handle-qs.js"
     },
-    "https://ga.jspm.dev/npm:then-request@6.0.2/": {
-      "qs": "https://ga.jspm.dev/npm:qs@6.9.4/lib/index.js"
+    "https://ga.jspm.io/npm:then-request@6.0.2/": {
+      "qs": "https://ga.jspm.io/npm:qs@6.9.4/lib/index.js"
     }
   }
 }

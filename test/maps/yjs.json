@@ -1,30 +1,30 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "yjs": "https://ga.jspm.dev/npm:yjs@13.0.8/dist/yjs.cjs"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "yjs": "https://ga.jspm.io/npm:yjs@13.0.8/dist/yjs.cjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lib0@0.2.26/": {
-      "isomorphic.js": "https://ga.jspm.dev/npm:isomorphic.js@0.1.3/iso-browser.js"
+    "https://ga.jspm.io/npm:lib0@0.2.26/": {
+      "isomorphic.js": "https://ga.jspm.io/npm:isomorphic.js@0.1.3/iso-browser.js"
     },
-    "https://ga.jspm.dev/npm:yjs@13.0.8/": {
-      "lib0/dist/array.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/array.cjs",
-      "lib0/dist/binary.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/binary.cjs",
-      "lib0/dist/buffer.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/buffer.cjs",
-      "lib0/dist/decoding.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/decoding.cjs",
-      "lib0/dist/encoding.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/encoding.cjs",
-      "lib0/dist/error.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/error.cjs",
-      "lib0/dist/function.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/function.cjs",
-      "lib0/dist/iterator.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/iterator.cjs",
-      "lib0/dist/logging.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/logging.cjs",
-      "lib0/dist/map.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/map.cjs",
-      "lib0/dist/math.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/math.cjs",
-      "lib0/dist/object.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/object.cjs",
-      "lib0/dist/observable.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/observable.cjs",
-      "lib0/dist/random.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/random.cjs",
-      "lib0/dist/set.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/set.cjs",
-      "lib0/dist/time.cjs": "https://ga.jspm.dev/npm:lib0@0.2.26/dist/time.cjs"
+    "https://ga.jspm.io/npm:yjs@13.0.8/": {
+      "lib0/dist/array.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/array.cjs",
+      "lib0/dist/binary.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/binary.cjs",
+      "lib0/dist/buffer.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/buffer.cjs",
+      "lib0/dist/decoding.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/decoding.cjs",
+      "lib0/dist/encoding.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/encoding.cjs",
+      "lib0/dist/error.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/error.cjs",
+      "lib0/dist/function.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/function.cjs",
+      "lib0/dist/iterator.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/iterator.cjs",
+      "lib0/dist/logging.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/logging.cjs",
+      "lib0/dist/map.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/map.cjs",
+      "lib0/dist/math.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/math.cjs",
+      "lib0/dist/object.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/object.cjs",
+      "lib0/dist/observable.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/observable.cjs",
+      "lib0/dist/random.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/random.cjs",
+      "lib0/dist/set.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/set.cjs",
+      "lib0/dist/time.cjs": "https://ga.jspm.io/npm:lib0@0.2.26/dist/time.cjs"
     }
   }
 }

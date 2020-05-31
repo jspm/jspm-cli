@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-natural-number": "https://ga.jspm.dev/npm:is-natural-number@4.0.1/index.js"
+    "is-natural-number": "https://ga.jspm.io/npm:is-natural-number@4.0.1/index.js"
   }
 }

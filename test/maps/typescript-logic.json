@@ -1,5 +1,5 @@
 {
   "imports": {
-    "typescript-logic": "https://ga.jspm.dev/npm:typescript-logic@0.0.0/index.js"
+    "typescript-logic": "https://ga.jspm.io/npm:typescript-logic@0.0.0/index.js"
   }
 }

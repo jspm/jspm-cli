@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@zmartbag.com/frontend-products": "https://ga.jspm.dev/npm:@zmartbag.com/frontend-products@0.3.0/index.js"
+    "@zmartbag.com/frontend-products": "https://ga.jspm.io/npm:@zmartbag.com/frontend-products@0.3.0/index.js"
   }
 }

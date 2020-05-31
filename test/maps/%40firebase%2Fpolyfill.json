@@ -1,27 +1,27 @@
 {
   "imports": {
-    "@firebase/polyfill": "https://ga.jspm.dev/npm:@firebase/polyfill@0.3.36/dist/index.cjs.js"
+    "@firebase/polyfill": "https://ga.jspm.io/npm:@firebase/polyfill@0.3.36/dist/index.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@firebase/polyfill@0.3.36/": {
-      "core-js/features/array/find": "https://ga.jspm.dev/npm:core-js@3.6.5/features/array/find.js",
-      "core-js/features/array/find-index": "https://ga.jspm.dev/npm:core-js@3.6.5/features/array/find-index.js",
-      "core-js/features/array/from": "https://ga.jspm.dev/npm:core-js@3.6.5/features/array/from.js",
-      "core-js/features/array/some": "https://ga.jspm.dev/npm:core-js@3.6.5/features/array/some.js",
-      "core-js/features/map": "https://ga.jspm.dev/npm:core-js@3.6.5/features/map/index.js",
-      "core-js/features/number/is-integer": "https://ga.jspm.dev/npm:core-js@3.6.5/features/number/is-integer.js",
-      "core-js/features/object/assign": "https://ga.jspm.dev/npm:core-js@3.6.5/features/object/assign.js",
-      "core-js/features/object/entries": "https://ga.jspm.dev/npm:core-js@3.6.5/features/object/entries.js",
-      "core-js/features/object/values": "https://ga.jspm.dev/npm:core-js@3.6.5/features/object/values.js",
-      "core-js/features/promise": "https://ga.jspm.dev/npm:core-js@3.6.5/features/promise/index.js",
-      "core-js/features/set": "https://ga.jspm.dev/npm:core-js@3.6.5/features/set/index.js",
-      "core-js/features/string/includes": "https://ga.jspm.dev/npm:core-js@3.6.5/features/string/includes.js",
-      "core-js/features/string/repeat": "https://ga.jspm.dev/npm:core-js@3.6.5/features/string/repeat.js",
-      "core-js/features/string/starts-with": "https://ga.jspm.dev/npm:core-js@3.6.5/features/string/starts-with.js",
-      "core-js/features/symbol": "https://ga.jspm.dev/npm:core-js@3.6.5/features/symbol/index.js",
-      "core-js/features/symbol/iterator": "https://ga.jspm.dev/npm:core-js@3.6.5/features/symbol/iterator.js",
-      "core-js/features/typed-array/iterator": "https://ga.jspm.dev/npm:core-js@3.6.5/features/typed-array/iterator.js",
-      "whatwg-fetch": "https://ga.jspm.dev/npm:whatwg-fetch@2.0.4/fetch.js"
+    "https://ga.jspm.io/npm:@firebase/polyfill@0.3.36/": {
+      "core-js/features/array/find": "https://ga.jspm.io/npm:core-js@3.6.5/features/array/find.js",
+      "core-js/features/array/find-index": "https://ga.jspm.io/npm:core-js@3.6.5/features/array/find-index.js",
+      "core-js/features/array/from": "https://ga.jspm.io/npm:core-js@3.6.5/features/array/from.js",
+      "core-js/features/array/some": "https://ga.jspm.io/npm:core-js@3.6.5/features/array/some.js",
+      "core-js/features/map": "https://ga.jspm.io/npm:core-js@3.6.5/features/map/index.js",
+      "core-js/features/number/is-integer": "https://ga.jspm.io/npm:core-js@3.6.5/features/number/is-integer.js",
+      "core-js/features/object/assign": "https://ga.jspm.io/npm:core-js@3.6.5/features/object/assign.js",
+      "core-js/features/object/entries": "https://ga.jspm.io/npm:core-js@3.6.5/features/object/entries.js",
+      "core-js/features/object/values": "https://ga.jspm.io/npm:core-js@3.6.5/features/object/values.js",
+      "core-js/features/promise": "https://ga.jspm.io/npm:core-js@3.6.5/features/promise/index.js",
+      "core-js/features/set": "https://ga.jspm.io/npm:core-js@3.6.5/features/set/index.js",
+      "core-js/features/string/includes": "https://ga.jspm.io/npm:core-js@3.6.5/features/string/includes.js",
+      "core-js/features/string/repeat": "https://ga.jspm.io/npm:core-js@3.6.5/features/string/repeat.js",
+      "core-js/features/string/starts-with": "https://ga.jspm.io/npm:core-js@3.6.5/features/string/starts-with.js",
+      "core-js/features/symbol": "https://ga.jspm.io/npm:core-js@3.6.5/features/symbol/index.js",
+      "core-js/features/symbol/iterator": "https://ga.jspm.io/npm:core-js@3.6.5/features/symbol/iterator.js",
+      "core-js/features/typed-array/iterator": "https://ga.jspm.io/npm:core-js@3.6.5/features/typed-array/iterator.js",
+      "whatwg-fetch": "https://ga.jspm.io/npm:whatwg-fetch@2.0.4/fetch.js"
     }
   }
 }

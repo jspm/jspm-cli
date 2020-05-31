@@ -1,5 +1,5 @@
 {
   "imports": {
-    "compare-versions": "https://ga.jspm.dev/npm:compare-versions@3.6.0/index.js"
+    "compare-versions": "https://ga.jspm.io/npm:compare-versions@3.6.0/index.js"
   }
 }

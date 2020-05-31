@@ -1,11 +1,11 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "string_decoder": "https://ga.jspm.io/npm:string_decoder@1.3.0/lib/string_decoder.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:string_decoder@1.3.0/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     }
   }
 }

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "polished": "https://ga.jspm.dev/npm:polished@3.6.4/dist/polished.cjs.js"
+    "polished": "https://ga.jspm.io/npm:polished@3.6.4/dist/polished.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:polished@3.6.4/": {
-      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
-      "@babel/runtime/helpers/taggedTemplateLiteralLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/taggedTemplateLiteralLoose.js",
-      "@babel/runtime/helpers/wrapNativeSuper": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/wrapNativeSuper.js"
+    "https://ga.jspm.io/npm:polished@3.6.4/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/inheritsLoose.js",
+      "@babel/runtime/helpers/taggedTemplateLiteralLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/taggedTemplateLiteralLoose.js",
+      "@babel/runtime/helpers/wrapNativeSuper": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/wrapNativeSuper.js"
     }
   }
 }

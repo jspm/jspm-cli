@@ -1,25 +1,25 @@
 {
   "imports": {
-    "colorspace": "https://ga.jspm.dev/npm:colorspace@1.1.2/index.js"
+    "colorspace": "https://ga.jspm.io/npm:colorspace@1.1.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    "https://ga.jspm.io/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.3/index.js"
     },
-    "https://ga.jspm.dev/npm:color-string@1.5.3/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js",
-      "simple-swizzle": "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/index.js"
+    "https://ga.jspm.io/npm:color-string@1.5.3/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js",
+      "simple-swizzle": "https://ga.jspm.io/npm:simple-swizzle@0.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:color@3.0.0/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
-      "color-string": "https://ga.jspm.dev/npm:color-string@1.5.3/index.js"
+    "https://ga.jspm.io/npm:color@3.0.0/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.io/npm:color-string@1.5.3/index.js"
     },
-    "https://ga.jspm.dev/npm:colorspace@1.1.2/": {
-      "color": "https://ga.jspm.dev/npm:color@3.0.0/index.js",
-      "text-hex": "https://ga.jspm.dev/npm:text-hex@1.0.0/index.js"
+    "https://ga.jspm.io/npm:colorspace@1.1.2/": {
+      "color": "https://ga.jspm.io/npm:color@3.0.0/index.js",
+      "text-hex": "https://ga.jspm.io/npm:text-hex@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/": {
-      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.3.2/index.js"
+    "https://ga.jspm.io/npm:simple-swizzle@0.2.2/": {
+      "is-arrayish": "https://ga.jspm.io/npm:is-arrayish@0.3.2/index.js"
     }
   }
 }

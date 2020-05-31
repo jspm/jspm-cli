@@ -1,5 +1,5 @@
 {
   "imports": {
-    "rfdc": "https://ga.jspm.dev/npm:rfdc@1.1.4/index.js"
+    "rfdc": "https://ga.jspm.io/npm:rfdc@1.1.4/index.js"
   }
 }

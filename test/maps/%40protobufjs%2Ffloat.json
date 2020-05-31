@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@protobufjs/float": "https://ga.jspm.dev/npm:@protobufjs/float@1.0.2/index.js"
+    "@protobufjs/float": "https://ga.jspm.io/npm:@protobufjs/float@1.0.2/index.js"
   }
 }

@@ -1,15 +1,15 @@
 {
   "imports": {
-    "is-color-stop": "https://ga.jspm.dev/npm:is-color-stop@1.1.0/index.js"
+    "is-color-stop": "https://ga.jspm.io/npm:is-color-stop@1.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:is-color-stop@1.1.0/": {
-      "css-color-names": "https://ga.jspm.dev/npm:css-color-names@0.0.4/css-color-names.json.js",
-      "hex-color-regex": "https://ga.jspm.dev/npm:hex-color-regex@1.1.0/index.js",
-      "hsl-regex": "https://ga.jspm.dev/npm:hsl-regex@1.0.0/index.js",
-      "hsla-regex": "https://ga.jspm.dev/npm:hsla-regex@1.0.0/index.js",
-      "rgb-regex": "https://ga.jspm.dev/npm:rgb-regex@1.0.1/index.js",
-      "rgba-regex": "https://ga.jspm.dev/npm:rgba-regex@1.0.0/index.js"
+    "https://ga.jspm.io/npm:is-color-stop@1.1.0/": {
+      "css-color-names": "https://ga.jspm.io/npm:css-color-names@0.0.4/css-color-names.json.js",
+      "hex-color-regex": "https://ga.jspm.io/npm:hex-color-regex@1.1.0/index.js",
+      "hsl-regex": "https://ga.jspm.io/npm:hsl-regex@1.0.0/index.js",
+      "hsla-regex": "https://ga.jspm.io/npm:hsla-regex@1.0.0/index.js",
+      "rgb-regex": "https://ga.jspm.io/npm:rgb-regex@1.0.1/index.js",
+      "rgba-regex": "https://ga.jspm.io/npm:rgba-regex@1.0.0/index.js"
     }
   }
 }

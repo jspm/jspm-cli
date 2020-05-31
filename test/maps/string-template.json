@@ -1,5 +1,5 @@
 {
   "imports": {
-    "string-template": "https://ga.jspm.dev/npm:string-template@1.0.0/index.js"
+    "string-template": "https://ga.jspm.io/npm:string-template@1.0.0/index.js"
   }
 }

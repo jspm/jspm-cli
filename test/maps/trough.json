@@ -1,5 +1,5 @@
 {
   "imports": {
-    "trough": "https://ga.jspm.dev/npm:trough@1.0.5/index.js"
+    "trough": "https://ga.jspm.io/npm:trough@1.0.5/index.js"
   }
 }

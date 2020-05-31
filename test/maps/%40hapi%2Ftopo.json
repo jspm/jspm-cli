@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@hapi/topo": "https://ga.jspm.dev/npm:@hapi/topo@5.0.0/lib/index.js"
+    "@hapi/topo": "https://ga.jspm.io/npm:@hapi/topo@5.0.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@hapi/topo@5.0.0/": {
-      "@hapi/hoek/lib/assert": "https://ga.jspm.dev/npm:@hapi/hoek@9.0.4/lib/assert.js"
+    "https://ga.jspm.io/npm:@hapi/topo@5.0.0/": {
+      "@hapi/hoek/lib/assert": "https://ga.jspm.io/npm:@hapi/hoek@9.0.4/lib/assert.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@hugojosefson/example-cli": "https://ga.jspm.dev/npm:@hugojosefson/example-cli@3.0.1/src/api.mjs"
+    "@hugojosefson/example-cli": "https://ga.jspm.io/npm:@hugojosefson/example-cli@3.0.1/src/api.mjs"
   }
 }

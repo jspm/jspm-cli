@@ -1,5 +1,5 @@
 {
   "imports": {
-    "aproba": "https://ga.jspm.dev/npm:aproba@2.0.0/index.js"
+    "aproba": "https://ga.jspm.io/npm:aproba@2.0.0/index.js"
   }
 }

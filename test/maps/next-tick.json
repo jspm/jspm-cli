@@ -1,6 +1,6 @@
 {
   "imports": {
-    "next-tick": "https://ga.jspm.dev/npm:next-tick@1.1.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "next-tick": "https://ga.jspm.io/npm:next-tick@1.1.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

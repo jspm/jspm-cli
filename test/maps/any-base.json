@@ -1,5 +1,5 @@
 {
   "imports": {
-    "any-base": "https://ga.jspm.dev/npm:any-base@1.1.0/index.js"
+    "any-base": "https://ga.jspm.io/npm:any-base@1.1.0/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:process@0.11.10/browser.js"
+    "process": "https://ga.jspm.io/npm:process@0.11.10/browser.js"
   }
 }

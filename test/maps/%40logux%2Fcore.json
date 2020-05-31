@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@logux/core": "https://ga.jspm.dev/npm:@logux/core@0.5.3/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js"
+    "@logux/core": "https://ga.jspm.io/npm:@logux/core@0.5.3/index.js",
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@logux/core@0.5.3/": {
-      "nanoevents": "https://ga.jspm.dev/npm:nanoevents@5.1.7/index.js"
+    "https://ga.jspm.io/npm:@logux/core@0.5.3/": {
+      "nanoevents": "https://ga.jspm.io/npm:nanoevents@5.1.7/index.js"
     }
   }
 }

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@alfonz/random": "https://ga.jspm.dev/npm:@alfonz/random@0.0.2/lib/index.js"
-  }
-}

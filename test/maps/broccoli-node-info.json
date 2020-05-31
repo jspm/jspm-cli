@@ -1,5 +1,5 @@
 {
   "imports": {
-    "broccoli-node-info": "https://ga.jspm.dev/npm:broccoli-node-info@2.1.0/index.js"
+    "broccoli-node-info": "https://ga.jspm.io/npm:broccoli-node-info@2.1.0/index.js"
   }
 }

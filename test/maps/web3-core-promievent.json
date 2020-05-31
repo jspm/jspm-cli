@@ -1,10 +1,10 @@
 {
   "imports": {
-    "web3-core-promievent": "https://ga.jspm.dev/npm:web3-core-promievent@1.2.8/src/index.js"
+    "web3-core-promievent": "https://ga.jspm.io/npm:web3-core-promievent@1.2.8/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:web3-core-promievent@1.2.8/": {
-      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@3.1.2/index.js"
+    "https://ga.jspm.io/npm:web3-core-promievent@1.2.8/": {
+      "eventemitter3": "https://ga.jspm.io/npm:eventemitter3@3.1.2/index.js"
     }
   }
 }

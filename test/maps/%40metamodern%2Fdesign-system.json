@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@metamodern/design-system": "https://ga.jspm.dev/npm:@metamodern/design-system@1.1.1/dist/esm.js"
+    "@metamodern/design-system": "https://ga.jspm.io/npm:@metamodern/design-system@1.1.1/dist/esm.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@metamodern/color-system@1.0.0/": {
-      "@arr/flatten": "https://ga.jspm.dev/npm:@arr/flatten@1.0.1/index.js",
-      "@arr/foreach": "https://ga.jspm.dev/npm:@arr/foreach@1.0.1/index.js",
-      "@arr/reduce": "https://ga.jspm.dev/npm:@arr/reduce@1.0.1/index.js"
+    "https://ga.jspm.io/npm:@metamodern/color-system@1.0.0/": {
+      "@arr/flatten": "https://ga.jspm.io/npm:@arr/flatten@1.0.1/index.js",
+      "@arr/foreach": "https://ga.jspm.io/npm:@arr/foreach@1.0.1/index.js",
+      "@arr/reduce": "https://ga.jspm.io/npm:@arr/reduce@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:@metamodern/design-system@1.1.1/": {
-      "@arr/reduce": "https://ga.jspm.dev/npm:@arr/reduce@1.0.1/index.js",
-      "@metamodern/color-system": "https://ga.jspm.dev/npm:@metamodern/color-system@1.0.0/dist/esm.js"
+    "https://ga.jspm.io/npm:@metamodern/design-system@1.1.1/": {
+      "@arr/reduce": "https://ga.jspm.io/npm:@arr/reduce@1.0.1/index.js",
+      "@metamodern/color-system": "https://ga.jspm.io/npm:@metamodern/color-system@1.0.0/dist/esm.js"
     }
   }
 }

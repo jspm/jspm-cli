@@ -1,12 +1,13 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "grouped-queue": "https://ga.jspm.dev/npm:grouped-queue@1.1.0/lib/queue.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "grouped-queue": "https://ga.jspm.io/npm:grouped-queue@1.1.0/lib/queue.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:grouped-queue@1.1.0/": {
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    "https://ga.jspm.io/npm:grouped-queue@1.1.0/": {
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
     }
   }
 }

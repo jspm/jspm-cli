@@ -1,15 +1,15 @@
 {
   "imports": {
-    "simple-jseventbus": "https://ga.jspm.dev/npm:simple-jseventbus@1.0.3/dist/index.js"
+    "simple-jseventbus": "https://ga.jspm.io/npm:simple-jseventbus@1.0.3/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:simple-jseventbus@1.0.3/": {
-      "uuid": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/index.js"
+    "https://ga.jspm.io/npm:simple-jseventbus@1.0.3/": {
+      "uuid": "https://ga.jspm.io/npm:uuid@7.0.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:uuid@7.0.3/": {
-      "uuid/dist/md5.js": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/md5-browser.js",
-      "uuid/dist/rng.js": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/rng-browser.js",
-      "uuid/dist/sha1.js": "https://ga.jspm.dev/npm:uuid@7.0.3/dist/sha1-browser.js"
+    "https://ga.jspm.io/npm:uuid@7.0.3/": {
+      "uuid/dist/md5.js": "https://ga.jspm.io/npm:uuid@7.0.3/dist/md5-browser.js",
+      "uuid/dist/rng.js": "https://ga.jspm.io/npm:uuid@7.0.3/dist/rng-browser.js",
+      "uuid/dist/sha1.js": "https://ga.jspm.io/npm:uuid@7.0.3/dist/sha1-browser.js"
     }
   }
 }

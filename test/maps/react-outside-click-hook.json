@@ -1,14 +1,14 @@
 {
   "imports": {
-    "react-outside-click-hook": "https://ga.jspm.dev/npm:react-outside-click-hook@1.2.0/dist/index.js"
+    "react-outside-click-hook": "https://ga.jspm.io/npm:react-outside-click-hook@1.2.0/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-outside-click-hook@1.2.0/": {
-      "lodash.iselement": "https://ga.jspm.dev/npm:lodash.iselement@4.1.1/index.js",
-      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "https://ga.jspm.io/npm:react-outside-click-hook@1.2.0/": {
+      "lodash.iselement": "https://ga.jspm.io/npm:lodash.iselement@4.1.1/index.js",
+      "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

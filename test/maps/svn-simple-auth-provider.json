@@ -1,13 +1,13 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "svn-simple-auth-provider": "https://ga.jspm.dev/npm:svn-simple-auth-provider@1.1.4/src/svn-simple-auth-provider.mjs"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "svn-simple-auth-provider": "https://ga.jspm.io/npm:svn-simple-auth-provider@1.1.4/src/svn-simple-auth-provider.mjs"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:svn-simple-auth-provider@1.1.4/": {
-      "kv-reader": "https://ga.jspm.dev/npm:kv-reader@3.0.3/src/reader.mjs"
+    "https://ga.jspm.io/npm:svn-simple-auth-provider@1.1.4/": {
+      "kv-reader": "https://ga.jspm.io/npm:kv-reader@3.0.3/src/reader.mjs"
     }
   }
 }

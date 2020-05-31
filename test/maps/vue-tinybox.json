@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vue-tinybox": "https://ga.jspm.dev/npm:vue-tinybox@1.1.0/dist/tinybox.esm.js"
+    "vue-tinybox": "https://ga.jspm.io/npm:vue-tinybox@1.1.0/dist/tinybox.esm.js"
   }
 }

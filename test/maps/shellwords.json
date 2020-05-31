@@ -1,5 +1,5 @@
 {
   "imports": {
-    "shellwords": "https://ga.jspm.dev/npm:shellwords@0.1.1/lib/shellwords.js"
+    "shellwords": "https://ga.jspm.io/npm:shellwords@0.1.1/lib/shellwords.js"
   }
 }

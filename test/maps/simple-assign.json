@@ -1,5 +1,5 @@
 {
   "imports": {
-    "simple-assign": "https://ga.jspm.dev/npm:simple-assign@0.1.0/index.js"
+    "simple-assign": "https://ga.jspm.io/npm:simple-assign@0.1.0/index.js"
   }
 }

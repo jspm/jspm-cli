@@ -1,5 +1,5 @@
 {
   "imports": {
-    "abbrev": "https://ga.jspm.dev/npm:abbrev@1.1.1/abbrev.js"
+    "abbrev": "https://ga.jspm.io/npm:abbrev@1.1.1/abbrev.js"
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "cellx-decorators": "https://ga.jspm.dev/npm:cellx-decorators@1.6.2/dist/index.js"
+    "cellx-decorators": "https://ga.jspm.io/npm:cellx-decorators@1.6.2/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cellx-decorators@1.6.2/": {
-      "cellx": "https://ga.jspm.dev/npm:cellx@1.10.5/dist/cellx.js"
+    "https://ga.jspm.io/npm:cellx-decorators@1.6.2/": {
+      "cellx": "https://ga.jspm.io/npm:cellx@1.10.5/dist/cellx.js"
     },
-    "https://ga.jspm.dev/npm:cellx@1.10.5/": {
-      "@riim/next-tick": "https://ga.jspm.dev/npm:@riim/next-tick@1.2.4/dist/index.js"
+    "https://ga.jspm.io/npm:cellx@1.10.5/": {
+      "@riim/next-tick": "https://ga.jspm.io/npm:@riim/next-tick@1.2.4/dist/index.js"
     }
   }
 }

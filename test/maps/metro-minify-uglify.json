@@ -1,14 +1,14 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "metro-minify-uglify": "https://ga.jspm.dev/npm:metro-minify-uglify@0.59.0/src/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "metro-minify-uglify": "https://ga.jspm.io/npm:metro-minify-uglify@0.59.0/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:metro-minify-uglify@0.59.0/": {
-      "uglify-es": "https://ga.jspm.dev/npm:uglify-es@3.3.10/tools/node.js"
+    "https://ga.jspm.io/npm:metro-minify-uglify@0.59.0/": {
+      "uglify-es": "https://ga.jspm.io/npm:uglify-es@3.3.10/tools/node.js"
     },
-    "https://ga.jspm.dev/npm:uglify-es@3.3.10/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:uglify-es@3.3.10/": {
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     }
   }
 }

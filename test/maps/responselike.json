@@ -1,12 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "responselike": "https://ga.jspm.dev/npm:responselike@2.0.0/src/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "responselike": "https://ga.jspm.io/npm:responselike@2.0.0/src/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:responselike@2.0.0/": {
-      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js"
+    "https://ga.jspm.io/npm:responselike@2.0.0/": {
+      "lowercase-keys": "https://ga.jspm.io/npm:lowercase-keys@2.0.0/index.js"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "semver-truncate": "https://ga.jspm.dev/npm:semver-truncate@2.0.0/index.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "semver-truncate": "https://ga.jspm.io/npm:semver-truncate@2.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:semver-truncate@2.0.0/": {
-      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
+    "https://ga.jspm.io/npm:semver-truncate@2.0.0/": {
+      "semver": "https://ga.jspm.io/npm:semver@6.3.0/semver.js"
     }
   }
 }

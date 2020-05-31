@@ -1,21 +1,21 @@
 {
   "imports": {
-    "cron-parser": "https://ga.jspm.dev/npm:cron-parser@2.15.0/lib/parser.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
+    "cron-parser": "https://ga.jspm.io/npm:cron-parser@2.15.0/lib/parser.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cron-parser@2.15.0/": {
-      "is-nan": "https://ga.jspm.dev/npm:is-nan@1.3.0/index.js",
-      "moment-timezone": "https://ga.jspm.dev/npm:moment-timezone@0.5.31/index.js"
+    "https://ga.jspm.io/npm:cron-parser@2.15.0/": {
+      "is-nan": "https://ga.jspm.io/npm:is-nan@1.3.0/index.js",
+      "moment-timezone": "https://ga.jspm.io/npm:moment-timezone@0.5.31/index.js"
     },
-    "https://ga.jspm.dev/npm:define-properties@1.1.3/": {
-      "object-keys": "https://ga.jspm.dev/npm:object-keys@1.1.1/index.js"
+    "https://ga.jspm.io/npm:define-properties@1.1.3/": {
+      "object-keys": "https://ga.jspm.io/npm:object-keys@1.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:is-nan@1.3.0/": {
-      "define-properties": "https://ga.jspm.dev/npm:define-properties@1.1.3/index.js"
+    "https://ga.jspm.io/npm:is-nan@1.3.0/": {
+      "define-properties": "https://ga.jspm.io/npm:define-properties@1.1.3/index.js"
     },
-    "https://ga.jspm.dev/npm:moment-timezone@0.5.31/": {
-      "moment": "https://ga.jspm.dev/npm:moment@2.26.0/moment.js"
+    "https://ga.jspm.io/npm:moment-timezone@0.5.31/": {
+      "moment": "https://ga.jspm.io/npm:moment@2.26.0/moment.js"
     }
   }
 }

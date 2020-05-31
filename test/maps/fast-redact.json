@@ -1,6 +1,6 @@
 {
   "imports": {
-    "fast-redact": "https://ga.jspm.dev/npm:fast-redact@2.0.0/index.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
+    "fast-redact": "https://ga.jspm.io/npm:fast-redact@2.0.0/index.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   }
 }

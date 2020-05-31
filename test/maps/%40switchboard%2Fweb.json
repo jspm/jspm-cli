@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@switchboard/web": "https://ga.jspm.dev/npm:@switchboard/web@0.0.12/index.js"
+    "@switchboard/web": "https://ga.jspm.io/npm:@switchboard/web@0.0.12/index.js"
   }
 }

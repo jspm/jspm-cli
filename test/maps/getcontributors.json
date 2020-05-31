@@ -1,18 +1,18 @@
 {
   "imports": {
-    "getcontributors": "https://ga.jspm.dev/npm:getcontributors@2.11.0/edition-browsers/index.js"
+    "getcontributors": "https://ga.jspm.io/npm:getcontributors@2.11.0/edition-browsers/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:getcontributors@2.11.0/": {
-      "cross-fetch": "https://ga.jspm.dev/npm:cross-fetch@3.0.4/dist/browser-ponyfill.js",
-      "fellow": "https://ga.jspm.dev/npm:fellow@6.9.0/edition-browsers/index.js",
-      "getrepos": "https://ga.jspm.dev/npm:getrepos@5.5.0/edition-browsers/index.js",
-      "githubauthreq": "https://ga.jspm.dev/npm:githubauthreq@5.6.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:getcontributors@2.11.0/": {
+      "cross-fetch": "https://ga.jspm.io/npm:cross-fetch@3.0.4/dist/browser-ponyfill.js",
+      "fellow": "https://ga.jspm.io/npm:fellow@6.9.0/edition-browsers/index.js",
+      "getrepos": "https://ga.jspm.io/npm:getrepos@5.5.0/edition-browsers/index.js",
+      "githubauthreq": "https://ga.jspm.io/npm:githubauthreq@5.6.0/edition-browsers/index.js"
     },
-    "https://ga.jspm.dev/npm:getrepos@5.5.0/": {
-      "cross-fetch": "https://ga.jspm.dev/npm:cross-fetch@3.0.4/dist/browser-ponyfill.js",
-      "githubauthreq": "https://ga.jspm.dev/npm:githubauthreq@5.6.0/edition-browsers/index.js",
-      "native-promise-pool": "https://ga.jspm.dev/npm:native-promise-pool@3.5.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:getrepos@5.5.0/": {
+      "cross-fetch": "https://ga.jspm.io/npm:cross-fetch@3.0.4/dist/browser-ponyfill.js",
+      "githubauthreq": "https://ga.jspm.io/npm:githubauthreq@5.6.0/edition-browsers/index.js",
+      "native-promise-pool": "https://ga.jspm.io/npm:native-promise-pool@3.5.0/edition-browsers/index.js"
     }
   }
 }

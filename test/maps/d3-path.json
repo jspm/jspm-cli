@@ -1,5 +1,5 @@
 {
   "imports": {
-    "d3-path": "https://ga.jspm.dev/npm:d3-path@1.0.9/dist/d3-path.js"
+    "d3-path": "https://ga.jspm.io/npm:d3-path@1.0.9/dist/d3-path.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "p-retry": "https://ga.jspm.dev/npm:p-retry@4.2.0/index.js"
+    "p-retry": "https://ga.jspm.io/npm:p-retry@4.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:p-retry@4.2.0/": {
-      "retry": "https://ga.jspm.dev/npm:retry@0.12.0/index.js"
+    "https://ga.jspm.io/npm:p-retry@4.2.0/": {
+      "retry": "https://ga.jspm.io/npm:retry@0.12.0/index.js"
     }
   }
 }

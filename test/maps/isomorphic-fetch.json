@@ -1,10 +1,10 @@
 {
   "imports": {
-    "isomorphic-fetch": "https://ga.jspm.dev/npm:isomorphic-fetch@2.2.1/fetch-npm-browserify.js"
+    "isomorphic-fetch": "https://ga.jspm.io/npm:isomorphic-fetch@2.2.1/fetch-npm-browserify.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:isomorphic-fetch@2.2.1/": {
-      "whatwg-fetch": "https://ga.jspm.dev/npm:whatwg-fetch@3.0.0/dist/fetch.umd.js"
+    "https://ga.jspm.io/npm:isomorphic-fetch@2.2.1/": {
+      "whatwg-fetch": "https://ga.jspm.io/npm:whatwg-fetch@3.0.0/dist/fetch.umd.js"
     }
   }
 }

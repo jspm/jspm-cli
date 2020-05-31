@@ -1,5 +1,5 @@
 {
   "imports": {
-    "angular": "https://ga.jspm.dev/npm:angular@1.7.9/index.js"
+    "angular": "https://ga.jspm.io/npm:angular@1.7.9/index.js"
   }
 }

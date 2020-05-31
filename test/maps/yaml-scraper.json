@@ -1,5 +1,5 @@
 {
   "imports": {
-    "yaml-scraper": "https://ga.jspm.dev/npm:yaml-scraper@0.1.3/index.js"
+    "yaml-scraper": "https://ga.jspm.io/npm:yaml-scraper@0.1.3/index.js"
   }
 }

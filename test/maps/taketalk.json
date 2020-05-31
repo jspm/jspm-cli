@@ -1,13 +1,13 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "taketalk": "https://ga.jspm.dev/npm:taketalk@1.0.0/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "taketalk": "https://ga.jspm.io/npm:taketalk@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:taketalk@1.0.0/": {
-      "get-stdin": "https://ga.jspm.dev/npm:get-stdin@4.0.1/index.js",
-      "minimist": "https://ga.jspm.dev/npm:minimist@1.2.5/index.js"
+    "https://ga.jspm.io/npm:taketalk@1.0.0/": {
+      "get-stdin": "https://ga.jspm.io/npm:get-stdin@4.0.1/index.js",
+      "minimist": "https://ga.jspm.io/npm:minimist@1.2.5/index.js"
     }
   }
 }

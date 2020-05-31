@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@svgr/babel-plugin-svg-dynamic-title": "https://ga.jspm.dev/npm:@svgr/babel-plugin-svg-dynamic-title@5.4.0/lib/index.js"
+    "@svgr/babel-plugin-svg-dynamic-title": "https://ga.jspm.io/npm:@svgr/babel-plugin-svg-dynamic-title@5.4.0/lib/index.js"
   }
 }

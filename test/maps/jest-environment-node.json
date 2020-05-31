@@ -1,98 +1,98 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "jest-environment-node": "https://ga.jspm.dev/npm:jest-environment-node@26.0.1/build/index.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "constants": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "jest-environment-node": "https://ga.jspm.io/npm:jest-environment-node@26.0.1/build/index.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/": {
-      "@babel/highlight": "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/lib/index.js"
+    "https://ga.jspm.io/npm:@babel/code-frame@7.10.1/": {
+      "@babel/highlight": "https://ga.jspm.io/npm:@babel/highlight@7.10.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/highlight@7.10.1/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
-      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
+    "https://ga.jspm.io/npm:@babel/highlight@7.10.1/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.io/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
+      "chalk": "https://ga.jspm.io/npm:chalk@2.4.2/index.js",
+      "js-tokens": "https://ga.jspm.io/npm:js-tokens@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@jest/fake-timers@26.0.1/": {
-      "@sinonjs/fake-timers": "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/src/fake-timers-src.js",
-      "jest-message-util": "https://ga.jspm.dev/npm:jest-message-util@26.0.1/build/index.js",
-      "jest-util": "https://ga.jspm.dev/npm:jest-util@26.0.1/build/index.js"
+    "https://ga.jspm.io/npm:@jest/fake-timers@26.0.1/": {
+      "@sinonjs/fake-timers": "https://ga.jspm.io/npm:@sinonjs/fake-timers@6.0.1/src/fake-timers-src.js",
+      "jest-message-util": "https://ga.jspm.io/npm:jest-message-util@26.0.1/build/index.js",
+      "jest-util": "https://ga.jspm.io/npm:jest-util@26.0.1/build/index.js"
     },
-    "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/": {
-      "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
+    "https://ga.jspm.io/npm:@sinonjs/commons@1.8.0/": {
+      "type-detect": "https://ga.jspm.io/npm:type-detect@4.0.8/type-detect.js"
     },
-    "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js"
+    "https://ga.jspm.io/npm:@sinonjs/fake-timers@6.0.1/": {
+      "@sinonjs/commons": "https://ga.jspm.io/npm:@sinonjs/commons@1.8.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js"
     },
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:braces@3.0.2/": {
-      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    "https://ga.jspm.io/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.io/npm:fill-range@7.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.io/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@5.5.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:chalk@4.0.0/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@7.1.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@4.0.0/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@7.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    "https://ga.jspm.io/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.3/index.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
-      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    "https://ga.jspm.io/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.io/npm:to-regex-range@5.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:is-ci@2.0.0/": {
-      "ci-info": "https://ga.jspm.dev/npm:ci-info@2.0.0/index.js"
+    "https://ga.jspm.io/npm:is-ci@2.0.0/": {
+      "ci-info": "https://ga.jspm.io/npm:ci-info@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-environment-node@26.0.1/": {
-      "@jest/fake-timers": "https://ga.jspm.dev/npm:@jest/fake-timers@26.0.1/build/index.js",
-      "jest-mock": "https://ga.jspm.dev/npm:jest-mock@26.0.1/build/index.js",
-      "jest-util": "https://ga.jspm.dev/npm:jest-util@26.0.1/build/index.js"
+    "https://ga.jspm.io/npm:jest-environment-node@26.0.1/": {
+      "@jest/fake-timers": "https://ga.jspm.io/npm:@jest/fake-timers@26.0.1/build/index.js",
+      "jest-mock": "https://ga.jspm.io/npm:jest-mock@26.0.1/build/index.js",
+      "jest-util": "https://ga.jspm.io/npm:jest-util@26.0.1/build/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-message-util@26.0.1/": {
-      "@babel/code-frame": "https://ga.jspm.dev/npm:@babel/code-frame@7.10.1/lib/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-      "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
-      "slash": "https://ga.jspm.dev/npm:slash@3.0.0/index.js",
-      "stack-utils": "https://ga.jspm.dev/npm:stack-utils@2.0.2/index.js"
+    "https://ga.jspm.io/npm:jest-message-util@26.0.1/": {
+      "@babel/code-frame": "https://ga.jspm.io/npm:@babel/code-frame@7.10.1/lib/index.js",
+      "chalk": "https://ga.jspm.io/npm:chalk@4.0.0/source/index.js",
+      "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "micromatch": "https://ga.jspm.io/npm:micromatch@4.0.2/index.js",
+      "slash": "https://ga.jspm.io/npm:slash@3.0.0/index.js",
+      "stack-utils": "https://ga.jspm.io/npm:stack-utils@2.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-util@26.0.1/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@4.0.0/source/index.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-      "is-ci": "https://ga.jspm.dev/npm:is-ci@2.0.0/index.js",
-      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.1.0/index.js"
+    "https://ga.jspm.io/npm:jest-util@26.0.1/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@4.0.0/source/index.js",
+      "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "is-ci": "https://ga.jspm.io/npm:is-ci@2.0.0/index.js",
+      "make-dir": "https://ga.jspm.io/npm:make-dir@3.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:make-dir@3.1.0/": {
-      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
+    "https://ga.jspm.io/npm:make-dir@3.1.0/": {
+      "semver": "https://ga.jspm.io/npm:semver@6.3.0/semver.js"
     },
-    "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
-      "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
-      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
+    "https://ga.jspm.io/npm:micromatch@4.0.2/": {
+      "braces": "https://ga.jspm.io/npm:braces@3.0.2/index.js",
+      "picomatch": "https://ga.jspm.io/npm:picomatch@2.2.2/index.js",
+      "picomatch/lib/utils": "https://ga.jspm.io/npm:picomatch@2.2.2/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:stack-utils@2.0.2/": {
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@2.0.0/index.js"
+    "https://ga.jspm.io/npm:stack-utils@2.0.2/": {
+      "escape-string-regexp": "https://ga.jspm.io/npm:escape-string-regexp@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
-      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    "https://ga.jspm.io/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.io/npm:is-number@7.0.0/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "frameguard": "https://ga.jspm.dev/npm:frameguard@3.1.0/dist/index.js"
+    "frameguard": "https://ga.jspm.io/npm:frameguard@3.1.0/dist/index.js"
   }
 }

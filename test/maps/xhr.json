@@ -1,13 +1,13 @@
 {
   "imports": {
-    "xhr": "https://ga.jspm.dev/npm:xhr@2.5.0/index.js"
+    "xhr": "https://ga.jspm.io/npm:xhr@2.5.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:xhr@2.5.0/": {
-      "global/window": "https://ga.jspm.dev/npm:global@4.3.2/window.js",
-      "is-function": "https://ga.jspm.dev/npm:is-function@1.0.2/index.js",
-      "parse-headers": "https://ga.jspm.dev/npm:parse-headers@2.0.3/parse-headers.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:xhr@2.5.0/": {
+      "global/window": "https://ga.jspm.io/npm:global@4.3.2/window.js",
+      "is-function": "https://ga.jspm.io/npm:is-function@1.0.2/index.js",
+      "parse-headers": "https://ga.jspm.io/npm:parse-headers@2.0.3/parse-headers.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "normalize-selector": "https://ga.jspm.dev/npm:normalize-selector@0.2.0/lib/normalize-selector.js"
+    "normalize-selector": "https://ga.jspm.io/npm:normalize-selector@0.2.0/lib/normalize-selector.js"
   }
 }

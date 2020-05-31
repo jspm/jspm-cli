@@ -1,24 +1,24 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "https-proxy-agent": "https://ga.jspm.dev/npm:https-proxy-agent@5.0.0/dist/index.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "https-proxy-agent": "https://ga.jspm.io/npm:https-proxy-agent@5.0.0/dist/index.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:agent-base@6.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:agent-base@6.0.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.2.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:https-proxy-agent@5.0.0/": {
-      "agent-base": "https://ga.jspm.dev/npm:agent-base@6.0.0/dist/src/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:https-proxy-agent@5.0.0/": {
+      "agent-base": "https://ga.jspm.io/npm:agent-base@6.0.0/dist/src/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     }
   }
 }

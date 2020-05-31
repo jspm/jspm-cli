@@ -1,11 +1,11 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "terser": "https://ga.jspm.dev/npm:terser@4.7.0/dist/bundle.min.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "terser": "https://ga.jspm.io/npm:terser@4.7.0/dist/bundle.min.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:terser@4.7.0/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:terser@4.7.0/": {
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     }
   }
 }

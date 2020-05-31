@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@3.0.0/index.js"
+    "mimic-fn": "https://ga.jspm.io/npm:mimic-fn@3.0.0/index.js"
   }
 }

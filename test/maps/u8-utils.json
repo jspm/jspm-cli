@@ -1,5 +1,5 @@
 {
   "imports": {
-    "u8-utils": "https://ga.jspm.dev/npm:u8-utils@0.3.7/esm/index.mjs"
+    "u8-utils": "https://ga.jspm.io/npm:u8-utils@0.3.7/esm/index.mjs"
   }
 }

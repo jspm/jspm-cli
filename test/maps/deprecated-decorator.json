@@ -1,5 +1,5 @@
 {
   "imports": {
-    "deprecated-decorator": "https://ga.jspm.dev/npm:deprecated-decorator@0.1.6/bld/index.js"
+    "deprecated-decorator": "https://ga.jspm.io/npm:deprecated-decorator@0.1.6/bld/index.js"
   }
 }

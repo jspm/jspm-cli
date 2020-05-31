@@ -1,5 +1,5 @@
 {
   "imports": {
-    "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js"
+    "esprima": "https://ga.jspm.io/npm:esprima@4.0.1/dist/esprima.js"
   }
 }

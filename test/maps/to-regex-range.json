@@ -1,10 +1,10 @@
 {
   "imports": {
-    "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    "to-regex-range": "https://ga.jspm.io/npm:to-regex-range@5.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
-      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    "https://ga.jspm.io/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.io/npm:is-number@7.0.0/index.js"
     }
   }
 }

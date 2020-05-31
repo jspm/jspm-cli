@@ -1,43 +1,43 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "redcrypto/dist/signature-sign.js": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.5/dist/signature-sign.js",
-    "redcrypto/dist/signature-verify.js": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.5/dist/signature-verify.js",
-    "redcrypto/dist/token-decode.js": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.5/dist/token-decode.js",
-    "redcrypto/dist/token-sign.js": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.5/dist/token-sign.js",
-    "redcrypto/dist/token-verify.js": "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.5/dist/token-verify.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "redcrypto/dist/signature-sign.js": "https://ga.jspm.io/npm:redcrypto@0.0.0-dev.5/dist/signature-sign.js",
+    "redcrypto/dist/signature-verify.js": "https://ga.jspm.io/npm:redcrypto@0.0.0-dev.5/dist/signature-verify.js",
+    "redcrypto/dist/token-decode.js": "https://ga.jspm.io/npm:redcrypto@0.0.0-dev.5/dist/token-decode.js",
+    "redcrypto/dist/token-sign.js": "https://ga.jspm.io/npm:redcrypto@0.0.0-dev.5/dist/token-sign.js",
+    "redcrypto/dist/token-verify.js": "https://ga.jspm.io/npm:redcrypto@0.0.0-dev.5/dist/token-verify.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ecdsa-sig-formatter@1.0.11/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:ecdsa-sig-formatter@1.0.11/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:jsonwebtoken@8.5.1/": {
-      "jws": "https://ga.jspm.dev/npm:jws@3.2.2/index.js",
-      "lodash.includes": "https://ga.jspm.dev/npm:lodash.includes@4.3.0/index.js",
-      "lodash.isboolean": "https://ga.jspm.dev/npm:lodash.isboolean@3.0.3/index.js",
-      "lodash.isinteger": "https://ga.jspm.dev/npm:lodash.isinteger@4.0.4/index.js",
-      "lodash.isnumber": "https://ga.jspm.dev/npm:lodash.isnumber@3.0.3/index.js",
-      "lodash.isplainobject": "https://ga.jspm.dev/npm:lodash.isplainobject@4.0.6/index.js",
-      "lodash.isstring": "https://ga.jspm.dev/npm:lodash.isstring@4.0.1/index.js",
-      "lodash.once": "https://ga.jspm.dev/npm:lodash.once@4.1.1/index.js",
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js",
-      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    "https://ga.jspm.io/npm:jsonwebtoken@8.5.1/": {
+      "jws": "https://ga.jspm.io/npm:jws@3.2.2/index.js",
+      "lodash.includes": "https://ga.jspm.io/npm:lodash.includes@4.3.0/index.js",
+      "lodash.isboolean": "https://ga.jspm.io/npm:lodash.isboolean@3.0.3/index.js",
+      "lodash.isinteger": "https://ga.jspm.io/npm:lodash.isinteger@4.0.4/index.js",
+      "lodash.isnumber": "https://ga.jspm.io/npm:lodash.isnumber@3.0.3/index.js",
+      "lodash.isplainobject": "https://ga.jspm.io/npm:lodash.isplainobject@4.0.6/index.js",
+      "lodash.isstring": "https://ga.jspm.io/npm:lodash.isstring@4.0.1/index.js",
+      "lodash.once": "https://ga.jspm.io/npm:lodash.once@4.1.1/index.js",
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js",
+      "semver": "https://ga.jspm.io/npm:semver@5.7.1/semver.js"
     },
-    "https://ga.jspm.dev/npm:jwa@1.4.1/": {
-      "buffer-equal-constant-time": "https://ga.jspm.dev/npm:buffer-equal-constant-time@1.0.1/index.js",
-      "ecdsa-sig-formatter": "https://ga.jspm.dev/npm:ecdsa-sig-formatter@1.0.11/src/ecdsa-sig-formatter.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:jwa@1.4.1/": {
+      "buffer-equal-constant-time": "https://ga.jspm.io/npm:buffer-equal-constant-time@1.0.1/index.js",
+      "ecdsa-sig-formatter": "https://ga.jspm.io/npm:ecdsa-sig-formatter@1.0.11/src/ecdsa-sig-formatter.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:jws@3.2.2/": {
-      "jwa": "https://ga.jspm.dev/npm:jwa@1.4.1/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:jws@3.2.2/": {
+      "jwa": "https://ga.jspm.io/npm:jwa@1.4.1/index.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:redcrypto@0.0.0-dev.5/": {
-      "jsonwebtoken": "https://ga.jspm.dev/npm:jsonwebtoken@8.5.1/index.js"
+    "https://ga.jspm.io/npm:redcrypto@0.0.0-dev.5/": {
+      "jsonwebtoken": "https://ga.jspm.io/npm:jsonwebtoken@8.5.1/index.js"
     }
   }
 }

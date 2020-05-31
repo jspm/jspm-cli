@@ -1,11 +1,11 @@
 {
   "imports": {
-    "capture-exit": "https://ga.jspm.dev/npm:capture-exit@2.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "capture-exit": "https://ga.jspm.io/npm:capture-exit@2.0.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:capture-exit@2.0.0/": {
-      "rsvp": "https://ga.jspm.dev/npm:rsvp@4.8.5/dist/rsvp.js"
+    "https://ga.jspm.io/npm:capture-exit@2.0.0/": {
+      "rsvp": "https://ga.jspm.io/npm:rsvp@4.8.5/dist/rsvp.js"
     }
   }
 }

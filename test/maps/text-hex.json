@@ -1,5 +1,5 @@
 {
   "imports": {
-    "text-hex": "https://ga.jspm.dev/npm:text-hex@1.0.0/index.js"
+    "text-hex": "https://ga.jspm.io/npm:text-hex@1.0.0/index.js"
   }
 }

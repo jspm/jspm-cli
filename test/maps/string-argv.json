@@ -1,5 +1,5 @@
 {
   "imports": {
-    "string-argv": "https://ga.jspm.dev/npm:string-argv@0.3.1/index.js"
+    "string-argv": "https://ga.jspm.io/npm:string-argv@0.3.1/index.js"
   }
 }

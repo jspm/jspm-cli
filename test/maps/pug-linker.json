@@ -1,12 +1,12 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "pug-linker": "https://ga.jspm.dev/npm:pug-linker@4.0.0/index.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "pug-linker": "https://ga.jspm.io/npm:pug-linker@4.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:pug-linker@4.0.0/": {
-      "pug-error": "https://ga.jspm.dev/npm:pug-error@2.0.0/index.js",
-      "pug-walk": "https://ga.jspm.dev/npm:pug-walk@2.0.0/index.js"
+    "https://ga.jspm.io/npm:pug-linker@4.0.0/": {
+      "pug-error": "https://ga.jspm.io/npm:pug-error@2.0.0/index.js",
+      "pug-walk": "https://ga.jspm.io/npm:pug-walk@2.0.0/index.js"
     }
   }
 }

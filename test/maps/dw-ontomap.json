@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dw-ontomap": "https://ga.jspm.dev/npm:dw-ontomap@0.4.0/ontomap/applications/OntoMapGenerator.js"
+    "dw-ontomap": "https://ga.jspm.io/npm:dw-ontomap@0.4.0/ontomap/applications/OntoMapGenerator.js"
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "lmnode": "https://ga.jspm.dev/npm:lmnode@0.1.0/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "lmnode": "https://ga.jspm.io/npm:lmnode@0.1.0/index.js"
   }
 }

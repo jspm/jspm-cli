@@ -1,12 +1,12 @@
 {
   "imports": {
-    "batch": "https://ga.jspm.dev/npm:batch@0.6.1/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "batch": "https://ga.jspm.io/npm:batch@0.6.1/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:batch@0.6.1/": {
-      "emitter": "https://ga.jspm.dev/npm:emitter@0.0.5/dist/emitter.js"
+    "https://ga.jspm.io/npm:batch@0.6.1/": {
+      "emitter": "https://ga.jspm.io/npm:emitter@0.0.5/dist/emitter.js"
     }
   }
 }

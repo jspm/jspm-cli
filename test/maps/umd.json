@@ -1,5 +1,5 @@
 {
   "imports": {
-    "umd": "https://ga.jspm.dev/npm:umd@3.0.3/index.js"
+    "umd": "https://ga.jspm.io/npm:umd@3.0.3/index.js"
   }
 }

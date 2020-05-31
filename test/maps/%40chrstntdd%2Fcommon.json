@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@chrstntdd/common": "https://ga.jspm.dev/npm:@chrstntdd/common@0.0.4/lib/esm/index.mjs"
+    "@chrstntdd/common": "https://ga.jspm.io/npm:@chrstntdd/common@0.0.4/lib/esm/index.mjs"
   }
 }

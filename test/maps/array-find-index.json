@@ -1,5 +1,5 @@
 {
   "imports": {
-    "array-find-index": "https://ga.jspm.dev/npm:array-find-index@1.0.2/index.js"
+    "array-find-index": "https://ga.jspm.io/npm:array-find-index@1.0.2/index.js"
   }
 }

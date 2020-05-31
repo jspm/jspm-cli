@@ -1,13 +1,13 @@
 {
   "imports": {
-    "@samverschueren/stream-to-observable": "https://ga.jspm.dev/npm:@samverschueren/stream-to-observable@0.3.0/index.js"
+    "@samverschueren/stream-to-observable": "https://ga.jspm.io/npm:@samverschueren/stream-to-observable@0.3.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@samverschueren/stream-to-observable@0.3.0/": {
-      "any-observable": "https://ga.jspm.dev/npm:any-observable@0.3.0/index.js"
+    "https://ga.jspm.io/npm:@samverschueren/stream-to-observable@0.3.0/": {
+      "any-observable": "https://ga.jspm.io/npm:any-observable@0.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:any-observable@0.3.0/": {
-      "any-observable/register.js": "https://ga.jspm.dev/npm:any-observable@0.3.0/register-shim.js"
+    "https://ga.jspm.io/npm:any-observable@0.3.0/": {
+      "any-observable/register.js": "https://ga.jspm.io/npm:any-observable@0.3.0/register-shim.js"
     }
   }
 }

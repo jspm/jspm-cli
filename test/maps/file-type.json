@@ -1,26 +1,26 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "file-type": "https://ga.jspm.dev/npm:file-type@14.5.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "file-type": "https://ga.jspm.io/npm:file-type@14.5.0/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@4.2.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:file-type@14.5.0/": {
-      "strtok3": "https://ga.jspm.dev/npm:strtok3@6.0.0/lib/index.js",
-      "strtok3/lib/core": "https://ga.jspm.dev/npm:strtok3@6.0.0/lib/core.js",
-      "token-types": "https://ga.jspm.dev/npm:token-types@2.0.0/lib/index.js"
+    "https://ga.jspm.io/npm:file-type@14.5.0/": {
+      "strtok3": "https://ga.jspm.io/npm:strtok3@6.0.0/lib/index.js",
+      "strtok3/lib/core": "https://ga.jspm.io/npm:strtok3@6.0.0/lib/core.js",
+      "token-types": "https://ga.jspm.io/npm:token-types@2.0.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:strtok3@6.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js",
-      "peek-readable": "https://ga.jspm.dev/npm:peek-readable@3.1.0/lib/index.js"
+    "https://ga.jspm.io/npm:strtok3@6.0.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js",
+      "peek-readable": "https://ga.jspm.io/npm:peek-readable@3.1.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:token-types@2.0.0/": {
-      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    "https://ga.jspm.io/npm:token-types@2.0.0/": {
+      "ieee754": "https://ga.jspm.io/npm:ieee754@1.1.13/index.js"
     }
   }
 }

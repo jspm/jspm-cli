@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@jauntywunderkind/event-target-shim": "https://ga.jspm.dev/npm:@jauntywunderkind/event-target-shim@5.0.1/dist/event-target-shim.mjs"
+    "@jauntywunderkind/event-target-shim": "https://ga.jspm.io/npm:@jauntywunderkind/event-target-shim@5.0.1/dist/event-target-shim.mjs"
   }
 }

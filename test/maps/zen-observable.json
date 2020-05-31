@@ -1,5 +1,5 @@
 {
   "imports": {
-    "zen-observable": "https://ga.jspm.dev/npm:zen-observable@0.8.15/index.js"
+    "zen-observable": "https://ga.jspm.io/npm:zen-observable@0.8.15/index.js"
   }
 }

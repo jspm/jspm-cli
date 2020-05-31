@@ -1,5 +1,5 @@
 {
   "imports": {
-    "insta-email": "https://ga.jspm.dev/npm:insta-email@1.0.37/index.js"
+    "insta-email": "https://ga.jspm.io/npm:insta-email@1.0.37/index.js"
   }
 }

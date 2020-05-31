@@ -1,5 +1,5 @@
 {
   "imports": {
-    "array-reduce": "https://ga.jspm.dev/npm:array-reduce@0.0.0/index.js"
+    "array-reduce": "https://ga.jspm.io/npm:array-reduce@0.0.0/index.js"
   }
 }

@@ -1,31 +1,31 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "npm-lifecycle": "https://ga.jspm.dev/npm:npm-lifecycle@3.1.5/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "timers": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "constants": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "npm-lifecycle": "https://ga.jspm.io/npm:npm-lifecycle@3.1.5/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "timers": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:npm-lifecycle@3.1.5/": {
-      "byline": "https://ga.jspm.dev/npm:byline@5.0.0/lib/byline.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-      "resolve-from": "https://ga.jspm.dev/npm:resolve-from@4.0.0/index.js",
-      "slide": "https://ga.jspm.dev/npm:slide@1.1.6/lib/slide.js",
-      "uid-number": "https://ga.jspm.dev/npm:uid-number@0.0.6/uid-number.js",
-      "umask": "https://ga.jspm.dev/npm:umask@1.1.0/index.js",
-      "which": "https://ga.jspm.dev/npm:which@1.3.1/which.js"
+    "https://ga.jspm.io/npm:npm-lifecycle@3.1.5/": {
+      "byline": "https://ga.jspm.io/npm:byline@5.0.0/lib/byline.js",
+      "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "resolve-from": "https://ga.jspm.io/npm:resolve-from@4.0.0/index.js",
+      "slide": "https://ga.jspm.io/npm:slide@1.1.6/lib/slide.js",
+      "uid-number": "https://ga.jspm.io/npm:uid-number@0.0.6/uid-number.js",
+      "umask": "https://ga.jspm.io/npm:umask@1.1.0/index.js",
+      "which": "https://ga.jspm.io/npm:which@1.3.1/which.js"
     },
-    "https://ga.jspm.dev/npm:which@1.3.1/": {
-      "isexe": "https://ga.jspm.dev/npm:isexe@2.0.0/index.js"
+    "https://ga.jspm.io/npm:which@1.3.1/": {
+      "isexe": "https://ga.jspm.io/npm:isexe@2.0.0/index.js"
     }
   }
 }

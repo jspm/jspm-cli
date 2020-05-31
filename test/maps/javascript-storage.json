@@ -1,5 +1,5 @@
 {
   "imports": {
-    "javascript-storage": "https://ga.jspm.dev/npm:javascript-storage@1.0.0/index.js"
+    "javascript-storage": "https://ga.jspm.io/npm:javascript-storage@1.0.0/index.js"
   }
 }

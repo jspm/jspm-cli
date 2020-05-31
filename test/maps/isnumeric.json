@@ -1,5 +1,5 @@
 {
   "imports": {
-    "isnumeric": "https://ga.jspm.dev/npm:isnumeric@0.3.3/isNumeric.min.js"
+    "isnumeric": "https://ga.jspm.io/npm:isnumeric@0.3.3/isNumeric.min.js"
   }
 }

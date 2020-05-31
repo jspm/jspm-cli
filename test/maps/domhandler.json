@@ -1,5 +1,5 @@
 {
   "imports": {
-    "domhandler": "https://ga.jspm.dev/npm:domhandler@3.0.0/lib/index.js"
+    "domhandler": "https://ga.jspm.io/npm:domhandler@3.0.0/lib/index.js"
   }
 }

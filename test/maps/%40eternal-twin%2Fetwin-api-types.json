@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@eternal-twin/etwin-api-types/api.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/api.js",
-    "@eternal-twin/etwin-api-types/auth-token.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/auth-token.js",
-    "@eternal-twin/etwin-api-types/client-id.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/client-id.js",
-    "@eternal-twin/etwin-api-types/client-secret.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/client-secret.js",
-    "@eternal-twin/etwin-api-types/user/user-display-name.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/user/user-display-name.js",
-    "@eternal-twin/etwin-api-types/user/user-id.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/user/user-id.js",
-    "@eternal-twin/etwin-api-types/user/user.js": "https://ga.jspm.dev/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/user/user.js"
+    "@eternal-twin/etwin-api-types/api.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/api.js",
+    "@eternal-twin/etwin-api-types/auth-token.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/auth-token.js",
+    "@eternal-twin/etwin-api-types/client-id.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/client-id.js",
+    "@eternal-twin/etwin-api-types/client-secret.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/client-secret.js",
+    "@eternal-twin/etwin-api-types/user/user-display-name.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/user/user-display-name.js",
+    "@eternal-twin/etwin-api-types/user/user-id.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/user/user-id.js",
+    "@eternal-twin/etwin-api-types/user/user.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-types@0.0.1/build/lib/user/user.js"
   }
 }

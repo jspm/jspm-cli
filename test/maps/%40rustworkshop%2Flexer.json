@@ -1,10 +1,11 @@
 {
   "imports": {
-    "@rustworkshop/lexer": "https://ga.jspm.dev/npm:@rustworkshop/lexer@1.0.3/lib/index.js"
+    "@rustworkshop/lexer": "https://ga.jspm.io/npm:@rustworkshop/lexer@1.0.3/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@rustworkshop/lexer@1.0.3/": {
-      "tslib": "https://ga.jspm.dev/npm:tslib@2.0.0/tslib.js"
+    "https://ga.jspm.io/npm:@rustworkshop/lexer@1.0.3/": {
+      "tslib": "https://ga.jspm.io/npm:tslib@2.0.0/tslib.js"
     }
   }
 }

@@ -1,44 +1,44 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "cacheable-request": "https://ga.jspm.dev/npm:cacheable-request@7.0.1/src/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "cacheable-request": "https://ga.jspm.io/npm:cacheable-request@7.0.1/src/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cacheable-request@7.0.1/": {
-      "clone-response": "https://ga.jspm.dev/npm:clone-response@1.0.2/src/index.js",
-      "get-stream": "https://ga.jspm.dev/npm:get-stream@5.1.0/index.js",
-      "http-cache-semantics": "https://ga.jspm.dev/npm:http-cache-semantics@4.1.0/index.js",
-      "keyv": "https://ga.jspm.dev/npm:keyv@4.0.1/src/index.js",
-      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js",
-      "normalize-url": "https://ga.jspm.dev/npm:normalize-url@4.5.0/index.js",
-      "responselike": "https://ga.jspm.dev/npm:responselike@2.0.0/src/index.js"
+    "https://ga.jspm.io/npm:cacheable-request@7.0.1/": {
+      "clone-response": "https://ga.jspm.io/npm:clone-response@1.0.2/src/index.js",
+      "get-stream": "https://ga.jspm.io/npm:get-stream@5.1.0/index.js",
+      "http-cache-semantics": "https://ga.jspm.io/npm:http-cache-semantics@4.1.0/index.js",
+      "keyv": "https://ga.jspm.io/npm:keyv@4.0.1/src/index.js",
+      "lowercase-keys": "https://ga.jspm.io/npm:lowercase-keys@2.0.0/index.js",
+      "normalize-url": "https://ga.jspm.io/npm:normalize-url@4.5.0/index.js",
+      "responselike": "https://ga.jspm.io/npm:responselike@2.0.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:clone-response@1.0.2/": {
-      "mimic-response": "https://ga.jspm.dev/npm:mimic-response@1.0.1/index.js"
+    "https://ga.jspm.io/npm:clone-response@1.0.2/": {
+      "mimic-response": "https://ga.jspm.io/npm:mimic-response@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:end-of-stream@1.4.4/": {
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:end-of-stream@1.4.4/": {
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:get-stream@5.1.0/": {
-      "pump": "https://ga.jspm.dev/npm:pump@3.0.0/index.js"
+    "https://ga.jspm.io/npm:get-stream@5.1.0/": {
+      "pump": "https://ga.jspm.io/npm:pump@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:keyv@4.0.1/": {
-      "json-buffer": "https://ga.jspm.dev/npm:json-buffer@3.0.1/index.js"
+    "https://ga.jspm.io/npm:keyv@4.0.1/": {
+      "json-buffer": "https://ga.jspm.io/npm:json-buffer@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:once@1.4.0/": {
-      "wrappy": "https://ga.jspm.dev/npm:wrappy@1.0.2/wrappy.js"
+    "https://ga.jspm.io/npm:once@1.4.0/": {
+      "wrappy": "https://ga.jspm.io/npm:wrappy@1.0.2/wrappy.js"
     },
-    "https://ga.jspm.dev/npm:pump@3.0.0/": {
-      "end-of-stream": "https://ga.jspm.dev/npm:end-of-stream@1.4.4/index.js",
-      "once": "https://ga.jspm.dev/npm:once@1.4.0/once.js"
+    "https://ga.jspm.io/npm:pump@3.0.0/": {
+      "end-of-stream": "https://ga.jspm.io/npm:end-of-stream@1.4.4/index.js",
+      "once": "https://ga.jspm.io/npm:once@1.4.0/once.js"
     },
-    "https://ga.jspm.dev/npm:responselike@2.0.0/": {
-      "lowercase-keys": "https://ga.jspm.dev/npm:lowercase-keys@2.0.0/index.js"
+    "https://ga.jspm.io/npm:responselike@2.0.0/": {
+      "lowercase-keys": "https://ga.jspm.io/npm:lowercase-keys@2.0.0/index.js"
     }
   }
 }

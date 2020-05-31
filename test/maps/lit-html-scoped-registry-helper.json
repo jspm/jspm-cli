@@ -1,11 +1,11 @@
 {
   "imports": {
-    "lit-html-scoped-registry-helper": "https://ga.jspm.dev/npm:lit-html-scoped-registry-helper@1.0.1/index.js"
+    "lit-html-scoped-registry-helper": "https://ga.jspm.io/npm:lit-html-scoped-registry-helper@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lit-html-scoped-registry-helper@1.0.1/": {
-      "lit-html/lib/template-factory.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/template-factory.js",
-      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "https://ga.jspm.io/npm:lit-html-scoped-registry-helper@1.0.1/": {
+      "lit-html/lib/template-factory.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lib/template-factory.js",
+      "lit-html/lit-html.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

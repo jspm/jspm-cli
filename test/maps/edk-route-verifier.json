@@ -1,56 +1,56 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "edk-route-verifier": "https://ga.jspm.dev/npm:edk-route-verifier@2.3.0/src/core/verifyRoute.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "edk-route-verifier": "https://ga.jspm.io/npm:edk-route-verifier@2.3.0/src/core/verifyRoute.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@google/maps@1.1.3/": {
-      "https-proxy-agent": "https://ga.jspm.dev/npm:https-proxy-agent@3.0.1/index.js",
-      "uuid": "https://ga.jspm.dev/npm:uuid@8.1.0/dist/index.js"
+    "https://ga.jspm.io/npm:@google/maps@1.1.3/": {
+      "https-proxy-agent": "https://ga.jspm.io/npm:https-proxy-agent@3.0.1/index.js",
+      "uuid": "https://ga.jspm.io/npm:uuid@8.1.0/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@mapbox/togeojson@0.16.0/": {
-      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.31/dom-parser.js"
+    "https://ga.jspm.io/npm:@mapbox/togeojson@0.16.0/": {
+      "xmldom": "https://ga.jspm.io/npm:xmldom@0.1.31/dom-parser.js"
     },
-    "https://ga.jspm.dev/npm:agent-base@4.3.0/": {
-      "es6-promisify": "https://ga.jspm.dev/npm:es6-promisify@5.0.0/dist/promisify.js"
+    "https://ga.jspm.io/npm:agent-base@4.3.0/": {
+      "es6-promisify": "https://ga.jspm.io/npm:es6-promisify@5.0.0/dist/promisify.js"
     },
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:edk-route-verifier@2.3.0/": {
-      "@google/maps": "https://ga.jspm.dev/npm:@google/maps@1.1.3/lib/index.js",
-      "@mapbox/togeojson": "https://ga.jspm.dev/npm:@mapbox/togeojson@0.16.0/togeojson.js",
-      "@turf/turf": "https://ga.jspm.dev/npm:@turf/turf@5.1.6/turf.min.js",
-      "lodash/filter.js": "https://ga.jspm.dev/npm:lodash@4.17.15/filter.js",
-      "lodash/find.js": "https://ga.jspm.dev/npm:lodash@4.17.15/find.js",
-      "lodash/forEach.js": "https://ga.jspm.dev/npm:lodash@4.17.15/forEach.js",
-      "lodash/get.js": "https://ga.jspm.dev/npm:lodash@4.17.15/get.js",
-      "lodash/isEmpty.js": "https://ga.jspm.dev/npm:lodash@4.17.15/isEmpty.js",
-      "lodash/isEqual.js": "https://ga.jspm.dev/npm:lodash@4.17.15/isEqual.js",
-      "lodash/isNull.js": "https://ga.jspm.dev/npm:lodash@4.17.15/isNull.js",
-      "lodash/isNumber.js": "https://ga.jspm.dev/npm:lodash@4.17.15/isNumber.js",
-      "lodash/map.js": "https://ga.jspm.dev/npm:lodash@4.17.15/map.js",
-      "lodash/min.js": "https://ga.jspm.dev/npm:lodash@4.17.15/min.js",
-      "lodash/sortBy.js": "https://ga.jspm.dev/npm:lodash@4.17.15/sortBy.js",
-      "lodash/template.js": "https://ga.jspm.dev/npm:lodash@4.17.15/template.js",
-      "loglevel": "https://ga.jspm.dev/npm:loglevel@1.6.8/lib/loglevel.js",
-      "xmldom": "https://ga.jspm.dev/npm:xmldom@0.1.31/dom-parser.js"
+    "https://ga.jspm.io/npm:edk-route-verifier@2.3.0/": {
+      "@google/maps": "https://ga.jspm.io/npm:@google/maps@1.1.3/lib/index.js",
+      "@mapbox/togeojson": "https://ga.jspm.io/npm:@mapbox/togeojson@0.16.0/togeojson.js",
+      "@turf/turf": "https://ga.jspm.io/npm:@turf/turf@5.1.6/turf.min.js",
+      "lodash/filter.js": "https://ga.jspm.io/npm:lodash@4.17.15/filter.js",
+      "lodash/find.js": "https://ga.jspm.io/npm:lodash@4.17.15/find.js",
+      "lodash/forEach.js": "https://ga.jspm.io/npm:lodash@4.17.15/forEach.js",
+      "lodash/get.js": "https://ga.jspm.io/npm:lodash@4.17.15/get.js",
+      "lodash/isEmpty.js": "https://ga.jspm.io/npm:lodash@4.17.15/isEmpty.js",
+      "lodash/isEqual.js": "https://ga.jspm.io/npm:lodash@4.17.15/isEqual.js",
+      "lodash/isNull.js": "https://ga.jspm.io/npm:lodash@4.17.15/isNull.js",
+      "lodash/isNumber.js": "https://ga.jspm.io/npm:lodash@4.17.15/isNumber.js",
+      "lodash/map.js": "https://ga.jspm.io/npm:lodash@4.17.15/map.js",
+      "lodash/min.js": "https://ga.jspm.io/npm:lodash@4.17.15/min.js",
+      "lodash/sortBy.js": "https://ga.jspm.io/npm:lodash@4.17.15/sortBy.js",
+      "lodash/template.js": "https://ga.jspm.io/npm:lodash@4.17.15/template.js",
+      "loglevel": "https://ga.jspm.io/npm:loglevel@1.6.8/lib/loglevel.js",
+      "xmldom": "https://ga.jspm.io/npm:xmldom@0.1.31/dom-parser.js"
     },
-    "https://ga.jspm.dev/npm:es6-promisify@5.0.0/": {
-      "es6-promise": "https://ga.jspm.dev/npm:es6-promise@4.2.8/dist/es6-promise.js"
+    "https://ga.jspm.io/npm:es6-promisify@5.0.0/": {
+      "es6-promise": "https://ga.jspm.io/npm:es6-promise@4.2.8/dist/es6-promise.js"
     },
-    "https://ga.jspm.dev/npm:https-proxy-agent@3.0.1/": {
-      "agent-base": "https://ga.jspm.dev/npm:agent-base@4.3.0/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js"
+    "https://ga.jspm.io/npm:https-proxy-agent@3.0.1/": {
+      "agent-base": "https://ga.jspm.io/npm:agent-base@4.3.0/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js"
     }
   }
 }

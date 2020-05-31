@@ -1,30 +1,30 @@
 {
   "imports": {
-    "@stardust-ui/react-component-ref": "https://ga.jspm.dev/npm:@stardust-ui/react-component-ref@0.40.0/dist/commonjs/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js"
+    "@stardust-ui/react-component-ref": "https://ga.jspm.io/npm:@stardust-ui/react-component-ref@0.40.0/dist/commonjs/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-dom": "https://ga.jspm.io/npm:react-dom@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@stardust-ui/react-component-ref@0.40.0/": {
-      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
-      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:@stardust-ui/react-component-ref@0.40.0/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/typeof.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    "https://ga.jspm.io/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.io/npm:scheduler@0.19.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

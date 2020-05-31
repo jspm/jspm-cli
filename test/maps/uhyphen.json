@@ -1,5 +1,5 @@
 {
   "imports": {
-    "uhyphen": "https://ga.jspm.dev/npm:uhyphen@0.1.0/cjs/index.js"
+    "uhyphen": "https://ga.jspm.io/npm:uhyphen@0.1.0/cjs/index.js"
   }
 }

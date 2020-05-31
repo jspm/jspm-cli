@@ -1,14 +1,15 @@
 {
   "imports": {
-    "@lumino/messaging": "https://ga.jspm.dev/npm:@lumino/messaging@1.4.0/dist/index.js"
+    "@lumino/messaging": "https://ga.jspm.io/npm:@lumino/messaging@1.4.0/dist/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lumino/collections@1.3.0/": {
-      "@lumino/algorithm": "https://ga.jspm.dev/npm:@lumino/algorithm@1.3.0/dist/index.js"
+    "https://ga.jspm.io/npm:@lumino/collections@1.3.0/": {
+      "@lumino/algorithm": "https://ga.jspm.io/npm:@lumino/algorithm@1.3.0/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@lumino/messaging@1.4.0/": {
-      "@lumino/algorithm": "https://ga.jspm.dev/npm:@lumino/algorithm@1.3.0/dist/index.js",
-      "@lumino/collections": "https://ga.jspm.dev/npm:@lumino/collections@1.3.0/dist/index.js"
+    "https://ga.jspm.io/npm:@lumino/messaging@1.4.0/": {
+      "@lumino/algorithm": "https://ga.jspm.io/npm:@lumino/algorithm@1.3.0/dist/index.js",
+      "@lumino/collections": "https://ga.jspm.io/npm:@lumino/collections@1.3.0/dist/index.js"
     }
   }
 }

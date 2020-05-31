@@ -1,42 +1,42 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-    "jinghuan-session": "https://ga.jspm.dev/npm:jinghuan-session@1.0.12/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+    "jinghuan-session": "https://ga.jspm.io/npm:jinghuan-session@1.0.12/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:fs-extra@9.0.0/": {
-      "at-least-node": "https://ga.jspm.dev/npm:at-least-node@1.0.0/index.js",
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-      "jsonfile": "https://ga.jspm.dev/npm:jsonfile@6.0.1/index.js",
-      "jsonfile/utils": "https://ga.jspm.dev/npm:jsonfile@6.0.1/utils.js",
-      "universalify": "https://ga.jspm.dev/npm:universalify@1.0.0/index.js"
+    "https://ga.jspm.io/npm:fs-extra@9.0.0/": {
+      "at-least-node": "https://ga.jspm.io/npm:at-least-node@1.0.0/index.js",
+      "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "jsonfile": "https://ga.jspm.io/npm:jsonfile@6.0.1/index.js",
+      "jsonfile/utils": "https://ga.jspm.io/npm:jsonfile@6.0.1/utils.js",
+      "universalify": "https://ga.jspm.io/npm:universalify@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:jinghuan-session@1.0.12/": {
-      "fs-extra": "https://ga.jspm.dev/npm:fs-extra@9.0.0/lib/index.js",
-      "jinghuan-helper/isEmpty": "https://ga.jspm.dev/npm:jinghuan-helper@1.0.8/isEmpty.js",
-      "jinghuan-helper/isFile": "https://ga.jspm.dev/npm:jinghuan-helper@1.0.8/isFile.js",
-      "jinghuan-helper/uuid": "https://ga.jspm.dev/npm:jinghuan-helper@1.0.8/uuid.js",
-      "locutus/php/array/ksort": "https://ga.jspm.dev/npm:locutus@2.0.11/php/array/ksort.js",
-      "locutus/php/datetime/time": "https://ga.jspm.dev/npm:locutus@2.0.11/php/datetime/time.js",
-      "locutus/php/strings/md5": "https://ga.jspm.dev/npm:locutus@2.0.11/php/strings/md5.js",
-      "locutus/php/strings/substr": "https://ga.jspm.dev/npm:locutus@2.0.11/php/strings/substr.js",
-      "lodash/get": "https://ga.jspm.dev/npm:lodash@4.17.15/get.js",
-      "lodash/isEmpty": "https://ga.jspm.dev/npm:lodash@4.17.15/isEmpty.js",
-      "lodash/isFunction": "https://ga.jspm.dev/npm:lodash@4.17.15/isFunction.js",
-      "lodash/isObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isObject.js",
-      "lodash/isSymbol": "https://ga.jspm.dev/npm:lodash@4.17.15/isSymbol.js"
+    "https://ga.jspm.io/npm:jinghuan-session@1.0.12/": {
+      "fs-extra": "https://ga.jspm.io/npm:fs-extra@9.0.0/lib/index.js",
+      "jinghuan-helper/isEmpty": "https://ga.jspm.io/npm:jinghuan-helper@1.0.8/isEmpty.js",
+      "jinghuan-helper/isFile": "https://ga.jspm.io/npm:jinghuan-helper@1.0.8/isFile.js",
+      "jinghuan-helper/uuid": "https://ga.jspm.io/npm:jinghuan-helper@1.0.8/uuid.js",
+      "locutus/php/array/ksort": "https://ga.jspm.io/npm:locutus@2.0.11/php/array/ksort.js",
+      "locutus/php/datetime/time": "https://ga.jspm.io/npm:locutus@2.0.11/php/datetime/time.js",
+      "locutus/php/strings/md5": "https://ga.jspm.io/npm:locutus@2.0.11/php/strings/md5.js",
+      "locutus/php/strings/substr": "https://ga.jspm.io/npm:locutus@2.0.11/php/strings/substr.js",
+      "lodash/get": "https://ga.jspm.io/npm:lodash@4.17.15/get.js",
+      "lodash/isEmpty": "https://ga.jspm.io/npm:lodash@4.17.15/isEmpty.js",
+      "lodash/isFunction": "https://ga.jspm.io/npm:lodash@4.17.15/isFunction.js",
+      "lodash/isObject": "https://ga.jspm.io/npm:lodash@4.17.15/isObject.js",
+      "lodash/isSymbol": "https://ga.jspm.io/npm:lodash@4.17.15/isSymbol.js"
     },
-    "https://ga.jspm.dev/npm:jsonfile@6.0.1/": {
-      "universalify": "https://ga.jspm.dev/npm:universalify@1.0.0/index.js"
+    "https://ga.jspm.io/npm:jsonfile@6.0.1/": {
+      "universalify": "https://ga.jspm.io/npm:universalify@1.0.0/index.js"
     }
   }
 }

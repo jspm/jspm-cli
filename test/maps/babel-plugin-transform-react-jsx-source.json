@@ -1,5 +1,5 @@
 {
   "imports": {
-    "babel-plugin-transform-react-jsx-source": "https://ga.jspm.dev/npm:babel-plugin-transform-react-jsx-source@6.22.0/lib/index.js"
+    "babel-plugin-transform-react-jsx-source": "https://ga.jspm.io/npm:babel-plugin-transform-react-jsx-source@6.22.0/lib/index.js"
   }
 }

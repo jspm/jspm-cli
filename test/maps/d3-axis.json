@@ -1,5 +1,5 @@
 {
   "imports": {
-    "d3-axis": "https://ga.jspm.dev/npm:d3-axis@1.0.12/dist/d3-axis.js"
+    "d3-axis": "https://ga.jspm.io/npm:d3-axis@1.0.12/dist/d3-axis.js"
   }
 }

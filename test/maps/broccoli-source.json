@@ -1,6 +1,6 @@
 {
   "imports": {
-    "broccoli-source": "https://ga.jspm.dev/npm:broccoli-source@3.0.0/dist/src/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "broccoli-source": "https://ga.jspm.io/npm:broccoli-source@3.0.0/dist/src/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

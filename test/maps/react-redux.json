@@ -1,32 +1,32 @@
 {
   "imports": {
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-redux": "https://ga.jspm.dev/npm:react-redux@7.2.0/lib/index.js",
-    "redux": "https://ga.jspm.dev/npm:redux@4.0.5/lib/redux.js"
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-redux": "https://ga.jspm.io/npm:react-redux@7.2.0/lib/index.js",
+    "redux": "https://ga.jspm.io/npm:redux@4.0.5/lib/redux.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/": {
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/": {
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-dom@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js"
+    "https://ga.jspm.io/npm:react-dom@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.io/npm:scheduler@0.19.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react-redux@7.2.0/": {
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
-      "hoist-non-react-statics": "https://ga.jspm.dev/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-dom": "https://ga.jspm.dev/npm:react-dom@16.13.1/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:react-redux@7.2.0/": {
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/objectWithoutPropertiesLoose.js",
+      "hoist-non-react-statics": "https://ga.jspm.io/npm:hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.cjs.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-dom": "https://ga.jspm.io/npm:react-dom@16.13.1/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:redux@4.0.5/": {
-      "symbol-observable": "https://ga.jspm.dev/npm:symbol-observable@1.2.0/lib/index.js"
+    "https://ga.jspm.io/npm:redux@4.0.5/": {
+      "symbol-observable": "https://ga.jspm.io/npm:symbol-observable@1.2.0/lib/index.js"
     }
   }
 }

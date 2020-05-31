@@ -1,5 +1,5 @@
 {
   "imports": {
-    "log-stream-analyser": "https://ga.jspm.dev/npm:log-stream-analyser@1.2.9/src/log-stream-analyser.mjs"
+    "log-stream-analyser": "https://ga.jspm.io/npm:log-stream-analyser@1.2.9/src/log-stream-analyser.mjs"
   }
 }

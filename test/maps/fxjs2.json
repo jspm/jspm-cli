@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fxjs2": "https://ga.jspm.dev/npm:fxjs2@0.15.0/index.js"
+    "fxjs2": "https://ga.jspm.io/npm:fxjs2@0.15.0/index.js"
   }
 }

@@ -1,14 +1,14 @@
 {
   "imports": {
-    "async-agent": "https://ga.jspm.dev/npm:async-agent@0.5.3/index.js"
+    "async-agent": "https://ga.jspm.io/npm:async-agent@0.5.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:async-agent@0.5.3/": {
-      "type-enforcer": "https://ga.jspm.dev/npm:type-enforcer@1.1.3/index.js"
+    "https://ga.jspm.io/npm:async-agent@0.5.3/": {
+      "type-enforcer": "https://ga.jspm.io/npm:type-enforcer@1.1.3/index.js"
     },
-    "https://ga.jspm.dev/npm:type-enforcer@1.1.3/": {
-      "display-value": "https://ga.jspm.dev/npm:display-value@1.7.2/index.js",
-      "object-agent": "https://ga.jspm.dev/npm:object-agent@1.4.12/index.js"
+    "https://ga.jspm.io/npm:type-enforcer@1.1.3/": {
+      "display-value": "https://ga.jspm.io/npm:display-value@1.7.2/index.js",
+      "object-agent": "https://ga.jspm.io/npm:object-agent@1.4.12/index.js"
     }
   }
 }

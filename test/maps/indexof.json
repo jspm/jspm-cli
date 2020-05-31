@@ -1,5 +1,5 @@
 {
   "imports": {
-    "indexof": "https://ga.jspm.dev/npm:indexof@0.0.1/index.js"
+    "indexof": "https://ga.jspm.io/npm:indexof@0.0.1/index.js"
   }
 }

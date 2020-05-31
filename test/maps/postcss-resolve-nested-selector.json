@@ -1,5 +1,5 @@
 {
   "imports": {
-    "postcss-resolve-nested-selector": "https://ga.jspm.dev/npm:postcss-resolve-nested-selector@0.1.1/index.js"
+    "postcss-resolve-nested-selector": "https://ga.jspm.io/npm:postcss-resolve-nested-selector@0.1.1/index.js"
   }
 }

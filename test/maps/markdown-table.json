@@ -1,10 +1,10 @@
 {
   "imports": {
-    "markdown-table": "https://ga.jspm.dev/npm:markdown-table@2.0.0/index.js"
+    "markdown-table": "https://ga.jspm.io/npm:markdown-table@2.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:markdown-table@2.0.0/": {
-      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    "https://ga.jspm.io/npm:markdown-table@2.0.0/": {
+      "repeat-string": "https://ga.jspm.io/npm:repeat-string@1.6.1/index.js"
     }
   }
 }

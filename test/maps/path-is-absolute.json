@@ -1,6 +1,6 @@
 {
   "imports": {
-    "path-is-absolute": "https://ga.jspm.dev/npm:path-is-absolute@2.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "path-is-absolute": "https://ga.jspm.io/npm:path-is-absolute@2.0.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

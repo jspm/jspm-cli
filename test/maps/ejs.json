@@ -1,7 +1,7 @@
 {
   "imports": {
-    "ejs": "https://ga.jspm.dev/npm:ejs@3.1.3/lib/ejs.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "ejs": "https://ga.jspm.io/npm:ejs@3.1.3/lib/ejs.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

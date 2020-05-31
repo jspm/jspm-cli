@@ -1,83 +1,83 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-markdown": "https://ga.jspm.dev/npm:react-markdown@4.3.1/lib/react-markdown.js"
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-markdown": "https://ga.jspm.io/npm:react-markdown@4.3.1/lib/react-markdown.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/": {
-      "is-alphabetical": "https://ga.jspm.dev/npm:is-alphabetical@1.0.4/index.js",
-      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js"
+    "https://ga.jspm.io/npm:is-alphanumerical@1.0.4/": {
+      "is-alphabetical": "https://ga.jspm.io/npm:is-alphabetical@1.0.4/index.js",
+      "is-decimal": "https://ga.jspm.io/npm:is-decimal@1.0.4/index.js"
     },
-    "https://ga.jspm.dev/npm:mdast-add-list-metadata@1.0.1/": {
-      "unist-util-visit-parents": "https://ga.jspm.dev/npm:unist-util-visit-parents@1.1.2/index.js"
+    "https://ga.jspm.io/npm:mdast-add-list-metadata@1.0.1/": {
+      "unist-util-visit-parents": "https://ga.jspm.io/npm:unist-util-visit-parents@1.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:parse-entities@1.2.2/": {
-      "character-entities-legacy": "https://ga.jspm.dev/npm:character-entities-legacy@1.1.4/index.json.js",
-      "character-reference-invalid": "https://ga.jspm.dev/npm:character-reference-invalid@1.1.4/index.json.js",
-      "is-alphanumerical": "https://ga.jspm.dev/npm:is-alphanumerical@1.0.4/index.js",
-      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
-      "is-hexadecimal": "https://ga.jspm.dev/npm:is-hexadecimal@1.0.4/index.js",
-      "parse-entities/decode-entity.js": "https://ga.jspm.dev/npm:parse-entities@1.2.2/decode-entity.browser.js"
+    "https://ga.jspm.io/npm:parse-entities@1.2.2/": {
+      "character-entities-legacy": "https://ga.jspm.io/npm:character-entities-legacy@1.1.4/index.json.js",
+      "character-reference-invalid": "https://ga.jspm.io/npm:character-reference-invalid@1.1.4/index.json.js",
+      "is-alphanumerical": "https://ga.jspm.io/npm:is-alphanumerical@1.0.4/index.js",
+      "is-decimal": "https://ga.jspm.io/npm:is-decimal@1.0.4/index.js",
+      "is-hexadecimal": "https://ga.jspm.io/npm:is-hexadecimal@1.0.4/index.js",
+      "parse-entities/decode-entity.js": "https://ga.jspm.io/npm:parse-entities@1.2.2/decode-entity.browser.js"
     },
-    "https://ga.jspm.dev/npm:react-markdown@4.3.1/": {
-      "mdast-add-list-metadata": "https://ga.jspm.dev/npm:mdast-add-list-metadata@1.0.1/index.js",
-      "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js",
-      "remark-parse": "https://ga.jspm.dev/npm:remark-parse@5.0.0/index.js",
-      "unified": "https://ga.jspm.dev/npm:unified@6.2.0/index.js",
-      "unist-util-visit": "https://ga.jspm.dev/npm:unist-util-visit@1.4.1/index.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:react-markdown@4.3.1/": {
+      "mdast-add-list-metadata": "https://ga.jspm.io/npm:mdast-add-list-metadata@1.0.1/index.js",
+      "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js",
+      "remark-parse": "https://ga.jspm.io/npm:remark-parse@5.0.0/index.js",
+      "unified": "https://ga.jspm.io/npm:unified@6.2.0/index.js",
+      "unist-util-visit": "https://ga.jspm.io/npm:unist-util-visit@1.4.1/index.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:remark-parse@5.0.0/": {
-      "collapse-white-space": "https://ga.jspm.dev/npm:collapse-white-space@1.0.6/index.js",
-      "is-alphabetical": "https://ga.jspm.dev/npm:is-alphabetical@1.0.4/index.js",
-      "is-decimal": "https://ga.jspm.dev/npm:is-decimal@1.0.4/index.js",
-      "is-whitespace-character": "https://ga.jspm.dev/npm:is-whitespace-character@1.0.4/index.js",
-      "is-word-character": "https://ga.jspm.dev/npm:is-word-character@1.0.4/index.js",
-      "markdown-escapes": "https://ga.jspm.dev/npm:markdown-escapes@1.0.4/index.js",
-      "parse-entities": "https://ga.jspm.dev/npm:parse-entities@1.2.2/index.js",
-      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js",
-      "state-toggle": "https://ga.jspm.dev/npm:state-toggle@1.0.3/index.js",
-      "trim": "https://ga.jspm.dev/npm:trim@0.0.1/index.js",
-      "trim-trailing-lines": "https://ga.jspm.dev/npm:trim-trailing-lines@1.1.3/index.js",
-      "unherit": "https://ga.jspm.dev/npm:unherit@1.1.3/index.js",
-      "unist-util-remove-position": "https://ga.jspm.dev/npm:unist-util-remove-position@1.1.4/index.js",
-      "vfile-location": "https://ga.jspm.dev/npm:vfile-location@2.0.6/index.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:remark-parse@5.0.0/": {
+      "collapse-white-space": "https://ga.jspm.io/npm:collapse-white-space@1.0.6/index.js",
+      "is-alphabetical": "https://ga.jspm.io/npm:is-alphabetical@1.0.4/index.js",
+      "is-decimal": "https://ga.jspm.io/npm:is-decimal@1.0.4/index.js",
+      "is-whitespace-character": "https://ga.jspm.io/npm:is-whitespace-character@1.0.4/index.js",
+      "is-word-character": "https://ga.jspm.io/npm:is-word-character@1.0.4/index.js",
+      "markdown-escapes": "https://ga.jspm.io/npm:markdown-escapes@1.0.4/index.js",
+      "parse-entities": "https://ga.jspm.io/npm:parse-entities@1.2.2/index.js",
+      "repeat-string": "https://ga.jspm.io/npm:repeat-string@1.6.1/index.js",
+      "state-toggle": "https://ga.jspm.io/npm:state-toggle@1.0.3/index.js",
+      "trim": "https://ga.jspm.io/npm:trim@0.0.1/index.js",
+      "trim-trailing-lines": "https://ga.jspm.io/npm:trim-trailing-lines@1.1.3/index.js",
+      "unherit": "https://ga.jspm.io/npm:unherit@1.1.3/index.js",
+      "unist-util-remove-position": "https://ga.jspm.io/npm:unist-util-remove-position@1.1.4/index.js",
+      "vfile-location": "https://ga.jspm.io/npm:vfile-location@2.0.6/index.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     },
-    "https://ga.jspm.dev/npm:unherit@1.1.3/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "xtend": "https://ga.jspm.dev/npm:xtend@4.0.2/immutable.js"
+    "https://ga.jspm.io/npm:unherit@1.1.3/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "xtend": "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
     },
-    "https://ga.jspm.dev/npm:unified@6.2.0/": {
-      "bail": "https://ga.jspm.dev/npm:bail@1.0.5/index.js",
-      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
-      "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@1.1.0/index.js",
-      "trough": "https://ga.jspm.dev/npm:trough@1.0.5/index.js",
-      "vfile": "https://ga.jspm.dev/npm:vfile@2.3.0/index.js",
-      "x-is-string": "https://ga.jspm.dev/npm:x-is-string@0.1.0/index.js"
+    "https://ga.jspm.io/npm:unified@6.2.0/": {
+      "bail": "https://ga.jspm.io/npm:bail@1.0.5/index.js",
+      "extend": "https://ga.jspm.io/npm:extend@3.0.2/index.js",
+      "is-plain-obj": "https://ga.jspm.io/npm:is-plain-obj@1.1.0/index.js",
+      "trough": "https://ga.jspm.io/npm:trough@1.0.5/index.js",
+      "vfile": "https://ga.jspm.io/npm:vfile@2.3.0/index.js",
+      "x-is-string": "https://ga.jspm.io/npm:x-is-string@0.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:unist-util-remove-position@1.1.4/": {
-      "unist-util-visit": "https://ga.jspm.dev/npm:unist-util-visit@1.4.1/index.js"
+    "https://ga.jspm.io/npm:unist-util-remove-position@1.1.4/": {
+      "unist-util-visit": "https://ga.jspm.io/npm:unist-util-visit@1.4.1/index.js"
     },
-    "https://ga.jspm.dev/npm:unist-util-visit-parents@2.1.2/": {
-      "unist-util-is/convert": "https://ga.jspm.dev/npm:unist-util-is@3.0.0/convert.js"
+    "https://ga.jspm.io/npm:unist-util-visit-parents@2.1.2/": {
+      "unist-util-is/convert": "https://ga.jspm.io/npm:unist-util-is@3.0.0/convert.js"
     },
-    "https://ga.jspm.dev/npm:unist-util-visit@1.4.1/": {
-      "unist-util-visit-parents": "https://ga.jspm.dev/npm:unist-util-visit-parents@2.1.2/index.js"
+    "https://ga.jspm.io/npm:unist-util-visit@1.4.1/": {
+      "unist-util-visit-parents": "https://ga.jspm.io/npm:unist-util-visit-parents@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:vfile-message@1.1.1/": {
-      "unist-util-stringify-position": "https://ga.jspm.dev/npm:unist-util-stringify-position@1.1.2/index.js"
+    "https://ga.jspm.io/npm:vfile-message@1.1.1/": {
+      "unist-util-stringify-position": "https://ga.jspm.io/npm:unist-util-stringify-position@1.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:vfile@2.3.0/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js",
-      "replace-ext": "https://ga.jspm.dev/npm:replace-ext@1.0.0/index.js",
-      "vfile-message": "https://ga.jspm.dev/npm:vfile-message@1.1.1/index.js"
+    "https://ga.jspm.io/npm:vfile@2.3.0/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@1.1.6/index.js",
+      "replace-ext": "https://ga.jspm.io/npm:replace-ext@1.0.0/index.js",
+      "vfile-message": "https://ga.jspm.io/npm:vfile-message@1.1.1/index.js"
     }
   }
 }

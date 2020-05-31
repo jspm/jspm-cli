@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dbascode": "https://ga.jspm.dev/npm:dbascode@0.0.5/lib/app.js"
+    "dbascode": "https://ga.jspm.io/npm:dbascode@0.0.5/lib/app.js"
   }
 }

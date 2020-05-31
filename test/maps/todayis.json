@@ -1,10 +1,10 @@
 {
   "imports": {
-    "todayis": "https://ga.jspm.dev/npm:todayis@1.0.0/index.js"
+    "todayis": "https://ga.jspm.io/npm:todayis@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:todayis@1.0.0/": {
-      "english-days": "https://ga.jspm.dev/npm:english-days@1.0.0/index.json.js"
+    "https://ga.jspm.io/npm:todayis@1.0.0/": {
+      "english-days": "https://ga.jspm.io/npm:english-days@1.0.0/index.json.js"
     }
   }
 }

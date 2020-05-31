@@ -1,5 +1,5 @@
 {
   "imports": {
-    "atlas-types": "https://ga.jspm.dev/npm:atlas-types@1.2.94/index.js"
+    "atlas-types": "https://ga.jspm.io/npm:atlas-types@1.2.94/index.js"
   }
 }

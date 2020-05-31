@@ -1,5 +1,5 @@
 {
   "imports": {
-    "has-symbol-support-x": "https://ga.jspm.dev/npm:has-symbol-support-x@2.1.2/dist/has-symbol-support-x.js"
+    "has-symbol-support-x": "https://ga.jspm.io/npm:has-symbol-support-x@2.1.2/dist/has-symbol-support-x.js"
   }
 }

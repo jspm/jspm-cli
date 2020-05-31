@@ -1,5 +1,5 @@
 {
   "imports": {
-    "http2-json-send": "https://ga.jspm.dev/npm:http2-json-send@1.0.0/dist/index.js"
+    "http2-json-send": "https://ga.jspm.io/npm:http2-json-send@1.0.0/dist/index.js"
   }
 }

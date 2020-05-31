@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vary": "https://ga.jspm.dev/npm:vary@1.1.2/index.js"
+    "vary": "https://ga.jspm.io/npm:vary@1.1.2/index.js"
   }
 }

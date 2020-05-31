@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@lrnwebcomponents/count-up": "https://ga.jspm.dev/npm:@lrnwebcomponents/count-up@2.6.12/count-up.js"
+    "@lrnwebcomponents/count-up": "https://ga.jspm.io/npm:@lrnwebcomponents/count-up@2.6.12/count-up.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/count-up@2.6.12/": {
-      "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/intersection-element@2.6.12/lib/IntersectionObserverMixin.js",
-      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/count-up@2.6.12/": {
+      "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js": "https://ga.jspm.io/npm:@lrnwebcomponents/intersection-element@2.6.12/lib/IntersectionObserverMixin.js",
+      "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
-      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "https://ga.jspm.io/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

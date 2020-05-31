@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@nodutilus/nyc-config": "https://ga.jspm.dev/npm:@nodutilus/nyc-config@0.3.0/nyc.cjs"
+    "@nodutilus/nyc-config": "https://ga.jspm.io/npm:@nodutilus/nyc-config@0.3.0/nyc.cjs"
   }
 }

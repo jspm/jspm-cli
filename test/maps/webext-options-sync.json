@@ -1,16 +1,16 @@
 {
   "imports": {
-    "webext-options-sync": "https://ga.jspm.dev/npm:webext-options-sync@1.2.3/index.js"
+    "webext-options-sync": "https://ga.jspm.io/npm:webext-options-sync@1.2.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-form-serializer@1.0.7/": {
-      "matches-selector": "https://ga.jspm.dev/npm:matches-selector@1.2.0/index.js"
+    "https://ga.jspm.io/npm:dom-form-serializer@1.0.7/": {
+      "matches-selector": "https://ga.jspm.io/npm:matches-selector@1.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:webext-options-sync@1.2.3/": {
-      "dom-form-serializer/lib/deserialize": "https://ga.jspm.dev/npm:dom-form-serializer@1.0.7/lib/deserialize.js",
-      "dom-form-serializer/lib/serialize": "https://ga.jspm.dev/npm:dom-form-serializer@1.0.7/lib/serialize.js",
-      "throttle-debounce": "https://ga.jspm.dev/npm:throttle-debounce@2.1.0/dist/index.cjs.js",
-      "webext-detect-page": "https://ga.jspm.dev/npm:webext-detect-page@2.0.4/index.js"
+    "https://ga.jspm.io/npm:webext-options-sync@1.2.3/": {
+      "dom-form-serializer/lib/deserialize": "https://ga.jspm.io/npm:dom-form-serializer@1.0.7/lib/deserialize.js",
+      "dom-form-serializer/lib/serialize": "https://ga.jspm.io/npm:dom-form-serializer@1.0.7/lib/serialize.js",
+      "throttle-debounce": "https://ga.jspm.io/npm:throttle-debounce@2.1.0/dist/index.cjs.js",
+      "webext-detect-page": "https://ga.jspm.io/npm:webext-detect-page@2.0.4/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "completer-branch": "https://ga.jspm.dev/npm:completer-branch@0.1.0/index.js"
+    "completer-branch": "https://ga.jspm.io/npm:completer-branch@0.1.0/index.js"
   }
 }

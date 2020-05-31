@@ -1,18 +1,18 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "pn/_promise": "https://ga.jspm.dev/npm:pn@1.1.0/_promise.js",
-    "pn/_promise.js!cjs": "https://ga.jspm.dev/npm:pn@1.1.0/_promise.js",
-    "pn/child_process": "https://ga.jspm.dev/npm:pn@1.1.0/child_process.js",
-    "pn/child_process.js!cjs": "https://ga.jspm.dev/npm:pn@1.1.0/child_process.js",
-    "pn/fs": "https://ga.jspm.dev/npm:pn@1.1.0/fs.js",
-    "pn/fs.js!cjs": "https://ga.jspm.dev/npm:pn@1.1.0/fs.js",
-    "pn/path": "https://ga.jspm.dev/npm:pn@1.1.0/path.js",
-    "pn/path.js!cjs": "https://ga.jspm.dev/npm:pn@1.1.0/path.js",
-    "pn/zlib": "https://ga.jspm.dev/npm:pn@1.1.0/zlib.js",
-    "pn/zlib.js!cjs": "https://ga.jspm.dev/npm:pn@1.1.0/zlib.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "pn/_promise": "https://ga.jspm.io/npm:pn@1.1.0/_promise.js",
+    "pn/_promise.js!cjs": "https://ga.jspm.io/npm:pn@1.1.0/_promise.js",
+    "pn/child_process": "https://ga.jspm.io/npm:pn@1.1.0/child_process.js",
+    "pn/child_process.js!cjs": "https://ga.jspm.io/npm:pn@1.1.0/child_process.js",
+    "pn/fs": "https://ga.jspm.io/npm:pn@1.1.0/fs.js",
+    "pn/fs.js!cjs": "https://ga.jspm.io/npm:pn@1.1.0/fs.js",
+    "pn/path": "https://ga.jspm.io/npm:pn@1.1.0/path.js",
+    "pn/path.js!cjs": "https://ga.jspm.io/npm:pn@1.1.0/path.js",
+    "pn/zlib": "https://ga.jspm.io/npm:pn@1.1.0/zlib.js",
+    "pn/zlib.js!cjs": "https://ga.jspm.io/npm:pn@1.1.0/zlib.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   }
 }

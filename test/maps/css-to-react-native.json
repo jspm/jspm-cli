@@ -1,12 +1,12 @@
 {
   "imports": {
-    "css-to-react-native": "https://ga.jspm.dev/npm:css-to-react-native@3.0.0/index.js"
+    "css-to-react-native": "https://ga.jspm.io/npm:css-to-react-native@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:css-to-react-native@3.0.0/": {
-      "camelize": "https://ga.jspm.dev/npm:camelize@1.0.0/index.js",
-      "css-color-keywords": "https://ga.jspm.dev/npm:css-color-keywords@1.0.0/index.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@4.1.0/lib/index.js"
+    "https://ga.jspm.io/npm:css-to-react-native@3.0.0/": {
+      "camelize": "https://ga.jspm.io/npm:camelize@1.0.0/index.js",
+      "css-color-keywords": "https://ga.jspm.io/npm:css-color-keywords@1.0.0/index.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@4.1.0/lib/index.js"
     }
   }
 }

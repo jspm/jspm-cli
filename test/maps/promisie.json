@@ -1,5 +1,5 @@
 {
   "imports": {
-    "promisie": "https://ga.jspm.dev/npm:promisie@3.0.1/dist/index.umd.js"
+    "promisie": "https://ga.jspm.io/npm:promisie@3.0.1/dist/index.umd.js"
   }
 }

@@ -1,22 +1,22 @@
 {
   "imports": {
-    "fluture-observe": "https://ga.jspm.dev/npm:fluture-observe@1.0.2/index.cjs",
-    "fluture/index.js": "https://ga.jspm.dev/npm:fluture@12.2.1/index.js"
+    "fluture-observe": "https://ga.jspm.io/npm:fluture-observe@1.0.2/index.cjs",
+    "fluture/index.js": "https://ga.jspm.io/npm:fluture@12.2.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:daggy@1.4.0/": {
-      "sanctuary-type-classes": "https://ga.jspm.dev/npm:sanctuary-type-classes@3.0.0/index.js",
-      "sanctuary-type-identifiers": "https://ga.jspm.dev/npm:sanctuary-type-identifiers@1.0.0/index.js"
+    "https://ga.jspm.io/npm:daggy@1.4.0/": {
+      "sanctuary-type-classes": "https://ga.jspm.io/npm:sanctuary-type-classes@3.0.0/index.js",
+      "sanctuary-type-identifiers": "https://ga.jspm.io/npm:sanctuary-type-identifiers@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:fluture-observe@1.0.2/": {
-      "daggy": "https://ga.jspm.dev/npm:daggy@1.4.0/src/daggy.js"
+    "https://ga.jspm.io/npm:fluture-observe@1.0.2/": {
+      "daggy": "https://ga.jspm.io/npm:daggy@1.4.0/src/daggy.js"
     },
-    "https://ga.jspm.dev/npm:fluture@12.2.1/": {
-      "sanctuary-show": "https://ga.jspm.dev/npm:sanctuary-show@2.0.0/index.js",
-      "sanctuary-type-identifiers": "https://ga.jspm.dev/npm:sanctuary-type-identifiers@3.0.0/index.js"
+    "https://ga.jspm.io/npm:fluture@12.2.1/": {
+      "sanctuary-show": "https://ga.jspm.io/npm:sanctuary-show@2.0.0/index.js",
+      "sanctuary-type-identifiers": "https://ga.jspm.io/npm:sanctuary-type-identifiers@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:sanctuary-type-classes@3.0.0/": {
-      "sanctuary-type-identifiers": "https://ga.jspm.dev/npm:sanctuary-type-identifiers@1.0.0/index.js"
+    "https://ga.jspm.io/npm:sanctuary-type-classes@3.0.0/": {
+      "sanctuary-type-identifiers": "https://ga.jspm.io/npm:sanctuary-type-identifiers@1.0.0/index.js"
     }
   }
 }

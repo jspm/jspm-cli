@@ -1,5 +1,5 @@
 {
   "imports": {
-    "exenv": "https://ga.jspm.dev/npm:exenv@1.2.2/index.js"
+    "exenv": "https://ga.jspm.io/npm:exenv@1.2.2/index.js"
   }
 }

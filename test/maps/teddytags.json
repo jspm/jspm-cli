@@ -1,10 +1,10 @@
 {
   "imports": {
-    "teddytags/": "https://ga.jspm.dev/npm:teddytags@2.1.0/lib/",
-    "teddytags/lib/teddytags.umd.js!cjs": "https://ga.jspm.dev/npm:teddytags@2.1.0/lib/teddytags.umd.js",
-    "teddytags/teddytags.d.ts": "https://ga.jspm.dev/npm:teddytags@2.1.0/lib/teddytags.d.ts",
-    "teddytags/teddytags.js": "https://ga.jspm.dev/npm:teddytags@2.1.0/lib/teddytags.js",
-    "teddytags/teddytags.umd.d.ts": "https://ga.jspm.dev/npm:teddytags@2.1.0/lib/teddytags.umd.d.ts",
-    "teddytags/teddytags.umd.js": "https://ga.jspm.dev/npm:teddytags@2.1.0/lib/teddytags.umd.js"
+    "teddytags/": "https://ga.jspm.io/npm:teddytags@2.1.0/lib/",
+    "teddytags/lib/teddytags.umd.js!cjs": "https://ga.jspm.io/npm:teddytags@2.1.0/lib/teddytags.umd.js",
+    "teddytags/teddytags.d.ts": "https://ga.jspm.io/npm:teddytags@2.1.0/lib/teddytags.d.ts",
+    "teddytags/teddytags.js": "https://ga.jspm.io/npm:teddytags@2.1.0/lib/teddytags.js",
+    "teddytags/teddytags.umd.d.ts": "https://ga.jspm.io/npm:teddytags@2.1.0/lib/teddytags.umd.d.ts",
+    "teddytags/teddytags.umd.js": "https://ga.jspm.io/npm:teddytags@2.1.0/lib/teddytags.umd.js"
   }
 }

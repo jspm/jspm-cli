@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@patomation/hotkey": "https://ga.jspm.dev/npm:@patomation/hotkey@1.5.4/lib/index.cjs.js"
+    "@patomation/hotkey": "https://ga.jspm.io/npm:@patomation/hotkey@1.5.4/lib/index.cjs.js"
   }
 }

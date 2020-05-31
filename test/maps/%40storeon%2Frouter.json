@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@storeon/router": "https://ga.jspm.dev/npm:@storeon/router@1.1.0/index.js"
+    "@storeon/router": "https://ga.jspm.io/npm:@storeon/router@1.1.0/index.js"
   }
 }

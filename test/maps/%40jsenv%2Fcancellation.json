@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@jsenv/cancellation": "https://ga.jspm.dev/npm:@jsenv/cancellation@1.4.1/index.js"
+    "@jsenv/cancellation": "https://ga.jspm.io/npm:@jsenv/cancellation@1.4.1/index.js"
   }
 }

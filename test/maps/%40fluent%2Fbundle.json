@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@fluent/bundle": "https://ga.jspm.dev/npm:@fluent/bundle@0.15.1/index.js"
+    "@fluent/bundle": "https://ga.jspm.io/npm:@fluent/bundle@0.15.1/index.js"
   }
 }

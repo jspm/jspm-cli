@@ -1,5 +1,5 @@
 {
   "imports": {
-    "normalify": "https://ga.jspm.dev/npm:normalify@2.10.0/edition-browsers/index.js"
+    "normalify": "https://ga.jspm.io/npm:normalify@2.10.0/edition-browsers/index.js"
   }
 }

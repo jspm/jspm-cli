@@ -1,5 +1,5 @@
 {
   "imports": {
-    "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js"
+    "invariant": "https://ga.jspm.io/npm:invariant@2.2.4/browser.js"
   }
 }

@@ -1,25 +1,25 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "unified": "https://ga.jspm.dev/npm:unified@9.0.0/index.js"
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "unified": "https://ga.jspm.io/npm:unified@9.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:unified@9.0.0/": {
-      "bail": "https://ga.jspm.dev/npm:bail@1.0.5/index.js",
-      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js",
-      "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@2.1.0/index.js",
-      "trough": "https://ga.jspm.dev/npm:trough@1.0.5/index.js",
-      "vfile": "https://ga.jspm.dev/npm:vfile@4.1.1/index.js"
+    "https://ga.jspm.io/npm:unified@9.0.0/": {
+      "bail": "https://ga.jspm.io/npm:bail@1.0.5/index.js",
+      "extend": "https://ga.jspm.io/npm:extend@3.0.2/index.js",
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@2.0.4/index.js",
+      "is-plain-obj": "https://ga.jspm.io/npm:is-plain-obj@2.1.0/index.js",
+      "trough": "https://ga.jspm.io/npm:trough@1.0.5/index.js",
+      "vfile": "https://ga.jspm.io/npm:vfile@4.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:vfile-message@2.0.4/": {
-      "unist-util-stringify-position": "https://ga.jspm.dev/npm:unist-util-stringify-position@2.0.3/index.js"
+    "https://ga.jspm.io/npm:vfile-message@2.0.4/": {
+      "unist-util-stringify-position": "https://ga.jspm.io/npm:unist-util-stringify-position@2.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:vfile@4.1.1/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js",
-      "replace-ext": "https://ga.jspm.dev/npm:replace-ext@1.0.0/index.js",
-      "vfile-message": "https://ga.jspm.dev/npm:vfile-message@2.0.4/index.js"
+    "https://ga.jspm.io/npm:vfile@4.1.1/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@2.0.4/index.js",
+      "replace-ext": "https://ga.jspm.io/npm:replace-ext@1.0.0/index.js",
+      "vfile-message": "https://ga.jspm.io/npm:vfile-message@2.0.4/index.js"
     }
   }
 }

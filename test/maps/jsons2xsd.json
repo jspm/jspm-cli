@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jsons2xsd": "https://ga.jspm.dev/npm:jsons2xsd@1.0.3/src/index.js"
+    "jsons2xsd": "https://ga.jspm.io/npm:jsons2xsd@1.0.3/src/index.js"
   }
 }

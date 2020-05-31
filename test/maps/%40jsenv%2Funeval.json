@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@jsenv/uneval": "https://ga.jspm.dev/npm:@jsenv/uneval@1.4.0/index.js"
+    "@jsenv/uneval": "https://ga.jspm.io/npm:@jsenv/uneval@1.4.0/index.js"
   }
 }

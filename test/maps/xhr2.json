@@ -1,5 +1,5 @@
 {
   "imports": {
-    "xhr2": "https://ga.jspm.dev/npm:xhr2@0.2.0/lib/browser.js"
+    "xhr2": "https://ga.jspm.io/npm:xhr2@0.2.0/lib/browser.js"
   }
 }

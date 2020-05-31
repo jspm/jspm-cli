@@ -1,5 +1,5 @@
 {
   "imports": {
-    "eslint-config-standard": "https://ga.jspm.dev/npm:eslint-config-standard@14.1.1/index.js"
+    "eslint-config-standard": "https://ga.jspm.io/npm:eslint-config-standard@14.1.1/index.js"
   }
 }

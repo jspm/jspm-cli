@@ -1,5 +1,5 @@
 {
   "imports": {
-    "de-indent": "https://ga.jspm.dev/npm:de-indent@1.0.2/index.js"
+    "de-indent": "https://ga.jspm.io/npm:de-indent@1.0.2/index.js"
   }
 }

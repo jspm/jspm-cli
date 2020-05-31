@@ -1,13 +1,13 @@
 {
   "imports": {
-    "crosscall/dist/create-iframe.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/dist/create-iframe.js",
-    "crosscall/dist/create-popup.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/dist/create-popup.js",
-    "crosscall/dist/crosscall-client.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/dist/crosscall-client.js",
-    "crosscall/dist/crosscall-host.js": "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/dist/crosscall-host.js"
+    "crosscall/dist/create-iframe.js": "https://ga.jspm.io/npm:crosscall@0.0.6-dev.19/dist/create-iframe.js",
+    "crosscall/dist/create-popup.js": "https://ga.jspm.io/npm:crosscall@0.0.6-dev.19/dist/create-popup.js",
+    "crosscall/dist/crosscall-client.js": "https://ga.jspm.io/npm:crosscall@0.0.6-dev.19/dist/crosscall-client.js",
+    "crosscall/dist/crosscall-host.js": "https://ga.jspm.io/npm:crosscall@0.0.6-dev.19/dist/crosscall-host.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:crosscall@0.0.6-dev.19/": {
-      "renraku/dist/verify-cors.js": "https://ga.jspm.dev/npm:renraku@0.0.0-dev.24/dist/verify-cors.js"
+    "https://ga.jspm.io/npm:crosscall@0.0.6-dev.19/": {
+      "renraku/dist/verify-cors.js": "https://ga.jspm.io/npm:renraku@0.0.0-dev.24/dist/verify-cors.js"
     }
   }
 }

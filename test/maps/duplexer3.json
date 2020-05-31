@@ -1,6 +1,6 @@
 {
   "imports": {
-    "duplexer3": "https://ga.jspm.dev/npm:duplexer3@0.1.4/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "duplexer3": "https://ga.jspm.io/npm:duplexer3@0.1.4/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

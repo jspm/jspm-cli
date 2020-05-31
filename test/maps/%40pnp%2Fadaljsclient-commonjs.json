@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@pnp/adaljsclient-commonjs": "https://ga.jspm.dev/npm:@pnp/adaljsclient-commonjs@2.0.5/index.js"
+    "@pnp/adaljsclient-commonjs": "https://ga.jspm.io/npm:@pnp/adaljsclient-commonjs@2.0.5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@pnp/adaljsclient-commonjs@2.0.5/": {
-      "@pnp/common-commonjs": "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/index.js",
-      "adal-angular/dist/adal.min.js": "https://ga.jspm.dev/npm:adal-angular@1.0.17/dist/adal.min.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    "https://ga.jspm.io/npm:@pnp/adaljsclient-commonjs@2.0.5/": {
+      "@pnp/common-commonjs": "https://ga.jspm.io/npm:@pnp/common-commonjs@2.0.5/index.js",
+      "adal-angular/dist/adal.min.js": "https://ga.jspm.io/npm:adal-angular@1.0.17/dist/adal.min.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.10.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:@pnp/common-commonjs@2.0.5/": {
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    "https://ga.jspm.io/npm:@pnp/common-commonjs@2.0.5/": {
+      "tslib": "https://ga.jspm.io/npm:tslib@1.10.0/tslib.js"
     }
   }
 }

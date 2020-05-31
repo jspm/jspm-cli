@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@arelstone/react-native-email-chip": "https://ga.jspm.dev/npm:@arelstone/react-native-email-chip@2.0.1/index.js"
-  }
-}

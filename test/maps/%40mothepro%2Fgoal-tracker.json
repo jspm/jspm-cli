@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@mothepro/goal-tracker": "https://ga.jspm.dev/npm:@mothepro/goal-tracker@0.0.2/dist/npm/index.js"
+    "@mothepro/goal-tracker": "https://ga.jspm.io/npm:@mothepro/goal-tracker@0.0.2/dist/npm/index.js"
   }
 }

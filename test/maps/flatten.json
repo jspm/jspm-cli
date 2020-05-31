@@ -1,5 +1,5 @@
 {
   "imports": {
-    "flatten": "https://ga.jspm.dev/npm:flatten@1.0.3/index.js"
+    "flatten": "https://ga.jspm.io/npm:flatten@1.0.3/index.js"
   }
 }

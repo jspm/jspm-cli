@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@fusionstrings/randexp": "https://ga.jspm.dev/npm:@fusionstrings/randexp@0.2.0/dist/randexp.js"
+    "@fusionstrings/randexp": "https://ga.jspm.io/npm:@fusionstrings/randexp@0.2.0/dist/randexp.js"
   }
 }

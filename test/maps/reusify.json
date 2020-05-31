@@ -1,5 +1,5 @@
 {
   "imports": {
-    "reusify": "https://ga.jspm.dev/npm:reusify@1.0.4/reusify.js"
+    "reusify": "https://ga.jspm.io/npm:reusify@1.0.4/reusify.js"
   }
 }

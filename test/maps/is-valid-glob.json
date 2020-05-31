@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-valid-glob": "https://ga.jspm.dev/npm:is-valid-glob@1.0.0/index.js"
+    "is-valid-glob": "https://ga.jspm.io/npm:is-valid-glob@1.0.0/index.js"
   }
 }

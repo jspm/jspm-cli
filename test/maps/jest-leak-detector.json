@@ -1,33 +1,33 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "jest-leak-detector": "https://ga.jspm.dev/npm:jest-leak-detector@26.0.1/build/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "jest-leak-detector": "https://ga.jspm.io/npm:jest-leak-detector@26.0.1/build/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-styles@4.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@2.0.1/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@4.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@2.0.1/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-convert@2.0.1/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:jest-leak-detector@26.0.1/": {
-      "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js",
-      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@26.0.1/build/index.js",
-      "v8": "https://ga.jspm.dev/npm:v8@0.1.0/index.js",
-      "weak-napi": "https://ga.jspm.dev/npm:weak-napi@2.0.2/lib/weak.js"
+    "https://ga.jspm.io/npm:jest-leak-detector@26.0.1/": {
+      "jest-get-type": "https://ga.jspm.io/npm:jest-get-type@26.0.0/build/index.js",
+      "pretty-format": "https://ga.jspm.io/npm:pretty-format@26.0.1/build/index.js",
+      "v8": "https://ga.jspm.io/npm:v8@0.1.0/index.js",
+      "weak-napi": "https://ga.jspm.io/npm:weak-napi@2.0.2/lib/weak.js"
     },
-    "https://ga.jspm.dev/npm:pretty-format@26.0.1/": {
-      "ansi-regex": "https://ga.jspm.dev/npm:ansi-regex@5.0.0/index.js",
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@4.2.1/index.js",
-      "react-is": "https://ga.jspm.dev/npm:react-is@16.13.1/index.js"
+    "https://ga.jspm.io/npm:pretty-format@26.0.1/": {
+      "ansi-regex": "https://ga.jspm.io/npm:ansi-regex@5.0.0/index.js",
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@4.2.1/index.js",
+      "react-is": "https://ga.jspm.io/npm:react-is@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:weak-napi@2.0.2/": {
-      "node-gyp-build": "https://ga.jspm.dev/npm:node-gyp-build@4.2.2/index.js"
+    "https://ga.jspm.io/npm:weak-napi@2.0.2/": {
+      "node-gyp-build": "https://ga.jspm.io/npm:node-gyp-build@4.2.2/index.js"
     }
   }
 }

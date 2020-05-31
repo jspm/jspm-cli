@@ -1,12 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "keyv": "https://ga.jspm.dev/npm:keyv@4.0.1/src/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "keyv": "https://ga.jspm.io/npm:keyv@4.0.1/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:keyv@4.0.1/": {
-      "json-buffer": "https://ga.jspm.dev/npm:json-buffer@3.0.1/index.js"
+    "https://ga.jspm.io/npm:keyv@4.0.1/": {
+      "json-buffer": "https://ga.jspm.io/npm:json-buffer@3.0.1/index.js"
     }
   }
 }

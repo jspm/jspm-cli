@@ -1,5 +1,5 @@
 {
   "imports": {
-    "isobject": "https://ga.jspm.dev/npm:isobject@4.0.0/index.cjs.js"
+    "isobject": "https://ga.jspm.io/npm:isobject@4.0.0/index.cjs.js"
   }
 }

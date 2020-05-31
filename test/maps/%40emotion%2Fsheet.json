@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@emotion/sheet": "https://ga.jspm.dev/npm:@emotion/sheet@0.9.4/dist/sheet.browser.cjs.js"
+    "@emotion/sheet": "https://ga.jspm.io/npm:@emotion/sheet@0.9.4/dist/sheet.browser.cjs.js"
   }
 }

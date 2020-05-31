@@ -1,14 +1,14 @@
 {
   "imports": {
-    "rc-upload": "https://ga.jspm.dev/npm:rc-upload@3.1.1/lib/index.js"
+    "rc-upload": "https://ga.jspm.io/npm:rc-upload@3.1.1/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rc-upload@3.1.1/": {
-      "classnames": "https://ga.jspm.dev/npm:classnames@2.2.6/index.js",
-      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "https://ga.jspm.io/npm:rc-upload@3.1.1/": {
+      "classnames": "https://ga.jspm.io/npm:classnames@2.2.6/index.js",
+      "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
   "imports": {
-    "query-string": "https://ga.jspm.dev/npm:query-string@6.12.1/index.js"
+    "query-string": "https://ga.jspm.io/npm:query-string@6.12.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:query-string@6.12.1/": {
-      "decode-uri-component": "https://ga.jspm.dev/npm:decode-uri-component@0.2.0/index.js",
-      "split-on-first": "https://ga.jspm.dev/npm:split-on-first@1.1.0/index.js",
-      "strict-uri-encode": "https://ga.jspm.dev/npm:strict-uri-encode@2.0.0/index.js"
+    "https://ga.jspm.io/npm:query-string@6.12.1/": {
+      "decode-uri-component": "https://ga.jspm.io/npm:decode-uri-component@0.2.0/index.js",
+      "split-on-first": "https://ga.jspm.io/npm:split-on-first@1.1.0/index.js",
+      "strict-uri-encode": "https://ga.jspm.io/npm:strict-uri-encode@2.0.0/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "svg-parser": "https://ga.jspm.dev/npm:svg-parser@2.0.4/dist/svg-parser.umd.js"
+    "svg-parser": "https://ga.jspm.io/npm:svg-parser@2.0.4/dist/svg-parser.umd.js"
   }
 }

@@ -1,33 +1,33 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "connect": "https://ga.jspm.dev/npm:connect@3.7.0/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "connect": "https://ga.jspm.io/npm:connect@3.7.0/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:connect@3.7.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
-      "finalhandler": "https://ga.jspm.dev/npm:finalhandler@1.1.2/index.js",
-      "parseurl": "https://ga.jspm.dev/npm:parseurl@1.3.3/index.js",
-      "utils-merge": "https://ga.jspm.dev/npm:utils-merge@1.0.1/index.js"
+    "https://ga.jspm.io/npm:connect@3.7.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@2.6.9/src/browser.js",
+      "finalhandler": "https://ga.jspm.io/npm:finalhandler@1.1.2/index.js",
+      "parseurl": "https://ga.jspm.io/npm:parseurl@1.3.3/index.js",
+      "utils-merge": "https://ga.jspm.io/npm:utils-merge@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@2.6.9/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.io/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:finalhandler@1.1.2/": {
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
-      "encodeurl": "https://ga.jspm.dev/npm:encodeurl@1.0.2/index.js",
-      "escape-html": "https://ga.jspm.dev/npm:escape-html@1.0.3/index.js",
-      "on-finished": "https://ga.jspm.dev/npm:on-finished@2.3.0/index.js",
-      "parseurl": "https://ga.jspm.dev/npm:parseurl@1.3.3/index.js",
-      "statuses": "https://ga.jspm.dev/npm:statuses@1.5.0/index.js",
-      "unpipe": "https://ga.jspm.dev/npm:unpipe@1.0.0/index.js"
+    "https://ga.jspm.io/npm:finalhandler@1.1.2/": {
+      "debug": "https://ga.jspm.io/npm:debug@2.6.9/src/browser.js",
+      "encodeurl": "https://ga.jspm.io/npm:encodeurl@1.0.2/index.js",
+      "escape-html": "https://ga.jspm.io/npm:escape-html@1.0.3/index.js",
+      "on-finished": "https://ga.jspm.io/npm:on-finished@2.3.0/index.js",
+      "parseurl": "https://ga.jspm.io/npm:parseurl@1.3.3/index.js",
+      "statuses": "https://ga.jspm.io/npm:statuses@1.5.0/index.js",
+      "unpipe": "https://ga.jspm.io/npm:unpipe@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
-      "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
+    "https://ga.jspm.io/npm:on-finished@2.3.0/": {
+      "ee-first": "https://ga.jspm.io/npm:ee-first@1.1.1/index.js"
     }
   }
 }

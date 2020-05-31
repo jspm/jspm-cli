@@ -1,5 +1,5 @@
 {
   "imports": {
-    "moment-db": "https://ga.jspm.dev/npm:moment-db@2.0.0/index.js"
+    "moment-db": "https://ga.jspm.io/npm:moment-db@2.0.0/index.js"
   }
 }

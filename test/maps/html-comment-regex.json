@@ -1,5 +1,5 @@
 {
   "imports": {
-    "html-comment-regex": "https://ga.jspm.dev/npm:html-comment-regex@1.1.2/index.js"
+    "html-comment-regex": "https://ga.jspm.io/npm:html-comment-regex@1.1.2/index.js"
   }
 }

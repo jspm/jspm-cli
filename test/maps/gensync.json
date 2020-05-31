@@ -1,5 +1,5 @@
 {
   "imports": {
-    "gensync": "https://ga.jspm.dev/npm:gensync@1.0.0-beta.1/index.js"
+    "gensync": "https://ga.jspm.io/npm:gensync@1.0.0-beta.1/index.js"
   }
 }

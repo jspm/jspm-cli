@@ -1,17 +1,17 @@
 {
   "imports": {
-    "@netflix/nerror": "https://ga.jspm.dev/npm:@netflix/nerror@1.1.3/lib/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@netflix/nerror": "https://ga.jspm.io/npm:@netflix/nerror@1.1.3/lib/index.js",
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@netflix/nerror@1.1.3/": {
-      "assert-plus": "https://ga.jspm.dev/npm:assert-plus@1.0.0/assert.js",
-      "extsprintf": "https://ga.jspm.dev/npm:extsprintf@1.4.0/lib/extsprintf.js",
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    "https://ga.jspm.io/npm:@netflix/nerror@1.1.3/": {
+      "assert-plus": "https://ga.jspm.io/npm:assert-plus@1.0.0/assert.js",
+      "extsprintf": "https://ga.jspm.io/npm:extsprintf@1.4.0/lib/extsprintf.js",
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
     }
   }
 }

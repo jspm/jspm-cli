@@ -1,17 +1,17 @@
 {
   "imports": {
-    "mathjs": "https://ga.jspm.dev/npm:mathjs@7.0.0/main/es5/index.js"
+    "mathjs": "https://ga.jspm.io/npm:mathjs@7.0.1/main/es5/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:mathjs@7.0.0/": {
-      "complex.js": "https://ga.jspm.dev/npm:complex.js@2.0.11/complex.js",
-      "decimal.js": "https://ga.jspm.dev/npm:decimal.js@10.2.0/decimal.js",
-      "escape-latex": "https://ga.jspm.dev/npm:escape-latex@1.2.0/dist/index.js",
-      "fraction.js": "https://ga.jspm.dev/npm:fraction.js@4.0.12/fraction.js",
-      "javascript-natural-sort": "https://ga.jspm.dev/npm:javascript-natural-sort@0.7.1/naturalSort.js",
-      "seed-random": "https://ga.jspm.dev/npm:seed-random@2.2.0/index.js",
-      "tiny-emitter": "https://ga.jspm.dev/npm:tiny-emitter@2.1.0/index.js",
-      "typed-function": "https://ga.jspm.dev/npm:typed-function@1.1.1/typed-function.js"
+    "https://ga.jspm.io/npm:mathjs@7.0.1/": {
+      "complex.js": "https://ga.jspm.io/npm:complex.js@2.0.11/complex.js",
+      "decimal.js": "https://ga.jspm.io/npm:decimal.js@10.2.0/decimal.js",
+      "escape-latex": "https://ga.jspm.io/npm:escape-latex@1.2.0/dist/index.js",
+      "fraction.js": "https://ga.jspm.io/npm:fraction.js@4.0.12/fraction.js",
+      "javascript-natural-sort": "https://ga.jspm.io/npm:javascript-natural-sort@0.7.1/naturalSort.js",
+      "seed-random": "https://ga.jspm.io/npm:seed-random@2.2.0/index.js",
+      "tiny-emitter": "https://ga.jspm.io/npm:tiny-emitter@2.1.0/index.js",
+      "typed-function": "https://ga.jspm.io/npm:typed-function@1.1.1/typed-function.js"
     }
   }
 }

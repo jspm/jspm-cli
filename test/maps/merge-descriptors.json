@@ -1,5 +1,5 @@
 {
   "imports": {
-    "merge-descriptors": "https://ga.jspm.dev/npm:merge-descriptors@1.0.1/index.js"
+    "merge-descriptors": "https://ga.jspm.io/npm:merge-descriptors@1.0.1/index.js"
   }
 }

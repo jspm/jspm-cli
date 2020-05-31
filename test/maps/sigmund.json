@@ -1,5 +1,5 @@
 {
   "imports": {
-    "sigmund": "https://ga.jspm.dev/npm:sigmund@1.0.1/sigmund.js"
+    "sigmund": "https://ga.jspm.io/npm:sigmund@1.0.1/sigmund.js"
   }
 }

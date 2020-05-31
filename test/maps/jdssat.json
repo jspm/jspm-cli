@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jdssat": "https://ga.jspm.dev/npm:jdssat@4.0.0/jdssat.js"
+    "jdssat": "https://ga.jspm.io/npm:jdssat@4.0.0/jdssat.js"
   }
 }

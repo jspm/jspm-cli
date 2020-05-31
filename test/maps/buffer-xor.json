@@ -1,11 +1,11 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "buffer-xor": "https://ga.jspm.dev/npm:buffer-xor@2.0.2/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "buffer-xor": "https://ga.jspm.io/npm:buffer-xor@2.0.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:buffer-xor@2.0.2/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:buffer-xor@2.0.2/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     }
   }
 }

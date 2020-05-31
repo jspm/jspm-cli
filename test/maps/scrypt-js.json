@@ -1,5 +1,6 @@
 {
   "imports": {
-    "scrypt-js": "https://ga.jspm.dev/npm:scrypt-js@3.0.1/scrypt.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "scrypt-js": "https://ga.jspm.io/npm:scrypt-js@3.0.1/scrypt.js"
   }
 }

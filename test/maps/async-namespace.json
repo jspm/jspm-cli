@@ -1,6 +1,6 @@
 {
   "imports": {
-    "async-namespace": "https://ga.jspm.dev/npm:async-namespace@1.0.5/namespace.mjs",
-    "async_hooks": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/@empty.js"
+    "async-namespace": "https://ga.jspm.io/npm:async-namespace@1.0.5/namespace.mjs",
+    "async_hooks": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/@empty.js"
   }
 }

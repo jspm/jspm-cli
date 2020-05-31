@@ -1,5 +1,5 @@
 {
   "imports": {
-    "multicast-dns-service-types": "https://ga.jspm.dev/npm:multicast-dns-service-types@1.1.0/index.js"
+    "multicast-dns-service-types": "https://ga.jspm.io/npm:multicast-dns-service-types@1.1.0/index.js"
   }
 }

@@ -1,12 +1,12 @@
 {
   "imports": {
-    "amd-name-resolver": "https://ga.jspm.dev/npm:amd-name-resolver@1.3.1/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "amd-name-resolver": "https://ga.jspm.io/npm:amd-name-resolver@1.3.1/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:amd-name-resolver@1.3.1/": {
-      "ensure-posix-path": "https://ga.jspm.dev/npm:ensure-posix-path@1.1.1/index.js",
-      "object-hash": "https://ga.jspm.dev/npm:object-hash@1.3.1/dist/object_hash.js"
+    "https://ga.jspm.io/npm:amd-name-resolver@1.3.1/": {
+      "ensure-posix-path": "https://ga.jspm.io/npm:ensure-posix-path@1.1.1/index.js",
+      "object-hash": "https://ga.jspm.io/npm:object-hash@1.3.1/dist/object_hash.js"
     }
   }
 }

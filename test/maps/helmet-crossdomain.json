@@ -1,5 +1,5 @@
 {
   "imports": {
-    "helmet-crossdomain": "https://ga.jspm.dev/npm:helmet-crossdomain@0.5.0/dist/index.js"
+    "helmet-crossdomain": "https://ga.jspm.io/npm:helmet-crossdomain@0.5.0/dist/index.js"
   }
 }

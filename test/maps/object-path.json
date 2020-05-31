@@ -1,5 +1,5 @@
 {
   "imports": {
-    "object-path": "https://ga.jspm.dev/npm:object-path@0.11.4/index.js"
+    "object-path": "https://ga.jspm.io/npm:object-path@0.11.4/index.js"
   }
 }

@@ -1,70 +1,70 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "constants": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "eslint-loader": "https://ga.jspm.dev/npm:eslint-loader@4.0.2/dist/cjs.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "constants": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "eslint-loader": "https://ga.jspm.io/npm:eslint-loader@4.0.2/dist/cjs.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ajv@6.12.2/": {
-      "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js",
-      "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
-      "json-schema-traverse": "https://ga.jspm.dev/npm:json-schema-traverse@0.4.1/index.js",
-      "uri-js": "https://ga.jspm.dev/npm:uri-js@4.2.2/dist/es5/uri.all.js"
+    "https://ga.jspm.io/npm:ajv@6.12.2/": {
+      "fast-deep-equal": "https://ga.jspm.io/npm:fast-deep-equal@3.1.1/index.js",
+      "fast-json-stable-stringify": "https://ga.jspm.io/npm:fast-json-stable-stringify@2.1.0/index.js",
+      "json-schema-traverse": "https://ga.jspm.io/npm:json-schema-traverse@0.4.1/index.js",
+      "uri-js": "https://ga.jspm.io/npm:uri-js@4.2.2/dist/es5/uri.all.js"
     },
-    "https://ga.jspm.dev/npm:eslint-loader@4.0.2/": {
-      "find-cache-dir": "https://ga.jspm.dev/npm:find-cache-dir@3.3.1/index.js",
-      "fs-extra": "https://ga.jspm.dev/npm:fs-extra@8.1.0/lib/index.js",
-      "loader-utils": "https://ga.jspm.dev/npm:loader-utils@2.0.0/lib/index.js",
-      "object-hash": "https://ga.jspm.dev/npm:object-hash@2.0.3/dist/object_hash.js",
-      "schema-utils": "https://ga.jspm.dev/npm:schema-utils@2.7.0/dist/index.js"
+    "https://ga.jspm.io/npm:eslint-loader@4.0.2/": {
+      "find-cache-dir": "https://ga.jspm.io/npm:find-cache-dir@3.3.1/index.js",
+      "fs-extra": "https://ga.jspm.io/npm:fs-extra@8.1.0/lib/index.js",
+      "loader-utils": "https://ga.jspm.io/npm:loader-utils@2.0.0/lib/index.js",
+      "object-hash": "https://ga.jspm.io/npm:object-hash@2.0.3/dist/object_hash.js",
+      "schema-utils": "https://ga.jspm.io/npm:schema-utils@2.7.0/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:find-cache-dir@3.3.1/": {
-      "commondir": "https://ga.jspm.dev/npm:commondir@1.0.1/index.js",
-      "make-dir": "https://ga.jspm.dev/npm:make-dir@3.1.0/index.js",
-      "pkg-dir": "https://ga.jspm.dev/npm:pkg-dir@4.2.0/index.js"
+    "https://ga.jspm.io/npm:find-cache-dir@3.3.1/": {
+      "commondir": "https://ga.jspm.io/npm:commondir@1.0.1/index.js",
+      "make-dir": "https://ga.jspm.io/npm:make-dir@3.1.0/index.js",
+      "pkg-dir": "https://ga.jspm.io/npm:pkg-dir@4.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:find-up@4.1.0/": {
-      "locate-path": "https://ga.jspm.dev/npm:locate-path@5.0.0/index.js",
-      "path-exists": "https://ga.jspm.dev/npm:path-exists@4.0.0/index.js"
+    "https://ga.jspm.io/npm:find-up@4.1.0/": {
+      "locate-path": "https://ga.jspm.io/npm:locate-path@5.0.0/index.js",
+      "path-exists": "https://ga.jspm.io/npm:path-exists@4.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:fs-extra@8.1.0/": {
-      "graceful-fs": "https://ga.jspm.dev/npm:graceful-fs@4.2.4/graceful-fs.js",
-      "jsonfile": "https://ga.jspm.dev/npm:jsonfile@4.0.0/index.js",
-      "universalify": "https://ga.jspm.dev/npm:universalify@0.1.2/index.js"
+    "https://ga.jspm.io/npm:fs-extra@8.1.0/": {
+      "graceful-fs": "https://ga.jspm.io/npm:graceful-fs@4.2.4/graceful-fs.js",
+      "jsonfile": "https://ga.jspm.io/npm:jsonfile@4.0.0/index.js",
+      "universalify": "https://ga.jspm.io/npm:universalify@0.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:loader-utils@2.0.0/": {
-      "big.js": "https://ga.jspm.dev/npm:big.js@5.2.2/big.js",
-      "emojis-list": "https://ga.jspm.dev/npm:emojis-list@3.0.0/index.js",
-      "json5": "https://ga.jspm.dev/npm:json5@2.1.3/dist/index.js"
+    "https://ga.jspm.io/npm:loader-utils@2.0.0/": {
+      "big.js": "https://ga.jspm.io/npm:big.js@5.2.2/big.js",
+      "emojis-list": "https://ga.jspm.io/npm:emojis-list@3.0.0/index.js",
+      "json5": "https://ga.jspm.io/npm:json5@2.1.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:locate-path@5.0.0/": {
-      "p-locate": "https://ga.jspm.dev/npm:p-locate@4.1.0/index.js"
+    "https://ga.jspm.io/npm:locate-path@5.0.0/": {
+      "p-locate": "https://ga.jspm.io/npm:p-locate@4.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:make-dir@3.1.0/": {
-      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
+    "https://ga.jspm.io/npm:make-dir@3.1.0/": {
+      "semver": "https://ga.jspm.io/npm:semver@6.3.0/semver.js"
     },
-    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
-      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    "https://ga.jspm.io/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.io/npm:p-try@2.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-locate@4.1.0/": {
-      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    "https://ga.jspm.io/npm:p-locate@4.1.0/": {
+      "p-limit": "https://ga.jspm.io/npm:p-limit@2.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:pkg-dir@4.2.0/": {
-      "find-up": "https://ga.jspm.dev/npm:find-up@4.1.0/index.js"
+    "https://ga.jspm.io/npm:pkg-dir@4.2.0/": {
+      "find-up": "https://ga.jspm.io/npm:find-up@4.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:schema-utils@2.7.0/": {
-      "ajv": "https://ga.jspm.dev/npm:ajv@6.12.2/lib/ajv.js",
-      "ajv-keywords": "https://ga.jspm.dev/npm:ajv-keywords@3.4.1/index.js"
+    "https://ga.jspm.io/npm:schema-utils@2.7.0/": {
+      "ajv": "https://ga.jspm.io/npm:ajv@6.12.2/lib/ajv.js",
+      "ajv-keywords": "https://ga.jspm.io/npm:ajv-keywords@3.4.1/index.js"
     }
   }
 }

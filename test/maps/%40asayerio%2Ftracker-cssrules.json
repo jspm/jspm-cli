@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@asayerio/tracker": "https://ga.jspm.dev/npm:@asayerio/tracker@5.5.1/lib/index.js",
-    "@asayerio/tracker-cssrules": "https://ga.jspm.dev/npm:@asayerio/tracker-cssrules@1.0.0/lib/index.js"
+    "@asayerio/tracker": "https://ga.jspm.io/npm:@asayerio/tracker@5.5.1/lib/index.js",
+    "@asayerio/tracker-cssrules": "https://ga.jspm.io/npm:@asayerio/tracker-cssrules@1.0.0/lib/index.js"
   }
 }

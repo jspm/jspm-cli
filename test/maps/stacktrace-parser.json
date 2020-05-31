@@ -1,5 +1,5 @@
 {
   "imports": {
-    "stacktrace-parser": "https://ga.jspm.dev/npm:stacktrace-parser@0.1.10/dist/stack-trace-parser.cjs.js"
+    "stacktrace-parser": "https://ga.jspm.io/npm:stacktrace-parser@0.1.10/dist/stack-trace-parser.cjs.js"
   }
 }

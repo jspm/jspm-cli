@@ -1,19 +1,19 @@
 {
   "imports": {
-    "filenamify": "https://ga.jspm.dev/npm:filenamify@4.1.0/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "filenamify": "https://ga.jspm.io/npm:filenamify@4.1.0/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:filenamify@4.1.0/": {
-      "filename-reserved-regex": "https://ga.jspm.dev/npm:filename-reserved-regex@2.0.0/index.js",
-      "strip-outer": "https://ga.jspm.dev/npm:strip-outer@1.0.1/index.js",
-      "trim-repeated": "https://ga.jspm.dev/npm:trim-repeated@1.0.0/index.js"
+    "https://ga.jspm.io/npm:filenamify@4.1.0/": {
+      "filename-reserved-regex": "https://ga.jspm.io/npm:filename-reserved-regex@2.0.0/index.js",
+      "strip-outer": "https://ga.jspm.io/npm:strip-outer@1.0.1/index.js",
+      "trim-repeated": "https://ga.jspm.io/npm:trim-repeated@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:strip-outer@1.0.1/": {
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    "https://ga.jspm.io/npm:strip-outer@1.0.1/": {
+      "escape-string-regexp": "https://ga.jspm.io/npm:escape-string-regexp@1.0.5/index.js"
     },
-    "https://ga.jspm.dev/npm:trim-repeated@1.0.0/": {
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js"
+    "https://ga.jspm.io/npm:trim-repeated@1.0.0/": {
+      "escape-string-regexp": "https://ga.jspm.io/npm:escape-string-regexp@1.0.5/index.js"
     }
   }
 }

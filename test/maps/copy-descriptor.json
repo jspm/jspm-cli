@@ -1,5 +1,5 @@
 {
   "imports": {
-    "copy-descriptor": "https://ga.jspm.dev/npm:copy-descriptor@0.1.1/index.js"
+    "copy-descriptor": "https://ga.jspm.io/npm:copy-descriptor@0.1.1/index.js"
   }
 }

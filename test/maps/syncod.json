@@ -1,5 +1,5 @@
 {
   "imports": {
-    "syncod": "https://ga.jspm.dev/npm:syncod@0.0.1/src/index.js"
+    "syncod": "https://ga.jspm.io/npm:syncod@0.0.1/src/index.js"
   }
 }

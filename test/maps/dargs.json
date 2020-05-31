@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dargs": "https://ga.jspm.dev/npm:dargs@7.0.0/index.js"
+    "dargs": "https://ga.jspm.io/npm:dargs@7.0.0/index.js"
   }
 }

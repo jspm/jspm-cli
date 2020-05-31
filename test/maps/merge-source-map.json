@@ -1,10 +1,10 @@
 {
   "imports": {
-    "merge-source-map": "https://ga.jspm.dev/npm:merge-source-map@1.1.0/index.js"
+    "merge-source-map": "https://ga.jspm.io/npm:merge-source-map@1.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:merge-source-map@1.1.0/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:merge-source-map@1.1.0/": {
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     }
   }
 }

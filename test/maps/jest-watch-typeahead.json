@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jest-watch-typeahead": "https://ga.jspm.dev/npm:jest-watch-typeahead@0.6.0/build/index.js"
+    "jest-watch-typeahead": "https://ga.jspm.io/npm:jest-watch-typeahead@0.6.0/build/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@webassemblyjs/helper-fsm": "https://ga.jspm.dev/npm:@webassemblyjs/helper-fsm@1.9.0/lib/index.js"
+    "@webassemblyjs/helper-fsm": "https://ga.jspm.io/npm:@webassemblyjs/helper-fsm@1.9.0/lib/index.js"
   }
 }

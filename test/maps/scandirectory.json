@@ -1,18 +1,18 @@
 {
   "imports": {
-    "cluster": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/cluster.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "scandirectory": "https://ga.jspm.dev/npm:scandirectory@6.3.0/source/index.js"
+    "cluster": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/cluster.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "scandirectory": "https://ga.jspm.io/npm:scandirectory@6.3.0/source/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ignorefs@3.3.0/": {
-      "ignorepatterns": "https://ga.jspm.dev/npm:ignorepatterns@4.3.0/edition-esnext/index.js"
+    "https://ga.jspm.io/npm:ignorefs@3.3.0/": {
+      "ignorepatterns": "https://ga.jspm.io/npm:ignorepatterns@4.3.0/edition-esnext/index.js"
     },
-    "https://ga.jspm.dev/npm:scandirectory@6.3.0/": {
-      "ignorefs": "https://ga.jspm.dev/npm:ignorefs@3.3.0/edition-esnext/index.js",
-      "readdir-cluster": "https://ga.jspm.dev/npm:readdir-cluster@3.3.0/source/index.js"
+    "https://ga.jspm.io/npm:scandirectory@6.3.0/": {
+      "ignorefs": "https://ga.jspm.io/npm:ignorefs@3.3.0/edition-esnext/index.js",
+      "readdir-cluster": "https://ga.jspm.io/npm:readdir-cluster@3.3.0/source/index.js"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "dash-ast": "https://ga.jspm.dev/npm:dash-ast@2.0.1/index.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "dash-ast": "https://ga.jspm.io/npm:dash-ast@2.0.1/index.js"
   }
 }

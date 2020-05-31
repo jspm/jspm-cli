@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@becklyn/router": "https://ga.jspm.dev/npm:@becklyn/router@1.0.3/src/index.js"
+    "@becklyn/router": "https://ga.jspm.io/npm:@becklyn/router@1.0.3/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@becklyn/router@1.0.3/": {
-      "qss": "https://ga.jspm.dev/npm:qss@2.0.3/dist/qss.js"
+    "https://ga.jspm.io/npm:@becklyn/router@1.0.3/": {
+      "qss": "https://ga.jspm.io/npm:qss@2.0.3/dist/qss.js"
     }
   }
 }

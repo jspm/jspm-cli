@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@vicis/transform-date": "https://ga.jspm.dev/npm:@vicis/transform-date@1.2.3/dist/vicis-transform-date.js"
+    "@vicis/transform-date": "https://ga.jspm.io/npm:@vicis/transform-date@1.2.3/dist/vicis-transform-date.js"
   }
 }

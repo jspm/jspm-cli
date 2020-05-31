@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-stream-ended": "https://ga.jspm.dev/npm:is-stream-ended@0.1.4/index.js"
+    "is-stream-ended": "https://ga.jspm.io/npm:is-stream-ended@0.1.4/index.js"
   }
 }

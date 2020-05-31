@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pipeline-task": "https://ga.jspm.dev/npm:pipeline-task@0.0.15/lib/index.umd.js"
+    "pipeline-task": "https://ga.jspm.io/npm:pipeline-task@0.0.15/lib/index.umd.js"
   }
 }

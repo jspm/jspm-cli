@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "should-type": "https://ga.jspm.dev/npm:should-type@1.4.0/cjs/should-type.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "should-type": "https://ga.jspm.io/npm:should-type@1.4.0/cjs/should-type.js"
   }
 }

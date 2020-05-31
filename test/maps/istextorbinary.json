@@ -1,12 +1,12 @@
 {
   "imports": {
-    "istextorbinary": "https://ga.jspm.dev/npm:istextorbinary@5.0.0/edition-browsers/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "istextorbinary": "https://ga.jspm.io/npm:istextorbinary@5.0.0/edition-browsers/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:istextorbinary@5.0.0/": {
-      "binaryextensions": "https://ga.jspm.dev/npm:binaryextensions@4.0.0/edition-browsers/index.js",
-      "textextensions": "https://ga.jspm.dev/npm:textextensions@5.0.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:istextorbinary@5.0.0/": {
+      "binaryextensions": "https://ga.jspm.io/npm:binaryextensions@4.0.0/edition-browsers/index.js",
+      "textextensions": "https://ga.jspm.io/npm:textextensions@5.0.0/edition-browsers/index.js"
     }
   }
 }

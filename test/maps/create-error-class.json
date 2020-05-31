@@ -1,10 +1,10 @@
 {
   "imports": {
-    "create-error-class": "https://ga.jspm.dev/npm:create-error-class@3.0.2/index.js"
+    "create-error-class": "https://ga.jspm.io/npm:create-error-class@3.0.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:create-error-class@3.0.2/": {
-      "capture-stack-trace": "https://ga.jspm.dev/npm:capture-stack-trace@1.0.1/index.js"
+    "https://ga.jspm.io/npm:create-error-class@3.0.2/": {
+      "capture-stack-trace": "https://ga.jspm.io/npm:capture-stack-trace@1.0.1/index.js"
     }
   }
 }

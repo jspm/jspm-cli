@@ -1,5 +1,5 @@
 {
   "imports": {
-    "config-colors": "https://ga.jspm.dev/npm:config-colors@3.0.0/src/index.js"
+    "config-colors": "https://ga.jspm.io/npm:config-colors@3.0.0/src/index.js"
   }
 }

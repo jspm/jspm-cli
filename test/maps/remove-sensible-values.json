@@ -1,5 +1,5 @@
 {
   "imports": {
-    "remove-sensible-values": "https://ga.jspm.dev/npm:remove-sensible-values@1.0.6/src/remove-sensible-values.mjs"
+    "remove-sensible-values": "https://ga.jspm.io/npm:remove-sensible-values@1.0.6/src/remove-sensible-values.mjs"
   }
 }

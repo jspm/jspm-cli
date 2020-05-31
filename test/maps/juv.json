@@ -1,5 +1,5 @@
 {
   "imports": {
-    "juv": "https://ga.jspm.dev/npm:juv@0.4.6/index.js"
+    "juv": "https://ga.jspm.io/npm:juv@0.4.6/index.js"
   }
 }

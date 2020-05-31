@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.pick": "https://ga.jspm.dev/npm:lodash.pick@4.4.0/index.js"
+    "lodash.pick": "https://ga.jspm.io/npm:lodash.pick@4.4.0/index.js"
   }
 }

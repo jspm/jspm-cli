@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-url": "https://ga.jspm.dev/npm:is-url@1.2.4/index.js"
+    "is-url": "https://ga.jspm.io/npm:is-url@1.2.4/index.js"
   }
 }

@@ -1,38 +1,38 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "gcp-metadata": "https://ga.jspm.dev/npm:gcp-metadata@4.1.0/build/src/index.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "tls": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "gcp-metadata": "https://ga.jspm.io/npm:gcp-metadata@4.1.0/build/src/index.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "tls": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/tls.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:agent-base@6.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:agent-base@6.0.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.2.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:gaxios@3.0.3/": {
-      "extend": "https://ga.jspm.dev/npm:extend@3.0.2/index.js",
-      "https-proxy-agent": "https://ga.jspm.dev/npm:https-proxy-agent@5.0.0/dist/index.js",
-      "is-stream": "https://ga.jspm.dev/npm:is-stream@2.0.0/index.js",
-      "node-fetch": "https://ga.jspm.dev/npm:node-fetch@2.6.0/browser.js"
+    "https://ga.jspm.io/npm:gaxios@3.0.3/": {
+      "extend": "https://ga.jspm.io/npm:extend@3.0.2/index.js",
+      "https-proxy-agent": "https://ga.jspm.io/npm:https-proxy-agent@5.0.0/dist/index.js",
+      "is-stream": "https://ga.jspm.io/npm:is-stream@2.0.0/index.js",
+      "node-fetch": "https://ga.jspm.io/npm:node-fetch@2.6.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:gcp-metadata@4.1.0/": {
-      "gaxios": "https://ga.jspm.dev/npm:gaxios@3.0.3/build/src/index.js",
-      "json-bigint": "https://ga.jspm.dev/npm:json-bigint@0.3.0/index.js"
+    "https://ga.jspm.io/npm:gcp-metadata@4.1.0/": {
+      "gaxios": "https://ga.jspm.io/npm:gaxios@3.0.3/build/src/index.js",
+      "json-bigint": "https://ga.jspm.io/npm:json-bigint@0.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:https-proxy-agent@5.0.0/": {
-      "agent-base": "https://ga.jspm.dev/npm:agent-base@6.0.0/dist/src/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:https-proxy-agent@5.0.0/": {
+      "agent-base": "https://ga.jspm.io/npm:agent-base@6.0.0/dist/src/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:json-bigint@0.3.0/": {
-      "bignumber.js": "https://ga.jspm.dev/npm:bignumber.js@7.2.1/bignumber.js"
+    "https://ga.jspm.io/npm:json-bigint@0.3.0/": {
+      "bignumber.js": "https://ga.jspm.io/npm:bignumber.js@7.2.1/bignumber.js"
     }
   }
 }

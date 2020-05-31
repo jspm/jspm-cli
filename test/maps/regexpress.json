@@ -1,5 +1,5 @@
 {
   "imports": {
-    "regexpress": "https://ga.jspm.dev/npm:regexpress@3.1.2/dist/index.js"
+    "regexpress": "https://ga.jspm.io/npm:regexpress@3.1.2/dist/index.js"
   }
 }

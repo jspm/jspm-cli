@@ -1,33 +1,33 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crane-parser": "https://ga.jspm.dev/npm:crane-parser@0.2.1/src/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crane-parser": "https://ga.jspm.io/npm:crane-parser@0.2.1/src/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:crane-parser@0.2.1/": {
-      "acorn": "https://ga.jspm.dev/npm:acorn@5.7.4/dist/acorn.js",
-      "escodegen": "https://ga.jspm.dev/npm:escodegen@1.14.1/escodegen.js",
-      "estemplate": "https://ga.jspm.dev/npm:estemplate@0.5.1/lib/estemplate.js",
-      "lexie": "https://ga.jspm.dev/npm:lexie@1.0.7/index.mjs",
-      "livescript": "https://ga.jspm.dev/npm:livescript@1.6.0/lib/browser.js"
+    "https://ga.jspm.io/npm:crane-parser@0.2.1/": {
+      "acorn": "https://ga.jspm.io/npm:acorn@5.7.4/dist/acorn.js",
+      "escodegen": "https://ga.jspm.io/npm:escodegen@1.14.1/escodegen.js",
+      "estemplate": "https://ga.jspm.io/npm:estemplate@0.5.1/lib/estemplate.js",
+      "lexie": "https://ga.jspm.io/npm:lexie@1.0.7/index.mjs",
+      "livescript": "https://ga.jspm.io/npm:livescript@1.6.0/lib/browser.js"
     },
-    "https://ga.jspm.dev/npm:escodegen@1.14.1/": {
-      "estraverse": "https://ga.jspm.dev/npm:estraverse@4.3.0/estraverse.js",
-      "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js"
+    "https://ga.jspm.io/npm:escodegen@1.14.1/": {
+      "estraverse": "https://ga.jspm.io/npm:estraverse@4.3.0/estraverse.js",
+      "esutils": "https://ga.jspm.io/npm:esutils@2.0.3/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:estemplate@0.5.1/": {
-      "esprima": "https://ga.jspm.dev/npm:esprima@2.7.3/esprima.js",
-      "estraverse": "https://ga.jspm.dev/npm:estraverse@4.3.0/estraverse.js"
+    "https://ga.jspm.io/npm:estemplate@0.5.1/": {
+      "esprima": "https://ga.jspm.io/npm:esprima@2.7.3/esprima.js",
+      "estraverse": "https://ga.jspm.io/npm:estraverse@4.3.0/estraverse.js"
     },
-    "https://ga.jspm.dev/npm:livescript@1.6.0/": {
-      "prelude-ls": "https://ga.jspm.dev/npm:prelude-ls@1.1.2/lib/index.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:livescript@1.6.0/": {
+      "prelude-ls": "https://ga.jspm.io/npm:prelude-ls@1.1.2/lib/index.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     }
   }
 }

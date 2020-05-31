@@ -1,5 +1,5 @@
 {
   "imports": {
-    "simple-tester": "https://ga.jspm.dev/npm:simple-tester@1.0.9/index.js"
+    "simple-tester": "https://ga.jspm.io/npm:simple-tester@1.0.9/index.js"
   }
 }

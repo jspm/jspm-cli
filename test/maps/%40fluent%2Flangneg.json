@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@fluent/langneg": "https://ga.jspm.dev/npm:@fluent/langneg@0.4.0/index.js"
+    "@fluent/langneg": "https://ga.jspm.io/npm:@fluent/langneg@0.4.0/index.js"
   }
 }

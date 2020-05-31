@@ -1,7 +1,7 @@
 {
   "imports": {
-    "map-stream": "https://ga.jspm.dev/npm:map-stream@0.0.7/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "map-stream": "https://ga.jspm.io/npm:map-stream@0.0.7/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

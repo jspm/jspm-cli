@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fmin": "https://ga.jspm.dev/npm:fmin@0.0.2/build/fmin.js"
+    "fmin": "https://ga.jspm.io/npm:fmin@0.0.2/build/fmin.js"
   }
 }

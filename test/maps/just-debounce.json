@@ -1,5 +1,5 @@
 {
   "imports": {
-    "just-debounce": "https://ga.jspm.dev/npm:just-debounce@1.0.0/index.js"
+    "just-debounce": "https://ga.jspm.io/npm:just-debounce@1.0.0/index.js"
   }
 }

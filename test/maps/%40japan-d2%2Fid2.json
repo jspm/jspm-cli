@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@japan-d2/id2": "https://ga.jspm.dev/npm:@japan-d2/id2@0.0.3/lib/index.js"
+    "@japan-d2/id2": "https://ga.jspm.io/npm:@japan-d2/id2@0.0.3/lib/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "react-devtools-core": "https://ga.jspm.dev/npm:react-devtools-core@4.7.0/dist/backend.js"
+    "react-devtools-core": "https://ga.jspm.io/npm:react-devtools-core@4.7.0/dist/backend.js"
   }
 }

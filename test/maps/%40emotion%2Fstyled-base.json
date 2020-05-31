@@ -1,42 +1,42 @@
 {
   "imports": {
-    "@emotion/core": "https://ga.jspm.dev/npm:@emotion/core@10.0.28/dist/core.browser.cjs.js",
-    "@emotion/styled-base": "https://ga.jspm.dev/npm:@emotion/styled-base@10.0.31/dist/styled-base.browser.cjs.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "@emotion/core": "https://ga.jspm.io/npm:@emotion/core@10.0.28/dist/core.browser.cjs.js",
+    "@emotion/styled-base": "https://ga.jspm.io/npm:@emotion/styled-base@10.0.31/dist/styled-base.browser.cjs.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@emotion/cache@10.0.29/": {
-      "@emotion/sheet": "https://ga.jspm.dev/npm:@emotion/sheet@0.9.4/dist/sheet.browser.cjs.js",
-      "@emotion/stylis": "https://ga.jspm.dev/npm:@emotion/stylis@0.8.5/dist/stylis.browser.cjs.js",
-      "@emotion/weak-memoize": "https://ga.jspm.dev/npm:@emotion/weak-memoize@0.2.5/dist/weak-memoize.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/cache@10.0.29/": {
+      "@emotion/sheet": "https://ga.jspm.io/npm:@emotion/sheet@0.9.4/dist/sheet.browser.cjs.js",
+      "@emotion/stylis": "https://ga.jspm.io/npm:@emotion/stylis@0.8.5/dist/stylis.browser.cjs.js",
+      "@emotion/weak-memoize": "https://ga.jspm.io/npm:@emotion/weak-memoize@0.2.5/dist/weak-memoize.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@emotion/core@10.0.28/": {
-      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inheritsLoose.js",
-      "@emotion/cache": "https://ga.jspm.dev/npm:@emotion/cache@10.0.29/dist/cache.browser.cjs.js",
-      "@emotion/css": "https://ga.jspm.dev/npm:@emotion/css@10.0.27/dist/css.browser.cjs.js",
-      "@emotion/serialize": "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js",
-      "@emotion/sheet": "https://ga.jspm.dev/npm:@emotion/sheet@0.9.4/dist/sheet.browser.cjs.js",
-      "@emotion/utils": "https://ga.jspm.dev/npm:@emotion/utils@0.11.3/dist/utils.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/core@10.0.28/": {
+      "@babel/runtime/helpers/inheritsLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/inheritsLoose.js",
+      "@emotion/cache": "https://ga.jspm.io/npm:@emotion/cache@10.0.29/dist/cache.browser.cjs.js",
+      "@emotion/css": "https://ga.jspm.io/npm:@emotion/css@10.0.27/dist/css.browser.cjs.js",
+      "@emotion/serialize": "https://ga.jspm.io/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js",
+      "@emotion/sheet": "https://ga.jspm.io/npm:@emotion/sheet@0.9.4/dist/sheet.browser.cjs.js",
+      "@emotion/utils": "https://ga.jspm.io/npm:@emotion/utils@0.11.3/dist/utils.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@emotion/css@10.0.27/": {
-      "@emotion/serialize": "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/css@10.0.27/": {
+      "@emotion/serialize": "https://ga.jspm.io/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@emotion/is-prop-valid@0.8.8/": {
-      "@emotion/memoize": "https://ga.jspm.dev/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/is-prop-valid@0.8.8/": {
+      "@emotion/memoize": "https://ga.jspm.io/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/": {
-      "@emotion/hash": "https://ga.jspm.dev/npm:@emotion/hash@0.8.0/dist/hash.browser.cjs.js",
-      "@emotion/memoize": "https://ga.jspm.dev/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js",
-      "@emotion/unitless": "https://ga.jspm.dev/npm:@emotion/unitless@0.7.5/dist/unitless.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/serialize@0.11.16/": {
+      "@emotion/hash": "https://ga.jspm.io/npm:@emotion/hash@0.8.0/dist/hash.browser.cjs.js",
+      "@emotion/memoize": "https://ga.jspm.io/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js",
+      "@emotion/unitless": "https://ga.jspm.io/npm:@emotion/unitless@0.7.5/dist/unitless.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@emotion/styled-base@10.0.31/": {
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@emotion/is-prop-valid": "https://ga.jspm.dev/npm:@emotion/is-prop-valid@0.8.8/dist/is-prop-valid.browser.cjs.js",
-      "@emotion/serialize": "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js",
-      "@emotion/utils": "https://ga.jspm.dev/npm:@emotion/utils@0.11.3/dist/utils.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/styled-base@10.0.31/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@emotion/is-prop-valid": "https://ga.jspm.io/npm:@emotion/is-prop-valid@0.8.8/dist/is-prop-valid.browser.cjs.js",
+      "@emotion/serialize": "https://ga.jspm.io/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js",
+      "@emotion/utils": "https://ga.jspm.io/npm:@emotion/utils@0.11.3/dist/utils.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

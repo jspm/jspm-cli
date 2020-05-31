@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@nuclearredeye/typescript-library": "https://ga.jspm.dev/npm:@nuclearredeye/typescript-library@1.5.0/dist/lib/typescript-library.js"
+    "@nuclearredeye/typescript-library": "https://ga.jspm.io/npm:@nuclearredeye/typescript-library@1.5.0/dist/lib/typescript-library.js"
   }
 }

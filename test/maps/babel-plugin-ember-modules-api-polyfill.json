@@ -1,11 +1,11 @@
 {
   "imports": {
-    "babel-plugin-ember-modules-api-polyfill": "https://ga.jspm.dev/npm:babel-plugin-ember-modules-api-polyfill@2.13.3/src/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "babel-plugin-ember-modules-api-polyfill": "https://ga.jspm.io/npm:babel-plugin-ember-modules-api-polyfill@2.13.3/src/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-plugin-ember-modules-api-polyfill@2.13.3/": {
-      "ember-rfc176-data": "https://ga.jspm.dev/npm:ember-rfc176-data@0.3.13/mappings.json.js"
+    "https://ga.jspm.io/npm:babel-plugin-ember-modules-api-polyfill@2.13.3/": {
+      "ember-rfc176-data": "https://ga.jspm.io/npm:ember-rfc176-data@0.3.13/mappings.json.js"
     }
   }
 }

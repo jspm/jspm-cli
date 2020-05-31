@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@utkusarioglu/statuorelica-common-types": "https://ga.jspm.dev/npm:@utkusarioglu/statuorelica-common-types@0.0.52/index.js"
+    "@utkusarioglu/statuorelica-common-types": "https://ga.jspm.io/npm:@utkusarioglu/statuorelica-common-types@0.0.52/index.js"
   }
 }

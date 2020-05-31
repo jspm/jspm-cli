@@ -1,7 +1,7 @@
 {
   "imports": {
-    "cli-spinner": "https://ga.jspm.dev/npm:cli-spinner@0.2.10/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
+    "cli-spinner": "https://ga.jspm.io/npm:cli-spinner@0.2.10/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
   }
 }

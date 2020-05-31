@@ -1,5 +1,5 @@
 {
   "imports": {
-    "preserve": "https://ga.jspm.dev/npm:preserve@0.2.0/index.js"
+    "preserve": "https://ga.jspm.io/npm:preserve@0.2.0/index.js"
   }
 }

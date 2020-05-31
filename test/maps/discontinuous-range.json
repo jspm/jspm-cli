@@ -1,5 +1,5 @@
 {
   "imports": {
-    "discontinuous-range": "https://ga.jspm.dev/npm:discontinuous-range@1.0.0/index.js"
+    "discontinuous-range": "https://ga.jspm.io/npm:discontinuous-range@1.0.0/index.js"
   }
 }

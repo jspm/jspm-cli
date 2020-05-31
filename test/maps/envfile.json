@@ -1,5 +1,5 @@
 {
   "imports": {
-    "envfile": "https://ga.jspm.dev/npm:envfile@6.2.0/edition-browsers/index.js"
+    "envfile": "https://ga.jspm.io/npm:envfile@6.2.0/edition-browsers/index.js"
   }
 }

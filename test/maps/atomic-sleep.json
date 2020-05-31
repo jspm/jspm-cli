@@ -1,5 +1,5 @@
 {
   "imports": {
-    "atomic-sleep": "https://ga.jspm.dev/npm:atomic-sleep@1.0.0/index.js"
+    "atomic-sleep": "https://ga.jspm.io/npm:atomic-sleep@1.0.0/index.js"
   }
 }

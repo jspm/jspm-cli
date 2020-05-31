@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@phosphor/coreutils": "https://ga.jspm.dev/npm:@phosphor/coreutils@1.3.1/lib/index.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
+    "@phosphor/coreutils": "https://ga.jspm.io/npm:@phosphor/coreutils@1.3.1/lib/index.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
   }
 }

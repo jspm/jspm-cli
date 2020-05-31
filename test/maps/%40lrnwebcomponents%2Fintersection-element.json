@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/intersection-element@2.6.12/lib/IntersectionObserverMixin.js"
+    "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js": "https://ga.jspm.io/npm:@lrnwebcomponents/intersection-element@2.6.12/lib/IntersectionObserverMixin.js"
   }
 }

@@ -1,18 +1,18 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "engine.io-parser": "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/lib/browser.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "engine.io-parser": "https://ga.jspm.io/npm:engine.io-parser@2.2.0/lib/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/": {
-      "after": "https://ga.jspm.dev/npm:after@0.8.2/index.js",
-      "arraybuffer.slice": "https://ga.jspm.dev/npm:arraybuffer.slice@0.0.7/index.js",
-      "base64-arraybuffer": "https://ga.jspm.dev/npm:base64-arraybuffer@0.1.5/lib/base64-arraybuffer.js",
-      "blob": "https://ga.jspm.dev/npm:blob@0.0.5/index.js",
-      "has-binary2": "https://ga.jspm.dev/npm:has-binary2@1.0.3/index.js"
+    "https://ga.jspm.io/npm:engine.io-parser@2.2.0/": {
+      "after": "https://ga.jspm.io/npm:after@0.8.2/index.js",
+      "arraybuffer.slice": "https://ga.jspm.io/npm:arraybuffer.slice@0.0.7/index.js",
+      "base64-arraybuffer": "https://ga.jspm.io/npm:base64-arraybuffer@0.1.5/lib/base64-arraybuffer.js",
+      "blob": "https://ga.jspm.io/npm:blob@0.0.5/index.js",
+      "has-binary2": "https://ga.jspm.io/npm:has-binary2@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:has-binary2@1.0.3/": {
-      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.1/index.js"
+    "https://ga.jspm.io/npm:has-binary2@1.0.3/": {
+      "isarray": "https://ga.jspm.io/npm:isarray@2.0.1/index.js"
     }
   }
 }

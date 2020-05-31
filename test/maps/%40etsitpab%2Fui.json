@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@etsitpab/ui": "https://ga.jspm.dev/npm:@etsitpab/ui@1.0.0/src/libui.js"
+    "@etsitpab/ui": "https://ga.jspm.io/npm:@etsitpab/ui@1.0.0/src/libui.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "imtool": "https://ga.jspm.dev/npm:imtool@1.1.3/lib/index.js"
+    "imtool": "https://ga.jspm.io/npm:imtool@1.1.3/lib/index.js"
   }
 }

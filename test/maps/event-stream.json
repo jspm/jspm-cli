@@ -1,30 +1,30 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "event-stream": "https://ga.jspm.dev/npm:event-stream@4.0.1/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "event-stream": "https://ga.jspm.io/npm:event-stream@4.0.1/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:event-stream@4.0.1/": {
-      "duplexer": "https://ga.jspm.dev/npm:duplexer@0.1.1/index.js",
-      "from": "https://ga.jspm.dev/npm:from@0.1.7/index.js",
-      "map-stream": "https://ga.jspm.dev/npm:map-stream@0.0.7/index.js",
-      "pause-stream": "https://ga.jspm.dev/npm:pause-stream@0.0.11/index.js",
-      "split": "https://ga.jspm.dev/npm:split@1.0.1/index.js",
-      "stream-combiner": "https://ga.jspm.dev/npm:stream-combiner@0.2.2/index.js",
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:event-stream@4.0.1/": {
+      "duplexer": "https://ga.jspm.io/npm:duplexer@0.1.1/index.js",
+      "from": "https://ga.jspm.io/npm:from@0.1.7/index.js",
+      "map-stream": "https://ga.jspm.io/npm:map-stream@0.0.7/index.js",
+      "pause-stream": "https://ga.jspm.io/npm:pause-stream@0.0.11/index.js",
+      "split": "https://ga.jspm.io/npm:split@1.0.1/index.js",
+      "stream-combiner": "https://ga.jspm.io/npm:stream-combiner@0.2.2/index.js",
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     },
-    "https://ga.jspm.dev/npm:pause-stream@0.0.11/": {
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:pause-stream@0.0.11/": {
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     },
-    "https://ga.jspm.dev/npm:split@1.0.1/": {
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:split@1.0.1/": {
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     },
-    "https://ga.jspm.dev/npm:stream-combiner@0.2.2/": {
-      "duplexer": "https://ga.jspm.dev/npm:duplexer@0.1.1/index.js",
-      "through": "https://ga.jspm.dev/npm:through@2.3.8/index.js"
+    "https://ga.jspm.io/npm:stream-combiner@0.2.2/": {
+      "duplexer": "https://ga.jspm.io/npm:duplexer@0.1.1/index.js",
+      "through": "https://ga.jspm.io/npm:through@2.3.8/index.js"
     }
   }
 }

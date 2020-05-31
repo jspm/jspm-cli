@@ -1,5 +1,5 @@
 {
   "imports": {
-    "errlop": "https://ga.jspm.dev/npm:errlop@3.3.0/edition-browsers/index.js"
+    "errlop": "https://ga.jspm.io/npm:errlop@3.3.0/edition-browsers/index.js"
   }
 }

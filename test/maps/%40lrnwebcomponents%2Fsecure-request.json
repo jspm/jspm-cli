@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/secure-request": "https://ga.jspm.dev/npm:@lrnwebcomponents/secure-request@2.6.14/secure-request.js"
-  }
-}

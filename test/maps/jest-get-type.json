@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jest-get-type": "https://ga.jspm.dev/npm:jest-get-type@26.0.0/build/index.js"
+    "jest-get-type": "https://ga.jspm.io/npm:jest-get-type@26.0.0/build/index.js"
   }
 }

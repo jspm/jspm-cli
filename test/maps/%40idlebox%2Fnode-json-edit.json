@@ -1,20 +1,20 @@
 {
   "imports": {
-    "@idlebox/node-json-edit": "https://ga.jspm.dev/npm:@idlebox/node-json-edit@1.0.20/lib/node-json-edit.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@idlebox/node-json-edit": "https://ga.jspm.io/npm:@idlebox/node-json-edit@1.0.20/lib/node-json-edit.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@idlebox/node-json-edit@1.0.20/": {
-      "comment-json": "https://ga.jspm.dev/npm:comment-json@2.4.2/src/index.js"
+    "https://ga.jspm.io/npm:@idlebox/node-json-edit@1.0.20/": {
+      "comment-json": "https://ga.jspm.io/npm:comment-json@2.4.2/src/index.js"
     },
-    "https://ga.jspm.dev/npm:comment-json@2.4.2/": {
-      "core-util-is": "https://ga.jspm.dev/npm:core-util-is@1.0.2/lib/util.js",
-      "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js",
-      "has-own-prop": "https://ga.jspm.dev/npm:has-own-prop@2.0.0/index.js",
-      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    "https://ga.jspm.io/npm:comment-json@2.4.2/": {
+      "core-util-is": "https://ga.jspm.io/npm:core-util-is@1.0.2/lib/util.js",
+      "esprima": "https://ga.jspm.io/npm:esprima@4.0.1/dist/esprima.js",
+      "has-own-prop": "https://ga.jspm.io/npm:has-own-prop@2.0.0/index.js",
+      "repeat-string": "https://ga.jspm.io/npm:repeat-string@1.6.1/index.js"
     }
   }
 }

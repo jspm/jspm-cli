@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@mothepro/lit-chart": "https://ga.jspm.dev/npm:@mothepro/lit-chart@0.0.2/dist/npm/index.js"
+    "@mothepro/lit-chart": "https://ga.jspm.io/npm:@mothepro/lit-chart@0.0.2/dist/npm/index.js"
   }
 }

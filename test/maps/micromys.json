@@ -1,5 +1,5 @@
 {
   "imports": {
-    "micromys": "https://ga.jspm.dev/npm:micromys@1.0.0/index.js"
+    "micromys": "https://ga.jspm.io/npm:micromys@1.0.0/index.js"
   }
 }

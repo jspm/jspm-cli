@@ -1,31 +1,31 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "create-ecdh": "https://ga.jspm.dev/npm:create-ecdh@4.0.3/browser.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "create-ecdh": "https://ga.jspm.io/npm:create-ecdh@4.0.3/browser.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:create-ecdh@4.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js"
+    "https://ga.jspm.io/npm:create-ecdh@4.0.3/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "elliptic": "https://ga.jspm.io/npm:elliptic@6.5.2/lib/elliptic.js"
     },
-    "https://ga.jspm.dev/npm:elliptic@6.5.2/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js",
-      "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
-      "hmac-drbg": "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
-      "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
+    "https://ga.jspm.io/npm:elliptic@6.5.2/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "brorand": "https://ga.jspm.io/npm:brorand@1.1.0/index.js",
+      "hash.js": "https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js",
+      "hmac-drbg": "https://ga.jspm.io/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js",
+      "minimalistic-crypto-utils": "https://ga.jspm.io/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:hash.js@1.1.7/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    "https://ga.jspm.io/npm:hash.js@1.1.7/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/": {
-      "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
-      "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
+    "https://ga.jspm.io/npm:hmac-drbg@1.0.1/": {
+      "hash.js": "https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js",
+      "minimalistic-crypto-utils": "https://ga.jspm.io/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     }
   }
 }

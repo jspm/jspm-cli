@@ -1,27 +1,27 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "pm2-axon": "https://ga.jspm.dev/npm:pm2-axon@3.3.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "pm2-axon": "https://ga.jspm.io/npm:pm2-axon@3.3.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:amp-message@0.1.2/": {
-      "amp": "https://ga.jspm.dev/npm:amp@0.3.1/index.js"
+    "https://ga.jspm.io/npm:amp-message@0.1.2/": {
+      "amp": "https://ga.jspm.io/npm:amp@0.3.1/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:pm2-axon@3.3.0/": {
-      "amp": "https://ga.jspm.dev/npm:amp@0.3.1/index.js",
-      "amp-message": "https://ga.jspm.dev/npm:amp-message@0.1.2/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
-      "escape-regexp": "https://ga.jspm.dev/npm:escape-regexp@0.0.1/index.js"
+    "https://ga.jspm.io/npm:pm2-axon@3.3.0/": {
+      "amp": "https://ga.jspm.io/npm:amp@0.3.1/index.js",
+      "amp-message": "https://ga.jspm.io/npm:amp-message@0.1.2/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js",
+      "escape-regexp": "https://ga.jspm.io/npm:escape-regexp@0.0.1/index.js"
     }
   }
 }

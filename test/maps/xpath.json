@@ -1,5 +1,5 @@
 {
   "imports": {
-    "xpath": "https://ga.jspm.dev/npm:xpath@0.0.27/xpath.js"
+    "xpath": "https://ga.jspm.io/npm:xpath@0.0.27/xpath.js"
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "level-errors": "https://ga.jspm.dev/npm:level-errors@2.0.1/errors.js"
+    "level-errors": "https://ga.jspm.io/npm:level-errors@2.0.1/errors.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:errno@0.1.7/": {
-      "prr": "https://ga.jspm.dev/npm:prr@1.0.1/prr.js"
+    "https://ga.jspm.io/npm:errno@0.1.7/": {
+      "prr": "https://ga.jspm.io/npm:prr@1.0.1/prr.js"
     },
-    "https://ga.jspm.dev/npm:level-errors@2.0.1/": {
-      "errno": "https://ga.jspm.dev/npm:errno@0.1.7/errno.js"
+    "https://ga.jspm.io/npm:level-errors@2.0.1/": {
+      "errno": "https://ga.jspm.io/npm:errno@0.1.7/errno.js"
     }
   }
 }

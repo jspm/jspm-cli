@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@serialport/binding-abstract": "https://ga.jspm.dev/npm:@serialport/binding-abstract@9.0.0/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@serialport/binding-abstract": "https://ga.jspm.io/npm:@serialport/binding-abstract@9.0.0/lib/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@serialport/binding-abstract@9.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@4.2.0/src/browser.js"
+    "https://ga.jspm.io/npm:@serialport/binding-abstract@9.0.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@4.2.0/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.2.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.2.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     }
   }
 }

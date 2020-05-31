@@ -1,6 +1,6 @@
 {
   "imports": {
-    "base64url": "https://ga.jspm.dev/npm:base64url@3.0.1/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "base64url": "https://ga.jspm.io/npm:base64url@3.0.1/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   }
 }

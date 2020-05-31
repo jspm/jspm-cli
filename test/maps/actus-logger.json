@@ -1,10 +1,10 @@
 {
   "imports": {
-    "actus-logger": "https://ga.jspm.dev/npm:actus-logger@0.2.0-alpha.0/index.js"
+    "actus-logger": "https://ga.jspm.io/npm:actus-logger@0.2.0-alpha.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:actus-logger@0.2.0-alpha.0/": {
-      "deep-object-diff": "https://ga.jspm.dev/npm:deep-object-diff@1.1.0/dist/index.js"
+    "https://ga.jspm.io/npm:actus-logger@0.2.0-alpha.0/": {
+      "deep-object-diff": "https://ga.jspm.io/npm:deep-object-diff@1.1.0/dist/index.js"
     }
   }
 }

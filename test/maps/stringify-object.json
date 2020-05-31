@@ -1,12 +1,12 @@
 {
   "imports": {
-    "stringify-object": "https://ga.jspm.dev/npm:stringify-object@3.3.0/index.js"
+    "stringify-object": "https://ga.jspm.io/npm:stringify-object@3.3.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:stringify-object@3.3.0/": {
-      "get-own-enumerable-property-symbols": "https://ga.jspm.dev/npm:get-own-enumerable-property-symbols@3.0.2/lib/index.js",
-      "is-obj": "https://ga.jspm.dev/npm:is-obj@1.0.1/index.js",
-      "is-regexp": "https://ga.jspm.dev/npm:is-regexp@1.0.0/index.js"
+    "https://ga.jspm.io/npm:stringify-object@3.3.0/": {
+      "get-own-enumerable-property-symbols": "https://ga.jspm.io/npm:get-own-enumerable-property-symbols@3.0.2/lib/index.js",
+      "is-obj": "https://ga.jspm.io/npm:is-obj@1.0.1/index.js",
+      "is-regexp": "https://ga.jspm.io/npm:is-regexp@1.0.0/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "getopts": "https://ga.jspm.dev/npm:getopts@2.2.5/index.js"
+    "getopts": "https://ga.jspm.io/npm:getopts@2.2.5/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@etsitpab/logger": "https://ga.jspm.dev/npm:@etsitpab/logger@1.0.4/src/Logger.js"
+    "@etsitpab/logger": "https://ga.jspm.io/npm:@etsitpab/logger@1.0.4/src/Logger.js"
   }
 }

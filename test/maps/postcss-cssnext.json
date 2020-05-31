@@ -1,325 +1,325 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "postcss-cssnext": "https://ga.jspm.dev/npm:postcss-cssnext@3.1.0/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "postcss-cssnext": "https://ga.jspm.io/npm:postcss-cssnext@3.1.0/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ansi-styles@3.2.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js"
+    "https://ga.jspm.io/npm:ansi-styles@3.2.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js"
     },
-    "https://ga.jspm.dev/npm:autoprefixer@7.2.6/": {
-      "browserslist": "https://ga.jspm.dev/npm:browserslist@2.11.3/index.js",
-      "caniuse-lite": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/index.js",
-      "caniuse-lite/data/features/background-img-opts.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/background-img-opts.js",
-      "caniuse-lite/data/features/border-image.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/border-image.js",
-      "caniuse-lite/data/features/border-radius.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/border-radius.js",
-      "caniuse-lite/data/features/calc.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/calc.js",
-      "caniuse-lite/data/features/css-animation.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-animation.js",
-      "caniuse-lite/data/features/css-any-link.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-any-link.js",
-      "caniuse-lite/data/features/css-appearance.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-appearance.js",
-      "caniuse-lite/data/features/css-backdrop-filter.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-backdrop-filter.js",
-      "caniuse-lite/data/features/css-boxdecorationbreak.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-boxdecorationbreak.js",
-      "caniuse-lite/data/features/css-boxshadow.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-boxshadow.js",
-      "caniuse-lite/data/features/css-clip-path.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-clip-path.js",
-      "caniuse-lite/data/features/css-crisp-edges.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-crisp-edges.js",
-      "caniuse-lite/data/features/css-cross-fade.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-cross-fade.js",
-      "caniuse-lite/data/features/css-deviceadaptation.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-deviceadaptation.js",
-      "caniuse-lite/data/features/css-element-function.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-element-function.js",
-      "caniuse-lite/data/features/css-featurequeries.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-featurequeries.js",
-      "caniuse-lite/data/features/css-filter-function.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-filter-function.js",
-      "caniuse-lite/data/features/css-filters.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-filters.js",
-      "caniuse-lite/data/features/css-gradients.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-gradients.js",
-      "caniuse-lite/data/features/css-grid.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-grid.js",
-      "caniuse-lite/data/features/css-hyphens.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-hyphens.js",
-      "caniuse-lite/data/features/css-image-set.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-image-set.js",
-      "caniuse-lite/data/features/css-logical-props.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-logical-props.js",
-      "caniuse-lite/data/features/css-masks.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-masks.js",
-      "caniuse-lite/data/features/css-media-resolution.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-media-resolution.js",
-      "caniuse-lite/data/features/css-placeholder.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-placeholder.js",
-      "caniuse-lite/data/features/css-read-only-write.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-read-only-write.js",
-      "caniuse-lite/data/features/css-regions.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-regions.js",
-      "caniuse-lite/data/features/css-selection.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-selection.js",
-      "caniuse-lite/data/features/css-shapes.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-shapes.js",
-      "caniuse-lite/data/features/css-snappoints.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-snappoints.js",
-      "caniuse-lite/data/features/css-sticky.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-sticky.js",
-      "caniuse-lite/data/features/css-text-align-last.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-text-align-last.js",
-      "caniuse-lite/data/features/css-text-spacing.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-text-spacing.js",
-      "caniuse-lite/data/features/css-transitions.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-transitions.js",
-      "caniuse-lite/data/features/css-unicode-bidi.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-unicode-bidi.js",
-      "caniuse-lite/data/features/css-writing-mode.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css-writing-mode.js",
-      "caniuse-lite/data/features/css3-boxsizing.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css3-boxsizing.js",
-      "caniuse-lite/data/features/css3-cursors-grab.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css3-cursors-grab.js",
-      "caniuse-lite/data/features/css3-cursors-newer.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css3-cursors-newer.js",
-      "caniuse-lite/data/features/css3-tabsize.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/css3-tabsize.js",
-      "caniuse-lite/data/features/flexbox.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/flexbox.js",
-      "caniuse-lite/data/features/font-feature.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/font-feature.js",
-      "caniuse-lite/data/features/font-kerning.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/font-kerning.js",
-      "caniuse-lite/data/features/fullscreen.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/fullscreen.js",
-      "caniuse-lite/data/features/intrinsic-width.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/intrinsic-width.js",
-      "caniuse-lite/data/features/multicolumn.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/multicolumn.js",
-      "caniuse-lite/data/features/object-fit.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/object-fit.js",
-      "caniuse-lite/data/features/pointer.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/pointer.js",
-      "caniuse-lite/data/features/text-decoration.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/text-decoration.js",
-      "caniuse-lite/data/features/text-emphasis.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/text-emphasis.js",
-      "caniuse-lite/data/features/text-overflow.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/text-overflow.js",
-      "caniuse-lite/data/features/text-size-adjust.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/text-size-adjust.js",
-      "caniuse-lite/data/features/transforms2d.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/transforms2d.js",
-      "caniuse-lite/data/features/transforms3d.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/transforms3d.js",
-      "caniuse-lite/data/features/user-select-none.js": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/data/features/user-select-none.js",
-      "normalize-range": "https://ga.jspm.dev/npm:normalize-range@0.1.2/index.js",
-      "num2fraction": "https://ga.jspm.dev/npm:num2fraction@1.2.2/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:autoprefixer@7.2.6/": {
+      "browserslist": "https://ga.jspm.io/npm:browserslist@2.11.3/index.js",
+      "caniuse-lite": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/dist/unpacker/index.js",
+      "caniuse-lite/data/features/background-img-opts.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/background-img-opts.js",
+      "caniuse-lite/data/features/border-image.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/border-image.js",
+      "caniuse-lite/data/features/border-radius.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/border-radius.js",
+      "caniuse-lite/data/features/calc.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/calc.js",
+      "caniuse-lite/data/features/css-animation.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-animation.js",
+      "caniuse-lite/data/features/css-any-link.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-any-link.js",
+      "caniuse-lite/data/features/css-appearance.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-appearance.js",
+      "caniuse-lite/data/features/css-backdrop-filter.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-backdrop-filter.js",
+      "caniuse-lite/data/features/css-boxdecorationbreak.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-boxdecorationbreak.js",
+      "caniuse-lite/data/features/css-boxshadow.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-boxshadow.js",
+      "caniuse-lite/data/features/css-clip-path.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-clip-path.js",
+      "caniuse-lite/data/features/css-crisp-edges.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-crisp-edges.js",
+      "caniuse-lite/data/features/css-cross-fade.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-cross-fade.js",
+      "caniuse-lite/data/features/css-deviceadaptation.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-deviceadaptation.js",
+      "caniuse-lite/data/features/css-element-function.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-element-function.js",
+      "caniuse-lite/data/features/css-featurequeries.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-featurequeries.js",
+      "caniuse-lite/data/features/css-filter-function.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-filter-function.js",
+      "caniuse-lite/data/features/css-filters.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-filters.js",
+      "caniuse-lite/data/features/css-gradients.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-gradients.js",
+      "caniuse-lite/data/features/css-grid.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-grid.js",
+      "caniuse-lite/data/features/css-hyphens.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-hyphens.js",
+      "caniuse-lite/data/features/css-image-set.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-image-set.js",
+      "caniuse-lite/data/features/css-logical-props.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-logical-props.js",
+      "caniuse-lite/data/features/css-masks.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-masks.js",
+      "caniuse-lite/data/features/css-media-resolution.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-media-resolution.js",
+      "caniuse-lite/data/features/css-placeholder.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-placeholder.js",
+      "caniuse-lite/data/features/css-read-only-write.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-read-only-write.js",
+      "caniuse-lite/data/features/css-regions.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-regions.js",
+      "caniuse-lite/data/features/css-selection.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-selection.js",
+      "caniuse-lite/data/features/css-shapes.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-shapes.js",
+      "caniuse-lite/data/features/css-snappoints.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-snappoints.js",
+      "caniuse-lite/data/features/css-sticky.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-sticky.js",
+      "caniuse-lite/data/features/css-text-align-last.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-text-align-last.js",
+      "caniuse-lite/data/features/css-text-spacing.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-text-spacing.js",
+      "caniuse-lite/data/features/css-transitions.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-transitions.js",
+      "caniuse-lite/data/features/css-unicode-bidi.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-unicode-bidi.js",
+      "caniuse-lite/data/features/css-writing-mode.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css-writing-mode.js",
+      "caniuse-lite/data/features/css3-boxsizing.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css3-boxsizing.js",
+      "caniuse-lite/data/features/css3-cursors-grab.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css3-cursors-grab.js",
+      "caniuse-lite/data/features/css3-cursors-newer.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css3-cursors-newer.js",
+      "caniuse-lite/data/features/css3-tabsize.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/css3-tabsize.js",
+      "caniuse-lite/data/features/flexbox.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/flexbox.js",
+      "caniuse-lite/data/features/font-feature.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/font-feature.js",
+      "caniuse-lite/data/features/font-kerning.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/font-kerning.js",
+      "caniuse-lite/data/features/fullscreen.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/fullscreen.js",
+      "caniuse-lite/data/features/intrinsic-width.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/intrinsic-width.js",
+      "caniuse-lite/data/features/multicolumn.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/multicolumn.js",
+      "caniuse-lite/data/features/object-fit.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/object-fit.js",
+      "caniuse-lite/data/features/pointer.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/pointer.js",
+      "caniuse-lite/data/features/text-decoration.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/text-decoration.js",
+      "caniuse-lite/data/features/text-emphasis.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/text-emphasis.js",
+      "caniuse-lite/data/features/text-overflow.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/text-overflow.js",
+      "caniuse-lite/data/features/text-size-adjust.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/text-size-adjust.js",
+      "caniuse-lite/data/features/transforms2d.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/transforms2d.js",
+      "caniuse-lite/data/features/transforms3d.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/transforms3d.js",
+      "caniuse-lite/data/features/user-select-none.js": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/data/features/user-select-none.js",
+      "normalize-range": "https://ga.jspm.io/npm:normalize-range@0.1.2/index.js",
+      "num2fraction": "https://ga.jspm.io/npm:num2fraction@1.2.2/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/library/fn/object/entries": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/entries.js"
+    "https://ga.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/library/fn/object/entries": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/entries.js"
     },
-    "https://ga.jspm.dev/npm:browserslist@2.11.3/": {
-      "browserslist/node.js": "https://ga.jspm.dev/npm:browserslist@2.11.3/browser.js",
-      "caniuse-lite/dist/unpacker/agents": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/agents.js",
-      "caniuse-lite/dist/unpacker/region": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/region.js",
-      "electron-to-chromium/versions": "https://ga.jspm.dev/npm:electron-to-chromium@1.3.455/versions.js"
+    "https://ga.jspm.io/npm:browserslist@2.11.3/": {
+      "browserslist/node.js": "https://ga.jspm.io/npm:browserslist@2.11.3/browser.js",
+      "caniuse-lite/dist/unpacker/agents": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/dist/unpacker/agents.js",
+      "caniuse-lite/dist/unpacker/region": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/dist/unpacker/region.js",
+      "electron-to-chromium/versions": "https://ga.jspm.io/npm:electron-to-chromium@1.3.455/versions.js"
     },
-    "https://ga.jspm.dev/npm:caniuse-api@2.0.0/": {
-      "browserslist": "https://ga.jspm.dev/npm:browserslist@2.11.3/index.js",
-      "caniuse-lite": "https://ga.jspm.dev/npm:caniuse-lite@1.0.30001066/dist/unpacker/index.js",
-      "lodash.memoize": "https://ga.jspm.dev/npm:lodash.memoize@4.1.2/index.js",
-      "lodash.uniq": "https://ga.jspm.dev/npm:lodash.uniq@4.5.0/index.js"
+    "https://ga.jspm.io/npm:caniuse-api@2.0.0/": {
+      "browserslist": "https://ga.jspm.io/npm:browserslist@2.11.3/index.js",
+      "caniuse-lite": "https://ga.jspm.io/npm:caniuse-lite@1.0.30001066/dist/unpacker/index.js",
+      "lodash.memoize": "https://ga.jspm.io/npm:lodash.memoize@4.1.2/index.js",
+      "lodash.uniq": "https://ga.jspm.io/npm:lodash.uniq@4.5.0/index.js"
     },
-    "https://ga.jspm.dev/npm:chalk@2.4.2/": {
-      "ansi-styles": "https://ga.jspm.dev/npm:ansi-styles@3.2.1/index.js",
-      "escape-string-regexp": "https://ga.jspm.dev/npm:escape-string-regexp@1.0.5/index.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    "https://ga.jspm.io/npm:chalk@2.4.2/": {
+      "ansi-styles": "https://ga.jspm.io/npm:ansi-styles@3.2.1/index.js",
+      "escape-string-regexp": "https://ga.jspm.io/npm:escape-string-regexp@1.0.5/index.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@5.5.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    "https://ga.jspm.io/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.3/index.js"
     },
-    "https://ga.jspm.dev/npm:color-string@0.3.0/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-string@0.3.0/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:color-string@1.5.3/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js",
-      "simple-swizzle": "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/index.js"
+    "https://ga.jspm.io/npm:color-string@1.5.3/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js",
+      "simple-swizzle": "https://ga.jspm.io/npm:simple-swizzle@0.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:color@0.11.4/": {
-      "clone": "https://ga.jspm.dev/npm:clone@1.0.4/clone.js",
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
-      "color-string": "https://ga.jspm.dev/npm:color-string@0.3.0/color-string.js"
+    "https://ga.jspm.io/npm:color@0.11.4/": {
+      "clone": "https://ga.jspm.io/npm:clone@1.0.4/clone.js",
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.io/npm:color-string@0.3.0/color-string.js"
     },
-    "https://ga.jspm.dev/npm:color@1.0.3/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
-      "color-string": "https://ga.jspm.dev/npm:color-string@1.5.3/index.js"
+    "https://ga.jspm.io/npm:color@1.0.3/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.io/npm:color-string@1.5.3/index.js"
     },
-    "https://ga.jspm.dev/npm:color@2.0.1/": {
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
-      "color-string": "https://ga.jspm.dev/npm:color-string@1.5.3/index.js"
+    "https://ga.jspm.io/npm:color@2.0.1/": {
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.io/npm:color-string@1.5.3/index.js"
     },
-    "https://ga.jspm.dev/npm:css-color-function@1.3.3/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@0.1.0/index.js",
-      "color": "https://ga.jspm.dev/npm:color@0.11.4/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js"
+    "https://ga.jspm.io/npm:css-color-function@1.3.3/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@0.1.0/index.js",
+      "color": "https://ga.jspm.io/npm:color@0.11.4/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:lodash.template@4.5.0/": {
-      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js",
-      "lodash.templatesettings": "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/index.js"
+    "https://ga.jspm.io/npm:lodash.template@4.5.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.io/npm:lodash._reinterpolate@3.0.0/index.js",
+      "lodash.templatesettings": "https://ga.jspm.io/npm:lodash.templatesettings@4.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:lodash.templatesettings@4.2.0/": {
-      "lodash._reinterpolate": "https://ga.jspm.dev/npm:lodash._reinterpolate@3.0.0/index.js"
+    "https://ga.jspm.io/npm:lodash.templatesettings@4.2.0/": {
+      "lodash._reinterpolate": "https://ga.jspm.io/npm:lodash._reinterpolate@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:pixrem@4.0.1/": {
-      "browserslist": "https://ga.jspm.dev/npm:browserslist@2.11.3/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss/lib/vendor": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/vendor.js",
-      "reduce-css-calc": "https://ga.jspm.dev/npm:reduce-css-calc@1.3.0/index.js"
+    "https://ga.jspm.io/npm:pixrem@4.0.1/": {
+      "browserslist": "https://ga.jspm.io/npm:browserslist@2.11.3/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss/lib/vendor": "https://ga.jspm.io/npm:postcss@6.0.23/lib/vendor.js",
+      "reduce-css-calc": "https://ga.jspm.io/npm:reduce-css-calc@1.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:pleeease-filters@4.0.0/": {
-      "onecolor": "https://ga.jspm.dev/npm:onecolor@3.1.0/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:pleeease-filters@4.0.0/": {
+      "onecolor": "https://ga.jspm.io/npm:onecolor@3.1.0/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-apply@0.8.0/": {
-      "babel-runtime/core-js/object/entries": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/core-js/object/entries.js",
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@0.4.2/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-apply@0.8.0/": {
+      "babel-runtime/core-js/object/entries": "https://ga.jspm.io/npm:babel-runtime@6.26.0/core-js/object/entries.js",
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@0.4.2/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-attribute-case-insensitive@2.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-selector-parser": "https://ga.jspm.dev/npm:postcss-selector-parser@2.2.3/dist/index.js"
+    "https://ga.jspm.io/npm:postcss-attribute-case-insensitive@2.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-selector-parser": "https://ga.jspm.io/npm:postcss-selector-parser@2.2.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-calc@6.0.2/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@7.0.31/lib/postcss.js",
-      "postcss-selector-parser": "https://ga.jspm.dev/npm:postcss-selector-parser@2.2.3/dist/index.js",
-      "reduce-css-calc": "https://ga.jspm.dev/npm:reduce-css-calc@2.1.7/dist/index.js"
+    "https://ga.jspm.io/npm:postcss-calc@6.0.2/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@7.0.31/lib/postcss.js",
+      "postcss-selector-parser": "https://ga.jspm.io/npm:postcss-selector-parser@2.2.3/dist/index.js",
+      "reduce-css-calc": "https://ga.jspm.io/npm:reduce-css-calc@2.1.7/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-function@4.1.0/": {
-      "css-color-function": "https://ga.jspm.dev/npm:css-color-function@1.3.3/lib/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-message-helpers": "https://ga.jspm.dev/npm:postcss-message-helpers@2.0.0/index.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:postcss-color-function@4.1.0/": {
+      "css-color-function": "https://ga.jspm.io/npm:css-color-function@1.3.3/lib/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-message-helpers": "https://ga.jspm.io/npm:postcss-message-helpers@2.0.0/index.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-gray@4.1.0/": {
-      "color": "https://ga.jspm.dev/npm:color@2.0.1/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-message-helpers": "https://ga.jspm.dev/npm:postcss-message-helpers@2.0.0/index.js",
-      "reduce-function-call": "https://ga.jspm.dev/npm:reduce-function-call@1.0.3/index.js"
+    "https://ga.jspm.io/npm:postcss-color-gray@4.1.0/": {
+      "color": "https://ga.jspm.io/npm:color@2.0.1/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-message-helpers": "https://ga.jspm.io/npm:postcss-message-helpers@2.0.0/index.js",
+      "reduce-function-call": "https://ga.jspm.io/npm:reduce-function-call@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-hex-alpha@3.0.0/": {
-      "color": "https://ga.jspm.dev/npm:color@1.0.3/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-message-helpers": "https://ga.jspm.dev/npm:postcss-message-helpers@2.0.0/index.js"
+    "https://ga.jspm.io/npm:postcss-color-hex-alpha@3.0.0/": {
+      "color": "https://ga.jspm.io/npm:color@1.0.3/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-message-helpers": "https://ga.jspm.io/npm:postcss-message-helpers@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-hsl@2.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js",
-      "units-css": "https://ga.jspm.dev/npm:units-css@0.4.0/index.js"
+    "https://ga.jspm.io/npm:postcss-color-hsl@2.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js",
+      "units-css": "https://ga.jspm.io/npm:units-css@0.4.0/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-hwb@3.0.0/": {
-      "color": "https://ga.jspm.dev/npm:color@1.0.3/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-message-helpers": "https://ga.jspm.dev/npm:postcss-message-helpers@2.0.0/index.js",
-      "reduce-function-call": "https://ga.jspm.dev/npm:reduce-function-call@1.0.3/index.js"
+    "https://ga.jspm.io/npm:postcss-color-hwb@3.0.0/": {
+      "color": "https://ga.jspm.io/npm:color@1.0.3/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-message-helpers": "https://ga.jspm.io/npm:postcss-message-helpers@2.0.0/index.js",
+      "reduce-function-call": "https://ga.jspm.io/npm:reduce-function-call@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-rebeccapurple@3.1.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-values-parser": "https://ga.jspm.dev/npm:postcss-values-parser@1.5.0/lib/index.js"
+    "https://ga.jspm.io/npm:postcss-color-rebeccapurple@3.1.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-values-parser": "https://ga.jspm.io/npm:postcss-values-parser@1.5.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-rgb@2.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:postcss-color-rgb@2.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-color-rgba-fallback@3.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js",
-      "rgb-hex": "https://ga.jspm.dev/npm:rgb-hex@2.1.0/index.js"
+    "https://ga.jspm.io/npm:postcss-color-rgba-fallback@3.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js",
+      "rgb-hex": "https://ga.jspm.io/npm:rgb-hex@2.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-cssnext@3.1.0/": {
-      "autoprefixer": "https://ga.jspm.dev/npm:autoprefixer@7.2.6/lib/autoprefixer.js",
-      "caniuse-api": "https://ga.jspm.dev/npm:caniuse-api@2.0.0/dist/index.js",
-      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
-      "pixrem": "https://ga.jspm.dev/npm:pixrem@4.0.1/lib/pixrem.js",
-      "pleeease-filters": "https://ga.jspm.dev/npm:pleeease-filters@4.0.0/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-apply": "https://ga.jspm.dev/npm:postcss-apply@0.8.0/index.js",
-      "postcss-attribute-case-insensitive": "https://ga.jspm.dev/npm:postcss-attribute-case-insensitive@2.0.0/dist/index.js",
-      "postcss-calc": "https://ga.jspm.dev/npm:postcss-calc@6.0.2/dist/index.js",
-      "postcss-color-function": "https://ga.jspm.dev/npm:postcss-color-function@4.1.0/index.js",
-      "postcss-color-gray": "https://ga.jspm.dev/npm:postcss-color-gray@4.1.0/index.js",
-      "postcss-color-hex-alpha": "https://ga.jspm.dev/npm:postcss-color-hex-alpha@3.0.0/index.js",
-      "postcss-color-hsl": "https://ga.jspm.dev/npm:postcss-color-hsl@2.0.0/dist/index.js",
-      "postcss-color-hwb": "https://ga.jspm.dev/npm:postcss-color-hwb@3.0.0/index.js",
-      "postcss-color-rebeccapurple": "https://ga.jspm.dev/npm:postcss-color-rebeccapurple@3.1.0/index.js",
-      "postcss-color-rgb": "https://ga.jspm.dev/npm:postcss-color-rgb@2.0.0/dist/index.js",
-      "postcss-color-rgba-fallback": "https://ga.jspm.dev/npm:postcss-color-rgba-fallback@3.0.0/index.js",
-      "postcss-custom-media": "https://ga.jspm.dev/npm:postcss-custom-media@6.0.0/index.js",
-      "postcss-custom-properties": "https://ga.jspm.dev/npm:postcss-custom-properties@6.3.1/dist/index.js",
-      "postcss-custom-selectors": "https://ga.jspm.dev/npm:postcss-custom-selectors@4.0.1/dist/index.js",
-      "postcss-font-family-system-ui": "https://ga.jspm.dev/npm:postcss-font-family-system-ui@3.0.0/index.bundle.js",
-      "postcss-font-variant": "https://ga.jspm.dev/npm:postcss-font-variant@3.0.0/index.js",
-      "postcss-image-set-polyfill": "https://ga.jspm.dev/npm:postcss-image-set-polyfill@0.3.5/index.js",
-      "postcss-initial": "https://ga.jspm.dev/npm:postcss-initial@2.0.0/index.js",
-      "postcss-media-minmax": "https://ga.jspm.dev/npm:postcss-media-minmax@3.0.0/index.js",
-      "postcss-nesting": "https://ga.jspm.dev/npm:postcss-nesting@4.2.1/index.js",
-      "postcss-pseudo-class-any-link": "https://ga.jspm.dev/npm:postcss-pseudo-class-any-link@4.0.0/index.js",
-      "postcss-pseudoelements": "https://ga.jspm.dev/npm:postcss-pseudoelements@5.0.0/index.js",
-      "postcss-replace-overflow-wrap": "https://ga.jspm.dev/npm:postcss-replace-overflow-wrap@2.0.0/index.js",
-      "postcss-selector-matches": "https://ga.jspm.dev/npm:postcss-selector-matches@3.0.1/dist/index.js",
-      "postcss-selector-not": "https://ga.jspm.dev/npm:postcss-selector-not@3.0.1/dist/index.js"
+    "https://ga.jspm.io/npm:postcss-cssnext@3.1.0/": {
+      "autoprefixer": "https://ga.jspm.io/npm:autoprefixer@7.2.6/lib/autoprefixer.js",
+      "caniuse-api": "https://ga.jspm.io/npm:caniuse-api@2.0.0/dist/index.js",
+      "chalk": "https://ga.jspm.io/npm:chalk@2.4.2/index.js",
+      "pixrem": "https://ga.jspm.io/npm:pixrem@4.0.1/lib/pixrem.js",
+      "pleeease-filters": "https://ga.jspm.io/npm:pleeease-filters@4.0.0/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-apply": "https://ga.jspm.io/npm:postcss-apply@0.8.0/index.js",
+      "postcss-attribute-case-insensitive": "https://ga.jspm.io/npm:postcss-attribute-case-insensitive@2.0.0/dist/index.js",
+      "postcss-calc": "https://ga.jspm.io/npm:postcss-calc@6.0.2/dist/index.js",
+      "postcss-color-function": "https://ga.jspm.io/npm:postcss-color-function@4.1.0/index.js",
+      "postcss-color-gray": "https://ga.jspm.io/npm:postcss-color-gray@4.1.0/index.js",
+      "postcss-color-hex-alpha": "https://ga.jspm.io/npm:postcss-color-hex-alpha@3.0.0/index.js",
+      "postcss-color-hsl": "https://ga.jspm.io/npm:postcss-color-hsl@2.0.0/dist/index.js",
+      "postcss-color-hwb": "https://ga.jspm.io/npm:postcss-color-hwb@3.0.0/index.js",
+      "postcss-color-rebeccapurple": "https://ga.jspm.io/npm:postcss-color-rebeccapurple@3.1.0/index.js",
+      "postcss-color-rgb": "https://ga.jspm.io/npm:postcss-color-rgb@2.0.0/dist/index.js",
+      "postcss-color-rgba-fallback": "https://ga.jspm.io/npm:postcss-color-rgba-fallback@3.0.0/index.js",
+      "postcss-custom-media": "https://ga.jspm.io/npm:postcss-custom-media@6.0.0/index.js",
+      "postcss-custom-properties": "https://ga.jspm.io/npm:postcss-custom-properties@6.3.1/dist/index.js",
+      "postcss-custom-selectors": "https://ga.jspm.io/npm:postcss-custom-selectors@4.0.1/dist/index.js",
+      "postcss-font-family-system-ui": "https://ga.jspm.io/npm:postcss-font-family-system-ui@3.0.0/index.bundle.js",
+      "postcss-font-variant": "https://ga.jspm.io/npm:postcss-font-variant@3.0.0/index.js",
+      "postcss-image-set-polyfill": "https://ga.jspm.io/npm:postcss-image-set-polyfill@0.3.5/index.js",
+      "postcss-initial": "https://ga.jspm.io/npm:postcss-initial@2.0.0/index.js",
+      "postcss-media-minmax": "https://ga.jspm.io/npm:postcss-media-minmax@3.0.0/index.js",
+      "postcss-nesting": "https://ga.jspm.io/npm:postcss-nesting@4.2.1/index.js",
+      "postcss-pseudo-class-any-link": "https://ga.jspm.io/npm:postcss-pseudo-class-any-link@4.0.0/index.js",
+      "postcss-pseudoelements": "https://ga.jspm.io/npm:postcss-pseudoelements@5.0.0/index.js",
+      "postcss-replace-overflow-wrap": "https://ga.jspm.io/npm:postcss-replace-overflow-wrap@2.0.0/index.js",
+      "postcss-selector-matches": "https://ga.jspm.io/npm:postcss-selector-matches@3.0.1/dist/index.js",
+      "postcss-selector-not": "https://ga.jspm.io/npm:postcss-selector-not@3.0.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-custom-media@6.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-custom-media@6.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-custom-properties@6.3.1/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-custom-properties@6.3.1/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-custom-selectors@4.0.1/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-selector-matches/dist/replaceRuleSelector": "https://ga.jspm.dev/npm:postcss-selector-matches@3.0.1/dist/replaceRuleSelector.js"
+    "https://ga.jspm.io/npm:postcss-custom-selectors@4.0.1/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-selector-matches/dist/replaceRuleSelector": "https://ga.jspm.io/npm:postcss-selector-matches@3.0.1/dist/replaceRuleSelector.js"
     },
-    "https://ga.jspm.dev/npm:postcss-font-family-system-ui@3.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-font-family-system-ui@3.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-font-variant@3.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-font-variant@3.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-image-set-polyfill@0.3.5/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-media-query-parser": "https://ga.jspm.dev/npm:postcss-media-query-parser@0.2.3/dist/index.js"
+    "https://ga.jspm.io/npm:postcss-image-set-polyfill@0.3.5/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-media-query-parser": "https://ga.jspm.io/npm:postcss-media-query-parser@0.2.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-initial@2.0.0/": {
-      "lodash.template": "https://ga.jspm.dev/npm:lodash.template@4.5.0/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-initial@2.0.0/": {
+      "lodash.template": "https://ga.jspm.io/npm:lodash.template@4.5.0/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-media-minmax@3.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-media-minmax@3.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-nesting@4.2.1/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-nesting@4.2.1/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-pseudo-class-any-link@4.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss-selector-parser": "https://ga.jspm.dev/npm:postcss-selector-parser@2.2.3/dist/index.js"
+    "https://ga.jspm.io/npm:postcss-pseudo-class-any-link@4.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss-selector-parser": "https://ga.jspm.io/npm:postcss-selector-parser@2.2.3/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:postcss-pseudoelements@5.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-pseudoelements@5.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-replace-overflow-wrap@2.0.0/": {
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js"
+    "https://ga.jspm.io/npm:postcss-replace-overflow-wrap@2.0.0/": {
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js"
     },
-    "https://ga.jspm.dev/npm:postcss-selector-matches@3.0.1/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@0.4.2/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss/lib/list": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/list.js"
+    "https://ga.jspm.io/npm:postcss-selector-matches@3.0.1/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@0.4.2/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss/lib/list": "https://ga.jspm.io/npm:postcss@6.0.23/lib/list.js"
     },
-    "https://ga.jspm.dev/npm:postcss-selector-not@3.0.1/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@0.4.2/index.js",
-      "postcss": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/postcss.js",
-      "postcss/lib/list": "https://ga.jspm.dev/npm:postcss@6.0.23/lib/list.js"
+    "https://ga.jspm.io/npm:postcss-selector-not@3.0.1/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@0.4.2/index.js",
+      "postcss": "https://ga.jspm.io/npm:postcss@6.0.23/lib/postcss.js",
+      "postcss/lib/list": "https://ga.jspm.io/npm:postcss@6.0.23/lib/list.js"
     },
-    "https://ga.jspm.dev/npm:postcss-selector-parser@2.2.3/": {
-      "flatten": "https://ga.jspm.dev/npm:flatten@1.0.3/index.js",
-      "indexes-of": "https://ga.jspm.dev/npm:indexes-of@1.0.1/index.js",
-      "uniq": "https://ga.jspm.dev/npm:uniq@1.0.1/uniq.js"
+    "https://ga.jspm.io/npm:postcss-selector-parser@2.2.3/": {
+      "flatten": "https://ga.jspm.io/npm:flatten@1.0.3/index.js",
+      "indexes-of": "https://ga.jspm.io/npm:indexes-of@1.0.1/index.js",
+      "uniq": "https://ga.jspm.io/npm:uniq@1.0.1/uniq.js"
     },
-    "https://ga.jspm.dev/npm:postcss-values-parser@1.5.0/": {
-      "flatten": "https://ga.jspm.dev/npm:flatten@1.0.3/index.js",
-      "indexes-of": "https://ga.jspm.dev/npm:indexes-of@1.0.1/index.js",
-      "uniq": "https://ga.jspm.dev/npm:uniq@1.0.1/uniq.js"
+    "https://ga.jspm.io/npm:postcss-values-parser@1.5.0/": {
+      "flatten": "https://ga.jspm.io/npm:flatten@1.0.3/index.js",
+      "indexes-of": "https://ga.jspm.io/npm:indexes-of@1.0.1/index.js",
+      "uniq": "https://ga.jspm.io/npm:uniq@1.0.1/uniq.js"
     },
-    "https://ga.jspm.dev/npm:postcss@6.0.23/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@5.5.0/browser.js"
+    "https://ga.jspm.io/npm:postcss@6.0.23/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@2.4.2/index.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@5.5.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:postcss@7.0.31/": {
-      "chalk": "https://ga.jspm.dev/npm:chalk@2.4.2/index.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js",
-      "supports-color": "https://ga.jspm.dev/npm:supports-color@6.1.0/browser.js"
+    "https://ga.jspm.io/npm:postcss@7.0.31/": {
+      "chalk": "https://ga.jspm.io/npm:chalk@2.4.2/index.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js",
+      "supports-color": "https://ga.jspm.io/npm:supports-color@6.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:reduce-css-calc@1.3.0/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@0.4.2/index.js",
-      "math-expression-evaluator": "https://ga.jspm.dev/npm:math-expression-evaluator@1.2.22/src/formula_evaluator.js",
-      "reduce-function-call": "https://ga.jspm.dev/npm:reduce-function-call@1.0.3/index.js"
+    "https://ga.jspm.io/npm:reduce-css-calc@1.3.0/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@0.4.2/index.js",
+      "math-expression-evaluator": "https://ga.jspm.io/npm:math-expression-evaluator@1.2.22/src/formula_evaluator.js",
+      "reduce-function-call": "https://ga.jspm.io/npm:reduce-function-call@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:reduce-css-calc@2.1.7/": {
-      "css-unit-converter": "https://ga.jspm.dev/npm:css-unit-converter@1.1.2/index.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:reduce-css-calc@2.1.7/": {
+      "css-unit-converter": "https://ga.jspm.io/npm:css-unit-converter@1.1.2/index.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:reduce-function-call@1.0.3/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js"
+    "https://ga.jspm.io/npm:reduce-function-call@1.0.3/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:simple-swizzle@0.2.2/": {
-      "is-arrayish": "https://ga.jspm.dev/npm:is-arrayish@0.3.2/index.js"
+    "https://ga.jspm.io/npm:simple-swizzle@0.2.2/": {
+      "is-arrayish": "https://ga.jspm.io/npm:is-arrayish@0.3.2/index.js"
     },
-    "https://ga.jspm.dev/npm:units-css@0.4.0/": {
-      "isnumeric/isNumeric": "https://ga.jspm.dev/npm:isnumeric@0.2.0/isNumeric.js",
-      "viewport-dimensions": "https://ga.jspm.dev/npm:viewport-dimensions@0.2.0/index.js"
+    "https://ga.jspm.io/npm:units-css@0.4.0/": {
+      "isnumeric/isNumeric": "https://ga.jspm.io/npm:isnumeric@0.2.0/isNumeric.js",
+      "viewport-dimensions": "https://ga.jspm.io/npm:viewport-dimensions@0.2.0/index.js"
     }
   }
 }

@@ -1,19 +1,19 @@
 {
   "imports": {
-    "coalesce-vue": "https://ga.jspm.dev/npm:coalesce-vue@2.2.0-alpha.20190327.2/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "vue": "https://ga.jspm.dev/npm:vue@2.5.22/dist/vue.runtime.common.js"
+    "coalesce-vue": "https://ga.jspm.io/npm:coalesce-vue@2.2.0-alpha.20190327.2/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "vue": "https://ga.jspm.io/npm:vue@2.5.22/dist/vue.runtime.common.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:axios@0.18.1/": {
-      "axios/lib/adapters/http.js": "https://ga.jspm.dev/npm:axios@0.18.1/lib/adapters/xhr.js",
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js"
+    "https://ga.jspm.io/npm:axios@0.18.1/": {
+      "axios/lib/adapters/http.js": "https://ga.jspm.io/npm:axios@0.18.1/lib/adapters/xhr.js",
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@2.0.4/index.js"
     },
-    "https://ga.jspm.dev/npm:coalesce-vue@2.2.0-alpha.20190327.2/": {
-      "axios": "https://ga.jspm.dev/npm:axios@0.18.1/index.js",
-      "date-fns": "https://ga.jspm.dev/npm:date-fns@2.14.0/index.js",
-      "lodash-es": "https://ga.jspm.dev/npm:lodash-es@4.17.15/lodash.js",
-      "qs": "https://ga.jspm.dev/npm:qs@6.9.4/lib/index.js"
+    "https://ga.jspm.io/npm:coalesce-vue@2.2.0-alpha.20190327.2/": {
+      "axios": "https://ga.jspm.io/npm:axios@0.18.1/index.js",
+      "date-fns": "https://ga.jspm.io/npm:date-fns@2.14.0/index.js",
+      "lodash-es": "https://ga.jspm.io/npm:lodash-es@4.17.15/lodash.js",
+      "qs": "https://ga.jspm.io/npm:qs@6.9.4/lib/index.js"
     }
   }
 }

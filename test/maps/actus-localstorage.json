@@ -1,5 +1,5 @@
 {
   "imports": {
-    "actus-localstorage": "https://ga.jspm.dev/npm:actus-localstorage@0.1.0-alpha.0/index.js"
+    "actus-localstorage": "https://ga.jspm.io/npm:actus-localstorage@0.1.0-alpha.0/index.js"
   }
 }

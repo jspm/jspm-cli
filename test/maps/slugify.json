@@ -1,5 +1,5 @@
 {
   "imports": {
-    "slugify": "https://ga.jspm.dev/npm:slugify@1.4.0/slugify.js"
+    "slugify": "https://ga.jspm.io/npm:slugify@1.4.0/slugify.js"
   }
 }

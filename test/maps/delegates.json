@@ -1,5 +1,5 @@
 {
   "imports": {
-    "delegates": "https://ga.jspm.dev/npm:delegates@1.0.0/index.js"
+    "delegates": "https://ga.jspm.io/npm:delegates@1.0.0/index.js"
   }
 }

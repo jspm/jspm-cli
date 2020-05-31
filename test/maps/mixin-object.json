@@ -1,17 +1,17 @@
 {
   "imports": {
-    "mixin-object": "https://ga.jspm.dev/npm:mixin-object@3.0.0/index.js"
+    "mixin-object": "https://ga.jspm.io/npm:mixin-object@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:is-extendable@1.0.1/": {
-      "is-plain-object": "https://ga.jspm.dev/npm:is-plain-object@2.0.4/index.js"
+    "https://ga.jspm.io/npm:is-extendable@1.0.1/": {
+      "is-plain-object": "https://ga.jspm.io/npm:is-plain-object@2.0.4/index.js"
     },
-    "https://ga.jspm.dev/npm:is-plain-object@2.0.4/": {
-      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js"
+    "https://ga.jspm.io/npm:is-plain-object@2.0.4/": {
+      "isobject": "https://ga.jspm.io/npm:isobject@3.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:mixin-object@3.0.0/": {
-      "for-in": "https://ga.jspm.dev/npm:for-in@1.0.2/index.js",
-      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@1.0.1/index.js"
+    "https://ga.jspm.io/npm:mixin-object@3.0.0/": {
+      "for-in": "https://ga.jspm.io/npm:for-in@1.0.2/index.js",
+      "is-extendable": "https://ga.jspm.io/npm:is-extendable@1.0.1/index.js"
     }
   }
 }

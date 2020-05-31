@@ -1,13 +1,13 @@
 {
   "imports": {
-    "unescape": "https://ga.jspm.dev/npm:unescape@1.0.1/index.js"
+    "unescape": "https://ga.jspm.io/npm:unescape@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:extend-shallow@2.0.1/": {
-      "is-extendable": "https://ga.jspm.dev/npm:is-extendable@0.1.1/index.js"
+    "https://ga.jspm.io/npm:extend-shallow@2.0.1/": {
+      "is-extendable": "https://ga.jspm.io/npm:is-extendable@0.1.1/index.js"
     },
-    "https://ga.jspm.dev/npm:unescape@1.0.1/": {
-      "extend-shallow": "https://ga.jspm.dev/npm:extend-shallow@2.0.1/index.js"
+    "https://ga.jspm.io/npm:unescape@1.0.1/": {
+      "extend-shallow": "https://ga.jspm.io/npm:extend-shallow@2.0.1/index.js"
     }
   }
 }

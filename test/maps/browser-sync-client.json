@@ -1,16 +1,16 @@
 {
   "imports": {
-    "browser-sync-client": "https://ga.jspm.dev/npm:browser-sync-client@2.26.6/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "browser-sync-client": "https://ga.jspm.io/npm:browser-sync-client@2.26.6/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:browser-sync-client@2.26.6/": {
-      "etag": "https://ga.jspm.dev/npm:etag@1.8.1/index.js",
-      "fresh": "https://ga.jspm.dev/npm:fresh@0.5.2/index.js"
+    "https://ga.jspm.io/npm:browser-sync-client@2.26.6/": {
+      "etag": "https://ga.jspm.io/npm:etag@1.8.1/index.js",
+      "fresh": "https://ga.jspm.io/npm:fresh@0.5.2/index.js"
     }
   }
 }

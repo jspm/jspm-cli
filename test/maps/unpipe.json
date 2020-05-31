@@ -1,5 +1,5 @@
 {
   "imports": {
-    "unpipe": "https://ga.jspm.dev/npm:unpipe@1.0.0/index.js"
+    "unpipe": "https://ga.jspm.io/npm:unpipe@1.0.0/index.js"
   }
 }

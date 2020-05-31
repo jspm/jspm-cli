@@ -1,5 +1,5 @@
 {
   "imports": {
-    "uc.micro": "https://ga.jspm.dev/npm:uc.micro@1.0.6/index.js"
+    "uc.micro": "https://ga.jspm.io/npm:uc.micro@1.0.6/index.js"
   }
 }

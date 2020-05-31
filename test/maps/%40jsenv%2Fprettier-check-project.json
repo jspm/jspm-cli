@@ -1,23 +1,23 @@
 {
   "imports": {
-    "@jsenv/prettier-check-project": "https://ga.jspm.dev/npm:@jsenv/prettier-check-project@5.6.0/index.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@jsenv/prettier-check-project": "https://ga.jspm.io/npm:@jsenv/prettier-check-project@5.6.0/index.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jsenv/prettier-check-project@5.6.0/": {
-      "@jsenv/logger": "https://ga.jspm.dev/npm:@jsenv/logger@3.3.1/index.js",
-      "@jsenv/util": "https://ga.jspm.dev/npm:@jsenv/util@3.5.2/index.js"
+    "https://ga.jspm.io/npm:@jsenv/prettier-check-project@5.6.0/": {
+      "@jsenv/logger": "https://ga.jspm.io/npm:@jsenv/logger@3.3.1/index.js",
+      "@jsenv/util": "https://ga.jspm.io/npm:@jsenv/util@3.5.2/index.js"
     },
-    "https://ga.jspm.dev/npm:@jsenv/util@3.5.2/": {
-      "@jsenv/cancellation": "https://ga.jspm.dev/npm:@jsenv/cancellation@1.4.1/index.js",
-      "@jsenv/node-signals": "https://ga.jspm.dev/npm:@jsenv/node-signals@2.0.1/index.js",
-      "@jsenv/url-meta": "https://ga.jspm.dev/npm:@jsenv/url-meta@5.2.2/index.js"
+    "https://ga.jspm.io/npm:@jsenv/util@3.5.2/": {
+      "@jsenv/cancellation": "https://ga.jspm.io/npm:@jsenv/cancellation@1.4.1/index.js",
+      "@jsenv/node-signals": "https://ga.jspm.io/npm:@jsenv/node-signals@2.0.1/index.js",
+      "@jsenv/url-meta": "https://ga.jspm.io/npm:@jsenv/url-meta@5.2.2/index.js"
     }
   }
 }

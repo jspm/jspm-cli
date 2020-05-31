@@ -1,5 +1,5 @@
 {
   "imports": {
-    "initial-server-setup": "https://ga.jspm.dev/npm:initial-server-setup@1.1.4/dist/index.js"
+    "initial-server-setup": "https://ga.jspm.io/npm:initial-server-setup@1.1.4/dist/index.js"
   }
 }

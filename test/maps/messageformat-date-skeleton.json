@@ -1,5 +1,5 @@
 {
   "imports": {
-    "messageformat-date-skeleton": "https://ga.jspm.dev/npm:messageformat-date-skeleton@0.1.1/lib/index.js"
+    "messageformat-date-skeleton": "https://ga.jspm.io/npm:messageformat-date-skeleton@0.1.1/lib/index.js"
   }
 }

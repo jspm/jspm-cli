@@ -1,5 +1,5 @@
 {
   "imports": {
-    "rgba-regex": "https://ga.jspm.dev/npm:rgba-regex@1.0.0/index.js"
+    "rgba-regex": "https://ga.jspm.io/npm:rgba-regex@1.0.0/index.js"
   }
 }

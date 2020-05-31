@@ -1,5 +1,5 @@
 {
   "imports": {
-    "yallist": "https://ga.jspm.dev/npm:yallist@4.0.0/yallist.js"
+    "yallist": "https://ga.jspm.io/npm:yallist@4.0.0/yallist.js"
   }
 }

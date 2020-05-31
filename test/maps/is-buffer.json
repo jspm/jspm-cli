@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-buffer": "https://ga.jspm.dev/npm:is-buffer@2.0.4/index.js"
+    "is-buffer": "https://ga.jspm.io/npm:is-buffer@2.0.4/index.js"
   }
 }

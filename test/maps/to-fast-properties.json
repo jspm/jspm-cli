@@ -1,5 +1,5 @@
 {
   "imports": {
-    "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@3.0.1/index.js"
+    "to-fast-properties": "https://ga.jspm.io/npm:to-fast-properties@3.0.1/index.js"
   }
 }

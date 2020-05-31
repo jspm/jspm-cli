@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@tervis/tervisproductmetadata": "https://ga.jspm.dev/npm:@tervis/tervisproductmetadata@1.0.39/TervisProductMetadata.js"
+    "@tervis/tervisproductmetadata": "https://ga.jspm.io/npm:@tervis/tervisproductmetadata@1.0.39/TervisProductMetadata.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@tervis/tervisproductmetadata@1.0.39/": {
-      "@tervis/tervisutilityjs": "https://ga.jspm.dev/npm:@tervis/tervisutilityjs@0.1.11/TervisUtilityJS.js"
+    "https://ga.jspm.io/npm:@tervis/tervisproductmetadata@1.0.39/": {
+      "@tervis/tervisutilityjs": "https://ga.jspm.io/npm:@tervis/tervisutilityjs@0.1.11/TervisUtilityJS.js"
     }
   }
 }

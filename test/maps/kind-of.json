@@ -1,5 +1,5 @@
 {
   "imports": {
-    "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
   }
 }

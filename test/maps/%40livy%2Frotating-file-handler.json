@@ -1,26 +1,26 @@
 {
   "imports": {
-    "@livy/rotating-file-handler": "https://ga.jspm.dev/npm:@livy/rotating-file-handler@1.0.2/lib/rotating-file-handler.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@livy/rotating-file-handler": "https://ga.jspm.io/npm:@livy/rotating-file-handler@1.0.2/lib/rotating-file-handler.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@livy/file-handler@1.0.2/": {
-      "@livy/util/lib/environment": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/environment.js",
-      "@livy/util/lib/handlers/abstract-formatting-processing-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-formatting-processing-handler.js"
+    "https://ga.jspm.io/npm:@livy/file-handler@1.0.2/": {
+      "@livy/util/lib/environment": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/environment.js",
+      "@livy/util/lib/handlers/abstract-formatting-processing-handler": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/abstract-formatting-processing-handler.js"
     },
-    "https://ga.jspm.dev/npm:@livy/rotating-file-handler@1.0.2/": {
-      "@livy/file-handler": "https://ga.jspm.dev/npm:@livy/file-handler@1.0.2/lib/file-handler.js",
-      "@livy/util/lib/handlers/abstract-formatting-processing-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-formatting-processing-handler.js",
-      "@livy/util/lib/handlers/formattable-handler-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/formattable-handler-mixin.js",
-      "@livy/util/lib/helpers": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/helpers.js",
-      "filesize-parser": "https://ga.jspm.dev/npm:filesize-parser@1.5.0/index.js",
-      "luxon": "https://ga.jspm.dev/npm:luxon@1.24.1/build/cjs-browser/luxon.js"
+    "https://ga.jspm.io/npm:@livy/rotating-file-handler@1.0.2/": {
+      "@livy/file-handler": "https://ga.jspm.io/npm:@livy/file-handler@1.0.2/lib/file-handler.js",
+      "@livy/util/lib/handlers/abstract-formatting-processing-handler": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/abstract-formatting-processing-handler.js",
+      "@livy/util/lib/handlers/formattable-handler-mixin": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/formattable-handler-mixin.js",
+      "@livy/util/lib/helpers": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/helpers.js",
+      "filesize-parser": "https://ga.jspm.io/npm:filesize-parser@1.5.0/index.js",
+      "luxon": "https://ga.jspm.io/npm:luxon@1.24.1/build/cjs-browser/luxon.js"
     },
-    "https://ga.jspm.dev/npm:@livy/util@1.0.4/": {
-      "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js"
+    "https://ga.jspm.io/npm:@livy/util@1.0.4/": {
+      "@livy/contracts/lib/log-level": "https://ga.jspm.io/npm:@livy/contracts@1.1.0/lib/log-level.js"
     }
   }
 }

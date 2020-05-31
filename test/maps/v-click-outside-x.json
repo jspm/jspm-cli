@@ -1,5 +1,5 @@
 {
   "imports": {
-    "v-click-outside-x": "https://ga.jspm.dev/npm:v-click-outside-x@4.1.0/dist/v-click-outside-x.js"
+    "v-click-outside-x": "https://ga.jspm.io/npm:v-click-outside-x@4.1.0/dist/v-click-outside-x.js"
   }
 }

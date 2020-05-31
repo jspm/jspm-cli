@@ -1,5 +1,5 @@
 {
   "imports": {
-    "js-beautify": "https://ga.jspm.dev/npm:js-beautify@1.11.0/js/index.js"
+    "js-beautify": "https://ga.jspm.io/npm:js-beautify@1.11.0/js/index.js"
   }
 }

@@ -1,20 +1,20 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "html-encoding-sniffer": "https://ga.jspm.dev/npm:html-encoding-sniffer@2.0.1/lib/html-encoding-sniffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "html-encoding-sniffer": "https://ga.jspm.io/npm:html-encoding-sniffer@2.0.1/lib/html-encoding-sniffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:html-encoding-sniffer@2.0.1/": {
-      "whatwg-encoding": "https://ga.jspm.dev/npm:whatwg-encoding@1.0.5/lib/whatwg-encoding.js"
+    "https://ga.jspm.io/npm:html-encoding-sniffer@2.0.1/": {
+      "whatwg-encoding": "https://ga.jspm.io/npm:whatwg-encoding@1.0.5/lib/whatwg-encoding.js"
     },
-    "https://ga.jspm.dev/npm:iconv-lite@0.4.24/": {
-      "safer-buffer": "https://ga.jspm.dev/npm:safer-buffer@2.1.2/safer.js"
+    "https://ga.jspm.io/npm:iconv-lite@0.4.24/": {
+      "safer-buffer": "https://ga.jspm.io/npm:safer-buffer@2.1.2/safer.js"
     },
-    "https://ga.jspm.dev/npm:whatwg-encoding@1.0.5/": {
-      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.4.24/lib/index.js"
+    "https://ga.jspm.io/npm:whatwg-encoding@1.0.5/": {
+      "iconv-lite": "https://ga.jspm.io/npm:iconv-lite@0.4.24/lib/index.js"
     }
   }
 }

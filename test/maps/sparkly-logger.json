@@ -1,13 +1,13 @@
 {
   "imports": {
-    "sparkly-logger": "https://ga.jspm.dev/npm:sparkly-logger@1.0.0/index.js"
+    "sparkly-logger": "https://ga.jspm.io/npm:sparkly-logger@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:sparkly-logger@1.0.0/": {
-      "uuid/v4.js": "https://ga.jspm.dev/npm:uuid@3.4.0/v4.js"
+    "https://ga.jspm.io/npm:sparkly-logger@1.0.0/": {
+      "uuid/v4.js": "https://ga.jspm.io/npm:uuid@3.4.0/v4.js"
     },
-    "https://ga.jspm.dev/npm:uuid@3.4.0/": {
-      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.4.0/lib/rng-browser.js"
+    "https://ga.jspm.io/npm:uuid@3.4.0/": {
+      "uuid/lib/rng.js": "https://ga.jspm.io/npm:uuid@3.4.0/lib/rng-browser.js"
     }
   }
 }

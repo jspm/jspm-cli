@@ -1,28 +1,28 @@
 {
   "imports": {
-    "redux-saga": "https://ga.jspm.dev/npm:redux-saga@1.1.3/dist/redux-saga-core-npm-proxy.cjs.js"
+    "redux-saga": "https://ga.jspm.io/npm:redux-saga@1.1.3/dist/redux-saga-core-npm-proxy.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@redux-saga/core@1.1.3/": {
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/objectWithoutPropertiesLoose.js",
-      "@redux-saga/deferred": "https://ga.jspm.dev/npm:@redux-saga/deferred@1.1.2/dist/redux-saga-deferred.cjs.js",
-      "@redux-saga/delay-p": "https://ga.jspm.dev/npm:@redux-saga/delay-p@1.1.2/dist/redux-saga-delay-p.cjs.js",
-      "@redux-saga/is": "https://ga.jspm.dev/npm:@redux-saga/is@1.1.2/dist/redux-saga-is.cjs.js",
-      "@redux-saga/symbols": "https://ga.jspm.dev/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js",
-      "redux": "https://ga.jspm.dev/npm:redux@4.0.5/lib/redux.js"
+    "https://ga.jspm.io/npm:@redux-saga/core@1.1.3/": {
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/objectWithoutPropertiesLoose": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/objectWithoutPropertiesLoose.js",
+      "@redux-saga/deferred": "https://ga.jspm.io/npm:@redux-saga/deferred@1.1.2/dist/redux-saga-deferred.cjs.js",
+      "@redux-saga/delay-p": "https://ga.jspm.io/npm:@redux-saga/delay-p@1.1.2/dist/redux-saga-delay-p.cjs.js",
+      "@redux-saga/is": "https://ga.jspm.io/npm:@redux-saga/is@1.1.2/dist/redux-saga-is.cjs.js",
+      "@redux-saga/symbols": "https://ga.jspm.io/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js",
+      "redux": "https://ga.jspm.io/npm:redux@4.0.5/lib/redux.js"
     },
-    "https://ga.jspm.dev/npm:@redux-saga/delay-p@1.1.2/": {
-      "@redux-saga/symbols": "https://ga.jspm.dev/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js"
+    "https://ga.jspm.io/npm:@redux-saga/delay-p@1.1.2/": {
+      "@redux-saga/symbols": "https://ga.jspm.io/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@redux-saga/is@1.1.2/": {
-      "@redux-saga/symbols": "https://ga.jspm.dev/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js"
+    "https://ga.jspm.io/npm:@redux-saga/is@1.1.2/": {
+      "@redux-saga/symbols": "https://ga.jspm.io/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js"
     },
-    "https://ga.jspm.dev/npm:redux-saga@1.1.3/": {
-      "@redux-saga/core": "https://ga.jspm.dev/npm:@redux-saga/core@1.1.3/dist/redux-saga-core.cjs.js"
+    "https://ga.jspm.io/npm:redux-saga@1.1.3/": {
+      "@redux-saga/core": "https://ga.jspm.io/npm:@redux-saga/core@1.1.3/dist/redux-saga-core.cjs.js"
     },
-    "https://ga.jspm.dev/npm:redux@4.0.5/": {
-      "symbol-observable": "https://ga.jspm.dev/npm:symbol-observable@1.2.0/lib/index.js"
+    "https://ga.jspm.io/npm:redux@4.0.5/": {
+      "symbol-observable": "https://ga.jspm.io/npm:symbol-observable@1.2.0/lib/index.js"
     }
   }
 }

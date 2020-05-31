@@ -1,10 +1,10 @@
 {
   "imports": {
-    "vella": "https://ga.jspm.dev/npm:vella@0.0.4/index.js"
+    "vella": "https://ga.jspm.io/npm:vella@0.0.4/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:vella@0.0.4/": {
-      "s-js": "https://ga.jspm.dev/npm:s-js@0.4.9/dist/S.js"
+    "https://ga.jspm.io/npm:vella@0.0.4/": {
+      "s-js": "https://ga.jspm.io/npm:s-js@0.4.9/dist/S.js"
     }
   }
 }

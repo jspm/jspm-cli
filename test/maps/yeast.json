@@ -1,5 +1,5 @@
 {
   "imports": {
-    "yeast": "https://ga.jspm.dev/npm:yeast@0.1.2/index.js"
+    "yeast": "https://ga.jspm.io/npm:yeast@0.1.2/index.js"
   }
 }

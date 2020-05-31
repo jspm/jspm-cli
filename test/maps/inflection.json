@@ -1,5 +1,5 @@
 {
   "imports": {
-    "inflection": "https://ga.jspm.dev/npm:inflection@1.12.0/lib/inflection.js"
+    "inflection": "https://ga.jspm.io/npm:inflection@1.12.0/lib/inflection.js"
   }
 }

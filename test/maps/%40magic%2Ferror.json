@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@magic/error": "https://ga.jspm.dev/npm:@magic/error@0.0.6/src/index.mjs"
+    "@magic/error": "https://ga.jspm.io/npm:@magic/error@0.0.6/src/index.mjs"
   }
 }

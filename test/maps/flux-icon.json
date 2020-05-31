@@ -1,5 +1,5 @@
 {
   "imports": {
-    "flux-icon": "https://ga.jspm.dev/npm:flux-icon@1.0.1-beta/src/index.js"
+    "flux-icon": "https://ga.jspm.io/npm:flux-icon@1.0.1-beta/src/index.js"
   }
 }

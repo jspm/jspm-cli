@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@nodelib/fs.stat": "https://ga.jspm.dev/npm:@nodelib/fs.stat@2.0.3/out/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
+    "@nodelib/fs.stat": "https://ga.jspm.io/npm:@nodelib/fs.stat@2.0.3/out/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   }
 }

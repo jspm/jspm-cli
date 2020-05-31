@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.isarguments": "https://ga.jspm.dev/npm:lodash.isarguments@3.1.0/index.js"
+    "lodash.isarguments": "https://ga.jspm.io/npm:lodash.isarguments@3.1.0/index.js"
   }
 }

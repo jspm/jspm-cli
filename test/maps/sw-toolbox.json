@@ -1,14 +1,14 @@
 {
   "imports": {
-    "sw-toolbox": "https://ga.jspm.dev/npm:sw-toolbox@3.6.0/lib/sw-toolbox.js"
+    "sw-toolbox": "https://ga.jspm.io/npm:sw-toolbox@3.6.0/lib/sw-toolbox.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/": {
-      "isarray": "https://ga.jspm.dev/npm:isarray@0.0.1/index.js"
+    "https://ga.jspm.io/npm:path-to-regexp@1.8.0/": {
+      "isarray": "https://ga.jspm.io/npm:isarray@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:sw-toolbox@3.6.0/": {
-      "path-to-regexp": "https://ga.jspm.dev/npm:path-to-regexp@1.8.0/index.js",
-      "serviceworker-cache-polyfill": "https://ga.jspm.dev/npm:serviceworker-cache-polyfill@4.0.0/index.js"
+    "https://ga.jspm.io/npm:sw-toolbox@3.6.0/": {
+      "path-to-regexp": "https://ga.jspm.io/npm:path-to-regexp@1.8.0/index.js",
+      "serviceworker-cache-polyfill": "https://ga.jspm.io/npm:serviceworker-cache-polyfill@4.0.0/index.js"
     }
   }
 }

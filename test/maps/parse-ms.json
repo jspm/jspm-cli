@@ -1,5 +1,5 @@
 {
   "imports": {
-    "parse-ms": "https://ga.jspm.dev/npm:parse-ms@2.1.0/index.js"
+    "parse-ms": "https://ga.jspm.io/npm:parse-ms@2.1.0/index.js"
   }
 }

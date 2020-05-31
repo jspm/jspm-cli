@@ -1,5 +1,5 @@
 {
   "imports": {
-    "range-parser": "https://ga.jspm.dev/npm:range-parser@1.2.1/index.js"
+    "range-parser": "https://ga.jspm.io/npm:range-parser@1.2.1/index.js"
   }
 }

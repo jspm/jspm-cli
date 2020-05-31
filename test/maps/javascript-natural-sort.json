@@ -1,5 +1,5 @@
 {
   "imports": {
-    "javascript-natural-sort": "https://ga.jspm.dev/npm:javascript-natural-sort@0.7.1/naturalSort.js"
+    "javascript-natural-sort": "https://ga.jspm.io/npm:javascript-natural-sort@0.7.1/naturalSort.js"
   }
 }

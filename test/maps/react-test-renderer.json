@@ -1,16 +1,16 @@
 {
   "imports": {
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-test-renderer": "https://ga.jspm.dev/npm:react-test-renderer@16.13.1/index.js"
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-test-renderer": "https://ga.jspm.io/npm:react-test-renderer@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-test-renderer@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "scheduler": "https://ga.jspm.dev/npm:scheduler@0.19.1/index.js",
-      "scheduler/unstable_mock": "https://ga.jspm.dev/npm:scheduler@0.19.1/unstable_mock.js"
+    "https://ga.jspm.io/npm:react-test-renderer@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "scheduler": "https://ga.jspm.io/npm:scheduler@0.19.1/index.js",
+      "scheduler/unstable_mock": "https://ga.jspm.io/npm:scheduler@0.19.1/unstable_mock.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

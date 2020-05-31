@@ -1,31 +1,31 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "babel-plugin-styled-components": "https://ga.jspm.dev/npm:babel-plugin-styled-components@1.10.6/lib/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "babel-plugin-styled-components": "https://ga.jspm.io/npm:babel-plugin-styled-components@1.10.6/lib/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/helper-annotate-as-pure@7.10.1/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
+    "https://ga.jspm.io/npm:@babel/helper-annotate-as-pure@7.10.1/": {
+      "@babel/types": "https://ga.jspm.io/npm:@babel/types@7.10.2/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/": {
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
+    "https://ga.jspm.io/npm:@babel/helper-module-imports@7.10.1/": {
+      "@babel/types": "https://ga.jspm.io/npm:@babel/types@7.10.2/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
-      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
-      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
-      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
-      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
-      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@2.0.0/index.js"
+    "https://ga.jspm.io/npm:@babel/types@7.10.2/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.io/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
+      "lodash/clone": "https://ga.jspm.io/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.io/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.io/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.io/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.io/npm:to-fast-properties@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:babel-plugin-styled-components@1.10.6/": {
-      "@babel/helper-annotate-as-pure": "https://ga.jspm.dev/npm:@babel/helper-annotate-as-pure@7.10.1/lib/index.js",
-      "@babel/helper-module-imports": "https://ga.jspm.dev/npm:@babel/helper-module-imports@7.10.1/lib/index.js",
-      "babel-plugin-syntax-jsx": "https://ga.jspm.dev/npm:babel-plugin-syntax-jsx@6.18.0/lib/index.js",
-      "lodash/difference": "https://ga.jspm.dev/npm:lodash@4.17.15/difference.js"
+    "https://ga.jspm.io/npm:babel-plugin-styled-components@1.10.6/": {
+      "@babel/helper-annotate-as-pure": "https://ga.jspm.io/npm:@babel/helper-annotate-as-pure@7.10.1/lib/index.js",
+      "@babel/helper-module-imports": "https://ga.jspm.io/npm:@babel/helper-module-imports@7.10.1/lib/index.js",
+      "babel-plugin-syntax-jsx": "https://ga.jspm.io/npm:babel-plugin-syntax-jsx@6.18.0/lib/index.js",
+      "lodash/difference": "https://ga.jspm.io/npm:lodash@4.17.15/difference.js"
     }
   }
 }

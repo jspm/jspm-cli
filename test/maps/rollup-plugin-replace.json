@@ -1,21 +1,21 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "rollup-plugin-replace": "https://ga.jspm.dev/npm:rollup-plugin-replace@2.2.0/dist/rollup-plugin-replace.cjs.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "rollup-plugin-replace": "https://ga.jspm.io/npm:rollup-plugin-replace@2.2.0/dist/rollup-plugin-replace.cjs.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:magic-string@0.25.7/": {
-      "sourcemap-codec": "https://ga.jspm.dev/npm:sourcemap-codec@1.4.8/dist/sourcemap-codec.umd.js"
+    "https://ga.jspm.io/npm:magic-string@0.25.7/": {
+      "sourcemap-codec": "https://ga.jspm.io/npm:sourcemap-codec@1.4.8/dist/sourcemap-codec.umd.js"
     },
-    "https://ga.jspm.dev/npm:rollup-plugin-replace@2.2.0/": {
-      "magic-string": "https://ga.jspm.dev/npm:magic-string@0.25.7/dist/magic-string.cjs.js",
-      "rollup-pluginutils": "https://ga.jspm.dev/npm:rollup-pluginutils@2.8.2/dist/pluginutils.cjs.js"
+    "https://ga.jspm.io/npm:rollup-plugin-replace@2.2.0/": {
+      "magic-string": "https://ga.jspm.io/npm:magic-string@0.25.7/dist/magic-string.cjs.js",
+      "rollup-pluginutils": "https://ga.jspm.io/npm:rollup-pluginutils@2.8.2/dist/pluginutils.cjs.js"
     },
-    "https://ga.jspm.dev/npm:rollup-pluginutils@2.8.2/": {
-      "estree-walker": "https://ga.jspm.dev/npm:estree-walker@0.6.1/dist/estree-walker.umd.js"
+    "https://ga.jspm.io/npm:rollup-pluginutils@2.8.2/": {
+      "estree-walker": "https://ga.jspm.io/npm:estree-walker@0.6.1/dist/estree-walker.umd.js"
     }
   }
 }

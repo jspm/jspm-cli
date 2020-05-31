@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@fpc/hooks": "https://ga.jspm.dev/npm:@fpc/hooks@1.2.0/src/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "@fpc/hooks": "https://ga.jspm.io/npm:@fpc/hooks@1.2.0/src/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@fpc/hooks@1.2.0/": {
-      "@fpc/types": "https://ga.jspm.dev/npm:@fpc/types@0.0.9/src/index.js"
+    "https://ga.jspm.io/npm:@fpc/hooks@1.2.0/": {
+      "@fpc/types": "https://ga.jspm.io/npm:@fpc/types@0.0.9/src/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

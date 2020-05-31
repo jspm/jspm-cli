@@ -1,6 +1,6 @@
 {
   "imports": {
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "javascript-event-channel": "https://ga.jspm.dev/npm:javascript-event-channel@1.0.0/index.js"
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "javascript-event-channel": "https://ga.jspm.io/npm:javascript-event-channel@1.0.0/index.js"
   }
 }

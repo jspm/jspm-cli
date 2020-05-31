@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@musora/helper-functions": "https://ga.jspm.dev/npm:@musora/helper-functions@0.1.7/index.js"
+    "@musora/helper-functions": "https://ga.jspm.io/npm:@musora/helper-functions@0.1.7/index.js"
   }
 }

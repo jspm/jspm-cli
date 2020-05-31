@@ -1,26 +1,26 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "should": "https://ga.jspm.dev/npm:should@13.2.3/cjs/should.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "should": "https://ga.jspm.io/npm:should@13.2.3/cjs/should.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:should-equal@2.0.0/": {
-      "should-type": "https://ga.jspm.dev/npm:should-type@1.4.0/cjs/should-type.js"
+    "https://ga.jspm.io/npm:should-equal@2.0.0/": {
+      "should-type": "https://ga.jspm.io/npm:should-type@1.4.0/cjs/should-type.js"
     },
-    "https://ga.jspm.dev/npm:should-format@3.0.3/": {
-      "should-type": "https://ga.jspm.dev/npm:should-type@1.4.0/cjs/should-type.js",
-      "should-type-adaptors": "https://ga.jspm.dev/npm:should-type-adaptors@1.1.0/cjs/should-type-adaptors.js"
+    "https://ga.jspm.io/npm:should-format@3.0.3/": {
+      "should-type": "https://ga.jspm.io/npm:should-type@1.4.0/cjs/should-type.js",
+      "should-type-adaptors": "https://ga.jspm.io/npm:should-type-adaptors@1.1.0/cjs/should-type-adaptors.js"
     },
-    "https://ga.jspm.dev/npm:should-type-adaptors@1.1.0/": {
-      "should-type": "https://ga.jspm.dev/npm:should-type@1.4.0/cjs/should-type.js",
-      "should-util": "https://ga.jspm.dev/npm:should-util@1.0.1/cjs/should-util.js"
+    "https://ga.jspm.io/npm:should-type-adaptors@1.1.0/": {
+      "should-type": "https://ga.jspm.io/npm:should-type@1.4.0/cjs/should-type.js",
+      "should-util": "https://ga.jspm.io/npm:should-util@1.0.1/cjs/should-util.js"
     },
-    "https://ga.jspm.dev/npm:should@13.2.3/": {
-      "should-equal": "https://ga.jspm.dev/npm:should-equal@2.0.0/cjs/should-equal.js",
-      "should-format": "https://ga.jspm.dev/npm:should-format@3.0.3/cjs/should-format.js",
-      "should-type": "https://ga.jspm.dev/npm:should-type@1.4.0/cjs/should-type.js",
-      "should-type-adaptors": "https://ga.jspm.dev/npm:should-type-adaptors@1.1.0/cjs/should-type-adaptors.js",
-      "should-util": "https://ga.jspm.dev/npm:should-util@1.0.1/cjs/should-util.js"
+    "https://ga.jspm.io/npm:should@13.2.3/": {
+      "should-equal": "https://ga.jspm.io/npm:should-equal@2.0.0/cjs/should-equal.js",
+      "should-format": "https://ga.jspm.io/npm:should-format@3.0.3/cjs/should-format.js",
+      "should-type": "https://ga.jspm.io/npm:should-type@1.4.0/cjs/should-type.js",
+      "should-type-adaptors": "https://ga.jspm.io/npm:should-type-adaptors@1.1.0/cjs/should-type-adaptors.js",
+      "should-util": "https://ga.jspm.io/npm:should-util@1.0.1/cjs/should-util.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "redux-essentials": "https://ga.jspm.dev/npm:redux-essentials@0.5.0/esm/index.mjs"
+    "redux-essentials": "https://ga.jspm.io/npm:redux-essentials@0.5.0/esm/index.mjs"
   }
 }

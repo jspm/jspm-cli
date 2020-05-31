@@ -1,11 +1,11 @@
 {
   "imports": {
-    "cuid": "https://ga.jspm.dev/npm:cuid@2.1.8/index.js"
+    "cuid": "https://ga.jspm.io/npm:cuid@2.1.8/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cuid@2.1.8/": {
-      "cuid/lib/fingerprint.js": "https://ga.jspm.dev/npm:cuid@2.1.8/lib/fingerprint.browser.js",
-      "cuid/lib/getRandomValue.js": "https://ga.jspm.dev/npm:cuid@2.1.8/lib/getRandomValue.browser.js"
+    "https://ga.jspm.io/npm:cuid@2.1.8/": {
+      "cuid/lib/fingerprint.js": "https://ga.jspm.io/npm:cuid@2.1.8/lib/fingerprint.browser.js",
+      "cuid/lib/getRandomValue.js": "https://ga.jspm.io/npm:cuid@2.1.8/lib/getRandomValue.browser.js"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "on-finished": "https://ga.jspm.dev/npm:on-finished@2.3.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "on-finished": "https://ga.jspm.io/npm:on-finished@2.3.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:on-finished@2.3.0/": {
-      "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
+    "https://ga.jspm.io/npm:on-finished@2.3.0/": {
+      "ee-first": "https://ga.jspm.io/npm:ee-first@1.1.1/index.js"
     }
   }
 }

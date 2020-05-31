@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mustache": "https://ga.jspm.dev/npm:mustache@4.0.1/mustache.js"
+    "mustache": "https://ga.jspm.io/npm:mustache@4.0.1/mustache.js"
   }
 }

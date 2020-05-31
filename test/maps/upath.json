@@ -1,6 +1,6 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "upath": "https://ga.jspm.dev/npm:upath@1.2.0/build/code/upath.js"
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "upath": "https://ga.jspm.io/npm:upath@1.2.0/build/code/upath.js"
   }
 }

@@ -1,13 +1,13 @@
 {
   "imports": {
-    "@configura/web-ui": "https://ga.jspm.dev/npm:@configura/web-ui@0.0.19/dist/index.js"
+    "@configura/web-ui": "https://ga.jspm.io/npm:@configura/web-ui@0.0.19/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@configura/web-ui@0.0.19/": {
-      "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "https://ga.jspm.io/npm:@configura/web-ui@0.0.19/": {
+      "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

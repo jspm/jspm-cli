@@ -1,5 +1,5 @@
 {
   "imports": {
-    "import-lazy": "https://ga.jspm.dev/npm:import-lazy@4.0.0/index.js"
+    "import-lazy": "https://ga.jspm.io/npm:import-lazy@4.0.0/index.js"
   }
 }

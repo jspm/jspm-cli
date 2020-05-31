@@ -1,11 +1,11 @@
 {
   "imports": {
-    "ethereum-bloom-filters": "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/dist/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "ethereum-bloom-filters": "https://ga.jspm.io/npm:ethereum-bloom-filters@1.0.7/dist/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/": {
-      "js-sha3": "https://ga.jspm.dev/npm:js-sha3@0.8.0/src/sha3.js"
+    "https://ga.jspm.io/npm:ethereum-bloom-filters@1.0.7/": {
+      "js-sha3": "https://ga.jspm.io/npm:js-sha3@0.8.0/src/sha3.js"
     }
   }
 }

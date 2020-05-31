@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@lrnwebcomponents/material-word": "https://ga.jspm.dev/npm:@lrnwebcomponents/material-word@2.6.14/material-word.js"
+    "@lrnwebcomponents/material-word": "https://ga.jspm.io/npm:@lrnwebcomponents/material-word@2.6.14/material-word.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/material-word@2.6.14/": {
-      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/material-word@2.6.14/": {
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-element.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@acutejs/plugin-lit-html": "https://ga.jspm.dev/npm:@acutejs/plugin-lit-html@0.2.1/dist/index.js"
+    "@acutejs/plugin-lit-html": "https://ga.jspm.io/npm:@acutejs/plugin-lit-html@0.2.1/dist/index.js"
   }
 }

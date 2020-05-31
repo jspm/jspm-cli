@@ -1,20 +1,20 @@
 {
   "imports": {
-    "eslint-import-resolver-node": "https://ga.jspm.dev/npm:eslint-import-resolver-node@0.3.3/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "eslint-import-resolver-node": "https://ga.jspm.io/npm:eslint-import-resolver-node@0.3.3/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@2.6.9/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.io/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:eslint-import-resolver-node@0.3.3/": {
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js"
+    "https://ga.jspm.io/npm:eslint-import-resolver-node@0.3.3/": {
+      "debug": "https://ga.jspm.io/npm:debug@2.6.9/src/browser.js",
+      "resolve": "https://ga.jspm.io/npm:resolve@1.17.0/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
-      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    "https://ga.jspm.io/npm:resolve@1.17.0/": {
+      "path-parse": "https://ga.jspm.io/npm:path-parse@1.0.6/index.js"
     }
   }
 }

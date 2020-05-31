@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@mmsoft.npm/mylib1": "https://ga.jspm.dev/npm:@mmsoft.npm/mylib1@0.0.6/dist/index.js"
-  }
-}

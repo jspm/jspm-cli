@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pretty-bytes": "https://ga.jspm.dev/npm:pretty-bytes@5.3.0/index.js"
+    "pretty-bytes": "https://ga.jspm.io/npm:pretty-bytes@5.3.0/index.js"
   }
 }

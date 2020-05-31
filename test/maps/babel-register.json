@@ -1,5 +1,5 @@
 {
   "imports": {
-    "babel-register": "https://ga.jspm.dev/npm:babel-register@6.26.0/lib/browser.js"
+    "babel-register": "https://ga.jspm.io/npm:babel-register@6.26.0/lib/browser.js"
   }
 }

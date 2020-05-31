@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fast-deep-equal": "https://ga.jspm.dev/npm:fast-deep-equal@3.1.1/index.js"
+    "fast-deep-equal": "https://ga.jspm.io/npm:fast-deep-equal@3.1.1/index.js"
   }
 }

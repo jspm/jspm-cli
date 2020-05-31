@@ -1,5 +1,5 @@
 {
   "imports": {
-    "he": "https://ga.jspm.dev/npm:he@1.2.0/he.js"
+    "he": "https://ga.jspm.io/npm:he@1.2.0/he.js"
   }
 }

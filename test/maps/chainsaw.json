@@ -1,12 +1,12 @@
 {
   "imports": {
-    "chainsaw": "https://ga.jspm.dev/npm:chainsaw@0.1.0/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "chainsaw": "https://ga.jspm.io/npm:chainsaw@0.1.0/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:chainsaw@0.1.0/": {
-      "traverse": "https://ga.jspm.dev/npm:traverse@0.3.9/index.js"
+    "https://ga.jspm.io/npm:chainsaw@0.1.0/": {
+      "traverse": "https://ga.jspm.io/npm:traverse@0.3.9/index.js"
     }
   }
 }

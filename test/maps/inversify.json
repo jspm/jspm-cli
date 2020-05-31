@@ -1,5 +1,5 @@
 {
   "imports": {
-    "inversify": "https://ga.jspm.dev/npm:inversify@5.0.1/lib/inversify.js"
+    "inversify": "https://ga.jspm.io/npm:inversify@5.0.1/lib/inversify.js"
   }
 }

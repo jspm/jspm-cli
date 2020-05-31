@@ -1,13 +1,13 @@
 {
   "imports": {
-    "omit.js": "https://ga.jspm.dev/npm:omit.js@1.0.2/lib/index.js"
+    "omit.js": "https://ga.jspm.io/npm:omit.js@1.0.2/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-runtime@6.26.0/": {
-      "core-js/library/fn/object/assign": "https://ga.jspm.dev/npm:core-js@2.6.11/library/fn/object/assign.js"
+    "https://ga.jspm.io/npm:babel-runtime@6.26.0/": {
+      "core-js/library/fn/object/assign": "https://ga.jspm.io/npm:core-js@2.6.11/library/fn/object/assign.js"
     },
-    "https://ga.jspm.dev/npm:omit.js@1.0.2/": {
-      "babel-runtime/helpers/extends": "https://ga.jspm.dev/npm:babel-runtime@6.26.0/helpers/extends.js"
+    "https://ga.jspm.io/npm:omit.js@1.0.2/": {
+      "babel-runtime/helpers/extends": "https://ga.jspm.io/npm:babel-runtime@6.26.0/helpers/extends.js"
     }
   }
 }

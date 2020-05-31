@@ -1,15 +1,15 @@
 {
   "imports": {
-    "append-transform": "https://ga.jspm.dev/npm:append-transform@2.0.0/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "append-transform": "https://ga.jspm.io/npm:append-transform@2.0.0/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:append-transform@2.0.0/": {
-      "default-require-extensions/js": "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/js.js"
+    "https://ga.jspm.io/npm:append-transform@2.0.0/": {
+      "default-require-extensions/js": "https://ga.jspm.io/npm:default-require-extensions@3.0.0/js.js"
     },
-    "https://ga.jspm.dev/npm:default-require-extensions@3.0.0/": {
-      "strip-bom": "https://ga.jspm.dev/npm:strip-bom@4.0.0/index.js"
+    "https://ga.jspm.io/npm:default-require-extensions@3.0.0/": {
+      "strip-bom": "https://ga.jspm.io/npm:strip-bom@4.0.0/index.js"
     }
   }
 }

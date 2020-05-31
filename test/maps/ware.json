@@ -1,13 +1,14 @@
 {
   "imports": {
-    "ware": "https://ga.jspm.dev/npm:ware@1.3.0/lib/index.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "ware": "https://ga.jspm.io/npm:ware@1.3.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ware@1.3.0/": {
-      "wrap-fn": "https://ga.jspm.dev/npm:wrap-fn@0.1.5/index.js"
+    "https://ga.jspm.io/npm:ware@1.3.0/": {
+      "wrap-fn": "https://ga.jspm.io/npm:wrap-fn@0.1.5/index.js"
     },
-    "https://ga.jspm.dev/npm:wrap-fn@0.1.5/": {
-      "co": "https://ga.jspm.dev/npm:co@3.1.0/index.js"
+    "https://ga.jspm.io/npm:wrap-fn@0.1.5/": {
+      "co": "https://ga.jspm.io/npm:co@3.1.0/index.js"
     }
   }
 }

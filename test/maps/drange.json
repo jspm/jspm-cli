@@ -1,5 +1,5 @@
 {
   "imports": {
-    "drange": "https://ga.jspm.dev/npm:drange@2.0.0/lib/index.js"
+    "drange": "https://ga.jspm.io/npm:drange@2.0.0/lib/index.js"
   }
 }

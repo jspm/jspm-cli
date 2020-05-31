@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@mothepro/ts-module-shim": "https://ga.jspm.dev/npm:@mothepro/ts-module-shim@0.0.3/dist/npm/index.js"
+    "@mothepro/ts-module-shim": "https://ga.jspm.io/npm:@mothepro/ts-module-shim@0.0.3/dist/npm/index.js"
   }
 }

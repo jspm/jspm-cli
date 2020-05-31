@@ -1,17 +1,17 @@
 {
   "imports": {
-    "webpack-merge": "https://ga.jspm.dev/npm:webpack-merge@4.2.2/lib/index.js"
+    "webpack-merge": "https://ga.jspm.io/npm:webpack-merge@4.2.2/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:webpack-merge@4.2.2/": {
-      "lodash/cloneDeep": "https://ga.jspm.dev/npm:lodash@4.17.15/cloneDeep.js",
-      "lodash/differenceWith": "https://ga.jspm.dev/npm:lodash@4.17.15/differenceWith.js",
-      "lodash/isEqual": "https://ga.jspm.dev/npm:lodash@4.17.15/isEqual.js",
-      "lodash/isFunction": "https://ga.jspm.dev/npm:lodash@4.17.15/isFunction.js",
-      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
-      "lodash/mergeWith": "https://ga.jspm.dev/npm:lodash@4.17.15/mergeWith.js",
-      "lodash/unionWith": "https://ga.jspm.dev/npm:lodash@4.17.15/unionWith.js",
-      "lodash/values": "https://ga.jspm.dev/npm:lodash@4.17.15/values.js"
+    "https://ga.jspm.io/npm:webpack-merge@4.2.2/": {
+      "lodash/cloneDeep": "https://ga.jspm.io/npm:lodash@4.17.15/cloneDeep.js",
+      "lodash/differenceWith": "https://ga.jspm.io/npm:lodash@4.17.15/differenceWith.js",
+      "lodash/isEqual": "https://ga.jspm.io/npm:lodash@4.17.15/isEqual.js",
+      "lodash/isFunction": "https://ga.jspm.io/npm:lodash@4.17.15/isFunction.js",
+      "lodash/isPlainObject": "https://ga.jspm.io/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/mergeWith": "https://ga.jspm.io/npm:lodash@4.17.15/mergeWith.js",
+      "lodash/unionWith": "https://ga.jspm.io/npm:lodash@4.17.15/unionWith.js",
+      "lodash/values": "https://ga.jspm.io/npm:lodash@4.17.15/values.js"
     }
   }
 }

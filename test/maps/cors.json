@@ -1,11 +1,11 @@
 {
   "imports": {
-    "cors": "https://ga.jspm.dev/npm:cors@2.8.5/lib/index.js"
+    "cors": "https://ga.jspm.io/npm:cors@2.8.5/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cors@2.8.5/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "vary": "https://ga.jspm.dev/npm:vary@1.1.2/index.js"
+    "https://ga.jspm.io/npm:cors@2.8.5/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "vary": "https://ga.jspm.io/npm:vary@1.1.2/index.js"
     }
   }
 }

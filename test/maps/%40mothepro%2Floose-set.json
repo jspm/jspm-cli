@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@mothepro/loose-set": "https://ga.jspm.dev/npm:@mothepro/loose-set@1.0.0/dist/npm/index.js"
+    "@mothepro/loose-set": "https://ga.jspm.io/npm:@mothepro/loose-set@1.0.0/dist/npm/index.js"
   }
 }

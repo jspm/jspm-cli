@@ -1,19 +1,19 @@
 {
   "imports": {
-    "accept": "https://ga.jspm.dev/npm:accept@3.1.3/lib/index.js",
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "accept": "https://ga.jspm.io/npm:accept@3.1.3/lib/index.js",
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:accept@3.1.3/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:accept@3.1.3/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:boom@7.3.0/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:boom@7.3.0/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     }
   }
 }

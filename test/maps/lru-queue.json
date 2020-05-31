@@ -1,10 +1,10 @@
 {
   "imports": {
-    "lru-queue": "https://ga.jspm.dev/npm:lru-queue@0.1.0/index.js"
+    "lru-queue": "https://ga.jspm.io/npm:lru-queue@0.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lru-queue@0.1.0/": {
-      "es5-ext/number/to-pos-integer": "https://ga.jspm.dev/npm:es5-ext@0.10.53/number/to-pos-integer.js"
+    "https://ga.jspm.io/npm:lru-queue@0.1.0/": {
+      "es5-ext/number/to-pos-integer": "https://ga.jspm.io/npm:es5-ext@0.10.53/number/to-pos-integer.js"
     }
   }
 }

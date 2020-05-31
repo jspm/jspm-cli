@@ -1,11 +1,11 @@
 {
   "imports": {
-    "fbemitter": "https://ga.jspm.dev/npm:fbemitter@2.1.1/index.js"
+    "fbemitter": "https://ga.jspm.io/npm:fbemitter@2.1.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:fbemitter@2.1.1/": {
-      "fbjs/lib/emptyFunction": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/emptyFunction.js",
-      "fbjs/lib/invariant": "https://ga.jspm.dev/npm:fbjs@0.8.17/lib/invariant.js"
+    "https://ga.jspm.io/npm:fbemitter@2.1.1/": {
+      "fbjs/lib/emptyFunction": "https://ga.jspm.io/npm:fbjs@0.8.17/lib/emptyFunction.js",
+      "fbjs/lib/invariant": "https://ga.jspm.io/npm:fbjs@0.8.17/lib/invariant.js"
     }
   }
 }

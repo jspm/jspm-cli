@@ -1,13 +1,13 @@
 {
   "imports": {
-    "@hugojosefson/duplicati-generate-config": "https://ga.jspm.dev/npm:@hugojosefson/duplicati-generate-config@2.0.5/src/api.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@hugojosefson/duplicati-generate-config": "https://ga.jspm.io/npm:@hugojosefson/duplicati-generate-config@2.0.5/src/api.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@hugojosefson/duplicati-generate-config@2.0.5/": {
-      "ramda": "https://ga.jspm.dev/npm:ramda@0.27.0/src/index.js"
+    "https://ga.jspm.io/npm:@hugojosefson/duplicati-generate-config@2.0.5/": {
+      "ramda": "https://ga.jspm.io/npm:ramda@0.27.0/src/index.js"
     }
   }
 }

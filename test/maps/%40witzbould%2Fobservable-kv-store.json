@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@witzbould/observable-kv-store": "https://ga.jspm.dev/npm:@witzbould/observable-kv-store@2.0.1/src/index.js"
+    "@witzbould/observable-kv-store": "https://ga.jspm.io/npm:@witzbould/observable-kv-store@2.0.1/src/index.js"
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "binary-search-tree": "https://ga.jspm.dev/npm:binary-search-tree@0.2.6/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "binary-search-tree": "https://ga.jspm.io/npm:binary-search-tree@0.2.6/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:binary-search-tree@0.2.6/": {
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.4.4/underscore.js"
+    "https://ga.jspm.io/npm:binary-search-tree@0.2.6/": {
+      "underscore": "https://ga.jspm.io/npm:underscore@1.4.4/underscore.js"
     }
   }
 }

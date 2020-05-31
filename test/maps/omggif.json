@@ -1,5 +1,5 @@
 {
   "imports": {
-    "omggif": "https://ga.jspm.dev/npm:omggif@1.0.10/omggif.js"
+    "omggif": "https://ga.jspm.io/npm:omggif@1.0.10/omggif.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "commist": "https://ga.jspm.dev/npm:commist@1.1.0/index.js"
+    "commist": "https://ga.jspm.io/npm:commist@1.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:commist@1.1.0/": {
-      "leven": "https://ga.jspm.dev/npm:leven@2.1.0/index.js"
+    "https://ga.jspm.io/npm:commist@1.1.0/": {
+      "leven": "https://ga.jspm.io/npm:leven@2.1.0/index.js"
     }
   }
 }

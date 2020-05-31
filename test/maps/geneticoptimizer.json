@@ -1,5 +1,5 @@
 {
   "imports": {
-    "geneticoptimizer": "https://ga.jspm.dev/npm:geneticoptimizer@1.0.4/geneticOptimizer.js"
+    "geneticoptimizer": "https://ga.jspm.io/npm:geneticoptimizer@1.0.4/geneticOptimizer.js"
   }
 }

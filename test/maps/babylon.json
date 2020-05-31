@@ -1,5 +1,5 @@
 {
   "imports": {
-    "babylon": "https://ga.jspm.dev/npm:babylon@6.18.0/lib/index.js"
+    "babylon": "https://ga.jspm.io/npm:babylon@6.18.0/lib/index.js"
   }
 }

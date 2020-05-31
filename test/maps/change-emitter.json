@@ -1,5 +1,5 @@
 {
   "imports": {
-    "change-emitter": "https://ga.jspm.dev/npm:change-emitter@0.1.6/lib/index.js"
+    "change-emitter": "https://ga.jspm.io/npm:change-emitter@0.1.6/lib/index.js"
   }
 }

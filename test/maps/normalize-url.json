@@ -1,5 +1,5 @@
 {
   "imports": {
-    "normalize-url": "https://ga.jspm.dev/npm:normalize-url@5.0.0/index.js"
+    "normalize-url": "https://ga.jspm.io/npm:normalize-url@5.0.0/index.js"
   }
 }

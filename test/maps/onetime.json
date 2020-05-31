@@ -1,10 +1,10 @@
 {
   "imports": {
-    "onetime": "https://ga.jspm.dev/npm:onetime@5.1.0/index.js"
+    "onetime": "https://ga.jspm.io/npm:onetime@5.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:onetime@5.1.0/": {
-      "mimic-fn": "https://ga.jspm.dev/npm:mimic-fn@2.1.0/index.js"
+    "https://ga.jspm.io/npm:onetime@5.1.0/": {
+      "mimic-fn": "https://ga.jspm.io/npm:mimic-fn@2.1.0/index.js"
     }
   }
 }

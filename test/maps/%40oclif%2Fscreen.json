@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@oclif/screen": "https://ga.jspm.dev/npm:@oclif/screen@1.0.4/lib/screen.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@oclif/screen": "https://ga.jspm.io/npm:@oclif/screen@1.0.4/lib/screen.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

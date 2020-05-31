@@ -1,5 +1,5 @@
 {
   "imports": {
-    "heapify": "https://ga.jspm.dev/npm:heapify@0.2.1/heapify.mjs"
+    "heapify": "https://ga.jspm.io/npm:heapify@0.2.1/heapify.mjs"
   }
 }

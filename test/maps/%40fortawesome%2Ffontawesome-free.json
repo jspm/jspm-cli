@@ -1,5 +1,6 @@
 {
   "imports": {
-    "@fortawesome/fontawesome-free": "https://ga.jspm.dev/npm:@fortawesome/fontawesome-free@5.13.0/js/fontawesome.js"
+    "@fortawesome/fontawesome-free": "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@5.13.0/js/fontawesome.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

@@ -1,44 +1,44 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "pug-filters": "https://ga.jspm.dev/npm:pug-filters@4.0.0/index.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "pug-filters": "https://ga.jspm.io/npm:pug-filters@4.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/types@7.10.1/": {
-      "@babel/helper-validator-identifier": "https://ga.jspm.dev/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
-      "lodash/clone": "https://ga.jspm.dev/npm:lodash@4.17.15/clone.js",
-      "lodash/isPlainObject": "https://ga.jspm.dev/npm:lodash@4.17.15/isPlainObject.js",
-      "lodash/isRegExp": "https://ga.jspm.dev/npm:lodash@4.17.15/isRegExp.js",
-      "lodash/uniq": "https://ga.jspm.dev/npm:lodash@4.17.15/uniq.js",
-      "to-fast-properties": "https://ga.jspm.dev/npm:to-fast-properties@2.0.0/index.js"
+    "https://ga.jspm.io/npm:@babel/types@7.10.2/": {
+      "@babel/helper-validator-identifier": "https://ga.jspm.io/npm:@babel/helper-validator-identifier@7.10.1/lib/index.js",
+      "lodash/clone": "https://ga.jspm.io/npm:lodash@4.17.15/clone.js",
+      "lodash/isPlainObject": "https://ga.jspm.io/npm:lodash@4.17.15/isPlainObject.js",
+      "lodash/isRegExp": "https://ga.jspm.io/npm:lodash@4.17.15/isRegExp.js",
+      "lodash/uniq": "https://ga.jspm.io/npm:lodash@4.17.15/uniq.js",
+      "to-fast-properties": "https://ga.jspm.io/npm:to-fast-properties@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:asap@2.0.6/": {
-      "asap/raw.js": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    "https://ga.jspm.io/npm:asap@2.0.6/": {
+      "asap/raw.js": "https://ga.jspm.io/npm:asap@2.0.6/browser-raw.js"
     },
-    "https://ga.jspm.dev/npm:constantinople@4.0.1/": {
-      "@babel/parser": "https://ga.jspm.dev/npm:@babel/parser@7.10.1/lib/index.js",
-      "@babel/types": "https://ga.jspm.dev/npm:@babel/types@7.10.1/lib/index.js"
+    "https://ga.jspm.io/npm:constantinople@4.0.1/": {
+      "@babel/parser": "https://ga.jspm.io/npm:@babel/parser@7.10.2/lib/index.js",
+      "@babel/types": "https://ga.jspm.io/npm:@babel/types@7.10.2/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:jstransformer@1.0.0/": {
-      "is-promise": "https://ga.jspm.dev/npm:is-promise@2.2.2/index.js",
-      "promise": "https://ga.jspm.dev/npm:promise@7.3.1/index.js"
+    "https://ga.jspm.io/npm:jstransformer@1.0.0/": {
+      "is-promise": "https://ga.jspm.io/npm:is-promise@2.2.2/index.js",
+      "promise": "https://ga.jspm.io/npm:promise@7.3.1/index.js"
     },
-    "https://ga.jspm.dev/npm:promise@7.3.1/": {
-      "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js",
-      "asap/raw": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    "https://ga.jspm.io/npm:promise@7.3.1/": {
+      "asap": "https://ga.jspm.io/npm:asap@2.0.6/browser-asap.js",
+      "asap/raw": "https://ga.jspm.io/npm:asap@2.0.6/browser-raw.js"
     },
-    "https://ga.jspm.dev/npm:pug-filters@4.0.0/": {
-      "constantinople": "https://ga.jspm.dev/npm:constantinople@4.0.1/lib/index.js",
-      "jstransformer": "https://ga.jspm.dev/npm:jstransformer@1.0.0/index.js",
-      "pug-error": "https://ga.jspm.dev/npm:pug-error@2.0.0/index.js",
-      "pug-walk": "https://ga.jspm.dev/npm:pug-walk@2.0.0/index.js",
-      "resolve": "https://ga.jspm.dev/npm:resolve@1.17.0/index.js"
+    "https://ga.jspm.io/npm:pug-filters@4.0.0/": {
+      "constantinople": "https://ga.jspm.io/npm:constantinople@4.0.1/lib/index.js",
+      "jstransformer": "https://ga.jspm.io/npm:jstransformer@1.0.0/index.js",
+      "pug-error": "https://ga.jspm.io/npm:pug-error@2.0.0/index.js",
+      "pug-walk": "https://ga.jspm.io/npm:pug-walk@2.0.0/index.js",
+      "resolve": "https://ga.jspm.io/npm:resolve@1.17.0/index.js"
     },
-    "https://ga.jspm.dev/npm:resolve@1.17.0/": {
-      "path-parse": "https://ga.jspm.dev/npm:path-parse@1.0.6/index.js"
+    "https://ga.jspm.io/npm:resolve@1.17.0/": {
+      "path-parse": "https://ga.jspm.io/npm:path-parse@1.0.6/index.js"
     }
   }
 }

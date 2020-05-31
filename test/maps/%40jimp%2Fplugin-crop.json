@@ -1,20 +1,20 @@
 {
   "imports": {
-    "@jimp/plugin-crop": "https://ga.jspm.dev/npm:@jimp/plugin-crop@0.12.1/dist/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "@jimp/plugin-crop": "https://ga.jspm.io/npm:@jimp/plugin-crop@0.12.1/dist/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/": {
-      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.io/npm:@babel/runtime@7.10.2/": {
+      "regenerator-runtime": "https://ga.jspm.io/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/plugin-crop@0.12.1/": {
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js"
+    "https://ga.jspm.io/npm:@jimp/plugin-crop@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/typeof.js",
+      "@jimp/utils": "https://ga.jspm.io/npm:@jimp/utils@0.12.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/": {
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
+    "https://ga.jspm.io/npm:@jimp/utils@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/regenerator/index.js"
     }
   }
 }

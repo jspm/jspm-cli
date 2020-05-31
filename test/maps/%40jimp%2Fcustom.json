@@ -1,61 +1,61 @@
 {
   "imports": {
-    "@jimp/custom": "https://ga.jspm.dev/npm:@jimp/custom@0.12.1/dist/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "@jimp/custom": "https://ga.jspm.io/npm:@jimp/custom@0.12.1/dist/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/": {
-      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.io/npm:@babel/runtime@7.10.2/": {
+      "regenerator-runtime": "https://ga.jspm.io/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/core@0.12.1/": {
-      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/assertThisInitialized.js",
-      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/classCallCheck.js",
-      "@babel/runtime/helpers/construct": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/construct.js",
-      "@babel/runtime/helpers/createClass": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/createClass.js",
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/getPrototypeOf.js",
-      "@babel/runtime/helpers/inherits": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/inherits.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/possibleConstructorReturn.js",
-      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
-      "@babel/runtime/helpers/typeof": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/typeof.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js",
-      "any-base": "https://ga.jspm.dev/npm:any-base@1.1.0/index.js",
-      "buffer": "https://ga.jspm.dev/npm:buffer@5.6.0/index.js",
-      "exif-parser": "https://ga.jspm.dev/npm:exif-parser@0.1.12/index.js",
-      "file-type": "https://ga.jspm.dev/npm:file-type@9.0.0/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
-      "phin": "https://ga.jspm.dev/npm:phin@2.9.3/lib/phin.compiled.js",
-      "pixelmatch": "https://ga.jspm.dev/npm:pixelmatch@4.0.2/index.js",
-      "tinycolor2": "https://ga.jspm.dev/npm:tinycolor2@1.4.1/tinycolor.js"
+    "https://ga.jspm.io/npm:@jimp/core@0.12.1/": {
+      "@babel/runtime/helpers/assertThisInitialized": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/assertThisInitialized.js",
+      "@babel/runtime/helpers/classCallCheck": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/classCallCheck.js",
+      "@babel/runtime/helpers/construct": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/construct.js",
+      "@babel/runtime/helpers/createClass": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/createClass.js",
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/getPrototypeOf": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/getPrototypeOf.js",
+      "@babel/runtime/helpers/inherits": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/inherits.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/possibleConstructorReturn": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/possibleConstructorReturn.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/typeof": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/typeof.js",
+      "@jimp/utils": "https://ga.jspm.io/npm:@jimp/utils@0.12.1/dist/index.js",
+      "any-base": "https://ga.jspm.io/npm:any-base@1.1.0/index.js",
+      "buffer": "https://ga.jspm.io/npm:buffer@5.6.0/index.js",
+      "exif-parser": "https://ga.jspm.io/npm:exif-parser@0.1.12/index.js",
+      "file-type": "https://ga.jspm.io/npm:file-type@9.0.0/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@0.5.5/index.js",
+      "phin": "https://ga.jspm.io/npm:phin@2.9.3/lib/phin.compiled.js",
+      "pixelmatch": "https://ga.jspm.io/npm:pixelmatch@4.0.2/index.js",
+      "tinycolor2": "https://ga.jspm.io/npm:tinycolor2@1.4.1/tinycolor.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/custom@0.12.1/": {
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireWildcard.js",
-      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/slicedToArray.js",
-      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/toConsumableArray.js",
-      "@jimp/core": "https://ga.jspm.dev/npm:@jimp/core@0.12.1/dist/index.js"
+    "https://ga.jspm.io/npm:@jimp/custom@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/helpers/interopRequireWildcard": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireWildcard.js",
+      "@babel/runtime/helpers/slicedToArray": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/slicedToArray.js",
+      "@babel/runtime/helpers/toConsumableArray": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/toConsumableArray.js",
+      "@jimp/core": "https://ga.jspm.io/npm:@jimp/core@0.12.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/": {
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
+    "https://ga.jspm.io/npm:@jimp/utils@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/regenerator/index.js"
     },
-    "https://ga.jspm.dev/npm:buffer@5.6.0/": {
-      "base64-js": "https://ga.jspm.dev/npm:base64-js@1.3.1/index.js",
-      "ieee754": "https://ga.jspm.dev/npm:ieee754@1.1.13/index.js"
+    "https://ga.jspm.io/npm:buffer@5.6.0/": {
+      "base64-js": "https://ga.jspm.io/npm:base64-js@1.3.1/index.js",
+      "ieee754": "https://ga.jspm.io/npm:ieee754@1.1.13/index.js"
     }
   }
 }

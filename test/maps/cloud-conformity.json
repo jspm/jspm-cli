@@ -1,14 +1,14 @@
 {
   "imports": {
-    "cloud-conformity": "https://ga.jspm.dev/npm:cloud-conformity@1.1.4/dist/cloudconformity.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "cloud-conformity": "https://ga.jspm.io/npm:cloud-conformity@1.1.4/dist/cloudconformity.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:axios@0.19.2/": {
-      "axios/lib/adapters/http.js": "https://ga.jspm.dev/npm:axios@0.19.2/lib/adapters/xhr.js"
+    "https://ga.jspm.io/npm:axios@0.19.2/": {
+      "axios/lib/adapters/http.js": "https://ga.jspm.io/npm:axios@0.19.2/lib/adapters/xhr.js"
     },
-    "https://ga.jspm.dev/npm:cloud-conformity@1.1.4/": {
-      "axios": "https://ga.jspm.dev/npm:axios@0.19.2/index.js"
+    "https://ga.jspm.io/npm:cloud-conformity@1.1.4/": {
+      "axios": "https://ga.jspm.io/npm:axios@0.19.2/index.js"
     }
   }
 }

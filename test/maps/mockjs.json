@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "mockjs": "https://ga.jspm.dev/npm:mockjs@1.1.0/dist/mock.js"
-  }
-}

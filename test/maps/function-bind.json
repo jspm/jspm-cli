@@ -1,5 +1,5 @@
 {
   "imports": {
-    "function-bind": "https://ga.jspm.dev/npm:function-bind@1.1.1/index.js"
+    "function-bind": "https://ga.jspm.io/npm:function-bind@1.1.1/index.js"
   }
 }

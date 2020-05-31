@@ -1,18 +1,18 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "browserify-zlib": "https://ga.jspm.dev/npm:browserify-zlib@0.2.0/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "browserify-zlib": "https://ga.jspm.io/npm:browserify-zlib@0.2.0/lib/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:browserify-zlib@0.2.0/": {
-      "pako/lib/zlib/constants": "https://ga.jspm.dev/npm:pako@1.0.11/lib/zlib/constants.js",
-      "pako/lib/zlib/deflate.js": "https://ga.jspm.dev/npm:pako@1.0.11/lib/zlib/deflate.js",
-      "pako/lib/zlib/inflate.js": "https://ga.jspm.dev/npm:pako@1.0.11/lib/zlib/inflate.js",
-      "pako/lib/zlib/zstream": "https://ga.jspm.dev/npm:pako@1.0.11/lib/zlib/zstream.js"
+    "https://ga.jspm.io/npm:browserify-zlib@0.2.0/": {
+      "pako/lib/zlib/constants": "https://ga.jspm.io/npm:pako@1.0.11/lib/zlib/constants.js",
+      "pako/lib/zlib/deflate.js": "https://ga.jspm.io/npm:pako@1.0.11/lib/zlib/deflate.js",
+      "pako/lib/zlib/inflate.js": "https://ga.jspm.io/npm:pako@1.0.11/lib/zlib/inflate.js",
+      "pako/lib/zlib/zstream": "https://ga.jspm.io/npm:pako@1.0.11/lib/zlib/zstream.js"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "rx-lite-aggregates": "https://ga.jspm.dev/npm:rx-lite-aggregates@4.0.8/rx.lite.aggregates.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "rx-lite-aggregates": "https://ga.jspm.io/npm:rx-lite-aggregates@4.0.8/rx.lite.aggregates.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:rx-lite-aggregates@4.0.8/": {
-      "rx-lite": "https://ga.jspm.dev/npm:rx-lite@4.0.8/rx.lite.js"
+    "https://ga.jspm.io/npm:rx-lite-aggregates@4.0.8/": {
+      "rx-lite": "https://ga.jspm.io/npm:rx-lite@4.0.8/rx.lite.js"
     }
   }
 }

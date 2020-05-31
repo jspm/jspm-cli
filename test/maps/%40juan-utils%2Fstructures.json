@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@juan-utils/structures": "https://ga.jspm.dev/npm:@juan-utils/structures@2.8.4/dist/umd/juan-utils-structs.umd.js"
+    "@juan-utils/structures": "https://ga.jspm.io/npm:@juan-utils/structures@2.8.4/dist/umd/juan-utils-structs.umd.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@juan-utils/structures@2.8.4/": {
-      "@juan-utils/functions": "https://ga.jspm.dev/npm:@juan-utils/functions@2.8.4/dist/umd/juan-utils-functions.umd.js"
+    "https://ga.jspm.io/npm:@juan-utils/structures@2.8.4/": {
+      "@juan-utils/functions": "https://ga.jspm.io/npm:@juan-utils/functions@2.8.4/dist/umd/juan-utils-functions.umd.js"
     }
   }
 }

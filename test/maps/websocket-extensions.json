@@ -1,5 +1,5 @@
 {
   "imports": {
-    "websocket-extensions": "https://ga.jspm.dev/npm:websocket-extensions@0.1.3/lib/websocket_extensions.js"
+    "websocket-extensions": "https://ga.jspm.io/npm:websocket-extensions@0.1.3/lib/websocket_extensions.js"
   }
 }

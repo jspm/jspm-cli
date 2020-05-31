@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vfile-location": "https://ga.jspm.dev/npm:vfile-location@3.0.1/index.js"
+    "vfile-location": "https://ga.jspm.io/npm:vfile-location@3.0.1/index.js"
   }
 }

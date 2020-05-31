@@ -1,12 +1,12 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "process-on-spawn": "https://ga.jspm.dev/npm:process-on-spawn@1.0.0/index.js"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "process-on-spawn": "https://ga.jspm.io/npm:process-on-spawn@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:process-on-spawn@1.0.0/": {
-      "fromentries": "https://ga.jspm.dev/npm:fromentries@1.2.0/index.js"
+    "https://ga.jspm.io/npm:process-on-spawn@1.0.0/": {
+      "fromentries": "https://ga.jspm.io/npm:fromentries@1.2.0/index.js"
     }
   }
 }

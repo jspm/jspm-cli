@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-plain-obj": "https://ga.jspm.dev/npm:is-plain-obj@2.1.0/index.js"
+    "is-plain-obj": "https://ga.jspm.io/npm:is-plain-obj@2.1.0/index.js"
   }
 }

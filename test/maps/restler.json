@@ -1,28 +1,28 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "restler": "https://ga.jspm.dev/npm:restler@3.4.0/lib/restler.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "restler": "https://ga.jspm.io/npm:restler@3.4.0/lib/restler.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:restler@3.4.0/": {
-      "iconv-lite": "https://ga.jspm.dev/npm:iconv-lite@0.2.11/index.js",
-      "qs": "https://ga.jspm.dev/npm:qs@1.2.0/index.js",
-      "xml2js": "https://ga.jspm.dev/npm:xml2js@0.4.0/lib/xml2js.js",
-      "yaml": "https://ga.jspm.dev/npm:yaml@0.2.3/lib/yaml.js"
+    "https://ga.jspm.io/npm:restler@3.4.0/": {
+      "iconv-lite": "https://ga.jspm.io/npm:iconv-lite@0.2.11/index.js",
+      "qs": "https://ga.jspm.io/npm:qs@1.2.0/index.js",
+      "xml2js": "https://ga.jspm.io/npm:xml2js@0.4.0/lib/xml2js.js",
+      "yaml": "https://ga.jspm.io/npm:yaml@0.2.3/lib/yaml.js"
     },
-    "https://ga.jspm.dev/npm:xml2js@0.4.0/": {
-      "sax": "https://ga.jspm.dev/npm:sax@0.5.8/lib/sax.js",
-      "xmlbuilder": "https://ga.jspm.dev/npm:xmlbuilder@15.1.1/lib/index.js"
+    "https://ga.jspm.io/npm:xml2js@0.4.0/": {
+      "sax": "https://ga.jspm.io/npm:sax@0.5.8/lib/sax.js",
+      "xmlbuilder": "https://ga.jspm.io/npm:xmlbuilder@15.1.1/lib/index.js"
     }
   }
 }

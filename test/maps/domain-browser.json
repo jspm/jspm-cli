@@ -1,6 +1,6 @@
 {
   "imports": {
-    "domain-browser": "https://ga.jspm.dev/npm:domain-browser@4.4.0/source/index.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js"
+    "domain-browser": "https://ga.jspm.io/npm:domain-browser@4.4.0/source/index.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js"
   }
 }

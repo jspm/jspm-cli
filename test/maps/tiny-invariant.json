@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tiny-invariant": "https://ga.jspm.dev/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js"
+    "tiny-invariant": "https://ga.jspm.io/npm:tiny-invariant@1.1.0/dist/tiny-invariant.cjs.js"
   }
 }

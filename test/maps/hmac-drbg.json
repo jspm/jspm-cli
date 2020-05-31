@@ -1,16 +1,16 @@
 {
   "imports": {
-    "hmac-drbg": "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js"
+    "hmac-drbg": "https://ga.jspm.io/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:hash.js@1.1.7/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    "https://ga.jspm.io/npm:hash.js@1.1.7/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/": {
-      "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
-      "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
+    "https://ga.jspm.io/npm:hmac-drbg@1.0.1/": {
+      "hash.js": "https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js",
+      "minimalistic-crypto-utils": "https://ga.jspm.io/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     }
   }
 }

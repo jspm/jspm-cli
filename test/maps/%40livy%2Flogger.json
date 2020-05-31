@@ -1,20 +1,20 @@
 {
   "imports": {
-    "@livy/logger": "https://ga.jspm.dev/npm:@livy/logger@1.0.4/lib/logger-factory.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@livy/logger": "https://ga.jspm.io/npm:@livy/logger@1.0.4/lib/logger-factory.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@livy/logger@1.0.4/": {
-      "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js",
-      "@livy/util/lib/environment": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/environment.js",
-      "@livy/util/lib/gated-set": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/gated-set.js",
-      "@livy/util/lib/handlers/is-closable-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-closable-handler-interface.js",
-      "@livy/util/lib/handlers/is-sync-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-sync-handler-interface.js",
-      "@livy/util/lib/helpers": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/helpers.js",
-      "@livy/util/lib/is-resettable-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/is-resettable-interface.js",
-      "@livy/util/lib/validatable-set": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/validatable-set.js",
-      "luxon": "https://ga.jspm.dev/npm:luxon@1.24.1/build/cjs-browser/luxon.js"
+    "https://ga.jspm.io/npm:@livy/logger@1.0.4/": {
+      "@livy/contracts/lib/log-level": "https://ga.jspm.io/npm:@livy/contracts@1.1.0/lib/log-level.js",
+      "@livy/util/lib/environment": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/environment.js",
+      "@livy/util/lib/gated-set": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/gated-set.js",
+      "@livy/util/lib/handlers/is-closable-handler-interface": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/is-closable-handler-interface.js",
+      "@livy/util/lib/handlers/is-sync-handler-interface": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/is-sync-handler-interface.js",
+      "@livy/util/lib/helpers": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/helpers.js",
+      "@livy/util/lib/is-resettable-interface": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/is-resettable-interface.js",
+      "@livy/util/lib/validatable-set": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/validatable-set.js",
+      "luxon": "https://ga.jspm.io/npm:luxon@1.24.1/build/cjs-browser/luxon.js"
     }
   }
 }

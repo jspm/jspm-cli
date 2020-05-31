@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@etsitpab/tools": "https://ga.jspm.dev/npm:@etsitpab/tools@1.0.0/src/Tools.js"
+    "@etsitpab/tools": "https://ga.jspm.io/npm:@etsitpab/tools@1.0.0/src/Tools.js"
   }
 }

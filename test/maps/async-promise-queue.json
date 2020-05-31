@@ -1,15 +1,15 @@
 {
   "imports": {
-    "async-promise-queue": "https://ga.jspm.dev/npm:async-promise-queue@1.0.5/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "async-promise-queue": "https://ga.jspm.io/npm:async-promise-queue@1.0.5/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:async-promise-queue@1.0.5/": {
-      "async": "https://ga.jspm.dev/npm:async@2.6.3/dist/async.js",
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js"
+    "https://ga.jspm.io/npm:async-promise-queue@1.0.5/": {
+      "async": "https://ga.jspm.io/npm:async@2.6.3/dist/async.js",
+      "debug": "https://ga.jspm.io/npm:debug@2.6.9/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@2.6.9/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.io/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.0.0/index.js"
     }
   }
 }

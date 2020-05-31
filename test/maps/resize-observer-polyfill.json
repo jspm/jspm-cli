@@ -1,5 +1,5 @@
 {
   "imports": {
-    "resize-observer-polyfill": "https://ga.jspm.dev/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"
+    "resize-observer-polyfill": "https://ga.jspm.io/npm:resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@jsenv/node-signals": "https://ga.jspm.dev/npm:@jsenv/node-signals@2.0.1/index.js"
+    "@jsenv/node-signals": "https://ga.jspm.io/npm:@jsenv/node-signals@2.0.1/index.js"
   }
 }

@@ -1,11 +1,11 @@
 {
   "imports": {
-    "ignorefs": "https://ga.jspm.dev/npm:ignorefs@3.3.0/edition-esnext/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "ignorefs": "https://ga.jspm.io/npm:ignorefs@3.3.0/edition-esnext/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ignorefs@3.3.0/": {
-      "ignorepatterns": "https://ga.jspm.dev/npm:ignorepatterns@4.3.0/edition-esnext/index.js"
+    "https://ga.jspm.io/npm:ignorefs@3.3.0/": {
+      "ignorepatterns": "https://ga.jspm.io/npm:ignorepatterns@4.3.0/edition-esnext/index.js"
     }
   }
 }

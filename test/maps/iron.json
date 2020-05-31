@@ -1,28 +1,28 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "iron": "https://ga.jspm.dev/npm:iron@5.0.6/lib/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "iron": "https://ga.jspm.io/npm:iron@5.0.6/lib/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:b64@4.1.2/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:b64@4.1.2/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:boom@7.3.0/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:boom@7.3.0/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:cryptiles@4.1.3/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js"
+    "https://ga.jspm.io/npm:cryptiles@4.1.3/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:iron@5.0.6/": {
-      "b64": "https://ga.jspm.dev/npm:b64@4.1.2/lib/index.js",
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "cryptiles": "https://ga.jspm.dev/npm:cryptiles@4.1.3/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:iron@5.0.6/": {
+      "b64": "https://ga.jspm.io/npm:b64@4.1.2/lib/index.js",
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "cryptiles": "https://ga.jspm.io/npm:cryptiles@4.1.3/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     }
   }
 }

@@ -1,20 +1,20 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "dgram": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/dgram.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "multicast-dns": "https://ga.jspm.dev/npm:multicast-dns@7.2.2/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "dgram": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/dgram.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "multicast-dns": "https://ga.jspm.io/npm:multicast-dns@7.2.2/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dns-packet@4.2.0/": {
-      "ip": "https://ga.jspm.dev/npm:ip@1.1.5/lib/ip.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:dns-packet@4.2.0/": {
+      "ip": "https://ga.jspm.io/npm:ip@1.1.5/lib/ip.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:multicast-dns@7.2.2/": {
-      "dns-packet": "https://ga.jspm.dev/npm:dns-packet@4.2.0/index.js",
-      "thunky": "https://ga.jspm.dev/npm:thunky@1.1.0/index.js"
+    "https://ga.jspm.io/npm:multicast-dns@7.2.2/": {
+      "dns-packet": "https://ga.jspm.io/npm:dns-packet@4.2.0/index.js",
+      "thunky": "https://ga.jspm.io/npm:thunky@1.1.0/index.js"
     }
   }
 }

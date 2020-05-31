@@ -1,19 +1,19 @@
 {
   "imports": {
-    "@livy/level-filter-handler": "https://ga.jspm.dev/npm:@livy/level-filter-handler@1.0.2/lib/level-filter-handler.js"
+    "@livy/level-filter-handler": "https://ga.jspm.io/npm:@livy/level-filter-handler@1.0.2/lib/level-filter-handler.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@livy/filter-handler@1.0.2/": {
-      "@livy/util/lib/handlers/abstract-batch-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-batch-handler.js",
-      "@livy/util/lib/handlers/is-closable-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-closable-handler-interface.js",
-      "@livy/util/lib/handlers/is-sync-handler-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/is-sync-handler-interface.js",
-      "@livy/util/lib/handlers/processable-handler-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/processable-handler-mixin.js",
-      "@livy/util/lib/helpers": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/helpers.js",
-      "@livy/util/lib/is-resettable-interface": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/is-resettable-interface.js"
+    "https://ga.jspm.io/npm:@livy/filter-handler@1.0.2/": {
+      "@livy/util/lib/handlers/abstract-batch-handler": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/abstract-batch-handler.js",
+      "@livy/util/lib/handlers/is-closable-handler-interface": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/is-closable-handler-interface.js",
+      "@livy/util/lib/handlers/is-sync-handler-interface": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/is-sync-handler-interface.js",
+      "@livy/util/lib/handlers/processable-handler-mixin": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/processable-handler-mixin.js",
+      "@livy/util/lib/helpers": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/helpers.js",
+      "@livy/util/lib/is-resettable-interface": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/is-resettable-interface.js"
     },
-    "https://ga.jspm.dev/npm:@livy/level-filter-handler@1.0.2/": {
-      "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js",
-      "@livy/filter-handler": "https://ga.jspm.dev/npm:@livy/filter-handler@1.0.2/lib/filter-handler.js"
+    "https://ga.jspm.io/npm:@livy/level-filter-handler@1.0.2/": {
+      "@livy/contracts/lib/log-level": "https://ga.jspm.io/npm:@livy/contracts@1.1.0/lib/log-level.js",
+      "@livy/filter-handler": "https://ga.jspm.io/npm:@livy/filter-handler@1.0.2/lib/filter-handler.js"
     }
   }
 }

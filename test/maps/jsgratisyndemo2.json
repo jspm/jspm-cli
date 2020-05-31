@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jsgratisyndemo2": "https://ga.jspm.dev/npm:jsgratisyndemo2@1.1.0/index.js"
+    "jsgratisyndemo2": "https://ga.jspm.io/npm:jsgratisyndemo2@1.1.0/index.js"
   }
 }

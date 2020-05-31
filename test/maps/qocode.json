@@ -1,5 +1,5 @@
 {
   "imports": {
-    "qocode": "https://ga.jspm.dev/npm:qocode@0.1.0/api.js"
+    "qocode": "https://ga.jspm.io/npm:qocode@0.1.0/api.js"
   }
 }

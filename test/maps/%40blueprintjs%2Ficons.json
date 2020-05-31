@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@blueprintjs/icons": "https://ga.jspm.dev/npm:@blueprintjs/icons@3.18.0/lib/cjs/index.js"
+    "@blueprintjs/icons": "https://ga.jspm.io/npm:@blueprintjs/icons@3.18.0/lib/cjs/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@blueprintjs/icons@3.18.0/": {
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.10.0/tslib.js"
+    "https://ga.jspm.io/npm:@blueprintjs/icons@3.18.0/": {
+      "tslib": "https://ga.jspm.io/npm:tslib@1.10.0/tslib.js"
     }
   }
 }

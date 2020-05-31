@@ -1,153 +1,153 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "hapi": "https://ga.jspm.dev/npm:hapi@18.1.0/lib/index.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "net": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "querystring": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "hapi": "https://ga.jspm.io/npm:hapi@18.1.0/lib/index.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:accept@3.1.3/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:accept@3.1.3/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:ammo@3.0.3/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:ammo@3.0.3/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:b64@4.1.2/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:b64@4.1.2/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:boom@7.3.0/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:boom@7.3.0/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:bounce@1.2.3/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:bounce@1.2.3/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:call@5.0.3/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:call@5.0.3/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:catbox-memory@4.0.1/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:catbox-memory@4.0.1/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:catbox@10.0.6/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "joi": "https://ga.jspm.dev/npm:joi@14.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:catbox@10.0.6/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "joi": "https://ga.jspm.io/npm:joi@14.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:content@4.0.6/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js"
+    "https://ga.jspm.io/npm:content@4.0.6/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:cryptiles@4.1.3/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js"
+    "https://ga.jspm.io/npm:cryptiles@4.1.3/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:hapi@18.1.0/": {
-      "accept": "https://ga.jspm.dev/npm:accept@3.1.3/lib/index.js",
-      "ammo": "https://ga.jspm.dev/npm:ammo@3.0.3/lib/index.js",
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "bounce": "https://ga.jspm.dev/npm:bounce@1.2.3/lib/index.js",
-      "call": "https://ga.jspm.dev/npm:call@5.0.3/lib/index.js",
-      "catbox": "https://ga.jspm.dev/npm:catbox@10.0.6/lib/index.js",
-      "catbox-memory": "https://ga.jspm.dev/npm:catbox-memory@4.0.1/lib/index.js",
-      "heavy": "https://ga.jspm.dev/npm:heavy@6.1.2/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "joi": "https://ga.jspm.dev/npm:joi@14.3.1/lib/index.js",
-      "mimos": "https://ga.jspm.dev/npm:mimos@4.0.2/lib/index.js",
-      "podium": "https://ga.jspm.dev/npm:podium@3.2.0/lib/index.js",
-      "shot": "https://ga.jspm.dev/npm:shot@4.0.7/lib/index.js",
-      "somever": "https://ga.jspm.dev/npm:somever@2.0.0/lib/index.js",
-      "statehood": "https://ga.jspm.dev/npm:statehood@6.0.9/lib/index.js",
-      "subtext": "https://ga.jspm.dev/npm:subtext@6.0.12/lib/index.js",
-      "teamwork": "https://ga.jspm.dev/npm:teamwork@3.2.0/lib/index.js",
-      "topo": "https://ga.jspm.dev/npm:topo@3.0.3/lib/index.js"
+    "https://ga.jspm.io/npm:hapi@18.1.0/": {
+      "accept": "https://ga.jspm.io/npm:accept@3.1.3/lib/index.js",
+      "ammo": "https://ga.jspm.io/npm:ammo@3.0.3/lib/index.js",
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "bounce": "https://ga.jspm.io/npm:bounce@1.2.3/lib/index.js",
+      "call": "https://ga.jspm.io/npm:call@5.0.3/lib/index.js",
+      "catbox": "https://ga.jspm.io/npm:catbox@10.0.6/lib/index.js",
+      "catbox-memory": "https://ga.jspm.io/npm:catbox-memory@4.0.1/lib/index.js",
+      "heavy": "https://ga.jspm.io/npm:heavy@6.1.2/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "joi": "https://ga.jspm.io/npm:joi@14.3.1/lib/index.js",
+      "mimos": "https://ga.jspm.io/npm:mimos@4.0.2/lib/index.js",
+      "podium": "https://ga.jspm.io/npm:podium@3.2.0/lib/index.js",
+      "shot": "https://ga.jspm.io/npm:shot@4.0.7/lib/index.js",
+      "somever": "https://ga.jspm.io/npm:somever@2.0.0/lib/index.js",
+      "statehood": "https://ga.jspm.io/npm:statehood@6.0.9/lib/index.js",
+      "subtext": "https://ga.jspm.io/npm:subtext@6.0.12/lib/index.js",
+      "teamwork": "https://ga.jspm.io/npm:teamwork@3.2.0/lib/index.js",
+      "topo": "https://ga.jspm.io/npm:topo@3.0.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:heavy@6.1.2/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "joi": "https://ga.jspm.dev/npm:joi@14.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:heavy@6.1.2/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "joi": "https://ga.jspm.io/npm:joi@14.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:iron@5.0.6/": {
-      "b64": "https://ga.jspm.dev/npm:b64@4.1.2/lib/index.js",
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "cryptiles": "https://ga.jspm.dev/npm:cryptiles@4.1.3/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:iron@5.0.6/": {
+      "b64": "https://ga.jspm.io/npm:b64@4.1.2/lib/index.js",
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "cryptiles": "https://ga.jspm.io/npm:cryptiles@4.1.3/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:isemail@3.2.0/": {
-      "punycode": "https://ga.jspm.dev/npm:punycode@2.1.1/punycode.js"
+    "https://ga.jspm.io/npm:isemail@3.2.0/": {
+      "punycode": "https://ga.jspm.io/npm:punycode@2.1.1/punycode.js"
     },
-    "https://ga.jspm.dev/npm:joi@14.3.1/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "isemail": "https://ga.jspm.dev/npm:isemail@3.2.0/lib/index.js",
-      "topo": "https://ga.jspm.dev/npm:topo@3.0.3/lib/index.js"
+    "https://ga.jspm.io/npm:joi@14.3.1/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "isemail": "https://ga.jspm.io/npm:isemail@3.2.0/lib/index.js",
+      "topo": "https://ga.jspm.io/npm:topo@3.0.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:mimos@4.0.2/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "mime-db": "https://ga.jspm.dev/npm:mime-db@1.44.0/index.js"
+    "https://ga.jspm.io/npm:mimos@4.0.2/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "mime-db": "https://ga.jspm.io/npm:mime-db@1.44.0/index.js"
     },
-    "https://ga.jspm.dev/npm:nigel@3.0.4/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "vise": "https://ga.jspm.dev/npm:vise@3.0.2/lib/index.js"
+    "https://ga.jspm.io/npm:nigel@3.0.4/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "vise": "https://ga.jspm.io/npm:vise@3.0.2/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:pez@4.0.5/": {
-      "b64": "https://ga.jspm.dev/npm:b64@4.1.2/lib/index.js",
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "content": "https://ga.jspm.dev/npm:content@4.0.6/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "nigel": "https://ga.jspm.dev/npm:nigel@3.0.4/lib/index.js"
+    "https://ga.jspm.io/npm:pez@4.0.5/": {
+      "b64": "https://ga.jspm.io/npm:b64@4.1.2/lib/index.js",
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "content": "https://ga.jspm.io/npm:content@4.0.6/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "nigel": "https://ga.jspm.io/npm:nigel@3.0.4/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:podium@3.2.0/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "joi": "https://ga.jspm.dev/npm:joi@14.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:podium@3.2.0/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "joi": "https://ga.jspm.io/npm:joi@14.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:shot@4.0.7/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "joi": "https://ga.jspm.dev/npm:joi@14.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:shot@4.0.7/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "joi": "https://ga.jspm.io/npm:joi@14.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:somever@2.0.0/": {
-      "bounce": "https://ga.jspm.dev/npm:bounce@1.2.3/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:somever@2.0.0/": {
+      "bounce": "https://ga.jspm.io/npm:bounce@1.2.3/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:statehood@6.0.9/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "bounce": "https://ga.jspm.dev/npm:bounce@1.2.3/lib/index.js",
-      "bourne": "https://ga.jspm.dev/npm:bourne@1.1.2/lib/index.js",
-      "cryptiles": "https://ga.jspm.dev/npm:cryptiles@4.1.3/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "iron": "https://ga.jspm.dev/npm:iron@5.0.6/lib/index.js",
-      "joi": "https://ga.jspm.dev/npm:joi@14.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:statehood@6.0.9/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "bounce": "https://ga.jspm.io/npm:bounce@1.2.3/lib/index.js",
+      "bourne": "https://ga.jspm.io/npm:bourne@1.1.2/lib/index.js",
+      "cryptiles": "https://ga.jspm.io/npm:cryptiles@4.1.3/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "iron": "https://ga.jspm.io/npm:iron@5.0.6/lib/index.js",
+      "joi": "https://ga.jspm.io/npm:joi@14.3.1/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:subtext@6.0.12/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "bourne": "https://ga.jspm.dev/npm:bourne@1.1.2/lib/index.js",
-      "content": "https://ga.jspm.dev/npm:content@4.0.6/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js",
-      "pez": "https://ga.jspm.dev/npm:pez@4.0.5/lib/index.js",
-      "wreck": "https://ga.jspm.dev/npm:wreck@14.2.0/lib/index.js"
+    "https://ga.jspm.io/npm:subtext@6.0.12/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "bourne": "https://ga.jspm.io/npm:bourne@1.1.2/lib/index.js",
+      "content": "https://ga.jspm.io/npm:content@4.0.6/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js",
+      "pez": "https://ga.jspm.io/npm:pez@4.0.5/lib/index.js",
+      "wreck": "https://ga.jspm.io/npm:wreck@14.2.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:topo@3.0.3/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:topo@3.0.3/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:vise@3.0.2/": {
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:vise@3.0.2/": {
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:wreck@14.2.0/": {
-      "boom": "https://ga.jspm.dev/npm:boom@7.3.0/lib/index.js",
-      "bourne": "https://ga.jspm.dev/npm:bourne@1.1.2/lib/index.js",
-      "hoek": "https://ga.jspm.dev/npm:hoek@6.1.3/lib/index.js"
+    "https://ga.jspm.io/npm:wreck@14.2.0/": {
+      "boom": "https://ga.jspm.io/npm:boom@7.3.0/lib/index.js",
+      "bourne": "https://ga.jspm.io/npm:bourne@1.1.2/lib/index.js",
+      "hoek": "https://ga.jspm.io/npm:hoek@6.1.3/lib/index.js"
     }
   }
 }

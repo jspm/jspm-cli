@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@calmdownval/preact-store": "https://ga.jspm.dev/npm:@calmdownval/preact-store@0.0.1/dist/index.js"
+    "@calmdownval/preact-store": "https://ga.jspm.io/npm:@calmdownval/preact-store@0.0.1/dist/index.js"
   }
 }

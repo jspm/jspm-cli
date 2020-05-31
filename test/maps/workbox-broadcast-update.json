@@ -1,15 +1,15 @@
 {
   "imports": {
-    "workbox-broadcast-update": "https://ga.jspm.dev/npm:workbox-broadcast-update@5.1.3/index.js"
+    "workbox-broadcast-update": "https://ga.jspm.io/npm:workbox-broadcast-update@5.1.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:workbox-broadcast-update@5.1.3/": {
-      "workbox-core/_private/WorkboxError.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/WorkboxError.js",
-      "workbox-core/_private/assert.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/assert.js",
-      "workbox-core/_private/dontWaitFor.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/dontWaitFor.js",
-      "workbox-core/_private/logger.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/logger.js",
-      "workbox-core/_private/resultingClientExists.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/resultingClientExists.js",
-      "workbox-core/_private/timeout.js": "https://ga.jspm.dev/npm:workbox-core@5.1.3/_private/timeout.js"
+    "https://ga.jspm.io/npm:workbox-broadcast-update@5.1.3/": {
+      "workbox-core/_private/WorkboxError.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/WorkboxError.js",
+      "workbox-core/_private/assert.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/assert.js",
+      "workbox-core/_private/dontWaitFor.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/dontWaitFor.js",
+      "workbox-core/_private/logger.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/logger.js",
+      "workbox-core/_private/resultingClientExists.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/resultingClientExists.js",
+      "workbox-core/_private/timeout.js": "https://ga.jspm.io/npm:workbox-core@5.1.3/_private/timeout.js"
     }
   }
 }

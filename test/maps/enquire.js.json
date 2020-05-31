@@ -1,5 +1,5 @@
 {
   "imports": {
-    "enquire.js": "https://ga.jspm.dev/npm:enquire.js@2.1.6/src/index.js"
+    "enquire.js": "https://ga.jspm.io/npm:enquire.js@2.1.6/src/index.js"
   }
 }

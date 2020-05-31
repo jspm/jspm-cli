@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lib0": "https://ga.jspm.dev/npm:lib0@0.2.26/index.js"
+    "lib0": "https://ga.jspm.io/npm:lib0@0.2.26/index.js"
   }
 }

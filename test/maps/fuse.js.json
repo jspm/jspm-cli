@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fuse.js": "https://ga.jspm.dev/npm:fuse.js@6.0.0/dist/fuse.common.js"
+    "fuse.js": "https://ga.jspm.io/npm:fuse.js@6.0.0/dist/fuse.common.js"
   }
 }

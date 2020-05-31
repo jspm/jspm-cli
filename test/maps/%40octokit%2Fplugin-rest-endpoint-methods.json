@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@octokit/plugin-rest-endpoint-methods": "https://ga.jspm.dev/npm:@octokit/plugin-rest-endpoint-methods@3.13.0/dist-node/index.js"
+    "@octokit/plugin-rest-endpoint-methods": "https://ga.jspm.io/npm:@octokit/plugin-rest-endpoint-methods@3.13.1/dist-node/index.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "vinyl-sourcemaps-apply": "https://ga.jspm.dev/npm:vinyl-sourcemaps-apply@0.2.1/index.js"
+    "vinyl-sourcemaps-apply": "https://ga.jspm.io/npm:vinyl-sourcemaps-apply@0.2.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:vinyl-sourcemaps-apply@0.2.1/": {
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.5.7/source-map.js"
+    "https://ga.jspm.io/npm:vinyl-sourcemaps-apply@0.2.1/": {
+      "source-map": "https://ga.jspm.io/npm:source-map@0.5.7/source-map.js"
     }
   }
 }

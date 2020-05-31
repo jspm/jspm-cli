@@ -1,13 +1,13 @@
 {
   "imports": {
-    "p-locate": "https://ga.jspm.dev/npm:p-locate@4.1.0/index.js"
+    "p-locate": "https://ga.jspm.io/npm:p-locate@4.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:p-limit@2.3.0/": {
-      "p-try": "https://ga.jspm.dev/npm:p-try@2.2.0/index.js"
+    "https://ga.jspm.io/npm:p-limit@2.3.0/": {
+      "p-try": "https://ga.jspm.io/npm:p-try@2.2.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-locate@4.1.0/": {
-      "p-limit": "https://ga.jspm.dev/npm:p-limit@2.3.0/index.js"
+    "https://ga.jspm.io/npm:p-locate@4.1.0/": {
+      "p-limit": "https://ga.jspm.io/npm:p-limit@2.3.0/index.js"
     }
   }
 }

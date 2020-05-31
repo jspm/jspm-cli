@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@jest/environment": "https://ga.jspm.dev/npm:@jest/environment@26.0.1/build/index.js"
+    "@jest/environment": "https://ga.jspm.io/npm:@jest/environment@26.0.1/build/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jest/environment@26.0.1/": {
-      "jest-mock": "https://ga.jspm.dev/npm:jest-mock@26.0.1/build/index.js"
+    "https://ga.jspm.io/npm:@jest/environment@26.0.1/": {
+      "jest-mock": "https://ga.jspm.io/npm:jest-mock@26.0.1/build/index.js"
     }
   }
 }

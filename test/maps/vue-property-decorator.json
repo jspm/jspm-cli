@@ -1,11 +1,12 @@
 {
   "imports": {
-    "vue": "https://ga.jspm.dev/npm:vue@2.6.11/dist/vue.runtime.common.js",
-    "vue-property-decorator": "https://ga.jspm.dev/npm:vue-property-decorator@8.4.2/lib/vue-property-decorator.umd.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "vue": "https://ga.jspm.io/npm:vue@2.6.11/dist/vue.runtime.common.js",
+    "vue-property-decorator": "https://ga.jspm.io/npm:vue-property-decorator@8.4.2/lib/vue-property-decorator.umd.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:vue-property-decorator@8.4.2/": {
-      "vue-class-component": "https://ga.jspm.dev/npm:vue-class-component@7.2.3/dist/vue-class-component.common.js"
+    "https://ga.jspm.io/npm:vue-property-decorator@8.4.2/": {
+      "vue-class-component": "https://ga.jspm.io/npm:vue-class-component@7.2.3/dist/vue-class-component.common.js"
     }
   }
 }

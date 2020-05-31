@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ee-first": "https://ga.jspm.dev/npm:ee-first@1.1.1/index.js"
+    "ee-first": "https://ga.jspm.io/npm:ee-first@1.1.1/index.js"
   }
 }

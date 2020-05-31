@@ -1,30 +1,30 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "lock-verify": "https://ga.jspm.dev/npm:lock-verify@2.2.0/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "lock-verify": "https://ga.jspm.io/npm:lock-verify@2.2.0/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lock-verify@2.2.0/": {
-      "npm-package-arg": "https://ga.jspm.dev/npm:npm-package-arg@6.1.1/npa.js",
-      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    "https://ga.jspm.io/npm:lock-verify@2.2.0/": {
+      "npm-package-arg": "https://ga.jspm.io/npm:npm-package-arg@6.1.1/npa.js",
+      "semver": "https://ga.jspm.io/npm:semver@5.7.1/semver.js"
     },
-    "https://ga.jspm.dev/npm:npm-package-arg@6.1.1/": {
-      "hosted-git-info": "https://ga.jspm.dev/npm:hosted-git-info@2.8.8/index.js",
-      "osenv": "https://ga.jspm.dev/npm:osenv@0.1.5/osenv.js",
-      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js",
-      "validate-npm-package-name": "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/index.js"
+    "https://ga.jspm.io/npm:npm-package-arg@6.1.1/": {
+      "hosted-git-info": "https://ga.jspm.io/npm:hosted-git-info@2.8.8/index.js",
+      "osenv": "https://ga.jspm.io/npm:osenv@0.1.5/osenv.js",
+      "semver": "https://ga.jspm.io/npm:semver@5.7.1/semver.js",
+      "validate-npm-package-name": "https://ga.jspm.io/npm:validate-npm-package-name@3.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:osenv@0.1.5/": {
-      "os-homedir": "https://ga.jspm.dev/npm:os-homedir@1.0.2/index.js",
-      "os-tmpdir": "https://ga.jspm.dev/npm:os-tmpdir@1.0.2/index.js"
+    "https://ga.jspm.io/npm:osenv@0.1.5/": {
+      "os-homedir": "https://ga.jspm.io/npm:os-homedir@1.0.2/index.js",
+      "os-tmpdir": "https://ga.jspm.io/npm:os-tmpdir@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:validate-npm-package-name@3.0.0/": {
-      "builtins": "https://ga.jspm.dev/npm:builtins@1.0.3/builtins.json.js"
+    "https://ga.jspm.io/npm:validate-npm-package-name@3.0.0/": {
+      "builtins": "https://ga.jspm.io/npm:builtins@1.0.3/builtins.json.js"
     }
   }
 }

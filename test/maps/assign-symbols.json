@@ -1,5 +1,5 @@
 {
   "imports": {
-    "assign-symbols": "https://ga.jspm.dev/npm:assign-symbols@2.0.2/index.js"
+    "assign-symbols": "https://ga.jspm.io/npm:assign-symbols@2.0.2/index.js"
   }
 }

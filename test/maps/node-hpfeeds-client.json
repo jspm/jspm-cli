@@ -1,5 +1,5 @@
 {
   "imports": {
-    "node-hpfeeds-client": "https://ga.jspm.dev/npm:node-hpfeeds-client@0.6.3/lib/wrapper.js"
+    "node-hpfeeds-client": "https://ga.jspm.io/npm:node-hpfeeds-client@0.6.3/lib/wrapper.js"
   }
 }

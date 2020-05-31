@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@skedulo/sdk-utilities": "https://ga.jspm.dev/npm:@skedulo/sdk-utilities@0.1.0/dist/index.js"
+    "@skedulo/sdk-utilities": "https://ga.jspm.io/npm:@skedulo/sdk-utilities@0.1.0/dist/index.js"
   }
 }

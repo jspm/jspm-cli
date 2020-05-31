@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@react-dnd/shallowequal": "https://ga.jspm.dev/npm:@react-dnd/shallowequal@2.0.0/dist/index.js"
+    "@react-dnd/shallowequal": "https://ga.jspm.io/npm:@react-dnd/shallowequal@2.0.0/dist/index.js"
   }
 }

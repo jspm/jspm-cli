@@ -1,6 +1,6 @@
 {
   "imports": {
-    "content-entry": "https://ga.jspm.dev/npm:content-entry@2.5.0/src/entry.mjs",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "content-entry": "https://ga.jspm.io/npm:content-entry@2.5.0/src/entry.mjs",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

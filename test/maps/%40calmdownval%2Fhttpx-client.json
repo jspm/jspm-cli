@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@calmdownval/httpx-client": "https://ga.jspm.dev/npm:@calmdownval/httpx-client@0.2.1/dist/index.mjs"
+    "@calmdownval/httpx-client": "https://ga.jspm.io/npm:@calmdownval/httpx-client@0.2.1/dist/index.mjs"
   }
 }

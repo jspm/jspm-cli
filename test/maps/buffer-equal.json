@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "buffer-equal": "https://ga.jspm.dev/npm:buffer-equal@1.0.0/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "buffer-equal": "https://ga.jspm.io/npm:buffer-equal@1.0.0/index.js"
   }
 }

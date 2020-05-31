@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ienoopen": "https://ga.jspm.dev/npm:ienoopen@1.1.0/dist/index.js"
+    "ienoopen": "https://ga.jspm.io/npm:ienoopen@1.1.0/dist/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@juan-utils/simple-logger": "https://ga.jspm.dev/npm:@juan-utils/simple-logger@2.8.3/src/index.js"
+    "@juan-utils/simple-logger": "https://ga.jspm.io/npm:@juan-utils/simple-logger@2.8.3/src/index.js"
   }
 }

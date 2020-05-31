@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@cfware/history-state": "https://ga.jspm.dev/npm:@cfware/history-state@0.4.2/history-state.js"
+    "@cfware/history-state": "https://ga.jspm.io/npm:@cfware/history-state@0.4.2/history-state.js"
   }
 }

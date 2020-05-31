@@ -1,5 +1,5 @@
 {
   "imports": {
-    "unist-util-stringify-position": "https://ga.jspm.dev/npm:unist-util-stringify-position@2.0.3/index.js"
+    "unist-util-stringify-position": "https://ga.jspm.io/npm:unist-util-stringify-position@2.0.3/index.js"
   }
 }

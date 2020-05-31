@@ -1,5 +1,5 @@
 {
   "imports": {
-    "esutils": "https://ga.jspm.dev/npm:esutils@2.0.3/lib/utils.js"
+    "esutils": "https://ga.jspm.io/npm:esutils@2.0.3/lib/utils.js"
   }
 }

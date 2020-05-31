@@ -1,10 +1,10 @@
 {
   "imports": {
-    "lie": "https://ga.jspm.dev/npm:lie@3.3.0/lib/browser.js"
+    "lie": "https://ga.jspm.io/npm:lie@3.3.0/lib/browser.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lie@3.3.0/": {
-      "immediate": "https://ga.jspm.dev/npm:immediate@3.0.6/lib/browser.js"
+    "https://ga.jspm.io/npm:lie@3.3.0/": {
+      "immediate": "https://ga.jspm.io/npm:immediate@3.0.6/lib/browser.js"
     }
   }
 }

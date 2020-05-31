@@ -1,10 +1,10 @@
 {
   "imports": {
-    "babel-plugin-transform-do-expressions": "https://ga.jspm.dev/npm:babel-plugin-transform-do-expressions@6.22.0/lib/index.js"
+    "babel-plugin-transform-do-expressions": "https://ga.jspm.io/npm:babel-plugin-transform-do-expressions@6.22.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:babel-plugin-transform-do-expressions@6.22.0/": {
-      "babel-plugin-syntax-do-expressions": "https://ga.jspm.dev/npm:babel-plugin-syntax-do-expressions@6.13.0/lib/index.js"
+    "https://ga.jspm.io/npm:babel-plugin-transform-do-expressions@6.22.0/": {
+      "babel-plugin-syntax-do-expressions": "https://ga.jspm.io/npm:babel-plugin-syntax-do-expressions@6.13.0/lib/index.js"
     }
   }
 }

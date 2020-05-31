@@ -1,16 +1,16 @@
 {
   "imports": {
-    "center-align": "https://ga.jspm.dev/npm:center-align@1.0.1/index.js"
+    "center-align": "https://ga.jspm.io/npm:center-align@1.0.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:align-text@1.0.2/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@5.1.0/index.js",
-      "longest": "https://ga.jspm.dev/npm:longest@2.0.1/index.js",
-      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    "https://ga.jspm.io/npm:align-text@1.0.2/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@5.1.0/index.js",
+      "longest": "https://ga.jspm.io/npm:longest@2.0.1/index.js",
+      "repeat-string": "https://ga.jspm.io/npm:repeat-string@1.6.1/index.js"
     },
-    "https://ga.jspm.dev/npm:center-align@1.0.1/": {
-      "align-text": "https://ga.jspm.dev/npm:align-text@1.0.2/index.js",
-      "repeat-string": "https://ga.jspm.dev/npm:repeat-string@1.6.1/index.js"
+    "https://ga.jspm.io/npm:center-align@1.0.1/": {
+      "align-text": "https://ga.jspm.io/npm:align-text@1.0.2/index.js",
+      "repeat-string": "https://ga.jspm.io/npm:repeat-string@1.6.1/index.js"
     }
   }
 }

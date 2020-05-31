@@ -1,5 +1,5 @@
 {
   "imports": {
-    "deepmerge": "https://ga.jspm.dev/npm:deepmerge@4.2.2/dist/cjs.js"
+    "deepmerge": "https://ga.jspm.io/npm:deepmerge@4.2.2/dist/cjs.js"
   }
 }

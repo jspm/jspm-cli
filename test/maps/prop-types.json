@@ -1,5 +1,5 @@
 {
   "imports": {
-    "prop-types": "https://ga.jspm.dev/npm:prop-types@15.7.2/index.js"
+    "prop-types": "https://ga.jspm.io/npm:prop-types@15.7.2/index.js"
   }
 }

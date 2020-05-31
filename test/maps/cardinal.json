@@ -1,15 +1,15 @@
 {
   "imports": {
-    "cardinal": "https://ga.jspm.dev/npm:cardinal@2.1.1/cardinal.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
+    "cardinal": "https://ga.jspm.io/npm:cardinal@2.1.1/cardinal.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cardinal@2.1.1/": {
-      "ansicolors": "https://ga.jspm.dev/npm:ansicolors@0.3.2/ansicolors.js",
-      "redeyed": "https://ga.jspm.dev/npm:redeyed@2.1.1/redeyed.js"
+    "https://ga.jspm.io/npm:cardinal@2.1.1/": {
+      "ansicolors": "https://ga.jspm.io/npm:ansicolors@0.3.2/ansicolors.js",
+      "redeyed": "https://ga.jspm.io/npm:redeyed@2.1.1/redeyed.js"
     },
-    "https://ga.jspm.dev/npm:redeyed@2.1.1/": {
-      "esprima": "https://ga.jspm.dev/npm:esprima@4.0.1/dist/esprima.js"
+    "https://ga.jspm.io/npm:redeyed@2.1.1/": {
+      "esprima": "https://ga.jspm.io/npm:esprima@4.0.1/dist/esprima.js"
     }
   }
 }

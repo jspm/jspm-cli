@@ -1,6 +1,6 @@
 {
   "imports": {
-    "default-gateway": "https://ga.jspm.dev/npm:default-gateway@6.0.1/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
+    "default-gateway": "https://ga.jspm.io/npm:default-gateway@6.0.1/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   }
 }

@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@adico/sequencegenerator": "https://ga.jspm.dev/npm:@adico/sequencegenerator@2.0.1/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@adico/sequencegenerator": "https://ga.jspm.io/npm:@adico/sequencegenerator@2.0.1/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@adico/sequencegenerator@2.0.1/": {
-      "editions": "https://ga.jspm.dev/npm:editions@2.3.1/edition-es5/index.js"
+    "https://ga.jspm.io/npm:@adico/sequencegenerator@2.0.1/": {
+      "editions": "https://ga.jspm.io/npm:editions@2.3.1/edition-es5/index.js"
     },
-    "https://ga.jspm.dev/npm:editions@2.3.1/": {
-      "errlop": "https://ga.jspm.dev/npm:errlop@2.2.0/edition-browsers/index.js",
-      "semver": "https://ga.jspm.dev/npm:semver@6.3.0/semver.js"
+    "https://ga.jspm.io/npm:editions@2.3.1/": {
+      "errlop": "https://ga.jspm.io/npm:errlop@2.2.0/edition-browsers/index.js",
+      "semver": "https://ga.jspm.io/npm:semver@6.3.0/semver.js"
     }
   }
 }

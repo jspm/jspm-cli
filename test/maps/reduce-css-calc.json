@@ -1,11 +1,11 @@
 {
   "imports": {
-    "reduce-css-calc": "https://ga.jspm.dev/npm:reduce-css-calc@2.1.7/dist/index.js"
+    "reduce-css-calc": "https://ga.jspm.io/npm:reduce-css-calc@2.1.7/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:reduce-css-calc@2.1.7/": {
-      "css-unit-converter": "https://ga.jspm.dev/npm:css-unit-converter@1.1.2/index.js",
-      "postcss-value-parser": "https://ga.jspm.dev/npm:postcss-value-parser@3.3.1/lib/index.js"
+    "https://ga.jspm.io/npm:reduce-css-calc@2.1.7/": {
+      "css-unit-converter": "https://ga.jspm.io/npm:css-unit-converter@1.1.2/index.js",
+      "postcss-value-parser": "https://ga.jspm.io/npm:postcss-value-parser@3.3.1/lib/index.js"
     }
   }
 }

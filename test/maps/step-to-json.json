@@ -1,5 +1,5 @@
 {
   "imports": {
-    "step-to-json": "https://ga.jspm.dev/npm:step-to-json@1.0.12/dist/parser.js"
+    "step-to-json": "https://ga.jspm.io/npm:step-to-json@1.0.12/dist/parser.js"
   }
 }

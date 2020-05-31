@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "data-uri-to-buffer": "https://ga.jspm.dev/npm:data-uri-to-buffer@3.0.1/dist/src/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "data-uri-to-buffer": "https://ga.jspm.io/npm:data-uri-to-buffer@3.0.1/dist/src/index.js"
   }
 }

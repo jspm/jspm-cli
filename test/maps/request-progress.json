@@ -1,10 +1,10 @@
 {
   "imports": {
-    "request-progress": "https://ga.jspm.dev/npm:request-progress@3.0.0/index.js"
+    "request-progress": "https://ga.jspm.io/npm:request-progress@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:request-progress@3.0.0/": {
-      "throttleit": "https://ga.jspm.dev/npm:throttleit@1.0.0/index.js"
+    "https://ga.jspm.io/npm:request-progress@3.0.0/": {
+      "throttleit": "https://ga.jspm.io/npm:throttleit@1.0.0/index.js"
     }
   }
 }

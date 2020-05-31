@@ -1,5 +1,5 @@
 {
   "imports": {
-    "enabled": "https://ga.jspm.dev/npm:enabled@2.0.0/index.js"
+    "enabled": "https://ga.jspm.io/npm:enabled@2.0.0/index.js"
   }
 }

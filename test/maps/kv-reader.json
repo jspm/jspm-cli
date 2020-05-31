@@ -1,5 +1,5 @@
 {
   "imports": {
-    "kv-reader": "https://ga.jspm.dev/npm:kv-reader@3.0.3/src/reader.mjs"
+    "kv-reader": "https://ga.jspm.io/npm:kv-reader@3.0.3/src/reader.mjs"
   }
 }

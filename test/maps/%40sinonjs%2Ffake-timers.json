@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@sinonjs/fake-timers": "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/src/fake-timers-src.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@sinonjs/fake-timers": "https://ga.jspm.io/npm:@sinonjs/fake-timers@6.0.1/src/fake-timers-src.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/": {
-      "type-detect": "https://ga.jspm.dev/npm:type-detect@4.0.8/type-detect.js"
+    "https://ga.jspm.io/npm:@sinonjs/commons@1.8.0/": {
+      "type-detect": "https://ga.jspm.io/npm:type-detect@4.0.8/type-detect.js"
     },
-    "https://ga.jspm.dev/npm:@sinonjs/fake-timers@6.0.1/": {
-      "@sinonjs/commons": "https://ga.jspm.dev/npm:@sinonjs/commons@1.8.0/lib/index.js"
+    "https://ga.jspm.io/npm:@sinonjs/fake-timers@6.0.1/": {
+      "@sinonjs/commons": "https://ga.jspm.io/npm:@sinonjs/commons@1.8.0/lib/index.js"
     }
   }
 }

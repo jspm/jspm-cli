@@ -1,66 +1,66 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "socket.io-bridge-client": "https://ga.jspm.dev/npm:socket.io-bridge-client@1.0.0/src/client.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "socket.io-bridge-client": "https://ga.jspm.io/npm:socket.io-bridge-client@1.0.0/src/client.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@3.1.0/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.io/npm:debug@3.1.0/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@4.1.1/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@4.1.1/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:engine.io-client@3.4.2/": {
-      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.3.0/index.js",
-      "component-inherit": "https://ga.jspm.dev/npm:component-inherit@0.0.3/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
-      "engine.io-client/lib/globalThis.js": "https://ga.jspm.dev/npm:engine.io-client@3.4.2/lib/globalThis.browser.js",
-      "engine.io-parser": "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/lib/browser.js",
-      "indexof": "https://ga.jspm.dev/npm:indexof@0.0.1/index.js",
-      "parseqs": "https://ga.jspm.dev/npm:parseqs@0.0.5/index.js",
-      "parseuri": "https://ga.jspm.dev/npm:parseuri@0.0.5/index.js",
-      "ws": "https://ga.jspm.dev/npm:ws@6.1.4/browser.js",
-      "xmlhttprequest-ssl": "https://ga.jspm.dev/npm:xmlhttprequest-ssl@1.5.5/lib/XMLHttpRequest.js",
-      "yeast": "https://ga.jspm.dev/npm:yeast@0.1.2/index.js"
+    "https://ga.jspm.io/npm:engine.io-client@3.4.2/": {
+      "component-emitter": "https://ga.jspm.io/npm:component-emitter@1.3.0/index.js",
+      "component-inherit": "https://ga.jspm.io/npm:component-inherit@0.0.3/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@4.1.1/src/browser.js",
+      "engine.io-client/lib/globalThis.js": "https://ga.jspm.io/npm:engine.io-client@3.4.2/lib/globalThis.browser.js",
+      "engine.io-parser": "https://ga.jspm.io/npm:engine.io-parser@2.2.0/lib/browser.js",
+      "indexof": "https://ga.jspm.io/npm:indexof@0.0.1/index.js",
+      "parseqs": "https://ga.jspm.io/npm:parseqs@0.0.5/index.js",
+      "parseuri": "https://ga.jspm.io/npm:parseuri@0.0.5/index.js",
+      "ws": "https://ga.jspm.io/npm:ws@6.1.4/browser.js",
+      "xmlhttprequest-ssl": "https://ga.jspm.io/npm:xmlhttprequest-ssl@1.5.5/lib/XMLHttpRequest.js",
+      "yeast": "https://ga.jspm.io/npm:yeast@0.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:engine.io-parser@2.2.0/": {
-      "after": "https://ga.jspm.dev/npm:after@0.8.2/index.js",
-      "arraybuffer.slice": "https://ga.jspm.dev/npm:arraybuffer.slice@0.0.7/index.js",
-      "base64-arraybuffer": "https://ga.jspm.dev/npm:base64-arraybuffer@0.1.5/lib/base64-arraybuffer.js",
-      "blob": "https://ga.jspm.dev/npm:blob@0.0.5/index.js",
-      "has-binary2": "https://ga.jspm.dev/npm:has-binary2@1.0.3/index.js"
+    "https://ga.jspm.io/npm:engine.io-parser@2.2.0/": {
+      "after": "https://ga.jspm.io/npm:after@0.8.2/index.js",
+      "arraybuffer.slice": "https://ga.jspm.io/npm:arraybuffer.slice@0.0.7/index.js",
+      "base64-arraybuffer": "https://ga.jspm.io/npm:base64-arraybuffer@0.1.5/lib/base64-arraybuffer.js",
+      "blob": "https://ga.jspm.io/npm:blob@0.0.5/index.js",
+      "has-binary2": "https://ga.jspm.io/npm:has-binary2@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:has-binary2@1.0.3/": {
-      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.1/index.js"
+    "https://ga.jspm.io/npm:has-binary2@1.0.3/": {
+      "isarray": "https://ga.jspm.io/npm:isarray@2.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:socket.io-bridge-client@1.0.0/": {
-      "socket.io-client": "https://ga.jspm.dev/npm:socket.io-client@2.3.0/lib/index.js",
-      "uuid-random": "https://ga.jspm.dev/npm:uuid-random@1.3.0/index.js"
+    "https://ga.jspm.io/npm:socket.io-bridge-client@1.0.0/": {
+      "socket.io-client": "https://ga.jspm.io/npm:socket.io-client@2.3.0/lib/index.js",
+      "uuid-random": "https://ga.jspm.io/npm:uuid-random@1.3.0/index.js"
     },
-    "https://ga.jspm.dev/npm:socket.io-client@2.3.0/": {
-      "backo2": "https://ga.jspm.dev/npm:backo2@1.0.2/index.js",
-      "component-bind": "https://ga.jspm.dev/npm:component-bind@1.0.0/index.js",
-      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.2.1/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@4.1.1/src/browser.js",
-      "engine.io-client": "https://ga.jspm.dev/npm:engine.io-client@3.4.2/lib/index.js",
-      "has-binary2": "https://ga.jspm.dev/npm:has-binary2@1.0.3/index.js",
-      "indexof": "https://ga.jspm.dev/npm:indexof@0.0.1/index.js",
-      "parseqs": "https://ga.jspm.dev/npm:parseqs@0.0.5/index.js",
-      "parseuri": "https://ga.jspm.dev/npm:parseuri@0.0.5/index.js",
-      "socket.io-parser": "https://ga.jspm.dev/npm:socket.io-parser@3.3.0/index.js",
-      "to-array": "https://ga.jspm.dev/npm:to-array@0.1.4/index.js"
+    "https://ga.jspm.io/npm:socket.io-client@2.3.0/": {
+      "backo2": "https://ga.jspm.io/npm:backo2@1.0.2/index.js",
+      "component-bind": "https://ga.jspm.io/npm:component-bind@1.0.0/index.js",
+      "component-emitter": "https://ga.jspm.io/npm:component-emitter@1.2.1/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@4.1.1/src/browser.js",
+      "engine.io-client": "https://ga.jspm.io/npm:engine.io-client@3.4.2/lib/index.js",
+      "has-binary2": "https://ga.jspm.io/npm:has-binary2@1.0.3/index.js",
+      "indexof": "https://ga.jspm.io/npm:indexof@0.0.1/index.js",
+      "parseqs": "https://ga.jspm.io/npm:parseqs@0.0.5/index.js",
+      "parseuri": "https://ga.jspm.io/npm:parseuri@0.0.5/index.js",
+      "socket.io-parser": "https://ga.jspm.io/npm:socket.io-parser@3.3.0/index.js",
+      "to-array": "https://ga.jspm.io/npm:to-array@0.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:socket.io-parser@3.3.0/": {
-      "component-emitter": "https://ga.jspm.dev/npm:component-emitter@1.2.1/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.1.0/src/browser.js",
-      "isarray": "https://ga.jspm.dev/npm:isarray@2.0.1/index.js"
+    "https://ga.jspm.io/npm:socket.io-parser@3.3.0/": {
+      "component-emitter": "https://ga.jspm.io/npm:component-emitter@1.2.1/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.1.0/src/browser.js",
+      "isarray": "https://ga.jspm.io/npm:isarray@2.0.1/index.js"
     }
   }
 }

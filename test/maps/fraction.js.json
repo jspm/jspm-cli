@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fraction.js": "https://ga.jspm.dev/npm:fraction.js@4.0.12/fraction.js"
+    "fraction.js": "https://ga.jspm.io/npm:fraction.js@4.0.12/fraction.js"
   }
 }

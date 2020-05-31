@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@rsthn/rin": "https://ga.jspm.dev/npm:@rsthn/rin@2.0.11/main.js"
+    "@rsthn/rin": "https://ga.jspm.io/npm:@rsthn/rin@2.0.11/main.js"
   }
 }

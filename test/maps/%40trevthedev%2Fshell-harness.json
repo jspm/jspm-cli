@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@trevthedev/shell-harness": "https://ga.jspm.dev/npm:@trevthedev/shell-harness@1.0.12/src/shell harness.js",
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js"
+    "@trevthedev/shell-harness": "https://ga.jspm.io/npm:@trevthedev/shell-harness@1.0.12/src/shell harness.js",
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js"
   }
 }

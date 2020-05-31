@@ -1,5 +1,5 @@
 {
   "imports": {
-    "binary-extensions": "https://ga.jspm.dev/npm:binary-extensions@2.0.0/index.js"
+    "binary-extensions": "https://ga.jspm.io/npm:binary-extensions@2.0.0/index.js"
   }
 }

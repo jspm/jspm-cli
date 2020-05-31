@@ -1,5 +1,5 @@
 {
   "imports": {
-    "storeon-choo": "https://ga.jspm.dev/npm:storeon-choo@0.2.0/index.js"
+    "storeon-choo": "https://ga.jspm.io/npm:storeon-choo@0.2.0/index.js"
   }
 }

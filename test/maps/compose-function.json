@@ -1,10 +1,10 @@
 {
   "imports": {
-    "compose-function": "https://ga.jspm.dev/npm:compose-function@3.0.3/index.js"
+    "compose-function": "https://ga.jspm.io/npm:compose-function@3.0.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:compose-function@3.0.3/": {
-      "arity-n": "https://ga.jspm.dev/npm:arity-n@1.0.4/N.js"
+    "https://ga.jspm.io/npm:compose-function@3.0.3/": {
+      "arity-n": "https://ga.jspm.io/npm:arity-n@1.0.4/N.js"
     }
   }
 }

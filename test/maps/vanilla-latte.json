@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vanilla-latte/Assert": "https://ga.jspm.dev/npm:vanilla-latte@1.1.0/Assert.js"
+    "vanilla-latte/Assert": "https://ga.jspm.io/npm:vanilla-latte@1.1.0/Assert.js"
   }
 }

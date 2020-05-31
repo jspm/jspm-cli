@@ -1,13 +1,13 @@
 {
   "imports": {
-    "is-relative": "https://ga.jspm.dev/npm:is-relative@1.0.0/index.js"
+    "is-relative": "https://ga.jspm.io/npm:is-relative@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:is-relative@1.0.0/": {
-      "is-unc-path": "https://ga.jspm.dev/npm:is-unc-path@1.0.0/index.js"
+    "https://ga.jspm.io/npm:is-relative@1.0.0/": {
+      "is-unc-path": "https://ga.jspm.io/npm:is-unc-path@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:is-unc-path@1.0.0/": {
-      "unc-path-regex": "https://ga.jspm.dev/npm:unc-path-regex@0.1.2/index.js"
+    "https://ga.jspm.io/npm:is-unc-path@1.0.0/": {
+      "unc-path-regex": "https://ga.jspm.io/npm:unc-path-regex@0.1.2/index.js"
     }
   }
 }

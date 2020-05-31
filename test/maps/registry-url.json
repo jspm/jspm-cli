@@ -1,10 +1,10 @@
 {
   "imports": {
-    "registry-url": "https://ga.jspm.dev/npm:registry-url@5.1.0/index.js"
+    "registry-url": "https://ga.jspm.io/npm:registry-url@5.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:registry-url@5.1.0/": {
-      "rc": "https://ga.jspm.dev/npm:rc@1.2.8/browser.js"
+    "https://ga.jspm.io/npm:registry-url@5.1.0/": {
+      "rc": "https://ga.jspm.io/npm:rc@1.2.8/browser.js"
     }
   }
 }

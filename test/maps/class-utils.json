@@ -1,40 +1,40 @@
 {
   "imports": {
-    "class-utils": "https://ga.jspm.dev/npm:class-utils@0.3.6/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "class-utils": "https://ga.jspm.io/npm:class-utils@0.3.6/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:class-utils@0.3.6/": {
-      "arr-union": "https://ga.jspm.dev/npm:arr-union@3.1.0/index.js",
-      "define-property": "https://ga.jspm.dev/npm:define-property@0.2.5/index.js",
-      "isobject": "https://ga.jspm.dev/npm:isobject@3.0.1/index.js",
-      "static-extend": "https://ga.jspm.dev/npm:static-extend@0.1.2/index.js"
+    "https://ga.jspm.io/npm:class-utils@0.3.6/": {
+      "arr-union": "https://ga.jspm.io/npm:arr-union@3.1.0/index.js",
+      "define-property": "https://ga.jspm.io/npm:define-property@0.2.5/index.js",
+      "isobject": "https://ga.jspm.io/npm:isobject@3.0.1/index.js",
+      "static-extend": "https://ga.jspm.io/npm:static-extend@0.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:define-property@0.2.5/": {
-      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@0.1.6/index.js"
+    "https://ga.jspm.io/npm:define-property@0.2.5/": {
+      "is-descriptor": "https://ga.jspm.io/npm:is-descriptor@0.1.6/index.js"
     },
-    "https://ga.jspm.dev/npm:is-accessor-descriptor@0.1.6/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    "https://ga.jspm.io/npm:is-accessor-descriptor@0.1.6/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@3.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:is-data-descriptor@0.1.4/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    "https://ga.jspm.io/npm:is-data-descriptor@0.1.4/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@3.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:is-descriptor@0.1.6/": {
-      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@0.1.6/index.js",
-      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@0.1.4/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@5.1.0/index.js"
+    "https://ga.jspm.io/npm:is-descriptor@0.1.6/": {
+      "is-accessor-descriptor": "https://ga.jspm.io/npm:is-accessor-descriptor@0.1.6/index.js",
+      "is-data-descriptor": "https://ga.jspm.io/npm:is-data-descriptor@0.1.4/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@5.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:kind-of@3.2.2/": {
-      "is-buffer": "https://ga.jspm.dev/npm:is-buffer@1.1.6/index.js"
+    "https://ga.jspm.io/npm:kind-of@3.2.2/": {
+      "is-buffer": "https://ga.jspm.io/npm:is-buffer@1.1.6/index.js"
     },
-    "https://ga.jspm.dev/npm:object-copy@0.1.0/": {
-      "copy-descriptor": "https://ga.jspm.dev/npm:copy-descriptor@0.1.1/index.js",
-      "define-property": "https://ga.jspm.dev/npm:define-property@0.2.5/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@3.2.2/index.js"
+    "https://ga.jspm.io/npm:object-copy@0.1.0/": {
+      "copy-descriptor": "https://ga.jspm.io/npm:copy-descriptor@0.1.1/index.js",
+      "define-property": "https://ga.jspm.io/npm:define-property@0.2.5/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@3.2.2/index.js"
     },
-    "https://ga.jspm.dev/npm:static-extend@0.1.2/": {
-      "define-property": "https://ga.jspm.dev/npm:define-property@0.2.5/index.js",
-      "object-copy": "https://ga.jspm.dev/npm:object-copy@0.1.0/index.js"
+    "https://ga.jspm.io/npm:static-extend@0.1.2/": {
+      "define-property": "https://ga.jspm.io/npm:define-property@0.2.5/index.js",
+      "object-copy": "https://ga.jspm.io/npm:object-copy@0.1.0/index.js"
     }
   }
 }

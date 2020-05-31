@@ -1,5 +1,5 @@
 {
   "imports": {
-    "es-get-iterator": "https://ga.jspm.dev/npm:es-get-iterator@1.1.0/node.js"
+    "es-get-iterator": "https://ga.jspm.io/npm:es-get-iterator@1.1.0/node.js"
   }
 }

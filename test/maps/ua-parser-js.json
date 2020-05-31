@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ua-parser-js": "https://ga.jspm.dev/npm:ua-parser-js@0.7.21/src/ua-parser.js"
+    "ua-parser-js": "https://ga.jspm.io/npm:ua-parser-js@0.7.21/src/ua-parser.js"
   }
 }

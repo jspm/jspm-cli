@@ -1,5 +1,5 @@
 {
   "imports": {
-    "dom-walk": "https://ga.jspm.dev/npm:dom-walk@0.1.2/index.js"
+    "dom-walk": "https://ga.jspm.io/npm:dom-walk@0.1.2/index.js"
   }
 }

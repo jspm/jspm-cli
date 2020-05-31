@@ -1,14 +1,14 @@
 {
   "imports": {
-    "@kronos-integration/interceptor-decode-json": "https://ga.jspm.dev/npm:@kronos-integration/interceptor-decode-json@2.1.10/src/decode-json.mjs",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "@kronos-integration/interceptor-decode-json": "https://ga.jspm.io/npm:@kronos-integration/interceptor-decode-json@2.1.10/src/decode-json.mjs",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@kronos-integration/interceptor-decode-json@2.1.10/": {
-      "@kronos-integration/interceptor": "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/src/index.mjs"
+    "https://ga.jspm.io/npm:@kronos-integration/interceptor-decode-json@2.1.10/": {
+      "@kronos-integration/interceptor": "https://ga.jspm.io/npm:@kronos-integration/interceptor@9.2.1/src/index.mjs"
     },
-    "https://ga.jspm.dev/npm:@kronos-integration/interceptor@9.2.1/": {
-      "model-attributes": "https://ga.jspm.dev/npm:model-attributes@4.1.6/src/attributes.mjs"
+    "https://ga.jspm.io/npm:@kronos-integration/interceptor@9.2.1/": {
+      "model-attributes": "https://ga.jspm.io/npm:model-attributes@4.1.6/src/attributes.mjs"
     }
   }
 }

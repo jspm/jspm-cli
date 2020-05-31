@@ -1,7 +1,7 @@
 {
   "imports": {
-    "napi-build-utils": "https://ga.jspm.dev/npm:napi-build-utils@1.0.2/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "napi-build-utils": "https://ga.jspm.io/npm:napi-build-utils@1.0.2/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

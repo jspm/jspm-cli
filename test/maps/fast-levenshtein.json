@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fast-levenshtein": "https://ga.jspm.dev/npm:fast-levenshtein@2.0.6/levenshtein.js"
+    "fast-levenshtein": "https://ga.jspm.io/npm:fast-levenshtein@2.0.6/levenshtein.js"
   }
 }

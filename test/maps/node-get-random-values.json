@@ -1,6 +1,6 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "node-get-random-values": "https://ga.jspm.dev/npm:node-get-random-values@1.0.0/polyfill.js"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "node-get-random-values": "https://ga.jspm.io/npm:node-get-random-values@1.0.0/polyfill.js"
   }
 }

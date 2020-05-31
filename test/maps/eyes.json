@@ -1,6 +1,6 @@
 {
   "imports": {
-    "eyes": "https://ga.jspm.dev/npm:eyes@0.1.8/lib/eyes.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "eyes": "https://ga.jspm.io/npm:eyes@0.1.8/lib/eyes.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

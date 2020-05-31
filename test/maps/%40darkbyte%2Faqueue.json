@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@darkbyte/aqueue": "https://ga.jspm.dev/npm:@darkbyte/aqueue@2.0.1/lib/index.js"
+    "@darkbyte/aqueue": "https://ga.jspm.io/npm:@darkbyte/aqueue@2.0.1/lib/index.js"
   }
 }

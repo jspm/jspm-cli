@@ -1,5 +1,5 @@
 {
   "imports": {
-    "pascalcase": "https://ga.jspm.dev/npm:pascalcase@1.0.0/index.js"
+    "pascalcase": "https://ga.jspm.io/npm:pascalcase@1.0.0/index.js"
   }
 }

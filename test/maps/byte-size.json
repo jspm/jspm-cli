@@ -1,5 +1,5 @@
 {
   "imports": {
-    "byte-size": "https://ga.jspm.dev/npm:byte-size@7.0.0/dist/index.js"
+    "byte-size": "https://ga.jspm.io/npm:byte-size@7.0.0/dist/index.js"
   }
 }

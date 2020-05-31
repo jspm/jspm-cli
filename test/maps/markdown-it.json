@@ -1,21 +1,21 @@
 {
   "imports": {
-    "markdown-it": "https://ga.jspm.dev/npm:markdown-it@11.0.0/index.js",
-    "punycode": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
+    "markdown-it": "https://ga.jspm.io/npm:markdown-it@11.0.0/index.js",
+    "punycode": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:linkify-it@3.0.2/": {
-      "uc.micro/categories/Cc/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/Cc/regex.js",
-      "uc.micro/categories/P/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/P/regex.js",
-      "uc.micro/categories/Z/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/Z/regex.js",
-      "uc.micro/properties/Any/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/properties/Any/regex.js"
+    "https://ga.jspm.io/npm:linkify-it@3.0.2/": {
+      "uc.micro/categories/Cc/regex": "https://ga.jspm.io/npm:uc.micro@1.0.6/categories/Cc/regex.js",
+      "uc.micro/categories/P/regex": "https://ga.jspm.io/npm:uc.micro@1.0.6/categories/P/regex.js",
+      "uc.micro/categories/Z/regex": "https://ga.jspm.io/npm:uc.micro@1.0.6/categories/Z/regex.js",
+      "uc.micro/properties/Any/regex": "https://ga.jspm.io/npm:uc.micro@1.0.6/properties/Any/regex.js"
     },
-    "https://ga.jspm.dev/npm:markdown-it@11.0.0/": {
-      "entities/lib/maps/entities.json": "https://ga.jspm.dev/npm:entities@2.0.2/lib/maps/entities.json.js",
-      "linkify-it": "https://ga.jspm.dev/npm:linkify-it@3.0.2/index.js",
-      "mdurl": "https://ga.jspm.dev/npm:mdurl@1.0.1/index.js",
-      "uc.micro": "https://ga.jspm.dev/npm:uc.micro@1.0.6/index.js",
-      "uc.micro/categories/P/regex": "https://ga.jspm.dev/npm:uc.micro@1.0.6/categories/P/regex.js"
+    "https://ga.jspm.io/npm:markdown-it@11.0.0/": {
+      "entities/lib/maps/entities.json": "https://ga.jspm.io/npm:entities@2.0.2/lib/maps/entities.json.js",
+      "linkify-it": "https://ga.jspm.io/npm:linkify-it@3.0.2/index.js",
+      "mdurl": "https://ga.jspm.io/npm:mdurl@1.0.1/index.js",
+      "uc.micro": "https://ga.jspm.io/npm:uc.micro@1.0.6/index.js",
+      "uc.micro/categories/P/regex": "https://ga.jspm.io/npm:uc.micro@1.0.6/categories/P/regex.js"
     }
   }
 }

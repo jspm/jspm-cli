@@ -1,11 +1,11 @@
 {
   "imports": {
-    "intl-messageformat": "https://ga.jspm.dev/npm:intl-messageformat@8.3.18/dist/index.js"
+    "intl-messageformat": "https://ga.jspm.io/npm:intl-messageformat@8.3.18/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:intl-messageformat@8.3.18/": {
-      "intl-format-cache": "https://ga.jspm.dev/npm:intl-format-cache@4.2.33/dist/index.js",
-      "intl-messageformat-parser": "https://ga.jspm.dev/npm:intl-messageformat-parser@5.0.11/dist/index.js"
+    "https://ga.jspm.io/npm:intl-messageformat@8.3.18/": {
+      "intl-format-cache": "https://ga.jspm.io/npm:intl-format-cache@4.2.33/dist/index.js",
+      "intl-messageformat-parser": "https://ga.jspm.io/npm:intl-messageformat-parser@5.0.11/dist/index.js"
     }
   }
 }

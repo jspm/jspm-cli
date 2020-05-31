@@ -1,13 +1,13 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "homedir-polyfill": "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "homedir-polyfill": "https://ga.jspm.io/npm:homedir-polyfill@1.0.3/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:homedir-polyfill@1.0.3/": {
-      "parse-passwd": "https://ga.jspm.dev/npm:parse-passwd@1.0.0/index.js"
+    "https://ga.jspm.io/npm:homedir-polyfill@1.0.3/": {
+      "parse-passwd": "https://ga.jspm.io/npm:parse-passwd@1.0.0/index.js"
     }
   }
 }

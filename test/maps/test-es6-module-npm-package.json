@@ -1,5 +1,5 @@
 {
   "imports": {
-    "test-es6-module-npm-package": "https://ga.jspm.dev/npm:test-es6-module-npm-package@0.1.0/src/index.js"
+    "test-es6-module-npm-package": "https://ga.jspm.io/npm:test-es6-module-npm-package@0.1.0/src/index.js"
   }
 }

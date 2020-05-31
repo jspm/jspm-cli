@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@iamproperty/errors": "https://ga.jspm.dev/npm:@iamproperty/errors@1.0.1-0/src/index.js"
-  }
-}

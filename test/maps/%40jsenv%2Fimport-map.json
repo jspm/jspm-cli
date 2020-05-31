@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@jsenv/import-map": "https://ga.jspm.dev/npm:@jsenv/import-map@6.7.4/index.js"
+    "@jsenv/import-map": "https://ga.jspm.io/npm:@jsenv/import-map@6.7.4/index.js"
   }
 }

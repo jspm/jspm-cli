@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@etsitpab/matrix3x3": "https://ga.jspm.dev/npm:@etsitpab/matrix3x3@1.0.0/src/Matrix3x3.js"
+    "@etsitpab/matrix3x3": "https://ga.jspm.io/npm:@etsitpab/matrix3x3@1.0.0/src/Matrix3x3.js"
   }
 }

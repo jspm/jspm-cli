@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@livy/stream-handler": "https://ga.jspm.dev/npm:@livy/stream-handler@1.0.2/lib/stream-handler.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@livy/stream-handler": "https://ga.jspm.io/npm:@livy/stream-handler@1.0.2/lib/stream-handler.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@livy/stream-handler@1.0.2/": {
-      "@livy/util/lib/environment": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/environment.js",
-      "@livy/util/lib/handlers/abstract-formatting-processing-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-formatting-processing-handler.js"
+    "https://ga.jspm.io/npm:@livy/stream-handler@1.0.2/": {
+      "@livy/util/lib/environment": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/environment.js",
+      "@livy/util/lib/handlers/abstract-formatting-processing-handler": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/abstract-formatting-processing-handler.js"
     },
-    "https://ga.jspm.dev/npm:@livy/util@1.0.4/": {
-      "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js"
+    "https://ga.jspm.io/npm:@livy/util@1.0.4/": {
+      "@livy/contracts/lib/log-level": "https://ga.jspm.io/npm:@livy/contracts@1.1.0/lib/log-level.js"
     }
   }
 }

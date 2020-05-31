@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jest-mock": "https://ga.jspm.dev/npm:jest-mock@26.0.1/build/index.js"
+    "jest-mock": "https://ga.jspm.io/npm:jest-mock@26.0.1/build/index.js"
   }
 }

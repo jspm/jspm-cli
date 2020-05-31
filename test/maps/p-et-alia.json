@@ -1,24 +1,24 @@
 {
   "imports": {
-    "p-et-alia": "https://ga.jspm.dev/npm:p-et-alia@0.0.86/p-et-alia.js"
+    "p-et-alia": "https://ga.jspm.io/npm:p-et-alia@0.0.86/p-et-alia.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:p-et-alia@0.0.86/": {
-      "trans-render/define.js": "https://ga.jspm.dev/npm:trans-render@0.0.182/define.js",
-      "trans-render/hydrate.js": "https://ga.jspm.dev/npm:trans-render@0.0.182/hydrate.js",
-      "xtal-element/NavDown.js": "https://ga.jspm.dev/npm:xtal-element@0.0.164/NavDown.js",
-      "xtal-element/getHost.js": "https://ga.jspm.dev/npm:xtal-element@0.0.164/getHost.js",
-      "xtal-element/with-path.js": "https://ga.jspm.dev/npm:xtal-element@0.0.164/with-path.js",
-      "xtal-element/xtal-latx.js": "https://ga.jspm.dev/npm:xtal-element@0.0.164/xtal-latx.js",
-      "xtal-state/xtal-state-watch.js": "https://ga.jspm.dev/npm:xtal-state@0.0.107/xtal-state-watch.js"
+    "https://ga.jspm.io/npm:p-et-alia@0.0.86/": {
+      "trans-render/define.js": "https://ga.jspm.io/npm:trans-render@0.0.182/define.js",
+      "trans-render/hydrate.js": "https://ga.jspm.io/npm:trans-render@0.0.182/hydrate.js",
+      "xtal-element/NavDown.js": "https://ga.jspm.io/npm:xtal-element@0.0.164/NavDown.js",
+      "xtal-element/getHost.js": "https://ga.jspm.io/npm:xtal-element@0.0.164/getHost.js",
+      "xtal-element/with-path.js": "https://ga.jspm.io/npm:xtal-element@0.0.164/with-path.js",
+      "xtal-element/xtal-latx.js": "https://ga.jspm.io/npm:xtal-element@0.0.164/xtal-latx.js",
+      "xtal-state/xtal-state-watch.js": "https://ga.jspm.io/npm:xtal-state@0.0.107/xtal-state-watch.js"
     },
-    "https://ga.jspm.dev/npm:xtal-element@0.0.164/": {
-      "trans-render/hydrate.js": "https://ga.jspm.dev/npm:trans-render@0.0.182/hydrate.js"
+    "https://ga.jspm.io/npm:xtal-element@0.0.164/": {
+      "trans-render/hydrate.js": "https://ga.jspm.io/npm:trans-render@0.0.182/hydrate.js"
     },
-    "https://ga.jspm.dev/npm:xtal-state@0.0.107/": {
-      "trans-render/hydrate.js": "https://ga.jspm.dev/npm:trans-render@0.0.182/hydrate.js",
-      "trans-render/mergeDeep.js": "https://ga.jspm.dev/npm:trans-render@0.0.182/mergeDeep.js",
-      "xtal-element/xtal-latx.js": "https://ga.jspm.dev/npm:xtal-element@0.0.164/xtal-latx.js"
+    "https://ga.jspm.io/npm:xtal-state@0.0.107/": {
+      "trans-render/hydrate.js": "https://ga.jspm.io/npm:trans-render@0.0.182/hydrate.js",
+      "trans-render/mergeDeep.js": "https://ga.jspm.io/npm:trans-render@0.0.182/mergeDeep.js",
+      "xtal-element/xtal-latx.js": "https://ga.jspm.io/npm:xtal-element@0.0.164/xtal-latx.js"
     }
   }
 }

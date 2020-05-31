@@ -1,5 +1,5 @@
 {
   "imports": {
-    "javascript-fetch-api": "https://ga.jspm.dev/npm:javascript-fetch-api@1.2.2/index.js"
+    "javascript-fetch-api": "https://ga.jspm.io/npm:javascript-fetch-api@1.2.2/index.js"
   }
 }

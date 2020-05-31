@@ -1,5 +1,5 @@
 {
   "imports": {
-    "culvert": "https://ga.jspm.dev/npm:culvert@0.1.2/channel.js"
+    "culvert": "https://ga.jspm.io/npm:culvert@0.1.2/channel.js"
   }
 }

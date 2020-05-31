@@ -1,5 +1,5 @@
 {
   "imports": {
-    "getobject": "https://ga.jspm.dev/npm:getobject@0.1.0/lib/getobject.js"
+    "getobject": "https://ga.jspm.io/npm:getobject@0.1.0/lib/getobject.js"
   }
 }

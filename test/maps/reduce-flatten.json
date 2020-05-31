@@ -1,5 +1,5 @@
 {
   "imports": {
-    "reduce-flatten": "https://ga.jspm.dev/npm:reduce-flatten@3.0.0/dist/index.js"
+    "reduce-flatten": "https://ga.jspm.io/npm:reduce-flatten@3.0.0/dist/index.js"
   }
 }

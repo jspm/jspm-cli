@@ -1,5 +1,5 @@
 {
   "imports": {
-    "html-tags": "https://ga.jspm.dev/npm:html-tags@3.1.0/index.js"
+    "html-tags": "https://ga.jspm.io/npm:html-tags@3.1.0/index.js"
   }
 }

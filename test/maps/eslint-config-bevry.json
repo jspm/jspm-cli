@@ -1,5 +1,5 @@
 {
   "imports": {
-    "eslint-config-bevry": "https://ga.jspm.dev/npm:eslint-config-bevry@3.7.0/index.js"
+    "eslint-config-bevry": "https://ga.jspm.io/npm:eslint-config-bevry@3.7.0/index.js"
   }
 }

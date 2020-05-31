@@ -1,5 +1,5 @@
 {
   "imports": {
-    "babel-helper-vue-jsx-merge-props": "https://ga.jspm.dev/npm:babel-helper-vue-jsx-merge-props@2.0.3/index.js"
+    "babel-helper-vue-jsx-merge-props": "https://ga.jspm.io/npm:babel-helper-vue-jsx-merge-props@2.0.3/index.js"
   }
 }

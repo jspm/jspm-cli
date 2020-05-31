@@ -1,5 +1,5 @@
 {
   "imports": {
-    "abab": "https://ga.jspm.dev/npm:abab@2.0.3/index.js"
+    "abab": "https://ga.jspm.io/npm:abab@2.0.3/index.js"
   }
 }

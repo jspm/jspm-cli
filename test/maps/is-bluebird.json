@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-bluebird": "https://ga.jspm.dev/npm:is-bluebird@1.0.2/lib/index.js"
+    "is-bluebird": "https://ga.jspm.io/npm:is-bluebird@1.0.2/lib/index.js"
   }
 }

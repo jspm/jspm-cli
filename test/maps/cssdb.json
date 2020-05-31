@@ -1,5 +1,5 @@
 {
   "imports": {
-    "cssdb": "https://ga.jspm.dev/npm:cssdb@5.0.0/cssdb.json.js"
+    "cssdb": "https://ga.jspm.io/npm:cssdb@5.0.0/cssdb.json.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "nanofilters": "https://ga.jspm.dev/npm:nanofilters@1.3.2/index.js"
+    "nanofilters": "https://ga.jspm.io/npm:nanofilters@1.3.2/index.js"
   }
 }

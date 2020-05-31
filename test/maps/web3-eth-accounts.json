@@ -1,328 +1,328 @@
 {
   "imports": {
-    "assert": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "string_decoder": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
-    "vm": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js",
-    "web3-eth-accounts": "https://ga.jspm.dev/npm:web3-eth-accounts@1.2.8/src/index.js"
+    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js",
+    "vm": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/vm.js",
+    "web3-eth-accounts": "https://ga.jspm.io/npm:web3-eth-accounts@1.2.8/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@web3-js/scrypt-shim@0.1.0/": {
-      "scryptsy": "https://ga.jspm.dev/npm:scryptsy@2.1.0/lib/index.js"
+    "https://ga.jspm.io/npm:@web3-js/scrypt-shim@0.1.0/": {
+      "scryptsy": "https://ga.jspm.io/npm:scryptsy@2.1.0/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:@web3-js/websocket@1.0.30/": {
-      "es5-ext/global": "https://ga.jspm.dev/npm:es5-ext@0.10.53/global.js"
+    "https://ga.jspm.io/npm:@web3-js/websocket@1.0.30/": {
+      "es5-ext/global": "https://ga.jspm.io/npm:es5-ext@0.10.53/global.js"
     },
-    "https://ga.jspm.dev/npm:asn1.js@4.10.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    "https://ga.jspm.io/npm:asn1.js@4.10.1/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:bip66@1.1.5/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:bip66@1.1.5/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:browserify-aes@1.2.0/": {
-      "buffer-xor": "https://ga.jspm.dev/npm:buffer-xor@1.0.3/index.js",
-      "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
-      "evp_bytestokey": "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/index.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:browserify-aes@1.2.0/": {
+      "buffer-xor": "https://ga.jspm.io/npm:buffer-xor@1.0.3/index.js",
+      "cipher-base": "https://ga.jspm.io/npm:cipher-base@1.0.4/index.js",
+      "evp_bytestokey": "https://ga.jspm.io/npm:evp_bytestokey@1.0.3/index.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:browserify-cipher@1.0.1/": {
-      "browserify-aes/browser": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/browser.js",
-      "browserify-aes/modes": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/modes/index.js",
-      "browserify-des": "https://ga.jspm.dev/npm:browserify-des@1.0.2/index.js",
-      "browserify-des/modes": "https://ga.jspm.dev/npm:browserify-des@1.0.2/modes.js",
-      "evp_bytestokey": "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/index.js"
+    "https://ga.jspm.io/npm:browserify-cipher@1.0.1/": {
+      "browserify-aes/browser": "https://ga.jspm.io/npm:browserify-aes@1.2.0/browser.js",
+      "browserify-aes/modes": "https://ga.jspm.io/npm:browserify-aes@1.2.0/modes/index.js",
+      "browserify-des": "https://ga.jspm.io/npm:browserify-des@1.0.2/index.js",
+      "browserify-des/modes": "https://ga.jspm.io/npm:browserify-des@1.0.2/modes.js",
+      "evp_bytestokey": "https://ga.jspm.io/npm:evp_bytestokey@1.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:browserify-des@1.0.2/": {
-      "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
-      "des.js": "https://ga.jspm.dev/npm:des.js@1.0.1/lib/des.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:browserify-des@1.0.2/": {
+      "cipher-base": "https://ga.jspm.io/npm:cipher-base@1.0.4/index.js",
+      "des.js": "https://ga.jspm.io/npm:des.js@1.0.1/lib/des.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:browserify-rsa@4.0.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js"
+    "https://ga.jspm.io/npm:browserify-rsa@4.0.1/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:browserify-sign@4.2.0/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@5.1.2/lib/bn.js",
-      "browserify-rsa": "https://ga.jspm.dev/npm:browserify-rsa@4.0.1/index.js",
-      "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
-      "create-hmac": "https://ga.jspm.dev/npm:create-hmac@1.1.7/browser.js",
-      "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "parse-asn1": "https://ga.jspm.dev/npm:parse-asn1@5.1.5/index.js",
-      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:browserify-sign@4.2.0/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@5.1.2/lib/bn.js",
+      "browserify-rsa": "https://ga.jspm.io/npm:browserify-rsa@4.0.1/index.js",
+      "create-hash": "https://ga.jspm.io/npm:create-hash@1.2.0/browser.js",
+      "create-hmac": "https://ga.jspm.io/npm:create-hmac@1.1.7/browser.js",
+      "elliptic": "https://ga.jspm.io/npm:elliptic@6.5.2/lib/elliptic.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "parse-asn1": "https://ga.jspm.io/npm:parse-asn1@5.1.5/index.js",
+      "readable-stream": "https://ga.jspm.io/npm:readable-stream@3.6.0/readable-browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:cipher-base@1.0.4/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:cipher-base@1.0.4/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:create-ecdh@4.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js"
+    "https://ga.jspm.io/npm:create-ecdh@4.0.3/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "elliptic": "https://ga.jspm.io/npm:elliptic@6.5.2/lib/elliptic.js"
     },
-    "https://ga.jspm.dev/npm:create-hash@1.2.0/": {
-      "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "md5.js": "https://ga.jspm.dev/npm:md5.js@1.3.5/index.js",
-      "ripemd160": "https://ga.jspm.dev/npm:ripemd160@2.0.2/index.js",
-      "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js"
+    "https://ga.jspm.io/npm:create-hash@1.2.0/": {
+      "cipher-base": "https://ga.jspm.io/npm:cipher-base@1.0.4/index.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "md5.js": "https://ga.jspm.io/npm:md5.js@1.3.5/index.js",
+      "ripemd160": "https://ga.jspm.io/npm:ripemd160@2.0.2/index.js",
+      "sha.js": "https://ga.jspm.io/npm:sha.js@2.4.11/index.js"
     },
-    "https://ga.jspm.dev/npm:create-hmac@1.1.7/": {
-      "cipher-base": "https://ga.jspm.dev/npm:cipher-base@1.0.4/index.js",
-      "create-hash/md5": "https://ga.jspm.dev/npm:create-hash@1.2.0/md5.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "ripemd160": "https://ga.jspm.dev/npm:ripemd160@2.0.2/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
-      "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js"
+    "https://ga.jspm.io/npm:create-hmac@1.1.7/": {
+      "cipher-base": "https://ga.jspm.io/npm:cipher-base@1.0.4/index.js",
+      "create-hash/md5": "https://ga.jspm.io/npm:create-hash@1.2.0/md5.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "ripemd160": "https://ga.jspm.io/npm:ripemd160@2.0.2/index.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js",
+      "sha.js": "https://ga.jspm.io/npm:sha.js@2.4.11/index.js"
     },
-    "https://ga.jspm.dev/npm:crypto-browserify@3.12.0/": {
-      "browserify-cipher": "https://ga.jspm.dev/npm:browserify-cipher@1.0.1/browser.js",
-      "browserify-sign": "https://ga.jspm.dev/npm:browserify-sign@4.2.0/browser/index.js",
-      "browserify-sign/algos": "https://ga.jspm.dev/npm:browserify-sign@4.2.0/algos.js",
-      "create-ecdh": "https://ga.jspm.dev/npm:create-ecdh@4.0.3/browser.js",
-      "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
-      "create-hmac": "https://ga.jspm.dev/npm:create-hmac@1.1.7/browser.js",
-      "diffie-hellman": "https://ga.jspm.dev/npm:diffie-hellman@5.0.3/browser.js",
-      "pbkdf2": "https://ga.jspm.dev/npm:pbkdf2@3.0.17/browser.js",
-      "public-encrypt": "https://ga.jspm.dev/npm:public-encrypt@4.0.3/browser.js",
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "randomfill": "https://ga.jspm.dev/npm:randomfill@1.0.4/browser.js"
+    "https://ga.jspm.io/npm:crypto-browserify@3.12.0/": {
+      "browserify-cipher": "https://ga.jspm.io/npm:browserify-cipher@1.0.1/browser.js",
+      "browserify-sign": "https://ga.jspm.io/npm:browserify-sign@4.2.0/browser/index.js",
+      "browserify-sign/algos": "https://ga.jspm.io/npm:browserify-sign@4.2.0/algos.js",
+      "create-ecdh": "https://ga.jspm.io/npm:create-ecdh@4.0.3/browser.js",
+      "create-hash": "https://ga.jspm.io/npm:create-hash@1.2.0/browser.js",
+      "create-hmac": "https://ga.jspm.io/npm:create-hmac@1.1.7/browser.js",
+      "diffie-hellman": "https://ga.jspm.io/npm:diffie-hellman@5.0.3/browser.js",
+      "pbkdf2": "https://ga.jspm.io/npm:pbkdf2@3.0.17/browser.js",
+      "public-encrypt": "https://ga.jspm.io/npm:public-encrypt@4.0.3/browser.js",
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js",
+      "randomfill": "https://ga.jspm.io/npm:randomfill@1.0.4/browser.js"
     },
-    "https://ga.jspm.dev/npm:des.js@1.0.1/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    "https://ga.jspm.io/npm:des.js@1.0.1/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:diffie-hellman@5.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "miller-rabin": "https://ga.jspm.dev/npm:miller-rabin@4.0.1/lib/mr.js",
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js"
+    "https://ga.jspm.io/npm:diffie-hellman@5.0.3/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "miller-rabin": "https://ga.jspm.io/npm:miller-rabin@4.0.1/lib/mr.js",
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js"
     },
-    "https://ga.jspm.dev/npm:elliptic@6.5.2/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js",
-      "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
-      "hmac-drbg": "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
-      "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
+    "https://ga.jspm.io/npm:elliptic@6.5.2/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "brorand": "https://ga.jspm.io/npm:brorand@1.1.0/index.js",
+      "hash.js": "https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js",
+      "hmac-drbg": "https://ga.jspm.io/npm:hmac-drbg@1.0.1/lib/hmac-drbg.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js",
+      "minimalistic-crypto-utils": "https://ga.jspm.io/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:eth-lib@0.2.8/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js"
+    "https://ga.jspm.io/npm:eth-lib@0.2.8/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "elliptic": "https://ga.jspm.io/npm:elliptic@6.5.2/lib/elliptic.js"
     },
-    "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/": {
-      "js-sha3": "https://ga.jspm.dev/npm:js-sha3@0.8.0/src/sha3.js"
+    "https://ga.jspm.io/npm:ethereum-bloom-filters@1.0.7/": {
+      "js-sha3": "https://ga.jspm.io/npm:js-sha3@0.8.0/src/sha3.js"
     },
-    "https://ga.jspm.dev/npm:ethereumjs-tx@2.1.2/": {
-      "ethereumjs-common": "https://ga.jspm.dev/npm:ethereumjs-common@1.5.1/dist/index.js",
-      "ethereumjs-util": "https://ga.jspm.dev/npm:ethereumjs-util@6.2.0/dist/index.js"
+    "https://ga.jspm.io/npm:ethereumjs-tx@2.1.2/": {
+      "ethereumjs-common": "https://ga.jspm.io/npm:ethereumjs-common@1.5.1/dist/index.js",
+      "ethereumjs-util": "https://ga.jspm.io/npm:ethereumjs-util@6.2.0/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:ethereumjs-util@6.2.0/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
-      "ethjs-util": "https://ga.jspm.dev/npm:ethjs-util@0.1.6/lib/index.js",
-      "keccak": "https://ga.jspm.dev/npm:keccak@2.1.0/js.js",
-      "rlp": "https://ga.jspm.dev/npm:rlp@2.2.5/dist/index.js",
-      "secp256k1": "https://ga.jspm.dev/npm:secp256k1@3.8.0/elliptic.js"
+    "https://ga.jspm.io/npm:ethereumjs-util@6.2.0/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "create-hash": "https://ga.jspm.io/npm:create-hash@1.2.0/browser.js",
+      "ethjs-util": "https://ga.jspm.io/npm:ethjs-util@0.1.6/lib/index.js",
+      "keccak": "https://ga.jspm.io/npm:keccak@2.1.0/js.js",
+      "rlp": "https://ga.jspm.io/npm:rlp@2.2.5/dist/index.js",
+      "secp256k1": "https://ga.jspm.io/npm:secp256k1@3.8.0/elliptic.js"
     },
-    "https://ga.jspm.dev/npm:ethjs-unit@0.1.6/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.6/lib/bn.js",
-      "number-to-bn": "https://ga.jspm.dev/npm:number-to-bn@1.7.0/src/index.js"
+    "https://ga.jspm.io/npm:ethjs-unit@0.1.6/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.6/lib/bn.js",
+      "number-to-bn": "https://ga.jspm.io/npm:number-to-bn@1.7.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:ethjs-util@0.1.6/": {
-      "is-hex-prefixed": "https://ga.jspm.dev/npm:is-hex-prefixed@1.0.0/src/index.js",
-      "strip-hex-prefix": "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/src/index.js"
+    "https://ga.jspm.io/npm:ethjs-util@0.1.6/": {
+      "is-hex-prefixed": "https://ga.jspm.io/npm:is-hex-prefixed@1.0.0/src/index.js",
+      "strip-hex-prefix": "https://ga.jspm.io/npm:strip-hex-prefix@1.0.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/": {
-      "md5.js": "https://ga.jspm.dev/npm:md5.js@1.3.5/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:evp_bytestokey@1.0.3/": {
+      "md5.js": "https://ga.jspm.io/npm:md5.js@1.3.5/index.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hash-base@3.1.0/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "readable-stream": "https://ga.jspm.dev/npm:readable-stream@3.6.0/readable-browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:hash-base@3.1.0/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream": "https://ga.jspm.io/npm:readable-stream@3.6.0/readable-browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hash.js@1.1.7/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    "https://ga.jspm.io/npm:hash.js@1.1.7/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:hmac-drbg@1.0.1/": {
-      "hash.js": "https://ga.jspm.dev/npm:hash.js@1.1.7/lib/hash.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
-      "minimalistic-crypto-utils": "https://ga.jspm.dev/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
+    "https://ga.jspm.io/npm:hmac-drbg@1.0.1/": {
+      "hash.js": "https://ga.jspm.io/npm:hash.js@1.1.7/lib/hash.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js",
+      "minimalistic-crypto-utils": "https://ga.jspm.io/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:keccak@2.1.0/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:keccak@2.1.0/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:md5.js@1.3.5/": {
-      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.1.0/index.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:md5.js@1.3.5/": {
+      "hash-base": "https://ga.jspm.io/npm:hash-base@3.1.0/index.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:miller-rabin@4.0.1/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "brorand": "https://ga.jspm.dev/npm:brorand@1.1.0/index.js"
+    "https://ga.jspm.io/npm:miller-rabin@4.0.1/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "brorand": "https://ga.jspm.io/npm:brorand@1.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:number-to-bn@1.7.0/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.6/lib/bn.js",
-      "strip-hex-prefix": "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/src/index.js"
+    "https://ga.jspm.io/npm:number-to-bn@1.7.0/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.6/lib/bn.js",
+      "strip-hex-prefix": "https://ga.jspm.io/npm:strip-hex-prefix@1.0.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:parse-asn1@5.1.5/": {
-      "asn1.js": "https://ga.jspm.dev/npm:asn1.js@4.10.1/lib/asn1.js",
-      "browserify-aes": "https://ga.jspm.dev/npm:browserify-aes@1.2.0/browser.js",
-      "evp_bytestokey": "https://ga.jspm.dev/npm:evp_bytestokey@1.0.3/index.js",
-      "pbkdf2": "https://ga.jspm.dev/npm:pbkdf2@3.0.17/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:parse-asn1@5.1.5/": {
+      "asn1.js": "https://ga.jspm.io/npm:asn1.js@4.10.1/lib/asn1.js",
+      "browserify-aes": "https://ga.jspm.io/npm:browserify-aes@1.2.0/browser.js",
+      "evp_bytestokey": "https://ga.jspm.io/npm:evp_bytestokey@1.0.3/index.js",
+      "pbkdf2": "https://ga.jspm.io/npm:pbkdf2@3.0.17/browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:pbkdf2@3.0.17/": {
-      "create-hash/md5": "https://ga.jspm.dev/npm:create-hash@1.2.0/md5.js",
-      "pbkdf2/lib/sync.js": "https://ga.jspm.dev/npm:pbkdf2@3.0.17/lib/sync-browser.js",
-      "ripemd160": "https://ga.jspm.dev/npm:ripemd160@2.0.2/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js",
-      "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js"
+    "https://ga.jspm.io/npm:pbkdf2@3.0.17/": {
+      "create-hash/md5": "https://ga.jspm.io/npm:create-hash@1.2.0/md5.js",
+      "pbkdf2/lib/sync.js": "https://ga.jspm.io/npm:pbkdf2@3.0.17/lib/sync-browser.js",
+      "ripemd160": "https://ga.jspm.io/npm:ripemd160@2.0.2/index.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js",
+      "sha.js": "https://ga.jspm.io/npm:sha.js@2.4.11/index.js"
     },
-    "https://ga.jspm.dev/npm:public-encrypt@4.0.3/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "browserify-rsa": "https://ga.jspm.dev/npm:browserify-rsa@4.0.1/index.js",
-      "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
-      "parse-asn1": "https://ga.jspm.dev/npm:parse-asn1@5.1.5/index.js",
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:public-encrypt@4.0.3/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "browserify-rsa": "https://ga.jspm.io/npm:browserify-rsa@4.0.1/index.js",
+      "create-hash": "https://ga.jspm.io/npm:create-hash@1.2.0/browser.js",
+      "parse-asn1": "https://ga.jspm.io/npm:parse-asn1@5.1.5/index.js",
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:randombytes@2.1.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:randombytes@2.1.0/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:randomfill@1.0.4/": {
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:randomfill@1.0.4/": {
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:readable-stream@3.6.0/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
-      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.dev/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
-      "string_decoder": "https://ga.jspm.dev/npm:string_decoder@1.3.0/lib/string_decoder.js",
-      "util-deprecate": "https://ga.jspm.dev/npm:util-deprecate@1.0.2/browser.js"
+    "https://ga.jspm.io/npm:readable-stream@3.6.0/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "readable-stream/lib/internal/streams/from.js": "https://ga.jspm.io/npm:readable-stream@3.6.0/lib/internal/streams/from-browser.js",
+      "readable-stream/lib/internal/streams/stream.js": "https://ga.jspm.io/npm:readable-stream@3.6.0/lib/internal/streams/stream-browser.js",
+      "string_decoder": "https://ga.jspm.io/npm:string_decoder@1.3.0/lib/string_decoder.js",
+      "util-deprecate": "https://ga.jspm.io/npm:util-deprecate@1.0.2/browser.js"
     },
-    "https://ga.jspm.dev/npm:ripemd160@2.0.2/": {
-      "hash-base": "https://ga.jspm.dev/npm:hash-base@3.1.0/index.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js"
+    "https://ga.jspm.io/npm:ripemd160@2.0.2/": {
+      "hash-base": "https://ga.jspm.io/npm:hash-base@3.1.0/index.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js"
     },
-    "https://ga.jspm.dev/npm:rlp@2.2.5/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js"
+    "https://ga.jspm.io/npm:rlp@2.2.5/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js"
     },
-    "https://ga.jspm.dev/npm:secp256k1@3.8.0/": {
-      "bip66": "https://ga.jspm.dev/npm:bip66@1.1.5/index.js",
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.9/lib/bn.js",
-      "create-hash": "https://ga.jspm.dev/npm:create-hash@1.2.0/browser.js",
-      "elliptic": "https://ga.jspm.dev/npm:elliptic@6.5.2/lib/elliptic.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:secp256k1@3.8.0/": {
+      "bip66": "https://ga.jspm.io/npm:bip66@1.1.5/index.js",
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.9/lib/bn.js",
+      "create-hash": "https://ga.jspm.io/npm:create-hash@1.2.0/browser.js",
+      "elliptic": "https://ga.jspm.io/npm:elliptic@6.5.2/lib/elliptic.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:sha.js@2.4.11/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:sha.js@2.4.11/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:string_decoder@1.3.0/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:string_decoder@1.3.0/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:strip-hex-prefix@1.0.0/": {
-      "is-hex-prefixed": "https://ga.jspm.dev/npm:is-hex-prefixed@1.0.0/src/index.js"
+    "https://ga.jspm.io/npm:strip-hex-prefix@1.0.0/": {
+      "is-hex-prefixed": "https://ga.jspm.io/npm:is-hex-prefixed@1.0.0/src/index.js"
     },
-    "https://ga.jspm.dev/npm:uuid@3.3.2/": {
-      "uuid/lib/rng.js": "https://ga.jspm.dev/npm:uuid@3.3.2/lib/rng-browser.js"
+    "https://ga.jspm.io/npm:uuid@3.3.2/": {
+      "uuid/lib/rng.js": "https://ga.jspm.io/npm:uuid@3.3.2/lib/rng-browser.js"
     },
-    "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/": {
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-eth-iban": "https://ga.jspm.dev/npm:web3-eth-iban@1.2.8/src/index.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/": {
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "web3-eth-iban": "https://ga.jspm.io/npm:web3-eth-iban@1.2.8/src/index.js",
+      "web3-utils": "https://ga.jspm.io/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-core-method@1.2.8/": {
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js",
-      "web3-core-promievent": "https://ga.jspm.dev/npm:web3-core-promievent@1.2.8/src/index.js",
-      "web3-core-subscriptions": "https://ga.jspm.dev/npm:web3-core-subscriptions@1.2.8/src/index.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-core-method@1.2.8/": {
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js",
+      "web3-core-promievent": "https://ga.jspm.io/npm:web3-core-promievent@1.2.8/src/index.js",
+      "web3-core-subscriptions": "https://ga.jspm.io/npm:web3-core-subscriptions@1.2.8/src/index.js",
+      "web3-utils": "https://ga.jspm.io/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-core-promievent@1.2.8/": {
-      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@3.1.2/index.js"
+    "https://ga.jspm.io/npm:web3-core-promievent@1.2.8/": {
+      "eventemitter3": "https://ga.jspm.io/npm:eventemitter3@3.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-core-requestmanager@1.2.8/": {
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js",
-      "web3-providers-http": "https://ga.jspm.dev/npm:web3-providers-http@1.2.8/src/index.js",
-      "web3-providers-ipc": "https://ga.jspm.dev/npm:web3-providers-ipc@1.2.8/src/index.js",
-      "web3-providers-ws": "https://ga.jspm.dev/npm:web3-providers-ws@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-core-requestmanager@1.2.8/": {
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js",
+      "web3-providers-http": "https://ga.jspm.io/npm:web3-providers-http@1.2.8/src/index.js",
+      "web3-providers-ipc": "https://ga.jspm.io/npm:web3-providers-ipc@1.2.8/src/index.js",
+      "web3-providers-ws": "https://ga.jspm.io/npm:web3-providers-ws@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-core-subscriptions@1.2.8/": {
-      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@3.1.2/index.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-core-subscriptions@1.2.8/": {
+      "eventemitter3": "https://ga.jspm.io/npm:eventemitter3@3.1.2/index.js",
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-core@1.2.8/": {
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js",
-      "web3-core-method": "https://ga.jspm.dev/npm:web3-core-method@1.2.8/src/index.js",
-      "web3-core-requestmanager": "https://ga.jspm.dev/npm:web3-core-requestmanager@1.2.8/src/index.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-core@1.2.8/": {
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js",
+      "web3-core-method": "https://ga.jspm.io/npm:web3-core-method@1.2.8/src/index.js",
+      "web3-core-requestmanager": "https://ga.jspm.io/npm:web3-core-requestmanager@1.2.8/src/index.js",
+      "web3-utils": "https://ga.jspm.io/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-eth-accounts@1.2.8/": {
-      "@web3-js/scrypt-shim": "https://ga.jspm.dev/npm:@web3-js/scrypt-shim@0.1.0/src/browser.js",
-      "crypto-browserify": "https://ga.jspm.dev/npm:crypto-browserify@3.12.0/index.js",
-      "eth-lib/lib/account": "https://ga.jspm.dev/npm:eth-lib@0.2.8/lib/account.js",
-      "eth-lib/lib/bytes": "https://ga.jspm.dev/npm:eth-lib@0.2.8/lib/bytes.js",
-      "eth-lib/lib/hash": "https://ga.jspm.dev/npm:eth-lib@0.2.8/lib/hash.js",
-      "eth-lib/lib/rlp": "https://ga.jspm.dev/npm:eth-lib@0.2.8/lib/rlp.js",
-      "ethereumjs-common": "https://ga.jspm.dev/npm:ethereumjs-common@1.5.1/dist/index.js",
-      "ethereumjs-tx": "https://ga.jspm.dev/npm:ethereumjs-tx@2.1.2/dist/index.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "uuid": "https://ga.jspm.dev/npm:uuid@3.3.2/index.js",
-      "web3-core": "https://ga.jspm.dev/npm:web3-core@1.2.8/src/index.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js",
-      "web3-core-method": "https://ga.jspm.dev/npm:web3-core-method@1.2.8/src/index.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-eth-accounts@1.2.8/": {
+      "@web3-js/scrypt-shim": "https://ga.jspm.io/npm:@web3-js/scrypt-shim@0.1.0/src/browser.js",
+      "crypto-browserify": "https://ga.jspm.io/npm:crypto-browserify@3.12.0/index.js",
+      "eth-lib/lib/account": "https://ga.jspm.io/npm:eth-lib@0.2.8/lib/account.js",
+      "eth-lib/lib/bytes": "https://ga.jspm.io/npm:eth-lib@0.2.8/lib/bytes.js",
+      "eth-lib/lib/hash": "https://ga.jspm.io/npm:eth-lib@0.2.8/lib/hash.js",
+      "eth-lib/lib/rlp": "https://ga.jspm.io/npm:eth-lib@0.2.8/lib/rlp.js",
+      "ethereumjs-common": "https://ga.jspm.io/npm:ethereumjs-common@1.5.1/dist/index.js",
+      "ethereumjs-tx": "https://ga.jspm.io/npm:ethereumjs-tx@2.1.2/dist/index.js",
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "uuid": "https://ga.jspm.io/npm:uuid@3.3.2/index.js",
+      "web3-core": "https://ga.jspm.io/npm:web3-core@1.2.8/src/index.js",
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js",
+      "web3-core-method": "https://ga.jspm.io/npm:web3-core-method@1.2.8/src/index.js",
+      "web3-utils": "https://ga.jspm.io/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-eth-iban@1.2.8/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
-      "web3-utils": "https://ga.jspm.dev/npm:web3-utils@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-eth-iban@1.2.8/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.8/lib/bn.js",
+      "web3-utils": "https://ga.jspm.io/npm:web3-utils@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-providers-http@1.2.8/": {
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js",
-      "xhr2-cookies": "https://ga.jspm.dev/npm:xhr2-cookies@1.1.0/dist/index.js"
+    "https://ga.jspm.io/npm:web3-providers-http@1.2.8/": {
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js",
+      "xhr2-cookies": "https://ga.jspm.io/npm:xhr2-cookies@1.1.0/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-providers-ipc@1.2.8/": {
-      "oboe": "https://ga.jspm.dev/npm:oboe@2.1.4/dist/oboe-browser.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-providers-ipc@1.2.8/": {
+      "oboe": "https://ga.jspm.io/npm:oboe@2.1.4/dist/oboe-browser.js",
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-providers-ws@1.2.8/": {
-      "@web3-js/websocket": "https://ga.jspm.dev/npm:@web3-js/websocket@1.0.30/lib/browser.js",
-      "eventemitter3": "https://ga.jspm.dev/npm:eventemitter3@4.0.4/index.js",
-      "web3-core-helpers": "https://ga.jspm.dev/npm:web3-core-helpers@1.2.8/src/index.js"
+    "https://ga.jspm.io/npm:web3-providers-ws@1.2.8/": {
+      "@web3-js/websocket": "https://ga.jspm.io/npm:@web3-js/websocket@1.0.30/lib/browser.js",
+      "eventemitter3": "https://ga.jspm.io/npm:eventemitter3@4.0.4/index.js",
+      "web3-core-helpers": "https://ga.jspm.io/npm:web3-core-helpers@1.2.8/src/index.js"
     },
-    "https://ga.jspm.dev/npm:web3-utils@1.2.8/": {
-      "bn.js": "https://ga.jspm.dev/npm:bn.js@4.11.8/lib/bn.js",
-      "eth-lib/lib/hash": "https://ga.jspm.dev/npm:eth-lib@0.2.7/lib/hash.js",
-      "ethereum-bloom-filters": "https://ga.jspm.dev/npm:ethereum-bloom-filters@1.0.7/dist/index.js",
-      "ethjs-unit": "https://ga.jspm.dev/npm:ethjs-unit@0.1.6/lib/index.js",
-      "number-to-bn": "https://ga.jspm.dev/npm:number-to-bn@1.7.0/src/index.js",
-      "randombytes": "https://ga.jspm.dev/npm:randombytes@2.1.0/browser.js",
-      "underscore": "https://ga.jspm.dev/npm:underscore@1.9.1/underscore.js",
-      "utf8": "https://ga.jspm.dev/npm:utf8@3.0.0/utf8.js"
+    "https://ga.jspm.io/npm:web3-utils@1.2.8/": {
+      "bn.js": "https://ga.jspm.io/npm:bn.js@4.11.8/lib/bn.js",
+      "eth-lib/lib/hash": "https://ga.jspm.io/npm:eth-lib@0.2.7/lib/hash.js",
+      "ethereum-bloom-filters": "https://ga.jspm.io/npm:ethereum-bloom-filters@1.0.7/dist/index.js",
+      "ethjs-unit": "https://ga.jspm.io/npm:ethjs-unit@0.1.6/lib/index.js",
+      "number-to-bn": "https://ga.jspm.io/npm:number-to-bn@1.7.0/src/index.js",
+      "randombytes": "https://ga.jspm.io/npm:randombytes@2.1.0/browser.js",
+      "underscore": "https://ga.jspm.io/npm:underscore@1.9.1/underscore.js",
+      "utf8": "https://ga.jspm.io/npm:utf8@3.0.0/utf8.js"
     },
-    "https://ga.jspm.dev/npm:xhr2-cookies@1.1.0/": {
-      "cookiejar": "https://ga.jspm.dev/npm:cookiejar@2.1.2/cookiejar.js"
+    "https://ga.jspm.io/npm:xhr2-cookies@1.1.0/": {
+      "cookiejar": "https://ga.jspm.io/npm:cookiejar@2.1.2/cookiejar.js"
     }
   }
 }

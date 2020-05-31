@@ -1,35 +1,35 @@
 {
   "imports": {
-    "@web-native-js/reflex": "https://ga.jspm.dev/npm:@web-native-js/reflex@0.0.5/src/index.js"
+    "@web-native-js/reflex": "https://ga.jspm.io/npm:@web-native-js/reflex@0.0.5/src/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@web-native-js/reflex@0.0.5/": {
-      "@web-native-js/commons/arr/all.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/all.js",
-      "@web-native-js/commons/arr/concatUnique.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/concatUnique.js",
-      "@web-native-js/commons/arr/crossJoin.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/crossJoin.js",
-      "@web-native-js/commons/arr/exclude.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/exclude.js",
-      "@web-native-js/commons/arr/from.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/from.js",
-      "@web-native-js/commons/arr/intersect.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/intersect.js",
-      "@web-native-js/commons/arr/pushUnique.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/pushUnique.js",
-      "@web-native-js/commons/arr/unique.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/arr/unique.js",
-      "@web-native-js/commons/js/getType.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/getType.js",
-      "@web-native-js/commons/js/isArray.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isArray.js",
-      "@web-native-js/commons/js/isClass.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isClass.js",
-      "@web-native-js/commons/js/isFunction.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isFunction.js",
-      "@web-native-js/commons/js/isNull.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isNull.js",
-      "@web-native-js/commons/js/isNumber.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isNumber.js",
-      "@web-native-js/commons/js/isNumeric.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isNumeric.js",
-      "@web-native-js/commons/js/isObject.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isObject.js",
-      "@web-native-js/commons/js/isString.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isString.js",
-      "@web-native-js/commons/js/isTypeObject.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isTypeObject.js",
-      "@web-native-js/commons/js/isUndefined.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/js/isUndefined.js",
-      "@web-native-js/commons/obj/copy.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/obj/copy.js",
-      "@web-native-js/commons/obj/each.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/obj/each.js",
-      "@web-native-js/commons/obj/even.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/obj/even.js",
-      "@web-native-js/commons/obj/from.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/obj/from.js",
-      "@web-native-js/commons/obj/get.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/obj/get.js",
-      "@web-native-js/commons/obj/merge.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/obj/merge.js",
-      "@web-native-js/commons/str/after.js": "https://ga.jspm.dev/npm:@web-native-js/commons@0.0.3/str/after.js"
+    "https://ga.jspm.io/npm:@web-native-js/reflex@0.0.5/": {
+      "@web-native-js/commons/arr/all.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/all.js",
+      "@web-native-js/commons/arr/concatUnique.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/concatUnique.js",
+      "@web-native-js/commons/arr/crossJoin.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/crossJoin.js",
+      "@web-native-js/commons/arr/exclude.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/exclude.js",
+      "@web-native-js/commons/arr/from.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/from.js",
+      "@web-native-js/commons/arr/intersect.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/intersect.js",
+      "@web-native-js/commons/arr/pushUnique.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/pushUnique.js",
+      "@web-native-js/commons/arr/unique.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/arr/unique.js",
+      "@web-native-js/commons/js/getType.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/getType.js",
+      "@web-native-js/commons/js/isArray.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isArray.js",
+      "@web-native-js/commons/js/isClass.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isClass.js",
+      "@web-native-js/commons/js/isFunction.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isFunction.js",
+      "@web-native-js/commons/js/isNull.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isNull.js",
+      "@web-native-js/commons/js/isNumber.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isNumber.js",
+      "@web-native-js/commons/js/isNumeric.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isNumeric.js",
+      "@web-native-js/commons/js/isObject.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isObject.js",
+      "@web-native-js/commons/js/isString.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isString.js",
+      "@web-native-js/commons/js/isTypeObject.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isTypeObject.js",
+      "@web-native-js/commons/js/isUndefined.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/js/isUndefined.js",
+      "@web-native-js/commons/obj/copy.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/obj/copy.js",
+      "@web-native-js/commons/obj/each.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/obj/each.js",
+      "@web-native-js/commons/obj/even.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/obj/even.js",
+      "@web-native-js/commons/obj/from.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/obj/from.js",
+      "@web-native-js/commons/obj/get.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/obj/get.js",
+      "@web-native-js/commons/obj/merge.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/obj/merge.js",
+      "@web-native-js/commons/str/after.js": "https://ga.jspm.io/npm:@web-native-js/commons@0.0.3/str/after.js"
     }
   }
 }

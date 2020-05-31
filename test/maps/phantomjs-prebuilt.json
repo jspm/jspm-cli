@@ -1,14 +1,14 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "phantomjs-prebuilt": "https://ga.jspm.dev/npm:phantomjs-prebuilt@2.1.16/lib/phantomjs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "phantomjs-prebuilt": "https://ga.jspm.io/npm:phantomjs-prebuilt@2.1.16/lib/phantomjs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:phantomjs-prebuilt@2.1.16/": {
-      "es6-promise": "https://ga.jspm.dev/npm:es6-promise@4.2.8/dist/es6-promise.js"
+    "https://ga.jspm.io/npm:phantomjs-prebuilt@2.1.16/": {
+      "es6-promise": "https://ga.jspm.io/npm:es6-promise@4.2.8/dist/es6-promise.js"
     }
   }
 }

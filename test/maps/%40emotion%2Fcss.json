@@ -1,15 +1,15 @@
 {
   "imports": {
-    "@emotion/css": "https://ga.jspm.dev/npm:@emotion/css@10.0.27/dist/css.browser.cjs.js"
+    "@emotion/css": "https://ga.jspm.io/npm:@emotion/css@10.0.27/dist/css.browser.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@emotion/css@10.0.27/": {
-      "@emotion/serialize": "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/css@10.0.27/": {
+      "@emotion/serialize": "https://ga.jspm.io/npm:@emotion/serialize@0.11.16/dist/serialize.browser.cjs.js"
     },
-    "https://ga.jspm.dev/npm:@emotion/serialize@0.11.16/": {
-      "@emotion/hash": "https://ga.jspm.dev/npm:@emotion/hash@0.8.0/dist/hash.browser.cjs.js",
-      "@emotion/memoize": "https://ga.jspm.dev/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js",
-      "@emotion/unitless": "https://ga.jspm.dev/npm:@emotion/unitless@0.7.5/dist/unitless.browser.cjs.js"
+    "https://ga.jspm.io/npm:@emotion/serialize@0.11.16/": {
+      "@emotion/hash": "https://ga.jspm.io/npm:@emotion/hash@0.8.0/dist/hash.browser.cjs.js",
+      "@emotion/memoize": "https://ga.jspm.io/npm:@emotion/memoize@0.7.4/dist/memoize.browser.cjs.js",
+      "@emotion/unitless": "https://ga.jspm.io/npm:@emotion/unitless@0.7.5/dist/unitless.browser.cjs.js"
     }
   }
 }

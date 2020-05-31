@@ -1,5 +1,5 @@
 {
   "imports": {
-    "flat-grid": "https://ga.jspm.dev/npm:flat-grid@0.1.1/dist/index.js"
+    "flat-grid": "https://ga.jspm.io/npm:flat-grid@0.1.1/dist/index.js"
   }
 }

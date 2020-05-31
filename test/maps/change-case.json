@@ -1,67 +1,67 @@
 {
   "imports": {
-    "change-case": "https://ga.jspm.dev/npm:change-case@4.1.1/dist/index.js"
+    "change-case": "https://ga.jspm.io/npm:change-case@4.1.1/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:camel-case@4.1.1/": {
-      "pascal-case": "https://ga.jspm.dev/npm:pascal-case@3.1.1/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:camel-case@4.1.1/": {
+      "pascal-case": "https://ga.jspm.io/npm:pascal-case@3.1.1/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:capital-case@1.0.3/": {
-      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js",
-      "upper-case-first": "https://ga.jspm.dev/npm:upper-case-first@2.0.1/dist/index.js"
+    "https://ga.jspm.io/npm:capital-case@1.0.3/": {
+      "no-case": "https://ga.jspm.io/npm:no-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js",
+      "upper-case-first": "https://ga.jspm.io/npm:upper-case-first@2.0.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:change-case@4.1.1/": {
-      "camel-case": "https://ga.jspm.dev/npm:camel-case@4.1.1/dist/index.js",
-      "capital-case": "https://ga.jspm.dev/npm:capital-case@1.0.3/dist/index.js",
-      "constant-case": "https://ga.jspm.dev/npm:constant-case@3.0.3/dist/index.js",
-      "dot-case": "https://ga.jspm.dev/npm:dot-case@3.0.3/dist/index.js",
-      "header-case": "https://ga.jspm.dev/npm:header-case@2.0.3/dist/index.js",
-      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "param-case": "https://ga.jspm.dev/npm:param-case@3.0.3/dist/index.js",
-      "pascal-case": "https://ga.jspm.dev/npm:pascal-case@3.1.1/dist/index.js",
-      "path-case": "https://ga.jspm.dev/npm:path-case@3.0.3/dist/index.js",
-      "sentence-case": "https://ga.jspm.dev/npm:sentence-case@3.0.3/dist/index.js",
-      "snake-case": "https://ga.jspm.dev/npm:snake-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:change-case@4.1.1/": {
+      "camel-case": "https://ga.jspm.io/npm:camel-case@4.1.1/dist/index.js",
+      "capital-case": "https://ga.jspm.io/npm:capital-case@1.0.3/dist/index.js",
+      "constant-case": "https://ga.jspm.io/npm:constant-case@3.0.3/dist/index.js",
+      "dot-case": "https://ga.jspm.io/npm:dot-case@3.0.3/dist/index.js",
+      "header-case": "https://ga.jspm.io/npm:header-case@2.0.3/dist/index.js",
+      "no-case": "https://ga.jspm.io/npm:no-case@3.0.3/dist/index.js",
+      "param-case": "https://ga.jspm.io/npm:param-case@3.0.3/dist/index.js",
+      "pascal-case": "https://ga.jspm.io/npm:pascal-case@3.1.1/dist/index.js",
+      "path-case": "https://ga.jspm.io/npm:path-case@3.0.3/dist/index.js",
+      "sentence-case": "https://ga.jspm.io/npm:sentence-case@3.0.3/dist/index.js",
+      "snake-case": "https://ga.jspm.io/npm:snake-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:constant-case@3.0.3/": {
-      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js",
-      "upper-case": "https://ga.jspm.dev/npm:upper-case@2.0.1/dist/index.js"
+    "https://ga.jspm.io/npm:constant-case@3.0.3/": {
+      "no-case": "https://ga.jspm.io/npm:no-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js",
+      "upper-case": "https://ga.jspm.io/npm:upper-case@2.0.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:dot-case@3.0.3/": {
-      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:dot-case@3.0.3/": {
+      "no-case": "https://ga.jspm.io/npm:no-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:header-case@2.0.3/": {
-      "capital-case": "https://ga.jspm.dev/npm:capital-case@1.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:header-case@2.0.3/": {
+      "capital-case": "https://ga.jspm.io/npm:capital-case@1.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:no-case@3.0.3/": {
-      "lower-case": "https://ga.jspm.dev/npm:lower-case@2.0.1/dist/index.js"
+    "https://ga.jspm.io/npm:no-case@3.0.3/": {
+      "lower-case": "https://ga.jspm.io/npm:lower-case@2.0.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:param-case@3.0.3/": {
-      "dot-case": "https://ga.jspm.dev/npm:dot-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:param-case@3.0.3/": {
+      "dot-case": "https://ga.jspm.io/npm:dot-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:pascal-case@3.1.1/": {
-      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:pascal-case@3.1.1/": {
+      "no-case": "https://ga.jspm.io/npm:no-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:path-case@3.0.3/": {
-      "dot-case": "https://ga.jspm.dev/npm:dot-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:path-case@3.0.3/": {
+      "dot-case": "https://ga.jspm.io/npm:dot-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:sentence-case@3.0.3/": {
-      "no-case": "https://ga.jspm.dev/npm:no-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js",
-      "upper-case-first": "https://ga.jspm.dev/npm:upper-case-first@2.0.1/dist/index.js"
+    "https://ga.jspm.io/npm:sentence-case@3.0.3/": {
+      "no-case": "https://ga.jspm.io/npm:no-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js",
+      "upper-case-first": "https://ga.jspm.io/npm:upper-case-first@2.0.1/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:snake-case@3.0.3/": {
-      "dot-case": "https://ga.jspm.dev/npm:dot-case@3.0.3/dist/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:snake-case@3.0.3/": {
+      "dot-case": "https://ga.jspm.io/npm:dot-case@3.0.3/dist/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@notml/core": "https://ga.jspm.dev/npm:@notml/core@0.0.0-pre5/core.js"
+    "@notml/core": "https://ga.jspm.io/npm:@notml/core@0.0.0-pre5/core.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@hapi/joi": "https://ga.jspm.dev/npm:@hapi/joi@17.1.1/dist/joi-browser.min.js"
+    "@hapi/joi": "https://ga.jspm.io/npm:@hapi/joi@17.1.1/dist/joi-browser.min.js"
   }
 }

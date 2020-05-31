@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@webassemblyjs/floating-point-hex-parser": "https://ga.jspm.dev/npm:@webassemblyjs/floating-point-hex-parser@1.9.0/lib/index.js"
+    "@webassemblyjs/floating-point-hex-parser": "https://ga.jspm.io/npm:@webassemblyjs/floating-point-hex-parser@1.9.0/lib/index.js"
   }
 }

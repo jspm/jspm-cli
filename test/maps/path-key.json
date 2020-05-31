@@ -1,6 +1,6 @@
 {
   "imports": {
-    "path-key": "https://ga.jspm.dev/npm:path-key@3.1.1/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "path-key": "https://ga.jspm.io/npm:path-key@3.1.1/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

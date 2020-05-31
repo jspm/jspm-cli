@@ -1,10 +1,10 @@
 {
   "imports": {
-    "lifeapps-package-dispatch": "https://ga.jspm.dev/npm:lifeapps-package-dispatch@0.0.4/dist/index.js"
+    "lifeapps-package-dispatch": "https://ga.jspm.io/npm:lifeapps-package-dispatch@0.0.4/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:lifeapps-package-dispatch@0.0.4/": {
-      "lodash": "https://ga.jspm.dev/npm:lodash@4.17.15/lodash.js"
+    "https://ga.jspm.io/npm:lifeapps-package-dispatch@0.0.4/": {
+      "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
     }
   }
 }

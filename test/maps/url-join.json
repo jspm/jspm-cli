@@ -1,5 +1,5 @@
 {
   "imports": {
-    "url-join": "https://ga.jspm.dev/npm:url-join@4.0.1/lib/url-join.js"
+    "url-join": "https://ga.jspm.io/npm:url-join@4.0.1/lib/url-join.js"
   }
 }

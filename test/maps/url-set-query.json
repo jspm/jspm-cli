@@ -1,5 +1,5 @@
 {
   "imports": {
-    "url-set-query": "https://ga.jspm.dev/npm:url-set-query@1.0.0/index.js"
+    "url-set-query": "https://ga.jspm.io/npm:url-set-query@1.0.0/index.js"
   }
 }

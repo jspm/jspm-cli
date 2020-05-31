@@ -1,10 +1,10 @@
 {
   "imports": {
-    "james-bond": "https://ga.jspm.dev/npm:james-bond@0.4.4/dist/index.js"
+    "james-bond": "https://ga.jspm.io/npm:james-bond@0.4.4/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:james-bond@0.4.4/": {
-      "lowclass": "https://ga.jspm.dev/npm:lowclass@4.9.3/dist/index.js"
+    "https://ga.jspm.io/npm:james-bond@0.4.4/": {
+      "lowclass": "https://ga.jspm.io/npm:lowclass@4.9.3/dist/index.js"
     }
   }
 }

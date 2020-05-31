@@ -1,5 +1,5 @@
 {
   "imports": {
-    "geneviv": "https://ga.jspm.dev/npm:geneviv@0.0.3/geneviv.js"
+    "geneviv": "https://ga.jspm.io/npm:geneviv@0.0.3/geneviv.js"
   }
 }

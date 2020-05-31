@@ -1,70 +1,70 @@
 {
   "imports": {
-    "@lrnwebcomponents/lrn-assignment": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-assignment@2.6.14/lrn-assignment.js"
+    "@lrnwebcomponents/lrn-assignment": "https://ga.jspm.io/npm:@lrnwebcomponents/lrn-assignment@2.6.14/lrn-assignment.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrn-assignment@2.6.14/": {
-      "@polymer/paper-button/paper-button.js": "https://ga.jspm.dev/npm:@polymer/paper-button@3.0.1/paper-button.js",
-      "@polymer/paper-card/paper-card.js": "https://ga.jspm.dev/npm:@polymer/paper-card@3.0.1/paper-card.js",
-      "@polymer/polymer/lib/elements/dom-if.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/elements/dom-if.js",
-      "@polymer/polymer/lib/elements/dom-repeat.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/elements/dom-repeat.js",
-      "@polymer/polymer/polymer-element.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/lrn-assignment@2.6.14/": {
+      "@polymer/paper-button/paper-button.js": "https://ga.jspm.io/npm:@polymer/paper-button@3.0.1/paper-button.js",
+      "@polymer/paper-card/paper-card.js": "https://ga.jspm.io/npm:@polymer/paper-card@3.0.1/paper-card.js",
+      "@polymer/polymer/lib/elements/dom-if.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/elements/dom-if.js",
+      "@polymer/polymer/lib/elements/dom-repeat.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/elements/dom-repeat.js",
+      "@polymer/polymer/polymer-element.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-element.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/": {
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/iron-a11y-keys-behavior@3.0.1/": {
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/iron-behaviors@3.0.1/": {
-      "@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/iron-a11y-keys-behavior.js",
-      "@polymer/polymer/lib/legacy/polymer.dom.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer.dom.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/iron-behaviors@3.0.1/": {
+      "@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js": "https://ga.jspm.io/npm:@polymer/iron-a11y-keys-behavior@3.0.1/iron-a11y-keys-behavior.js",
+      "@polymer/polymer/lib/legacy/polymer.dom.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer.dom.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/": {
-      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/iron-flex-layout@3.0.1/": {
+      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/iron-image@3.0.2/": {
-      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
-      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
-      "@polymer/polymer/lib/utils/resolve-url.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/resolve-url.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/iron-image@3.0.2/": {
+      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
+      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
+      "@polymer/polymer/lib/utils/resolve-url.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/resolve-url.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/paper-behaviors@3.0.1/": {
-      "@polymer/iron-behaviors/iron-button-state.js": "https://ga.jspm.dev/npm:@polymer/iron-behaviors@3.0.1/iron-button-state.js",
-      "@polymer/iron-behaviors/iron-control-state.js": "https://ga.jspm.dev/npm:@polymer/iron-behaviors@3.0.1/iron-control-state.js",
-      "@polymer/paper-ripple/paper-ripple.js": "https://ga.jspm.dev/npm:@polymer/paper-ripple@3.0.2/paper-ripple.js",
-      "@polymer/polymer/lib/legacy/polymer.dom.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer.dom.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/paper-behaviors@3.0.1/": {
+      "@polymer/iron-behaviors/iron-button-state.js": "https://ga.jspm.io/npm:@polymer/iron-behaviors@3.0.1/iron-button-state.js",
+      "@polymer/iron-behaviors/iron-control-state.js": "https://ga.jspm.io/npm:@polymer/iron-behaviors@3.0.1/iron-control-state.js",
+      "@polymer/paper-ripple/paper-ripple.js": "https://ga.jspm.io/npm:@polymer/paper-ripple@3.0.2/paper-ripple.js",
+      "@polymer/polymer/lib/legacy/polymer.dom.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer.dom.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/paper-button@3.0.1/": {
-      "@polymer/iron-flex-layout/iron-flex-layout.js": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/iron-flex-layout.js",
-      "@polymer/paper-behaviors/paper-button-behavior.js": "https://ga.jspm.dev/npm:@polymer/paper-behaviors@3.0.1/paper-button-behavior.js",
-      "@polymer/paper-styles/element-styles/paper-material-styles.js": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/element-styles/paper-material-styles.js",
-      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/paper-button@3.0.1/": {
+      "@polymer/iron-flex-layout/iron-flex-layout.js": "https://ga.jspm.io/npm:@polymer/iron-flex-layout@3.0.1/iron-flex-layout.js",
+      "@polymer/paper-behaviors/paper-button-behavior.js": "https://ga.jspm.io/npm:@polymer/paper-behaviors@3.0.1/paper-button-behavior.js",
+      "@polymer/paper-styles/element-styles/paper-material-styles.js": "https://ga.jspm.io/npm:@polymer/paper-styles@3.0.1/element-styles/paper-material-styles.js",
+      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/paper-card@3.0.1/": {
-      "@polymer/iron-flex-layout/iron-flex-layout.js": "https://ga.jspm.dev/npm:@polymer/iron-flex-layout@3.0.1/iron-flex-layout.js",
-      "@polymer/iron-image/iron-image.js": "https://ga.jspm.dev/npm:@polymer/iron-image@3.0.2/iron-image.js",
-      "@polymer/paper-styles/default-theme.js": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/default-theme.js",
-      "@polymer/paper-styles/element-styles/paper-material-styles.js": "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/element-styles/paper-material-styles.js",
-      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
-      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/paper-card@3.0.1/": {
+      "@polymer/iron-flex-layout/iron-flex-layout.js": "https://ga.jspm.io/npm:@polymer/iron-flex-layout@3.0.1/iron-flex-layout.js",
+      "@polymer/iron-image/iron-image.js": "https://ga.jspm.io/npm:@polymer/iron-image@3.0.2/iron-image.js",
+      "@polymer/paper-styles/default-theme.js": "https://ga.jspm.io/npm:@polymer/paper-styles@3.0.1/default-theme.js",
+      "@polymer/paper-styles/element-styles/paper-material-styles.js": "https://ga.jspm.io/npm:@polymer/paper-styles@3.0.1/element-styles/paper-material-styles.js",
+      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
+      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/paper-ripple@3.0.2/": {
-      "@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js": "https://ga.jspm.dev/npm:@polymer/iron-a11y-keys-behavior@3.0.1/iron-a11y-keys-behavior.js",
-      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
-      "@polymer/polymer/lib/legacy/polymer.dom.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer.dom.js",
-      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/paper-ripple@3.0.2/": {
+      "@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js": "https://ga.jspm.io/npm:@polymer/iron-a11y-keys-behavior@3.0.1/iron-a11y-keys-behavior.js",
+      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
+      "@polymer/polymer/lib/legacy/polymer.dom.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer.dom.js",
+      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/paper-styles@3.0.1/": {
-      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/paper-styles@3.0.1/": {
+      "@polymer/polymer/lib/utils/html-tag.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/utils/html-tag.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/": {
-      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
-      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
+    "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/": {
+      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.io/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
+      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.io/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
     }
   }
 }

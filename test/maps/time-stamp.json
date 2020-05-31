@@ -1,5 +1,5 @@
 {
   "imports": {
-    "time-stamp": "https://ga.jspm.dev/npm:time-stamp@2.2.0/index.js"
+    "time-stamp": "https://ga.jspm.io/npm:time-stamp@2.2.0/index.js"
   }
 }

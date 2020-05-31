@@ -1,19 +1,19 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "busboy": "https://ga.jspm.dev/npm:busboy@0.3.1/lib/main.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "busboy": "https://ga.jspm.io/npm:busboy@0.3.1/lib/main.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:busboy@0.3.1/": {
-      "dicer": "https://ga.jspm.dev/npm:dicer@0.3.0/lib/Dicer.js"
+    "https://ga.jspm.io/npm:busboy@0.3.1/": {
+      "dicer": "https://ga.jspm.io/npm:dicer@0.3.0/lib/Dicer.js"
     },
-    "https://ga.jspm.dev/npm:dicer@0.3.0/": {
-      "streamsearch": "https://ga.jspm.dev/npm:streamsearch@0.1.2/lib/sbmh.js"
+    "https://ga.jspm.io/npm:dicer@0.3.0/": {
+      "streamsearch": "https://ga.jspm.io/npm:streamsearch@0.1.2/lib/sbmh.js"
     }
   }
 }

@@ -1,17 +1,17 @@
 {
   "imports": {
-    "chessboard-element": "https://ga.jspm.dev/npm:chessboard-element@1.0.0-pre.10/index.js"
+    "chessboard-element": "https://ga.jspm.io/npm:chessboard-element@1.0.0-pre.10/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:chessboard-element@1.0.0-pre.10/": {
-      "lit-element": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js",
-      "lit-html": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js",
-      "lit-html/directives/if-defined.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/directives/if-defined.js",
-      "lit-html/directives/style-map.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/directives/style-map.js"
+    "https://ga.jspm.io/npm:chessboard-element@1.0.0-pre.10/": {
+      "lit-element": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js",
+      "lit-html": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js",
+      "lit-html/directives/if-defined.js": "https://ga.jspm.io/npm:lit-html@1.2.1/directives/if-defined.js",
+      "lit-html/directives/style-map.js": "https://ga.jspm.io/npm:lit-html@1.2.1/directives/style-map.js"
     },
-    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
-      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "https://ga.jspm.io/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

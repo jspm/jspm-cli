@@ -1,14 +1,14 @@
 {
   "imports": {
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "unique-filename": "https://ga.jspm.dev/npm:unique-filename@1.1.1/index.js"
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "unique-filename": "https://ga.jspm.io/npm:unique-filename@1.1.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:unique-filename@1.1.1/": {
-      "unique-slug": "https://ga.jspm.dev/npm:unique-slug@2.0.2/index.js"
+    "https://ga.jspm.io/npm:unique-filename@1.1.1/": {
+      "unique-slug": "https://ga.jspm.io/npm:unique-slug@2.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:unique-slug@2.0.2/": {
-      "imurmurhash": "https://ga.jspm.dev/npm:imurmurhash@0.1.4/imurmurhash.js"
+    "https://ga.jspm.io/npm:unique-slug@2.0.2/": {
+      "imurmurhash": "https://ga.jspm.io/npm:imurmurhash@0.1.4/imurmurhash.js"
     }
   }
 }

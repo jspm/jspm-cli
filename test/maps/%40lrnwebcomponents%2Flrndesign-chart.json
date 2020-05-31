@@ -1,37 +1,37 @@
 {
   "imports": {
-    "@lrnwebcomponents/lrndesign-chart": "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-chart@2.6.14/lrndesign-chart.js"
+    "@lrnwebcomponents/lrndesign-chart": "https://ga.jspm.io/npm:@lrnwebcomponents/lrndesign-chart@2.6.14/lrndesign-chart.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/chartist-render@2.6.14/": {
-      "@lrnwebcomponents/es-global-bridge/es-global-bridge.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.6.12/es-global-bridge.js",
-      "@lrnwebcomponents/utils/utils.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/utils@2.6.12/utils.js",
-      "@polymer/iron-ajax/iron-ajax.js": "https://ga.jspm.dev/npm:@polymer/iron-ajax@3.0.1/iron-ajax.js",
-      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/chartist-render@2.6.14/": {
+      "@lrnwebcomponents/es-global-bridge/es-global-bridge.js": "https://ga.jspm.io/npm:@lrnwebcomponents/es-global-bridge@2.6.12/es-global-bridge.js",
+      "@lrnwebcomponents/utils/utils.js": "https://ga.jspm.io/npm:@lrnwebcomponents/utils@2.6.12/utils.js",
+      "@polymer/iron-ajax/iron-ajax.js": "https://ga.jspm.io/npm:@polymer/iron-ajax@3.0.1/iron-ajax.js",
+      "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/lrndesign-chart@2.6.14/": {
-      "@lrnwebcomponents/chartist-render/chartist-render.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/chartist-render@2.6.14/chartist-render.js",
-      "@lrnwebcomponents/simple-colors/simple-colors.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors@2.6.14/simple-colors.js",
-      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/lrndesign-chart@2.6.14/": {
+      "@lrnwebcomponents/chartist-render/chartist-render.js": "https://ga.jspm.io/npm:@lrnwebcomponents/chartist-render@2.6.14/chartist-render.js",
+      "@lrnwebcomponents/simple-colors/simple-colors.js": "https://ga.jspm.io/npm:@lrnwebcomponents/simple-colors@2.6.14/simple-colors.js",
+      "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.14/": {
-      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.14/": {
+      "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors@2.6.14/": {
-      "@lrnwebcomponents/simple-colors-shared-styles/simple-colors-shared-styles.js": "https://ga.jspm.dev/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.14/simple-colors-shared-styles.js",
-      "lit-element/lit-element.js": "https://ga.jspm.dev/npm:lit-element@2.3.1/lit-element.js"
+    "https://ga.jspm.io/npm:@lrnwebcomponents/simple-colors@2.6.14/": {
+      "@lrnwebcomponents/simple-colors-shared-styles/simple-colors-shared-styles.js": "https://ga.jspm.io/npm:@lrnwebcomponents/simple-colors-shared-styles@2.6.14/simple-colors-shared-styles.js",
+      "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@2.3.1/lit-element.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/iron-ajax@3.0.1/": {
-      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
-      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
+    "https://ga.jspm.io/npm:@polymer/iron-ajax@3.0.1/": {
+      "@polymer/polymer/lib/legacy/polymer-fn.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/lib/legacy/polymer-fn.js",
+      "@polymer/polymer/polymer-legacy.js": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-legacy.js"
     },
-    "https://ga.jspm.dev/npm:@polymer/polymer@3.4.1/": {
-      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
-      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.dev/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
+    "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/": {
+      "@webcomponents/shadycss/entrypoints/apply-shim.js": "https://ga.jspm.io/npm:@webcomponents/shadycss@1.9.6/entrypoints/apply-shim.js",
+      "@webcomponents/shadycss/entrypoints/custom-style-interface.js": "https://ga.jspm.io/npm:@webcomponents/shadycss@1.9.6/entrypoints/custom-style-interface.js"
     },
-    "https://ga.jspm.dev/npm:lit-element@2.3.1/": {
-      "lit-html/lib/shady-render.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lib/shady-render.js",
-      "lit-html/lit-html.js": "https://ga.jspm.dev/npm:lit-html@1.2.1/lit-html.js"
+    "https://ga.jspm.io/npm:lit-element@2.3.1/": {
+      "lit-html/lib/shady-render.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lib/shady-render.js",
+      "lit-html/lit-html.js": "https://ga.jspm.io/npm:lit-html@1.2.1/lit-html.js"
     }
   }
 }

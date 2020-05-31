@@ -1,5 +1,5 @@
 {
   "imports": {
-    "after": "https://ga.jspm.dev/npm:after@0.8.2/index.js"
+    "after": "https://ga.jspm.io/npm:after@0.8.2/index.js"
   }
 }

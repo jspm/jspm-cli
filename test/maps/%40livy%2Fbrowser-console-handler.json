@@ -1,17 +1,17 @@
 {
   "imports": {
-    "@livy/browser-console-handler": "https://ga.jspm.dev/npm:@livy/browser-console-handler@1.0.2/lib/browser-console-handler.js"
+    "@livy/browser-console-handler": "https://ga.jspm.io/npm:@livy/browser-console-handler@1.0.2/lib/browser-console-handler.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@livy/browser-console-handler@1.0.2/": {
-      "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js",
-      "@livy/util/lib/handlers/abstract-level-bubble-handler": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/abstract-level-bubble-handler.js",
-      "@livy/util/lib/handlers/mirror-sync-handler-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/mirror-sync-handler-mixin.js",
-      "@livy/util/lib/handlers/processable-handler-mixin": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/handlers/processable-handler-mixin.js",
-      "@livy/util/lib/helpers": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/helpers.js"
+    "https://ga.jspm.io/npm:@livy/browser-console-handler@1.0.2/": {
+      "@livy/contracts/lib/log-level": "https://ga.jspm.io/npm:@livy/contracts@1.1.0/lib/log-level.js",
+      "@livy/util/lib/handlers/abstract-level-bubble-handler": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/abstract-level-bubble-handler.js",
+      "@livy/util/lib/handlers/mirror-sync-handler-mixin": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/mirror-sync-handler-mixin.js",
+      "@livy/util/lib/handlers/processable-handler-mixin": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/handlers/processable-handler-mixin.js",
+      "@livy/util/lib/helpers": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/helpers.js"
     },
-    "https://ga.jspm.dev/npm:@livy/util@1.0.4/": {
-      "@livy/contracts/lib/log-level": "https://ga.jspm.dev/npm:@livy/contracts@1.1.0/lib/log-level.js"
+    "https://ga.jspm.io/npm:@livy/util@1.0.4/": {
+      "@livy/contracts/lib/log-level": "https://ga.jspm.io/npm:@livy/contracts@1.1.0/lib/log-level.js"
     }
   }
 }

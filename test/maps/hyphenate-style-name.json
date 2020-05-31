@@ -1,5 +1,5 @@
 {
   "imports": {
-    "hyphenate-style-name": "https://ga.jspm.dev/npm:hyphenate-style-name@1.0.3/index.cjs.js"
+    "hyphenate-style-name": "https://ga.jspm.io/npm:hyphenate-style-name@1.0.3/index.cjs.js"
   }
 }

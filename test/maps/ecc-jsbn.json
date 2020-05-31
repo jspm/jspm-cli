@@ -1,12 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "ecc-jsbn": "https://ga.jspm.dev/npm:ecc-jsbn@0.2.0/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "ecc-jsbn": "https://ga.jspm.io/npm:ecc-jsbn@0.2.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ecc-jsbn@0.2.0/": {
-      "jsbn": "https://ga.jspm.dev/npm:jsbn@0.1.1/index.js"
+    "https://ga.jspm.io/npm:ecc-jsbn@0.2.0/": {
+      "jsbn": "https://ga.jspm.io/npm:jsbn@0.1.1/index.js"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "resolve-pathname": "https://ga.jspm.dev/npm:resolve-pathname@3.0.0/index.js"
+    "resolve-pathname": "https://ga.jspm.io/npm:resolve-pathname@3.0.0/index.js"
   }
 }

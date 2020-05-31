@@ -1,5 +1,5 @@
 {
   "imports": {
-    "datecollator": "https://ga.jspm.dev/npm:datecollator@0.0.1/src/DateCollator.js"
+    "datecollator": "https://ga.jspm.io/npm:datecollator@0.0.1/src/DateCollator.js"
   }
 }

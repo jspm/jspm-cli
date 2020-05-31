@@ -1,5 +1,5 @@
 {
   "imports": {
-    "alice-renderer": "https://ga.jspm.dev/npm:alice-renderer@1.1.0/src/index.mjs"
+    "alice-renderer": "https://ga.jspm.io/npm:alice-renderer@1.1.0/src/index.mjs"
   }
 }

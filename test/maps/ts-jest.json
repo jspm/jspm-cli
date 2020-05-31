@@ -1,40 +1,41 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "ts-jest": "https://ga.jspm.dev/npm:ts-jest@26.0.0/dist/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "ts-jest": "https://ga.jspm.io/npm:ts-jest@26.1.0/dist/index.js",
+    "typescript": "https://ga.jspm.io/npm:typescript@3.9.4/lib/typescript.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:braces@3.0.2/": {
-      "fill-range": "https://ga.jspm.dev/npm:fill-range@7.0.1/index.js"
+    "https://ga.jspm.io/npm:braces@3.0.2/": {
+      "fill-range": "https://ga.jspm.io/npm:fill-range@7.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:bs-logger@0.2.6/": {
-      "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js"
+    "https://ga.jspm.io/npm:bs-logger@0.2.6/": {
+      "fast-json-stable-stringify": "https://ga.jspm.io/npm:fast-json-stable-stringify@2.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:fill-range@7.0.1/": {
-      "to-regex-range": "https://ga.jspm.dev/npm:to-regex-range@5.0.1/index.js"
+    "https://ga.jspm.io/npm:fill-range@7.0.1/": {
+      "to-regex-range": "https://ga.jspm.io/npm:to-regex-range@5.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:micromatch@4.0.2/": {
-      "braces": "https://ga.jspm.dev/npm:braces@3.0.2/index.js",
-      "picomatch": "https://ga.jspm.dev/npm:picomatch@2.2.2/index.js",
-      "picomatch/lib/utils": "https://ga.jspm.dev/npm:picomatch@2.2.2/lib/utils.js"
+    "https://ga.jspm.io/npm:micromatch@4.0.2/": {
+      "braces": "https://ga.jspm.io/npm:braces@3.0.2/index.js",
+      "picomatch": "https://ga.jspm.io/npm:picomatch@2.2.2/index.js",
+      "picomatch/lib/utils": "https://ga.jspm.io/npm:picomatch@2.2.2/lib/utils.js"
     },
-    "https://ga.jspm.dev/npm:to-regex-range@5.0.1/": {
-      "is-number": "https://ga.jspm.dev/npm:is-number@7.0.0/index.js"
+    "https://ga.jspm.io/npm:to-regex-range@5.0.1/": {
+      "is-number": "https://ga.jspm.io/npm:is-number@7.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:ts-jest@26.0.0/": {
-      "bs-logger": "https://ga.jspm.dev/npm:bs-logger@0.2.6/dist/index.js",
-      "fast-json-stable-stringify": "https://ga.jspm.dev/npm:fast-json-stable-stringify@2.1.0/index.js",
-      "json5": "https://ga.jspm.dev/npm:json5@2.1.3/dist/index.js",
-      "lodash.memoize": "https://ga.jspm.dev/npm:lodash.memoize@4.1.2/index.js",
-      "make-error": "https://ga.jspm.dev/npm:make-error@1.3.6/index.js",
-      "micromatch": "https://ga.jspm.dev/npm:micromatch@4.0.2/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@1.0.4/index.js",
-      "semver": "https://ga.jspm.dev/npm:semver@7.3.2/index.js"
+    "https://ga.jspm.io/npm:ts-jest@26.1.0/": {
+      "bs-logger": "https://ga.jspm.io/npm:bs-logger@0.2.6/dist/index.js",
+      "fast-json-stable-stringify": "https://ga.jspm.io/npm:fast-json-stable-stringify@2.1.0/index.js",
+      "json5": "https://ga.jspm.io/npm:json5@2.1.3/dist/index.js",
+      "lodash.memoize": "https://ga.jspm.io/npm:lodash.memoize@4.1.2/index.js",
+      "make-error": "https://ga.jspm.io/npm:make-error@1.3.6/index.js",
+      "micromatch": "https://ga.jspm.io/npm:micromatch@4.0.2/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@1.0.4/index.js",
+      "semver": "https://ga.jspm.io/npm:semver@7.3.2/index.js"
     }
   }
 }

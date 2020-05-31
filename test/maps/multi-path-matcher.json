@@ -1,5 +1,5 @@
 {
   "imports": {
-    "multi-path-matcher": "https://ga.jspm.dev/npm:multi-path-matcher@2.0.14/src/multi-path-matcher.mjs"
+    "multi-path-matcher": "https://ga.jspm.io/npm:multi-path-matcher@2.0.14/src/multi-path-matcher.mjs"
   }
 }

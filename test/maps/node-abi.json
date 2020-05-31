@@ -1,11 +1,11 @@
 {
   "imports": {
-    "node-abi": "https://ga.jspm.dev/npm:node-abi@2.18.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "node-abi": "https://ga.jspm.io/npm:node-abi@2.18.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:node-abi@2.18.0/": {
-      "semver": "https://ga.jspm.dev/npm:semver@5.7.1/semver.js"
+    "https://ga.jspm.io/npm:node-abi@2.18.0/": {
+      "semver": "https://ga.jspm.io/npm:semver@5.7.1/semver.js"
     }
   }
 }

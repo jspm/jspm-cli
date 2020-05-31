@@ -1,11 +1,11 @@
 {
   "imports": {
-    "async-iter-event-reader/event-reader.js": "https://ga.jspm.dev/npm:async-iter-event-reader@1.0.0/event-reader.js"
+    "async-iter-event-reader/event-reader.js": "https://ga.jspm.io/npm:async-iter-event-reader@1.0.0/event-reader.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:async-iter-event-reader@1.0.0/": {
-      "denque": "https://ga.jspm.dev/npm:denque@1.4.1/index.js",
-      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    "https://ga.jspm.io/npm:async-iter-event-reader@1.0.0/": {
+      "denque": "https://ga.jspm.io/npm:denque@1.4.1/index.js",
+      "p-defer": "https://ga.jspm.io/npm:p-defer@3.0.0/index.js"
     }
   }
 }

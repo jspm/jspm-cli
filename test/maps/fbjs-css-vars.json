@@ -1,5 +1,5 @@
 {
   "imports": {
-    "fbjs-css-vars": "https://ga.jspm.dev/npm:fbjs-css-vars@1.0.2/index.js"
+    "fbjs-css-vars": "https://ga.jspm.io/npm:fbjs-css-vars@1.0.2/index.js"
   }
 }

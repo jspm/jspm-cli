@@ -1,16 +1,16 @@
 {
   "imports": {
-    "@undercut/cli": "https://ga.jspm.dev/npm:@undercut/cli@0.5.1/lib/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "readline": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
+    "@undercut/cli": "https://ga.jspm.io/npm:@undercut/cli@0.5.1/lib/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "readline": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/readline.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@undercut/cli@0.5.1/": {
-      "@undercut/node-10/pull": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/pull.js",
-      "@undercut/node-10/push": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/push.js",
-      "@undercut/node-10/utils": "https://ga.jspm.dev/npm:@undercut/node-10@0.5.1/utils.js"
+    "https://ga.jspm.io/npm:@undercut/cli@0.5.1/": {
+      "@undercut/node-10/pull": "https://ga.jspm.io/npm:@undercut/node-10@0.5.1/pull.js",
+      "@undercut/node-10/push": "https://ga.jspm.io/npm:@undercut/node-10@0.5.1/push.js",
+      "@undercut/node-10/utils": "https://ga.jspm.io/npm:@undercut/node-10@0.5.1/utils.js"
     }
   }
 }

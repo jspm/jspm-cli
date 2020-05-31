@@ -1,5 +1,5 @@
 {
   "imports": {
-    "eslint-visitor-keys": "https://ga.jspm.dev/npm:eslint-visitor-keys@1.1.0/lib/index.js"
+    "eslint-visitor-keys": "https://ga.jspm.io/npm:eslint-visitor-keys@1.1.0/lib/index.js"
   }
 }

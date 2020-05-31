@@ -1,7 +1,7 @@
 {
   "imports": {
-    "opencollective-postinstall": "https://ga.jspm.dev/npm:opencollective-postinstall@2.0.3/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "opencollective-postinstall": "https://ga.jspm.io/npm:opencollective-postinstall@2.0.3/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

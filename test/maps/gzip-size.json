@@ -1,14 +1,14 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "gzip-size": "https://ga.jspm.dev/npm:gzip-size@5.1.1/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "zlib": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "gzip-size": "https://ga.jspm.io/npm:gzip-size@5.1.1/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:gzip-size@5.1.1/": {
-      "duplexer": "https://ga.jspm.dev/npm:duplexer@0.1.1/index.js",
-      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js"
+    "https://ga.jspm.io/npm:gzip-size@5.1.1/": {
+      "duplexer": "https://ga.jspm.io/npm:duplexer@0.1.1/index.js",
+      "pify": "https://ga.jspm.io/npm:pify@4.0.1/index.js"
     }
   }
 }

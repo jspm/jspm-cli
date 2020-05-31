@@ -1,20 +1,20 @@
 {
   "imports": {
-    "d3-scale": "https://ga.jspm.dev/npm:d3-scale@3.2.1/dist/d3-scale.js"
+    "d3-scale": "https://ga.jspm.io/npm:d3-scale@3.2.1/dist/d3-scale.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/": {
-      "d3-color": "https://ga.jspm.dev/npm:d3-color@1.4.1/dist/d3-color.js"
+    "https://ga.jspm.io/npm:d3-interpolate@1.4.0/": {
+      "d3-color": "https://ga.jspm.io/npm:d3-color@1.4.1/dist/d3-color.js"
     },
-    "https://ga.jspm.dev/npm:d3-scale@3.2.1/": {
-      "d3-array": "https://ga.jspm.dev/npm:d3-array@2.4.0/dist/d3-array.js",
-      "d3-format": "https://ga.jspm.dev/npm:d3-format@1.4.4/dist/d3-format.js",
-      "d3-interpolate": "https://ga.jspm.dev/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
-      "d3-time": "https://ga.jspm.dev/npm:d3-time@1.1.0/dist/d3-time.js",
-      "d3-time-format": "https://ga.jspm.dev/npm:d3-time-format@2.2.3/dist/d3-time-format.js"
+    "https://ga.jspm.io/npm:d3-scale@3.2.1/": {
+      "d3-array": "https://ga.jspm.io/npm:d3-array@2.4.0/dist/d3-array.js",
+      "d3-format": "https://ga.jspm.io/npm:d3-format@1.4.4/dist/d3-format.js",
+      "d3-interpolate": "https://ga.jspm.io/npm:d3-interpolate@1.4.0/dist/d3-interpolate.js",
+      "d3-time": "https://ga.jspm.io/npm:d3-time@1.1.0/dist/d3-time.js",
+      "d3-time-format": "https://ga.jspm.io/npm:d3-time-format@2.2.3/dist/d3-time-format.js"
     },
-    "https://ga.jspm.dev/npm:d3-time-format@2.2.3/": {
-      "d3-time": "https://ga.jspm.dev/npm:d3-time@1.1.0/dist/d3-time.js"
+    "https://ga.jspm.io/npm:d3-time-format@2.2.3/": {
+      "d3-time": "https://ga.jspm.io/npm:d3-time@1.1.0/dist/d3-time.js"
     }
   }
 }

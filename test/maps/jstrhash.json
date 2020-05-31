@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jstrhash": "https://ga.jspm.dev/npm:jstrhash@1.0.0/index.js"
+    "jstrhash": "https://ga.jspm.io/npm:jstrhash@1.0.0/index.js"
   }
 }

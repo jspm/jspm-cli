@@ -1,19 +1,19 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "serve-favicon": "https://ga.jspm.dev/npm:serve-favicon@2.5.0/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "serve-favicon": "https://ga.jspm.io/npm:serve-favicon@2.5.0/index.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:serve-favicon@2.5.0/": {
-      "etag": "https://ga.jspm.dev/npm:etag@1.8.1/index.js",
-      "fresh": "https://ga.jspm.dev/npm:fresh@0.5.2/index.js",
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.1/index.js",
-      "parseurl": "https://ga.jspm.dev/npm:parseurl@1.3.3/index.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.1/index.js"
+    "https://ga.jspm.io/npm:serve-favicon@2.5.0/": {
+      "etag": "https://ga.jspm.io/npm:etag@1.8.1/index.js",
+      "fresh": "https://ga.jspm.io/npm:fresh@0.5.2/index.js",
+      "ms": "https://ga.jspm.io/npm:ms@2.1.1/index.js",
+      "parseurl": "https://ga.jspm.io/npm:parseurl@1.3.3/index.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.1.1/index.js"
     }
   }
 }

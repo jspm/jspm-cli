@@ -1,5 +1,5 @@
 {
   "imports": {
-    "get-own-enumerable-property-symbols": "https://ga.jspm.dev/npm:get-own-enumerable-property-symbols@3.0.2/lib/index.js"
+    "get-own-enumerable-property-symbols": "https://ga.jspm.io/npm:get-own-enumerable-property-symbols@3.0.2/lib/index.js"
   }
 }

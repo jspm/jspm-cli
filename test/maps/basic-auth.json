@@ -1,11 +1,11 @@
 {
   "imports": {
-    "basic-auth": "https://ga.jspm.dev/npm:basic-auth@2.0.1/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "basic-auth": "https://ga.jspm.io/npm:basic-auth@2.0.1/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:basic-auth@2.0.1/": {
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.1.2/index.js"
+    "https://ga.jspm.io/npm:basic-auth@2.0.1/": {
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.1.2/index.js"
     }
   }
 }

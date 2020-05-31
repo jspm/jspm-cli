@@ -1,14 +1,14 @@
 {
   "imports": {
-    "eslint-plugin-es": "https://ga.jspm.dev/npm:eslint-plugin-es@3.0.1/lib/index.js"
+    "eslint-plugin-es": "https://ga.jspm.io/npm:eslint-plugin-es@3.0.1/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:eslint-plugin-es@3.0.1/": {
-      "eslint-utils": "https://ga.jspm.dev/npm:eslint-utils@2.0.0/index.js",
-      "regexpp": "https://ga.jspm.dev/npm:regexpp@3.1.0/index.js"
+    "https://ga.jspm.io/npm:eslint-plugin-es@3.0.1/": {
+      "eslint-utils": "https://ga.jspm.io/npm:eslint-utils@2.0.0/index.js",
+      "regexpp": "https://ga.jspm.io/npm:regexpp@3.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:eslint-utils@2.0.0/": {
-      "eslint-visitor-keys": "https://ga.jspm.dev/npm:eslint-visitor-keys@1.1.0/lib/index.js"
+    "https://ga.jspm.io/npm:eslint-utils@2.0.0/": {
+      "eslint-visitor-keys": "https://ga.jspm.io/npm:eslint-visitor-keys@1.1.0/lib/index.js"
     }
   }
 }

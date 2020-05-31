@@ -1,12 +1,12 @@
 {
   "imports": {
-    "@antv/scale": "https://ga.jspm.dev/npm:@antv/scale@0.3.1/lib/index.js"
+    "@antv/scale": "https://ga.jspm.io/npm:@antv/scale@0.3.1/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@antv/scale@0.3.1/": {
-      "@antv/util": "https://ga.jspm.dev/npm:@antv/util@2.0.9/lib/index.js",
-      "fecha": "https://ga.jspm.dev/npm:fecha@3.0.3/lib/fecha.umd.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:@antv/scale@0.3.1/": {
+      "@antv/util": "https://ga.jspm.io/npm:@antv/util@2.0.9/lib/index.js",
+      "fecha": "https://ga.jspm.io/npm:fecha@3.0.3/lib/fecha.umd.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     }
   }
 }

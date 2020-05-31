@@ -1,39 +1,39 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "json-schema-faker-bb": "https://ga.jspm.dev/npm:json-schema-faker-bb@0.5.0-rc12/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "json-schema-faker-bb": "https://ga.jspm.io/npm:json-schema-faker-bb@0.5.0-rc12/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     },
-    "https://ga.jspm.dev/npm:deref@0.7.6/": {
-      "deep-extend": "https://ga.jspm.dev/npm:deep-extend@0.6.0/lib/deep-extend.js"
+    "https://ga.jspm.io/npm:deref@0.7.6/": {
+      "deep-extend": "https://ga.jspm.io/npm:deep-extend@0.6.0/lib/deep-extend.js"
     },
-    "https://ga.jspm.dev/npm:json-schema-faker-bb@0.5.0-rc12/": {
-      "deref": "https://ga.jspm.dev/npm:deref@0.7.6/lib/index.js",
-      "json-schema-ref-parser": "https://ga.jspm.dev/npm:json-schema-ref-parser@4.1.1/lib/index.js",
-      "jsonpath-plus": "https://ga.jspm.dev/npm:jsonpath-plus@0.16.0/lib/jsonpath.js",
-      "randexp": "https://ga.jspm.dev/npm:randexp@0.5.3/lib/randexp.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js"
+    "https://ga.jspm.io/npm:json-schema-faker-bb@0.5.0-rc12/": {
+      "deref": "https://ga.jspm.io/npm:deref@0.7.6/lib/index.js",
+      "json-schema-ref-parser": "https://ga.jspm.io/npm:json-schema-ref-parser@4.1.1/lib/index.js",
+      "jsonpath-plus": "https://ga.jspm.io/npm:jsonpath-plus@0.16.0/lib/jsonpath.js",
+      "randexp": "https://ga.jspm.io/npm:randexp@0.5.3/lib/randexp.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js"
     },
-    "https://ga.jspm.dev/npm:json-schema-ref-parser@4.1.1/": {
-      "call-me-maybe": "https://ga.jspm.dev/npm:call-me-maybe@1.0.1/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js",
-      "js-yaml": "https://ga.jspm.dev/npm:js-yaml@3.14.0/index.js",
-      "ono": "https://ga.jspm.dev/npm:ono@4.0.11/lib/ono.js"
+    "https://ga.jspm.io/npm:json-schema-ref-parser@4.1.1/": {
+      "call-me-maybe": "https://ga.jspm.io/npm:call-me-maybe@1.0.1/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js",
+      "js-yaml": "https://ga.jspm.io/npm:js-yaml@3.14.0/index.js",
+      "ono": "https://ga.jspm.io/npm:ono@4.0.11/lib/ono.js"
     },
-    "https://ga.jspm.dev/npm:ono@4.0.11/": {
-      "format-util": "https://ga.jspm.dev/npm:format-util@1.0.5/format.js"
+    "https://ga.jspm.io/npm:ono@4.0.11/": {
+      "format-util": "https://ga.jspm.io/npm:format-util@1.0.5/format.js"
     },
-    "https://ga.jspm.dev/npm:randexp@0.5.3/": {
-      "drange": "https://ga.jspm.dev/npm:drange@1.1.1/lib/index.js",
-      "ret": "https://ga.jspm.dev/npm:ret@0.2.2/lib/index.js"
+    "https://ga.jspm.io/npm:randexp@0.5.3/": {
+      "drange": "https://ga.jspm.io/npm:drange@1.1.1/lib/index.js",
+      "ret": "https://ga.jspm.io/npm:ret@0.2.2/lib/index.js"
     }
   }
 }

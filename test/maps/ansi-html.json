@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ansi-html": "https://ga.jspm.dev/npm:ansi-html@0.0.7/index.js"
+    "ansi-html": "https://ga.jspm.io/npm:ansi-html@0.0.7/index.js"
   }
 }

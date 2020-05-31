@@ -1,16 +1,16 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "xhr2-cookies": "https://ga.jspm.dev/npm:xhr2-cookies@1.1.0/dist/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "xhr2-cookies": "https://ga.jspm.io/npm:xhr2-cookies@1.1.0/dist/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:xhr2-cookies@1.1.0/": {
-      "cookiejar": "https://ga.jspm.dev/npm:cookiejar@2.1.2/cookiejar.js"
+    "https://ga.jspm.io/npm:xhr2-cookies@1.1.0/": {
+      "cookiejar": "https://ga.jspm.io/npm:cookiejar@2.1.2/cookiejar.js"
     }
   }
 }

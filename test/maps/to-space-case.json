@@ -1,10 +1,10 @@
 {
   "imports": {
-    "to-space-case": "https://ga.jspm.dev/npm:to-space-case@1.0.0/index.js"
+    "to-space-case": "https://ga.jspm.io/npm:to-space-case@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:to-space-case@1.0.0/": {
-      "to-no-case": "https://ga.jspm.dev/npm:to-no-case@1.0.2/index.js"
+    "https://ga.jspm.io/npm:to-space-case@1.0.0/": {
+      "to-no-case": "https://ga.jspm.io/npm:to-no-case@1.0.2/index.js"
     }
   }
 }

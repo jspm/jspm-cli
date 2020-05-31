@@ -1,15 +1,15 @@
 {
   "imports": {
-    "proxy-extend": "https://ga.jspm.dev/npm:proxy-extend@1.2.1/lib-cjs/index.cjs",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "proxy-extend": "https://ga.jspm.io/npm:proxy-extend@1.2.1/lib-cjs/index.cjs",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:message-tag@0.5.1/": {
-      "dateformat": "https://ga.jspm.dev/npm:dateformat@3.0.3/lib/dateformat.js",
-      "pretty-format": "https://ga.jspm.dev/npm:pretty-format@25.5.0/build-es5/index.js"
+    "https://ga.jspm.io/npm:message-tag@0.5.1/": {
+      "dateformat": "https://ga.jspm.io/npm:dateformat@3.0.3/lib/dateformat.js",
+      "pretty-format": "https://ga.jspm.io/npm:pretty-format@25.5.0/build-es5/index.js"
     },
-    "https://ga.jspm.dev/npm:proxy-extend@1.2.1/": {
-      "message-tag": "https://ga.jspm.dev/npm:message-tag@0.5.1/lib-cjs/message.cjs"
+    "https://ga.jspm.io/npm:proxy-extend@1.2.1/": {
+      "message-tag": "https://ga.jspm.io/npm:message-tag@0.5.1/lib-cjs/message.cjs"
     }
   }
 }

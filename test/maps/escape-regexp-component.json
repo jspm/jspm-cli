@@ -1,5 +1,5 @@
 {
   "imports": {
-    "escape-regexp-component": "https://ga.jspm.dev/npm:escape-regexp-component@1.0.2/index.js"
+    "escape-regexp-component": "https://ga.jspm.io/npm:escape-regexp-component@1.0.2/index.js"
   }
 }

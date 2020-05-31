@@ -1,6 +1,6 @@
 {
   "imports": {
-    "macos-release": "https://ga.jspm.dev/npm:macos-release@2.3.0/index.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
+    "macos-release": "https://ga.jspm.io/npm:macos-release@2.3.0/index.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
   }
 }

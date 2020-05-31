@@ -1,10 +1,10 @@
 {
   "imports": {
-    "element-resize-detector": "https://ga.jspm.dev/npm:element-resize-detector@1.2.1/src/element-resize-detector.js"
+    "element-resize-detector": "https://ga.jspm.io/npm:element-resize-detector@1.2.1/src/element-resize-detector.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:element-resize-detector@1.2.1/": {
-      "batch-processor": "https://ga.jspm.dev/npm:batch-processor@1.0.0/src/batch-processor.js"
+    "https://ga.jspm.io/npm:element-resize-detector@1.2.1/": {
+      "batch-processor": "https://ga.jspm.io/npm:batch-processor@1.0.0/src/batch-processor.js"
     }
   }
 }

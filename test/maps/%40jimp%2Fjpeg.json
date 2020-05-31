@@ -1,21 +1,21 @@
 {
   "imports": {
-    "@jimp/jpeg": "https://ga.jspm.dev/npm:@jimp/jpeg@0.12.1/dist/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
+    "@jimp/jpeg": "https://ga.jspm.io/npm:@jimp/jpeg@0.12.1/dist/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/": {
-      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.io/npm:@babel/runtime@7.10.2/": {
+      "regenerator-runtime": "https://ga.jspm.io/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/jpeg@0.12.1/": {
-      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/defineProperty.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@jimp/utils": "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/dist/index.js",
-      "jpeg-js": "https://ga.jspm.dev/npm:jpeg-js@0.4.0/index.js"
+    "https://ga.jspm.io/npm:@jimp/jpeg@0.12.1/": {
+      "@babel/runtime/helpers/defineProperty": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/defineProperty.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@jimp/utils": "https://ga.jspm.io/npm:@jimp/utils@0.12.1/dist/index.js",
+      "jpeg-js": "https://ga.jspm.io/npm:jpeg-js@0.4.0/index.js"
     },
-    "https://ga.jspm.dev/npm:@jimp/utils@0.12.1/": {
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js",
-      "@babel/runtime/regenerator": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/regenerator/index.js"
+    "https://ga.jspm.io/npm:@jimp/utils@0.12.1/": {
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js",
+      "@babel/runtime/regenerator": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/regenerator/index.js"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
   "imports": {
-    "@livy/line-formatter": "https://ga.jspm.dev/npm:@livy/line-formatter@1.0.2/lib/line-formatter.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@livy/line-formatter": "https://ga.jspm.io/npm:@livy/line-formatter@1.0.2/lib/line-formatter.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@livy/line-formatter@1.0.2/": {
-      "@livy/util/lib/formatters/line-formatter": "https://ga.jspm.dev/npm:@livy/util@1.0.4/lib/formatters/line-formatter.js"
+    "https://ga.jspm.io/npm:@livy/line-formatter@1.0.2/": {
+      "@livy/util/lib/formatters/line-formatter": "https://ga.jspm.io/npm:@livy/util@1.0.4/lib/formatters/line-formatter.js"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "css-in-js-utils": "https://ga.jspm.dev/npm:css-in-js-utils@3.0.4/lib/index.js"
+    "css-in-js-utils": "https://ga.jspm.io/npm:css-in-js-utils@3.0.4/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:css-in-js-utils@3.0.4/": {
-      "hyphenate-style-name": "https://ga.jspm.dev/npm:hyphenate-style-name@1.0.3/index.cjs.js"
+    "https://ga.jspm.io/npm:css-in-js-utils@3.0.4/": {
+      "hyphenate-style-name": "https://ga.jspm.io/npm:hyphenate-style-name@1.0.3/index.cjs.js"
     }
   }
 }

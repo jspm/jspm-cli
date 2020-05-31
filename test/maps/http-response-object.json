@@ -1,5 +1,5 @@
 {
   "imports": {
-    "http-response-object": "https://ga.jspm.dev/npm:http-response-object@3.0.2/lib/index.js"
+    "http-response-object": "https://ga.jspm.io/npm:http-response-object@3.0.2/lib/index.js"
   }
 }

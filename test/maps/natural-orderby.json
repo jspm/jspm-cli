@@ -1,5 +1,5 @@
 {
   "imports": {
-    "natural-orderby": "https://ga.jspm.dev/npm:natural-orderby@2.0.3/cjs/natural-orderby.js"
+    "natural-orderby": "https://ga.jspm.io/npm:natural-orderby@2.0.3/cjs/natural-orderby.js"
   }
 }

@@ -1,18 +1,18 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "optipng-bin": "https://ga.jspm.dev/npm:optipng-bin@7.0.0/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "optipng-bin": "https://ga.jspm.io/npm:optipng-bin@7.0.0/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:bin-wrapper@4.1.0/": {
-      "import-lazy": "https://ga.jspm.dev/npm:import-lazy@3.1.0/index.js",
-      "pify": "https://ga.jspm.dev/npm:pify@4.0.1/index.js"
+    "https://ga.jspm.io/npm:bin-wrapper@4.1.0/": {
+      "import-lazy": "https://ga.jspm.io/npm:import-lazy@3.1.0/index.js",
+      "pify": "https://ga.jspm.io/npm:pify@4.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:optipng-bin@7.0.0/": {
-      "bin-wrapper": "https://ga.jspm.dev/npm:bin-wrapper@4.1.0/index.js"
+    "https://ga.jspm.io/npm:optipng-bin@7.0.0/": {
+      "bin-wrapper": "https://ga.jspm.io/npm:bin-wrapper@4.1.0/index.js"
     }
   }
 }

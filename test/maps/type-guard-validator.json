@@ -1,10 +1,10 @@
 {
   "imports": {
-    "type-guard-validator": "https://ga.jspm.dev/npm:type-guard-validator@2.0.0/lib/validator.js"
+    "type-guard-validator": "https://ga.jspm.io/npm:type-guard-validator@2.0.0/lib/validator.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:type-guard-validator@2.0.0/": {
-      "ts-custom-error": "https://ga.jspm.dev/npm:ts-custom-error@3.1.1/dist/custom-error.umd.js"
+    "https://ga.jspm.io/npm:type-guard-validator@2.0.0/": {
+      "ts-custom-error": "https://ga.jspm.io/npm:ts-custom-error@3.1.1/dist/custom-error.umd.js"
     }
   }
 }

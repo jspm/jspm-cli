@@ -1,5 +1,5 @@
 {
   "imports": {
-    "p-finally": "https://ga.jspm.dev/npm:p-finally@2.0.1/index.js"
+    "p-finally": "https://ga.jspm.io/npm:p-finally@2.0.1/index.js"
   }
 }

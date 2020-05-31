@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@svgr/babel-plugin-transform-react-native-svg": "https://ga.jspm.dev/npm:@svgr/babel-plugin-transform-react-native-svg@5.4.0/lib/index.js"
+    "@svgr/babel-plugin-transform-react-native-svg": "https://ga.jspm.io/npm:@svgr/babel-plugin-transform-react-native-svg@5.4.0/lib/index.js"
   }
 }

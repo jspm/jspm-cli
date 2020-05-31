@@ -1,12 +1,12 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "webpack-sources": "https://ga.jspm.dev/npm:webpack-sources@1.4.3/lib/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "webpack-sources": "https://ga.jspm.io/npm:webpack-sources@1.4.3/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:webpack-sources@1.4.3/": {
-      "source-list-map": "https://ga.jspm.dev/npm:source-list-map@2.0.1/lib/index.js",
-      "source-map": "https://ga.jspm.dev/npm:source-map@0.6.1/source-map.js"
+    "https://ga.jspm.io/npm:webpack-sources@1.4.3/": {
+      "source-list-map": "https://ga.jspm.io/npm:source-list-map@2.0.1/lib/index.js",
+      "source-map": "https://ga.jspm.io/npm:source-map@0.6.1/source-map.js"
     }
   }
 }

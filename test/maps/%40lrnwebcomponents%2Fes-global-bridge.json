@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@lrnwebcomponents/es-global-bridge": "https://ga.jspm.dev/npm:@lrnwebcomponents/es-global-bridge@2.6.12/es-global-bridge.js"
+    "@lrnwebcomponents/es-global-bridge": "https://ga.jspm.io/npm:@lrnwebcomponents/es-global-bridge@2.6.12/es-global-bridge.js"
   }
 }

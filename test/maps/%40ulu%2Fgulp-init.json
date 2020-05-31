@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@ulu/gulp-init": "https://ga.jspm.dev/npm:@ulu/gulp-init@0.0.1/index.js"
+    "@ulu/gulp-init": "https://ga.jspm.io/npm:@ulu/gulp-init@0.0.1/index.js"
   }
 }

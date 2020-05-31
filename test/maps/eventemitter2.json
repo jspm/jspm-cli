@@ -1,6 +1,6 @@
 {
   "imports": {
-    "eventemitter2": "https://ga.jspm.dev/npm:eventemitter2@6.4.2/lib/eventemitter2.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "eventemitter2": "https://ga.jspm.io/npm:eventemitter2@6.4.2/lib/eventemitter2.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@xtuc/ieee754": "https://ga.jspm.dev/npm:@xtuc/ieee754@1.2.0/dist/index.cjs.js"
+    "@xtuc/ieee754": "https://ga.jspm.io/npm:@xtuc/ieee754@1.2.0/dist/index.cjs.js"
   }
 }

@@ -1,15 +1,15 @@
 {
   "imports": {
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js",
-    "react-component-console": "https://ga.jspm.dev/npm:react-component-console@1.2.2/dist/react-component-console.cjs.js"
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js",
+    "react-component-console": "https://ga.jspm.io/npm:react-component-console@1.2.2/dist/react-component-console.cjs.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-component-console@1.2.2/": {
-      "deepmerge": "https://ga.jspm.dev/npm:deepmerge@4.2.2/dist/cjs.js",
-      "regenerator-runtime": "https://ga.jspm.dev/npm:regenerator-runtime@0.13.5/runtime.js"
+    "https://ga.jspm.io/npm:react-component-console@1.2.2/": {
+      "deepmerge": "https://ga.jspm.io/npm:deepmerge@4.2.2/dist/cjs.js",
+      "regenerator-runtime": "https://ga.jspm.io/npm:regenerator-runtime@0.13.5/runtime.js"
     },
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "fast-ordered-set": "https://ga.jspm.dev/npm:fast-ordered-set@1.0.3/index.js"
+    "fast-ordered-set": "https://ga.jspm.io/npm:fast-ordered-set@1.0.3/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:fast-ordered-set@1.0.3/": {
-      "blank-object": "https://ga.jspm.dev/npm:blank-object@1.0.2/index.js"
+    "https://ga.jspm.io/npm:fast-ordered-set@1.0.3/": {
+      "blank-object": "https://ga.jspm.io/npm:blank-object@1.0.2/index.js"
     }
   }
 }

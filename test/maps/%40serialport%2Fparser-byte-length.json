@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@serialport/parser-byte-length": "https://ga.jspm.dev/npm:@serialport/parser-byte-length@9.0.0/lib/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "@serialport/parser-byte-length": "https://ga.jspm.io/npm:@serialport/parser-byte-length@9.0.0/lib/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

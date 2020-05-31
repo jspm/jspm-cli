@@ -1,7 +1,7 @@
 {
   "imports": {
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "we-live-reloader": "https://ga.jspm.dev/npm:we-live-reloader@0.1.1/index.js"
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "we-live-reloader": "https://ga.jspm.io/npm:we-live-reloader@0.1.1/index.js"
   }
 }

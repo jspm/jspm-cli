@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.memoize": "https://ga.jspm.dev/npm:lodash.memoize@4.1.2/index.js"
+    "lodash.memoize": "https://ga.jspm.io/npm:lodash.memoize@4.1.2/index.js"
   }
 }

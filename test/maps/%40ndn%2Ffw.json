@@ -1,33 +1,33 @@
 {
   "imports": {
-    "@ndn/fw": "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "@ndn/fw": "https://ga.jspm.io/npm:@ndn/fw@0.0.20191223-beta.1/lib/mod.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@ndn/fw@0.0.20191223-beta.1/": {
-      "@ndn/packet": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
-      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
-      "hirestime": "https://ga.jspm.dev/npm:hirestime@4.0.0/index.js",
-      "it-pushable": "https://ga.jspm.dev/npm:it-pushable@1.4.0/index.js",
-      "loglevel": "https://ga.jspm.dev/npm:loglevel@1.6.8/lib/loglevel.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js",
-      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js",
-      "p-fifo": "https://ga.jspm.dev/npm:p-fifo@1.0.0/index.js",
-      "streaming-iterables": "https://ga.jspm.dev/npm:streaming-iterables@4.1.2/dist/index.js"
+    "https://ga.jspm.io/npm:@ndn/fw@0.0.20191223-beta.1/": {
+      "@ndn/packet": "https://ga.jspm.io/npm:@ndn/packet@0.0.20191223-beta.1/lib/mod.js",
+      "@ndn/tlv": "https://ga.jspm.io/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "hirestime": "https://ga.jspm.io/npm:hirestime@4.0.0/index.js",
+      "it-pushable": "https://ga.jspm.io/npm:it-pushable@1.4.0/index.js",
+      "loglevel": "https://ga.jspm.io/npm:loglevel@1.6.8/lib/loglevel.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js",
+      "p-defer": "https://ga.jspm.io/npm:p-defer@3.0.0/index.js",
+      "p-fifo": "https://ga.jspm.io/npm:p-fifo@1.0.0/index.js",
+      "streaming-iterables": "https://ga.jspm.io/npm:streaming-iterables@4.1.2/dist/index.js"
     },
-    "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/": {
-      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.dev/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
-      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
-      "buffer-compare": "https://ga.jspm.dev/npm:buffer-compare@1.1.1/index.js",
-      "minimalistic-assert": "https://ga.jspm.dev/npm:minimalistic-assert@1.0.1/index.js"
+    "https://ga.jspm.io/npm:@ndn/packet@0.0.20191223-beta.1/": {
+      "@ndn/packet/lib/platform/mod.js": "https://ga.jspm.io/npm:@ndn/packet@0.0.20191223-beta.1/lib/platform/browser.js",
+      "@ndn/tlv": "https://ga.jspm.io/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js",
+      "buffer-compare": "https://ga.jspm.io/npm:buffer-compare@1.1.1/index.js",
+      "minimalistic-assert": "https://ga.jspm.io/npm:minimalistic-assert@1.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:it-pushable@1.4.0/": {
-      "fast-fifo": "https://ga.jspm.dev/npm:fast-fifo@1.0.0/index.js"
+    "https://ga.jspm.io/npm:it-pushable@1.4.0/": {
+      "fast-fifo": "https://ga.jspm.io/npm:fast-fifo@1.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:p-fifo@1.0.0/": {
-      "fast-fifo": "https://ga.jspm.dev/npm:fast-fifo@1.0.0/index.js",
-      "p-defer": "https://ga.jspm.dev/npm:p-defer@3.0.0/index.js"
+    "https://ga.jspm.io/npm:p-fifo@1.0.0/": {
+      "fast-fifo": "https://ga.jspm.io/npm:fast-fifo@1.0.0/index.js",
+      "p-defer": "https://ga.jspm.io/npm:p-defer@3.0.0/index.js"
     }
   }
 }

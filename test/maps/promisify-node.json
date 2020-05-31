@@ -1,18 +1,18 @@
 {
   "imports": {
-    "promisify-node": "https://ga.jspm.dev/npm:promisify-node@0.5.0/index.js"
+    "promisify-node": "https://ga.jspm.io/npm:promisify-node@0.5.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:asap@2.0.6/": {
-      "asap/raw.js": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    "https://ga.jspm.io/npm:asap@2.0.6/": {
+      "asap/raw.js": "https://ga.jspm.io/npm:asap@2.0.6/browser-raw.js"
     },
-    "https://ga.jspm.dev/npm:nodegit-promise@4.0.0/": {
-      "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js",
-      "asap/raw": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    "https://ga.jspm.io/npm:nodegit-promise@4.0.0/": {
+      "asap": "https://ga.jspm.io/npm:asap@2.0.6/browser-asap.js",
+      "asap/raw": "https://ga.jspm.io/npm:asap@2.0.6/browser-raw.js"
     },
-    "https://ga.jspm.dev/npm:promisify-node@0.5.0/": {
-      "nodegit-promise": "https://ga.jspm.dev/npm:nodegit-promise@4.0.0/index.js",
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:promisify-node@0.5.0/": {
+      "nodegit-promise": "https://ga.jspm.io/npm:nodegit-promise@4.0.0/index.js",
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

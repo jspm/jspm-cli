@@ -1,5 +1,5 @@
 {
   "imports": {
-    "leven": "https://ga.jspm.dev/npm:leven@3.1.0/index.js"
+    "leven": "https://ga.jspm.io/npm:leven@3.1.0/index.js"
   }
 }

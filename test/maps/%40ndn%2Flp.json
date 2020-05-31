@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@ndn/lp": "https://ga.jspm.dev/npm:@ndn/lp@0.0.20191223-beta.1/lib/mod.js"
+    "@ndn/lp": "https://ga.jspm.io/npm:@ndn/lp@0.0.20191223-beta.1/lib/mod.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@ndn/lp@0.0.20191223-beta.1/": {
-      "@ndn/tlv": "https://ga.jspm.dev/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
+    "https://ga.jspm.io/npm:@ndn/lp@0.0.20191223-beta.1/": {
+      "@ndn/tlv": "https://ga.jspm.io/npm:@ndn/tlv@0.0.20191223-beta.1/lib/mod.js"
     }
   }
 }

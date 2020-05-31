@@ -1,13 +1,13 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "nconf": "https://ga.jspm.dev/npm:nconf@0.10.0/lib/nconf.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "nconf": "https://ga.jspm.io/npm:nconf@0.10.0/lib/nconf.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:nconf@0.10.0/": {
-      "async": "https://ga.jspm.dev/npm:async@1.5.2/lib/async.js",
-      "ini": "https://ga.jspm.dev/npm:ini@1.3.5/ini.js"
+    "https://ga.jspm.io/npm:nconf@0.10.0/": {
+      "async": "https://ga.jspm.io/npm:async@1.5.2/lib/async.js",
+      "ini": "https://ga.jspm.io/npm:ini@1.3.5/ini.js"
     }
   }
 }

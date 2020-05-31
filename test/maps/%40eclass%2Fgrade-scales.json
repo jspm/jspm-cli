@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@eclass/grade-scales": "https://ga.jspm.dev/npm:@eclass/grade-scales@1.5.4/dist/index.js"
+    "@eclass/grade-scales": "https://ga.jspm.io/npm:@eclass/grade-scales@1.5.4/dist/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@webassemblyjs/helper-wasm-bytecode": "https://ga.jspm.dev/npm:@webassemblyjs/helper-wasm-bytecode@1.9.0/lib/index.js"
+    "@webassemblyjs/helper-wasm-bytecode": "https://ga.jspm.io/npm:@webassemblyjs/helper-wasm-bytecode@1.9.0/lib/index.js"
   }
 }

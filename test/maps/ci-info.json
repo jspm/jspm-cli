@@ -1,6 +1,6 @@
 {
   "imports": {
-    "ci-info": "https://ga.jspm.dev/npm:ci-info@2.0.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "ci-info": "https://ga.jspm.io/npm:ci-info@2.0.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "vuex": "https://ga.jspm.dev/npm:vuex@3.4.0/dist/vuex.common.js"
+    "vuex": "https://ga.jspm.io/npm:vuex@3.4.0/dist/vuex.common.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "symbol-tree": "https://ga.jspm.dev/npm:symbol-tree@3.2.4/lib/SymbolTree.js"
+    "symbol-tree": "https://ga.jspm.io/npm:symbol-tree@3.2.4/lib/SymbolTree.js"
   }
 }

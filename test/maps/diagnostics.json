@@ -1,5 +1,5 @@
 {
   "imports": {
-    "diagnostics": "https://ga.jspm.dev/npm:diagnostics@2.0.2/browser/index.js"
+    "diagnostics": "https://ga.jspm.io/npm:diagnostics@2.0.2/browser/index.js"
   }
 }

@@ -1,10 +1,10 @@
 {
   "imports": {
-    "safe-regex": "https://ga.jspm.dev/npm:safe-regex@2.1.1/index.js"
+    "safe-regex": "https://ga.jspm.io/npm:safe-regex@2.1.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:safe-regex@2.1.1/": {
-      "regexp-tree": "https://ga.jspm.dev/npm:regexp-tree@0.1.21/index.js"
+    "https://ga.jspm.io/npm:safe-regex@2.1.1/": {
+      "regexp-tree": "https://ga.jspm.io/npm:regexp-tree@0.1.21/index.js"
     }
   }
 }

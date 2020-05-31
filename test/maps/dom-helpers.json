@@ -1,11 +1,11 @@
 {
   "imports": {
-    "dom-helpers": "https://ga.jspm.dev/npm:dom-helpers@5.1.4/cjs/index.js"
+    "dom-helpers": "https://ga.jspm.io/npm:dom-helpers@5.1.4/cjs/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-helpers@5.1.4/": {
-      "@babel/runtime/helpers/extends": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/extends.js",
-      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.dev/npm:@babel/runtime@7.10.1/helpers/interopRequireDefault.js"
+    "https://ga.jspm.io/npm:dom-helpers@5.1.4/": {
+      "@babel/runtime/helpers/extends": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/extends.js",
+      "@babel/runtime/helpers/interopRequireDefault": "https://ga.jspm.io/npm:@babel/runtime@7.10.2/helpers/interopRequireDefault.js"
     }
   }
 }

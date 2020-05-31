@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@smotaal.io/dark-mode-controller": "https://ga.jspm.dev/npm:@smotaal.io/dark-mode-controller@0.0.6/dark-mode-controller.js"
+    "@smotaal.io/dark-mode-controller": "https://ga.jspm.io/npm:@smotaal.io/dark-mode-controller@0.0.6/dark-mode-controller.js"
   }
 }

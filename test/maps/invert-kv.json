@@ -1,5 +1,5 @@
 {
   "imports": {
-    "invert-kv": "https://ga.jspm.dev/npm:invert-kv@3.0.1/index.js"
+    "invert-kv": "https://ga.jspm.io/npm:invert-kv@3.0.1/index.js"
   }
 }

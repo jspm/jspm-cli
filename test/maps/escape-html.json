@@ -1,5 +1,5 @@
 {
   "imports": {
-    "escape-html": "https://ga.jspm.dev/npm:escape-html@1.0.3/index.js"
+    "escape-html": "https://ga.jspm.io/npm:escape-html@1.0.3/index.js"
   }
 }

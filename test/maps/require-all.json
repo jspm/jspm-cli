@@ -1,6 +1,6 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "require-all": "https://ga.jspm.dev/npm:require-all@3.0.0/index.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "require-all": "https://ga.jspm.io/npm:require-all@3.0.0/index.js"
   }
 }

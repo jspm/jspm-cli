@@ -1,10 +1,10 @@
 {
   "imports": {
-    "ropo": "https://ga.jspm.dev/npm:ropo@2.11.0/edition-browsers/index.js"
+    "ropo": "https://ga.jspm.io/npm:ropo@2.11.0/edition-browsers/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:ropo@2.11.0/": {
-      "typechecker": "https://ga.jspm.dev/npm:typechecker@7.4.0/edition-browsers/index.js"
+    "https://ga.jspm.io/npm:ropo@2.11.0/": {
+      "typechecker": "https://ga.jspm.io/npm:typechecker@7.4.0/edition-browsers/index.js"
     }
   }
 }

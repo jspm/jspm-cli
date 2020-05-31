@@ -1,12 +1,12 @@
 {
   "imports": {
-    "@wheelroom/admin-core": "https://ga.jspm.dev/npm:@wheelroom/admin-core@1.2.2/dist/index.js",
-    "@wheelroom/admin-theme-switcher": "https://ga.jspm.dev/npm:@wheelroom/admin-theme-switcher@1.2.2/dist/index.js",
-    "react": "https://ga.jspm.dev/npm:react@16.13.1/index.js"
+    "@wheelroom/admin-core": "https://ga.jspm.io/npm:@wheelroom/admin-core@1.2.2/dist/index.js",
+    "@wheelroom/admin-theme-switcher": "https://ga.jspm.io/npm:@wheelroom/admin-theme-switcher@1.2.2/dist/index.js",
+    "react": "https://ga.jspm.io/npm:react@16.13.1/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react@16.13.1/": {
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js"
+    "https://ga.jspm.io/npm:react@16.13.1/": {
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
     }
   }
 }

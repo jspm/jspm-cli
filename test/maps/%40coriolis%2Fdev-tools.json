@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@coriolis/dev-tools": "https://ga.jspm.dev/npm:@coriolis/dev-tools@1.0.0-alpha1/dist/cjs/index.js"
+    "@coriolis/dev-tools": "https://ga.jspm.io/npm:@coriolis/dev-tools@1.0.0-alpha1/dist/cjs/index.js"
   }
 }

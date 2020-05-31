@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@protobufjs/fetch": "https://ga.jspm.dev/npm:@protobufjs/fetch@1.1.0/index.js"
+    "@protobufjs/fetch": "https://ga.jspm.io/npm:@protobufjs/fetch@1.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@protobufjs/fetch@1.1.0/": {
-      "@protobufjs/aspromise": "https://ga.jspm.dev/npm:@protobufjs/aspromise@1.1.2/index.js",
-      "@protobufjs/inquire": "https://ga.jspm.dev/npm:@protobufjs/inquire@1.1.0/index.js"
+    "https://ga.jspm.io/npm:@protobufjs/fetch@1.1.0/": {
+      "@protobufjs/aspromise": "https://ga.jspm.io/npm:@protobufjs/aspromise@1.1.2/index.js",
+      "@protobufjs/inquire": "https://ga.jspm.io/npm:@protobufjs/inquire@1.1.0/index.js"
     }
   }
 }

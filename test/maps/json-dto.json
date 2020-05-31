@@ -1,5 +1,5 @@
 {
   "imports": {
-    "json-dto": "https://ga.jspm.dev/npm:json-dto@1.0.0-snapshot.3/dest/index.js"
+    "json-dto": "https://ga.jspm.io/npm:json-dto@1.0.0-snapshot.3/dest/index.js"
   }
 }

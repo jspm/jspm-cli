@@ -1,13 +1,13 @@
 {
   "imports": {
-    "loose-envify": "https://ga.jspm.dev/npm:loose-envify@1.4.0/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "loose-envify": "https://ga.jspm.io/npm:loose-envify@1.4.0/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:loose-envify@1.4.0/": {
-      "js-tokens": "https://ga.jspm.dev/npm:js-tokens@4.0.0/index.js"
+    "https://ga.jspm.io/npm:loose-envify@1.4.0/": {
+      "js-tokens": "https://ga.jspm.io/npm:js-tokens@4.0.0/index.js"
     }
   }
 }

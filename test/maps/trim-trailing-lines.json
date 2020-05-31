@@ -1,5 +1,5 @@
 {
   "imports": {
-    "trim-trailing-lines": "https://ga.jspm.dev/npm:trim-trailing-lines@1.1.3/index.js"
+    "trim-trailing-lines": "https://ga.jspm.io/npm:trim-trailing-lines@1.1.3/index.js"
   }
 }

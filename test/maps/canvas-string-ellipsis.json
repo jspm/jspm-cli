@@ -1,5 +1,5 @@
 {
   "imports": {
-    "canvas-string-ellipsis": "https://ga.jspm.dev/npm:canvas-string-ellipsis@1.0.1/dist/index.js"
+    "canvas-string-ellipsis": "https://ga.jspm.io/npm:canvas-string-ellipsis@1.0.1/dist/index.js"
   }
 }

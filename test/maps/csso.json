@@ -1,16 +1,16 @@
 {
   "imports": {
-    "csso": "https://ga.jspm.dev/npm:csso@4.0.3/lib/index.js"
+    "csso": "https://ga.jspm.io/npm:csso@4.0.3/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:css-tree@1.0.0-alpha.39/": {
-      "mdn-data/css/at-rules.json": "https://ga.jspm.dev/npm:mdn-data@2.0.6/css/at-rules.json.js",
-      "mdn-data/css/properties.json": "https://ga.jspm.dev/npm:mdn-data@2.0.6/css/properties.json.js",
-      "mdn-data/css/syntaxes.json": "https://ga.jspm.dev/npm:mdn-data@2.0.6/css/syntaxes.json.js",
-      "source-map/lib/source-map-generator": "https://ga.jspm.dev/npm:source-map@0.6.1/lib/source-map-generator.js"
+    "https://ga.jspm.io/npm:css-tree@1.0.0-alpha.39/": {
+      "mdn-data/css/at-rules.json": "https://ga.jspm.io/npm:mdn-data@2.0.6/css/at-rules.json.js",
+      "mdn-data/css/properties.json": "https://ga.jspm.io/npm:mdn-data@2.0.6/css/properties.json.js",
+      "mdn-data/css/syntaxes.json": "https://ga.jspm.io/npm:mdn-data@2.0.6/css/syntaxes.json.js",
+      "source-map/lib/source-map-generator": "https://ga.jspm.io/npm:source-map@0.6.1/lib/source-map-generator.js"
     },
-    "https://ga.jspm.dev/npm:csso@4.0.3/": {
-      "css-tree": "https://ga.jspm.dev/npm:css-tree@1.0.0-alpha.39/lib/index.js"
+    "https://ga.jspm.io/npm:csso@4.0.3/": {
+      "css-tree": "https://ga.jspm.io/npm:css-tree@1.0.0-alpha.39/lib/index.js"
     }
   }
 }

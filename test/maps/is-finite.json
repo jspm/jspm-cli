@@ -1,5 +1,5 @@
 {
   "imports": {
-    "is-finite": "https://ga.jspm.dev/npm:is-finite@1.1.0/index.js"
+    "is-finite": "https://ga.jspm.io/npm:is-finite@1.1.0/index.js"
   }
 }

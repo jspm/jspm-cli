@@ -1,10 +1,10 @@
 {
   "imports": {
-    "react-stylex": "https://ga.jspm.dev/npm:react-stylex@0.1.14/build/stylex.js"
+    "react-stylex": "https://ga.jspm.io/npm:react-stylex@0.1.14/build/stylex.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:react-stylex@0.1.14/": {
-      "invariant": "https://ga.jspm.dev/npm:invariant@2.2.4/browser.js"
+    "https://ga.jspm.io/npm:react-stylex@0.1.14/": {
+      "invariant": "https://ga.jspm.io/npm:invariant@2.2.4/browser.js"
     }
   }
 }

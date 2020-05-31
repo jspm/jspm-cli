@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@storeon/crosstab": "https://ga.jspm.dev/npm:@storeon/crosstab@1.0.1/index.js"
+    "@storeon/crosstab": "https://ga.jspm.io/npm:@storeon/crosstab@1.0.1/index.js"
   }
 }

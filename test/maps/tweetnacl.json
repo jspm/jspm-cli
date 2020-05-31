@@ -1,6 +1,6 @@
 {
   "imports": {
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "tweetnacl": "https://ga.jspm.dev/npm:tweetnacl@1.0.3/nacl-fast.js"
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "tweetnacl": "https://ga.jspm.io/npm:tweetnacl@1.0.3/nacl-fast.js"
   }
 }

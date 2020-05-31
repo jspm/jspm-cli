@@ -1,5 +1,5 @@
 {
   "imports": {
-    "use": "https://ga.jspm.dev/npm:use@3.1.1/index.js"
+    "use": "https://ga.jspm.io/npm:use@3.1.1/index.js"
   }
 }

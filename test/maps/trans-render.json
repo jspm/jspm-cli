@@ -1,5 +1,5 @@
 {
   "imports": {
-    "trans-render": "https://ga.jspm.dev/npm:trans-render@0.0.182/init.js"
+    "trans-render": "https://ga.jspm.io/npm:trans-render@0.0.182/init.js"
   }
 }

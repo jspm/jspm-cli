@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@aoneill01/wasm-gamebuino": "https://ga.jspm.dev/npm:@aoneill01/wasm-gamebuino@0.5.0/index.js"
+    "@aoneill01/wasm-gamebuino": "https://ga.jspm.io/npm:@aoneill01/wasm-gamebuino@0.5.0/index.js"
   }
 }

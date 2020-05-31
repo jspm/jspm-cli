@@ -1,25 +1,25 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "typeorm": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "typeorm": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/index.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:sha.js@2.4.11/": {
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "safe-buffer": "https://ga.jspm.dev/npm:safe-buffer@5.2.1/index.js"
+    "https://ga.jspm.io/npm:sha.js@2.4.11/": {
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "safe-buffer": "https://ga.jspm.io/npm:safe-buffer@5.2.1/index.js"
     },
-    "https://ga.jspm.dev/npm:typeorm@0.2.25/": {
-      "reflect-metadata": "https://ga.jspm.dev/npm:reflect-metadata@0.1.13/Reflect.js",
-      "sha.js": "https://ga.jspm.dev/npm:sha.js@2.4.11/index.js",
-      "tslib": "https://ga.jspm.dev/npm:tslib@1.13.0/tslib.js",
-      "typeorm/browser/driver/mongodb/MongoDriver.js": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
-      "typeorm/browser/driver/mongodb/MongoQueryRunner.js": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
-      "typeorm/browser/driver/mysql/MysqlDriver.js": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
-      "typeorm/browser/driver/postgres/PostgresDriver.js": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
-      "typeorm/browser/entity-manager/MongoEntityManager.js": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
-      "typeorm/browser/repository/MongoRepository.js": "https://ga.jspm.dev/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js"
+    "https://ga.jspm.io/npm:typeorm@0.2.25/": {
+      "reflect-metadata": "https://ga.jspm.io/npm:reflect-metadata@0.1.13/Reflect.js",
+      "sha.js": "https://ga.jspm.io/npm:sha.js@2.4.11/index.js",
+      "tslib": "https://ga.jspm.io/npm:tslib@1.13.0/tslib.js",
+      "typeorm/browser/driver/mongodb/MongoDriver.js": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
+      "typeorm/browser/driver/mongodb/MongoQueryRunner.js": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
+      "typeorm/browser/driver/mysql/MysqlDriver.js": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
+      "typeorm/browser/driver/postgres/PostgresDriver.js": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
+      "typeorm/browser/entity-manager/MongoEntityManager.js": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js",
+      "typeorm/browser/repository/MongoRepository.js": "https://ga.jspm.io/npm:typeorm@0.2.25/browser/platform/BrowserDisabledDriversDummy.js"
     }
   }
 }

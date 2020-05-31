@@ -1,5 +1,5 @@
 {
   "imports": {
-    "ansistyles": "https://ga.jspm.dev/npm:ansistyles@0.1.3/ansistyles.js"
+    "ansistyles": "https://ga.jspm.io/npm:ansistyles@0.1.3/ansistyles.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "state-toggle": "https://ga.jspm.dev/npm:state-toggle@1.0.3/index.js"
+    "state-toggle": "https://ga.jspm.io/npm:state-toggle@1.0.3/index.js"
   }
 }

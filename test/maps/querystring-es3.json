@@ -1,5 +1,5 @@
 {
   "imports": {
-    "querystring-es3": "https://ga.jspm.dev/npm:querystring-es3@0.2.1/index.js"
+    "querystring-es3": "https://ga.jspm.io/npm:querystring-es3@0.2.1/index.js"
   }
 }

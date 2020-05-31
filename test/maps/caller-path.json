@@ -1,13 +1,13 @@
 {
   "imports": {
-    "caller-path": "https://ga.jspm.dev/npm:caller-path@3.0.0/index.js"
+    "caller-path": "https://ga.jspm.io/npm:caller-path@3.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:caller-callsite@4.1.0/": {
-      "callsites": "https://ga.jspm.dev/npm:callsites@3.1.0/index.js"
+    "https://ga.jspm.io/npm:caller-callsite@4.1.0/": {
+      "callsites": "https://ga.jspm.io/npm:callsites@3.1.0/index.js"
     },
-    "https://ga.jspm.dev/npm:caller-path@3.0.0/": {
-      "caller-callsite": "https://ga.jspm.dev/npm:caller-callsite@4.1.0/index.js"
+    "https://ga.jspm.io/npm:caller-path@3.0.0/": {
+      "caller-callsite": "https://ga.jspm.io/npm:caller-callsite@4.1.0/index.js"
     }
   }
 }

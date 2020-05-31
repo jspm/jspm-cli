@@ -1,5 +1,5 @@
 {
   "imports": {
-    "semver-store": "https://ga.jspm.dev/npm:semver-store@0.3.0/index.js"
+    "semver-store": "https://ga.jspm.io/npm:semver-store@0.3.0/index.js"
   }
 }

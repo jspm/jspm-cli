@@ -1,21 +1,21 @@
 {
   "imports": {
-    "@jsenv/codecov-upload": "https://ga.jspm.dev/npm:@jsenv/codecov-upload@3.4.1/index.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "module": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "@jsenv/codecov-upload": "https://ga.jspm.io/npm:@jsenv/codecov-upload@3.4.1/index.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@jsenv/codecov-upload@3.4.1/": {
-      "@jsenv/util": "https://ga.jspm.dev/npm:@jsenv/util@3.5.2/index.js"
+    "https://ga.jspm.io/npm:@jsenv/codecov-upload@3.4.1/": {
+      "@jsenv/util": "https://ga.jspm.io/npm:@jsenv/util@3.5.2/index.js"
     },
-    "https://ga.jspm.dev/npm:@jsenv/util@3.5.2/": {
-      "@jsenv/cancellation": "https://ga.jspm.dev/npm:@jsenv/cancellation@1.4.1/index.js",
-      "@jsenv/node-signals": "https://ga.jspm.dev/npm:@jsenv/node-signals@2.0.1/index.js",
-      "@jsenv/url-meta": "https://ga.jspm.dev/npm:@jsenv/url-meta@5.2.2/index.js"
+    "https://ga.jspm.io/npm:@jsenv/util@3.5.2/": {
+      "@jsenv/cancellation": "https://ga.jspm.io/npm:@jsenv/cancellation@1.4.1/index.js",
+      "@jsenv/node-signals": "https://ga.jspm.io/npm:@jsenv/node-signals@2.0.1/index.js",
+      "@jsenv/url-meta": "https://ga.jspm.io/npm:@jsenv/url-meta@5.2.2/index.js"
     }
   }
 }

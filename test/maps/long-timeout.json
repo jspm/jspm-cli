@@ -1,5 +1,5 @@
 {
   "imports": {
-    "long-timeout": "https://ga.jspm.dev/npm:long-timeout@0.1.1/index.js"
+    "long-timeout": "https://ga.jspm.io/npm:long-timeout@0.1.1/index.js"
   }
 }

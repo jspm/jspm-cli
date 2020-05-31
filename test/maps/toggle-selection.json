@@ -1,5 +1,5 @@
 {
   "imports": {
-    "toggle-selection": "https://ga.jspm.dev/npm:toggle-selection@1.0.6/index.js"
+    "toggle-selection": "https://ga.jspm.io/npm:toggle-selection@1.0.6/index.js"
   }
 }

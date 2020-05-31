@@ -1,28 +1,28 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "css-color-function": "https://ga.jspm.dev/npm:css-color-function@1.3.3/lib/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "css-color-function": "https://ga.jspm.io/npm:css-color-function@1.3.3/lib/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:color-convert@1.9.3/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.3/index.js"
+    "https://ga.jspm.io/npm:color-convert@1.9.3/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.3/index.js"
     },
-    "https://ga.jspm.dev/npm:color-string@0.3.0/": {
-      "color-name": "https://ga.jspm.dev/npm:color-name@1.1.4/index.js"
+    "https://ga.jspm.io/npm:color-string@0.3.0/": {
+      "color-name": "https://ga.jspm.io/npm:color-name@1.1.4/index.js"
     },
-    "https://ga.jspm.dev/npm:color@0.11.4/": {
-      "clone": "https://ga.jspm.dev/npm:clone@1.0.4/clone.js",
-      "color-convert": "https://ga.jspm.dev/npm:color-convert@1.9.3/index.js",
-      "color-string": "https://ga.jspm.dev/npm:color-string@0.3.0/color-string.js"
+    "https://ga.jspm.io/npm:color@0.11.4/": {
+      "clone": "https://ga.jspm.io/npm:clone@1.0.4/clone.js",
+      "color-convert": "https://ga.jspm.io/npm:color-convert@1.9.3/index.js",
+      "color-string": "https://ga.jspm.io/npm:color-string@0.3.0/color-string.js"
     },
-    "https://ga.jspm.dev/npm:css-color-function@1.3.3/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@0.1.0/index.js",
-      "color": "https://ga.jspm.dev/npm:color@0.11.4/index.js",
-      "debug": "https://ga.jspm.dev/npm:debug@3.2.6/src/browser.js"
+    "https://ga.jspm.io/npm:css-color-function@1.3.3/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@0.1.0/index.js",
+      "color": "https://ga.jspm.io/npm:color@0.11.4/index.js",
+      "debug": "https://ga.jspm.io/npm:debug@3.2.6/src/browser.js"
     },
-    "https://ga.jspm.dev/npm:debug@3.2.6/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.1.2/index.js"
+    "https://ga.jspm.io/npm:debug@3.2.6/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.1.2/index.js"
     }
   }
 }

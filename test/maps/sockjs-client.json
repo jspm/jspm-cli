@@ -1,33 +1,33 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "http": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "sockjs-client": "https://ga.jspm.dev/npm:sockjs-client@1.4.0/lib/entry.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
+    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
+    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
+    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "sockjs-client": "https://ga.jspm.io/npm:sockjs-client@1.4.0/lib/entry.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:eventsource@1.0.7/": {
-      "original": "https://ga.jspm.dev/npm:original@1.0.2/index.js"
+    "https://ga.jspm.io/npm:eventsource@1.0.7/": {
+      "original": "https://ga.jspm.io/npm:original@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:original@1.0.2/": {
-      "url-parse": "https://ga.jspm.dev/npm:url-parse@1.4.7/index.js"
+    "https://ga.jspm.io/npm:original@1.0.2/": {
+      "url-parse": "https://ga.jspm.io/npm:url-parse@1.4.7/index.js"
     },
-    "https://ga.jspm.dev/npm:sockjs-client@1.4.0/": {
-      "eventsource": "https://ga.jspm.dev/npm:eventsource@1.0.7/lib/eventsource.js",
-      "inherits": "https://ga.jspm.dev/npm:inherits@2.0.4/inherits_browser.js",
-      "json3": "https://ga.jspm.dev/npm:json3@3.3.3/lib/json3.js",
-      "sockjs-client/lib/transport/driver/websocket.js": "https://ga.jspm.dev/npm:sockjs-client@1.4.0/lib/transport/browser/websocket.js",
-      "sockjs-client/lib/transport/driver/xhr.js": "https://ga.jspm.dev/npm:sockjs-client@1.4.0/lib/transport/browser/abstract-xhr.js",
-      "url-parse": "https://ga.jspm.dev/npm:url-parse@1.4.7/index.js"
+    "https://ga.jspm.io/npm:sockjs-client@1.4.0/": {
+      "eventsource": "https://ga.jspm.io/npm:eventsource@1.0.7/lib/eventsource.js",
+      "inherits": "https://ga.jspm.io/npm:inherits@2.0.4/inherits_browser.js",
+      "json3": "https://ga.jspm.io/npm:json3@3.3.3/lib/json3.js",
+      "sockjs-client/lib/transport/driver/websocket.js": "https://ga.jspm.io/npm:sockjs-client@1.4.0/lib/transport/browser/websocket.js",
+      "sockjs-client/lib/transport/driver/xhr.js": "https://ga.jspm.io/npm:sockjs-client@1.4.0/lib/transport/browser/abstract-xhr.js",
+      "url-parse": "https://ga.jspm.io/npm:url-parse@1.4.7/index.js"
     },
-    "https://ga.jspm.dev/npm:url-parse@1.4.7/": {
-      "querystringify": "https://ga.jspm.dev/npm:querystringify@2.1.1/index.js",
-      "requires-port": "https://ga.jspm.dev/npm:requires-port@1.0.0/index.js"
+    "https://ga.jspm.io/npm:url-parse@1.4.7/": {
+      "querystringify": "https://ga.jspm.io/npm:querystringify@2.1.1/index.js",
+      "requires-port": "https://ga.jspm.io/npm:requires-port@1.0.0/index.js"
     }
   }
 }

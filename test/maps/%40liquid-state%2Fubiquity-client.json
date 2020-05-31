@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@liquid-state/ubiquity-client": "https://ga.jspm.dev/npm:@liquid-state/ubiquity-client@0.1.12/dist/index.js"
+    "@liquid-state/ubiquity-client": "https://ga.jspm.io/npm:@liquid-state/ubiquity-client@0.1.12/dist/index.js"
   }
 }

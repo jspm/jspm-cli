@@ -1,5 +1,5 @@
 {
   "imports": {
-    "eslint-rule-composer": "https://ga.jspm.dev/npm:eslint-rule-composer@0.3.0/lib/rule-composer.js"
+    "eslint-rule-composer": "https://ga.jspm.io/npm:eslint-rule-composer@0.3.0/lib/rule-composer.js"
   }
 }

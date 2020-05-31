@@ -1,11 +1,11 @@
 {
   "imports": {
-    "bcrypt-pbkdf": "https://ga.jspm.dev/npm:bcrypt-pbkdf@1.0.2/index.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
+    "bcrypt-pbkdf": "https://ga.jspm.io/npm:bcrypt-pbkdf@1.0.2/index.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:bcrypt-pbkdf@1.0.2/": {
-      "tweetnacl": "https://ga.jspm.dev/npm:tweetnacl@0.14.5/nacl-fast.js"
+    "https://ga.jspm.io/npm:bcrypt-pbkdf@1.0.2/": {
+      "tweetnacl": "https://ga.jspm.io/npm:tweetnacl@0.14.5/nacl-fast.js"
     }
   }
 }

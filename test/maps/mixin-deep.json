@@ -1,5 +1,5 @@
 {
   "imports": {
-    "mixin-deep": "https://ga.jspm.dev/npm:mixin-deep@2.0.1/index.js"
+    "mixin-deep": "https://ga.jspm.io/npm:mixin-deep@2.0.1/index.js"
   }
 }

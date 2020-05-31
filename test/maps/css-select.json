@@ -1,24 +1,24 @@
 {
   "imports": {
-    "css-select": "https://ga.jspm.dev/npm:css-select@2.1.0/index.js"
+    "css-select": "https://ga.jspm.io/npm:css-select@2.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:css-select@2.1.0/": {
-      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js",
-      "css-what": "https://ga.jspm.dev/npm:css-what@3.2.1/lib/index.js",
-      "domutils": "https://ga.jspm.dev/npm:domutils@1.7.0/index.js",
-      "nth-check": "https://ga.jspm.dev/npm:nth-check@1.0.2/index.js"
+    "https://ga.jspm.io/npm:css-select@2.1.0/": {
+      "boolbase": "https://ga.jspm.io/npm:boolbase@1.0.0/index.js",
+      "css-what": "https://ga.jspm.io/npm:css-what@3.2.1/lib/index.js",
+      "domutils": "https://ga.jspm.io/npm:domutils@1.7.0/index.js",
+      "nth-check": "https://ga.jspm.io/npm:nth-check@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:dom-serializer@1.0.1/": {
-      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@2.0.1/lib/index.js",
-      "entities": "https://ga.jspm.dev/npm:entities@2.0.2/lib/index.js"
+    "https://ga.jspm.io/npm:dom-serializer@1.0.1/": {
+      "domelementtype": "https://ga.jspm.io/npm:domelementtype@2.0.1/lib/index.js",
+      "entities": "https://ga.jspm.io/npm:entities@2.0.2/lib/index.js"
     },
-    "https://ga.jspm.dev/npm:domutils@1.7.0/": {
-      "dom-serializer": "https://ga.jspm.dev/npm:dom-serializer@1.0.1/lib/index.js",
-      "domelementtype": "https://ga.jspm.dev/npm:domelementtype@1.3.1/index.js"
+    "https://ga.jspm.io/npm:domutils@1.7.0/": {
+      "dom-serializer": "https://ga.jspm.io/npm:dom-serializer@1.0.1/lib/index.js",
+      "domelementtype": "https://ga.jspm.io/npm:domelementtype@1.3.1/index.js"
     },
-    "https://ga.jspm.dev/npm:nth-check@1.0.2/": {
-      "boolbase": "https://ga.jspm.dev/npm:boolbase@1.0.0/index.js"
+    "https://ga.jspm.io/npm:nth-check@1.0.2/": {
+      "boolbase": "https://ga.jspm.io/npm:boolbase@1.0.0/index.js"
     }
   }
 }

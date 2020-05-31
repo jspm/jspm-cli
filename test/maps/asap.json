@@ -1,10 +1,10 @@
 {
   "imports": {
-    "asap": "https://ga.jspm.dev/npm:asap@2.0.6/browser-asap.js"
+    "asap": "https://ga.jspm.io/npm:asap@2.0.6/browser-asap.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:asap@2.0.6/": {
-      "asap/raw.js": "https://ga.jspm.dev/npm:asap@2.0.6/browser-raw.js"
+    "https://ga.jspm.io/npm:asap@2.0.6/": {
+      "asap/raw.js": "https://ga.jspm.io/npm:asap@2.0.6/browser-raw.js"
     }
   }
 }

@@ -1,35 +1,35 @@
 {
   "imports": {
-    "@angular/animations": "https://ga.jspm.dev/npm:@angular/animations@9.1.9/bundles/animations.umd.js",
-    "@angular/animations/browser": "https://ga.jspm.dev/npm:@angular/animations@9.1.9/bundles/animations-browser.umd.js",
-    "@angular/common": "https://ga.jspm.dev/npm:@angular/common@9.1.9/bundles/common.umd.js",
-    "@angular/common/http": "https://ga.jspm.dev/npm:@angular/common@9.1.9/bundles/common-http.umd.js",
-    "@angular/compiler": "https://ga.jspm.dev/npm:@angular/compiler@9.1.9/bundles/compiler.umd.js",
-    "@angular/core": "https://ga.jspm.dev/npm:@angular/core@9.1.9/bundles/core.umd.js",
-    "@angular/platform-browser": "https://ga.jspm.dev/npm:@angular/platform-browser@9.1.9/bundles/platform-browser.umd.js",
-    "@angular/platform-browser-dynamic": "https://ga.jspm.dev/npm:@angular/platform-browser-dynamic@9.1.9/bundles/platform-browser-dynamic.umd.js",
-    "@angular/platform-browser/animations": "https://ga.jspm.dev/npm:@angular/platform-browser@9.1.9/bundles/platform-browser-animations.umd.js",
-    "@angular/platform-server": "https://ga.jspm.dev/npm:@angular/platform-server@9.1.9/bundles/platform-server.umd.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-    "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
-    "url": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
+    "@angular/animations": "https://ga.jspm.io/npm:@angular/animations@9.1.9/bundles/animations.umd.js",
+    "@angular/animations/browser": "https://ga.jspm.io/npm:@angular/animations@9.1.9/bundles/animations-browser.umd.js",
+    "@angular/common": "https://ga.jspm.io/npm:@angular/common@9.1.9/bundles/common.umd.js",
+    "@angular/common/http": "https://ga.jspm.io/npm:@angular/common@9.1.9/bundles/common-http.umd.js",
+    "@angular/compiler": "https://ga.jspm.io/npm:@angular/compiler@9.1.9/bundles/compiler.umd.js",
+    "@angular/core": "https://ga.jspm.io/npm:@angular/core@9.1.9/bundles/core.umd.js",
+    "@angular/platform-browser": "https://ga.jspm.io/npm:@angular/platform-browser@9.1.9/bundles/platform-browser.umd.js",
+    "@angular/platform-browser-dynamic": "https://ga.jspm.io/npm:@angular/platform-browser-dynamic@9.1.9/bundles/platform-browser-dynamic.umd.js",
+    "@angular/platform-browser/animations": "https://ga.jspm.io/npm:@angular/platform-browser@9.1.9/bundles/platform-browser-animations.umd.js",
+    "@angular/platform-server": "https://ga.jspm.io/npm:@angular/platform-server@9.1.9/bundles/platform-server.umd.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+    "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js",
+    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@angular/animations@9.1.9/": {
-      "@angular/animations": "https://ga.jspm.dev/npm:@angular/animations@9.1.9/bundles/animations.umd.js"
+    "https://ga.jspm.io/npm:@angular/animations@9.1.9/": {
+      "@angular/animations": "https://ga.jspm.io/npm:@angular/animations@9.1.9/bundles/animations.umd.js"
     },
-    "https://ga.jspm.dev/npm:@angular/common@9.1.9/": {
-      "@angular/common": "https://ga.jspm.dev/npm:@angular/common@9.1.9/bundles/common.umd.js"
+    "https://ga.jspm.io/npm:@angular/common@9.1.9/": {
+      "@angular/common": "https://ga.jspm.io/npm:@angular/common@9.1.9/bundles/common.umd.js"
     },
-    "https://ga.jspm.dev/npm:@angular/platform-browser@9.1.9/": {
-      "@angular/platform-browser": "https://ga.jspm.dev/npm:@angular/platform-browser@9.1.9/bundles/platform-browser.umd.js"
+    "https://ga.jspm.io/npm:@angular/platform-browser@9.1.9/": {
+      "@angular/platform-browser": "https://ga.jspm.io/npm:@angular/platform-browser@9.1.9/bundles/platform-browser.umd.js"
     },
-    "https://ga.jspm.dev/npm:@angular/platform-server@9.1.9/": {
-      "domino": "https://ga.jspm.dev/npm:domino@2.1.5/lib/index.js",
-      "rxjs": "https://ga.jspm.dev/npm:rxjs@6.5.5/index.js",
-      "rxjs/operators": "https://ga.jspm.dev/npm:rxjs@6.5.5/operators/index.js",
-      "xhr2": "https://ga.jspm.dev/npm:xhr2@0.2.0/lib/browser.js"
+    "https://ga.jspm.io/npm:@angular/platform-server@9.1.9/": {
+      "domino": "https://ga.jspm.io/npm:domino@2.1.5/lib/index.js",
+      "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
+      "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js",
+      "xhr2": "https://ga.jspm.io/npm:xhr2@0.2.0/lib/browser.js"
     }
   }
 }

@@ -1,19 +1,19 @@
 {
   "imports": {
-    "cmd-shim": "https://ga.jspm.dev/npm:cmd-shim@4.0.1/index.js",
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "cmd-shim": "https://ga.jspm.io/npm:cmd-shim@4.0.1/index.js",
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cmd-shim@4.0.1/": {
-      "mkdirp-infer-owner": "https://ga.jspm.dev/npm:mkdirp-infer-owner@1.0.2/index.js"
+    "https://ga.jspm.io/npm:cmd-shim@4.0.1/": {
+      "mkdirp-infer-owner": "https://ga.jspm.io/npm:mkdirp-infer-owner@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:mkdirp-infer-owner@1.0.2/": {
-      "chownr": "https://ga.jspm.dev/npm:chownr@1.1.4/chownr.js",
-      "infer-owner": "https://ga.jspm.dev/npm:infer-owner@1.0.4/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@1.0.4/index.js"
+    "https://ga.jspm.io/npm:mkdirp-infer-owner@1.0.2/": {
+      "chownr": "https://ga.jspm.io/npm:chownr@1.1.4/chownr.js",
+      "infer-owner": "https://ga.jspm.io/npm:infer-owner@1.0.4/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@1.0.4/index.js"
     }
   }
 }

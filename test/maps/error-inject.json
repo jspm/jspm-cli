@@ -1,6 +1,6 @@
 {
   "imports": {
-    "error-inject": "https://ga.jspm.dev/npm:error-inject@1.0.0/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "error-inject": "https://ga.jspm.io/npm:error-inject@1.0.0/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

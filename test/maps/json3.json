@@ -1,5 +1,5 @@
 {
   "imports": {
-    "json3": "https://ga.jspm.dev/npm:json3@3.3.3/lib/json3.js"
+    "json3": "https://ga.jspm.io/npm:json3@3.3.3/lib/json3.js"
   }
 }

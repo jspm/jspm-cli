@@ -1,5 +1,5 @@
 {
   "imports": {
-    "graphtransliterator": "https://ga.jspm.dev/npm:graphtransliterator@0.6.2/lib/index.js"
+    "graphtransliterator": "https://ga.jspm.io/npm:graphtransliterator@0.6.2/lib/index.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "hashids": "https://ga.jspm.dev/npm:hashids@2.2.1/esm/index.js"
+    "hashids": "https://ga.jspm.io/npm:hashids@2.2.1/esm/index.js"
   }
 }

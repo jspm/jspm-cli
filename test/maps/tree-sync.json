@@ -1,48 +1,48 @@
 {
   "imports": {
-    "fs": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "tree-sync": "https://ga.jspm.dev/npm:tree-sync@2.0.0/index.js",
-    "util": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
+    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
+    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "tree-sync": "https://ga.jspm.io/npm:tree-sync@2.0.0/index.js",
+    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:brace-expansion@1.1.11/": {
-      "balanced-match": "https://ga.jspm.dev/npm:balanced-match@1.0.0/index.js",
-      "concat-map": "https://ga.jspm.dev/npm:concat-map@0.0.1/index.js"
+    "https://ga.jspm.io/npm:brace-expansion@1.1.11/": {
+      "balanced-match": "https://ga.jspm.io/npm:balanced-match@1.0.0/index.js",
+      "concat-map": "https://ga.jspm.io/npm:concat-map@0.0.1/index.js"
     },
-    "https://ga.jspm.dev/npm:debug@2.6.9/": {
-      "ms": "https://ga.jspm.dev/npm:ms@2.0.0/index.js"
+    "https://ga.jspm.io/npm:debug@2.6.9/": {
+      "ms": "https://ga.jspm.io/npm:ms@2.0.0/index.js"
     },
-    "https://ga.jspm.dev/npm:fs-tree-diff@0.5.9/": {
-      "heimdalljs-logger": "https://ga.jspm.dev/npm:heimdalljs-logger@0.1.10/dist/index.js",
-      "object-assign": "https://ga.jspm.dev/npm:object-assign@4.1.1/index.js",
-      "path-posix": "https://ga.jspm.dev/npm:path-posix@1.0.0/index.js",
-      "symlink-or-copy": "https://ga.jspm.dev/npm:symlink-or-copy@1.3.1/index.js"
+    "https://ga.jspm.io/npm:fs-tree-diff@0.5.9/": {
+      "heimdalljs-logger": "https://ga.jspm.io/npm:heimdalljs-logger@0.1.10/dist/index.js",
+      "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js",
+      "path-posix": "https://ga.jspm.io/npm:path-posix@1.0.0/index.js",
+      "symlink-or-copy": "https://ga.jspm.io/npm:symlink-or-copy@1.3.1/index.js"
     },
-    "https://ga.jspm.dev/npm:heimdalljs-logger@0.1.10/": {
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
-      "heimdalljs": "https://ga.jspm.dev/npm:heimdalljs@0.2.6/dist/heimdalljs.cjs.js"
+    "https://ga.jspm.io/npm:heimdalljs-logger@0.1.10/": {
+      "debug": "https://ga.jspm.io/npm:debug@2.6.9/src/browser.js",
+      "heimdalljs": "https://ga.jspm.io/npm:heimdalljs@0.2.6/dist/heimdalljs.cjs.js"
     },
-    "https://ga.jspm.dev/npm:heimdalljs@0.2.6/": {
-      "rsvp": "https://ga.jspm.dev/npm:rsvp@3.2.1/dist/rsvp.js"
+    "https://ga.jspm.io/npm:heimdalljs@0.2.6/": {
+      "rsvp": "https://ga.jspm.io/npm:rsvp@3.2.1/dist/rsvp.js"
     },
-    "https://ga.jspm.dev/npm:matcher-collection@1.1.2/": {
-      "minimatch": "https://ga.jspm.dev/npm:minimatch@3.0.4/minimatch.js"
+    "https://ga.jspm.io/npm:matcher-collection@1.1.2/": {
+      "minimatch": "https://ga.jspm.io/npm:minimatch@3.0.4/minimatch.js"
     },
-    "https://ga.jspm.dev/npm:minimatch@3.0.4/": {
-      "brace-expansion": "https://ga.jspm.dev/npm:brace-expansion@1.1.11/index.js"
+    "https://ga.jspm.io/npm:minimatch@3.0.4/": {
+      "brace-expansion": "https://ga.jspm.io/npm:brace-expansion@1.1.11/index.js"
     },
-    "https://ga.jspm.dev/npm:tree-sync@2.0.0/": {
-      "debug": "https://ga.jspm.dev/npm:debug@2.6.9/src/browser.js",
-      "fs-tree-diff": "https://ga.jspm.dev/npm:fs-tree-diff@0.5.9/lib/index.js",
-      "mkdirp": "https://ga.jspm.dev/npm:mkdirp@0.5.5/index.js",
-      "walk-sync": "https://ga.jspm.dev/npm:walk-sync@0.3.4/index.js"
+    "https://ga.jspm.io/npm:tree-sync@2.0.0/": {
+      "debug": "https://ga.jspm.io/npm:debug@2.6.9/src/browser.js",
+      "fs-tree-diff": "https://ga.jspm.io/npm:fs-tree-diff@0.5.9/lib/index.js",
+      "mkdirp": "https://ga.jspm.io/npm:mkdirp@0.5.5/index.js",
+      "walk-sync": "https://ga.jspm.io/npm:walk-sync@0.3.4/index.js"
     },
-    "https://ga.jspm.dev/npm:walk-sync@0.3.4/": {
-      "ensure-posix-path": "https://ga.jspm.dev/npm:ensure-posix-path@1.1.1/index.js",
-      "matcher-collection": "https://ga.jspm.dev/npm:matcher-collection@1.1.2/index.js"
+    "https://ga.jspm.io/npm:walk-sync@0.3.4/": {
+      "ensure-posix-path": "https://ga.jspm.io/npm:ensure-posix-path@1.1.1/index.js",
+      "matcher-collection": "https://ga.jspm.io/npm:matcher-collection@1.1.2/index.js"
     }
   }
 }

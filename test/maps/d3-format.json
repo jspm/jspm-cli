@@ -1,5 +1,5 @@
 {
   "imports": {
-    "d3-format": "https://ga.jspm.dev/npm:d3-format@1.4.4/dist/d3-format.js"
+    "d3-format": "https://ga.jspm.io/npm:d3-format@1.4.4/dist/d3-format.js"
   }
 }

@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@dv4all/wcp-utils": "https://ga.jspm.dev/npm:@dv4all/wcp-utils@0.5.1/lib/dv4wcp.utils.cjs.js"
+    "@dv4all/wcp-utils": "https://ga.jspm.io/npm:@dv4all/wcp-utils@0.5.1/lib/dv4wcp.utils.cjs.js"
   }
 }

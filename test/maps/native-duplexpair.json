@@ -1,6 +1,6 @@
 {
   "imports": {
-    "native-duplexpair": "https://ga.jspm.dev/npm:native-duplexpair@1.0.0/index.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "native-duplexpair": "https://ga.jspm.io/npm:native-duplexpair@1.0.0/index.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

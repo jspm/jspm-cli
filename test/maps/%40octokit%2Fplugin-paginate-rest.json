@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@octokit/plugin-paginate-rest": "https://ga.jspm.dev/npm:@octokit/plugin-paginate-rest@2.2.1/dist-node/index.js"
+    "@octokit/plugin-paginate-rest": "https://ga.jspm.io/npm:@octokit/plugin-paginate-rest@2.2.1/dist-node/index.js"
   }
 }

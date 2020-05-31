@@ -1,5 +1,5 @@
 {
   "imports": {
-    "array-tree-filter": "https://ga.jspm.dev/npm:array-tree-filter@2.1.0/lib/index.js"
+    "array-tree-filter": "https://ga.jspm.io/npm:array-tree-filter@2.1.0/lib/index.js"
   }
 }

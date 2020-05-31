@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@ant-design/icons-svg": "https://ga.jspm.dev/npm:@ant-design/icons-svg@4.1.0/lib/index.js"
+    "@ant-design/icons-svg": "https://ga.jspm.io/npm:@ant-design/icons-svg@4.1.0/lib/index.js"
   }
 }

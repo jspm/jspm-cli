@@ -1,5 +1,5 @@
 {
   "imports": {
-    "tiny-emitter": "https://ga.jspm.dev/npm:tiny-emitter@2.1.0/index.js"
+    "tiny-emitter": "https://ga.jspm.io/npm:tiny-emitter@2.1.0/index.js"
   }
 }

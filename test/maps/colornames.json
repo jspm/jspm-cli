@@ -1,5 +1,5 @@
 {
   "imports": {
-    "colornames": "https://ga.jspm.dev/npm:colornames@1.1.1/index.js"
+    "colornames": "https://ga.jspm.io/npm:colornames@1.1.1/index.js"
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "limiter": "https://ga.jspm.dev/npm:limiter@1.1.5/index.js",
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
+    "limiter": "https://ga.jspm.io/npm:limiter@1.1.5/index.js",
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
   }
 }

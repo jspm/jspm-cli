@@ -1,10 +1,10 @@
 {
   "imports": {
-    "dom-urls": "https://ga.jspm.dev/npm:dom-urls@1.1.0/index.js"
+    "dom-urls": "https://ga.jspm.io/npm:dom-urls@1.1.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:dom-urls@1.1.0/": {
-      "urijs": "https://ga.jspm.dev/npm:urijs@1.19.2/src/URI.js"
+    "https://ga.jspm.io/npm:dom-urls@1.1.0/": {
+      "urijs": "https://ga.jspm.io/npm:urijs@1.19.2/src/URI.js"
     }
   }
 }

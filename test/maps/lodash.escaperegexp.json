@@ -1,5 +1,5 @@
 {
   "imports": {
-    "lodash.escaperegexp": "https://ga.jspm.dev/npm:lodash.escaperegexp@4.1.2/index.js"
+    "lodash.escaperegexp": "https://ga.jspm.io/npm:lodash.escaperegexp@4.1.2/index.js"
   }
 }

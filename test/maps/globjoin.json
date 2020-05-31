@@ -1,6 +1,6 @@
 {
   "imports": {
-    "globjoin": "https://ga.jspm.dev/npm:globjoin@0.1.4/index.js",
-    "path": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
+    "globjoin": "https://ga.jspm.io/npm:globjoin@0.1.4/index.js",
+    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
   }
 }

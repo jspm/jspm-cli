@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@protobufjs/codegen": "https://ga.jspm.dev/npm:@protobufjs/codegen@2.0.4/index.js"
+    "@protobufjs/codegen": "https://ga.jspm.io/npm:@protobufjs/codegen@2.0.4/index.js"
   }
 }

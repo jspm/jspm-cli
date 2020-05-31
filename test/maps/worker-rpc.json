@@ -1,10 +1,10 @@
 {
   "imports": {
-    "worker-rpc": "https://ga.jspm.dev/npm:worker-rpc@0.2.0/lib/index.js"
+    "worker-rpc": "https://ga.jspm.io/npm:worker-rpc@0.2.0/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:worker-rpc@0.2.0/": {
-      "microevent.ts": "https://ga.jspm.dev/npm:microevent.ts@0.2.1/lib/index.js"
+    "https://ga.jspm.io/npm:worker-rpc@0.2.0/": {
+      "microevent.ts": "https://ga.jspm.io/npm:microevent.ts@0.2.1/lib/index.js"
     }
   }
 }

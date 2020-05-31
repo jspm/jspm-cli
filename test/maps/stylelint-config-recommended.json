@@ -1,5 +1,5 @@
 {
   "imports": {
-    "stylelint-config-recommended": "https://ga.jspm.dev/npm:stylelint-config-recommended@3.0.0/index.js"
+    "stylelint-config-recommended": "https://ga.jspm.io/npm:stylelint-config-recommended@3.0.0/index.js"
   }
 }

@@ -1,6 +1,6 @@
 {
   "imports": {
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "seek-bzip": "https://ga.jspm.dev/npm:seek-bzip@1.0.5/lib/index.js"
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "seek-bzip": "https://ga.jspm.io/npm:seek-bzip@1.0.5/lib/index.js"
   }
 }

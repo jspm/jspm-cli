@@ -1,11 +1,11 @@
 {
   "imports": {
-    "process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "w3c-hr-time": "https://ga.jspm.dev/npm:w3c-hr-time@1.0.2/index.js"
+    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
+    "w3c-hr-time": "https://ga.jspm.io/npm:w3c-hr-time@1.0.2/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:w3c-hr-time@1.0.2/": {
-      "browser-process-hrtime": "https://ga.jspm.dev/npm:browser-process-hrtime@1.0.0/index.js"
+    "https://ga.jspm.io/npm:w3c-hr-time@1.0.2/": {
+      "browser-process-hrtime": "https://ga.jspm.io/npm:browser-process-hrtime@1.0.0/index.js"
     }
   }
 }

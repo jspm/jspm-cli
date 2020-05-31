@@ -1,6 +1,6 @@
 {
   "imports": {
-    "child_process": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "tmutil-status": "https://ga.jspm.dev/npm:tmutil-status@2.1.1/esm/index.mjs"
+    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
+    "tmutil-status": "https://ga.jspm.io/npm:tmutil-status@2.1.1/esm/index.mjs"
   }
 }

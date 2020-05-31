@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@webformula/pax-core": "https://ga.jspm.dev/npm:@webformula/pax-core@0.8.5/index.js"
+    "@webformula/pax-core": "https://ga.jspm.io/npm:@webformula/pax-core@0.8.5/index.js"
   }
 }

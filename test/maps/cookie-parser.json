@@ -1,12 +1,12 @@
 {
   "imports": {
-    "cookie-parser": "https://ga.jspm.dev/npm:cookie-parser@1.4.5/index.js",
-    "crypto": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
+    "cookie-parser": "https://ga.jspm.io/npm:cookie-parser@1.4.5/index.js",
+    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:cookie-parser@1.4.5/": {
-      "cookie": "https://ga.jspm.dev/npm:cookie@0.4.0/index.js",
-      "cookie-signature": "https://ga.jspm.dev/npm:cookie-signature@1.0.6/index.js"
+    "https://ga.jspm.io/npm:cookie-parser@1.4.5/": {
+      "cookie": "https://ga.jspm.io/npm:cookie@0.4.0/index.js",
+      "cookie-signature": "https://ga.jspm.io/npm:cookie-signature@1.0.6/index.js"
     }
   }
 }

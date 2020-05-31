@@ -1,5 +1,5 @@
 {
   "imports": {
-    "hpkp": "https://ga.jspm.dev/npm:hpkp@2.0.0/index.js"
+    "hpkp": "https://ga.jspm.io/npm:hpkp@2.0.0/index.js"
   }
 }

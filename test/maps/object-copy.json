@@ -1,26 +1,26 @@
 {
   "imports": {
-    "object-copy": "https://ga.jspm.dev/npm:object-copy@1.0.0/index.js"
+    "object-copy": "https://ga.jspm.io/npm:object-copy@1.0.0/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:define-property@1.0.0/": {
-      "is-descriptor": "https://ga.jspm.dev/npm:is-descriptor@1.0.2/index.js"
+    "https://ga.jspm.io/npm:define-property@1.0.0/": {
+      "is-descriptor": "https://ga.jspm.io/npm:is-descriptor@1.0.2/index.js"
     },
-    "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "https://ga.jspm.io/npm:is-accessor-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/": {
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "https://ga.jspm.io/npm:is-data-descriptor@1.0.0/": {
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:is-descriptor@1.0.2/": {
-      "is-accessor-descriptor": "https://ga.jspm.dev/npm:is-accessor-descriptor@1.0.0/index.js",
-      "is-data-descriptor": "https://ga.jspm.dev/npm:is-data-descriptor@1.0.0/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@6.0.3/index.js"
+    "https://ga.jspm.io/npm:is-descriptor@1.0.2/": {
+      "is-accessor-descriptor": "https://ga.jspm.io/npm:is-accessor-descriptor@1.0.0/index.js",
+      "is-data-descriptor": "https://ga.jspm.io/npm:is-data-descriptor@1.0.0/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@6.0.3/index.js"
     },
-    "https://ga.jspm.dev/npm:object-copy@1.0.0/": {
-      "copy-descriptor": "https://ga.jspm.dev/npm:copy-descriptor@0.1.1/index.js",
-      "define-property": "https://ga.jspm.dev/npm:define-property@1.0.0/index.js",
-      "kind-of": "https://ga.jspm.dev/npm:kind-of@5.1.0/index.js"
+    "https://ga.jspm.io/npm:object-copy@1.0.0/": {
+      "copy-descriptor": "https://ga.jspm.io/npm:copy-descriptor@0.1.1/index.js",
+      "define-property": "https://ga.jspm.io/npm:define-property@1.0.0/index.js",
+      "kind-of": "https://ga.jspm.io/npm:kind-of@5.1.0/index.js"
     }
   }
 }

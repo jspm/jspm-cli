@@ -1,5 +1,5 @@
 {
   "imports": {
-    "long": "https://ga.jspm.dev/npm:long@4.0.0/src/long.js"
+    "long": "https://ga.jspm.io/npm:long@4.0.0/src/long.js"
   }
 }

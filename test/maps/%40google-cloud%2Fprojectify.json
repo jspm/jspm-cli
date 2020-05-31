@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@google-cloud/projectify": "https://ga.jspm.dev/npm:@google-cloud/projectify@2.0.0/build/src/index.js",
-    "buffer": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "stream": "https://ga.jspm.dev/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
+    "@google-cloud/projectify": "https://ga.jspm.io/npm:@google-cloud/projectify@2.0.0/build/src/index.js",
+    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
+    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
   }
 }

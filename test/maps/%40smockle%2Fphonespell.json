@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@smockle/phonespell": "https://ga.jspm.dev/npm:@smockle/phonespell@1.0.40/dist/lib/index.js"
+    "@smockle/phonespell": "https://ga.jspm.io/npm:@smockle/phonespell@1.0.40/dist/lib/index.js"
   },
   "scopes": {
-    "https://ga.jspm.dev/npm:@smockle/phonespell@1.0.40/": {
-      "lodash.deburr": "https://ga.jspm.dev/npm:lodash.deburr@4.1.0/index.js"
+    "https://ga.jspm.io/npm:@smockle/phonespell@1.0.40/": {
+      "lodash.deburr": "https://ga.jspm.io/npm:lodash.deburr@4.1.0/index.js"
     }
   }
 }
