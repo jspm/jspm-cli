@@ -1,107 +1,4 @@
 [
-  // SHOULD WORK
-
-  "@ottofeller/straper",
-
-  // "browser" field applying as well as exports
-  "@configura/web-core",
-
-  // exports missing due to self-export analysis
-  "@clr/core",
-  "@configura/web-api",
-  "@configura/internal",
-  "@lrnwebcomponents/lrnsys-render-html",
-  "@lrnwebcomponents/secure-request",
-  "@lrnwebcomponents/lrnsys-comment",
-  "@lrnwebcomponents/image-inspector",
-  "@lrnwebcomponents/lrndesign-contentblock",
-  "@lrnwebcomponents/lrn-markdown-editor",
-  "@lrnwebcomponents/oer-schema",
-  "@lrnwebcomponents/editable-outline",
-  "@lrnwebcomponents/exif-data",
-  "@lrnwebcomponents/mdi-iconset-svg",
-  "@lrnwebcomponents/map-menu",
-  "@lrnwebcomponents/simple-modal",
-  "@lrnwebcomponents/simple-blog",
-  "@lrnwebcomponents/iconset-demo",
-
-  // JSPM CORE
-
-  // process.platform
-  '@angular-devkit/core',
-  '@angular-devkit/schematics',
-
-  // http.ServerResponse.prototype access
-  "@avaly/fejk",
-
-  // var x = require('./dep') module.exports = x; named exports
-  'js-yaml',
-  '@devsnicket/eunice-processors',
-  "@bevry/mdx",
-
-  // import syntax + require syntax
-
-  // SHOULD NOT WORK
-
-  // require in type: module
-  "@alfonz/random",
-
-  // global not defined in module
-  "@applicvision/js-toolbox",
-
-  // process not defined in module
-  "@ibu/insight",
-  "@magic/css",
-  "@magic/fs",
-  "@mmsoft.npm/mylib1",
-  "@ottofeller/create-from-template",
-
-  // genuine syntax errors
-  "@augu/ichigo",
-
-  // jsx / svg / typescript
-  '@cookiex-react/native-layout',
-  '@cookiex/cli-tools',
-  '@ongt/vscode-helpers',
-  '@jupyterlab/apputils',
-  'svelte-quill',
-  "@anephenix/ui",
-  'bottomsearchbar',
-
-  // Node.js
-  "@ibu/cli",
-  "@ibu/code-gen",
-  "@ibu/stdlib",
-
-  // exports missing / Node.js anyway
-  '@acutejs/sample-todo',
-  '@barusu-react/rollup-plugin-postcss-dts',
-  '@angular/compiler-cli',
-  'webpack',
-  'vue-template-compiler',
-  '@heknon/node-webtop',
-  '@intrnl/grabstate',
-  '@jest/core',
-  "terser-webpack-plugin",
-  "@barusu-react/webpack-config",
-  "@gongt/vscode-helpers",
-  "@infect/api",
-  "@ibms/react-native-animated-checkbox",
-  "@masx200/webpack-react-vue-spa-awesome-config",
-  "@paycar-cli/transfer-eta-component",
-  "@arelstone/react-native-email-chip",
-
-  // TRY AGAIN
-
-  // dependency issues
-  "@lrnwebcomponents/mdi-iconset-svg",
-  "@lrnwebcomponents/elmsln-apps",
-  "@lrnwebcomponents/storybook-utilities",
-  "@absa-subatomic/occurrence-cli",
-  "@acies/core",
-  "@build-script/poormans-package-change",
-  "@oclif/errors",
-  "@adobe/spectrum-tokens",
   "@aero/ksoft",
   "@antv/component",
   "@antv/g-base",
@@ -156,7 +53,6 @@
   "@candlefw/glow",
   "@candlefw/js",
   "@candlefw/test",
-  "@candlefw/wick",
   "@cedx/coveralls",
   "@cfware/fastify-test-helper",
   "@cfworker/dev",
@@ -167,7 +63,6 @@
   "@cogent-labs/check-status-script",
   "@cogenv/core",
   "@cogenv/typed",
-  "@composition/composer",
   "@configura/internal",
   "@cyclonecode/krister-test",
   "@d-fischer/rate-limiter",

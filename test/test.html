@@ -15,23 +15,49 @@
   import runTests from './src/runner.js';
   import { createMapLoader } from './src/loader.js';
 
+  const dev = true;
+  const system = false;
+
+  function systemReplace (map) {
+    for (const name of Object.keys(map.imports)) {
+      map.imports[name] = 'https://ga.system.jspm.io/' + map.imports[name].slice('https://ga.jspm.io/'.length);
+    }
+    if (map.scopes)
+      for (const scope of Object.keys(map.scopes)) {
+        const imports = map.scopes[scope];
+        delete map.scopes[scope];
+        map.scopes['https://ga.system.jspm.io/' + scope.slice('https://ga.jspm.io/'.length)] = imports;
+        for (const name of Object.keys(imports)) {
+          imports[name] = 'https://ga.system.jspm.io/' + imports[name].slice('https://ga.jspm.io/'.length);
+        }
+      }
+    return map;
+  }
+
+  async function loadAndCreateMap (url, system) {
+    let map = await (await fetch(url)).json();
+    if (system)
+      map = systemReplace(map);
+    return createMapLoader(map, system);
+  }
+
   (async () => {
     const tests = eval(await (await fetch('./tests.js')).text());
 
-    await runTests(await Promise.all(tests.map(async test => {
+    await runTests(await Promise.all(tests.map(async (test, index) => {
       const [installs, specifiers] = typeof test === 'string' ? [test, test] : test;
       return {
         test: installs,
         async run () {
-          const map = await (await fetch(`./maps/${encodeURIComponent(encodeURIComponent(installs))}.json`)).json();
-          const loader = createMapLoader(map);
+          let loader;
+          if (dev)
+            loader = createMapLoader({});
+          else
+            loader = await loadAndCreateMap(`./maps/${encodeURIComponent(encodeURIComponent(installs))}.json`, system);
           for (const specifier of specifiers.split(' ')) {
-            const m = await loader.import(specifier);
+            const m = await loader.import((dev ? 'https://jspm.dev/' : '') + specifier);
             // for debugging
             window.m = m;
-            // also try dev version
-            // const mdev = await loader.import('https://jspm.dev/' + specifier);
-            // window.mdev = mdev;
           }
           loader.dispose();
         }
@@ -40,27 +66,29 @@
 
     const testList = await (await fetch('./test-list.json')).json();
     const skip = eval(await (await fetch('./skip-list.js')).text());
-    runTests(await Promise.all(testList.filter(test => !skip.includes(test)).map(async test => {
+    const startAt = 0;
+    runTests(await Promise.all(testList.filter((test, i) => !skip.includes(test) && i >+ startAt).map(async (test, index) => {
       return {
         test,
         async run () {
           if (window.stopped)
             return;
-          try {
-            var map = await (await fetch(`./maps/${encodeURIComponent(encodeURIComponent(test))}.json`)).json();
+          if (dev)
+            loader = createMapLoader({});
+          else {
+            try {
+              var loader = await loadAndCreateMap(`./maps/${encodeURIComponent(encodeURIComponent(test))}.json`, system);
+              // if (!map.imports[test])
+              //   throw new Error('Test TODO: export subpaths checks');
+            }
+            catch (e) {
+              throw new Error('No map for ' + test);
+              return;
+            }
           }
-          catch (e) {
-            throw new Error('No map for ' + test);
-            return;
-          }
-          const loader = createMapLoader(map);
-          if (!map.imports[test])
-            throw new Error('Test TODO: export subpaths checks');
-          const m = await loader.import(test);
+          const m = await loader.import((dev ? 'https://test.jspm.io/' : '') + test);
+          window.m = m;
           loader.dispose();
-          // const devloader = createMapLoader({});
-          // const mdev = await devloader.import('https://jspm.dev/' + test);
-          // devloader.dispose();
         }
       };
     })));

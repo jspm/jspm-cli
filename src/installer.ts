@@ -444,7 +444,7 @@ export class Installer {
   private async tracePkg (pkg: ExactPackage, subpaths: string[], pkgExports: Record<string, string>, exactSubpaths: boolean, cjsResolve: boolean, parentUrl?: URL) {
     await Promise.all(subpaths.map(async subpath => {
       const exports = await this.resolveExports(pkg, await this.getPackageConfig(pkg), cjsResolve);
-      let exportMatch = getMapMatch(unsanitizeUrl(subpath), exports);
+      let exportMatch = getMapMatch(subpath, exports);
       
       if (exportMatch === undefined) {
         console.log((await this.getPackageConfig(pkg)).exports);

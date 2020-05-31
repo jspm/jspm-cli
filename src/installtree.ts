@@ -324,10 +324,10 @@ export function pkgToStr (pkg: ExactPackage) {
   return `${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
 }
 export function pkgToLookupUrl (pkg: ExactPackage, edge = false) {
-  return `https://ga.jspm.dev/${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : edge ? '@' : ''}`;
+  return `https://ga.jspm.io/${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : edge ? '@' : ''}`;
 }
-export const esmCdnUrl = 'https://ga.jspm.dev/';
-export const systemCdnUrl = 'https://ga.jspm.systems/';
+export const esmCdnUrl = 'https://ga.jspm.io/';
+export const systemCdnUrl = 'https://ga.system.jspm.io/';
 function pkgEq (pkgA: ExactPackage, pkgB: ExactPackage) {
   return pkgA.registry === pkgB.registry && pkgA.name === pkgB.name && pkgA.version === pkgB.version;
 }

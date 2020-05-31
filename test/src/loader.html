@@ -1,10 +1,22 @@
 <!doctype html>
 <script>
-  window.injectAndRunImportMap = map => {
+  window.injectAndRunImportMap = async (map, system) => {
     document.body.appendChild(Object.assign(document.createElement('script'), {
-      type: 'importmap',
+      type: system ? 'systemjs-importmap' : 'importmap',
       innerHTML: JSON.stringify(map)
     }));
-    return specifier => import(specifier);
+    if (system) {
+      await new Promise(resolve => {
+        document.body.appendChild(Object.assign(document.createElement('script'), {
+          type: 'module',
+          src: 'https://jspm.dev/systemjs',
+          onload: resolve
+        }));
+      });
+      return specifier => System.import(specifier);
+    }
+    else {
+      return specifier => import(specifier);
+    }
   };
 </script>
