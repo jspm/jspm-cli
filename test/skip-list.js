@@ -45,6 +45,9 @@
 
   // require in type: module
   "@alfonz/random",
+  "@calmdownval/preact-predux",
+  "@calmdownval/preact-store",
+  "@calmdownval/predux",
 
   // global not defined in module
   "@applicvision/js-toolbox",
@@ -55,6 +58,7 @@
   "@magic/fs",
   "@mmsoft.npm/mylib1",
   "@ottofeller/create-from-template",
+  "@chrstntdd/common",
 
   // genuine syntax errors
   "@augu/ichigo",
@@ -73,6 +77,17 @@
   "@ibu/code-gen",
   "@ibu/stdlib",
 
+  // Deprecated packages
+  "@babel/cli",
+
+  // Test files
+  "@babel/helper-plugin-test-runner",
+  "@babel/helper-transform-fixture-test-runner",
+
+  // Loads from node_modules directly
+  "@author.io/cli",
+  "@author.io/shell",
+
   // exports missing / Node.js anyway
   '@acutejs/sample-todo',
   '@barusu-react/rollup-plugin-postcss-dts',
@@ -90,6 +105,14 @@
   "@masx200/webpack-react-vue-spa-awesome-config",
   "@paycar-cli/transfer-eta-component",
   "@arelstone/react-native-email-chip",
+  "@bevry/pluginloader",
+  "@bevry/update-contributors",
+  "@build-script/typescript-transformer-dual-package",
+  "@build-script/typescript-transformer-import-commonjs",
+
+  // UNCLASSIFIED
+
+  "@adico/sequencegenerator",
 
   // TRY AGAIN
 

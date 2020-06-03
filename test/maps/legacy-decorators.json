@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "legacy-decorators": "https://ga.jspm.io/npm:legacy-decorators@0.1.1/src/legacy-decorators.mjs"
+  }
+}

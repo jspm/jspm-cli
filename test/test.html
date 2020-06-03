@@ -15,9 +15,10 @@
   import runTests from './src/runner.js';
   import { createMapLoader } from './src/loader.js';
 
-  const dev = true;
+  const dev = false;
   const system = false;
-
+  const dispose = window.location.hash.length > 0;
+  
   function systemReplace (map) {
     for (const name of Object.keys(map.imports)) {
       map.imports[name] = 'https://ga.system.jspm.io/' + map.imports[name].slice('https://ga.jspm.io/'.length);
@@ -59,7 +60,8 @@
             // for debugging
             window.m = m;
           }
-          loader.dispose();
+          if (dispose)
+            loader.dispose();
         }
       };
     })));
@@ -88,7 +90,8 @@
           }
           const m = await loader.import((dev ? 'https://test.jspm.io/' : '') + test);
           window.m = m;
-          loader.dispose();
+          if (dispose)
+            loader.dispose();
         }
       };
     })));
