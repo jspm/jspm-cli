@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "lit-html": "./lit-html.js",
-    "codemirror": "./codemirror.js",
-    "util": "./util.js",
-    "buffer": "./buffer.js",
-    "codemirror/mode/javascript/javascript.js": "./javascript.js"
-  }
-}
