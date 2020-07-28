@@ -9,6 +9,25 @@ import glob from 'glob';
 const stopOnError = process.env.STOP;
 const only = process.env.ONLY;
 const stdio = process.env.STDIO;
+const concurrency = process.env.SERIAL ? 1 : Number(process.env.CONCURRENCY || process.env.C || 8);
+
+class Pool {
+  constructor (POOL_SIZE) {
+    this.POOL_SIZE = POOL_SIZE;
+    this.opCnt = 0;
+    this.cbs = [];
+  }
+  async queue () {
+    if (++this.opCnt > this.POOL_SIZE)
+      await new Promise(resolve => this.cbs.push(resolve));
+  }
+  pop () {
+    this.opCnt--;
+    const cb = this.cbs.pop();
+    if (cb) cb();
+  }
+}
+
 
 async function forked (path, args = [], cwd, returnStream) {
   const ps = fork(path, args, { cwd, stdio: 'pipe', execArgv: ['--experimental-top-level-await', ...process.execArgv] });
@@ -32,21 +51,30 @@ async function forked (path, args = [], cwd, returnStream) {
     return;
   const testBase = resolve(fileURLToPath(import.meta.url) + '/../tests');
   const tests = glob.sync(testBase + '/**/*.test.js');
-  for (const test of tests) {
-    const relTest = relative(testBase, test);
-    if (only && relTest !== only)
-      continue;
-    const { code, stream } = await forked(test, [], dirname(test), true);
-    if (code !== 0 || stdio) {
-      for (const { err, data } of stream) {
-        if (err) process.stderr.write(data);
-        else process.stdout.write(data);
+  const pool = new Pool(concurrency);
+  await Promise.all(tests.map(async test => {
+    await pool.queue();
+    try {
+      const relTest = relative(testBase, test);
+      if (only && relTest !== only)
+        return;
+      const { code, stream } = await forked(test, [], dirname(test), true);
+      if (code !== 0 || stdio) {
+        for (const { err, data } of stream) {
+          if (err) process.stderr.write(data);
+          else process.stdout.write(data);
+        }
+      }
+      output({ name: relTest, status: code === 0 ? 'OK' : 'FAIL' });
+      if (code === 0 && stopOnError) {
+        process.exit(1);
+        return;
       }
     }
-    output({ name: relTest, status: code === 0 ? 'OK' : 'FAIL' });
-    if (code === 0 && stopOnError)
-      return;
-  }
+    finally {
+      pool.pop();
+    }
+  }));
 })()
 .catch(err => {
   console.error(err);
