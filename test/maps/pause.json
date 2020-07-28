@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pause": "https://ga.jspm.io/npm:pause@0.1.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "void-elements": "https://ga.jspm.io/npm:void-elements@3.1.0/index.js"
-  }
-}

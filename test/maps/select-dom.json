@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "select-dom": "https://ga.jspm.io/npm:select-dom@6.0.2/index.js"
-  }
-}

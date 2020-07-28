@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "@postech-ses/ses-passni": "https://ga.jspm.io/npm:@postech-ses/ses-passni@0.0.2/dist/index.js",
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "http": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/http.js",
-    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js"
-  }
-}

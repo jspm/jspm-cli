@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "scheduler": "https://ga.jspm.io/npm:scheduler@0.19.1/index.js"
-  }
-}

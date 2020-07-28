@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "any-serialize": "https://ga.jspm.io/npm:any-serialize@1.4.12/lib/index.js"
-  }
-}

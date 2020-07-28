@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@japan-d2/random-bigint": "https://ga.jspm.io/npm:@japan-d2/random-bigint@0.0.5/lib/index.js"
-  }
-}

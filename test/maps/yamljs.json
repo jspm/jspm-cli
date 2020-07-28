@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "yamljs": "https://ga.jspm.io/npm:yamljs@0.3.0/lib/Yaml.js"
-  }
-}

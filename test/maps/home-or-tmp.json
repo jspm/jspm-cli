@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "home-or-tmp": "https://ga.jspm.io/npm:home-or-tmp@3.0.0/index.js",
-    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@psqq/hello": "https://ga.jspm.io/npm:@psqq/hello@1.1.4/hello.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "get-port": "https://ga.jspm.io/npm:get-port@5.1.1/index.js",
-    "net": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/net.js"
-  }
-}

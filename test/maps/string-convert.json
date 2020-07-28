@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "string-convert": "https://ga.jspm.io/npm:string-convert@0.2.1/index.js"
-  }
-}

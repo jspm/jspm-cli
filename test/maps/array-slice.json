@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "array-slice": "https://ga.jspm.io/npm:array-slice@1.1.0/index.js"
-  }
-}

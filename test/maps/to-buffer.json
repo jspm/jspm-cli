@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "to-buffer": "https://ga.jspm.io/npm:to-buffer@1.1.1/index.js"
-  }
-}

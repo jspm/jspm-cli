@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@protobufjs/base64": "https://ga.jspm.io/npm:@protobufjs/base64@1.1.2/index.js"
-  }
-}

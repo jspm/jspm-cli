@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@sinonjs/text-encoding": "https://ga.jspm.io/npm:@sinonjs/text-encoding@0.7.1/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@svgr/babel-plugin-svg-em-dimensions": "https://ga.jspm.io/npm:@svgr/babel-plugin-svg-em-dimensions@5.4.0/lib/index.js"
-  }
-}

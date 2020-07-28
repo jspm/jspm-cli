@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.at": "https://ga.jspm.io/npm:lodash.at@4.6.0/index.js"
-  }
-}

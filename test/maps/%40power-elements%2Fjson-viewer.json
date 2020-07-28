@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@power-elements/json-viewer": "https://ga.jspm.io/npm:@power-elements/json-viewer@1.3.0/json-viewer.js"
-  }
-}

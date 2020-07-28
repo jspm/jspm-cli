@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "trim-indentation": "https://ga.jspm.io/npm:trim-indentation@4.0.0/edition-browsers/index.js"
-  }
-}

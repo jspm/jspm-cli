@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "openurl": "https://ga.jspm.io/npm:openurl@1.1.1/openurl.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

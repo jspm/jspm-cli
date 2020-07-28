@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "simple-concat": "https://ga.jspm.io/npm:simple-concat@1.0.0/index.js"
-  }
-}

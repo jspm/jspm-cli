@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "qrcode-terminal": "https://ga.jspm.io/npm:qrcode-terminal@0.12.0/lib/main.js"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "socket.io-adapter": "https://ga.jspm.io/npm:socket.io-adapter@1.1.2/index.js"
-  }
-}

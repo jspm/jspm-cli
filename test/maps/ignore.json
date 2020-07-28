@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "ignore": "https://ga.jspm.io/npm:ignore@5.1.8/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic-modules/git-badges": "https://ga.jspm.io/npm:@magic-modules/git-badges@0.0.10/src/index.mjs"
-  }
-}

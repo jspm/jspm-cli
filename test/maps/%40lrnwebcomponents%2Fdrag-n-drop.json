@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/drag-n-drop": "https://ga.jspm.io/npm:@lrnwebcomponents/drag-n-drop@2.6.12/drag-n-drop.js"
-  }
-}

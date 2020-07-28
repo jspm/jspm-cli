@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic-themes/docs": "https://ga.jspm.io/npm:@magic-themes/docs@0.0.7/src/index.mjs"
-  }
-}

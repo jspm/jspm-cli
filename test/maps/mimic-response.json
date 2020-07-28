@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "mimic-response": "https://ga.jspm.io/npm:mimic-response@3.1.0/index.js"
-  }
-}

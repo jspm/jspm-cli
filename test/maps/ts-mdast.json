@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ts-mdast": "https://ga.jspm.io/npm:ts-mdast@1.0.0/lib/index.js"
-  }
-}

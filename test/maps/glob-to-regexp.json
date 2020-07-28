@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "glob-to-regexp": "https://ga.jspm.io/npm:glob-to-regexp@0.4.1/index.js"
-  }
-}

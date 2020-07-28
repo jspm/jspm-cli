@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "react-router-redux": "https://ga.jspm.io/npm:react-router-redux@4.0.8/lib/index.js"
-  }
-}

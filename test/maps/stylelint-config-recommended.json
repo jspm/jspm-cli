@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "stylelint-config-recommended": "https://ga.jspm.io/npm:stylelint-config-recommended@3.0.0/index.js"
-  }
-}

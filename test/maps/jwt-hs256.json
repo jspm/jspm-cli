@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "jwt-hs256": "https://ga.jspm.io/npm:jwt-hs256@2.0.0/build/src/index.js"
-  }
-}

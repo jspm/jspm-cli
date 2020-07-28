@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cssom": "https://ga.jspm.io/npm:cssom@0.4.4/lib/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "which-pm-runs": "https://ga.jspm.io/npm:which-pm-runs@1.0.0/index.js"
-  }
-}

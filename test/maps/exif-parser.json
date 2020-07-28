@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "exif-parser": "https://ga.jspm.io/npm:exif-parser@0.1.12/index.js"
-  }
-}

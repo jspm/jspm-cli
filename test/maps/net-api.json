@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "net-api": "https://ga.jspm.io/npm:net-api@1.0.4/src/API.js"
-  }
-}

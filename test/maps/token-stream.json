@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "token-stream": "https://ga.jspm.io/npm:token-stream@1.0.0/index.js"
-  }
-}

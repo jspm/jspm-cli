@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "infect-rda-sample-importer-client": "https://ga.jspm.io/npm:infect-rda-sample-importer-client@1.0.1/index.js"
-  }
-}

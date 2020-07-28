@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "json-stringify-safe": "https://ga.jspm.io/npm:json-stringify-safe@5.0.1/stringify.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/fluid-type": "https://ga.jspm.io/npm:@lrnwebcomponents/fluid-type@2.6.12/fluid-type.js"
-  }
-}

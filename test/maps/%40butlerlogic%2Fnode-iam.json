@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@butlerlogic/node-iam": "https://ga.jspm.io/npm:@butlerlogic/node-iam@1.0.1/index.js"
-  }
-}

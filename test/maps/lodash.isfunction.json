@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.isfunction": "https://ga.jspm.io/npm:lodash.isfunction@3.0.9/index.js"
-  }
-}

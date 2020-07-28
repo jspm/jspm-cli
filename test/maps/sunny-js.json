@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "sunny-js/util/path": "https://ga.jspm.io/npm:sunny-js@2.0.12/util/path.js"
-  }
-}

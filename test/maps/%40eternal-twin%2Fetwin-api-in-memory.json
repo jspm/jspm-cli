@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@eternal-twin/etwin-api-in-memory/api.js": "https://ga.jspm.io/npm:@eternal-twin/etwin-api-in-memory@0.0.2/build/lib/api.js"
-  }
-}

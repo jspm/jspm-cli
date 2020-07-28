@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@phosphor/properties": "https://ga.jspm.io/npm:@phosphor/properties@1.1.3/lib/index.js"
-  }
-}

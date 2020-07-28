@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "detect-node": "https://ga.jspm.io/npm:detect-node@2.0.4/browser.js"
-  }
-}

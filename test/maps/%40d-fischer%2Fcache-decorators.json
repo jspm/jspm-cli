@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@d-fischer/cache-decorators": "https://ga.jspm.io/npm:@d-fischer/cache-decorators@2.0.0/es/index.mjs"
-  }
-}

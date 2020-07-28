@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "timemachine": "https://ga.jspm.io/npm:timemachine@0.3.1/timemachine.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@hamilton.perez/shopifyvuetest": "https://ga.jspm.io/npm:@hamilton.perez/shopifyvuetest@1.0.5/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "throw-utils": "https://ga.jspm.io/npm:throw-utils@1.2.1/src/index.mjs"
-  }
-}

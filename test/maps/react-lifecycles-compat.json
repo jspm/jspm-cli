@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "react-lifecycles-compat": "https://ga.jspm.io/npm:react-lifecycles-compat@3.0.4/react-lifecycles-compat.cjs.js"
-  }
-}

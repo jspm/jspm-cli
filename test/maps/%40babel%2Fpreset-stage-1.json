@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@babel/preset-stage-1": "https://ga.jspm.io/npm:@babel/preset-stage-1@7.8.3/lib/index.js"
-  }
-}

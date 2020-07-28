@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "custom-video-element": "https://ga.jspm.io/npm:custom-video-element@0.0.1/index.js"
-  }
-}

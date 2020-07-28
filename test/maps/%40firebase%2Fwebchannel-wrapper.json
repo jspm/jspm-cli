@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@firebase/webchannel-wrapper": "https://ga.jspm.io/npm:@firebase/webchannel-wrapper@0.2.41/dist/index.js"
-  }
-}

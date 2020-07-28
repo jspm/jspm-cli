@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "strip-bom": "https://ga.jspm.io/npm:strip-bom@4.0.0/index.js"
-  }
-}

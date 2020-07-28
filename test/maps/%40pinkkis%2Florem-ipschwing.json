@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@pinkkis/lorem-ipschwing": "https://ga.jspm.io/npm:@pinkkis/lorem-ipschwing@0.2.1/dist/main.umd.js"
-  }
-}

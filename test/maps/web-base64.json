@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "web-base64": "https://ga.jspm.io/npm:web-base64@1.0.2/index.js"
-  }
-}

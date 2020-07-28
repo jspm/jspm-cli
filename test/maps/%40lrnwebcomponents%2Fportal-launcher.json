@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/portal-launcher": "https://ga.jspm.io/npm:@lrnwebcomponents/portal-launcher@2.6.12/portal-launcher.js"
-  }
-}

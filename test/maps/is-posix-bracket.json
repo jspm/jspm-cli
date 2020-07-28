@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-posix-bracket": "https://ga.jspm.io/npm:is-posix-bracket@0.1.1/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "jquery-ui": "https://ga.jspm.io/npm:jquery-ui@1.12.1/ui/widget.js"
-  }
-}

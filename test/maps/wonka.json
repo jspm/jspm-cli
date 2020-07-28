@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "wonka": "https://ga.jspm.io/npm:wonka@4.0.13/dist/wonka.mjs"
-  }
-}

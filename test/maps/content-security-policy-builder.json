@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "content-security-policy-builder": "https://ga.jspm.io/npm:content-security-policy-builder@2.1.0/dist/index.js"
-  }
-}

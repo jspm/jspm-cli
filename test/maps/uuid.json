@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "uuid": "https://ga.jspm.io/npm:uuid@8.1.0/wrapper.mjs"
-  }
-}

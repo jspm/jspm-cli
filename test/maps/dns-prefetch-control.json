@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "dns-prefetch-control": "https://ga.jspm.io/npm:dns-prefetch-control@0.3.0/dist/index.js"
-  }
-}

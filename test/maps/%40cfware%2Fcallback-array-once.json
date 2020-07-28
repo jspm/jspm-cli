@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@cfware/callback-array-once": "https://ga.jspm.io/npm:@cfware/callback-array-once@1.0.3/callback-array-once.js"
-  }
-}

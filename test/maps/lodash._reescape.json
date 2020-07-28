@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash._reescape": "https://ga.jspm.io/npm:lodash._reescape@3.0.0/index.js"
-  }
-}

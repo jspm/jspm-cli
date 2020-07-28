@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@fluent/dedent": "https://ga.jspm.io/npm:@fluent/dedent@0.2.0/index.js"
-  }
-}

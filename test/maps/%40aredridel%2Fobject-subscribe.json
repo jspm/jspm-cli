@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aredridel/object-subscribe": "https://ga.jspm.io/npm:@aredridel/object-subscribe@1.0.9/index.js"
-  }
-}

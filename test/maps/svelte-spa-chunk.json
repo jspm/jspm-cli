@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "svelte-spa-chunk": "https://ga.jspm.io/npm:svelte-spa-chunk@2.0.0/dist/index.js"
-  }
-}

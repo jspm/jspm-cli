@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/lazy-import-discover": "https://ga.jspm.io/npm:@lrnwebcomponents/lazy-import-discover@2.6.12/lazy-import-discover.js"
-  }
-}

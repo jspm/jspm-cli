@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "loglevel-mixin": "https://ga.jspm.io/npm:loglevel-mixin@5.0.6/src/loglevel-mixin.mjs"
-  }
-}

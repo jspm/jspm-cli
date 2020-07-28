@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "dackad": "https://ga.jspm.io/npm:dackad@1.0.0/src/index.js",
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
-  }
-}

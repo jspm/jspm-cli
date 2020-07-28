@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "badges": "https://ga.jspm.io/npm:badges@4.6.0/edition-browsers/index.js",
-    "querystring": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/querystring.js"
-  }
-}

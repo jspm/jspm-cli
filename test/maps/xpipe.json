@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "xpipe": "https://ga.jspm.io/npm:xpipe@1.0.5/index.js"
-  }
-}

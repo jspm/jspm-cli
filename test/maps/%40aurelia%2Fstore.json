@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aurelia/store": "https://ga.jspm.io/npm:@aurelia/store@0.7.0/dist/umd/index.js"
-  }
-}

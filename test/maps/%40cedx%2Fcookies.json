@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@cedx/cookies": "https://ga.jspm.io/npm:@cedx/cookies@4.4.0/lib/index.js"
-  }
-}

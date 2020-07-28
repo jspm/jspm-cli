@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic-libraries/json": "https://ga.jspm.io/npm:@magic-libraries/json@0.0.6/src/index.mjs"
-  }
-}

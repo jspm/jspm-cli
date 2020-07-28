@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "eventemitter3": "https://ga.jspm.io/npm:eventemitter3@4.0.4/index.js"
-  }
-}

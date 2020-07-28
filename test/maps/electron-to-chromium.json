@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "electron-to-chromium": "https://ga.jspm.io/npm:electron-to-chromium@1.3.455/index.js"
-  }
-}

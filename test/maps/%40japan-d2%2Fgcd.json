@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@japan-d2/gcd": "https://ga.jspm.io/npm:@japan-d2/gcd@0.0.8/lib/index.js"
-  }
-}

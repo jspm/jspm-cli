@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.map": "https://ga.jspm.io/npm:lodash.map@4.6.0/index.js"
-  }
-}

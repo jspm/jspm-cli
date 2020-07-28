@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "dtrace-provider": "https://ga.jspm.io/npm:dtrace-provider@0.8.8/dtrace-provider.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

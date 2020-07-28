@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@ui5/webcomponents-base": "https://ga.jspm.io/npm:@ui5/webcomponents-base@0.20.0/index.js"
-  }
-}

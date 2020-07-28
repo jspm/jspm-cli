@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@neovici/nullxlsx": "https://ga.jspm.io/npm:@neovici/nullxlsx@3.0.4/index.js"
-  }
-}

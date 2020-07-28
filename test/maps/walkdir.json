@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "walkdir": "https://ga.jspm.io/npm:walkdir@0.4.1/walkdir.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "import-commonjs": "https://ga.jspm.io/npm:import-commonjs@0.0.1/index.mjs",
-    "module": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/module.js"
-  }
-}

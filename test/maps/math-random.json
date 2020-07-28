@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "math-random": "https://ga.jspm.io/npm:math-random@1.0.4/browser.js"
-  }
-}

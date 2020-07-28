@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@mothepro/lit-clock": "https://ga.jspm.io/npm:@mothepro/lit-clock@0.0.4/dist/npm/index.js"
-  }
-}

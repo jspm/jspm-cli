@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-weakmap": "https://ga.jspm.io/npm:is-weakmap@2.0.1/index.js"
-  }
-}

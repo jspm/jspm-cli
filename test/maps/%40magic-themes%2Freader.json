@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic-themes/reader": "https://ga.jspm.io/npm:@magic-themes/reader@0.0.5/src/index.mjs"
-  }
-}

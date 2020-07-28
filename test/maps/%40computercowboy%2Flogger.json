@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@computercowboy/logger": "https://ga.jspm.io/npm:@computercowboy/logger@1.0.0/Logger.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
-  }
-}

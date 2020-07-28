@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "simple-babel-package-example": "https://ga.jspm.io/npm:simple-babel-package-example@0.0.0/lib/esm/index.js"
-  }
-}

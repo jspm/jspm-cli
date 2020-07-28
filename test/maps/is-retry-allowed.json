@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-retry-allowed": "https://ga.jspm.io/npm:is-retry-allowed@1.2.0/index.js"
-  }
-}

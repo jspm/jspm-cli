@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "mathml2asciimath": "https://ga.jspm.io/npm:mathml2asciimath@0.0.5/index.js"
-  }
-}

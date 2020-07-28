@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "in-publish": "https://ga.jspm.io/npm:in-publish@2.0.1/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

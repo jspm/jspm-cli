@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "absolute": "https://ga.jspm.io/npm:absolute@0.0.1/absolute.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

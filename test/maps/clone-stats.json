@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "clone-stats": "https://ga.jspm.io/npm:clone-stats@1.0.0/index.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js"
-  }
-}

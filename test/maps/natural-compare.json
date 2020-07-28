@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "natural-compare": "https://ga.jspm.io/npm:natural-compare@1.4.0/index.js"
-  }
-}

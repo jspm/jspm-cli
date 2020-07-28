@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "npm-logical-tree": "https://ga.jspm.io/npm:npm-logical-tree@1.2.1/index.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "prelude-ls": "https://ga.jspm.io/npm:prelude-ls@1.2.1/lib/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@xtuc/long": "https://ga.jspm.io/npm:@xtuc/long@4.2.2/src/long.js"
-  }
-}

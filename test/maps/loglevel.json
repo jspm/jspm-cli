@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "loglevel": "https://ga.jspm.io/npm:loglevel@1.6.8/lib/loglevel.js"
-  }
-}

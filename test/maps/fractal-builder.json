@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "fractal-builder": "https://ga.jspm.io/npm:fractal-builder@1.0.5/index.js"
-  }
-}

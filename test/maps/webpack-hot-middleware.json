@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js",
-    "webpack-hot-middleware": "https://ga.jspm.io/npm:webpack-hot-middleware@2.25.0/middleware.js"
-  }
-}

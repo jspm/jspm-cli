@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@candlefw/wind": "https://ga.jspm.io/npm:@candlefw/wind@0.4.1-dev/build/library/wind.js"
-  }
-}

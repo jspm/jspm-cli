@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cbor-codec": "https://ga.jspm.io/npm:cbor-codec@0.2.3/esm/index.mjs"
-  }
-}

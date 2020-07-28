@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "requirefresh": "https://ga.jspm.io/npm:requirefresh@4.3.0/source/index.js"
-  }
-}

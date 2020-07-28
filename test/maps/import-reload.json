@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "import-reload": "https://ga.jspm.io/npm:import-reload@1.0.3/lib/index.js"
-  }
-}

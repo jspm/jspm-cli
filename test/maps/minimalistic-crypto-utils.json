@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "minimalistic-crypto-utils": "https://ga.jspm.io/npm:minimalistic-crypto-utils@1.0.1/lib/utils.js"
-  }
-}

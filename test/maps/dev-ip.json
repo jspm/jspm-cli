@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "dev-ip": "https://ga.jspm.io/npm:dev-ip@1.0.1/lib/dev-ip.js",
-    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
-  }
-}

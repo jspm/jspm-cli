@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "shebang-regex": "https://ga.jspm.io/npm:shebang-regex@3.0.0/index.js"
-  }
-}

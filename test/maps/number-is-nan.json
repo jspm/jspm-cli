@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "number-is-nan": "https://ga.jspm.io/npm:number-is-nan@2.0.0/index.js"
-  }
-}

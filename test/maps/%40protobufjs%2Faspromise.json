@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@protobufjs/aspromise": "https://ga.jspm.io/npm:@protobufjs/aspromise@1.1.2/index.js"
-  }
-}

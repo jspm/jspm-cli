@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@dkx/k8s-client/resource/": "https://ga.jspm.io/npm:@dkx/k8s-client@1.2.5/gen/resource/"
-  }
-}

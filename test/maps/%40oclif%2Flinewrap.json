@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@oclif/linewrap": "https://ga.jspm.io/npm:@oclif/linewrap@1.0.0/linewrap.js"
-  }
-}

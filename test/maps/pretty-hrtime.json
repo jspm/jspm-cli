@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pretty-hrtime": "https://ga.jspm.io/npm:pretty-hrtime@1.0.3/index.js"
-  }
-}

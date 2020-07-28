@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "compare-versions": "https://ga.jspm.io/npm:compare-versions@3.6.0/index.js"
-  }
-}

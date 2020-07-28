@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@witzbould/utils-throttle": "https://ga.jspm.io/npm:@witzbould/utils-throttle@1.0.0/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "constants": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/constants.js",
-    "fs-constants": "https://ga.jspm.io/npm:fs-constants@1.0.0/browser.js"
-  }
-}

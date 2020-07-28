@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@octokit/types": "https://ga.jspm.io/npm:@octokit/types@4.1.2/dist-node/index.js"
-  }
-}

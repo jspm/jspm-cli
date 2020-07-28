@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ld-walk": "https://ga.jspm.io/npm:ld-walk@0.8.0/dist/walker.js"
-  }
-}

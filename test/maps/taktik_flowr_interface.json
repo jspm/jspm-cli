@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "taktik_flowr_interface": "https://ga.jspm.io/npm:taktik_flowr_interface@5.3.2-alpha.1/dist/index.js"
-  }
-}

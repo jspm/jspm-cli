@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@masx200/deep-observe-agent-proxy": "https://ga.jspm.io/npm:@masx200/deep-observe-agent-proxy@1.2.1/dist/index.min.js"
-  }
-}

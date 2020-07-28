@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@georstoy/sum": "https://ga.jspm.io/npm:@georstoy/sum@1.0.4-231/main.mjs"
-  }
-}

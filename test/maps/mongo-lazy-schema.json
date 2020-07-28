@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "mongo-lazy-schema": "https://ga.jspm.io/npm:mongo-lazy-schema@4.2.0/dist/index.js"
-  }
-}

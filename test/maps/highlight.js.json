@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "highlight.js": "https://ga.jspm.io/npm:highlight.js@10.0.3/lib/index.js"
-  }
-}

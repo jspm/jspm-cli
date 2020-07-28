@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "hawk": "https://ga.jspm.io/npm:hawk@7.0.10/dist/browser.js"
-  }
-}

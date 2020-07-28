@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "utils-ts": "https://ga.jspm.io/npm:utils-ts@0.1.0-alpha.3/dist/utils-ts.cjs"
-  }
-}

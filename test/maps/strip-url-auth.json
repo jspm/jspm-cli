@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "strip-url-auth": "https://ga.jspm.io/npm:strip-url-auth@1.0.1/index.js"
-  }
-}

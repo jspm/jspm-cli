@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic-libraries/gql": "https://ga.jspm.io/npm:@magic-libraries/gql@0.0.3/src/index.mjs"
-  }
-}

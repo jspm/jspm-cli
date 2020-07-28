@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@mothepro/lit-amazons": "https://ga.jspm.io/npm:@mothepro/lit-amazons@0.0.1/dist/npm/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@becklyn/translator": "https://ga.jspm.io/npm:@becklyn/translator@1.3.0/src/index.js"
-  }
-}

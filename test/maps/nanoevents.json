@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "nanoevents": "https://ga.jspm.io/npm:nanoevents@5.1.7/index.js"
-  }
-}

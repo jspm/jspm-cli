@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "filesac": "https://ga.jspm.io/npm:filesac@11.1.1/files.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

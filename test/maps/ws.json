@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ws": "https://ga.jspm.io/npm:ws@7.3.0/browser.js"
-  }
-}

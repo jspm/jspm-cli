@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "npm-normalize-package-bin": "https://ga.jspm.io/npm:npm-normalize-package-bin@1.0.1/index.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

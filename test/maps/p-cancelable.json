@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "p-cancelable": "https://ga.jspm.io/npm:p-cancelable@2.0.0/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@neilujd/activities-lab": "https://ga.jspm.io/npm:@neilujd/activities-lab@1.1.0/index.js",
-    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js"
-  }
-}

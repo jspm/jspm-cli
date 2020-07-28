@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "picomatch": "https://ga.jspm.io/npm:picomatch@2.2.2/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

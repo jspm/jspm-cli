@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cli-boxes": "https://ga.jspm.io/npm:cli-boxes@2.2.0/index.js"
-  }
-}

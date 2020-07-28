@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "xml.one": "https://ga.jspm.io/npm:xml.one@1.0.3/dist/web.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@livy/process-id-processor": "https://ga.jspm.io/npm:@livy/process-id-processor@1.0.2/lib/process-id-processor.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

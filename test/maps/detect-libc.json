@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "detect-libc": "https://ga.jspm.io/npm:detect-libc@1.0.3/lib/detect-libc.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

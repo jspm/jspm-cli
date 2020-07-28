@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "webext-detect-page": "https://ga.jspm.io/npm:webext-detect-page@2.0.4/index.js"
-  }
-}

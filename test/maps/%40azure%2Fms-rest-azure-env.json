@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@azure/ms-rest-azure-env": "https://ga.jspm.io/npm:@azure/ms-rest-azure-env@2.0.0/dist/msRestAzureEnv.js"
-  }
-}

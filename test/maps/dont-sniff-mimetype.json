@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "dont-sniff-mimetype": "https://ga.jspm.io/npm:dont-sniff-mimetype@1.1.0/dist/index.js"
-  }
-}

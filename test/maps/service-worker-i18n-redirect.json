@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "service-worker-i18n-redirect": "https://ga.jspm.io/npm:service-worker-i18n-redirect@1.0.0/index.js"
-  }
-}

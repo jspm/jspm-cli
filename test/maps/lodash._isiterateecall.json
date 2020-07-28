@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash._isiterateecall": "https://ga.jspm.io/npm:lodash._isiterateecall@3.0.9/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@witzbould/utils-json-parse": "https://ga.jspm.io/npm:@witzbould/utils-json-parse@1.0.0/index.js"
-  }
-}

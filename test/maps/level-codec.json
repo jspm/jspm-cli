@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "level-codec": "https://ga.jspm.io/npm:level-codec@9.0.1/index.js"
-  }
-}

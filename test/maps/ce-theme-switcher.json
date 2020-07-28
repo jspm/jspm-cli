@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ce-theme-switcher": "https://ga.jspm.io/npm:ce-theme-switcher@0.0.3/src/index.js"
-  }
-}

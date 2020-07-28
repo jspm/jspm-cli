@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@manifoldco/mercury": "https://ga.jspm.io/npm:@manifoldco/mercury@0.2.4/index.cjs.js"
-  }
-}

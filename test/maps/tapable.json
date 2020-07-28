@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "tapable": "https://ga.jspm.io/npm:tapable@1.1.3/lib/index.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

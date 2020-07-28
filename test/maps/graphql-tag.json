@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "graphql-tag": "https://ga.jspm.io/npm:graphql-tag@2.10.3/lib/graphql-tag.umd.js",
-    "graphql/language/parser": "https://ga.jspm.io/npm:graphql@14.6.0/language/parser.js"
-  }
-}

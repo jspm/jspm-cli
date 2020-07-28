@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "postcss-media-query-parser": "https://ga.jspm.io/npm:postcss-media-query-parser@0.2.3/dist/index.js"
-  }
-}

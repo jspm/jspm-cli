@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.isempty": "https://ga.jspm.io/npm:lodash.isempty@4.4.0/index.js"
-  }
-}

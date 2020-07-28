@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash._reinterpolate": "https://ga.jspm.io/npm:lodash._reinterpolate@3.0.0/index.js"
-  }
-}

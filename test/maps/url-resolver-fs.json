@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "url-resolver-fs": "https://ga.jspm.io/npm:url-resolver-fs@8.0.6/src/module.mjs"
-  }
-}

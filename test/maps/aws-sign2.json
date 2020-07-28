@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "aws-sign2": "https://ga.jspm.io/npm:aws-sign2@0.7.0/index.js",
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
-  }
-}

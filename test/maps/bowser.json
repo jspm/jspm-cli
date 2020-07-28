@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "bowser": "https://ga.jspm.io/npm:bowser@2.9.0/es5.js"
-  }
-}

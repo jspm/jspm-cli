@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@svgr/babel-plugin-remove-jsx-attribute": "https://ga.jspm.io/npm:@svgr/babel-plugin-remove-jsx-attribute@5.4.0/lib/index.js"
-  }
-}

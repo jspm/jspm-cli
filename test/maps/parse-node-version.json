@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "parse-node-version": "https://ga.jspm.io/npm:parse-node-version@1.0.1/index.js"
-  }
-}

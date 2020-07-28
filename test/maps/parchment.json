@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "parchment": "https://ga.jspm.io/npm:parchment@2.0.0-dev.2/dist/parchment.js"
-  }
-}

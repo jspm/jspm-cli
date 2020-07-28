@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@polymer/polymer": "https://ga.jspm.io/npm:@polymer/polymer@3.4.1/polymer-element.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "hogan.js": "https://ga.jspm.io/npm:hogan.js@3.0.2/lib/hogan.js"
-  }
-}

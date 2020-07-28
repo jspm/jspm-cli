@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "object-diff-patch": "https://ga.jspm.io/npm:object-diff-patch@0.1.1/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "keyboard-key": "https://ga.jspm.io/npm:keyboard-key@1.1.0/src/keyboardKey.js"
-  }
-}

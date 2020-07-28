@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "js-calendar": "https://ga.jspm.io/npm:js-calendar@1.2.3/index.js"
-  }
-}

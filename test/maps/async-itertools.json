@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "async-itertools": "https://ga.jspm.io/npm:async-itertools@0.0.12/dist/www/index.js"
-  }
-}

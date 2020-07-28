@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "auto-vue-routes-plugin": "https://ga.jspm.io/npm:auto-vue-routes-plugin@1.0.5/dist/index.js"
-  }
-}

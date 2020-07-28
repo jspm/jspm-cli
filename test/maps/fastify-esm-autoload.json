@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "fastify-esm-autoload": "https://ga.jspm.io/npm:fastify-esm-autoload@1.2.1/index.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
-  }
-}

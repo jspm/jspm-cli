@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@michaelfranzl/captain-hook": "https://ga.jspm.io/npm:@michaelfranzl/captain-hook@2.0.1/src/captain-hook.js"
-  }
-}

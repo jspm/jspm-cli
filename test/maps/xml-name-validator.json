@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "xml-name-validator": "https://ga.jspm.io/npm:xml-name-validator@3.0.0/lib/xml-name-validator.js"
-  }
-}

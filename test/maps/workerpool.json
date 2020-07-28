@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "workerpool": "https://ga.jspm.io/npm:workerpool@6.0.0/dist/workerpool.js"
-  }
-}

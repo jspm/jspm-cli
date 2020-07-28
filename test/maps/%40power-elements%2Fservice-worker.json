@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@power-elements/service-worker": "https://ga.jspm.io/npm:@power-elements/service-worker@4.0.4/service-worker.js"
-  }
-}

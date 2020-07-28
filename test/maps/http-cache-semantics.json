@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "http-cache-semantics": "https://ga.jspm.io/npm:http-cache-semantics@4.1.0/index.js"
-  }
-}

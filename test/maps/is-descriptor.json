@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-descriptor": "https://ga.jspm.io/npm:is-descriptor@3.0.0/index.js"
-  }
-}

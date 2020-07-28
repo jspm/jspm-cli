@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-extglob": "https://ga.jspm.io/npm:is-extglob@2.1.1/index.js"
-  }
-}

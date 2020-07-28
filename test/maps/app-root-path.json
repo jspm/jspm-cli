@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "app-root-path": "https://ga.jspm.io/npm:app-root-path@3.0.0/browser-shim.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

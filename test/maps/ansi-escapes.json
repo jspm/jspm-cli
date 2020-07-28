@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "ansi-escapes": "https://ga.jspm.io/npm:ansi-escapes@4.3.1/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

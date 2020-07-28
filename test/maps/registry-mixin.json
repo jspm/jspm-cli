@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "registry-mixin": "https://ga.jspm.io/npm:registry-mixin@3.0.3/src/registry-mixin.mjs"
-  }
-}

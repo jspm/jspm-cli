@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "pkginfo": "https://ga.jspm.io/npm:pkginfo@0.4.1/lib/pkginfo.js"
-  }
-}

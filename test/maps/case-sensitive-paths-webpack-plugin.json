@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "case-sensitive-paths-webpack-plugin": "https://ga.jspm.io/npm:case-sensitive-paths-webpack-plugin@2.3.0/index.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

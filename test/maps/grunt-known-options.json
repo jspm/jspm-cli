@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "grunt-known-options": "https://ga.jspm.io/npm:grunt-known-options@1.1.1/index.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

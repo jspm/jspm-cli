@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "nearley": "https://ga.jspm.io/npm:nearley@2.19.3/lib/nearley.js"
-  }
-}

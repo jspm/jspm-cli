@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "shtjs": "https://ga.jspm.io/npm:shtjs@1.1.0/sht.js"
-  }
-}

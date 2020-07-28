@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "big-integer": "https://ga.jspm.io/npm:big-integer@1.6.48/BigInteger.js"
-  }
-}

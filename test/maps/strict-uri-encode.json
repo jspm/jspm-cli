@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "strict-uri-encode": "https://ga.jspm.io/npm:strict-uri-encode@2.0.0/index.js"
-  }
-}

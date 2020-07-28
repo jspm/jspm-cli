@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "nwsapi": "https://ga.jspm.io/npm:nwsapi@2.2.0/src/nwsapi.js"
-  }
-}

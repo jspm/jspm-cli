@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "byline": "https://ga.jspm.io/npm:byline@5.0.0/lib/byline.js",
-    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js",
-    "timers": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

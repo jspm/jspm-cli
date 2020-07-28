@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-dsv": "https://ga.jspm.io/npm:d3-dsv@1.2.0/dist/d3-dsv.js"
-  }
-}

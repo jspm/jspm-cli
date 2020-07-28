@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "json-schema": "https://ga.jspm.io/npm:json-schema@0.2.5/lib/validate.js"
-  }
-}

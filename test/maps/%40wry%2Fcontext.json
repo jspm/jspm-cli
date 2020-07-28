@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@wry/context": "https://ga.jspm.io/npm:@wry/context@0.5.2/lib/context.js"
-  }
-}

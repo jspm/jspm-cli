@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "find-npm-prefix": "https://ga.jspm.io/npm:find-npm-prefix@1.0.2/find-prefix.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

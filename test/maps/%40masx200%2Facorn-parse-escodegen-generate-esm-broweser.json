@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@masx200/acorn-parse-escodegen-generate-esm-broweser": "https://ga.jspm.io/npm:@masx200/acorn-parse-escodegen-generate-esm-broweser@1.1.1/dist/index.js"
-  }
-}

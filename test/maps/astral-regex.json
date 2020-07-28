@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "astral-regex": "https://ga.jspm.io/npm:astral-regex@2.0.0/index.js"
-  }
-}

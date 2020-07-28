@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "harmony-reflect": "https://ga.jspm.io/npm:harmony-reflect@1.6.1/reflect.js"
-  }
-}

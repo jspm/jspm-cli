@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "crypto-es": "https://ga.jspm.io/npm:crypto-es@1.2.5/lib/index.js"
-  }
-}

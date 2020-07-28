@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "@angular/common": "https://ga.jspm.io/npm:@angular/common@9.1.9/bundles/common.umd.js",
-    "@angular/core": "https://ga.jspm.io/npm:@angular/core@9.1.9/bundles/core.umd.js",
-    "@angular/router": "https://ga.jspm.io/npm:@angular/router@9.1.9/bundles/router.umd.js",
-    "rxjs": "https://ga.jspm.io/npm:rxjs@6.5.5/index.js",
-    "rxjs/operators": "https://ga.jspm.io/npm:rxjs@6.5.5/operators/index.js"
-  }
-}

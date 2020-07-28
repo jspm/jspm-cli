@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "longest-streak": "https://ga.jspm.io/npm:longest-streak@2.0.4/index.js"
-  }
-}

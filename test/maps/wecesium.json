@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "wecesium": "https://ga.jspm.io/npm:wecesium@1.0.10/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.once": "https://ga.jspm.io/npm:lodash.once@4.1.1/index.js"
-  }
-}

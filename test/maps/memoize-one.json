@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "memoize-one": "https://ga.jspm.io/npm:memoize-one@5.1.1/dist/memoize-one.cjs.js"
-  }
-}

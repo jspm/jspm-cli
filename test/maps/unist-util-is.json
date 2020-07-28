@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "unist-util-is": "https://ga.jspm.io/npm:unist-util-is@4.0.2/index.js"
-  }
-}

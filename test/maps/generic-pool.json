@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "generic-pool": "https://ga.jspm.io/npm:generic-pool@3.7.1/index.js"
-  }
-}

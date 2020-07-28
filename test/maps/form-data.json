@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "form-data": "https://ga.jspm.io/npm:form-data@3.0.0/lib/browser.js"
-  }
-}

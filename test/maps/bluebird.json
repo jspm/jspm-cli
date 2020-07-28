@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "bluebird": "https://ga.jspm.io/npm:bluebird@3.7.2/js/browser/bluebird.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

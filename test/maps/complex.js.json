@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "complex.js": "https://ga.jspm.io/npm:complex.js@2.0.11/complex.js"
-  }
-}

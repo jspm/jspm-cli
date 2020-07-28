@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "bignumber.js": "https://ga.jspm.io/npm:bignumber.js@9.0.0/bignumber.js"
-  }
-}

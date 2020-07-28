@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "gulp-rename": "https://ga.jspm.io/npm:gulp-rename@2.0.0/index.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
-  }
-}

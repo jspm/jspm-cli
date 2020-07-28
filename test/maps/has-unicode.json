@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "has-unicode": "https://ga.jspm.io/npm:has-unicode@2.0.1/index.js",
-    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

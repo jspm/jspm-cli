@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "wiegand-encoder": "https://ga.jspm.io/npm:wiegand-encoder@1.1.0/src/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@livy/hostname-processor": "https://ga.jspm.io/npm:@livy/hostname-processor@1.0.2/lib/hostname-processor.js",
-    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "only": "https://ga.jspm.io/npm:only@0.0.2/index.js"
-  }
-}

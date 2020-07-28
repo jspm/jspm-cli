@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-plugin-syntax-class-constructor-call": "https://ga.jspm.io/npm:babel-plugin-syntax-class-constructor-call@6.18.0/lib/index.js"
-  }
-}

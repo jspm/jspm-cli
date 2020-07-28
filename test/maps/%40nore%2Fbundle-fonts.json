@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@nore/bundle-fonts": "https://ga.jspm.io/npm:@nore/bundle-fonts@1.3.3/source/index.js"
-  }
-}

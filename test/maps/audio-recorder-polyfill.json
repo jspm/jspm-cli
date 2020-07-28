@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "audio-recorder-polyfill": "https://ga.jspm.io/npm:audio-recorder-polyfill@0.3.6/index.js"
-  }
-}

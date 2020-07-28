@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "js-search": "https://ga.jspm.io/npm:js-search@2.0.0/dist/esm/js-search.js"
-  }
-}

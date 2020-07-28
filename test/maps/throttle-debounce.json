@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "throttle-debounce": "https://ga.jspm.io/npm:throttle-debounce@2.1.0/dist/index.cjs.js"
-  }
-}

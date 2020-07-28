@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "reactive-signals": "https://ga.jspm.io/npm:reactive-signals@1.0.0/index.js"
-  }
-}

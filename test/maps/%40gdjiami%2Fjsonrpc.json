@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@gdjiami/jsonrpc": "https://ga.jspm.io/npm:@gdjiami/jsonrpc@2.4.2/lib/index.js"
-  }
-}

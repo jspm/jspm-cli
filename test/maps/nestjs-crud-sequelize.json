@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "nestjs-crud-sequelize": "https://ga.jspm.io/npm:nestjs-crud-sequelize@1.0.0/dist/index.js"
-  }
-}

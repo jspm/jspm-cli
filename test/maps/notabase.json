@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "notabase": "https://ga.jspm.io/npm:notabase@0.9.4/dist/index.js"
-  }
-}

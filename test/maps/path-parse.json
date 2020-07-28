@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "path-parse": "https://ga.jspm.io/npm:path-parse@1.0.6/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

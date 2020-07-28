@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "quick-lru": "https://ga.jspm.io/npm:quick-lru@5.1.0/index.js"
-  }
-}

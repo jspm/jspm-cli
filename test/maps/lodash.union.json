@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.union": "https://ga.jspm.io/npm:lodash.union@4.6.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "p-each-series": "https://ga.jspm.io/npm:p-each-series@2.1.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@jupyterlab/rendermime-interfaces": "https://ga.jspm.io/npm:@jupyterlab/rendermime-interfaces@2.1.0/lib/index.js"
-  }
-}

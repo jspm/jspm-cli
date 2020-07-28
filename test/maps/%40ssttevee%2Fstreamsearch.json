@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@ssttevee/streamsearch": "https://ga.jspm.io/npm:@ssttevee/streamsearch@0.1.4/lib/index.js"
-  }
-}

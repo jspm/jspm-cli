@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "run-async": "https://ga.jspm.io/npm:run-async@2.4.1/index.js"
-  }
-}

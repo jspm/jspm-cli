@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "arr-diff": "https://ga.jspm.io/npm:arr-diff@4.0.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@calmdownval/predux": "https://ga.jspm.io/npm:@calmdownval/predux@0.1.2/dist/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "detect-indentation": "https://ga.jspm.io/npm:detect-indentation@5.2.0/edition-browsers/index.js"
-  }
-}

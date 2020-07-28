@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "jsonc-pragma": "https://ga.jspm.io/npm:jsonc-pragma@1.0.7/dist-web/index.bundled.js"
-  }
-}

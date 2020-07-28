@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@sosoba/tslib": "https://ga.jspm.io/npm:@sosoba/tslib@1.0.3/tslib.es6.js"
-  }
-}

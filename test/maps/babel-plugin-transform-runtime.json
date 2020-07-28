@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-plugin-transform-runtime": "https://ga.jspm.io/npm:babel-plugin-transform-runtime@6.23.0/lib/index.js"
-  }
-}

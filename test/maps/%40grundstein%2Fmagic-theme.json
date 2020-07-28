@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@grundstein/magic-theme": "https://ga.jspm.io/npm:@grundstein/magic-theme@0.0.4/src/index.mjs"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "rfc-log-levels": "https://ga.jspm.io/npm:rfc-log-levels@3.4.0/edition-browsers/index.js"
-  }
-}

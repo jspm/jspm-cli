@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "node-modules-regexp": "https://ga.jspm.io/npm:node-modules-regexp@1.0.0/index.js"
-  }
-}

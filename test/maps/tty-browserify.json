@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "tty-browserify": "https://ga.jspm.io/npm:tty-browserify@0.0.1/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "typechecker": "https://ga.jspm.io/npm:typechecker@7.4.0/edition-browsers/index.js"
-  }
-}

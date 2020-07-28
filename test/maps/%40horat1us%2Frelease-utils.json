@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@horat1us/release-utils": "https://ga.jspm.io/npm:@horat1us/release-utils@3.4.1/release.js"
-  }
-}

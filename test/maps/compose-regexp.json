@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "compose-regexp": "https://ga.jspm.io/npm:compose-regexp@0.5.3/compose-regexp.js"
-  }
-}

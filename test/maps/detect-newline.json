@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "detect-newline": "https://ga.jspm.io/npm:detect-newline@3.1.0/index.js"
-  }
-}

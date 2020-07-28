@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@insurgent/entity": "https://ga.jspm.io/npm:@insurgent/entity@5.0.1/dist/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@wingsuit-designsystem/tools/svg2json": "https://ga.jspm.io/npm:@wingsuit-designsystem/tools@0.0.19-dev/svg2json/index.js",
-    "@wingsuit-designsystem/tools/tailwind2json": "https://ga.jspm.io/npm:@wingsuit-designsystem/tools@0.0.19-dev/tailwind2json/index.js"
-  }
-}

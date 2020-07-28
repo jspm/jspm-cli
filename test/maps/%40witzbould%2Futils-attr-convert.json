@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@witzbould/utils-attr-convert": "https://ga.jspm.io/npm:@witzbould/utils-attr-convert@1.0.0/index.js"
-  }
-}

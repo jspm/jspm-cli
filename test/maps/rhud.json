@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "rhud": "https://ga.jspm.io/npm:rhud@1.0.0/dist/index.js"
-  }
-}

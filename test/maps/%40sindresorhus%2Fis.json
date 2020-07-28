@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@sindresorhus/is": "https://ga.jspm.io/npm:@sindresorhus/is@2.1.1/dist/index.js"
-  }
-}

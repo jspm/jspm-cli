@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "parse-headers": "https://ga.jspm.io/npm:parse-headers@2.0.3/parse-headers.js"
-  }
-}

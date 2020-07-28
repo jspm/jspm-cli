@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "slide": "https://ga.jspm.io/npm:slide@1.1.6/lib/slide.js"
-  }
-}

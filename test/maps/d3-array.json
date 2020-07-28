@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-array": "https://ga.jspm.io/npm:d3-array@2.4.0/dist/d3-array.js"
-  }
-}

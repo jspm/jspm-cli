@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@msign/angularis": "https://ga.jspm.io/npm:@msign/angularis@0.1.9/index.js"
-  }
-}

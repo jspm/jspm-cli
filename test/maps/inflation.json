@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "inflation": "https://ga.jspm.io/npm:inflation@2.0.0/index.js",
-    "zlib": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/zlib.js"
-  }
-}

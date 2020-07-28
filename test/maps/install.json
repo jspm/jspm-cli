@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "install": "https://ga.jspm.io/npm:install@0.13.0/install.js"
-  }
-}

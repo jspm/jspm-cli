@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@thyrith/momentkh": "https://ga.jspm.io/npm:@thyrith/momentkh@2.3.7/momentkh.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "decimal.js": "https://ga.jspm.io/npm:decimal.js@10.2.0/decimal.js"
-  }
-}

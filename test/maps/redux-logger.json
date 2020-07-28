@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "redux-logger": "https://ga.jspm.io/npm:redux-logger@3.0.6/dist/redux-logger.js"
-  }
-}

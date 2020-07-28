@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@antv/g": "https://ga.jspm.io/npm:@antv/g@3.4.10/build/g.js"
-  }
-}

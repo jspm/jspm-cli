@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "railroad-diagrams": "https://ga.jspm.io/npm:railroad-diagrams@1.0.0/railroad-diagrams.js"
-  }
-}

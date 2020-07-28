@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pixiv5-tiled": "https://ga.jspm.io/npm:pixiv5-tiled@1.1.17/dist/index.cjs.js"
-  }
-}

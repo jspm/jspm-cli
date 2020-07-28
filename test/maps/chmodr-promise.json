@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "chmodr-promise": "https://ga.jspm.io/npm:chmodr-promise@0.0.4/dist/index.js"
-  }
-}

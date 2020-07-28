@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@iswa/svgojs": "https://ga.jspm.io/npm:@iswa/svgojs@1.0.2/index.js"
-  }
-}

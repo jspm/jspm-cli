@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "effector-storage": "https://ga.jspm.io/npm:effector-storage@2.0.0/index.js"
-  }
-}

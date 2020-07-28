@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "buffer-equal-constant-time": "https://ga.jspm.io/npm:buffer-equal-constant-time@1.0.1/index.js"
-  }
-}

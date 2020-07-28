@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@nore/bundle-yaml": "https://ga.jspm.io/npm:@nore/bundle-yaml@1.3.3/source/index.js"
-  }
-}

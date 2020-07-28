@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-polygon": "https://ga.jspm.io/npm:d3-polygon@1.0.6/dist/d3-polygon.js"
-  }
-}

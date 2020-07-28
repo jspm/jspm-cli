@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "esm-pathnames": "https://ga.jspm.io/npm:esm-pathnames@1.0.1/build/index.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
-  }
-}

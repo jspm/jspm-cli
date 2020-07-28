@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lewisl9029/eslint-rules": "https://ga.jspm.io/npm:@lewisl9029/eslint-rules@0.0.5/.eslintrc.cjs"
-  }
-}

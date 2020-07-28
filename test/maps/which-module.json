@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "which-module": "https://ga.jspm.io/npm:which-module@2.0.0/index.js"
-  }
-}

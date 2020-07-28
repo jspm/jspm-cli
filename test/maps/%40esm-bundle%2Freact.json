@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@esm-bundle/react": "https://ga.jspm.io/npm:@esm-bundle/react@16.13.1/esm/react.production.min.js"
-  }
-}

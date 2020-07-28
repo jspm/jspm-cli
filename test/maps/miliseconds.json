@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "miliseconds": "https://ga.jspm.io/npm:miliseconds@2.0.1/src/index.mjs"
-  }
-}

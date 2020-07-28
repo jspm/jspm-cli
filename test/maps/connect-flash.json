@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "connect-flash": "https://ga.jspm.io/npm:connect-flash@0.1.1/lib/index.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

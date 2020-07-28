@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "johnny-tools-node": "https://ga.jspm.io/npm:johnny-tools-node@1.0.9/dist/index.js"
-  }
-}

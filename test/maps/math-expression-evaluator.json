@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "math-expression-evaluator": "https://ga.jspm.io/npm:math-expression-evaluator@1.2.22/src/formula_evaluator.js"
-  }
-}

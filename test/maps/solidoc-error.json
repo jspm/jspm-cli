@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "solidoc-error": "https://ga.jspm.io/npm:solidoc-error@1.0.3/dist/index.js"
-  }
-}

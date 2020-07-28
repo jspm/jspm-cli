@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@cfware/cleanable-interval": "https://ga.jspm.io/npm:@cfware/cleanable-interval@0.1.2/cleanable-interval.js"
-  }
-}

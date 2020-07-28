@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@fluent/sequence": "https://ga.jspm.io/npm:@fluent/sequence@0.5.0/index.js"
-  }
-}

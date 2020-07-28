@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "base64-arraybuffer": "https://ga.jspm.io/npm:base64-arraybuffer@0.2.0/lib/base64-arraybuffer.js"
-  }
-}

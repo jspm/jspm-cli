@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "listr-silent-renderer": "https://ga.jspm.io/npm:listr-silent-renderer@1.1.1/index.js"
-  }
-}

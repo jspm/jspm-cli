@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@youri-kane/js_utils": "https://ga.jspm.io/npm:@youri-kane/js_utils@1.1.3/dist/js_utils.js"
-  }
-}

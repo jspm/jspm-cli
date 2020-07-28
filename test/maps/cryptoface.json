@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cryptoface": "https://ga.jspm.io/npm:cryptoface@0.0.2/build/index.js"
-  }
-}

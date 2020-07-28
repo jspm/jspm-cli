@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "colour": "https://ga.jspm.io/npm:colour@0.7.1/colour.min.js"
-  }
-}

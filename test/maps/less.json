@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "less": "https://ga.jspm.io/npm:less@3.11.1/dist/less.js"
-  }
-}

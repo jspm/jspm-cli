@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@webassemblyjs/helper-api-error": "https://ga.jspm.io/npm:@webassemblyjs/helper-api-error@1.9.0/lib/index.js"
-  }
-}

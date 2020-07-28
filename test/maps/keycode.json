@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "keycode": "https://ga.jspm.io/npm:keycode@2.2.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-cli": "https://ga.jspm.io/npm:babel-cli@6.26.0/index.js"
-  }
-}

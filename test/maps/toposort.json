@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "toposort": "https://ga.jspm.io/npm:toposort@2.0.2/index.js"
-  }
-}

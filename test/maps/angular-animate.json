@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "angular-animate": "https://ga.jspm.io/npm:angular-animate@1.7.9/index.js"
-  }
-}

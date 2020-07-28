@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lezer-tree": "https://ga.jspm.io/npm:lezer-tree@0.8.4/dist/tree.es.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "strip-final-newline": "https://ga.jspm.io/npm:strip-final-newline@2.0.0/index.js"
-  }
-}

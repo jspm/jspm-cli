@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "marked": "https://ga.jspm.io/npm:marked@1.1.0/lib/marked.js"
-  }
-}

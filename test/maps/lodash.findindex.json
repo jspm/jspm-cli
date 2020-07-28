@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.findindex": "https://ga.jspm.io/npm:lodash.findindex@4.6.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "react-dnd-html5-backend": "https://ga.jspm.io/npm:react-dnd-html5-backend@11.1.3/dist/cjs/index.js"
-  }
-}

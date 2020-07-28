@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@svgr/babel-plugin-remove-jsx-empty-expression": "https://ga.jspm.io/npm:@svgr/babel-plugin-remove-jsx-empty-expression@5.0.1/lib/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "event-target-shim": "https://ga.jspm.io/npm:event-target-shim@5.0.1/dist/event-target-shim.js"
-  }
-}

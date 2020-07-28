@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@coriolis/coriolis": "https://ga.jspm.io/npm:@coriolis/coriolis@1.0.0-alpha4/dist/cjs/index.js"
-  }
-}

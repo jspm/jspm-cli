@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@candlefw/wax": "https://ga.jspm.io/npm:@candlefw/wax@0.0.2/build/library/wax.js"
-  }
-}

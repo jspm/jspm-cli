@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "globals": "https://ga.jspm.io/npm:globals@13.0.0/index.js"
-  }
-}

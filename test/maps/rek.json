@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "rek": "https://ga.jspm.io/npm:rek@0.5.0/cjs/browser.js"
-  }
-}

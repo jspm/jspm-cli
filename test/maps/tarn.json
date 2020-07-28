@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "tarn": "https://ga.jspm.io/npm:tarn@3.0.0/dist/tarn.js",
-    "timers": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/timers.js"
-  }
-}

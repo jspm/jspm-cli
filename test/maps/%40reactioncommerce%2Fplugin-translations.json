@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@reactioncommerce/plugin-translations": "https://ga.jspm.io/npm:@reactioncommerce/plugin-translations@1.0.1/index.js"
-  }
-}

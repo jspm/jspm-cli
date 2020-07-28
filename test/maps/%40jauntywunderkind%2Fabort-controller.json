@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@jauntywunderkind/abort-controller": "https://ga.jspm.io/npm:@jauntywunderkind/abort-controller@3.0.0/browser.js"
-  }
-}

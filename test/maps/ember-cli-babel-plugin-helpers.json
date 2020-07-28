@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ember-cli-babel-plugin-helpers": "https://ga.jspm.io/npm:ember-cli-babel-plugin-helpers@1.1.0/lib/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "bn.js": "https://ga.jspm.io/npm:bn.js@5.1.2/lib/bn.js",
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
-  }
-}

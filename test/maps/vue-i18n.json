@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "vue-i18n": "https://ga.jspm.io/npm:vue-i18n@8.18.1/dist/vue-i18n.common.js"
-  }
-}

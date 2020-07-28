@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "async-validator": "https://ga.jspm.io/npm:async-validator@3.3.0/dist-node/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

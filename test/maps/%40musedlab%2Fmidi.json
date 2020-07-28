@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@musedlab/midi/file": "https://ga.jspm.io/npm:@musedlab/midi@0.0.3/file/index.js",
-    "@musedlab/midi/web": "https://ga.jspm.io/npm:@musedlab/midi@0.0.3/web/index.js"
-  }
-}

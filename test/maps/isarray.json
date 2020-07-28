@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "isarray": "https://ga.jspm.io/npm:isarray@2.0.5/index.js"
-  }
-}

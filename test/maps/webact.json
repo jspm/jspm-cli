@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "webact": "https://ga.jspm.io/npm:webact@0.1.16/dist-web/index.bundled.js"
-  }
-}

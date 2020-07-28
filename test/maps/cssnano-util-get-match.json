@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cssnano-util-get-match": "https://ga.jspm.io/npm:cssnano-util-get-match@4.0.0/dist/index.js"
-  }
-}

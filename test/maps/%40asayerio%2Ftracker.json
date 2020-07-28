@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@asayerio/tracker": "https://ga.jspm.io/npm:@asayerio/tracker@5.5.1/lib/index.js"
-  }
-}

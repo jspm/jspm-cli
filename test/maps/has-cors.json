@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "has-cors": "https://ga.jspm.io/npm:has-cors@1.1.0/index.js"
-  }
-}

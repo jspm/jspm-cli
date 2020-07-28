@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-plugin-syntax-do-expressions": "https://ga.jspm.io/npm:babel-plugin-syntax-do-expressions@6.13.0/lib/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@codedread/bitjs": "https://ga.jspm.io/npm:@codedread/bitjs@1.0.0/index.js"
-  }
-}

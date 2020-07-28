@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "watchman-expression": "https://ga.jspm.io/npm:watchman-expression@1.0.0/_index.js"
-  }
-}

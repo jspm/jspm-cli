@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "jwt-decode": "https://ga.jspm.io/npm:jwt-decode@2.2.0/lib/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "money-fns": "https://ga.jspm.io/npm:money-fns@0.4.1/src/index.js"
-  }
-}

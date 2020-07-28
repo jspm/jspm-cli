@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@masx200/async-task-current-limiter": "https://ga.jspm.io/npm:@masx200/async-task-current-limiter@1.0.8/dist/index.min.js"
-  }
-}

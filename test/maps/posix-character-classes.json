@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "posix-character-classes": "https://ga.jspm.io/npm:posix-character-classes@1.0.0/index.js"
-  }
-}

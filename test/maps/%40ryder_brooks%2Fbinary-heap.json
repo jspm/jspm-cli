@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@ryder_brooks/binary-heap": "https://ga.jspm.io/npm:@ryder_brooks/binary-heap@1.0.0/dist/index.js"
-  }
-}

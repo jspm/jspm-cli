@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "html-escaper": "https://ga.jspm.io/npm:html-escaper@3.0.0/cjs/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@pgateway/common-utils": "https://ga.jspm.io/npm:@pgateway/common-utils@1.0.0/dist/index.js"
-  }
-}

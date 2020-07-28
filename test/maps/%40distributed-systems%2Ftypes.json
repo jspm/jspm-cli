@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@distributed-systems/types": "https://ga.jspm.io/npm:@distributed-systems/types@2.0.1/types.js"
-  }
-}

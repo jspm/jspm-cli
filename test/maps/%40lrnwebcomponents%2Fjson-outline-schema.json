@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/json-outline-schema": "https://ga.jspm.io/npm:@lrnwebcomponents/json-outline-schema@2.6.14/json-outline-schema.js"
-  }
-}

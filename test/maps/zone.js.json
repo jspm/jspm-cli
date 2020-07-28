@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "zone.js": "https://ga.jspm.io/npm:zone.js@0.10.3/dist/zone.js"
-  }
-}

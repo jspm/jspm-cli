@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "@nodutilus/ci-cd": "https://ga.jspm.io/npm:@nodutilus/ci-cd@0.3.0/ci-cd-api.js",
-    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

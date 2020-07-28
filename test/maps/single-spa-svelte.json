@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "single-spa-svelte": "https://ga.jspm.io/npm:single-spa-svelte@2.0.0/lib/single-spa-svelte.js"
-  }
-}

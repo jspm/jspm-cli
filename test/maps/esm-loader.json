@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "esm-loader": "https://ga.jspm.io/npm:esm-loader@0.1.0/esm-loader.mjs"
-  }
-}

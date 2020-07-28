@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "canvas": "https://ga.jspm.io/npm:canvas@2.6.1/browser.js"
-  }
-}

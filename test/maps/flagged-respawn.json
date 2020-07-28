@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "child_process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/child_process.js",
-    "flagged-respawn": "https://ga.jspm.io/npm:flagged-respawn@1.0.1/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

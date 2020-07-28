@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "dpop": "https://ga.jspm.io/npm:dpop@0.5.5/dist-web/index.min.js"
-  }
-}

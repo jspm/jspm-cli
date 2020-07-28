@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@gongt/dual-package-runtime": "https://ga.jspm.io/npm:@gongt/dual-package-runtime@1.0.1/ignore.mjs"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "serialize-error": "https://ga.jspm.io/npm:serialize-error@7.0.1/index.js"
-  }
-}

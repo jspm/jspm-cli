@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "p-reduce": "https://ga.jspm.io/npm:p-reduce@2.1.0/index.js"
-  }
-}

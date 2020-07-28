@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "typed-event-dispatcher": "https://ga.jspm.io/npm:typed-event-dispatcher@1.10.1/dist/typed-event-dispatcher.js"
-  }
-}

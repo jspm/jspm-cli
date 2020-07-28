@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "json-loader": "https://ga.jspm.io/npm:json-loader@0.5.7/index.js"
-  }
-}

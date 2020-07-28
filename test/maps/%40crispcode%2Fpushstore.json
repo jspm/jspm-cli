@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@crispcode/pushstore": "https://ga.jspm.io/npm:@crispcode/pushstore@1.0.6/wrapper.mjs"
-  }
-}

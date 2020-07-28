@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@aurelia/dialog": "https://ga.jspm.io/npm:@aurelia/dialog@0.7.0/dist/umd/index.js"
-  }
-}

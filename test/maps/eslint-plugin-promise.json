@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "eslint-plugin-promise": "https://ga.jspm.io/npm:eslint-plugin-promise@4.2.1/index.js"
-  }
-}

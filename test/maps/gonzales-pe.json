@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "gonzales-pe": "https://ga.jspm.io/npm:gonzales-pe@4.3.0/lib/gonzales.js"
-  }
-}

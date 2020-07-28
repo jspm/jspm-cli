@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "unicode-canonical-property-names-ecmascript": "https://ga.jspm.io/npm:unicode-canonical-property-names-ecmascript@1.0.4/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "global-user-tools": "https://ga.jspm.io/npm:global-user-tools@0.2.81/lib/index.js"
-  }
-}

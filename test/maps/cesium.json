@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cesium": "https://ga.jspm.io/npm:cesium@1.69.0/Source/Cesium.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "node-fetch": "https://ga.jspm.io/npm:node-fetch@2.6.0/browser.js"
-  }
-}

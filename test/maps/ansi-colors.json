@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "ansi-colors": "https://ga.jspm.io/npm:ansi-colors@4.1.1/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

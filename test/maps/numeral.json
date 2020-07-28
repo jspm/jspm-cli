@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "numeral": "https://ga.jspm.io/npm:numeral@2.0.6/numeral.js"
-  }
-}

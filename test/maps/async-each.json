@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "async-each": "https://ga.jspm.io/npm:async-each@1.0.3/index.js"
-  }
-}

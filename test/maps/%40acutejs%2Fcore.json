@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@acutejs/core": "https://ga.jspm.io/npm:@acutejs/core@0.2.2/dist/index.js"
-  }
-}

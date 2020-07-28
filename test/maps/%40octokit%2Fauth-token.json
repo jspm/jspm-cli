@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@octokit/auth-token": "https://ga.jspm.io/npm:@octokit/auth-token@2.4.1/dist-node/index.js"
-  }
-}

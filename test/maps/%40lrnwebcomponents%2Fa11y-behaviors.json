@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/a11y-behaviors": "https://ga.jspm.io/npm:@lrnwebcomponents/a11y-behaviors@2.6.14/a11y-behaviors.js"
-  }
-}

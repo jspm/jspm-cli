@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "svelte/compiler": "https://ga.jspm.io/npm:svelte@3.23.0/compiler.js",
-    "svelte2tsx": "https://ga.jspm.io/npm:svelte2tsx@0.1.9/index.js",
-    "typescript": "https://ga.jspm.io/npm:typescript@3.9.4/lib/typescript.js"
-  }
-}

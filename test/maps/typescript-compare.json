@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "typescript-compare": "https://ga.jspm.io/npm:typescript-compare@0.0.2/index.js"
-  }
-}

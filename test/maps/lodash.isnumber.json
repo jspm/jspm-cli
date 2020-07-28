@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.isnumber": "https://ga.jspm.io/npm:lodash.isnumber@3.0.3/index.js"
-  }
-}

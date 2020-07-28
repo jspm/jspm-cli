@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "tiny-source-map": "https://ga.jspm.io/npm:tiny-source-map@0.0.1/esm/tiny-source-map.mjs"
-  }
-}

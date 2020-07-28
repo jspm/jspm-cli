@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "https": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/https.js",
-    "node-tweet": "https://ga.jspm.io/npm:node-tweet@0.1.4/index.js"
-  }
-}

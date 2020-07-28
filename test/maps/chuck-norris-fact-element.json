@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "chuck-norris-fact-element": "https://ga.jspm.io/npm:chuck-norris-fact-element@1.1.2/chuck-norris-fact.js"
-  }
-}

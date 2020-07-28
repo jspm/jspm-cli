@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "printj": "https://ga.jspm.io/npm:printj@1.2.2/printj.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic-modules/sound-cloud": "https://ga.jspm.io/npm:@magic-modules/sound-cloud@0.0.3/src/index.mjs"
-  }
-}

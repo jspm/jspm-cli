@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash": "https://ga.jspm.io/npm:lodash@4.17.15/lodash.js"
-  }
-}

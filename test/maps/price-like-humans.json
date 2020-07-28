@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "price-like-humans": "https://ga.jspm.io/npm:price-like-humans@0.8.0/dist/index.js"
-  }
-}

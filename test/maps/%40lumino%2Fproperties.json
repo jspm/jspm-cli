@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lumino/properties": "https://ga.jspm.io/npm:@lumino/properties@1.2.0/dist/index.js"
-  }
-}

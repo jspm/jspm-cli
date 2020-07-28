@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "duration-to-ms": "https://ga.jspm.io/npm:duration-to-ms@0.1.0/src/index.js"
-  }
-}

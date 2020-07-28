@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "fxjs-typescript": "https://ga.jspm.io/npm:fxjs-typescript@0.0.1/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "spanning-css-polyfill": "https://ga.jspm.io/npm:spanning-css-polyfill@1.0.12/build/spanning-css-polyfill.js"
-  }
-}

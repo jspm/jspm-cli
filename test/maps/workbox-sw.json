@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "workbox-sw": "https://ga.jspm.io/npm:workbox-sw@5.1.3/build/workbox-sw.js"
-  }
-}

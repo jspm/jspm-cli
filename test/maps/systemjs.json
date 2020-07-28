@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "systemjs": "https://ga.jspm.io/npm:systemjs@6.3.2/dist/system.min.js"
-  }
-}

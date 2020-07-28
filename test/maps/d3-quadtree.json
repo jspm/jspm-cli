@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-quadtree": "https://ga.jspm.io/npm:d3-quadtree@1.0.7/dist/d3-quadtree.js"
-  }
-}

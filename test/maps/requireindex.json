@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "requireindex": "https://ga.jspm.io/npm:requireindex@1.2.0/index.js"
-  }
-}

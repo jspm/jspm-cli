@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "wolfy87-eventemitter": "https://ga.jspm.io/npm:wolfy87-eventemitter@5.2.9/EventEmitter.js"
-  }
-}

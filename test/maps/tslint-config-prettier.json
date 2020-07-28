@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "tslint-config-prettier": "https://ga.jspm.io/npm:tslint-config-prettier@1.18.0/lib/index.json.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/dl-behavior": "https://ga.jspm.io/npm:@lrnwebcomponents/dl-behavior@2.6.14/dl-behavior.js"
-  }
-}

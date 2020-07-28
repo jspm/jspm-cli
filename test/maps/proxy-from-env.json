@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "proxy-from-env": "https://ga.jspm.io/npm:proxy-from-env@1.1.0/index.js",
-    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
-  }
-}

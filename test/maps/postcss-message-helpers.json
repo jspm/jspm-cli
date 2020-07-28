@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "postcss-message-helpers": "https://ga.jspm.io/npm:postcss-message-helpers@2.0.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "iterate-iterator": "https://ga.jspm.io/npm:iterate-iterator@1.0.1/index.js"
-  }
-}

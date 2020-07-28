@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@trusktr/meteor-base64": "https://ga.jspm.io/npm:@trusktr/meteor-base64@1.0.12/dist/index.js"
-  }
-}

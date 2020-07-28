@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "unicode-match-property-value-ecmascript": "https://ga.jspm.io/npm:unicode-match-property-value-ecmascript@1.2.0/index.js"
-  }
-}

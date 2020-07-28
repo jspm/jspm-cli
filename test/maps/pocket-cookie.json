@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pocket-cookie": "https://ga.jspm.io/npm:pocket-cookie@0.1.0/dist/pocket-cookie.js"
-  }
-}

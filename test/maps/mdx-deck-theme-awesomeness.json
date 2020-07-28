@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "mdx-deck-theme-awesomeness": "https://ga.jspm.io/npm:mdx-deck-theme-awesomeness@1.1.5/dist/index.js"
-  }
-}

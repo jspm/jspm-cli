@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "mongoose-legacy-pluralize": "https://ga.jspm.io/npm:mongoose-legacy-pluralize@1.0.2/index.js"
-  }
-}

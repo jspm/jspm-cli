@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "date-fns": "https://ga.jspm.io/npm:date-fns@2.14.0/index.js"
-  }
-}

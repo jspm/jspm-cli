@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@masx200/importcjsamdumd": "https://ga.jspm.io/npm:@masx200/importcjsamdumd@2.6.3/dist/index.min.js"
-  }
-}

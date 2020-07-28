@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/random-item": "https://ga.jspm.io/npm:@lrnwebcomponents/random-item@2.6.12/random-item.js"
-  }
-}

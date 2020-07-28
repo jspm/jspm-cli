@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "coronavirus-epidemiology-model": "https://ga.jspm.io/npm:coronavirus-epidemiology-model@0.0.1/src/index.js"
-  }
-}

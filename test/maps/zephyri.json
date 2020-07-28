@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "zephyri": "https://ga.jspm.io/npm:zephyri@0.0.1/pkg/dist-node/index.js"
-  }
-}

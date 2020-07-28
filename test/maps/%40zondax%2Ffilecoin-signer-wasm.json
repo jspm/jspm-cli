@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "@zondax/filecoin-signer-wasm": "https://ga.jspm.io/npm:@zondax/filecoin-signer-wasm@0.4.1/nodejs/filecoin_signer_wasm.js",
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

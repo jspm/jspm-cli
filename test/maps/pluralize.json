@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pluralize": "https://ga.jspm.io/npm:pluralize@8.0.0/pluralize.js"
-  }
-}

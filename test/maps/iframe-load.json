@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "iframe-load": "https://ga.jspm.io/npm:iframe-load@0.1.3/main.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "check-error": "https://ga.jspm.io/npm:check-error@1.0.2/index.js"
-  }
-}

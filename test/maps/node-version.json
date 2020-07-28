@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "node-version": "https://ga.jspm.io/npm:node-version@2.0.0/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

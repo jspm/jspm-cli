@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@d-fischer/qs": "https://ga.jspm.io/npm:@d-fischer/qs@7.0.2/lib/index.js"
-  }
-}

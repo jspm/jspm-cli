@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.mergewith": "https://ga.jspm.io/npm:lodash.mergewith@4.6.2/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "i4im-components": "https://ga.jspm.io/npm:i4im-components@0.1.17/lib/i4im-components.common.js"
-  }
-}

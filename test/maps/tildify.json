@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "os": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/os.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "tildify": "https://ga.jspm.io/npm:tildify@2.0.0/index.js"
-  }
-}

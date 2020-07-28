@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "repeated-calls": "https://ga.jspm.io/npm:repeated-calls@0.0.3/dist/index.mjs"
-  }
-}

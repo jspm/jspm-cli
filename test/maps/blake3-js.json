@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "blake3-js": "https://ga.jspm.io/npm:blake3-js@0.0.5/dist/main.js"
-  }
-}

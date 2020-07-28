@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@babel/helper-plugin-utils": "https://ga.jspm.io/npm:@babel/helper-plugin-utils@7.10.1/lib/index.js"
-  }
-}

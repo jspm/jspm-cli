@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "fast-json-stable-stringify": "https://ga.jspm.io/npm:fast-json-stable-stringify@2.1.0/index.js"
-  }
-}

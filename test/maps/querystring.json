@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "querystring": "https://ga.jspm.io/npm:querystring@0.2.0/index.js"
-  }
-}

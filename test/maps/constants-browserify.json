@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "constants-browserify": "https://ga.jspm.io/npm:constants-browserify@1.0.0/constants.json.js"
-  }
-}

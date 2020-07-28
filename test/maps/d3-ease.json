@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-ease": "https://ga.jspm.io/npm:d3-ease@1.0.6/dist/d3-ease.js"
-  }
-}

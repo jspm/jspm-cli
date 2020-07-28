@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "javascript-std-lib": "https://ga.jspm.io/npm:javascript-std-lib@1.13.4/index.js"
-  }
-}

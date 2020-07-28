@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "object-agent": "https://ga.jspm.io/npm:object-agent@1.4.12/index.js"
-  }
-}

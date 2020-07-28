@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "snek-client-test": "https://ga.jspm.io/npm:snek-client-test@1.0.0/index.js"
-  }
-}

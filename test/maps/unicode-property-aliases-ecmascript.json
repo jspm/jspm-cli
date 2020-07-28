@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "unicode-property-aliases-ecmascript": "https://ga.jspm.io/npm:unicode-property-aliases-ecmascript@1.1.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "dns-equal": "https://ga.jspm.io/npm:dns-equal@1.0.0/index.js"
-  }
-}

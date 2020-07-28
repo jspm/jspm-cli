@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@barusu/option-util": "https://ga.jspm.io/npm:@barusu/option-util@0.0.12/lib/cjs/index.js"
-  }
-}

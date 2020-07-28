@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "signal-exit": "https://ga.jspm.io/npm:signal-exit@3.0.3/index.js"
-  }
-}

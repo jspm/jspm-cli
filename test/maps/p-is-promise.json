@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "p-is-promise": "https://ga.jspm.io/npm:p-is-promise@3.0.0/index.js"
-  }
-}

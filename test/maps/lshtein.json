@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lshtein": "https://ga.jspm.io/npm:lshtein@1.1.1/lib/esm/index.js"
-  }
-}

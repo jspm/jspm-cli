@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "punycode": "https://ga.jspm.io/npm:punycode@2.1.1/punycode.js"
-  }
-}

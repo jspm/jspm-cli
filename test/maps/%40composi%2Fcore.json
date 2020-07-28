@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@composi/core": "https://ga.jspm.io/npm:@composi/core@2.7.9/src/index.js"
-  }
-}

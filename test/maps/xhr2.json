@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "xhr2": "https://ga.jspm.io/npm:xhr2@0.2.0/lib/browser.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lazy-property": "https://ga.jspm.io/npm:lazy-property@1.0.0/lazyProperty.js"
-  }
-}

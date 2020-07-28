@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "remove-trailing-separator": "https://ga.jspm.io/npm:remove-trailing-separator@1.1.0/index.js"
-  }
-}

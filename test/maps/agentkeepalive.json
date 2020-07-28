@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "agentkeepalive": "https://ga.jspm.io/npm:agentkeepalive@4.1.2/browser.js"
-  }
-}

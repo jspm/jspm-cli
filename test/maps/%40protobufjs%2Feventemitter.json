@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@protobufjs/eventemitter": "https://ga.jspm.io/npm:@protobufjs/eventemitter@1.1.0/index.js"
-  }
-}

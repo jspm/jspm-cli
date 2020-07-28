@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "jsonify": "https://ga.jspm.io/npm:jsonify@0.0.0/index.js"
-  }
-}

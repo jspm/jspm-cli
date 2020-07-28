@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@phosphor/keyboard": "https://ga.jspm.io/npm:@phosphor/keyboard@1.1.3/lib/index.js"
-  }
-}

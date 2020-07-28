@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "urix": "https://ga.jspm.io/npm:urix@0.1.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@gedalos.dev/callbag-take": "https://ga.jspm.io/npm:@gedalos.dev/callbag-take@1.0.2/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@ajmey/toaster": "https://ga.jspm.io/npm:@ajmey/toaster@0.5.0/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "default-resolution": "https://ga.jspm.io/npm:default-resolution@2.0.0/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

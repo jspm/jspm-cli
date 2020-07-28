@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "hammerjs": "https://ga.jspm.io/npm:hammerjs@2.0.8/hammer.js"
-  }
-}

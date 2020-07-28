@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "dependency-graph": "https://ga.jspm.io/npm:dependency-graph@0.9.0/lib/dep_graph.js"
-  }
-}

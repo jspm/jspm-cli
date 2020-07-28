@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@zmartbag.com/frontend-bags": "https://ga.jspm.io/npm:@zmartbag.com/frontend-bags@0.3.2/index.js"
-  }
-}

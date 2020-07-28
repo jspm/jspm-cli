@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@undercut/utils": "https://ga.jspm.io/npm:@undercut/utils@0.5.1/src/index.js"
-  }
-}

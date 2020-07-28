@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@smockle/contrast": "https://ga.jspm.io/npm:@smockle/contrast@6.0.35/dist/lib/index.js"
-  }
-}

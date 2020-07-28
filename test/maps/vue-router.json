@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "vue-router": "https://ga.jspm.io/npm:vue-router@3.3.2/dist/vue-router.common.js"
-  }
-}

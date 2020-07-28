@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@acutejs/plugin-redux": "https://ga.jspm.io/npm:@acutejs/plugin-redux@0.0.2/dist/index.esm.js"
-  }
-}

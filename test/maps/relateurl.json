@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "relateurl": "https://ga.jspm.io/npm:relateurl@0.2.7/lib/index.js",
-    "url": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/url.js"
-  }
-}

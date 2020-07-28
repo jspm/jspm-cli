@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "timm": "https://ga.jspm.io/npm:timm@1.6.2/lib/timm.js"
-  }
-}

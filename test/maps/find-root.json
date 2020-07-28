@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "find-root": "https://ga.jspm.io/npm:find-root@1.1.0/index.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "degausser": "https://ga.jspm.io/npm:degausser@2.1.0/dist/degausser.js"
-  }
-}

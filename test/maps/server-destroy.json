@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "server-destroy": "https://ga.jspm.io/npm:server-destroy@1.0.1/index.js"
-  }
-}

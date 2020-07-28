@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "jsonpointer": "https://ga.jspm.io/npm:jsonpointer@4.0.1/jsonpointer.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "sparkles": "https://ga.jspm.io/npm:sparkles@1.0.1/index.js"
-  }
-}

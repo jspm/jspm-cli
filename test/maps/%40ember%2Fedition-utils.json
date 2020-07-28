@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "@ember/edition-utils": "https://ga.jspm.io/npm:@ember/edition-utils@1.2.0/index.js",
-    "fs": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/fs.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@krivega/cancelable-promise": "https://ga.jspm.io/npm:@krivega/cancelable-promise@0.1.1/dist/index.mjs"
-  }
-}

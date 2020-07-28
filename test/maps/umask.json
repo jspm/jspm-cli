@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "umask": "https://ga.jspm.io/npm:umask@1.1.0/index.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

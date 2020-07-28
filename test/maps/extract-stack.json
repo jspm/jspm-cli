@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "extract-stack": "https://ga.jspm.io/npm:extract-stack@2.0.0/index.js"
-  }
-}

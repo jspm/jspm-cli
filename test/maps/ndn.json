@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ndn": "https://ga.jspm.io/npm:ndn@0.0.20191223-beta.1/lib/mod.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@hexlet/pairs": "https://ga.jspm.io/npm:@hexlet/pairs@1.0.15/dist/index.js"
-  }
-}

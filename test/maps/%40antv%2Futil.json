@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@antv/util": "https://ga.jspm.io/npm:@antv/util@2.0.9/lib/index.js"
-  }
-}

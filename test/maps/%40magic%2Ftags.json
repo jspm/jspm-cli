@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@magic/tags": "https://ga.jspm.io/npm:@magic/tags@0.0.4/src/index.mjs"
-  }
-}

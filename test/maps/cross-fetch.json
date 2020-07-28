@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "cross-fetch": "https://ga.jspm.io/npm:cross-fetch@3.0.4/dist/browser-ponyfill.js"
-  }
-}

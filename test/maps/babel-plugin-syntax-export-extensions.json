@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-plugin-syntax-export-extensions": "https://ga.jspm.io/npm:babel-plugin-syntax-export-extensions@6.13.0/lib/index.js"
-  }
-}

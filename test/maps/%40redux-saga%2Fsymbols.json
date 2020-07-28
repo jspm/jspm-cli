@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@redux-saga/symbols": "https://ga.jspm.io/npm:@redux-saga/symbols@1.1.2/dist/redux-saga-symbols.cjs.js"
-  }
-}

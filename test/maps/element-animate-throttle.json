@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "element-animate-throttle": "https://ga.jspm.io/npm:element-animate-throttle@0.0.1/dist/index.js"
-  }
-}

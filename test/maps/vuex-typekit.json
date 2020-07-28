@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "@vue/composition-api": "https://ga.jspm.io/npm:@vue/composition-api@0.5.0/dist/vue-composition-api.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "vue": "https://ga.jspm.io/npm:vue@2.6.11/dist/vue.runtime.common.js",
-    "vuex": "https://ga.jspm.io/npm:vuex@3.4.0/dist/vuex.common.js",
-    "vuex-typekit": "https://ga.jspm.io/npm:vuex-typekit@2.0.8/dist/index.js"
-  }
-}

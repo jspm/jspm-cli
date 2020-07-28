@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.isequal": "https://ga.jspm.io/npm:lodash.isequal@4.5.0/index.js"
-  }
-}

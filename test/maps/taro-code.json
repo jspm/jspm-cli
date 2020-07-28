@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "taro-code": "https://ga.jspm.io/npm:taro-code@2.2.0/lib/index.js"
-  }
-}

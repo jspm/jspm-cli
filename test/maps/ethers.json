@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ethers": "https://ga.jspm.io/npm:ethers@4.0.47/dist/ethers.min.js"
-  }
-}

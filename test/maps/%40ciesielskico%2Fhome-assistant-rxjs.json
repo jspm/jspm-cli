@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@ciesielskico/home-assistant-rxjs": "https://ga.jspm.io/npm:@ciesielskico/home-assistant-rxjs@0.0.3/dist/main/index.js"
-  }
-}

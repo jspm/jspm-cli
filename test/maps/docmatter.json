@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "docmatter": "https://ga.jspm.io/npm:docmatter@3.4.0/edition-esnext/index.js"
-  }
-}

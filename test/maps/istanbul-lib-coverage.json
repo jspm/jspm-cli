@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "istanbul-lib-coverage": "https://ga.jspm.io/npm:istanbul-lib-coverage@3.0.0/index.js"
-  }
-}

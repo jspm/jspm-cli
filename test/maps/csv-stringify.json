@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "csv-stringify": "https://ga.jspm.io/npm:csv-stringify@5.5.0/lib/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "stream": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/stream.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "player-chrome": "https://ga.jspm.io/npm:player-chrome@0.0.3/dist/components/player-chrome.js"
-  }
-}

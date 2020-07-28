@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@angular/material": "https://ga.jspm.io/npm:@angular/material@9.2.4/bundles/material.umd.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "sourcemap-codec": "https://ga.jspm.io/npm:sourcemap-codec@1.4.8/dist/sourcemap-codec.umd.js"
-  }
-}

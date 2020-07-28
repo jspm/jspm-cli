@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@witzbould/utils-debounce": "https://ga.jspm.io/npm:@witzbould/utils-debounce@1.0.0/index.js"
-  }
-}

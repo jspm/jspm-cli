@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@discordjs/collection": "https://ga.jspm.io/npm:@discordjs/collection@0.1.5/dist/index.js"
-  }
-}

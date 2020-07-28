@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "undertaker-registry": "https://ga.jspm.io/npm:undertaker-registry@1.0.1/index.js"
-  }
-}

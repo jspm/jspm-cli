@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js",
-    "random-bytes": "https://ga.jspm.io/npm:random-bytes@1.0.0/index.js"
-  }
-}

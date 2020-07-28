@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "validator": "https://ga.jspm.io/npm:validator@13.0.0/index.js"
-  }
-}

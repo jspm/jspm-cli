@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "rulette": "https://ga.jspm.io/npm:rulette@0.2.8/lib/main.js"
-  }
-}

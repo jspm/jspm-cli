@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "hermes-channel": "https://ga.jspm.io/npm:hermes-channel@0.0.2/dist/index.js"
-  }
-}

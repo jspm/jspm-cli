@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@cdoublev/to-cubic": "https://ga.jspm.io/npm:@cdoublev/to-cubic@0.1.4/dist/cjs/index.cjs"
-  }
-}

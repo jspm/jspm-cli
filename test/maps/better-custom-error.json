@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "better-custom-error": "https://ga.jspm.io/npm:better-custom-error@3.0.1/src/index.mjs"
-  }
-}

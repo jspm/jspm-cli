@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-voronoi": "https://ga.jspm.io/npm:d3-voronoi@1.1.4/dist/d3-voronoi.js"
-  }
-}

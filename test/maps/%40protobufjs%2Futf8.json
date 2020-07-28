@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@protobufjs/utf8": "https://ga.jspm.io/npm:@protobufjs/utf8@1.1.0/index.js"
-  }
-}

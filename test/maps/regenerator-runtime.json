@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "regenerator-runtime": "https://ga.jspm.io/npm:regenerator-runtime@0.13.5/runtime.js"
-  }
-}

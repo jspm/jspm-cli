@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "ajv-keywords": "https://ga.jspm.io/npm:ajv-keywords@3.4.1/index.js",
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js"
-  }
-}

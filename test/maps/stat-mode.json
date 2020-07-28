@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "stat-mode": "https://ga.jspm.io/npm:stat-mode@1.0.0/dist/src/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-observable": "https://ga.jspm.io/npm:is-observable@2.0.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "crc-32": "https://ga.jspm.io/npm:crc-32@1.2.0/crc32.js"
-  }
-}

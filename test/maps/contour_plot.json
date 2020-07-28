@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "contour_plot": "https://ga.jspm.io/npm:contour_plot@0.0.1/build/contour_plot.js"
-  }
-}

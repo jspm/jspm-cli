@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "eslint-config-noise": "https://ga.jspm.io/npm:eslint-config-noise@0.0.41/index.js"
-  }
-}

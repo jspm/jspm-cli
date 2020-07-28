@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@makao.pl/lfs-pack": "https://ga.jspm.io/npm:@makao.pl/lfs-pack@1.0.0/index.js"
-  }
-}

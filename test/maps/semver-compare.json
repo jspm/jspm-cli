@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "semver-compare": "https://ga.jspm.io/npm:semver-compare@1.0.0/index.js"
-  }
-}

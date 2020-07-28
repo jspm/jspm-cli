@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "regenerate-unicode-properties": "https://ga.jspm.io/npm:regenerate-unicode-properties@8.2.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@j5e/easing": "https://ga.jspm.io/npm:@j5e/easing@0.1.0/index.js"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "is-interactive": "https://ga.jspm.io/npm:is-interactive@1.0.0/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

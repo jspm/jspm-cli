@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "d3-time": "https://ga.jspm.io/npm:d3-time@1.1.0/dist/d3-time.js"
-  }
-}

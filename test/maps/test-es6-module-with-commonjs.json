@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "test-es6-module-with-commonjs": "https://ga.jspm.io/npm:test-es6-module-with-commonjs@0.1.7/src/index.js"
-  }
-}

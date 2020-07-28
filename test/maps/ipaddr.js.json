@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "ipaddr.js": "https://ga.jspm.io/npm:ipaddr.js@1.9.1/lib/ipaddr.js"
-  }
-}

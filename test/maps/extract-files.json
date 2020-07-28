@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "extract-files": "https://ga.jspm.io/npm:extract-files@8.1.0/lib/index.mjs"
-  }
-}

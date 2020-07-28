@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "domino": "https://ga.jspm.io/npm:domino@2.1.5/lib/index.js"
-  }
-}

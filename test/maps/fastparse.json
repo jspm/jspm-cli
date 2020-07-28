@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "fastparse": "https://ga.jspm.io/npm:fastparse@1.1.2/lib/Parser.js"
-  }
-}

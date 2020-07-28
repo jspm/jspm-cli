@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "deep-object-assign-with-reduce": "https://ga.jspm.io/npm:deep-object-assign-with-reduce@2.1.5/dist/deep-object-assign.umd.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lodash.escape": "https://ga.jspm.io/npm:lodash.escape@4.0.1/index.js"
-  }
-}

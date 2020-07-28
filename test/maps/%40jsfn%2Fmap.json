@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@jsfn/map": "https://ga.jspm.io/npm:@jsfn/map@1.0.0/map.mjs"
-  }
-}

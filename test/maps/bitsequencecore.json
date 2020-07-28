@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "bitsequencecore/esm": "https://ga.jspm.io/npm:bitsequencecore@1.0.2/esm/bitsequencecore.js"
-  }
-}

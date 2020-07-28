@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "vue-ssr-tools": "https://ga.jspm.io/npm:vue-ssr-tools@0.4.1/dist/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "fbjs": "https://ga.jspm.io/npm:fbjs@1.0.0/index.js"
-  }
-}

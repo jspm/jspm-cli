@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "assert": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/assert.js",
-    "extsprintf": "https://ga.jspm.io/npm:extsprintf@1.4.0/lib/extsprintf.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "bodec": "https://ga.jspm.io/npm:bodec@1.1.0/bodec-browser.js"
-  }
-}

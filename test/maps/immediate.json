@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "immediate": "https://ga.jspm.io/npm:immediate@3.2.3/lib/index.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

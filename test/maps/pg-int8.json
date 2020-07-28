@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "pg-int8": "https://ga.jspm.io/npm:pg-int8@1.0.1/index.js"
-  }
-}

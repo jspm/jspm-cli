@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@cfware/add-event-listener": "https://ga.jspm.io/npm:@cfware/add-event-listener@0.1.2/add-event-listener.js"
-  }
-}

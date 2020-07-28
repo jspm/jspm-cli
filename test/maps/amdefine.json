@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "amdefine": "https://ga.jspm.io/npm:amdefine@1.0.1/amdefine.js",
-    "path": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/path.js",
-    "process": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/process.js"
-  }
-}

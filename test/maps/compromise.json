@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "compromise": "https://ga.jspm.io/npm:compromise@13.2.0/builds/compromise.js"
-  }
-}

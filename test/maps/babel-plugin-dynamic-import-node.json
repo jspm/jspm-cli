@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-plugin-dynamic-import-node": "https://ga.jspm.io/npm:babel-plugin-dynamic-import-node@2.3.3/lib/index.js"
-  }
-}

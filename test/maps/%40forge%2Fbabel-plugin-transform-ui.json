@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@forge/babel-plugin-transform-ui": "https://ga.jspm.io/npm:@forge/babel-plugin-transform-ui@0.3.0/dist/cjs/index.js"
-  }
-}

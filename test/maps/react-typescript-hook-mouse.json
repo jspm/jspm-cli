@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "react-typescript-hook-mouse": "https://ga.jspm.io/npm:react-typescript-hook-mouse@1.0.20/dist/useMouse.js"
-  }
-}

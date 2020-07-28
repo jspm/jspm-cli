@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "postgres-date": "https://ga.jspm.io/npm:postgres-date@1.0.5/index.js"
-  }
-}

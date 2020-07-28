@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@filecoin-shipyard/lotus-client-rpc": "https://ga.jspm.io/npm:@filecoin-shipyard/lotus-client-rpc@0.0.8/index.js"
-  }
-}

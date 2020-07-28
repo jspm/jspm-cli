@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "single-spa-vue": "https://ga.jspm.io/npm:single-spa-vue@1.8.2/lib/single-spa-vue.js"
-  }
-}

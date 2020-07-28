@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "array-union": "https://ga.jspm.io/npm:array-union@2.1.0/index.js"
-  }
-}

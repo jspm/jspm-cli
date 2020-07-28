@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "log-driver": "https://ga.jspm.io/npm:log-driver@1.2.7/index.js",
-    "util": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/util.js"
-  }
-}

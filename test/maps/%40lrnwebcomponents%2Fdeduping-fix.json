@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/deduping-fix": "https://ga.jspm.io/npm:@lrnwebcomponents/deduping-fix@2.6.12/deduping-fix.js"
-  }
-}

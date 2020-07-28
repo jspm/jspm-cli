@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-hexadecimal": "https://ga.jspm.io/npm:is-hexadecimal@1.0.4/index.js"
-  }
-}

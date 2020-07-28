@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-boolean-object": "https://ga.jspm.io/npm:is-boolean-object@1.0.1/index.js"
-  }
-}

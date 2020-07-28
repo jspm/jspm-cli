@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@storeon/svelte": "https://ga.jspm.io/npm:@storeon/svelte@0.6.3/index.js",
-    "svelte": "https://ga.jspm.io/npm:svelte@3.23.0/index.js"
-  }
-}

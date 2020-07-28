@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@raha.group/s2-geometry": "https://ga.jspm.io/npm:@raha.group/s2-geometry@1.0.4/main.js"
-  }
-}

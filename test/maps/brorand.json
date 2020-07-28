@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "brorand": "https://ga.jspm.io/npm:brorand@1.1.0/index.js",
-    "crypto": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/crypto.js"
-  }
-}

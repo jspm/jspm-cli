@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "micromustache": "https://ga.jspm.io/npm:micromustache@7.1.0/dist/micromustache.js"
-  }
-}

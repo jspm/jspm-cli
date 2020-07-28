@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "is-number-object": "https://ga.jspm.io/npm:is-number-object@1.0.4/index.js"
-  }
-}

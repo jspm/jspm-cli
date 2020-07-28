@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@lrnwebcomponents/user-action": "https://ga.jspm.io/npm:@lrnwebcomponents/user-action@2.6.12/user-action.js"
-  }
-}

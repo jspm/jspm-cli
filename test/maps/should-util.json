@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "should-util": "https://ga.jspm.io/npm:should-util@1.0.1/cjs/should-util.js"
-  }
-}

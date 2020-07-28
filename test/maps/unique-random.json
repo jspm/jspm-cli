@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "unique-random": "https://ga.jspm.io/npm:unique-random@2.1.0/index.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "parent-require": "https://ga.jspm.io/npm:parent-require@1.0.0/index.js"
-  }
-}

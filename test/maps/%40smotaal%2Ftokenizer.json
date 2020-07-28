@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@smotaal/tokenizer": "https://ga.jspm.io/npm:@smotaal/tokenizer@0.0.7/dist/tokenizer.browser.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "fallback-local-storage": "https://ga.jspm.io/npm:fallback-local-storage@1.2.0/dist/fallback-local-storage.js"
-  }
-}

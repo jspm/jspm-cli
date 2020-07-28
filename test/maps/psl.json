@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "psl": "https://ga.jspm.io/npm:psl@1.8.0/index.js",
-    "punycode": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/punycode.js"
-  }
-}

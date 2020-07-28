@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "buffer": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/buffer.js",
-    "events": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/events.js",
-    "keypress": "https://ga.jspm.io/npm:keypress@0.2.1/index.js",
-    "string_decoder": "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.7/nodelibs/string_decoder.js"
-  }
-}

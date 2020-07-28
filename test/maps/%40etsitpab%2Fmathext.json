@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@etsitpab/mathext": "https://ga.jspm.io/npm:@etsitpab/mathext@1.0.0/src/Math.object.js"
-  }
-}

@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@untra/naiveasync": "https://ga.jspm.io/npm:@untra/naiveasync@0.1.33/dist/src/naiveasync/index.js"
-  }
-}

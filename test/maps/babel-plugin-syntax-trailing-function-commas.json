@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "babel-plugin-syntax-trailing-function-commas": "https://ga.jspm.io/npm:babel-plugin-syntax-trailing-function-commas@6.22.0/lib/index.js"
-  }
-}
