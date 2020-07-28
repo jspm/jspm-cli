@@ -4,6 +4,8 @@ import { fetch } from './fetch';
 import lexer from 'es-module-lexer';
 import { systemCdnUrl, esmCdnUrl } from './installtree';
 import terser from 'terser';
+import { DecoratedError, isPlain } from './utils';
+import chalk from 'chalk';
 
 export default ({
   map,
@@ -24,7 +26,7 @@ export default ({
   return {
     name: 'jspm-rollup',
     buildStart () {
-      const traceMap = new TraceMap(map, baseUrl);
+      const traceMap = new TraceMap(baseUrl, map);
       this.traceMap = traceMap;
       minifyUrls = new Set();
       if (externals) {
@@ -40,7 +42,19 @@ export default ({
       }
     },
     async resolveId (specifier, parent) {
-      const resolved = this.traceMap.resolve(specifier, parent || baseUrl);
+      let resolved;
+      try {
+        resolved = this.traceMap.resolve(specifier, parent ? pathToFileURL(parent) : baseUrl);
+      }
+      catch (e) {
+        if ((<DecoratedError>e).code === 'MODULE_NOT_FOUND' && isPlain(specifier)) {
+          console.warn(`\n${chalk.yellow('warn')} Unable to resolve ${chalk.bold(specifier)}, treating as external.`);
+          return { id: specifier, external: true };
+        }
+        else {
+          throw e;
+        }
+      }
       if (resolved === null) return '@empty';
       let id = resolved.href;
       if (id.startsWith(systemCdnUrl))

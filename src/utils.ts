@@ -28,6 +28,16 @@ else if (typeof document !== 'undefined') {
     baseUrl = new URL('../', new URL(location.href));
 }
 
+export interface DecoratedError extends Error {
+  code: string;
+}
+
+export function decorateError (err: Error, code: string): DecoratedError {
+  const decorated = <DecoratedError>err;
+  decorated.code = code;
+  return decorated;
+}
+
 export function deepClone (obj) {
   const outObj = Object.create(null);
   for (const p of Object.keys(obj)) {

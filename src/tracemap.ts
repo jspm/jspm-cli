@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled } from './utils.js';
+import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, decorateError } from './utils.js';
 import { InstallOptions, Installer } from './installer.js';
 import { getScopeMatches, getMapMatch, analyze } from './installtree.js';
 
@@ -39,6 +39,7 @@ export interface Trace {
   [url: string]: {
     deps: Record<string, URL | null>;
     size: number;
+    order: number;
   };
 }
 
@@ -212,6 +213,7 @@ export class TraceMap {
   }
 
   async trace (specifiers: string[], system = false): Promise<Trace> {
+    let postOrder = 0;
     const doTrace = async (specifier: string, parentUrl: URL, trace: Trace, curMap: Record<string, URL | null>): Promise<void> => {
       const resolved = this.resolve(specifier, parentUrl);
       curMap[specifier] = resolved;
@@ -220,11 +222,15 @@ export class TraceMap {
 
       const curTrace = trace[resolved.href] = {
         deps: Object.create(null),
-        size: NaN
+        size: NaN,
+        order: NaN
       };
       const { deps, size } = await analyze(resolved.href, parentUrl, system);
       curTrace.size = size;
-      await Promise.all(deps.map(dep => doTrace(dep, resolved, trace, curTrace.deps)));
+      for (const dep of deps) {
+        await doTrace(dep, resolved, trace, curTrace.deps);
+      }
+      curTrace.order = postOrder++;
     };
 
     const map = Object.create(null);
@@ -244,7 +250,7 @@ export class TraceMap {
     await this._p.job();
     try {
       const installer = new Installer(this, opts);
-      await Promise.all(modules.map(module => installer.traceInstall(module, this._baseUrl)));
+      await Promise.all(modules.map(module => installer.traceInstall(module, this._baseUrl, false)));
       installer.complete();
     }
     finally {
@@ -259,7 +265,7 @@ export class TraceMap {
     try {
       const installer = new Installer(this, opts);
       await Promise.all(Object.keys(this._map.imports).map(pkgName => {
-        return installer.traceInstall(pkgName, this._baseUrl);
+        return installer.traceInstall(pkgName, this._baseUrl, false);
       }));
       installer.complete();
     }
@@ -365,5 +371,5 @@ export function resolve (specifier: string, parentUrl: URL, map: ImportMap, base
     if (target === null) return null;
     return new URL(target + specifier.slice(mapMatch.length), baseUrl);
   }
-  throw new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`);
+  throw decorateError(new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`), 'MODULE_NOT_FOUND');
 }

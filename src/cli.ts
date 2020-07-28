@@ -42,17 +42,24 @@ function usage (cmd?: string) {
       --esm/-e                 Use ES modules
       --log/-l=trace,install   Display debugging logs
   `;
+  case 'preload': return `
+  jspm preload <entry>+
+
+    Options:
+      --import-map/-m          Set the path to the import map file
+      --format/-f              module|systemjs|es-module-shims|json
+`;
   case 'build': return `
   jspm build [-m <importmap>] <entry>?+ [-d <outdir>]
 
     Options
       --import-map/-m          Set the path to the import map file
       --dir/-d                 Set the output directory
-      --clear-dir/-c           Clear the output directory before building
-      --minify/-M              Minify the optimized modules
+      --clear-dir/-c           Clear the output directory before optimizing
+      --minify/-M              Minify the buildd modules
       --source-map/-S          Output source maps
-      --banner/-b              Provide a banner for the build files
-      --watch/-w               Watch build files for rebuild on change
+      --banner/-b              Provide a banner for the buildd files
+      --watch/-w               Watch input files for rebuild on change
       --system/-s              Output system module
       --log/-l=build           Enable the given debug log types
   `;
@@ -60,13 +67,13 @@ function usage (cmd?: string) {
   const dirname = eval('__dirname');
   const version = JSON.parse(fs.readFileSync(dirname + '/../package.json').toString()).version;
   return `${cmd ? `Unknown command ${chalk.bold(cmd)}\n` : ``}
-  > https://jspm.io/cli#v${version} ▪ Browser package management
+  > https://jspm.org/cli#v${version} ▪ ES Module Package Management
   
-  Manage and optimize JS import maps workflows:
+  Manage and build module and import map workflows:
 
     jspm install [pkgName]     Install a package into an import map
 
-    jspm build [module]        Optimize module graphs
+    jspm build [module]     build module graphs
 
   Run "jspm help install" or "jspm help build" for more info.
 `;
@@ -105,6 +112,55 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         const { map, trace } = await traceMap.trace(specifiers, <boolean>opts.system);
         logTrace(map, trace, mapBase);
+      }
+      catch (e) {
+        if (typeof e === 'string')
+          throw `${chalk.bold.red('ERR')}  ${e}`;
+        throw e;
+      }
+      break;
+
+    case 'p':
+    case 'preload':
+      try {
+        const { args, opts } = readFlags(rawArgs, {
+          boolFlags: ['log'],
+          strFlags: ['import-map', 'log', 'format'],
+          aliases: { m: 'import-map', l: 'log', f: 'format' }
+        });
+
+        const inMapFile = getInMapFile(opts);
+        const inMap = getMapDetectTypeIntoOpts(inMapFile, opts);
+        const mapBase = new URL('.', pathToFileURL(inMapFile));
+        const traceMap = new TraceMap(mapBase, inMap.map);
+
+        const specifiers = args.length === 0 ? Object.keys(inMap.imports) : args;
+
+        if (specifiers.length === 0)
+          throw `Nothing to trace.`;
+
+        const { trace } = await traceMap.trace(specifiers, <boolean>opts.system);
+        const sortedDeps = Object.keys(trace).sort((a, b) => trace[a].order > trace[b].order ? 1 : -1);
+
+        let moduleType;
+        switch (opts.format || 'module') {
+          case 'json':
+            console.log(JSON.stringify(sortedDeps, null, 2));
+            break;
+          case 'es-module-shims':
+            moduleType = 'module-shim';
+            break;
+          case 'systemjs':
+            moduleType = 'systemjs-module';
+            break;
+          case 'module':
+            moduleType = 'module';
+            break;
+          default:
+            throw `Unknown preload format ${chalk.bold(opts.format)}`;
+        }
+
+        console.log(sortedDeps.map(dep => `<script type="${moduleType}" src="${dep}"></script>`).join('\n'));
       }
       catch (e) {
         if (typeof e === 'string')
@@ -222,7 +278,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
   
-    case 'b':
+    case 'o':
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
@@ -289,7 +345,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             throw `Watched builds only supported when using --out separate to the input import map.`;
           }
           const spinner = startSpinnerLog(opts.log);
-          spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+          spinner.text = `Optimizing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
 
           rollupOptions.output = outputOptions;
           const watcher = await rollup.watch(rollupOptions);
@@ -301,7 +357,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             else if (event.code === 'BUNDLE_START') {
               if (spinner) {
                 spinner.start();
-                spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+                spinner.text = `Optimizing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
               }
             }
             else if (event.code === 'BUNDLE_END') {
@@ -392,7 +448,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       break;
 
     default:
-      throw usage(cmd);
+      if (cmd)
+        throw usage(cmd);
+      console.log(usage());
   }
 }
 

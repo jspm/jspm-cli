@@ -232,7 +232,7 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
   };
 
   function processMap (inMap: Record<string, string | null>, scope?: ExactPackage | boolean) {
-    const scopeUrl = scope === true ? esmCdnUrl + '/' : scope ? pkgToUrl(scope, esmCdnUrl) : undefined;
+    const scopeUrl = scope === true ? esmCdnUrl + '/' : scope ? pkgToUrl(scope, esmCdnUrl) + '/' : undefined;
     for (const [impt, target] of Object.entries(inMap)) {
       const parsed = parsePkg(impt);
       if (parsed && target !== null) {
