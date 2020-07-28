@@ -143,24 +143,24 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const sortedDeps = Object.keys(trace).sort((a, b) => trace[a].order > trace[b].order ? 1 : -1);
 
         let moduleType;
-        switch (opts.format || 'module') {
+        switch (opts.format || (opts.system ? 'system' : 'module')) {
           case 'json':
             console.log(JSON.stringify(sortedDeps, null, 2));
             break;
           case 'es-module-shims':
-            moduleType = 'module-shim';
+            moduleType = 'type="module-shim" ';
             break;
-          case 'systemjs':
-            moduleType = 'systemjs-module';
+          case 'system':
+            moduleType = '';
             break;
           case 'module':
-            moduleType = 'module';
+            moduleType = 'type="module" ';
             break;
           default:
             throw `Unknown preload format ${chalk.bold(opts.format)}`;
         }
 
-        console.log(sortedDeps.map(dep => `<script type="${moduleType}" src="${dep}"></script>`).join('\n'));
+        console.log(sortedDeps.map(dep => `<script ${moduleType}src="${dep}"></script>`).join('\n'));
       }
       catch (e) {
         if (typeof e === 'string')
