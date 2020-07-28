@@ -8,7 +8,7 @@
     "build-node": "ncc build -t -m src/node.js -e sver -s -e es-module-lexer",
     "watch-build-node": "ncc build -t -m src/node.js -s -e sver -e es-module-lexer -w",
     "build": "npm run build-node && npm run build-browser",
-    "test": "npm run build && echo '>>>> Open: http://localhost:8080/test/test.html' && http-server",
+    "test": "node test/test.js",
     "generate-maps": "node --experimental-modules test/generate-maps.mjs"
   },
   "bin": {
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@zeit/ncc": "^0.22.0",
     "chalk": "^3.0.0",
+    "glob": "^7.1.6",
     "http-server": "^0.12.1",
     "make-fetch-happen": "^8.0.1",
     "mocha": "^4.0.1",
