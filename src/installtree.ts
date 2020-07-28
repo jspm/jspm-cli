@@ -123,12 +123,11 @@ function createEsmAnalysis (imports: any, source: string) {
   return { deps, size };
 }
 
-const registerRegEx = /^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*)*\s*System\s*\.\s*register\s*\(\s*(\[[^\]]*\])\s*,\s*function\s*\(\s*([^\)]+(\s*,[^\)]+)?)?\s*\)/;
+const registerRegEx = /^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*)*\s*System\s*\.\s*register\s*\(\s*(\[[^\]]*\])\s*,\s*\(?function\s*\(\s*([^\)]+(\s*,[^\)]+)?)?\s*\)/;
 function createSystemAnalysis (source: string, url: string) {
   const [, , , rawDeps, , contextId] = source.match(registerRegEx) || [];
-  if (!rawDeps) {
+  if (!rawDeps)
     throw new Error(`Source ${url} is not a valid System.register module.`);
-  }
   const deps = JSON.parse(rawDeps.replace(/'/g, '"'));
   if (source.indexOf(`${contextId}.import`) !== -1)
     console.error('TODO: Dynamic import tracing for system modules.');

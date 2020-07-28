@@ -1,4 +1,4 @@
-import { jspm } from '../../test.js';
+import { jspm } from '../test.js';
 import { unlinkSync, readFileSync } from 'fs';
 import { ok, strictEqual } from 'assert';
 

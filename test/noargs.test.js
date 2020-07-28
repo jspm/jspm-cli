@@ -1,4 +1,4 @@
-import { jspm } from '../test.js';
+import { jspm } from './test.js';
 import { ok, strictEqual } from 'assert';
 
 const { code, stdout, stderr } = await jspm([], import.meta.url);
