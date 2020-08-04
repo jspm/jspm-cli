@@ -1,21 +1,13 @@
 import sver from 'sver';
 const { Semver, SemverRange } = sver;
 import { TraceMap, ImportMap } from './tracemap.js';
-import { isPlain, baseUrl, sort } from './utils.js';
+import { isPlain, baseUrl, sort, importedFrom } from './utils.js';
 import { fetch } from './fetch.js';
 import { log } from './log.js';
 import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, matchesTarget, unsanitizeUrl } from './installtree.js';
 
 export type Semver = any;
 export type SemverRange = any;
-
-function importedFrom (parentUrl?: URL) {
-  if (!parentUrl) return '';
-  parentUrl.pathname = parentUrl.pathname
-    .replace(/:/g, '%3A')
-    .replace(/@/g, '%40');
-  return ` imported from ${parentUrl.href}`;
-}
 
 export interface InstallOptions {
   // whether existing resolutions should be locked
@@ -71,10 +63,8 @@ export class Installer {
     this.mapBaseUrl = this.traceMap.baseUrl;
     this.opts = opts;
 
-
-    // TODO: env detection from existing resolutions?
-    this.env = ['import', 'default', 'browser', 'production'];
-
+    this.env = map.env;
+  
     [this.installs, this.map] = importMapToResolutions(this.traceMap.map, this.mapBaseUrl, opts);
   }
 
@@ -124,7 +114,7 @@ export class Installer {
     await this.tracePkg(pkg, subpaths, pkgExports, true, false);
   }
 
-  private setResolution (install: PackageInstall, pkg: ExactPackage): Record<string, string> {
+  setResolution (install: PackageInstall, pkg: ExactPackage): Record<string, string> {
     if (!install.pkgScope) {
       let resolutionMap = this.installs.imports[install.pkgName];
       if (resolutionMap)
@@ -146,7 +136,7 @@ export class Installer {
 
   // CDN TODO: CDN must disable extension checks
   // CDN TODO: CDN should set "exports" explicitly from its analysis, thereby encapsulating the CDN package
-  private async resolveExports (pkg: ExactPackage, pcfg: PackageConfig, cjsResolve = false): Promise<Record<string, string>> {
+  async resolveExports (pkg: ExactPackage, pcfg: PackageConfig, cjsResolve = false): Promise<Record<string, string>> {
     const cached = this.resolvedExportsCache.get(pcfg);
     if (cached) return cached;
 
@@ -212,7 +202,7 @@ export class Installer {
     return exports;
   }
 
-  private async getPackageConfig (pkg: ExactPackage): Promise<PackageConfig> {
+  async getPackageConfig (pkg: ExactPackage): Promise<PackageConfig> {
     const pkgStr = pkgToStr(pkg);
     let cached = this.pcfgs[pkgStr];
     if (cached) return cached;
@@ -228,17 +218,17 @@ export class Installer {
     return this.pcfgs[pkgStr];
   }
 
-  private async getInstalledPackages (_pkg: { name: string, registry: string }): Promise<PackageInstallRange[]> {
+  async getInstalledPackages (_pkg: { name: string, registry: string }): Promise<PackageInstallRange[]> {
     return [];
   }
 
-  private getBestMatch (_pkg: PackageTarget): ExactPackage | undefined {
+  getBestMatch (_pkg: PackageTarget): ExactPackage | undefined {
     return;
   }
 
   // if a version was elliminated, then it does the upgrade
   // it then returns the combined subpaths list for the orphaned packages
-  private upgradePackagesTo (installed: PackageInstallRange[], pkg: ExactPackage): string[] | undefined {
+  upgradePackagesTo (installed: PackageInstallRange[], pkg: ExactPackage): string[] | undefined {
     if (this.opts.lock) return;
     const pkgVersion = new Semver(pkg.version);
     let hasUpgrade = false;
@@ -271,7 +261,7 @@ export class Installer {
     return hasUpgrade ? [...upgradeSubpaths] : undefined;
   }
 
-  private isNodeCorePeer (specifier: string) {
+  isNodeCorePeer (specifier: string) {
     return [
       'assert',
       'async_hooks',
@@ -420,7 +410,7 @@ export class Installer {
     return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
   }
 
-  private async installPkg (pkgName: string, pkgScope: string | undefined, target: PackageTarget, subpaths: string[], cjsResolve: boolean, parentUrl?: URL): Promise<void> {
+  async installPkg (pkgName: string, pkgScope: string | undefined, target: PackageTarget, subpaths: string[], cjsResolve: boolean, parentUrl?: URL): Promise<void> {
     let pkg: ExactPackage | undefined = (!pkgScope ? this.installs.imports[pkgName] : this.installs.scopes[pkgScope]?.[pkgName])?.pkg;
     const locked = pkg && (this.opts.lock || matchesTarget(pkg, target));
     if (!locked) {
@@ -441,19 +431,28 @@ export class Installer {
     return this.tracePkg(pkg, subpaths, pkgExports, false, cjsResolve, parentUrl);
   }
 
-  private async tracePkg (pkg: ExactPackage, subpaths: string[], pkgExports: Record<string, string>, exactSubpaths: boolean, cjsResolve: boolean, parentUrl?: URL) {
+  async tracePkg (pkg: ExactPackage, subpaths: string[], pkgExports: Record<string, string>, exactSubpaths: boolean, cjsResolve: boolean, parentUrl?: URL) {
     await Promise.all(subpaths.map(async subpath => {
-      const exports = await this.resolveExports(pkg, await this.getPackageConfig(pkg), cjsResolve);
-      let exportMatch = getMapMatch(subpath, exports);
+      let exports = pkgExports;
+      let exportMatch = getMapMatch(subpath, pkgExports);
+
+      // if no exports -> lookup exports
+      if (!exportMatch) {
+        const pkgExports = await this.resolveExports(pkg, await this.getPackageConfig(pkg), cjsResolve);
+        exportMatch = getMapMatch(subpath, pkgExports);
+        if (exportMatch)
+          exports = pkgExports;
+      }
       
-      if (exportMatch === undefined) {
+      if (!exportMatch) {
         console.log((await this.getPackageConfig(pkg)).exports);
         console.log(`No package exports defined for ${subpath} in ${pkgToStr(pkg)}${importedFrom(parentUrl)}`);
         // Consider a non-encapsulated fallback?
         throw new Error(`No package exports defined for ${subpath} in ${pkgToStr(pkg)}${importedFrom(parentUrl)}`);
       }
-
+      
       const exportTarget = exports[exportMatch];
+
       const subpathTrailer = subpath.slice(exportMatch.length);
 
       if (exactSubpaths)
@@ -540,7 +539,7 @@ export class Installer {
     }));
   }
 
-  private async trace (resolvedUrl: string, cjsResolve: boolean, parentUrl?: URL) {
+  async trace (resolvedUrl: string, cjsResolve: boolean, parentUrl?: URL) {
     if (this.tracedUrls[resolvedUrl]) return;
     if (resolvedUrl.endsWith('/')) {
       const pkg = parseCdnPkg(new URL(resolvedUrl));
@@ -570,7 +569,7 @@ export class Installer {
     }));
   }
 
-  private async resolveLatestTarget (target: PackageTarget, parentUrl?: URL): Promise<ExactPackage> {
+  async resolveLatestTarget (target: PackageTarget, parentUrl?: URL): Promise<ExactPackage> {
     const { registry, name, ranges } = target;
 
     // exact version optimization
@@ -612,7 +611,7 @@ export class Installer {
     throw new Error(`Unable to resolve package ${registry}:${name} to "${ranges.join(' || ')}"${importedFrom(parentUrl)}`);
   }
   
-  private async lookupRange (registry: string, name: string, range: string, parentUrl?: URL): Promise<ExactPackage | null> {
+  async lookupRange (registry: string, name: string, range: string, parentUrl?: URL): Promise<ExactPackage | null> {
     const res = await fetch(pkgToLookupUrl({ registry, name, version: range }));
     switch (res.status) {
       case 304: case 200: return { registry, name, version: (await res.text()).trim() };

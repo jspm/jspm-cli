@@ -26,7 +26,9 @@ import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
 import { findHtmlImportMap, isPlain, isURL, jsonEquals, jsonParseStyled, jsonStringifyStyled } from './utils.js';
 import * as path from 'path';
-import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr } from './installtree.js';
+import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.js';
+import { Installer } from './installer.js';
+import clipboardy from 'clipboardy';
 
 function usage (cmd?: string) {
   switch (cmd) {
@@ -120,13 +122,140 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
 
+    case 'ls':
+    case 'list':
+      try {
+        const { args, opts } = readFlags(rawArgs, {
+          boolFlags: ['log'],
+          strFlags: ['log', 'format'],
+          aliases: { l: 'log', f: 'format' }
+        });
+        
+        if (!args.length)
+          throw 'No module path provided to list';
+        if (args.length > 1)
+          throw 'Only one module must be passed to list';
+
+        const installer = new Installer(new TraceMap(pathToFileURL(process.cwd())), opts);
+        const { target, subpath } = parseInstallTarget(args[0]);
+        const resolved = await installer.resolveLatestTarget(target);
+        const pcfg = await installer.getPackageConfig(resolved);
+        const matches: string[] = [];
+        for (const key of Object.keys(pcfg.exports || {})) {
+          if (key.startsWith(subpath) && !key.endsWith('!cjs'))
+            matches.push(key);
+        }
+        if (!matches.length)
+          throw `No exports matching ${subpath} in ${pkgToStr(resolved)}`;
+        if (opts.format === 'json') {
+          const exports = {};
+          for (const key of matches)
+            exports[key] = pcfg.exports![key];
+          console.log(JSON.stringify({ resolved, exports }, null, 2));
+          return;
+        }
+        if (opts.format && opts.format !== 'string')
+          throw `Unknown format ${opts.format}`;
+        console.log(pkgToStr(resolved));
+        const padding = Math.min(Math.max(<number>matches.map(key => key.length).sort((a, b) => a > b ? 1 : -1).pop() + 2, 20), 80);
+        for (const key of matches) {
+          const value = pcfg.exports![key];
+          if (typeof value === 'string') {
+            console.log(key + value.padStart(padding - key.length + value.length, ' '));
+          }
+          else {
+            let depth = 0;
+            function logNestedObj (obj): string[] {
+              depth += 2;
+              const curDepth = depth;
+              const lines: string[] = [];
+              for (const key of Object.keys(obj)) {
+                const value = obj[key];
+                if (typeof value === 'string') {
+                  lines.push(chalk.black.bold(key) + value.padStart(padding - key.length + value.length - curDepth, ' '));
+                }
+                else {
+                  lines.push(key);
+                  for (const line of logNestedObj(value))
+                    lines.push(line);
+                }
+              }
+              return indentGraph(lines);
+            }
+            console.log(key + '\n' + logNestedObj(value).join('\n'));
+          }
+        }
+      }
+      catch (e) {
+        if (typeof e === 'string')
+          throw `${chalk.bold.red('ERR')}  ${e}`;
+        throw e;
+      }
+      break;
+
+    case 'l':
+    case 'locate':
+      try {
+        const { args, opts } = readFlags(rawArgs, {
+          boolFlags: ['log', 'dev', 'system', 'copy'],
+          strFlags: ['log', 'format', 'env'],
+          aliases: { l: 'log', f: 'format', c: 'copy' }
+        });
+        
+        if (!args.length)
+          throw 'No module path provided to locate';
+        if (args.length > 1)
+          throw 'Only one module must be passed to locate';
+
+        const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, opts.env ? (<string>opts.env).split(',') : undefined), opts);
+        const { target, subpath } = parseInstallTarget(args[0]);
+        const resolved = await installer.resolveLatestTarget(target);
+        const exports = await installer.resolveExports(resolved, await installer.getPackageConfig(resolved), false);
+
+        let url: string;
+        if (subpath === './') {
+          url = pkgToUrl(resolved, opts.system ? systemCdnUrl : esmCdnUrl) + '/';
+        }
+        else {
+          const exportsMatch = getMapMatch(subpath, exports);
+          if (!exportsMatch)
+            throw `No exports match for ${subpath} in ${pkgToStr(resolved)}`;
+          if (exports[exportsMatch] === null)
+            throw `No resolution for ${subpath} in the ${((<string>opts.env) || 'browser,development').split(',').join(', ')} environment of ${pkgToStr(resolved)}`;
+          url = pkgToUrl(resolved, opts.system ? systemCdnUrl : esmCdnUrl) + exports[exportsMatch].slice(1);
+        }
+
+        switch (opts.format || 'string') {
+          case 'string':
+            output(url, opts);
+            return;
+          case 'script':
+            output(`<script src="${url}"></script>`, opts);
+            return;
+          case 'style':
+            output(`<link rel="stylesheet" href="${url}" />`, opts);
+            return;
+          case 'module':
+            output(`<script type="module" src="${url}"></script>`, opts);
+            return;
+          default:
+            throw `Unknown format ${opts.format}`;
+        }
+      }
+      catch (e) {
+        if (typeof e === 'string')
+          throw `${chalk.bold.red('ERR')}  ${e}`;
+        throw e;
+      }
+      break;
+
     case 'p':
     case 'preload':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log'],
-          strFlags: ['import-map', 'log', 'format'],
-          aliases: { m: 'import-map', l: 'log', f: 'format' }
+          boolFlags: ['log', 'copy'],
+          strFlags: ['import-map', 'log', 'format', 'relative'],
+          aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy' }
         });
 
         const inMapFile = getInMapFile(opts);
@@ -140,27 +269,38 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           throw `Nothing to trace.`;
 
         const { trace } = await traceMap.trace(specifiers, <boolean>opts.system);
-        const sortedDeps = Object.keys(trace).sort((a, b) => trace[a].order > trace[b].order ? 1 : -1);
+        const sortedDeps = Object.keys(trace).sort((a, b) => trace[a].order > trace[b].order ? 1 : -1).map(dep => {
+          if (!dep.startsWith('file:'))
+            return dep;
+          const rel = relModule(new URL(dep), mapBase || pathToFileURL(path.resolve(opts.relative)));
+          return rel.startsWith('./') ? rel.slice(2) : rel;
+        });
 
         let moduleType;
         switch (opts.format || (opts.system ? 'system' : 'module')) {
           case 'json':
             console.log(JSON.stringify(sortedDeps, null, 2));
-            break;
+            return;
           case 'es-module-shims':
+            if (opts.system)
+              throw 'ES Module Shims does not support loading SystemJS modules.';
             moduleType = 'type="module-shim" ';
             break;
           case 'system':
+            if (!opts.system)
+              throw 'SystemJS does not support loading ES modules. Run a conversion into System modules first.'
             moduleType = '';
             break;
           case 'module':
+            if (opts.system)
+              throw 'Native ES modules do not support loading SystemJS modules.';
             moduleType = 'type="module" ';
             break;
           default:
             throw `Unknown preload format ${chalk.bold(opts.format)}`;
         }
 
-        console.log(sortedDeps.map(dep => `<script ${moduleType}src="${dep}"></script>`).join('\n'));
+        output(`<!-- jspm preload ${specifiers.join(', ')} -->${sortedDeps.map(dep => `<script ${moduleType}src="${dep}"></script>`).join('\n')}`, opts);
       }
       catch (e) {
         if (typeof e === 'string')
@@ -173,9 +313,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'resolve':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['relative', 'log'],
+          boolFlags: ['relative', 'log', 'copy'],
           strFlags: ['relative', 'import-map', 'log'],
-          aliases: { m: 'import-map', l: 'log', r: 'relative' }
+          aliases: { m: 'import-map', l: 'log', r: 'relative', c: 'copy' }
         });
 
         if (args.length > 2)
@@ -191,13 +331,13 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         const resolved = await traceMap.resolve(args[0], parentUrl);
         if (resolved === null) {
-          console.log('@empty');
+          output('@empty', opts);
         }
         else if (opts.relative && resolved.protocol === 'file:') {
-          console.log(relModule(resolved, pathToFileURL(opts.relative === true ? process.cwd() : path.resolve(opts.relative))));
+          output(relModule(resolved, pathToFileURL(opts.relative === true ? process.cwd() : path.resolve(opts.relative))), opts);
         }
         else {
-          console.log(resolved.href);
+          output(resolved.href, opts);
         }
       }
       catch (e) {
@@ -227,9 +367,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         // clean works based on tracking which paths were used, removing unused
         // only applies to arguments install (jspm install --clean) and not any other
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['flatten', 'depcache', 'system', 'esm', 'minify', 'log'],
+          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log'],
           strFlags: ['import-map', 'out', 'log'],
-          aliases: { m: 'import-map', o: 'out', l: 'log', d: 'depcache', f: 'flatten', M: 'minify', s: 'system', e: 'esm' }
+          aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm' }
         });
 
         const inMapFile = getInMapFile(opts);
@@ -454,11 +594,30 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
   }
 }
 
+const endNode = chalk.bold('└');
+const middleNode = chalk.bold('├');
+const skipNode = chalk.bold('│');
+const itemNode = chalk.bold('╴');
+function isItemLine (line: string) {
+  return !line.startsWith(endNode) && !line.startsWith(middleNode) && !line.startsWith(skipNode) && line[0] !== ' ';
+}
+function indentGraph (lines: string[]) {
+  let lastItemLine = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (isItemLine(lines[i])) {
+      lastItemLine = i;
+    }
+  }
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (isItemLine(line))
+      lines[i] = (i >= lastItemLine ? endNode : middleNode) + itemNode + line;
+    else
+      lines[i] = (i >= lastItemLine ? ' ' : skipNode) + ' ' + line;
+  }
+  return lines;
+}
 function logTrace (map, trace, mapBase: URL) {
-  const endNode = chalk.bold('└');
-  const middleNode = chalk.bold('├');
-  const skipNode = chalk.bold('│');
-  const itemNode = chalk.bold('╴');
 
   const seen = new Map();
   let idx = 0;
@@ -467,26 +626,6 @@ function logTrace (map, trace, mapBase: URL) {
     for (const line of logVisit(specifier, map, null)) {
       console.log(line);
     }
-  }
-
-  function isItemLine (line: string) {
-    return !line.startsWith(endNode) && !line.startsWith(middleNode) && !line.startsWith(skipNode) && line[0] !== ' ';
-  }
-  function indentGraph (lines: string[]) {
-    let lastItemLine = -1;
-    for (let i = 0; i < lines.length; i++) {
-      if (isItemLine(lines[i])) {
-        lastItemLine = i;
-      }
-    }
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      if (isItemLine(line))
-        lines[i] = (i >= lastItemLine ? endNode : middleNode) + itemNode + line;
-      else
-        lines[i] = (i >= lastItemLine ? ' ' : skipNode) + ' ' + line;
-    }
-    return lines;
   }
 
   function logVisit (specifier, curMap, parentURL): string[] {
@@ -774,4 +913,14 @@ function isCygwin () {
   }
   catch (e) {}
   return _isCygwin = false;
+}
+
+function output (str: string, opts: any) {
+  if (opts.copy) {
+    process.stdout.write(`${str}\n${chalk.bold('(Result copied to clipboard)')}`);
+    clipboardy.writeSync(str);
+  }
+  else {
+    process.stdout.write(str);
+  }
 }

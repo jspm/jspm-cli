@@ -50,11 +50,11 @@ export class TraceMap {
     scopes: Object.create(null),
     depcache: Object.create(null)
   };
-  private _env = ['browser', 'production'];
+  env = ['browser', 'development'];
   private _p = new (Pool(1));
   private mapStyle = defaultStyle;
 
-  constructor (baseUrl: string | URL, map?: ImportMap | string) {
+  constructor (baseUrl: string | URL, map?: ImportMap | string, env?: string[]) {
     if (typeof map === 'string')
       ({ json: map , style: this.mapStyle } = jsonParseStyled(map));
     if (typeof map === 'object')
@@ -63,6 +63,8 @@ export class TraceMap {
       if (!(baseUrl instanceof URL))
         this._baseUrl = new URL(baseUrl + (baseUrl.endsWith('/') ? '' : '/'), envBaseUrl);
     }
+    if (env)
+      this.env = env;
   }
 
   set (map: ImportMap) {
@@ -108,10 +110,6 @@ export class TraceMap {
 
   get baseUrl () {
     return this._baseUrl;
-  }
-
-  get env () {
-    return [...this._env];
   }
 
   get map () {
@@ -345,7 +343,7 @@ export class TraceMap {
   }
 
   async installEnv (env: string[]) {
-    this._env = [...env];
+    this.env = env;
     await this.traceInstall({ clean: true });
   }
 

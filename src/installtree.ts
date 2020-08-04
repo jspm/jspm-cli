@@ -5,6 +5,7 @@ import { ImportMap } from './tracemap';
 import { InstallOptions } from './installer';
 import lexer from 'es-module-lexer';
 import { fetch } from './fetch.js';
+import { importedFrom } from './utils';
 
 export interface ExactPackage {
   registry: string;
@@ -175,7 +176,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
     case 200:
     case 304:
       break;
-    case 404: throw new Error(`Module not found: ${resolvedUrl}${parentUrl ? `, imported from ${parentUrl.href}` : ''}`);
+    case 404: throw new Error(`Module not found: ${resolvedUrl}${importedFrom(parentUrl)}`);
     default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
   }
   let source = await res.text();
@@ -191,7 +192,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
       case 200:
       case 304:
         break;
-      case 404: throw new Error(`Module not found: ${resolvedUrl}${parentUrl ? `, imported from ${parentUrl.href}` : ''}`);
+      case 404: throw new Error(`Module not found: ${resolvedUrl}${importedFrom(parentUrl)}`);
       default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
     }
     source = await res.text();
@@ -239,13 +240,15 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
         const targetUrl = new URL(target, baseUrl);
         const pkg = parseCdnPkg(targetUrl);
         if (pkg) {
+          const pkgPath = pkg.path;
+          delete pkg.path;
           let resolutions = (scopeUrl ? (installs.scopes[scopeUrl] = installs.scopes[scopeUrl] || Object.create(null)) : installs.imports)[pkgName];
           if (!resolutions || pkgEq(resolutions.pkg, pkg) || opts.clean) {
             resolutions = resolutions || ((scopeUrl ? installs.scopes[scopeUrl] : installs.imports)[pkgName] = {
               pkg,
               exports: Object.create(null)
             });
-            resolutions.exports[subpath] = '.' + pkg.path;
+            resolutions.exports[subpath] = '.' + pkgPath;
             continue;
           }
         }

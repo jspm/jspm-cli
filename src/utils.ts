@@ -228,8 +228,20 @@ export function getPackageName (specifier: string, parentUrl: URL) {
   let sepIndex = specifier.indexOf('/');
   if (specifier[0] === '@') {
     if (sepIndex === -1)
-      throw new Error(`${specifier} is not an invalid scope name, imported from ${parentUrl.href}.`);
+      throw new Error(`${specifier} is not an invalid scope name${importedFrom(parentUrl)}.`);
     sepIndex = specifier.indexOf('/', sepIndex + 1);
   }
   return sepIndex === -1 ? specifier : specifier.slice(0, sepIndex);
+}
+
+export function importedFrom (parentUrl?: URL) {
+  if (!parentUrl) return '';
+  let importedFrom;
+  if (parentUrl.protocol === 'file:')
+    importedFrom = decodeURIComponent(parentUrl.pathname[2] === ':' ? parentUrl.pathname.slice(1) : parentUrl.pathname);
+  else {
+    importedFrom = new URL(parentUrl.href);
+    importedFrom.pathname = importedFrom.pathname.replace(/:/g, '%3A').replace(/@/g, '%40');
+  }
+  return ` imported from ${importedFrom}`;
 }
