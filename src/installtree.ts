@@ -5,7 +5,7 @@ import { ImportMap } from './tracemap';
 import { InstallOptions } from './installer';
 import lexer from 'es-module-lexer';
 import { fetch } from './fetch.js';
-import { importedFrom } from './utils';
+import { computeIntegrity, importedFrom } from './utils';
 
 export interface ExactPackage {
   registry: string;
@@ -110,30 +110,61 @@ export interface ResolutionMap {
   }
 }
 
-function createEsmAnalysis (imports: any, source: string) {
+function createEsmAnalysis (imports: any, source: string, url: string) {
+  if (!imports.length && registerRegEx.test(source))
+    throw `Source ${url} is a SystemJS module not an ES Module.`;
   const deps: string[] = [];
-  // dynamic import -> deoptimize trace all dependencies (and all their exports)
-  if (imports.some(impt => impt.d >= 0)) {
-    console.error('TODO: Dynamic import tracing.');
-  }
+  const dynamicDeps: string[] = [];
   for (const impt of imports) {
-    if (impt.d === -1)
+    if (impt.d === -1) {
       deps.push(source.slice(impt.s, impt.e));
+      continue;
+    }
+    // dynamic import -> deoptimize trace all dependencies (and all their exports)
+    if (impt.d >= 0) {
+      const dynExpression = source.slice(impt.s, impt.e);
+      if (dynExpression.startsWith('"') || dynExpression.startsWith('\'')) {
+        try {
+          dynamicDeps.push(JSON.parse('"' + dynExpression.slice(1, -1) + '"'));
+        }
+        catch (e) {
+          console.warn('TODO: Dynamic import custom expression tracing.');
+        }
+      }
+    }
   }
   const size = source.length;
-  return { deps, size };
+  return { deps, dynamicDeps, size, integrity: computeIntegrity(source) };
 }
 
-const registerRegEx = /^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*)*\s*System\s*\.\s*register\s*\(\s*(\[[^\]]*\])\s*,\s*\(?function\s*\(\s*([^\)]+(\s*,[^\)]+)?)?\s*\)/;
+const registerRegEx = /^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*)*\s*System\s*\.\s*register\s*\(\s*(\[[^\]]*\])\s*,\s*\(?function\s*\(\s*([^\),\s]+\s*(,\s*([^\),\s]+)\s*)?\s*)?\)/;
 function createSystemAnalysis (source: string, url: string) {
-  const [, , , rawDeps, , contextId] = source.match(registerRegEx) || [];
+  const [, , , rawDeps, , , contextId] = source.match(registerRegEx) || [];
   if (!rawDeps)
-    throw new Error(`Source ${url} is not a valid System.register module.`);
+    throw `Source ${url} is not a SystemJS module.`;
   const deps = JSON.parse(rawDeps.replace(/'/g, '"'));
-  if (source.indexOf(`${contextId}.import`) !== -1)
-    console.error('TODO: Dynamic import tracing for system modules.');
+  const dynamicDeps: string[] = [];
+  if (contextId) {
+    const dynamicImport = `${contextId}.import(`;
+    let i = -1;
+    while ((i = source.indexOf(dynamicImport, i + 1)) !== -1) {
+      const importStart = i + dynamicImport.length + 1;
+      const quote = source[i + dynamicImport.length];
+      if (quote === '"' || quote === '\'') {
+        const importEnd = source.indexOf(quote, i + dynamicImport.length + 1);
+        if (importEnd !== -1) {
+          try {
+            dynamicDeps.push(JSON.parse('"' + source.slice(importStart, importEnd) + '"'));
+            continue;
+          }
+          catch (e) {}
+        }
+      }
+      console.warn('TODO: Dynamic import custom expression tracing.');
+    }
+  }
   const size = source.length;
-  return { deps, size };
+  return { deps, dynamicDeps, size, integrity: computeIntegrity(source) };
 }
 
 export function getExportsTarget(target, env): string | null {
@@ -142,7 +173,7 @@ export function getExportsTarget(target, env): string | null {
   }
   else if (typeof target === 'object' && target !== null && !Array.isArray(target)) {
     for (const condition in target) {
-      if (env.includes(condition)) {
+      if (condition === 'default' || env.includes(condition)) {
         const resolved = getExportsTarget(target[condition], env);
         if (resolved)
           return resolved;
@@ -170,7 +201,7 @@ export async function exists (resolvedUrl: string): Promise<boolean> {
   }
 }
 
-export async function analyze (resolvedUrl: string, parentUrl?: URL, system = false): Promise<{ deps: string[], size: number }> {
+export async function analyze (resolvedUrl: string, parentUrl?: URL, system = false): Promise<{ deps: string[], dynamicDeps: string[], size: number, integrity: string }> {
   const res = await fetch(resolvedUrl);
   switch (res.status) {
     case 200:
@@ -182,9 +213,11 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
   let source = await res.text();
   try {
     const [imports] = await lexer.parse(source);
-    return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source);
+    return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
   }
   catch (e) {
+    if (!e.message || !e.message.startsWith('Parse error @:'))
+      throw e;
     // fetch is _unstable_!!!
     // so we retry the fetch first
     const res = await fetch(resolvedUrl);
@@ -198,11 +231,11 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
     source = await res.text();
     try {
       const [imports] = await lexer.parse(source);
-      return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source);
+      return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
     }
     catch (e) {
       // TODO: better parser errors
-      if (e.message.startsWith('Parse error @:')) {
+      if (e.message && e.message.startsWith('Parse error @:')) {
         const pos = e.message.slice(14, e.message.indexOf('\n'));
         let [line, col] = pos.split(':');
         const lines = source.split('\n');
@@ -224,7 +257,8 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
   const map: ImportMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
-    depcache: inMap.depcache
+    depcache: inMap.depcache,
+    integrity: Object.create(null)
   };
   const installs: ResolutionMap = {
     imports: Object.create(null),
@@ -291,7 +325,8 @@ export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string)
   const outMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
-    depcache: Object.create(null)
+    depcache: Object.create(null),
+    integrity: Object.create(null)
   };
   for (const [impt, { pkg, exports }] of Object.entries(installs.imports)) {
     for (const [subpath, target] of Object.entries(exports)) {

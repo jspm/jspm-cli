@@ -23,6 +23,9 @@ export interface ImportMap {
   scopes: {
     [scope: string]: Record<string, string | null>;
   };
+  integrity: {
+    [url: string]: string;
+  };
   depcache: {
     [url: string]: string[];
   };
@@ -38,8 +41,11 @@ const Pool = (n = 1) => class PoolClass {
 export interface Trace {
   [url: string]: {
     deps: Record<string, URL | null>;
+    dynamicDeps: Record<string, URL | null>;
+    dynamicOnly: boolean;
     size: number;
     order: number;
+    integrity: string;
   };
 }
 
@@ -48,13 +54,14 @@ export class TraceMap {
   private _map: ImportMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
-    depcache: Object.create(null)
+    integrity: Object.create(null),
+    depcache: Object.create(null),
   };
-  env = ['browser', 'development'];
+  conditions = ['browser', 'development'];
   private _p = new (Pool(1));
   private mapStyle = defaultStyle;
 
-  constructor (baseUrl: string | URL, map?: ImportMap | string, env?: string[]) {
+  constructor (baseUrl: string | URL, map?: ImportMap | string, conditions?: string[]) {
     if (typeof map === 'string')
       ({ json: map , style: this.mapStyle } = jsonParseStyled(map));
     if (typeof map === 'object')
@@ -63,13 +70,14 @@ export class TraceMap {
       if (!(baseUrl instanceof URL))
         this._baseUrl = new URL(baseUrl + (baseUrl.endsWith('/') ? '' : '/'), envBaseUrl);
     }
-    if (env)
-      this.env = env;
+    if (conditions)
+      this.conditions = conditions;
   }
 
   set (map: ImportMap) {
     this._map.imports = map.imports || Object.create(null);
     this._map.scopes = map.scopes || Object.create(null);
+    this._map.integrity = map.integrity || Object.create(null);
     this._map.depcache = map.depcache || Object.create(null);
     return this;
   }
@@ -85,6 +93,7 @@ export class TraceMap {
           Object.assign(this._map.scopes[scope] = this._map.scopes[scope] || Object.create(null), map.scopes[scope]);
       }
     }
+    if (map.integrity) Object.assign(this._map.integrity, map.integrity);
     if (map.depcache) Object.assign(this._map.depcache, map.depcache);
     return this;
   }
@@ -133,6 +142,7 @@ export class TraceMap {
     const obj: any = {};
     if (Object.keys(this._map.imports).length) obj.imports = this._map.imports;
     if (Object.keys(this._map.scopes).length) obj.scopes = this._map.scopes;
+    if (Object.keys(this._map.integrity).length) obj.integrity = this._map.integrity;
     if (Object.keys(this._map.depcache).length) obj.depcache = this._map.depcache;
     return jsonStringifyStyled(obj, minify ? Object.assign(this.mapStyle, { indent: '', tab: '', newline: '' }) : this.mapStyle);
   }
@@ -164,6 +174,13 @@ export class TraceMap {
       newDepcache[depRebased] = importsRebased;
     }
     this._map.depcache = newDepcache;
+    const newIntegrity = Object.create(null);
+    for (const dep of Object.keys(this._map.integrity)) {
+      const integrityVal = this._map.integrity[dep];
+      const depRebased = this._baseUrlRelative(new URL(dep, oldBaseUrl));
+      newIntegrity[depRebased] = integrityVal;
+    }
+    this._map.integrity = newIntegrity;
     return this;
   }
 
@@ -210,31 +227,85 @@ export class TraceMap {
     return this;
   }
 
-  async trace (specifiers: string[], system = false): Promise<Trace> {
+  clearIntegrity () {
+    this._map.integrity = Object.create(null);
+  }
+
+  clearDepcache () {
+    this._map.depcache = Object.create(null);
+  }
+
+  setIntegrity (url: string, integrity: string) {
+    this._map.integrity[url] = integrity;
+  }
+
+  sortIntegrity () {
+    this._map.integrity = alphabetize(this._map.integrity);
+  }
+
+  async trace (specifiers: string[], system = false, doDepcache = false): Promise<Trace> {
     let postOrder = 0;
-    const doTrace = async (specifier: string, parentUrl: URL, trace: Trace, curMap: Record<string, URL | null>): Promise<void> => {
+    const dynamics: Set<{ dep: string, parentUrl: URL }> = new Set();
+    const doTrace = async (specifier: string, parentUrl: URL, curTrace: Trace, curMap: Record<string, URL | null>, dynamic: boolean): Promise<void> => {
       const resolved = this.resolve(specifier, parentUrl);
       curMap[specifier] = resolved;
       if (resolved === null) return;
-      if (trace[resolved.href]) return;
+      const href = resolved.href;
+      if (curTrace[href]) return;
+      if (staticTrace[href]) return;
 
-      const curTrace = trace[resolved.href] = {
-        deps: Object.create(null),
-        size: NaN,
-        order: NaN
-      };
-      const { deps, size } = await analyze(resolved.href, parentUrl, system);
-      curTrace.size = size;
-      for (const dep of deps) {
-        await doTrace(dep, resolved, trace, curTrace.deps);
+      // careful optimal depcache "backbone" only
+      if (doDepcache && dynamic) {
+        const parentHref = parentUrl.href;
+        const existingDepcache = this._map.depcache[parentHref];
+        if (existingDepcache) {
+          if (!existingDepcache.includes(specifier))
+            existingDepcache.push(specifier);
+        }
+        else {
+          this._map.depcache[parentHref] = [specifier];
+        }
       }
-      curTrace.order = postOrder++;
+      const curEntry = curTrace[href] = {
+        deps: Object.create(null),
+        dynamicDeps: Object.create(null),
+        dynamicOnly: dynamic,
+        size: NaN,
+        order: NaN,
+        integrity: ''
+      };
+      const { deps, dynamicDeps, size, integrity } = await analyze(href, parentUrl, system);
+      curEntry.integrity = integrity;
+      curEntry.size = size;
+
+      for (const dep of deps)
+        await doTrace(dep, resolved, curTrace, curEntry.deps, dynamic);
+
+      for (const dep of dynamicDeps) {
+        if (dynamic)
+          await doTrace(dep, resolved, curTrace, curEntry.dynamicDeps, true);
+        else
+          dynamics.add({ dep, parentUrl: resolved });
+      }
+      curEntry.order = postOrder++;
     };
 
     const map = Object.create(null);
-    const trace = Object.create(null);
-    await Promise.all(specifiers.map(specifier => doTrace(specifier, this._baseUrl, trace, map)));
-    return { map, trace };
+    const staticTrace = Object.create(null);
+    // trace twice -> once for the static graph, then again to determine the dynamic graph
+    for (const specifier of specifiers)
+      await doTrace(specifier, this._baseUrl, staticTrace, map, false);
+
+    for (const { dep, parentUrl } of dynamics) {
+      const dynTrace = Object.create(null);
+      await doTrace(dep, parentUrl, dynTrace, map, true);
+      for (const m of Object.keys(dynTrace)) {
+        if (!staticTrace[m])
+          staticTrace[m] = dynTrace[m];
+      }
+    }
+
+    return { map, trace: staticTrace };
   }
 
   // modules are resolvable module specifiers
@@ -260,6 +331,8 @@ export class TraceMap {
   async lockInstall (opts: InstallOptions = {}) {
     opts.lock = true;
     await this._p.job();
+    if (opts.clean !== false)
+      opts.clean = true;
     try {
       const installer = new Installer(this, opts);
       await Promise.all(Object.keys(this._map.imports).map(pkgName => {
@@ -342,8 +415,8 @@ export class TraceMap {
     this.traceInstall({ clean: true, force });
   }
 
-  async installEnv (env: string[]) {
-    this.env = env;
+  async installToConditions (conditions: string[]) {
+    this.conditions = conditions;
     await this.traceInstall({ clean: true });
   }
 

@@ -9,6 +9,7 @@
     "watch-build-node": "ncc build -t -m src/node.js -s -e sver -e es-module-lexer -w",
     "build": "npm run build-node && npm run build-browser",
     "test": "node test/test.js",
+    "unit": "node src/script-lexer.js",
     "generate-maps": "node --experimental-modules test/generate-maps.mjs"
   },
   "bin": {
@@ -31,7 +32,7 @@
     "mocha": "^4.0.1",
     "ora": "^4.0.3",
     "rimraf": "^3.0.2",
-    "rollup": "^2.6.1",
+    "rollup": "^2.27.1",
     "terser": "^4.6.4",
     "typescript": "^3.8.0-beta"
   },

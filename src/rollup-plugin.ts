@@ -4,17 +4,17 @@ import { fetch } from './fetch';
 import lexer from 'es-module-lexer';
 import { systemCdnUrl, esmCdnUrl } from './installtree';
 import terser from 'terser';
-import { DecoratedError, isPlain } from './utils';
+import { DecoratedError, isPlain, isURL } from './utils';
 import chalk from 'chalk';
 
 export default ({
   map,
   baseUrl = pathToFileURL(process.cwd() + '/').href,
-  system,
+  format,
   externals,
   inlineMaps,
   sourceMap
-}: { map: any, system?: boolean, baseUrl: URL | string, externals?: string[], inlineMaps?: boolean, sourceMap?: boolean }) => {
+}: { map: any, format?: string, baseUrl: URL | string, externals?: boolean | string[], inlineMaps?: boolean, sourceMap?: boolean }) => {
   if (typeof baseUrl === 'string')
     baseUrl = new URL(baseUrl);
 
@@ -29,7 +29,7 @@ export default ({
       const traceMap = new TraceMap(baseUrl, map);
       this.traceMap = traceMap;
       minifyUrls = new Set();
-      if (externals) {
+      if (externals && typeof externals !== 'boolean') {
         externalUrls = new Set();
         for (const external of externals) {
           const resolvedExternal = traceMap.resolve(external, <URL>baseUrl);
@@ -42,9 +42,12 @@ export default ({
       }
     },
     async resolveId (specifier, parent) {
+      if (externals === true && isPlain(specifier)) {
+        return { id: specifier, external: true };
+      }
       let resolved;
       try {
-        resolved = this.traceMap.resolve(specifier, parent ? pathToFileURL(parent) : baseUrl);
+        resolved = this.traceMap.resolve(specifier, parent ? (isURL(parent) ? new URL(parent) : pathToFileURL(parent)) : baseUrl);
       }
       catch (e) {
         if ((<DecoratedError>e).code === 'MODULE_NOT_FOUND' && isPlain(specifier)) {
@@ -62,7 +65,7 @@ export default ({
       const external = externalUrls.has(id);
       if (resolved.protocol === 'file:')
         id = fileURLToPath(resolved);
-      else if (system && externalUrls.has(id))
+      else if (format === 'system' && externalUrls.has(id))
         id = systemCdnUrl + id.slice(esmCdnUrl.length);
       return { id: !external || inlineMaps ? id : specifier, external };
     },

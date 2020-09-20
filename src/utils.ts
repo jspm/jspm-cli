@@ -1,4 +1,7 @@
 import { ImportMap } from "./tracemap";
+import { fetch } from './fetch.js';
+import crypto from 'crypto';
+import { parse } from './script-lexer.js';
 
 /*
  *   Copyright 2020 Guy Bedford
@@ -177,21 +180,79 @@ export function jsonStringifyStyled (json, style: JsonStyle) {
       .replace(/\n/g, style.newline + style.indent) + (style.trailingNewline || '');
 }
 
-export function findHtmlImportMap (source: string, fileName: string, system: boolean) {
-  let importMapStart = -1;
-  if (system) importMapStart = source.indexOf('<script type="systemjs-importmap');
-  if (importMapStart === -1) importMapStart = source.indexOf('<script type="importmap');
-  if (importMapStart === -1) importMapStart = source.indexOf('<script type="systemjs-importmap');
-  if (importMapStart === -1)
-    throw new Error(`Unable to find an import map section in ${fileName}. You need to first manually include a <script type="importmap"> or <script type="importmap-shim"> section.`);
-  const importMapInner = source.indexOf('>', importMapStart);
-  const srcStart = source.indexOf('src=', importMapStart);
-  const importMapEnd = source.indexOf('<', importMapInner);
-  if (srcStart < importMapEnd && srcStart !== -1)
-    throw new Error(`${fileName} references an external import map. Rather install from/to this file directly.`);
+export interface SrcScript { src: string, type: string | undefined, integrity?: string, crossorigin?: boolean, jspmPreload: boolean };
+export interface SrcScriptParse extends SrcScript { start: number, end: number, srcStart: number, srcEnd: number, typeStart: number, typeEnd: number, integrityStart: number, integrityEnd: number };
+export function readHtmlScripts (source: string, fileName: string) {
+  const scripts = parse(source);
+  let typeAttr;
+  let importMap = scripts.find(script => {
+    return script.attributes.some(attr => {
+      const { nameStart, nameEnd, valueStart, valueEnd } = attr;
+      if (source.slice(nameStart, nameEnd) !== 'type')
+        return false;
+      const type = source.slice(valueStart, valueEnd);
+      if (type === 'systemjs-importmap' || type === 'importmap-shim' || type === 'importmap') {
+        typeAttr = attr;
+        return true;
+      }
+    });
+  });
+  if (!importMap) {
+    importMap = { innerStart: -1, innerEnd: -1, start: -1, end: -1, attributes: [] };
+    typeAttr = { valueStart: -1, valueEnd: -1 };
+  }
+  const hasSrc = importMap.attributes.some(({ nameStart, nameEnd, valueStart, valueEnd }) =>
+    source.slice(nameStart, nameEnd) === 'src' && source.slice(valueStart, valueEnd)
+  );
+  if (hasSrc)
+    throw new Error(`${fileName} references an external import map. Rather install from/to this file directly, or remove the src attribute to use an inline import map.`);
+  const srcScripts: SrcScriptParse[] = scripts.map(script => {
+    let src, type, srcStart, srcEnd, integrityStart = -1, integrityEnd = -1, typeStart = -1, typeEnd = -1, jspmPreload = false;
+    for (const attr of script.attributes) {
+      switch (source.slice(attr.nameStart, attr.nameEnd)) {
+        case 'src':
+          if (!src && attr.valueStart !== -1) {
+            srcStart = attr.valueStart;
+            srcEnd = attr.valueEnd;
+            src = source.slice(srcStart, srcEnd);
+          }
+          break;
+
+        case 'type':
+          if (type === undefined) {
+            if (attr.valueStart === -1) {
+              type === null;
+              typeStart = attr.nameEnd;
+              typeEnd = attr.nameEnd;
+            }
+            else {
+              type = source.slice(attr.valueStart, attr.valueEnd);
+              typeStart = attr.nameStart;
+              typeEnd = attr.valueEnd;
+            }
+          }
+          break;
+
+        case 'integrity':
+          if (integrityStart === -1 && attr.valueStart !== -1) {
+            integrityStart = attr.valueStart;
+            integrityEnd = attr.valueEnd;
+          }
+          break;
+
+        case 'jspm-preload':
+          if (!jspmPreload)
+            jspmPreload = true;
+          break;
+      }
+    }
+    if (src && (!type || type === 'module'))
+      return { src, type, start: script.start, end: script.end, srcStart, srcEnd, integrityStart, integrityEnd, typeStart, typeEnd, jspmPreload };
+  }).filter(script => script);
   return {
-    type: [importMapStart + 14, source.indexOf('"', importMapStart + 15)],
-    map: [importMapInner + 1, importMapEnd]
+    type: [typeAttr.valueStart, typeAttr.valueEnd],
+    map: [importMap.innerStart, importMap.innerEnd, importMap.start, importMap.end],
+    srcScripts
   };
 }
 
@@ -199,7 +260,8 @@ export function sort (map: ImportMap) {
   const sorted: ImportMap = {
     imports: alphabetize(map.imports),
     scopes: alphabetize(map.scopes),
-    depcache: alphabetize(map.depcache)
+    depcache: alphabetize(map.depcache),
+    integrity: alphabetize(map.integrity)
   };
   for (const scope of Object.keys(sorted.scopes))
     sorted.scopes[scope] = alphabetize(sorted.scopes[scope]);
@@ -222,6 +284,22 @@ export function isPlain (specifier: string) {
   if (specifier.startsWith('./') || specifier.startsWith('../'))
     return false;
   return !isURL(specifier);
+}
+
+export function computeIntegrity (source: string) {
+  const hash = crypto.createHash('sha384');
+  hash.update(source);
+  return 'sha384-' + hash.digest('base64');
+}
+
+export async function getIntegrity (url: string) {
+  const res = await fetch(url);
+  switch (res.status) {
+    case 200: case 304: break;
+    case 404: throw new Error(`URL ${url} not found.`);
+    default: throw new Error(`Invalid status code ${res.status} requesting ${url}. ${res.statusText}`);
+  }
+  return computeIntegrity(await res.text());
 }
 
 export function getPackageName (specifier: string, parentUrl: URL) {

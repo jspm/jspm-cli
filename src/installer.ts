@@ -39,7 +39,7 @@ export class Installer {
 
   mapBaseUrl: URL;
   pageBaseUrl: URL = baseUrl;
-  env: string[];
+  conditions: string[];
   installs: ResolutionMap;
   map: ImportMap;
 
@@ -63,7 +63,7 @@ export class Installer {
     this.mapBaseUrl = this.traceMap.baseUrl;
     this.opts = opts;
 
-    this.env = map.env;
+    this.conditions = map.conditions;
   
     [this.installs, this.map] = importMapToResolutions(this.traceMap.map, this.mapBaseUrl, opts);
   }
@@ -140,11 +140,11 @@ export class Installer {
     const cached = this.resolvedExportsCache.get(pcfg);
     if (cached) return cached;
 
-    let env = this.env;
+    let conditions = this.conditions;
     if (cjsResolve)
-      env = ['require', ...this.env.filter(env => env !== 'import')];
+      conditions = ['require', ...this.conditions.filter(condition => condition !== 'import')];
 
-    // conditional resolution from env
+    // conditional resolution from conditions
     // does in-browser package resolution
     // index.js | index.json
     // main[.js|.json|.node|'']
@@ -166,11 +166,11 @@ export class Installer {
         exports['.'] = pcfg.exports;
       }
       else if (!allDotKeys(pcfg.exports)) {
-        exports['.'] = getExportsTarget(pcfg.exports, env);
+        exports['.'] = getExportsTarget(pcfg.exports, conditions);
       }
       else {
         for (const expt of Object.keys(pcfg.exports)) {
-          exports[expt] = getExportsTarget(pcfg.exports[expt], env);
+          exports[expt] = getExportsTarget(pcfg.exports[expt], conditions);
         }
       }
     }
@@ -561,7 +561,15 @@ export class Installer {
       return;
     }
     const tracedDeps: string[] = this.tracedUrls[resolvedUrl] = [];
-    const { deps } = await analyze(resolvedUrl, parentUrl);
+    const { deps, dynamicDeps, integrity } = await analyze(resolvedUrl, parentUrl, resolvedUrl.startsWith(esmCdnUrl) ? false : this.opts.system);
+    // TODO: install integrity
+    // this.map.integrity[resolvedUrl] = integrity;
+    if (dynamicDeps.length) {
+      for (const dep of dynamicDeps) {
+        if (deps.indexOf(dep) === -1)
+          deps.push(dep);
+      }
+    }
     const resolvedUrlObj = new URL(resolvedUrl);
     await Promise.all(deps.map(dep => {
       tracedDeps.push(dep);
