@@ -280,9 +280,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'cast':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear'],
+          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear', 'flatten'],
           strFlags: ['import-map', 'log', 'format', 'relative', 'out'],
-          aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache' }
+          aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten' }
         });
 
         const inMapFile = getInMapFile(opts);
@@ -293,20 +293,14 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const mapBase = new URL('.', pathToFileURL(inMapFile));
         const traceMap = new TraceMap(mapBase, inMap.map);
 
-        if (!opts.system) {
-          opts.noIntegrity = true;
+        if (!opts.system)
           opts.noDepcache = true;
-        }
 
-        const specifiers = args;
+        const specifiers = args.length === 0 ? inMap.imports : args;
 
         if (opts.clear) {
-          if (specifiers.length)
+          if (args.length !== 0)
             throw `Unexpected module arguments. Use eg ${chalk.bold(`jspm cast ${rawArgs.filter(arg => !args.includes(arg)).join(' ')}`)} without any module arguments to remove existing casts.`;
-        }
-        else {
-          if (specifiers.length === 0)
-            throw `A list of modules to cast must be provided.`;
         }
 
         let staticSize = 0;
@@ -333,17 +327,17 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             return rel.startsWith('./') ? rel.slice(2) : rel;
           });
 
-          // iterate the dynamic to populate their integrity
-          if (!opts.noIntegrity) {
-            for (const m of Object.keys(trace)) {
-              const entry = trace[m];
-              if (!entry.dynamicOnly)
-                continue;
-              dynamicSize += trace[m].size;
+          // iterate the dynamic to compute dynamic size and populate their integrity
+          for (const m of Object.keys(trace)) {
+            const entry = trace[m];
+            if (!entry.dynamicOnly)
+              continue;
+            dynamicSize += trace[m].size;
+            if (opts.system && !opts.noIntegrity)
               traceMap.setIntegrity(m, await getIntegrity(m.startsWith('https://') ? m : pathToFileURL(path.resolve(opts.relative || process.cwd(), m))));
-            }
-            traceMap.sortIntegrity();
           }
+          if (opts.system && !opts.noIntegrity)
+            traceMap.sortIntegrity();
         }
 
         let moduleType;
@@ -378,6 +372,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           jspmPreload: !dep.startsWith(systemCdnUrl) && !dep.startsWith(esmCdnUrl)
         })));
 
+        if (opts.flatten)
+          traceMap.flatten();
         const mapStr = traceMap.toString(<boolean>opts.minify);
         const preloads = outputPreloads.map(({ type, src, integrity, crossorigin, jspmPreload }) =>
           `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmPreload ? ' jspm-preload' : ''}></script>`
@@ -505,10 +501,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (args.length === 0) {
             // TODO: changed handling from install
             // can skip map saving when no change
-            await traceMap.lockInstall(opts);
+            await traceMap.install(opts);
           }
           else {
-            await traceMap.install(args.map(arg => {
+            await traceMap.add(args.map(arg => {
               const eqIndex = arg.indexOf('=');
               if (eqIndex === -1) return arg;
               return {
@@ -696,7 +692,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           // TODO: use trace to filter output map
           // handle case of output map being empty
           const usedExternals = [];
-          writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
+          // NOTE: Disabled because screw this
+          // writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
         }
         catch (e) {
           if (spinner) spinner.stop();

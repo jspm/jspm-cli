@@ -143,6 +143,8 @@ export class Installer {
     let conditions = this.conditions;
     if (cjsResolve)
       conditions = ['require', ...this.conditions.filter(condition => condition !== 'import')];
+    else
+      conditions = ['import', ...this.conditions.filter(condition => condition !== 'require')];
 
     // conditional resolution from conditions
     // does in-browser package resolution

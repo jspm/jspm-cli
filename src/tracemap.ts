@@ -328,7 +328,7 @@ export class TraceMap {
     return this;    
   }
 
-  async lockInstall (opts: InstallOptions = {}) {
+  async install (opts: InstallOptions = {}) {
     opts.lock = true;
     await this._p.job();
     if (opts.clean !== false)
@@ -346,7 +346,7 @@ export class TraceMap {
     return this;
   }
 
-  async install (packages: string | (string | { name: string, target: string })[], opts: InstallOptions = {}) {
+  async add (packages: string | (string | { name: string, target: string })[], opts: InstallOptions = {}) {
     if (typeof packages === 'string') packages = [packages];
     await this._p.job();
     try {
@@ -401,7 +401,7 @@ export class TraceMap {
         throw new Error(`Cannot upgrade package ${pkg} as it is not a top-level "imports" entry.`);
       delete this._map.imports[pkg];
     }
-    this.install(packages, opts);
+    this.add(packages, opts);
   }
 
   uninstall (packages: string | string[], force = false) {
