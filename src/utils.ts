@@ -180,7 +180,7 @@ export function jsonStringifyStyled (json, style: JsonStyle) {
       .replace(/\n/g, style.newline + style.indent) + (style.trailingNewline || '');
 }
 
-export interface SrcScript { src: string, type: string | undefined, integrity?: string, crossorigin?: boolean, jspmPreload: boolean };
+export interface SrcScript { src: string, type: string | undefined, integrity?: string, crossorigin?: boolean, jspmCast: boolean };
 export interface SrcScriptParse extends SrcScript { start: number, end: number, srcStart: number, srcEnd: number, typeStart: number, typeEnd: number, integrityStart: number, integrityEnd: number };
 export function readHtmlScripts (source: string, fileName: string) {
   const scripts = parse(source);
@@ -207,7 +207,7 @@ export function readHtmlScripts (source: string, fileName: string) {
   if (hasSrc)
     throw new Error(`${fileName} references an external import map. Rather install from/to this file directly, or remove the src attribute to use an inline import map.`);
   const srcScripts: SrcScriptParse[] = scripts.map(script => {
-    let src, type, srcStart, srcEnd, integrityStart = -1, integrityEnd = -1, typeStart = -1, typeEnd = -1, jspmPreload = false;
+    let src, type, srcStart, srcEnd, integrityStart = -1, integrityEnd = -1, typeStart = -1, typeEnd = -1, jspmCast = false;
     for (const attr of script.attributes) {
       switch (source.slice(attr.nameStart, attr.nameEnd)) {
         case 'src':
@@ -240,14 +240,14 @@ export function readHtmlScripts (source: string, fileName: string) {
           }
           break;
 
-        case 'jspm-preload':
-          if (!jspmPreload)
-            jspmPreload = true;
+        case 'jspm-cast':
+          if (!jspmCast)
+            jspmCast = true;
           break;
       }
     }
     if (src && (!type || type === 'module'))
-      return { src, type, start: script.start, end: script.end, srcStart, srcEnd, integrityStart, integrityEnd, typeStart, typeEnd, jspmPreload };
+      return { src, type, start: script.start, end: script.end, srcStart, srcEnd, integrityStart, integrityEnd, typeStart, typeEnd, jspmCast };
   }).filter(script => script);
   return {
     type: [typeAttr.valueStart, typeAttr.valueEnd],

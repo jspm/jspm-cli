@@ -96,6 +96,11 @@ function usage (cmd?: string) {
 }
 
 export async function cli (cmd: string | undefined, rawArgs: string[]) {
+  // help and version are only commands that support either form in CLI
+  if (cmd === '-v' || cmd === '--version')
+    cmd = 'version';
+  else if (cmd === '-h' || cmd === '--help')
+    cmd = 'help';
   switch (cmd) {
     case 'version':
       console.log('jspm-BETA');
@@ -255,11 +260,14 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           case 'script':
             output(`<script src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}></script>`, opts);
             return;
+          case '@import':
+            output(`@import url('${url}')`, opts);
+            return;
           case 'style':
-            output(`<link rel="stylesheet" ${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}href="${url}" />`, opts);
+            output(`<link rel="stylesheet"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'} href="${url}"/>`, opts);
             return;
           case 'module':
-            output(`<script type="module" ${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'}src="${url}"></script>`, opts);
+            output(`<script type="module"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'} src="${url}"></script>`, opts);
             return;
           default:
             throw `Unknown format ${opts.format}`;
@@ -280,7 +288,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'cast':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear', 'flatten'],
+          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear', 'flatten', 'dev'],
           strFlags: ['import-map', 'log', 'format', 'relative', 'out'],
           aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten' }
         });
@@ -295,6 +303,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         if (!opts.system)
           opts.noDepcache = true;
+        if (opts.dev)
+          opts.noIntegrity = true;
 
         const specifiers = args.length === 0 ? inMap.imports : args;
 
@@ -308,7 +318,15 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         let sortedStatic: any[] = [];
         traceMap.clearIntegrity();
         traceMap.clearDepcache();
-        if (!opts.clear) {
+        if (opts.dev) {
+          sortedStatic = specifiers.map(specifier => {
+            const resolved = traceMap.resolve(specifier, traceMap.baseUrl);
+            if (!resolved)
+              throw new Error(`No resolution for ${specifier}.`);
+            return traceMap.baseUrlRelative(resolved);
+          });
+        }
+        else if (!opts.clear) {
           const spinner = startSpinnerLog(opts.log);
           if (spinner) spinner.text = `Casting ${specifiers.join(', ').slice(0, process.stdout.columns - 12)}...`;
 
@@ -369,14 +387,14 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           src: dep,
           integrity: opts.noIntegrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : pathToFileURL(path.resolve(opts.relative || process.cwd(), dep))),
           crossorigin: !opts.noCrossorigin && (dep.startsWith(systemCdnUrl) || dep.startsWith(esmCdnUrl)) ? true : undefined,
-          jspmPreload: !dep.startsWith(systemCdnUrl) && !dep.startsWith(esmCdnUrl)
+          jspmCast: !dep.startsWith(systemCdnUrl) && !dep.startsWith(esmCdnUrl)
         })));
 
         if (opts.flatten)
           traceMap.flatten();
         const mapStr = traceMap.toString(<boolean>opts.minify);
-        const preloads = outputPreloads.map(({ type, src, integrity, crossorigin, jspmPreload }) =>
-          `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmPreload ? ' jspm-preload' : ''}></script>`
+        const preloads = outputPreloads.map(({ type, src, integrity, crossorigin, jspmCast }) =>
+          `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmCast ? ' jspm-cast' : ''}></script>`
         ).join('\n');
         if (outMapFile) {
           if (outMapFile.endsWith('.importmap'))
@@ -398,7 +416,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (opts.clear)
             console.log(`${chalk.bold.green('OK')}   Casts cleared.`);
           else
-            console.log(`${chalk.bold.green('OK')}   Cast ${specifiers.map(name => chalk.bold(name)).join(', ')} into ${outMapFile} (${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).`);
+            console.log(`${chalk.bold.green('OK')}   Cast ${specifiers.map(name => chalk.bold(name)).join(', ')} into ${outMapFile} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
         }
         else {
           output((mapStr === '{}' ? '' : `<script type="${opts.system ? 'systemjs-importmap' : 'importmap'}">\n` + mapStr + '</script>\n') + preloads, opts);
@@ -452,13 +470,49 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'up':
     case 'update':
       throw `${chalk.bold.red('ERR')}  TODO: jspm update`;
-      
+
     case 'upgrade':
       throw `${chalk.bold.red('ERR')}  TODO: jspm upgrade`;
 
     case 'r':
-    case 'remove':
-      throw `${chalk.bold.red('ERR')}  TODO: jspm remove`;
+    case 'remove': {
+      const { args, opts } = readFlags(rawArgs, {
+        boolFlags: ['log', 'copy', 'minify'],
+        strFlags: ['out', 'log', 'import-map'],
+        aliases: { m: 'import-map', o: 'out', l: 'log', c: 'copy', 'M': 'minify' }
+      });
+
+      opts.clean = true;
+
+      const inMapFile = getInMapFile(opts);
+      const outMapFile = getOutMapFile(inMapFile, opts);
+      const inMap = getMapDetectTypeIntoOpts(inMapFile, opts);
+
+      const traceMap = new TraceMap(new URL('.', pathToFileURL(inMapFile)).href, inMap.map);
+
+      for (const arg of args) {
+        if (!traceMap.remove(arg))
+          throw `${chalk.bold.red('ERR')}  Cannot remove ${chalk.bold(arg)} as it doesn't exist in "imports".`;
+      }
+
+      await traceMap.install(opts);
+
+      const imports = traceMap.map.imports;
+      for (const arg of args) {
+        if (imports[arg])
+          throw `${chalk.bold.red('ERR')}  Cannot remove ${chalk.bold(arg)} as it is in use by an existing package.`;
+      }
+
+      const mapStr = traceMap.toString(<boolean>opts.minify);
+      if (opts.copy) {
+        console.log(chalk.bold('(Import map copied to clipboard)'));
+        clipboardy.writeSync(mapStr);
+      }
+
+      writeMap(outMapFile, mapStr, <boolean>opts.system);
+      console.log(`${chalk.bold.green('OK')}   Removed ${args.map(arg => chalk.bold(arg)).join(', ')}.`);
+      break;
+    }
   
     case undefined:
       cmd = 'install';
@@ -501,6 +555,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (args.length === 0) {
             // TODO: changed handling from install
             // can skip map saving when no change
+            opts.clean = true;
             await traceMap.install(opts);
           }
           else {
@@ -848,13 +903,13 @@ function writePreloads (outMapFile: string, preloads: SrcScript[], minify: boole
   for (const script of srcScripts) {
     if (script.start < mapOuterEnd)
       continue;
-    const isPreload = script.src.startsWith(systemCdnUrl) || script.src.startsWith(esmCdnUrl) || script.jspmPreload;
+    const isPreload = script.src.startsWith(systemCdnUrl) || script.src.startsWith(esmCdnUrl) || script.jspmCast;
     if (isPreload)
       ({ outSource, diff } = removeScript(outSource, diff, script, mapOuterEnd));
   }
 
-  const outPreloadSource = (mapOuterEnd !== -1 && preloads.length ? (space || '\n') : '') + preloads.map(({ type, src, integrity, crossorigin, jspmPreload }) =>
-    `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmPreload ? ' jspm-preload' : ''}></script>`
+  const outPreloadSource = (mapOuterEnd !== -1 && preloads.length ? (space || '\n') : '') + preloads.map(({ type, src, integrity, crossorigin, jspmCast }) =>
+    `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmCast ? ' jspm-cast' : ''}></script>`
   ).join(space) + (outSource === '' ? '\n' : '');
   outSource = outSource.slice(0, mapOuterEnd) + outPreloadSource + outSource.slice(mapOuterEnd);
   fs.writeFileSync(outMapFile, outSource);
@@ -866,7 +921,7 @@ function removeScript (outSource: string, diff: number, script: SrcScriptParse, 
   if (nl !== -1) {
     const detectedSpace = outSource.slice(nl, script.start + diff);
     if (detectedSpace.match(/\s*/))
-      spaceLen = detectedSpace.length;
+      spaceLen = detectedSpace.length + 1;
   }
   // never overshoot ws removal into the map itself
   while (script.start - spaceLen + diff < mapOuterEnd)
@@ -938,7 +993,7 @@ function getMapDetectTypeIntoOpts (inMapFile: string, opts: Record<string, strin
       if (returnVal.map.trim().length === 0)
         returnVal.map = '{}\n';
       inMap = JSON.parse(returnVal.map);
-      returnVal.imports = Object.keys(inMap.imports);
+      returnVal.imports = Object.keys(inMap.imports || {});
     }
   }
   // esm / system detection

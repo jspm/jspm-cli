@@ -1,7 +1,7 @@
 import sver from 'sver';
 const { Semver, SemverRange } = sver;
 import { TraceMap, ImportMap } from './tracemap.js';
-import { isPlain, baseUrl, sort, importedFrom } from './utils.js';
+import { isPlain, baseUrl, sort, importedFrom, isURL } from './utils.js';
 import { fetch } from './fetch.js';
 import { log } from './log.js';
 import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, matchesTarget, unsanitizeUrl } from './installtree.js';
@@ -14,6 +14,9 @@ export interface InstallOptions {
   lock?: boolean;
   // force use latest versions for everything
   latest?: boolean;
+  // whether to trace known mappings as well
+  // (implied by clean)
+  full?: boolean;
   // any untouched branches at the end of the install
   // should be removed. That is, _install is exhaustive_.
   // this is used by uninstall and lock install clean
@@ -54,6 +57,7 @@ export class Installer {
   opts: InstallOptions;
 
   tracedUrls: Record<string, string[]> = Object.create(null);
+  tracedMappings = new Set<string>();
   resolvedExportsCache = new WeakMap<PackageConfig, Record<string, string>>();
 
   completed = false;
@@ -62,6 +66,9 @@ export class Installer {
     this.traceMap = map;
     this.mapBaseUrl = this.traceMap.baseUrl;
     this.opts = opts;
+
+    if (this.opts.clean)
+      this.opts.full = true;
 
     this.conditions = map.conditions;
   
@@ -77,15 +84,26 @@ export class Installer {
     }
 
     this.traceMap.set(sort(this.map));
-    this.traceMap.extend(sort(resolutionsToImportMap(this.installs, this.opts.system ? systemCdnUrl : esmCdnUrl)));
+    const newMap = sort(resolutionsToImportMap(this.installs, this.opts.system ? systemCdnUrl : esmCdnUrl, this.opts.clean ? this.tracedMappings : null));
+    this.traceMap.extend(newMap);
 
     if (this.opts.flatten) this.traceMap.flatten();
 
     this.completed = true;
   }
 
-  async install (installTarget: string, pkgName?: string): Promise<void> {
+  async add (installTarget: string, pkgName?: string): Promise<void> {
     if (this.completed) throw new Error('New install instance needed.');
+    // local / custom URL installs
+    if (installTarget.startsWith('./') || installTarget.startsWith('../') || isURL(installTarget)) {
+      const targetUrl = new URL(installTarget, this.pageBaseUrl);
+      await this.trace(targetUrl.href, false, this.pageBaseUrl);
+      // only define in import map if "explicit"
+      if (pkgName)
+        this.map.imports[pkgName] = this.traceMap.baseUrlRelative(targetUrl);
+      return;
+    }
+    // external package installs
     const { target, subpath } = parseInstallTarget(installTarget);
     if (!pkgName) pkgName = target.name;
     const pkg = await this.resolveLatestTarget(target);
@@ -320,6 +338,7 @@ export class Installer {
     const parentPkg = parseCdnPkg(parentUrl);
     const pkgScope = parentPkg ? pkgToUrl(parentPkg, esmCdnUrl) + '/' : undefined;
     if (parentPkg && pkgScope) {
+      this.tracedMappings.add(pkgScope.slice(esmCdnUrl.length) + '|' + specifier);
       const scopeMatches = getScopeMatches(parentUrl, this.map.scopes, this.mapBaseUrl);
       const pkgSubscopes = scopeMatches.filter(([, url]) => url.startsWith(pkgScope));
       // Subscope override
@@ -385,8 +404,13 @@ export class Installer {
         pkgExports['.'] = locked && pkgExports['.'] || exports[`./nodelibs/${specifier}`] || './nodelibs/@empty.js';
         return this.trace(pkgUrl + pkgExports['.'].slice(1), cjsResolve, parentUrl);
       }
+
+      console.warn(`Package ${specifier} not declared in package.json dependencies - installing from latest${importedFrom(parentUrl)}`);
+      const target = new PackageTarget('*', pkgName);
+      return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
     }
     else {
+      this.tracedMappings.add(specifier);
       const userImportsMatch = getMapMatch(specifier, this.map.imports);
       const existingResolution = this.installs.imports[pkgName];
       if (userImportsMatch && existingResolution) {
@@ -395,21 +419,21 @@ export class Installer {
       if (userImportsMatch) {
         const resolvedUrl = new URL((<string>this.map.imports[userImportsMatch]) + subpath.slice(1), this.mapBaseUrl);
         if (resolvedUrl.origin === 'https://dev.jspm.io')
-          return this.install(resolvedUrl.pathname.slice(1), specifier);
+          return this.add(resolvedUrl.pathname.slice(1), specifier);
         return this.trace(resolvedUrl.href, cjsResolve, parentUrl);
       }
       if (existingResolution) {
         return this.tracePkg(existingResolution.pkg, Object.keys(existingResolution.exports), existingResolution.exports, false, cjsResolve, parentUrl);
       }
+
       // No match -> we can auto install if we are within the package boundary, and able to write
       if (pkgName) {
-        throw new Error(`TODO: Auto install of ${pkgName}, detecting package boudnary`);
+        const target = new PackageTarget('*', pkgName);
+        return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
       }
+      
+      throw new Error(`TODO: Can this branch ever happen?`);
     }
-    // default to installing the dependency from master
-    console.warn(`Package ${specifier} not declared in package.json dependencies - installing from latest${importedFrom(parentUrl)}`);
-    const target = new PackageTarget('*', pkgName);
-    return this.installPkg(pkgName, pkgScope, target, [subpath], cjsResolve, parentUrl);
   }
 
   async installPkg (pkgName: string, pkgScope: string | undefined, target: PackageTarget, subpaths: string[], cjsResolve: boolean, parentUrl?: URL): Promise<void> {
@@ -437,7 +461,6 @@ export class Installer {
     await Promise.all(subpaths.map(async subpath => {
       let exports = pkgExports;
       let exportMatch = getMapMatch(subpath, pkgExports);
-
       // if no exports -> lookup exports
       if (!exportMatch) {
         const pkgExports = await this.resolveExports(pkg, await this.getPackageConfig(pkg), cjsResolve);

@@ -321,7 +321,7 @@ export function unsanitizeUrl (url) {
   return url.replace(encodedHashRegEx, '#').replace(encodedPercentRegEx, '%');
 }
 
-export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string): ImportMap {
+export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string, filter: Set<string> | null): ImportMap {
   const outMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
@@ -330,18 +330,27 @@ export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string)
   };
   for (const [impt, { pkg, exports }] of Object.entries(installs.imports)) {
     for (const [subpath, target] of Object.entries(exports)) {
-      outMap.imports[impt + subpath.slice(1)] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
+      const specifier = impt + subpath.slice(1);
+      if (filter && !filter.has(specifier))
+        continue;
+      outMap.imports[specifier] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
     }
   }
   for (const [scope, scopeEntry] of Object.entries(installs.scopes)) {
     if (!scope.startsWith(esmCdnUrl))
       throw new Error('Internal error.');
-    const outScope = outMap.scopes[cdnUrl + scope.slice(esmCdnUrl.length)] = Object.create(null);
+    const outScope = Object.create(null);
+    const scopeKey = cdnUrl + scope.slice(esmCdnUrl.length);
     for (const [impt, { pkg, exports }] of Object.entries(scopeEntry)) {
       for (const [subpath, target] of Object.entries(exports)) {
-        outScope[impt + subpath.slice(1)] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
+        const specifier = impt + subpath.slice(1);
+        if (filter && !filter.has(scopeKey.slice(cdnUrl.length) + '|' + specifier))
+          continue;
+        outScope[specifier] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
       }
     }
+    if (Object.keys(outScope).length)
+      outMap.scopes[scopeKey] = outScope;
   }
   return outMap;
 }

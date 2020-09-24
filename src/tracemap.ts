@@ -82,6 +82,13 @@ export class TraceMap {
     return this;
   }
 
+  remove (pkg: string): boolean {
+    if (!this._map.imports[pkg])
+      return false;
+    delete this._map.imports[pkg];
+    return true;
+  }
+
   extend (map: ImportMap, overrideScopes = false) {
     if (map.imports) Object.assign(this._map.imports, map.imports);
     if (map.scopes) {
@@ -98,12 +105,12 @@ export class TraceMap {
     return this;
   }
 
-  private _baseUrlRelative (url: URL) {
+  baseUrlRelative (url: URL) {
     const origin = url.origin;
     const href = url.href;
     const baseUrlHref = this._baseUrl.href;
     if (href.startsWith(baseUrlHref))
-      return href.slice(baseUrlHref.length);
+      return './' + href.slice(baseUrlHref.length);
     if (origin !== this._baseUrl.origin || !href.startsWith(origin) || !baseUrlHref.startsWith(origin))
       return url.href;
     const baseUrlPath = this._baseUrl.pathname;
@@ -256,14 +263,14 @@ export class TraceMap {
 
       // careful optimal depcache "backbone" only
       if (doDepcache && dynamic) {
-        const parentHref = parentUrl.href;
-        const existingDepcache = this._map.depcache[parentHref];
+        const parent = this.baseUrlRelative(parentUrl);
+        const existingDepcache = this._map.depcache[parent];
         if (existingDepcache) {
           if (!existingDepcache.includes(specifier))
             existingDepcache.push(specifier);
         }
         else {
-          this._map.depcache[parentHref] = [specifier];
+          this._map.depcache[parent] = [specifier];
         }
       }
       const curEntry = curTrace[href] = {
@@ -353,9 +360,9 @@ export class TraceMap {
       const installer = new Installer(this, opts);
       await Promise.all(packages.map(pkg => {
         if (typeof pkg === 'string')
-          return installer.install(pkg);
+          return installer.add(pkg);
         else
-          return installer.install(pkg.target, pkg.name);
+          return installer.add(pkg.target, pkg.name);
       }));
       installer.complete();
     }
