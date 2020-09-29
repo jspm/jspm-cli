@@ -1,10 +1,6 @@
-const path = require('path');
-const assert = require('assert');
-
 let source, i;
 
-exports.parse = parse;
-function parse (_source) {
+export function parse (_source) {
   const scripts = [];
   source = _source;
   i = 0;
@@ -124,7 +120,9 @@ function logScripts (source, scripts) {
   }
 }
 
-if (process.mainModule === module) {
+if (typeof process !== 'undefined' && process.mainModule === module) {
+  const path = require('path');
+  const assert = require('assert');
 
   console.group('Simple script');
   {

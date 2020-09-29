@@ -1,11 +1,11 @@
 import sver from 'sver';
-import convertRange from 'sver/convert-range.js';
+import convertRange from 'sver/convert-range';
 const { SemverRange } = sver;
-import { ImportMap } from './tracemap';
-import { InstallOptions } from './installer';
+import { ImportMap } from './tracemap.js';
+import { InstallOptions } from './installer.js';
 import lexer from 'es-module-lexer';
 import { fetch } from './fetch.js';
-import { computeIntegrity, importedFrom } from './utils';
+import { computeIntegrity, importedFrom } from './utils.js';
 
 export interface ExactPackage {
   registry: string;
@@ -275,7 +275,7 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
         const pkg = parseCdnPkg(targetUrl);
         if (pkg) {
           const pkgPath = pkg.path;
-          delete pkg.path;
+          delete (<any>pkg).path;
           let resolutions = (scopeUrl ? (installs.scopes[scopeUrl] = installs.scopes[scopeUrl] || Object.create(null)) : installs.imports)[pkgName];
           if (!resolutions || pkgEq(resolutions.pkg, pkg) || opts.clean) {
             resolutions = resolutions || ((scopeUrl ? installs.scopes[scopeUrl] : installs.imports)[pkgName] = {

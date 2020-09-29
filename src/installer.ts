@@ -4,7 +4,7 @@ import { TraceMap, ImportMap } from './tracemap.js';
 import { isPlain, baseUrl, sort, importedFrom, isURL } from './utils.js';
 import { fetch } from './fetch.js';
 import { log } from './log.js';
-import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, exists, getExportsTarget, pkgToLookupUrl, matchesTarget, unsanitizeUrl } from './installtree.js';
+import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, systemCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, getExportsTarget, pkgToLookupUrl, matchesTarget } from './installtree.js';
 
 export type Semver = any;
 export type SemverRange = any;
@@ -154,7 +154,7 @@ export class Installer {
 
   // CDN TODO: CDN must disable extension checks
   // CDN TODO: CDN should set "exports" explicitly from its analysis, thereby encapsulating the CDN package
-  async resolveExports (pkg: ExactPackage, pcfg: PackageConfig, cjsResolve = false): Promise<Record<string, string>> {
+  async resolveExports (_pkg: ExactPackage, pcfg: PackageConfig, cjsResolve = false): Promise<Record<string, string>> {
     const cached = this.resolvedExportsCache.get(pcfg);
     if (cached) return cached;
 
@@ -586,7 +586,7 @@ export class Installer {
       return;
     }
     const tracedDeps: string[] = this.tracedUrls[resolvedUrl] = [];
-    const { deps, dynamicDeps, integrity } = await analyze(resolvedUrl, parentUrl, resolvedUrl.startsWith(esmCdnUrl) ? false : this.opts.system);
+    const { deps, dynamicDeps, /*integrity*/ } = await analyze(resolvedUrl, parentUrl, resolvedUrl.startsWith(esmCdnUrl) ? false : this.opts.system);
     // TODO: install integrity
     // this.map.integrity[resolvedUrl] = integrity;
     if (dynamicDeps.length) {

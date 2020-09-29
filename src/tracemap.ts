@@ -161,30 +161,30 @@ export class TraceMap {
     for (const impt of Object.keys(this._map.imports)) {
       const target = this._map.imports[impt];
       if (target !== null)
-        this._map.imports[impt] = this._baseUrlRelative(new URL(target, oldBaseUrl));
+        this._map.imports[impt] = this.baseUrlRelative(new URL(target, oldBaseUrl));
     }
     for (const scope of Object.keys(this._map.scopes)) {
       const scopeImports = this._map.scopes[scope];
       for (const name of Object.keys(scopeImports)) {
         const target = scopeImports[name];
         if (target !== null)
-          this._map.imports[name] = this._baseUrlRelative(new URL(target, oldBaseUrl));
+          this._map.imports[name] = this.baseUrlRelative(new URL(target, oldBaseUrl));
       }
     }
     const newDepcache = Object.create(null);
     for (const dep of Object.keys(this._map.depcache)) {
       const importsRebased = this._map.depcache[dep].map(specifier => {
         if (isPlain(specifier)) return specifier;
-        return this._baseUrlRelative(new URL(specifier, oldBaseUrl));
+        return this.baseUrlRelative(new URL(specifier, oldBaseUrl));
       });
-      const depRebased = this._baseUrlRelative(new URL(dep, oldBaseUrl));
+      const depRebased = this.baseUrlRelative(new URL(dep, oldBaseUrl));
       newDepcache[depRebased] = importsRebased;
     }
     this._map.depcache = newDepcache;
     const newIntegrity = Object.create(null);
     for (const dep of Object.keys(this._map.integrity)) {
       const integrityVal = this._map.integrity[dep];
-      const depRebased = this._baseUrlRelative(new URL(dep, oldBaseUrl));
+      const depRebased = this.baseUrlRelative(new URL(dep, oldBaseUrl));
       newIntegrity[depRebased] = integrityVal;
     }
     this._map.integrity = newIntegrity;
@@ -211,7 +211,7 @@ export class TraceMap {
         if (target === null) continue;
         const targetUrl = new URL(target, this._baseUrl);
         if (!existing || new URL(existing, this._baseUrl).href === targetUrl.href) {
-          scopeBase[name] = this._baseUrlRelative(targetUrl);
+          scopeBase[name] = this.baseUrlRelative(targetUrl);
           delete scopeImports[name];
           this._map.scopes[<string>scopeBaseUrl] = alphabetize(scopeBase);
         }

@@ -1,6 +1,7 @@
 import { ImportMap } from "./tracemap";
 import { fetch } from './fetch.js';
 import crypto from 'crypto';
+import os from 'os';
 import { parse } from './script-lexer.js';
 
 /*
@@ -72,8 +73,8 @@ export interface JsonStyle {
 
 export const defaultStyle = {
   tab: '  ',
-  newline: require('os').EOL,
-  trailingNewline: require('os').EOL,
+  newline: os.EOL,
+  trailingNewline: os.EOL,
   indent: '',
   quote: '"'
 };

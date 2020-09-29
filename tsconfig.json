@@ -4,7 +4,7 @@
     "noUnusedLocals": true,
     "typeRoots": ["node_modules/@types"],
     "module": "esnext",
-    "target": "es2017",
+    "target": "es2018",
     "noImplicitAny": false,
     "strictNullChecks": true,
     "sourceMap": true,
@@ -13,6 +13,8 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/script-lexer.js",
     "src/api.js"
-  ]
+  ],
+  "exclude": ["src/cli.ts"]
 }
