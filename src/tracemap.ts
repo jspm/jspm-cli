@@ -342,9 +342,9 @@ export class TraceMap {
       opts.clean = true;
     try {
       const installer = new Installer(this, opts);
-      await Promise.all((imports || Object.keys(this._map.imports)).map(specifier => {
-        return installer.traceInstall(specifier, this._baseUrl, false);
-      }));
+      for (const specifier of imports || Object.keys(this._map.imports)) {
+        await installer.traceInstall(specifier, this._baseUrl, false);
+      }
       installer.complete();
     }
     finally {

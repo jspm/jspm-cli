@@ -379,12 +379,12 @@ export class Installer {
       }
       if (pcfg.peerDependencies?.[pkgName]) {
         const target = new PackageTarget(pcfg.peerDependencies[pkgName], pkgName);
-        this.tracedMappings.add(pkgScope.slice(esmCdnUrl.length));
+        this.tracedMappings.add(specifier);
         return this.installPkg(pkgName, undefined, target, { [subpath]: subpath }, cjsResolve, parentUrl);
       }
       if (pcfg.optionalDependencies?.[pkgName]) {
         const target = new PackageTarget(pcfg.optionalDependencies[pkgName], pkgName);
-        this.tracedMappings.add(pkgScope.slice(esmCdnUrl.length));
+        this.tracedMappings.add(specifier);
         return this.installPkg(pkgName, undefined, target, { [subpath]: subpath }, cjsResolve, parentUrl);
       }
       // Self resolve patch
@@ -394,7 +394,7 @@ export class Installer {
         return this.tracePkg(parentPkg, { [subpath]: subpath }, pkgExports, false, cjsResolve, parentUrl);
       }
       if (this.isNodeCorePeer(specifier) && subpath === '.') {
-        this.tracedMappings.add(pkgScope.slice(esmCdnUrl.length));
+        this.tracedMappings.add(specifier);
         const target = new PackageTarget('@jspm/core@2', pkgName);
         let pkg: ExactPackage = (pkgScope && this.installs.scopes[pkgScope]?.[pkgName] || this.installs.imports[pkgName])?.pkg;
         const locked = pkg && (this.opts.lock || !matchesTarget(pkg, target));
