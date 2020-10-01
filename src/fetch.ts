@@ -20,9 +20,15 @@ else if (typeof process !== 'undefined' && process.versions?.node) {
   const { fileURLToPath } = require('url');
   const { readFile } = require('fs').promises;
   _fetch = async function (url) {
-    if (url.toString().startsWith('file:')) {
+    if (url.toString().startsWith('file:') || url.toString().startsWith('data:')) {
       try {
-        const source = await readFile(fileURLToPath(url.toString()));
+        let source;
+        if (url.toString().startsWith('file:')) {
+          source = await readFile(fileURLToPath(url.toString()));
+        }
+        else {
+          source = decodeURIComponent(url.toString().slice(url.toString().indexOf(',')));
+        }
         return {
           status: 200,
           async text () {

@@ -247,7 +247,11 @@ export function readHtmlScripts (source: string, fileName: string) {
           break;
       }
     }
-    if (src && (!type || type === 'module'))
+    if (!src) {
+      srcStart = script.innerStart;
+      srcEnd = script.innerEnd;
+    }
+    if (!type || type === 'module')
       return { src, type, start: script.start, end: script.end, srcStart, srcEnd, integrityStart, integrityEnd, typeStart, typeEnd, jspmCast };
   }).filter(script => script);
   return {

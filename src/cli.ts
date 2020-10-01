@@ -534,12 +534,16 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         });
 
         if (cmd === 'install') {
-          if (args.length)
+          if (args.length && args.some(arg => isPlain(arg))) {
             console.log(`Executing ${chalk.bold('jspm add ' + rawArgs.join(' '))}`);
+            cmd = 'add';
+          }
         }
         else {
-          if (!args.length)
+          if (!args.length) {
             console.log(`Executing ${chalk.bold('jspm install ' + rawArgs.join(' '))}`);
+            cmd = 'install';
+          }
         }
 
         const inMapFile = getInMapFile(opts);
@@ -552,11 +556,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         let changed: string[] | undefined;
         try {
-          if (args.length === 0) {
+          if (cmd === 'install') {
             // TODO: changed handling from install
             // can skip map saving when no change
             opts.clean = true;
-            await traceMap.install(opts);
+            await traceMap.install(opts, args.length ? args : inMap.imports);
           }
           else {
             await traceMap.add(args.map(arg => {
@@ -971,7 +975,7 @@ function getMapDetectTypeIntoOpts (inMapFile: string, opts: Record<string, strin
     const source = fs.readFileSync(inMapFile).toString();    
     // support HTML parsing
     if (!inMapFile.endsWith('.importmap') && !inMapFile.endsWith('.json')) {
-      const { type, map } = readHtmlScripts(source, inMapFile);
+      const { type, map, srcScripts } = readHtmlScripts(source, inMapFile);
       if (map[0] === -1)
         throw `${inMapFile} must be a ".importmap" or ".json" file, or an XML file containing a <script type="importmap"> section.`;
       const mapStr = source.slice(map[0], map[1]);
@@ -980,7 +984,10 @@ function getMapDetectTypeIntoOpts (inMapFile: string, opts: Record<string, strin
         returnVal.map = Number(firstNewline) > -1 ? mapStr.slice(<number>firstNewline + 1) : mapStr;
       }
       inMap = JSON.parse(source.slice(...map).trim() || '{}');
-      returnVal.imports = Object.keys(inMap.imports || {});
+      returnVal.imports = [
+        ...Object.keys(inMap.imports || {}),
+        ...srcScripts.filter(script => !script.src).map(script => `data:application/javascript,${encodeURIComponent(source.slice(script.srcStart, script.srcEnd))}`)
+      ];
       if (!opts.system && !opts.esm) {
         if (source.slice(...type) === 'systemjs-importmap')
           opts.system = true;

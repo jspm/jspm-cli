@@ -335,15 +335,15 @@ export class TraceMap {
     return this;    
   }
 
-  async install (opts: InstallOptions = {}) {
+  async install (opts: InstallOptions = {}, imports?: string[]) {
     opts.lock = true;
     await this._p.job();
     if (opts.clean !== false)
       opts.clean = true;
     try {
       const installer = new Installer(this, opts);
-      await Promise.all(Object.keys(this._map.imports).map(pkgName => {
-        return installer.traceInstall(pkgName, this._baseUrl, false);
+      await Promise.all((imports || Object.keys(this._map.imports)).map(specifier => {
+        return installer.traceInstall(specifier, this._baseUrl, false);
       }));
       installer.complete();
     }
@@ -359,6 +359,14 @@ export class TraceMap {
     try {
       const installer = new Installer(this, opts);
       await Promise.all(packages.map(pkg => {
+        if (typeof pkg === 'string' && !isPlain(pkg)) {
+          const name = <string>pkg.split('/').pop();
+          const extIndex = name.lastIndexOf('.');
+          pkg = {
+            name: extIndex === -1 ? name : name.slice(0, extIndex),
+            target: pkg
+          };
+        }
         if (typeof pkg === 'string')
           return installer.add(pkg);
         else
