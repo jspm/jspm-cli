@@ -3,7 +3,7 @@ import { TraceMap } from './tracemap';
 import { fetch } from './fetch';
 import lexer from 'es-module-lexer';
 import { systemCdnUrl, esmCdnUrl } from './installtree';
-import terser from 'terser';
+import * as terser from 'terser';
 import { DecoratedError, isPlain, isURL } from './utils';
 import chalk from 'chalk';
 
@@ -108,9 +108,9 @@ export default ({
         
       }
     },
-    transform (code, url) {
+    async transform (code, url) {
       if (!minifyUrls.has(url)) return code;
-      const result = terser.minify(code, { sourceMap });
+      const result = await terser.minify(code, { sourceMap });
       if (result.error)
         return code;
       return result;
