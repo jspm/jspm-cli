@@ -288,7 +288,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'cast':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear', 'flatten', 'dev'],
+          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear', 'flatten', 'dev', 'no-dynamic'],
           strFlags: ['import-map', 'log', 'format', 'relative', 'out'],
           aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten' }
         });
@@ -302,7 +302,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const traceMap = new TraceMap(mapBase, inMap.map);
 
         if (!opts.system)
-          opts.noDepcache = true;
+          opts.noDynamic = true;
         if (opts.dev)
           opts.noIntegrity = true;
 
@@ -331,7 +331,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (spinner) spinner.text = `Casting ${specifiers.join(', ').slice(0, process.stdout.columns - 12)}...`;
 
           try {
-            var { trace } = await traceMap.trace(specifiers, <boolean>opts.system, !opts.noDepcache);
+            var { trace } = await traceMap.trace(specifiers, <boolean>opts.system, !opts.noDepcache && !opts.noDynamic);
           }
           finally {
             if (spinner) spinner.stop();
@@ -341,7 +341,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             staticSize += trace[dep].size;
             if (!dep.startsWith('file:'))
               return dep;
-            const rel = relModule(new URL(dep), mapBase || pathToFileURL(path.resolve(opts.relative)));
+            const rel = relModule(new URL(dep), mapBase || pathToFileURL(path.resolve(<string>opts.relative || process.cwd())), false);
             return rel.startsWith('./') ? rel.slice(2) : rel;
           });
 
@@ -351,10 +351,12 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             if (!entry.dynamicOnly)
               continue;
             dynamicSize += trace[m].size;
-            if (opts.system && !opts.noIntegrity)
-              traceMap.setIntegrity(m, await getIntegrity(m.startsWith('https://') ? m : pathToFileURL(path.resolve(opts.relative || process.cwd(), m))));
+            if (!opts.noIntegrity && !opts.noDynamic) {
+              const resolved = m.startsWith('https:') || m.startsWith('file:') ? new URL(m) : pathToFileURL(path.resolve(<string>opts.relative || process.cwd(), m));
+              traceMap.setIntegrity(relModule(resolved, mapBase || pathToFileURL(path.resolve(<string>opts.relative || process.cwd())), false), await getIntegrity(resolved.href));
+            }
           }
-          if (opts.system && !opts.noIntegrity)
+          if (!opts.noIntegrity && !opts.noDynamic)
             traceMap.sortIntegrity();
         }
 
@@ -645,6 +647,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const outputOptions = {
           entryFileNames: opts.hashEntries ? '[name]-[hash].js' : '[name].js',
           chunkFileNames: 'chunk-[hash].js',
+          preserveEntrySignatures: 'allow-extension',
           dir,
           compact: true,
           format: opts.format,
@@ -689,7 +692,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
                 outMap.imports[inputObj[input]] = `${distMapRelative}/${chunk.fileName}`;
               }
     
-              writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
+              // writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
 
               console.log(`     Watching for changes...`);
             }
@@ -716,7 +719,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
 
           let backupName: string = 'jspm.importmap';
-          if (!opts.out) {
+          if (!opts.out && false) {
             if (path.resolve(outMapFile) === path.resolve(backupName) || fs.existsSync(backupName) && !jsonEquals(fs.readFileSync(backupName).toString(), map.map)) {
               const basename = path.basename(inMapFile).slice(0, -path.extname(inMapFile).length);
               backupName = basename + '.importmap';
@@ -736,6 +739,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             console.log(`     To revert, run ${chalk.bold(`jspm install${backupName === 'jspm.importmap' ? '' : ' -m ' + backupName} -o ${opts.importMap || 'jspm.importmap'}`)}`);
           }
 
+          if (false)
           for (const input of Object.keys(inputObj)) {
             const chunk = output.find(chunk => chunk.name === input);
             outMap.imports[inputObj[input]] = `${distMapRelative}/${chunk.fileName}`;
@@ -840,7 +844,7 @@ function logTrace (map, trace, mapBase: URL) {
   }
 }
 
-function relModule (url: URL, relBase: URL) {
+function relModule (url: URL, relBase: URL, parse = true) {
   if (url.protocol === 'file:' && relBase.protocol === 'file:') {
     const relBasePath = fileURLToPath(relBase);
     let relPath = path.relative(relBasePath, fileURLToPath(url)).replace(/\\/g, '/');
@@ -855,7 +859,7 @@ function relModule (url: URL, relBase: URL) {
     return relPath;
   }
   else {
-    const parsed = parseCdnPkg(url);
+    const parsed = parse && parseCdnPkg(url);
     if (parsed)
       return pkgToStr(parsed) + parsed.path;
     else
@@ -984,16 +988,16 @@ function getMapDetectTypeIntoOpts (inMapFile: string, opts: Record<string, strin
         returnVal.map = Number(firstNewline) > -1 ? mapStr.slice(<number>firstNewline + 1) : mapStr;
       }
       inMap = JSON.parse(source.slice(...map).trim() || '{}');
-      returnVal.imports = [
-        ...Object.keys(inMap.imports || {}),
-        ...srcScripts.filter(script => !script.src).map(script => `data:application/javascript,${encodeURIComponent(source.slice(script.srcStart, script.srcEnd))}`)
-      ];
       if (!opts.system && !opts.esm) {
         if (source.slice(...type) === 'systemjs-importmap')
           opts.system = true;
         else
           opts.esm = true;
       }
+      returnVal.imports = [
+        ...Object.keys(inMap.imports || {}),
+        ...opts.system ? [] : srcScripts.filter(script => !script.src).map(script => `data:application/javascript,${encodeURIComponent(source.slice(script.srcStart, script.srcEnd))}`)
+      ];
     }
     else {
       returnVal.map = fs.readFileSync(inMapFile).toString();
@@ -1003,6 +1007,7 @@ function getMapDetectTypeIntoOpts (inMapFile: string, opts: Record<string, strin
       returnVal.imports = Object.keys(inMap.imports || {});
     }
   }
+
   // esm / system detection
   if (!opts.esm && !opts.system) {
     if (inMap.imports) {

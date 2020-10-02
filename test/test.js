@@ -30,7 +30,7 @@ class Pool {
 }
 
 async function forked (path, args = [], cwd, returnStream) {
-  const ps = fork(path, args, { cwd, stdio: 'pipe', execArgv: ['--experimental-top-level-await', ...process.execArgv] });
+  const ps = fork(path, args, { cwd, stdio: 'pipe' });
   const stream = [];
   ps.stdout.on('data', data => stream.push({ err: false, data }));
   ps.stderr.on('data', data => stream.push({ err: true, data }));

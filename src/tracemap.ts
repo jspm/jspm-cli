@@ -252,8 +252,9 @@ export class TraceMap {
 
   async trace (specifiers: string[], system = false, doDepcache = false): Promise<Trace> {
     let postOrder = 0;
+    let dynamicTracing = false;
     const dynamics: Set<{ dep: string, parentUrl: URL }> = new Set();
-    const doTrace = async (specifier: string, parentUrl: URL, curTrace: Trace, curMap: Record<string, URL | null>, dynamic: boolean): Promise<void> => {
+    const doTrace = async (specifier: string, parentUrl: URL, curTrace: Trace, curMap: Record<string, URL | null>, isEntry: boolean): Promise<void> => {
       const resolved = this.resolve(specifier, parentUrl);
       curMap[specifier] = resolved;
       if (resolved === null) return;
@@ -262,7 +263,7 @@ export class TraceMap {
       if (staticTrace[href]) return;
 
       // careful optimal depcache "backbone" only
-      if (doDepcache && dynamic) {
+      if (doDepcache && dynamicTracing && !isEntry) {
         const parent = this.baseUrlRelative(parentUrl);
         const existingDepcache = this._map.depcache[parent];
         if (existingDepcache) {
@@ -276,7 +277,7 @@ export class TraceMap {
       const curEntry = curTrace[href] = {
         deps: Object.create(null),
         dynamicDeps: Object.create(null),
-        dynamicOnly: dynamic,
+        dynamicOnly: dynamicTracing,
         size: NaN,
         order: NaN,
         integrity: ''
@@ -286,10 +287,10 @@ export class TraceMap {
       curEntry.size = size;
 
       for (const dep of deps)
-        await doTrace(dep, resolved, curTrace, curEntry.deps, dynamic);
+        await doTrace(dep, resolved, curTrace, curEntry.deps, false);
 
       for (const dep of dynamicDeps) {
-        if (dynamic)
+        if (dynamicTracing)
           await doTrace(dep, resolved, curTrace, curEntry.dynamicDeps, true);
         else
           dynamics.add({ dep, parentUrl: resolved });
@@ -303,6 +304,7 @@ export class TraceMap {
     for (const specifier of specifiers)
       await doTrace(specifier, this._baseUrl, staticTrace, map, false);
 
+    dynamicTracing = true;
     for (const { dep, parentUrl } of dynamics) {
       const dynTrace = Object.create(null);
       await doTrace(dep, parentUrl, dynTrace, map, true);
