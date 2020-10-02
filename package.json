@@ -15,8 +15,7 @@
   "bin": {
     "jspm": "dist/index.js"
   },
-  "main": "./dist/index.js",
-  "browser": "./lib/jspm-browser.js",
+  "main": "./lib/tracemap.js",
   "dependencies": {
     "es-module-lexer": "^0.3.17",
     "sver": "^1.8.3"
