@@ -14,7 +14,9 @@ See the getting started guide at https://jspm.org/cli.
 
 The project is still under heavy development, and the codebase reflects this in being very rough.
 
-Fixing bugs, improving the test coverage and code quality or suggesting your own additions are all a huge help.
+Simply using the project and sharing feedback is a huge help.
+
+Bug fixes, improving test coverage and code quality or suggesting your own additions all welcome.
 
 ## Building
 
