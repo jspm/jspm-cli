@@ -663,7 +663,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         if (opts.watch) {
           if (!opts.out) {
-            throw `Watched builds only supported when using --out separate to the input import map.`;
+           //  throw `Watched builds only supported when using --out separate to the input import map.`;
           }
           const spinner = startSpinnerLog(opts.log);
           spinner.text = `Optimizing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
