@@ -345,10 +345,18 @@ export class Installer {
       this.tracedMappings.add(pkgScope.slice(esmCdnUrl.length) + '|' + specifier);
       const scopeMatches = getScopeMatches(parentUrl, this.map.scopes, this.mapBaseUrl);
       const pkgSubscopes = scopeMatches.filter(([, url]) => url.startsWith(pkgScope));
+      const userImportsMatch = getMapMatch(specifier, this.map.imports);
+      const userImportsResolved = userImportsMatch ? new URL(this.map.imports[userImportsMatch] + specifier.slice(userImportsMatch.length), this.mapBaseUrl).href : null;
       // Subscope override
       // - if there is a match, we use it, unless forcing in which case skip and remove it
       if (pkgSubscopes.length) {
-        throw new Error('TODO: Support custom user subscopes.');
+        for (const [scope] of pkgSubscopes) {
+          const mapMatch = getMapMatch(specifier, this.map.scopes[scope]);
+          if (mapMatch) {
+            const resolved = new URL(this.map.scopes[scope][mapMatch] + specifier.slice(mapMatch.length), this.mapBaseUrl).href;
+            return this.trace(resolved, cjsResolve, parentUrl);
+          }
+        }
       }
       // Not an existing install
       if (!this.installs.scopes[pkgScope]) {
@@ -360,10 +368,9 @@ export class Installer {
         if (this.installs.scopes[esmCdnUrl]) {
           throw new Error('TODO: Reading flattened scopes');
         }
-        const userImportsMatch = getMapMatch(specifier, this.map.imports);
         if (userImportsMatch) {
-          // Note: this must check it is not an existing install match first...
-          throw new Error('TODO: Custom user import');
+          (this.map.scopes[pkgScope] = this.map.scopes[pkgScope] || {})[userImportsMatch] = this.map.imports[userImportsMatch];
+          return this.trace(<string>userImportsResolved, cjsResolve, parentUrl);
         }
       }
       // New / existing install
@@ -378,11 +385,15 @@ export class Installer {
         return this.installPkg(pkgName, pkgScope, target, { [subpath]: subpath }, cjsResolve, parentUrl);
       }
       if (pcfg.peerDependencies?.[pkgName]) {
+        if (userImportsResolved)
+          return this.trace(<string>userImportsResolved, cjsResolve, parentUrl);
         const target = new PackageTarget(pcfg.peerDependencies[pkgName], pkgName);
         this.tracedMappings.add(specifier);
         return this.installPkg(pkgName, undefined, target, { [subpath]: subpath }, cjsResolve, parentUrl);
       }
       if (pcfg.optionalDependencies?.[pkgName]) {
+        if (userImportsResolved)
+          return this.trace(<string>userImportsResolved, cjsResolve, parentUrl);
         const target = new PackageTarget(pcfg.optionalDependencies[pkgName], pkgName);
         this.tracedMappings.add(specifier);
         return this.installPkg(pkgName, undefined, target, { [subpath]: subpath }, cjsResolve, parentUrl);
