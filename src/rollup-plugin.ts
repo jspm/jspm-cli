@@ -47,7 +47,7 @@ export default ({
       }
       let resolved;
       try {
-        resolved = this.traceMap.resolve(specifier, parent ? (isURL(parent) && !parent.match(/^\w:/) ? new URL(parent) : pathToFileURL(parent)) : baseUrl);
+        resolved = this.traceMap.resolve(specifier, parent ? (parent[0] !== '/' && isURL(parent) && !parent.match(/^\w:/) ? new URL(parent) : pathToFileURL(parent)) : baseUrl);
       }
       catch (e) {
         if ((<DecoratedError>e).code === 'MODULE_NOT_FOUND' && isPlain(specifier)) {
