@@ -26,7 +26,13 @@ npm run build-node
 
 builds `dist/index.js` which is the main CLI executable.
 
-Setup a symlink to this file in your PATH to get a live build running locally.
+It is recommended to setup a symlink to this file in the PATH to get a live build running locally.
+
+Something like:
+
+```
+ln -s ~/Projects/jspm/dist/index.js /usr/local/bin/jspm
+```
 
 For a watched build run
 
