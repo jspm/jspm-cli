@@ -24,7 +24,7 @@ import { logStream } from './log.js';
 import { clearCache } from './fetch.js';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
-import { readHtmlScripts, isPlain, isURL, jsonEquals, jsonParseStyled, jsonStringifyStyled, getIntegrity, SrcScript, SrcScriptParse } from './utils.js';
+import { readHtmlScripts, isPlain, isURL, jsonEquals, jsonParseStyled, jsonStringifyStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.js';
 import * as path from 'path';
 import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.js';
 import { Installer } from './installer.js';
@@ -78,7 +78,7 @@ function usage (cmd?: string) {
   }
   const dirname = eval('__dirname');
   const version = JSON.parse(fs.readFileSync(dirname + '/../package.json').toString()).version;
-  return `${cmd ? `Unknown command ${chalk.bold(cmd)}\n` : ``}
+  return `${cmd ? chalk.red(`Unknown command ${chalk.bold(cmd)}\n`) : ``}
   > https://jspm.org/cli#v${version} ▪ ES Module Package Management
   
   Manage and build module and import map workflows:
@@ -221,9 +221,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       try {
         const { args, opts } = readFlags(rawArgs, {
           boolFlags: ['log', 'system', 'copy', 'no-crossorigin', 'no-integrity'],
-          strFlags: ['log', 'format'],
+          strFlags: ['log', 'format', 'out'],
           arrFlags: ['conditions'],
-          aliases: { l: 'log', f: 'format', c: 'copy', u: 'conditions' }
+          aliases: { l: 'log', f: 'format', c: 'copy', u: 'conditions', o: 'out' }
         });
         
         if (!args.length)
@@ -233,6 +233,15 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         if (opts.format === 'system')
           opts.system = true;
+
+        let outMapFile: string | null = null;
+        if (opts.out) {
+          const inMapFile = getInMapFile(opts);
+          outMapFile = getOutMapFile(inMapFile, opts);
+          if (outMapFile.endsWith('.json') || outMapFile.endsWith('.importmap')) {
+            throw `Cannot inject inside a non-html file, requested - ${opts.out}`
+          }
+        }
 
         const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, <string[] | undefined>opts.conditions), opts);
         const { target, subpath } = parseInstallTarget(args[0]);
@@ -252,26 +261,43 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           url = pkgToUrl(resolved, opts.system ? systemCdnUrl : esmCdnUrl) + exports[exportsMatch].slice(1);
         }
 
-        switch (opts.format || (opts.system ? 'script' : 'module')) {
+        let statementToImport: string
+        const format = opts.format || (opts.system ? 'script' : 'module')
+        switch (format) {
           case 'string':
-            output(url + (opts.noIntegrity ? '' : '\n' + await getIntegrity(url)), opts);
-            return;
+            statementToImport = url + (opts.noIntegrity ? '' : '\n' + await getIntegrity(url))
+            break;
           case 'system':
           case 'script':
-            output(`<script src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}></script>`, opts);
-            return;
+            statementToImport = `<script src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}></script>`;
+            break;
           case '@import':
-            output(`@import url('${url}')`, opts);
-            return;
+            statementToImport = `@import url('${url}')`
+            break;
           case 'style':
-            output(`<link rel="stylesheet"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'} href="${url}"/>`, opts);
-            return;
+            statementToImport = `<link rel="stylesheet"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'} href="${url}"/>`
+            break;
           case 'module':
-            output(`<script type="module"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'} src="${url}"></script>`, opts);
-            return;
+            statementToImport = `<script type="module"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'} src="${url}"></script>`  
+            break;
           default:
             throw `Unknown format ${opts.format}`;
         }
+
+        output(statementToImport, opts);
+        if (opts.out && ['script', 'system', 'module', 'style'].includes(format)) {
+
+          if (!fs.existsSync(outMapFile)) {
+            throw `\n Requested file to inject is missing - ${outMapFile}`
+          }
+        
+          let outSource = fs.readFileSync(outMapFile).toString();
+          const injectedHTML = injectInHTML(outSource,outMapFile, statementToImport);
+          
+          fs.writeFileSync(outMapFile, injectedHTML);
+        }
+        return
+
       }
       catch (e) {
         if (typeof e === 'string')
@@ -889,21 +915,7 @@ function writePreloads (outMapFile: string, preloads: SrcScript[], minify: boole
     space = '';
   }
   else {
-    if (outSource === '') {
-      space = '\n';
-    }
-    else if (mapOuterEnd !== -1) {
-      const nl = outSource.indexOf('\n', mapOuterEnd);
-      if (nl !== -1) {
-        const detectedSpace = outSource.slice(mapOuterEnd, nl + 1);
-        if (detectedSpace.match(/\s*/))
-          space = detectedSpace;
-      }
-    }
-    else {
-      // TODO: space detection for files without an import map
-      space = '\n';
-    }
+    space = detectSpace(outSource, mapOuterEnd)
   }
 
   let diff = 0;

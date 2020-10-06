@@ -328,3 +328,25 @@ export function importedFrom (parentUrl?: URL) {
   }
   return ` imported from ${importedFrom}`;
 }
+
+export function injectInHTML(outSource: string, outMapFile: string, tagToInject: string) {
+  const {  map: [, , importMapStart,] }  = readHtmlScripts(outSource, outMapFile);
+  return outSource.slice(0, importMapStart) + detectSpace(outSource, importMapStart) + `${tagToInject} \n` + outSource.slice(importMapStart, outSource.length);  
+}
+
+export function detectSpace(outSource: string, atIndex: number) {
+  let space = '';
+  if (outSource === '') {
+    space = '\n';
+  } else if (atIndex !== -1) {
+    const nl = outSource.indexOf('\n', 0);
+    if (nl !== -1) {
+      const detectedSpace = outSource.slice(atIndex, nl + 1);
+      if (detectedSpace.match(/\s*/))
+        space = detectedSpace;
+    }
+  } else {
+    space = '\n';
+  }
+  return space;
+}
