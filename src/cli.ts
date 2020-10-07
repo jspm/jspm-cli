@@ -556,8 +556,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         // clean works based on tracking which paths were used, removing unused
         // only applies to arguments install (jspm install --clean) and not any other
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy'],
-          strFlags: ['import-map', 'out', 'log'],
+          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node'],
+          strFlags: ['import-map', 'out', 'log', 'conditions'],
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy' }
         });
 
@@ -574,10 +574,22 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           }
         }
 
+        const conditions = [];
+        if (opts.dev && opts.production)
+          throw `Must install for dev or production not both.`;
+        if (opts.production)
+          conditions.push('production');
+        else
+          conditions.push('development');
+        if (opts.deno)
+          conditions.push('deno');
+        if (opts.node)
+          conditions.push('node');
+
         const inMapFile = getInMapFile(opts);
         const outMapFile = getOutMapFile(inMapFile, opts);
         const inMap = getMapDetectTypeIntoOpts(inMapFile, opts);
-        const traceMap = new TraceMap(new URL('.', pathToFileURL(inMapFile)).href, inMap.map);
+        const traceMap = new TraceMap(new URL('.', pathToFileURL(inMapFile)).href, inMap.map, conditions);
 
         const spinner = startSpinnerLog(opts.log);
         if (spinner) spinner.text = `${cmd[0].toUpperCase()}${cmd.slice(1)}ing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 14) : ''}...`;
@@ -680,7 +692,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           sourcemap: opts.sourceMap,
           indent: true,
           interop: false,
-          banner: opts.banner
+          banner: opts.banner,
+          systemNullSetters: true,
+          namespaceToStringTag: true
         };
 
         const { json: outMap, style: outMapStyle } = jsonParseStyled(map.map);

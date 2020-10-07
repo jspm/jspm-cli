@@ -6,6 +6,14 @@ import { systemCdnUrl, esmCdnUrl } from './installtree';
 import * as terser from 'terser';
 import { DecoratedError, isPlain, isURL } from './utils';
 import chalk from 'chalk';
+import * as babel from '@babel/core';
+import babelPresetTypeScript from '@babel/preset-typescript';
+import babelPluginClassProperties from '@babel/plugin-proposal-class-properties';
+import babelPluginNumericSeparator from '@babel/plugin-proposal-numeric-separator';
+import pluginProposalExportDefaultFrom from '@babel/plugin-proposal-export-default-from';
+import pluginProposalExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from';
+
+const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'dynamicImport', 'importMeta', 'nullishCoalescingOperator', 'numericSeparator', 'optionalCatchBinding', 'optionalChaining', 'objectRestSpread', 'topLevelAwait'];
 
 export default ({
   map,
@@ -109,8 +117,36 @@ export default ({
       }
     },
     async transform (code, url) {
-      if (!minifyUrls.has(url)) return code;
-      const result = await terser.minify(code, { sourceMap });
+      if (url.endsWith('.ts') || url.endsWith('.tsx')) {
+        var result = babel.transform(code, {
+          filename: url,
+          inputSourceMap: false,
+          ast: false,
+          babelrc: false,
+          babelrcRoots: false,
+          configFile: false,
+          highlightCode: false,
+          compact: true,
+          sourceType: 'module',
+          sourceMaps: true,
+          parserOpts: {
+            plugins: stage3Syntax,
+            errorRecovery: true
+          },
+          plugins: [
+            pluginProposalExportDefaultFrom,
+            pluginProposalExportNamespaceFrom,
+            babelPluginClassProperties,
+            babelPluginNumericSeparator
+          ],
+          presets: [[babelPresetTypeScript, {
+            allowDeclareFields: true,
+            onlyRemoveTypeImports: true
+          }]]
+        });
+      }
+      if (!minifyUrls.has(url)) return result;
+      var result = await terser.minify(result.code, { sourceMap: sourceMap && result.map });
       if (result.error)
         return code;
       return result;
