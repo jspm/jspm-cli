@@ -3,6 +3,7 @@ import { fetch } from './fetch.js';
 import crypto from 'crypto';
 import os from 'os';
 import { parse } from './script-lexer.js';
+import { log } from "./log.ts";
 
 /*
  *   Copyright 2020 Guy Bedford
@@ -335,18 +336,13 @@ export function injectInHTML(outSource: string, outMapFile: string, tagToInject:
 }
 
 export function detectSpace(outSource: string, atIndex: number) {
-  let space = '';
-  if (outSource === '') {
-    space = '\n';
-  } else if (atIndex !== -1) {
-    const nl = outSource.indexOf('\n', 0);
-    if (nl !== -1) {
-      const detectedSpace = outSource.slice(atIndex, nl + 1);
-      if (detectedSpace.match(/\s*/))
-        space = detectedSpace;
-    }
-  } else {
-    space = '\n';
+  if (outSource === '' || atIndex === -1)
+    return '\n';
+  
+  const nl = outSource.lastIndexOf('\n', atIndex);
+  if (nl !== -1) {
+    const detectedSpace = outSource.slice(nl, atIndex);
+    const spaceMatch = detectedSpace.match(/^\s*/);
+    return spaceMatch ? spaceMatch[0] : '\n';
   }
-  return space;
 }

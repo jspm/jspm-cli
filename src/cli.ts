@@ -24,7 +24,7 @@ import { logStream } from './log.js';
 import { clearCache } from './fetch.js';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
-import { readHtmlScripts, isPlain, isURL, jsonEquals, jsonParseStyled, jsonStringifyStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.js';
+import { readHtmlScripts, isPlain, isURL, jsonEquals, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.js';
 import * as path from 'path';
 import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.js';
 import { Installer } from './installer.js';
@@ -243,23 +243,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           }
         }
 
-        const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, <string[] | undefined>opts.conditions), opts);
-        const { target, subpath } = parseInstallTarget(args[0]);
-        const resolved = await installer.resolveLatestTarget(target);
-        const exports = await installer.resolveExports(resolved, await installer.getPackageConfig(resolved), false);
-
-        let url: string;
-        if (subpath === './') {
-          url = pkgToUrl(resolved, opts.system ? systemCdnUrl : esmCdnUrl) + '/';
-        }
-        else {
-          const exportsMatch = getMapMatch(subpath, exports);
-          if (!exportsMatch)
-            throw `No exports match for ${subpath} in ${pkgToStr(resolved)}`;
-          if (exports[exportsMatch] === null)
-            throw `No resolution for ${subpath} with the ${(<string[] | undefined>opts.conditions || ['browser', 'development']).join(', ')} conditions for ${pkgToStr(resolved)}`;
-          url = pkgToUrl(resolved, opts.system ? systemCdnUrl : esmCdnUrl) + exports[exportsMatch].slice(1);
-        }
+        const url = await locate(args[0], Boolean(opts.system), <string[] | undefined>opts.conditions);
 
         let statementToImport: string
         const format = opts.format || (opts.system ? 'script' : 'module')
@@ -275,10 +259,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             statementToImport = `@import url('${url}')`
             break;
           case 'style':
-            statementToImport = `<link rel="stylesheet"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'} href="${url}"/>`
+            statementToImport = `<link rel="stylesheet" href="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}/>`
             break;
           case 'module':
-            statementToImport = `<script type="module"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'} src="${url}"></script>`  
+            statementToImport = `<script type="module" src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'}></script>`  
             break;
           default:
             throw `Unknown format ${opts.format}`;
@@ -438,7 +422,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             fs.writeFileSync(outMapFile, opts.minify ? JSON.stringify(outObj) : JSON.stringify(outObj, null, 2));
           }
           else {
-            writeMap(outMapFile, mapStr, <boolean>opts.system);
+            await writeMap(outMapFile, mapStr, <boolean>opts.system);
             writePreloads(outMapFile, outputPreloads, opts.minify ? true : false);
           }
           if (opts.clear)
@@ -537,7 +521,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         clipboardy.writeSync(mapStr);
       }
 
-      writeMap(outMapFile, mapStr, <boolean>opts.system);
+      await writeMap(outMapFile, mapStr, <boolean>opts.system);
       console.log(`${chalk.bold.green('OK')}   Removed ${args.map(arg => chalk.bold(arg)).join(', ')}.`);
       break;
     }
@@ -624,7 +608,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             console.log(chalk.bold('(Import map copied to clipboard)'));
             clipboardy.writeSync(mapStr);
           }
-          writeMap(outMapFile, mapStr, <boolean>opts.system);
+          await writeMap(outMapFile, mapStr, <boolean>opts.system);
           console.log(`${chalk.bold.green('OK')}   Successfully ${cmd}ed${changed && changed.length ? ' ' + changed.map(arg => chalk.bold(arg)).join(', ') : ''}.`);
         }
         else {
@@ -734,7 +718,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
               if (opts.cast) {
                 const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
-                await cli('cast', [...outArgs, ...opts.importMap ? ['-m', <string>opts.importMap] : []]);
+                await cli('cast', [
+                  ...outArgs,
+                  ...opts.importMap ? ['-m', <string>opts.importMap] : [],
+                  ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : []
+                ]);
               }
 
               console.log(`     Watching for changes...`);
@@ -763,7 +751,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
           if (opts.cast) {
             const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
-            await cli('cast', [...outArgs, ...opts.importMap ? ['-m', <string>opts.importMap] : []]);
+            await cli('cast', [
+              ...outArgs,
+              ...opts.importMap ? ['-m', <string>opts.importMap] : [],
+              ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : []
+            ]);
           }
 
           let backupName: string = 'jspm.importmap';
@@ -932,13 +924,7 @@ function getOutMapFile (inMapFile: string, opts: Record<string, string | boolean
 function writePreloads (outMapFile: string, preloads: SrcScript[], minify: boolean) {
   let outSource = fs.existsSync(outMapFile) ? fs.readFileSync(outMapFile).toString() : '';
   let { map: [,,,mapOuterEnd], srcScripts } = readHtmlScripts(outSource, outMapFile);
-  let space = '\n';
-  if (minify) {
-    space = '';
-  }
-  else {
-    space = detectSpace(outSource, mapOuterEnd)
-  }
+  const space = minify ? '' : detectSpace(outSource, mapOuterEnd - 1);
 
   let diff = 0;
   // first remove existing preloads
@@ -973,18 +959,26 @@ function removeScript (outSource: string, diff: number, script: SrcScriptParse, 
   return { outSource, diff };
 }
 
-function writeMap (outMapFile: string, mapString: string, system: boolean) {
+async function writeMap (outMapFile: string, mapString: string, system: boolean) {
   if (outMapFile.endsWith('.importmap') || outMapFile.endsWith('.json')) {
     fs.writeFileSync(outMapFile, mapString);
   }
   else {
     let outSource = fs.existsSync(outMapFile) ? fs.readFileSync(outMapFile).toString() : `<script type="${system ? 'systemjs-importmap' : 'importmap'}"></script>\n`;
-    let { type: [typeStart, typeEnd], map: [mapStart, mapEnd] } = readHtmlScripts(outSource, outMapFile);
+    let { type: [typeStart, typeEnd], map: [mapStart, mapEnd, mapOuterStart], srcScripts } = readHtmlScripts(outSource, outMapFile);
     if (mapStart === -1)
       throw `No <script type="${system ? 'systemjs-importmap' : 'importmap'}"> found in ${outMapFile}`;
     let diff = 0;
     if (system && outSource.slice(typeStart, typeEnd) !== 'systemjs-importmap') {
       // System switch
+      // Make sure SystemJS is included, if not locate it
+      if (!srcScripts.some(({ src }) => src.endsWith('system.js') || src.endsWith('s.js') || src.endsWith('system.min.js') || src.endsWith('s.min.js'))) {
+        const url = await locate('systemjs/s.js', system);
+        const systemScript = `<script src="${url}" integrity="${await getIntegrity(url)}" crossorigin="anonymous"></script>`;
+        const space = detectSpace(outSource, mapOuterStart);
+        outSource = outSource.slice(0, mapOuterStart + diff) + systemScript + space + outSource.slice(mapOuterStart + diff);
+        diff += systemScript.length + space.length;
+      }
       outSource = outSource.slice(0, typeStart + diff) + 'systemjs-importmap' + outSource.slice(typeEnd + diff);
       diff += 18 - (typeEnd - typeStart);
     }
@@ -1121,6 +1115,24 @@ function startSpinnerLog (log: boolean | string) {
     });
   }
   return spinner;
+}
+
+async function locate (pkg: string, system: boolean, conditions?: string[] | undefined): Promise<string> {
+  const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, conditions), { system });
+  const { target, subpath } = parseInstallTarget(pkg);
+  const resolved = await installer.resolveLatestTarget(target);
+  const exports = await installer.resolveExports(resolved, await installer.getPackageConfig(resolved), false);
+  if (subpath === './') {
+    return pkgToUrl(resolved, system ? systemCdnUrl : esmCdnUrl) + '/';
+  }
+  else {
+    const exportsMatch = getMapMatch(subpath, exports);
+    if (!exportsMatch)
+      throw `No exports match for ${subpath} in ${pkgToStr(resolved)}`;
+    if (exports[exportsMatch] === null)
+      throw `No resolution for ${subpath} with the ${(conditions || ['browser', 'development']).join(', ')} conditions for ${pkgToStr(resolved)}`;
+    return pkgToUrl(resolved, system ? systemCdnUrl : esmCdnUrl) + exports[exportsMatch].slice(1);
+  }
 }
 
 function readFlags (rawArgs: string[], { boolFlags = [], strFlags = [], arrFlags = [], aliases = {} }: { boolFlags: string[], strFlags: string[], arrFlags: string[], aliases: Record<string, string>, err?: string }) {
