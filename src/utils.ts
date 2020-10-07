@@ -3,7 +3,6 @@ import { fetch } from './fetch.js';
 import crypto from 'crypto';
 import os from 'os';
 import { parse } from './script-lexer.js';
-import { log } from "./log.ts";
 
 /*
  *   Copyright 2020 Guy Bedford
