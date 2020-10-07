@@ -642,7 +642,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'hash-entries', 'inline'],
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'hash-entries', 'inline', 'cast'],
           strFlags: ['import-map', 'dir', 'out', 'banner', 'log', 'format'],
           aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', h: 'hash-entries', f: 'format' }
         });
@@ -711,7 +711,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           rollupOptions.output = outputOptions;
           const watcher = await rollup.watch(rollupOptions);
           let firstRun = true;
-          (<any>watcher).on('event', event => {
+          (<any>watcher).on('event', async event => {
             if (firstRun) {
               firstRun = false;
             }
@@ -725,14 +725,17 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
               spinner.stop();
               console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
 
-              console.error('TODO: Rollup PR to get output info for saving build map in watch mode.');
-
-              for (const input of Object.keys(inputObj)) {
+              /*for (const input of Object.keys(inputObj)) {
                 const chunk = output.find(chunk => chunk.name === input);
                 outMap.imports[inputObj[input]] = `${distMapRelative}/${chunk.fileName}`;
-              }
+              }*/
     
               // writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
+
+              if (opts.cast) {
+                const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
+                await cli('cast', [...outArgs, ...opts.importMap ? ['-m', <string>opts.importMap] : []]);
+              }
 
               console.log(`     Watching for changes...`);
             }
@@ -757,6 +760,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
           spinner.stop();
           console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
+
+          if (opts.cast) {
+            const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
+            await cli('cast', [...outArgs, ...opts.importMap ? ['-m', <string>opts.importMap] : []]);
+          }
 
           let backupName: string = 'jspm.importmap';
           if (!opts.out && false) {
