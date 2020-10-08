@@ -931,7 +931,7 @@ function writePreloads (outMapFile: string, preloads: SrcScript[], minify: boole
   for (const script of srcScripts) {
     if (script.start < mapOuterEnd)
       continue;
-    const isPreload = script.src.startsWith(systemCdnUrl) || script.src.startsWith(esmCdnUrl) || script.jspmCast;
+    const isPreload = script.src && (script.src.startsWith(systemCdnUrl) || script.src.startsWith(esmCdnUrl)) || script.jspmCast;
     if (isPreload)
       ({ outSource, diff } = removeScript(outSource, diff, script, mapOuterEnd));
   }
