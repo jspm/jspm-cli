@@ -972,7 +972,7 @@ async function writeMap (outMapFile: string, mapString: string, system: boolean)
     if (system && outSource.slice(typeStart, typeEnd) !== 'systemjs-importmap') {
       // System switch
       // Make sure SystemJS is included, if not locate it
-      if (!srcScripts.some(({ src }) => src.endsWith('system.js') || src.endsWith('s.js') || src.endsWith('system.min.js') || src.endsWith('s.min.js'))) {
+      if (!srcScripts.some(({ src }) => src && (src.endsWith('system.js') || src.endsWith('s.js') || src.endsWith('system.min.js') || src.endsWith('s.min.js')))) {
         const url = await locate('systemjs/s.js', system);
         const systemScript = `<script src="${url}" integrity="${await getIntegrity(url)}" crossorigin="anonymous"></script>`;
         const space = detectSpace(outSource, mapOuterStart);
