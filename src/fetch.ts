@@ -1,3 +1,5 @@
+import { version } from './version';
+
 let _fetch: typeof fetch;
 let clearCache: () => void;
 if (typeof fetch !== 'undefined') {
@@ -16,7 +18,7 @@ else if (typeof process !== 'undefined' && process.versions?.node) {
   clearCache = function () {
     require('rimraf').sync(path.join(cacheDir, 'fetch-cache'));
   };
-  const __fetch = <typeof fetch>require('make-fetch-happen').defaults({ cacheManager: path.join(cacheDir, 'fetch-cache') });
+  const __fetch = <typeof fetch>require('make-fetch-happen').defaults({ cacheManager: path.join(cacheDir, 'fetch-cache'), headers: { 'User-Agent': `jspm/${version}` } });
   const { fileURLToPath } = require('url');
   const { readFile } = require('fs').promises;
   _fetch = async function (url) {

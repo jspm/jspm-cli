@@ -29,6 +29,7 @@ import * as path from 'path';
 import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.js';
 import { Installer } from './installer.js';
 import clipboardy from 'clipboardy';
+import { version } from './version';
 
 function usage (cmd?: string) {
   switch (cmd) {
@@ -76,8 +77,6 @@ function usage (cmd?: string) {
       --log/-l=build           Enable the given debug log types
   `;
   }
-  const dirname = eval('__dirname');
-  const version = JSON.parse(fs.readFileSync(dirname + '/../package.json').toString()).version;
   return `${cmd ? chalk.red(`Unknown command ${chalk.bold(cmd)}\n`) : ``}
   > https://jspm.org/cli#v${version} ▪ ES Module Package Management
   
@@ -102,8 +101,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
   else if (cmd === '-h' || cmd === '--help')
     cmd = 'help';
   switch (cmd) {
+    case 'v':
     case 'version':
-      console.log('jspm-BETA');
+      console.log(`jspm/${version}`);
       break;
 
     case 'help':
