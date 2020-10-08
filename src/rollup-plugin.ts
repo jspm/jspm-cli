@@ -145,8 +145,10 @@ export default ({
           }]]
         });
       }
+      if (!result)
+        result = { code, map: true };
       if (!minifyUrls.has(url)) return result;
-      var result = await terser.minify(result ? result.code : code, { sourceMap: sourceMap && (result ? result.map : true) });
+      var result = await terser.minify(result.code, { sourceMap: sourceMap && result.map });
       if (result.error)
         return code;
       return result;
