@@ -241,7 +241,7 @@ export function readHtmlScripts (source: string, fileName: string) {
           }
           break;
 
-        case 'jspm-cast':
+        case 'jspm-link':
           if (!jspmCast)
             jspmCast = true;
           break;
@@ -251,7 +251,7 @@ export function readHtmlScripts (source: string, fileName: string) {
       srcStart = script.innerStart;
       srcEnd = script.innerEnd;
     }
-    if (!type || type === 'module')
+    if (!type || type === 'module' || type === 'systemjs-module')
       return { src, type, start: script.start, end: script.end, srcStart, srcEnd, integrityStart, integrityEnd, typeStart, typeEnd, jspmCast };
   }).filter(script => script);
   return {

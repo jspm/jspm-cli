@@ -61,6 +61,7 @@ export class Installer {
   resolvedExportsCache = new WeakMap<PackageConfig, Record<string, string>>();
 
   completed = false;
+  changed = false;
 
   constructor (map: TraceMap, opts: InstallOptions) {
     this.traceMap = map;
@@ -143,6 +144,8 @@ export class Installer {
         resolutionMap.pkg = pkg;
       else
         resolutionMap = this.installs.imports[install.pkgName] = { pkg, exports: Object.create(null) };
+      // TODO: make change detection actually work
+      this.changed = true;
       return resolutionMap.exports;
     }
     else {
@@ -152,6 +155,8 @@ export class Installer {
         resolutionMap.pkg = pkg;
       else
         resolutionMap = scope[install.pkgName] = { pkg, exports: Object.create(null) };
+      // TODO: make change detection actually work
+      this.changed = true;
       return resolutionMap.exports;
     } 
   }

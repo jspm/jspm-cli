@@ -12,6 +12,7 @@ import babelPluginClassProperties from '@babel/plugin-proposal-class-properties'
 import babelPluginNumericSeparator from '@babel/plugin-proposal-numeric-separator';
 import pluginProposalExportDefaultFrom from '@babel/plugin-proposal-export-default-from';
 import pluginProposalExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from';
+import pluginProposalDecorators from '@babel/plugin-proposal-decorators';
 
 const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'dynamicImport', 'importMeta', 'nullishCoalescingOperator', 'numericSeparator', 'optionalCatchBinding', 'optionalChaining', 'objectRestSpread', 'topLevelAwait'];
 
@@ -53,17 +54,25 @@ export default ({
       if (externals === true && isPlain(specifier)) {
         return { id: specifier, external: true };
       }
+      const parentUrl = parent ? (parent[0] !== '/' && isURL(parent) && !parent.match(/^\w:/) ? new URL(parent) : pathToFileURL(parent)) : baseUrl;
       let resolved;
       try {
-        resolved = this.traceMap.resolve(specifier, parent ? (parent[0] !== '/' && isURL(parent) && !parent.match(/^\w:/) ? new URL(parent) : pathToFileURL(parent)) : baseUrl);
+        resolved = this.traceMap.resolve(specifier, parentUrl);
       }
       catch (e) {
-        if ((<DecoratedError>e).code === 'MODULE_NOT_FOUND' && isPlain(specifier)) {
-          console.warn(`\n${chalk.yellow('warn')} Unable to resolve ${chalk.bold(specifier)}, treating as external.`);
-          return { id: specifier, external: true };
+        try {
+          if (parentUrl.origin + '/' !== esmCdnUrl)
+            throw e;
+          resolved = this.traceMap.resolve(specifier, new URL(systemCdnUrl + parentUrl.pathname.slice(1)));
         }
-        else {
-          throw e;
+        catch (e) {
+          if ((<DecoratedError>e).code === 'MODULE_NOT_FOUND' && isPlain(specifier)) {
+            console.warn(`\n${chalk.yellow('warn')} Unable to resolve ${chalk.bold(specifier)}, treating as external.`);
+            return { id: specifier, external: true };
+          }
+          else {
+            throw e;
+          }
         }
       }
       if (resolved === null) return '@empty';
@@ -137,7 +146,8 @@ export default ({
             pluginProposalExportDefaultFrom,
             pluginProposalExportNamespaceFrom,
             babelPluginClassProperties,
-            babelPluginNumericSeparator
+            babelPluginNumericSeparator,
+            [pluginProposalDecorators, { decoratorsBeforeExport: true }],
           ],
           presets: [[babelPresetTypeScript, {
             allowDeclareFields: true,

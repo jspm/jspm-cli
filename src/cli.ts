@@ -55,8 +55,8 @@ function usage (cmd?: string) {
       --esm/-e                 Use ES modules
       --log/-l=trace,add   Display debugging logs
   `;
-  case 'cast': return `
-  jspm cast <entry>+
+  case 'link': return `
+  jspm link <entry>+
 
     Options:
       --import-map/-m          Set the path to the import map file
@@ -86,7 +86,7 @@ function usage (cmd?: string) {
 
     jspm install             install and validate all imports
 
-    jspm cast [module]+      cast a module graph for serving
+    jspm link [module]+      link a module for serving
 
     jspm build [module]      build a module graph
 
@@ -272,7 +272,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         if (opts.out && ['script', 'system', 'module', 'style'].includes(format)) {
 
           if (!fs.existsSync(outMapFile)) {
-            throw `\n Requested file to inject is missing - ${outMapFile}`
+            throw `\n Requested file to link is missing - ${outMapFile}`
           }
         
           let outSource = fs.readFileSync(outMapFile).toString();
@@ -294,29 +294,35 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'init':
       throw new Error('TODO: jspm init');
 
-    case 'c':
-    case 'cast':
+    case 'l':
+    case 'link':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'copy', 'no-integrity', 'no-crossorigin', 'no-depcache', 'minify', 'out', 'clear', 'flatten', 'dev', 'no-dynamic'],
+          boolFlags: ['log', 'copy', 'integrity', 'crossorigin', 'depcache', 'minify', 'out', 'clear', 'flatten', 'production', 'dynamic', 'system', 'preload'],
           strFlags: ['import-map', 'log', 'format', 'relative', 'out'],
-          aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten' }
+          aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system' }
         });
+
+        if (opts.production && !opts.system && !opts.esm)
+          opts.system = true;
 
         const inMapFile = getInMapFile(opts);
         if (inMapFile && inMapFile.endsWith('.importmap') && !opts.out)
           opts.out = true;
         const outMapFile = opts.out !== true ? getOutMapFile(inMapFile, opts) : undefined;
-        const inMap = getMapDetectTypeIntoOpts(inMapFile, opts);
+        const inMap = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
         const mapBase = new URL('.', pathToFileURL(inMapFile));
         const traceMap = new TraceMap(mapBase, inMap.map);
 
-        if (!opts.system)
-          opts.noDynamic = true;
-        if (opts.dev)
-          opts.noIntegrity = true;
-
-        const specifiers = args.length === 0 ? inMap.imports : args;
+        if (opts.production) {
+          opts.integrity = true;
+          if (opts.system) {
+            opts.dynamic = true;
+            opts.depcache = true;
+          }
+          opts.preload = true;
+          opts.crossorigin = true;
+        }
 
         if (opts.clear) {
           if (args.length !== 0)
@@ -328,20 +334,17 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         let sortedStatic: any[] = [];
         traceMap.clearIntegrity();
         traceMap.clearDepcache();
-        if (opts.dev) {
-          sortedStatic = specifiers.map(specifier => {
-            const resolved = traceMap.resolve(specifier, traceMap.baseUrl);
-            if (!resolved)
-              throw new Error(`No resolution for ${specifier}.`);
-            return traceMap.baseUrlRelative(resolved);
-          });
-        }
-        else if (!opts.clear) {
+        if (!opts.clear) {
           const spinner = startSpinnerLog(opts.log);
-          if (spinner) spinner.text = `Casting ${specifiers.join(', ').slice(0, process.stdout.columns - 12)}...`;
+          if (spinner) spinner.text = `Linking${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
 
           try {
-            var { trace } = await traceMap.trace(specifiers, <boolean>opts.system, !opts.noDepcache && !opts.noDynamic);
+            if (await traceMap.traceInstall(args, { clean: false, system: <boolean>opts.system })) {
+              const mapStr = traceMap.toString();
+              await writeMap(inMapFile, mapStr, false);
+            }
+            await traceMap.traceInstall(args, { clean: true, system: <boolean>opts.system });
+            var { trace, allSystem } = await traceMap.trace(args, <boolean>opts.system, <boolean>opts.depcache && <boolean>opts.dynamic);
           }
           finally {
             if (spinner) spinner.stop();
@@ -361,13 +364,22 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             if (!entry.dynamicOnly)
               continue;
             dynamicSize += trace[m].size;
-            if (!opts.noIntegrity && !opts.noDynamic) {
+            if (opts.integrity && opts.dynamic) {
               const resolved = m.startsWith('https:') || m.startsWith('file:') ? new URL(m) : pathToFileURL(path.resolve(<string>opts.relative || process.cwd(), m));
               traceMap.setIntegrity(relModule(resolved, mapBase || pathToFileURL(path.resolve(<string>opts.relative || process.cwd())), false), await getIntegrity(resolved.href));
             }
           }
-          if (!opts.noIntegrity && !opts.noDynamic)
+          if (opts.integrity && opts.dynamic)
             traceMap.sortIntegrity();
+        }
+
+        if (!opts.preload) {
+          sortedStatic = args.map(specifier => {
+            const resolved = traceMap.resolve(specifier, traceMap.baseUrl);
+            if (!resolved)
+              throw new Error(`No resolution for ${specifier}.`);
+            return traceMap.baseUrlRelative(resolved);
+          });
         }
 
         let moduleType;
@@ -383,7 +395,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           case 'system':
             if (!opts.system)
               throw 'SystemJS does not support loading ES modules. Run a conversion into System modules first.'
-            moduleType = '';
+            moduleType = opts.preload ? '' : 'systemjs-module';
             break;
           case 'module':
             if (opts.system)
@@ -397,22 +409,21 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const outputPreloads: SrcScript[] = await Promise.all(sortedStatic.map(async dep => ({
           type: moduleType,
           src: dep,
-          integrity: opts.noIntegrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : pathToFileURL(path.resolve(opts.relative || process.cwd(), dep))),
-          crossorigin: !opts.noCrossorigin && (dep.startsWith(systemCdnUrl) || dep.startsWith(esmCdnUrl)) ? true : undefined,
+          integrity: !opts.integrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : pathToFileURL(path.resolve(opts.relative || process.cwd(), dep))),
+          crossorigin: opts.crossorigin ? dep.startsWith(systemCdnUrl) || dep.startsWith(esmCdnUrl) : false,
           jspmCast: !dep.startsWith(systemCdnUrl) && !dep.startsWith(esmCdnUrl)
         })));
 
-        if (opts.flatten)
-          traceMap.flatten();
-        const mapStr = traceMap.toString(<boolean>opts.minify);
+        traceMap.flatten();
+        const mapStr = opts.clear ? '{}\n' : traceMap.toString(<boolean>opts.minify);
         const preloads = outputPreloads.map(({ type, src, integrity, crossorigin, jspmCast }) =>
-          `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmCast ? ' jspm-cast' : ''}></script>`
+          `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmCast ? ' jspm-link' : ''}></script>`
         ).join('\n');
         if (outMapFile) {
-          if (outMapFile.endsWith('.importmap'))
-            throw `Cannot cast into an import map.`;
-
-          if (outMapFile.endsWith('.json')) {
+          if (outMapFile.endsWith('.importmap')) {
+            fs.writeFileSync(outMapFile, mapStr);
+          }
+          else if (outMapFile.endsWith('.json')) {
             if (opts.clear)
               throw `Can only clear casts in XML files.`;
             const outObj = {
@@ -422,16 +433,16 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             fs.writeFileSync(outMapFile, opts.minify ? JSON.stringify(outObj) : JSON.stringify(outObj, null, 2));
           }
           else {
-            await writeMap(outMapFile, mapStr, <boolean>opts.system);
+            await writeMap(outMapFile, mapStr, <boolean>opts.system, opts.system && !allSystem, <boolean>opts.integrity, <boolean>opts.crossorigin);
             writePreloads(outMapFile, outputPreloads, opts.minify ? true : false);
           }
           if (opts.clear)
-            console.log(`${chalk.bold.green('OK')}   Casts cleared.`);
+            console.log(`${chalk.bold.green('OK')}   Links cleared.`);
           else
-            console.log(`${chalk.bold.green('OK')}   Cast ${specifiers.map(name => chalk.bold(name)).join(', ')} into ${outMapFile} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
+            console.log(`${chalk.bold.green('OK')}   Linked${args.length ? ' ' + args.map(name => chalk.bold(name)).join(', ') : ''} into ${outMapFile} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
         }
         else {
-          output((mapStr === '{}' ? '' : `<script type="${opts.system ? 'systemjs-importmap' : 'importmap'}">\n` + mapStr + '</script>\n') + preloads, opts);
+          output((mapStr === '{}' ? '' : `<script type="${opts.system ? 'systemjs-importmap' : 'importmap'}">\n` + mapStr + '</script>\n') + preloads + '\n', opts);
         }
       }
       catch (e) {
@@ -507,7 +518,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           throw `${chalk.bold.red('ERR')}  Cannot remove ${chalk.bold(arg)} as it doesn't exist in "imports".`;
       }
 
-      await traceMap.install(opts);
+      await traceMap.traceInstall(opts);
 
       const imports = traceMap.map.imports;
       for (const arg of args) {
@@ -528,11 +539,13 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
   
     case undefined:
       cmd = 'install';
+    case 'i':
     case 'install':
-    case 'a':
-      if (cmd === 'a')
-        cmd = 'install';
     case 'add':
+      if (cmd !== 'install') {
+        cmd = 'install';
+        console.log('Deprecated add for just a single jspm install. Feedback welcome on this change!');
+      }
       try {
         // TODO: Flags
         // lock | latest | clean | force | installExports
@@ -546,16 +559,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         });
 
         if (cmd === 'install') {
-          if (args.length && args.some(arg => isPlain(arg))) {
-            console.log(`Executing ${chalk.bold('jspm add ' + rawArgs.join(' '))}`);
-            cmd = 'add';
-          }
+          if (args.length && args.some(arg => isPlain(arg))) cmd = 'add';
         }
         else {
-          if (!args.length) {
-            console.log(`Executing ${chalk.bold('jspm install ' + rawArgs.join(' '))}`);
-            cmd = 'install';
-          }
+          if (!args.length) cmd = 'install';
         }
 
         const conditions = [];
@@ -576,18 +583,18 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const traceMap = new TraceMap(new URL('.', pathToFileURL(inMapFile)).href, inMap.map, conditions);
 
         const spinner = startSpinnerLog(opts.log);
-        if (spinner) spinner.text = `${cmd[0].toUpperCase()}${cmd.slice(1)}ing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 14) : ''}...`;
+        if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 14) : ''}...`;
 
-        let changed: string[] | undefined;
+        let changed = false;
         try {
           if (cmd === 'install') {
             // TODO: changed handling from install
             // can skip map saving when no change
             opts.clean = true;
-            await traceMap.install(opts, args.length ? args : inMap.imports);
+            changed = await traceMap.traceInstall(args.length ? args : inMap.imports, opts);
           }
           else {
-            await traceMap.add(args.map(arg => {
+            changed = await traceMap.add(args.map(arg => {
               const eqIndex = arg.indexOf('=');
               if (eqIndex === -1) return arg;
               return {
@@ -600,7 +607,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         finally {
           if (spinner) spinner.stop();
         }
-        if (true) {
+        if (changed) {
           // TODO: Styled JSON read / write
           // TODO: rebase to output map path
           const mapStr = traceMap.toString(<boolean>opts.minify);
@@ -609,10 +616,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             clipboardy.writeSync(mapStr);
           }
           await writeMap(outMapFile, mapStr, <boolean>opts.system);
-          console.log(`${chalk.bold.green('OK')}   Successfully ${cmd}ed${changed && changed.length ? ' ' + changed.map(arg => chalk.bold(arg)).join(', ') : ''}.`);
+          console.log(`${chalk.bold.green('OK')}   Successfully installed.`);
         }
         else {
-          console.log(`${chalk.bold.green('OK')}   Already ${cmd}ed.`);
+          console.log(`${chalk.bold.green('OK')}   Already installed.`);
         }
       }
       catch (e) {
@@ -622,20 +629,23 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
   
-    case 'o':
+    case 'b':
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'hash-entries', 'inline', 'cast'],
-          strFlags: ['import-map', 'dir', 'out', 'banner', 'log', 'format'],
-          aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', h: 'hash-entries', f: 'format' }
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'no-entry-hash', 'inline', 'production', 'system', 'esm'],
+          strFlags: ['import-map', 'dir', 'out', 'banner', 'log'],
+          aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', p: 'production', s: 'system', e: 'system' }
         });
+
+        if (opts.production && !opts.system && !opts.esm)
+          opts.system = true;
 
         const dir = opts.dir ? ((<string>opts.dir).endsWith('/') ? (<string>opts.dir).slice(0, -1) : <string>opts.dir) : 'dist';
 
         const inMapFile = getInMapFile(opts);
         const outMapFile = getOutMapFile(inMapFile, opts);
-        const map = getMapDetectTypeIntoOpts(inMapFile, opts);
+        const map = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
         const baseUrl = new URL('.', pathToFileURL(inMapFile));
 
         let distMapRelative = path.relative(path.resolve(inMapFile, '..'), dir).replace(/\//g, '/');
@@ -654,25 +664,22 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             inputName = basename + i++;
           inputObj[inputName] = module;
         }
-
-        if (!opts.format)
-          opts.format = 'esm';
         
         const externals = !opts.inline;
 
         const rollupOptions: any = {
           input: inputObj,
           onwarn: () => {},
+          preserveEntrySignatures: 'allow-extension',
           plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, format: <string>opts.format, inlineMaps: <boolean>opts.inlineMaps, sourceMap: opts.sourceMap })]
         };
 
         const outputOptions = {
-          entryFileNames: opts.hashEntries ? '[name]-[hash].js' : '[name].js',
+          entryFileNames: opts.noEntryHash ? '[name].js' : '[name]-[hash].js',
           chunkFileNames: 'chunk-[hash].js',
-          preserveEntrySignatures: 'allow-extension',
           dir,
           compact: true,
-          format: opts.format,
+          format: opts.system ? 'system' : 'esm',
           sourcemap: opts.sourceMap,
           indent: true,
           interop: false,
@@ -686,42 +693,36 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           outMapStyle.indent = outMapStyle.tab = outMapStyle.newline = '';
 
         if (opts.watch) {
-          if (!opts.out) {
-           //  throw `Watched builds only supported when using --out separate to the input import map.`;
-          }
           const spinner = startSpinnerLog(opts.log);
-          spinner.text = `Optimizing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+          spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
 
-          rollupOptions.output = outputOptions;
+          rollupOptions.watch = { skipWrite: true };
           const watcher = await rollup.watch(rollupOptions);
           let firstRun = true;
-          (<any>watcher).on('event', async event => {
+          (<any>watcher).on('event', async ({ code, result }) => {
             if (firstRun) {
               firstRun = false;
             }
-            else if (event.code === 'BUNDLE_START') {
+            else if (code === 'BUNDLE_START') {
               if (spinner) {
                 spinner.start();
-                spinner.text = `Optimizing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+                spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
               }
             }
-            else if (event.code === 'BUNDLE_END') {
+            else if (code === 'BUNDLE_END') {
+              const { output } = await result.write(outputOptions);
               spinner.stop();
               console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
 
-              /*for (const input of Object.keys(inputObj)) {
-                const chunk = output.find(chunk => chunk.name === input);
-                outMap.imports[inputObj[input]] = `${distMapRelative}/${chunk.fileName}`;
-              }*/
-    
-              // writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
-
-              if (opts.cast) {
+              if (opts.out) {
                 const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
-                await cli('cast', [
+                await cli('link', [
                   ...outArgs,
                   ...opts.importMap ? ['-m', <string>opts.importMap] : [],
-                  ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : []
+                  ...opts.production ? ['--production'] : [],
+                  ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : [],
+                  ...opts.system ? ['--system'] : [],
+                  ...opts.esm ? ['--esm'] : []
                 ]);
               }
 
@@ -749,54 +750,17 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           spinner.stop();
           console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
 
-          if (opts.cast) {
+          if (opts.out) {
             const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
-            await cli('cast', [
+            await cli('link', [
               ...outArgs,
               ...opts.importMap ? ['-m', <string>opts.importMap] : [],
-              ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : []
+              ...opts.production ? ['--production'] : [],
+              ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : [],
+              ...opts.system ? ['--system'] : [],
+              ...opts.esm ? ['--esm'] : []
             ]);
           }
-
-          let backupName: string = 'jspm.importmap';
-          if (!opts.out && false) {
-            if (path.resolve(outMapFile) === path.resolve(backupName) || fs.existsSync(backupName) && !jsonEquals(fs.readFileSync(backupName).toString(), map.map)) {
-              const basename = path.basename(inMapFile).slice(0, -path.extname(inMapFile).length);
-              backupName = basename + '.importmap';
-              if (path.resolve(outMapFile) === path.resolve(backupName) || fs.existsSync(backupName) && !jsonEquals(fs.readFileSync(backupName).toString(), map.map)) {
-                let idx = 1;
-                while (path.resolve(outMapFile) === path.resolve(`${basename}-${idx}.importmap`) || fs.existsSync(`${basename}-${idx}.importmap`) && !jsonEquals(fs.readFileSync(`${basename}-${idx}.importmap`).toString(), map.map)) {
-                  idx++;
-                }
-                backupName = `${basename}-${idx}.importmap`;
-              }
-            }
-            fs.writeFileSync(backupName, map.map);
-          }
-          if (!opts.out && false) {
-            console.log(`     A backup of the previous unbuilt import map has been saved to ${chalk.bold(backupName)}.`);
-            console.log(`${chalk.blue('TIP')}  To rebuild, run ${chalk.bold(`jspm build${backupName === 'jspm.importmap' ? '' : ' -m ' + backupName} -o ${opts.importMap || 'jspm.importmap'}`)}`);
-            console.log(`     To revert, run ${chalk.bold(`jspm install${backupName === 'jspm.importmap' ? '' : ' -m ' + backupName} -o ${opts.importMap || 'jspm.importmap'}`)}`);
-          }
-
-          if (false)
-          for (const input of Object.keys(inputObj)) {
-            const chunk = output.find(chunk => chunk.name === input);
-            outMap.imports[inputObj[input]] = `${distMapRelative}/${chunk.fileName}`;
-          }
-
-          const mapBase = new URL('.', pathToFileURL(outMapFile));
-          const traceMap = new TraceMap(mapBase, outMap);
-          if (false) {
-            const { map, trace } = await traceMap.trace(modules, <boolean>opts.system);
-            logTrace(map, trace, mapBase);
-          }
-
-          // TODO: use trace to filter output map
-          // handle case of output map being empty
-          const usedExternals = [];
-          // NOTE: Disabled because screw this
-          // writeMap(outMapFile, jsonStringifyStyled(outMap, outMapStyle), <boolean>opts.system);
         }
         catch (e) {
           if (spinner) spinner.stop();
@@ -937,7 +901,7 @@ function writePreloads (outMapFile: string, preloads: SrcScript[], minify: boole
   }
 
   const outPreloadSource = (mapOuterEnd !== -1 && preloads.length ? (space || '\n') : '') + preloads.map(({ type, src, integrity, crossorigin, jspmCast }) =>
-    `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmCast ? ' jspm-cast' : ''}></script>`
+    `<script ${type ? `type="${type}" ` : ''}src="${src}"${integrity ? ` integrity="${integrity}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''}${jspmCast ? ' jspm-link' : ''}></script>`
   ).join(space) + (outSource === '' ? '\n' : '');
   outSource = outSource.slice(0, mapOuterEnd) + outPreloadSource + outSource.slice(mapOuterEnd);
   fs.writeFileSync(outMapFile, outSource);
@@ -949,7 +913,7 @@ function removeScript (outSource: string, diff: number, script: SrcScriptParse, 
   if (nl !== -1) {
     const detectedSpace = outSource.slice(nl, script.start + diff);
     if (detectedSpace.match(/\s*/))
-      spaceLen = detectedSpace.length + 1;
+      spaceLen = detectedSpace.length;
   }
   // never overshoot ws removal into the map itself
   while (script.start - spaceLen + diff < mapOuterEnd)
@@ -959,26 +923,37 @@ function removeScript (outSource: string, diff: number, script: SrcScriptParse, 
   return { outSource, diff };
 }
 
-async function writeMap (outMapFile: string, mapString: string, system: boolean) {
+async function writeMap (outMapFile: string, mapString: string, system: boolean, systemBabel = false, integrity = false, crossorigin = false) {
   if (outMapFile.endsWith('.importmap') || outMapFile.endsWith('.json')) {
     fs.writeFileSync(outMapFile, mapString);
   }
   else {
     let outSource = fs.existsSync(outMapFile) ? fs.readFileSync(outMapFile).toString() : `<script type="${system ? 'systemjs-importmap' : 'importmap'}"></script>\n`;
-    let { type: [typeStart, typeEnd], map: [mapStart, mapEnd, mapOuterStart], srcScripts } = readHtmlScripts(outSource, outMapFile);
+    let { type: [typeStart, typeEnd], map: [mapStart, mapEnd, mapOuterStart, mapOuterEnd], srcScripts } = readHtmlScripts(outSource, outMapFile);
     if (mapStart === -1)
       throw `No <script type="${system ? 'systemjs-importmap' : 'importmap'}"> found in ${outMapFile}`;
     let diff = 0;
+    // remove top casts only above the map
+    const space = detectSpace(outSource, mapOuterStart);
+    for (const script of srcScripts) {
+      if (script.start > mapOuterEnd)
+        continue;
+      if (script.jspmCast)
+        ({ outSource, diff } = removeScript(outSource, diff, script, 0));
+    }
+    if (system && !srcScripts.some(({ src, jspmCast }) => src && !jspmCast && (src.endsWith('system.js') || src.endsWith('s.js') || src.endsWith('system.min.js') || src.endsWith('s.min.js')))) {
+      const url = await locate('systemjs/s.js', system);
+      const script = `<script src="${url}"${integrity ? ` integrity="${await getIntegrity(url)}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''} jspm-link></script>`;
+      outSource = outSource.slice(0, mapOuterStart + diff) + script + space + outSource.slice(mapOuterStart + diff);
+      diff += script.length + space.length;
+    }
+    if (systemBabel && !srcScripts.some(({ src, jspmCast }) => src && !jspmCast && src.endsWith('systemjs-babel.js'))) {
+      const url = await locate('systemjs-babel', system);
+      const script = `<script src="${url}"${integrity ? ` integrity="${await getIntegrity(url)}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''} jspm-link></script>`;
+      outSource = outSource.slice(0, mapOuterStart + diff) + script + space + outSource.slice(mapOuterStart + diff);
+      diff += script.length + space.length;
+    }
     if (system && outSource.slice(typeStart, typeEnd) !== 'systemjs-importmap') {
-      // System switch
-      // Make sure SystemJS is included, if not locate it
-      if (!srcScripts.some(({ src }) => src && (src.endsWith('system.js') || src.endsWith('s.js') || src.endsWith('system.min.js') || src.endsWith('s.min.js')))) {
-        const url = await locate('systemjs/s.js', system);
-        const systemScript = `<script src="${url}" integrity="${await getIntegrity(url)}" crossorigin="anonymous"></script>`;
-        const space = detectSpace(outSource, mapOuterStart);
-        outSource = outSource.slice(0, mapOuterStart + diff) + systemScript + space + outSource.slice(mapOuterStart + diff);
-        diff += systemScript.length + space.length;
-      }
       outSource = outSource.slice(0, typeStart + diff) + 'systemjs-importmap' + outSource.slice(typeEnd + diff);
       diff += 18 - (typeEnd - typeStart);
     }

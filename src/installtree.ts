@@ -134,14 +134,14 @@ function createEsmAnalysis (imports: any, source: string, url: string) {
     }
   }
   const size = source.length;
-  return { deps, dynamicDeps, size, integrity: computeIntegrity(source) };
+  return { deps, dynamicDeps, size, integrity: computeIntegrity(source), system: false };
 }
 
 const registerRegEx = /^\s*(\/\*[^\*]*(\*(?!\/)[^\*]*)*\*\/|\s*\/\/[^\n]*)*\s*System\s*\.\s*register\s*\(\s*(\[[^\]]*\])\s*,\s*\(?function\s*\(\s*([^\),\s]+\s*(,\s*([^\),\s]+)\s*)?\s*)?\)/;
-function createSystemAnalysis (source: string, url: string) {
+function createSystemAnalysis (source: string, imports: string[], url: string) {
   const [, , , rawDeps, , , contextId] = source.match(registerRegEx) || [];
   if (!rawDeps)
-    throw `Source ${url} is not a SystemJS module.`;
+    return createEsmAnalysis(imports, source, url);
   const deps = JSON.parse(rawDeps.replace(/'/g, '"'));
   const dynamicDeps: string[] = [];
   if (contextId) {
@@ -164,7 +164,7 @@ function createSystemAnalysis (source: string, url: string) {
     }
   }
   const size = source.length;
-  return { deps, dynamicDeps, size, integrity: computeIntegrity(source) };
+  return { deps, dynamicDeps, size, integrity: computeIntegrity(source), system: true };
 }
 
 export function getExportsTarget(target, env): string | null {
@@ -201,7 +201,7 @@ export async function exists (resolvedUrl: string): Promise<boolean> {
   }
 }
 
-export async function analyze (resolvedUrl: string, parentUrl?: URL, system = false): Promise<{ deps: string[], dynamicDeps: string[], size: number, integrity: string }> {
+export async function analyze (resolvedUrl: string, parentUrl?: URL, system = false): Promise<{ deps: string[], dynamicDeps: string[], size: number, integrity: string, system: boolean }> {
   const res = await fetch(resolvedUrl);
   switch (res.status) {
     case 200:
@@ -213,7 +213,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
   let source = await res.text();
   try {
     const [imports] = await lexer.parse(source);
-    return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
+    return system ? createSystemAnalysis(source, imports, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
   }
   catch (e) {
     if (!e.message || !e.message.startsWith('Parse error @:'))
@@ -231,7 +231,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
     source = await res.text();
     try {
       const [imports] = await lexer.parse(source);
-      return system ? createSystemAnalysis(source, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
+      return system ? createSystemAnalysis(source, imports, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
     }
     catch (e) {
       // TODO: better parser errors

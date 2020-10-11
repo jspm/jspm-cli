@@ -38,15 +38,17 @@ const Pool = (n = 1) => class PoolClass {
   next () { this.c--; this.q.pop() || (() => {}) }
 };
 
+interface TraceEntry {
+  deps: Record<string, URL | null>;
+  dynamicDeps: Record<string, URL | null>;
+  dynamicOnly: boolean;
+  size: number;
+  order: number;
+  integrity: string;
+  system: boolean;
+}
 export interface Trace {
-  [url: string]: {
-    deps: Record<string, URL | null>;
-    dynamicDeps: Record<string, URL | null>;
-    dynamicOnly: boolean;
-    size: number;
-    order: number;
-    integrity: string;
-  };
+  [url: string]: TraceEntry;
 }
 
 export class TraceMap {
@@ -250,7 +252,8 @@ export class TraceMap {
     this._map.integrity = alphabetize(this._map.integrity);
   }
 
-  async trace (specifiers: string[], system = false, doDepcache = false): Promise<Trace> {
+  async trace (specifiers: string[], system = false, doDepcache = false): Promise<{ map: Record<string, URL | null>, trace: Trace, allSystem: boolean }> {
+    let allSystem = true;
     let postOrder = 0;
     let dynamicTracing = false;
     const dynamics: Set<{ dep: string, parentUrl: URL }> = new Set();
@@ -274,17 +277,21 @@ export class TraceMap {
           this._map.depcache[parent] = [specifier];
         }
       }
-      const curEntry = curTrace[href] = {
+      const curEntry: TraceEntry = curTrace[href] = {
         deps: Object.create(null),
         dynamicDeps: Object.create(null),
         dynamicOnly: dynamicTracing,
         size: NaN,
         order: NaN,
-        integrity: ''
+        integrity: '',
+        system: false,
       };
-      const { deps, dynamicDeps, size, integrity } = await analyze(href, parentUrl, system);
+      const { deps, dynamicDeps, size, integrity, system: isSystem } = await analyze(href, parentUrl, system);
       curEntry.integrity = integrity;
       curEntry.size = size;
+      curEntry.system = isSystem;
+      if (!isSystem)
+        allSystem = false;
 
       for (const dep of deps)
         await doTrace(dep, resolved, curTrace, curEntry.deps, false);
@@ -314,50 +321,37 @@ export class TraceMap {
       }
     }
 
-    return { map, trace: staticTrace };
+    return { map, trace: staticTrace, allSystem };
   }
 
   // modules are resolvable module specifiers
   // exception is package-like, which we should probably not allow for this top-level version
-  async traceInstall (modules?: string | string[] | InstallOptions, opts: InstallOptions = {}) {
+  async traceInstall (modules?: string | string[] | InstallOptions, opts: InstallOptions = {}): Promise<boolean> {
     if (typeof modules === 'string') modules = [modules];
     if (!Array.isArray(modules)) {
       opts = { lock: true, ...modules || {} };
       modules = Object.keys(this._map.imports);
     }
+    if (opts.clean !== false)
+      opts.clean = true;
     await this._p.job();
+    let installed = false;
     try {
       const installer = new Installer(this, opts);
       await Promise.all(modules.map(module => installer.traceInstall(module, this._baseUrl, false)));
       installer.complete();
+      installed = installer.changed;
     }
     finally {
       this._p.next();
     }
-    return this;    
-  }
-
-  async install (opts: InstallOptions = {}, imports?: string[]) {
-    opts.lock = true;
-    await this._p.job();
-    if (opts.clean !== false)
-      opts.clean = true;
-    try {
-      const installer = new Installer(this, opts);
-      for (const specifier of imports || Object.keys(this._map.imports)) {
-        await installer.traceInstall(specifier, this._baseUrl, false);
-      }
-      installer.complete();
-    }
-    finally {
-      this._p.next();
-    }
-    return this;
+    return installed;
   }
 
   async add (packages: string | (string | { name: string, target: string })[], opts: InstallOptions = {}) {
     if (typeof packages === 'string') packages = [packages];
     await this._p.job();
+    let changed = false;
     try {
       const installer = new Installer(this, opts);
       await Promise.all(packages.map(pkg => {
@@ -375,11 +369,12 @@ export class TraceMap {
           return installer.add(pkg.target, pkg.name);
       }));
       installer.complete();
+      changed = installer.changed;
     }
     finally {
       this._p.next();
     }
-    return this;
+    return changed;
   }
 
   // these are all "package selector based":
