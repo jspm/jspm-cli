@@ -538,14 +538,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     }
   
     case undefined:
-      cmd = 'install';
     case 'i':
     case 'install':
     case 'add':
-      if (cmd !== 'install') {
-        cmd = 'install';
-        console.log('Deprecated add for just a single jspm install. Feedback welcome on this change!');
-      }
       try {
         // TODO: Flags
         // lock | latest | clean | force | installExports
@@ -558,12 +553,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy' }
         });
 
-        if (cmd === 'install') {
-          if (args.length && args.some(arg => isPlain(arg))) cmd = 'add';
-        }
-        else {
-          if (!args.length) cmd = 'install';
-        }
+        const adding = args.length && args.some(arg => isPlain(arg));
+
 
         const conditions = [];
         if (opts.dev && opts.production)
@@ -587,7 +578,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         let changed = false;
         try {
-          if (cmd === 'install') {
+          if (!adding) {
             // TODO: changed handling from install
             // can skip map saving when no change
             opts.clean = true;
