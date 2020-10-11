@@ -313,6 +313,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const inMap = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
         const mapBase = new URL('.', pathToFileURL(inMapFile));
         const traceMap = new TraceMap(mapBase, inMap.map);
+        const outBase = outMapFile ? new URL('.', pathToFileURL(outMapFile)) : mapBase;
 
         if (opts.production) {
           opts.integrity = true;
@@ -354,7 +355,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             staticSize += trace[dep].size;
             if (!dep.startsWith('file:'))
               return dep;
-            const rel = relModule(new URL(dep), mapBase || pathToFileURL(path.resolve(<string>opts.relative || process.cwd())), false);
+            const rel = relModule(new URL(dep), outBase, false);
             return rel.startsWith('./') ? rel.slice(2) : rel;
           });
 
@@ -366,7 +367,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             dynamicSize += trace[m].size;
             if (opts.integrity && opts.dynamic) {
               const resolved = m.startsWith('https:') || m.startsWith('file:') ? new URL(m) : pathToFileURL(path.resolve(<string>opts.relative || process.cwd(), m));
-              traceMap.setIntegrity(relModule(resolved, mapBase || pathToFileURL(path.resolve(<string>opts.relative || process.cwd())), false), await getIntegrity(resolved.href));
+              traceMap.setIntegrity(relModule(resolved, outBase, false), await getIntegrity(resolved.href));
             }
           }
           if (opts.integrity && opts.dynamic)
@@ -378,14 +379,15 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             const resolved = traceMap.resolve(specifier, traceMap.baseUrl);
             if (!resolved)
               throw new Error(`No resolution for ${specifier}.`);
-            return traceMap.baseUrlRelative(resolved);
+            const rel = relModule(resolved, outBase, false);
+            return rel.startsWith('./') ? rel.slice(2) : rel;
           });
         }
 
         const outputPreloads: SrcScript[] = await Promise.all(sortedStatic.map(async dep => ({
           type: opts.system ? (dep.endsWith('.ts') || dep.endsWith('.json') || dep.endsWith('.css') || dep.endsWith('.wasm') ? 'systemjs-module' : '') : 'module',
           src: dep,
-          integrity: !opts.integrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : pathToFileURL(path.resolve(opts.relative || process.cwd(), dep))),
+          integrity: !opts.integrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : new URL(dep, outBase)),
           crossorigin: opts.crossorigin ? dep.startsWith(systemCdnUrl) || dep.startsWith(esmCdnUrl) : false,
           jspmCast: !dep.startsWith(systemCdnUrl) && !dep.startsWith(esmCdnUrl)
         })));
@@ -617,7 +619,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const map = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
         const baseUrl = new URL('.', pathToFileURL(inMapFile));
 
-        let distMapRelative = path.relative(path.resolve(inMapFile, '..'), dir).replace(/\//g, '/');
+        let distMapRelative = path.relative(process.cwd(), dir).replace(/\//g, '/');
         if (!distMapRelative.startsWith('../'))
           distMapRelative = './' + distMapRelative;
 
