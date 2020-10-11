@@ -541,8 +541,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           conditions.push('development');
         if (opts.deno)
           conditions.push('deno');
-        if (opts.node)
+        else if (opts.node)
           conditions.push('node');
+        else
+          conditions.push('browser');
 
         const inMapFile = getInMapFile(opts);
         const outMapFile = getOutMapFile(inMapFile, opts);
