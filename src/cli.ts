@@ -299,11 +299,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       try {
         const { args, opts } = readFlags(rawArgs, {
           boolFlags: ['log', 'copy', 'integrity', 'crossorigin', 'depcache', 'minify', 'out', 'clear', 'flatten', 'production', 'dynamic', 'system', 'preload'],
-          strFlags: ['import-map', 'log', 'format', 'relative', 'out'],
-          aliases: { m: 'import-map', l: 'log', f: 'format', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system' }
+          strFlags: ['import-map', 'log', 'relative', 'out'],
+          aliases: { m: 'import-map', l: 'log', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system' }
         });
 
-        if (opts.production && !opts.system && !opts.esm)
+        if (!opts.system && !opts.esm && (opts.production || args.some(arg => !isPlain(arg) && arg.endsWith('.ts'))))
           opts.system = true;
 
         const inMapFile = getInMapFile(opts);
@@ -382,32 +382,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           });
         }
 
-        let moduleType;
-        switch (opts.format || (opts.system ? 'system' : 'module')) {
-          case 'json':
-            console.log(JSON.stringify(sortedStatic, null, 2));
-            return;
-          case 'es-module-shims':
-            if (opts.system)
-              throw 'ES Module Shims does not support loading SystemJS modules.';
-            moduleType = 'module-shim';
-            break;
-          case 'system':
-            if (!opts.system)
-              throw 'SystemJS does not support loading ES modules. Run a conversion into System modules first.'
-            moduleType = opts.preload ? '' : 'systemjs-module';
-            break;
-          case 'module':
-            if (opts.system)
-              throw 'Native ES modules do not support loading SystemJS modules.';
-            moduleType = 'module';
-            break;
-          default:
-            throw `Unknown cast format ${chalk.bold(opts.format)}`;
-        }
-
         const outputPreloads: SrcScript[] = await Promise.all(sortedStatic.map(async dep => ({
-          type: moduleType,
+          type: opts.system ? (dep.endsWith('.ts') || dep.endsWith('.json') || dep.endsWith('.css') || dep.endsWith('.wasm') ? 'systemjs-module' : '') : 'module',
           src: dep,
           integrity: !opts.integrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : pathToFileURL(path.resolve(opts.relative || process.cwd(), dep))),
           crossorigin: opts.crossorigin ? dep.startsWith(systemCdnUrl) || dep.startsWith(esmCdnUrl) : false,
@@ -932,7 +908,7 @@ async function writeMap (outMapFile: string, mapString: string, system: boolean,
       if (script.jspmCast)
         ({ outSource, diff } = removeScript(outSource, diff, script, 0));
     }
-    if (system && !srcScripts.some(({ src, jspmCast }) => src && !jspmCast && (src.endsWith('system.js') || src.endsWith('s.js') || src.endsWith('system.min.js') || src.endsWith('s.min.js')))) {
+    if (system && !srcScripts.some(({ src, jspmCast }) => src && !jspmCast && (src.match(/(^|\/)(system|s)(\.min)?\.js$/)))) {
       const url = await locate('systemjs/s.js', system);
       const script = `<script src="${url}"${integrity ? ` integrity="${await getIntegrity(url)}"` : ''}${crossorigin ? ' crossorigin="anonymous"' : ''} jspm-link></script>`;
       outSource = outSource.slice(0, mapOuterStart + diff) + script + space + outSource.slice(mapOuterStart + diff);
