@@ -298,9 +298,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'link':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'copy', 'integrity', 'crossorigin', 'depcache', 'minify', 'out', 'clear', 'flatten', 'production', 'dynamic', 'system', 'preload'],
+          boolFlags: ['log', 'copy', 'integrity', 'crossorigin', 'depcache', 'minify', 'out', 'clear', 'flatten', 'production', 'dynamic', 'system', 'preload', 'esm'],
           strFlags: ['import-map', 'log', 'relative', 'out'],
-          aliases: { m: 'import-map', l: 'log', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system' }
+          aliases: { m: 'import-map', l: 'log', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system', e: 'esm' }
         });
 
         if (!opts.system && !opts.esm && (opts.production || args.some(arg => !isPlain(arg) && arg.endsWith('.ts'))))

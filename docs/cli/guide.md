@@ -156,35 +156,13 @@ This workflow demonstrates the same style of development to the above but for Ty
 
 ### TypeScript Application Example
 
-Converting `app.js` into `app.ts`:
+Renaming the `app.js` from the previous example to `app.ts`, it is just necessary to add the type of the `dialogOpen` field for TypeScript:
 
 ```js
-import '@material/mwc-button';
-import { LitElement, html, property } from 'lit-element';
-
+// ...
 class MyApp extends LitElement {
-  @property()
-  dialogOpen = false;
-
-  async openDialog () {
-    await import('@material/mwc-dialog');
-    this.dialogOpen = true;
-  }
-
-  render() {
-    return html`
-      <mwc-button @click="${this.openDialog}" label="Click Me!" raised></mwc-button>
-      ${this.dialogOpen ? html`
-        <mwc-dialog id="myDialog" open @closed=${() => this.dialogOpen = false}>
-          <div>Discard draft?</div>
-          <mwc-button slot="primaryAction" dialogAction="discard">Discard</mwc-button>
-          <mwc-button slot="secondaryAction" dialogAction="cancel">Cancel</mwc-button>
-        </mwc-dialog>
-      ` : ''}
-    `;
-  }
-}
-customElements.define('my-app', MyApp);
+  dialogOpen: boolean;
+// ...
 ```
 
 _When importing TypeScript dependencies, always use the `.ts` extension (the TypeScript checker doesn't like this so use `// @ts-ignore` as necessary)._
@@ -195,7 +173,6 @@ tsconfig.json
 ```json
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
     "target": "esnext",
     "module": "esnext"
   }
