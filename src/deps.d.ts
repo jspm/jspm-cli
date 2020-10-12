@@ -17,6 +17,7 @@ declare module '@babel/plugin-proposal-numeric-separator';
 declare module '@babel/plugin-proposal-export-default-from';
 declare module '@babel/plugin-proposal-export-namespace-from';
 declare module 'babel-plugin-transform-cjs-dew';
+declare module '@babel/plugin-proposal-decorators'
 declare module 'terser';
 declare module 'crypto';
 declare module 'os';
