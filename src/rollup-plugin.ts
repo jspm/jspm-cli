@@ -12,7 +12,6 @@ import babelPluginSyntaxClassProperties from '@babel/plugin-syntax-class-propert
 import babelPluginNumericSeparator from '@babel/plugin-proposal-numeric-separator';
 import pluginProposalExportDefaultFrom from '@babel/plugin-proposal-export-default-from';
 import pluginProposalExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from';
-import pluginProposalDecorators from '@babel/plugin-proposal-decorators';
 
 const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'dynamicImport', 'importMeta', 'nullishCoalescingOperator', 'numericSeparator', 'optionalCatchBinding', 'optionalChaining', 'objectRestSpread', 'topLevelAwait'];
 
@@ -150,7 +149,6 @@ export default ({
             pluginProposalExportNamespaceFrom,
             babelPluginSyntaxClassProperties,
             babelPluginNumericSeparator,
-            [pluginProposalDecorators, { decoratorsBeforeExport: true }],
           ],
         });
       }
