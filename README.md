@@ -6,7 +6,7 @@ ES Module Package Management
 
 ### Getting Started
 
-See the getting started guide at https://jspm.org/cli.
+See the getting started guide at [docs/cli/guide.md](docs/cli/guide.md).
 
 ## Contributing
 
