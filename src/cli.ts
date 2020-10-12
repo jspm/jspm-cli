@@ -345,7 +345,17 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
               await writeMap(inMapFile, mapStr, false);
             }
             await traceMap.traceInstall(args, { clean: true, system: <boolean>opts.system });
-            var { trace, allSystem } = await traceMap.trace(args, <boolean>opts.system, <boolean>opts.depcache && <boolean>opts.dynamic);
+            var { trace } = await traceMap.trace(args, <boolean>opts.system, <boolean>opts.depcache && <boolean>opts.dynamic);
+            var allSystem = true;
+            for (const url of Object.keys(trace)) {
+              if (!trace[url].system) {
+                allSystem = false;
+                if (!opts.production)
+                  break;
+                if (opts.system)
+                  console.log(`\n${chalk.yellow('WARN')} Not a System production module ${chalk.cyan(url)}`);
+              }
+            }
           }
           finally {
             if (spinner) spinner.stop();

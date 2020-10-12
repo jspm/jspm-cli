@@ -252,8 +252,7 @@ export class TraceMap {
     this._map.integrity = alphabetize(this._map.integrity);
   }
 
-  async trace (specifiers: string[], system = false, doDepcache = false): Promise<{ map: Record<string, URL | null>, trace: Trace, allSystem: boolean }> {
-    let allSystem = true;
+  async trace (specifiers: string[], system = false, doDepcache = false): Promise<{ map: Record<string, URL | null>, trace: Trace }> {
     let postOrder = 0;
     let dynamicTracing = false;
     const dynamics: Set<{ dep: string, parentUrl: URL }> = new Set();
@@ -290,8 +289,6 @@ export class TraceMap {
       curEntry.integrity = integrity;
       curEntry.size = size;
       curEntry.system = isSystem;
-      if (!isSystem)
-        allSystem = false;
 
       for (const dep of deps)
         await doTrace(dep, resolved, curTrace, curEntry.deps, false);
@@ -321,7 +318,7 @@ export class TraceMap {
       }
     }
 
-    return { map, trace: staticTrace, allSystem };
+    return { map, trace: staticTrace };
   }
 
   // modules are resolvable module specifiers

@@ -7,8 +7,8 @@ import * as terser from 'terser';
 import { DecoratedError, isPlain, isURL } from './utils';
 import chalk from 'chalk';
 import * as babel from '@babel/core';
-import babelPresetTypeScript from '@babel/preset-typescript';
-import babelPluginClassProperties from '@babel/plugin-proposal-class-properties';
+import babelPluginTransformTypeScript from '@babel/plugin-transform-typescript';
+import babelPluginSyntaxClassProperties from '@babel/plugin-syntax-class-properties';
 import babelPluginNumericSeparator from '@babel/plugin-proposal-numeric-separator';
 import pluginProposalExportDefaultFrom from '@babel/plugin-proposal-export-default-from';
 import pluginProposalExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from';
@@ -143,16 +143,15 @@ export default ({
             errorRecovery: true
           },
           plugins: [
+            [babelPluginTransformTypeScript, {
+              onlyRemoveTypeImports: true
+            }],
             pluginProposalExportDefaultFrom,
             pluginProposalExportNamespaceFrom,
-            babelPluginClassProperties,
+            babelPluginSyntaxClassProperties,
             babelPluginNumericSeparator,
             [pluginProposalDecorators, { decoratorsBeforeExport: true }],
           ],
-          presets: [[babelPresetTypeScript, {
-            allowDeclareFields: true,
-            onlyRemoveTypeImports: true
-          }]]
         });
       }
       if (!result)
