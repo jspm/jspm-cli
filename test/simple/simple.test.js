@@ -5,7 +5,7 @@ import { ok, strictEqual } from 'assert';
 const { code, stdout, stderr } = await jspm(['add', 'jquery'], import.meta.url);
 strictEqual(code, 0);
 strictEqual(stderr, '');
-ok(stdout.includes('Successfully added'));
+ok(stdout.includes('Successfully installed'));
 
 const importmap = readFileSync('jspm.importmap').toString();
 importmap.includes('"jquery"');

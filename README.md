@@ -54,7 +54,7 @@ creates a `lib` folder with a version of jspm that can execute in the browser (w
 npm run test
 ```
 
-Tests require Node.js 12.17+ with ES modules support.
+Tests require Node.js 14+.
 
 ### License
 
