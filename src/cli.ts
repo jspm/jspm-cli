@@ -614,7 +614,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'no-entry-hash', 'inline', 'production', 'system', 'esm'],
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'no-entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports'],
           strFlags: ['import-map', 'dir', 'out', 'banner', 'log'],
           aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', p: 'production', s: 'system', e: 'system' }
         });
@@ -661,6 +661,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           dir,
           compact: true,
           format: opts.system ? 'system' : 'esm',
+          inlineDynamicImports: opts.inlineDynamicImports,
           sourcemap: opts.sourceMap,
           indent: true,
           interop: false,
