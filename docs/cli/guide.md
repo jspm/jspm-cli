@@ -77,8 +77,8 @@ Navigate to `http://localhost:8080/app.html` in the browser to see the functiona
 
 ### Adding New Dependencies
 
-It isn't actually necessary to run `jspm add` for every new dependency. Instead if just running `jspm link` again,
-will automatically install the dependencies for us.
+It isn't actually necessary to run `jspm add` for every new dependency. Instead by running `jspm link` again,
+jspm will automatically install the dependencies for us.
 
 For example, updating `app.js` to use more dependencies:
 
