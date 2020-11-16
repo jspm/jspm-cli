@@ -10,8 +10,9 @@ import * as babel from '@babel/core';
 import babelPluginTransformTypeScript from '@babel/plugin-transform-typescript';
 import babelPluginSyntaxClassProperties from '@babel/plugin-syntax-class-properties';
 import babelPluginNumericSeparator from '@babel/plugin-proposal-numeric-separator';
-import pluginProposalExportDefaultFrom from '@babel/plugin-proposal-export-default-from';
-import pluginProposalExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from';
+import babelPluginProposalExportDefaultFrom from '@babel/plugin-proposal-export-default-from';
+import babelPluginProposalExportNamespaceFrom from '@babel/plugin-proposal-export-namespace-from';
+import babelPluginTransformReactJsx from '@babel/plugin-transform-react-jsx';
 
 const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivateProperties', 'classPrivateMethods', 'dynamicImport', 'importMeta', 'nullishCoalescingOperator', 'numericSeparator', 'optionalCatchBinding', 'optionalChaining', 'objectRestSpread', 'topLevelAwait'];
 
@@ -21,8 +22,9 @@ export default ({
   format,
   externals,
   inlineMaps,
+  minify,
   sourceMap
-}: { map: any, format?: string, baseUrl: URL | string, externals?: boolean | string[], inlineMaps?: boolean, sourceMap?: boolean }) => {
+}: { map: any, minify: boolean, format?: string, baseUrl: URL | string, externals?: boolean | string[], inlineMaps?: boolean, sourceMap?: boolean }) => {
   if (typeof baseUrl === 'string')
     baseUrl = new URL(baseUrl);
 
@@ -125,7 +127,7 @@ export default ({
       }
     },
     async transform (code, url) {
-      if (url.endsWith('.ts') || url.endsWith('.tsx')) {
+      if (url.endsWith('.ts') || url.endsWith('.tsx') || url.endsWith('.jsx')) {
         var result = babel.transform(code, {
           filename: url,
           inputSourceMap: false,
@@ -134,26 +136,19 @@ export default ({
           babelrcRoots: false,
           configFile: false,
           highlightCode: false,
-          compact: true,
+          compact: false,
           sourceType: 'module',
           sourceMaps: true,
           parserOpts: {
             plugins: stage3Syntax,
             errorRecovery: true
           },
-          plugins: [
-            [babelPluginTransformTypeScript, {
-              onlyRemoveTypeImports: true
-            }],
-            pluginProposalExportDefaultFrom,
-            pluginProposalExportNamespaceFrom,
-            babelPluginSyntaxClassProperties,
-            babelPluginNumericSeparator,
-          ],
+          plugins: url.endsWith('.ts') ? tsPlugins : url.endsWith('.tsx') ? tsxPlugins : jsxPlugins
         });
       }
       if (!result)
         result = { code, map: true };
+      if (!minify) return result;
       if (!minifyUrls.has(url)) return result;
       var result = await terser.minify(result.code, { sourceMap: sourceMap && result.map });
       if (result.error)
@@ -162,3 +157,31 @@ export default ({
     }
   };
 };
+
+const tsPlugins = [
+  [babelPluginTransformTypeScript, {
+    onlyRemoveTypeImports: true
+  }],
+  babelPluginProposalExportDefaultFrom,
+  babelPluginProposalExportNamespaceFrom,
+  babelPluginSyntaxClassProperties,
+  babelPluginNumericSeparator
+];
+const tsxPlugins = [
+  [babelPluginTransformTypeScript, {
+    isTSX: true,
+    onlyRemoveTypeImports: true
+  }],
+  babelPluginTransformReactJsx,
+  babelPluginProposalExportDefaultFrom,
+  babelPluginProposalExportNamespaceFrom,
+  babelPluginSyntaxClassProperties,
+  babelPluginNumericSeparator
+];
+const jsxPlugins = [
+  babelPluginTransformReactJsx,
+  babelPluginProposalExportDefaultFrom,
+  babelPluginProposalExportNamespaceFrom,
+  babelPluginSyntaxClassProperties,
+  babelPluginNumericSeparator
+];

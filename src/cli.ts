@@ -24,7 +24,7 @@ import { logStream } from './log.js';
 import { clearCache } from './fetch.js';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
-import { readHtmlScripts, isPlain, isURL, jsonEquals, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.js';
+import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.js';
 import * as path from 'path';
 import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.js';
 import { Installer } from './installer.js';
@@ -162,7 +162,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const installer = new Installer(new TraceMap(pathToFileURL(process.cwd())), opts);
         const { target, subpath } = parseInstallTarget(args[0]);
         const resolved = await installer.resolveLatestTarget(target);
-        const pcfg = await installer.getPackageConfig(resolved);
+        const pcfg = await installer.getPackageConfig(pkgToUrl(resolved, esmCdnUrl));
         const matches: string[] = [];
         for (const key of Object.keys(pcfg.exports || {})) {
           if (key.startsWith(subpath) && !key.endsWith('!cjs'))
@@ -248,8 +248,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         let statementToImport: string
         const format = opts.format || (opts.system ? 'script' : 'module')
         switch (format) {
+          case 'url':
           case 'string':
-            statementToImport = url + (opts.noIntegrity ? '' : '\n' + await getIntegrity(url))
+            statementToImport = url;
             break;
           case 'system':
           case 'script':
@@ -486,6 +487,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       throw `${chalk.bold.red('ERR')}  TODO: jspm upgrade`;
 
     case 'r':
+    case 'rm':
+    case 'uninstall':
     case 'remove': {
       const { args, opts } = readFlags(rawArgs, {
         boolFlags: ['log', 'copy', 'minify'],
@@ -541,9 +544,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy' }
         });
 
-        const adding = args.length && args.some(arg => isPlain(arg));
-
-
         const conditions = [];
         if (opts.dev && opts.production)
           throw `Must install for dev or production not both.`;
@@ -568,7 +568,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         let changed = false;
         try {
-          if (!adding) {
+          if (args.length === 0) {
             // TODO: changed handling from install
             // can skip map saving when no change
             opts.clean = true;
@@ -577,10 +577,13 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           else {
             changed = await traceMap.add(args.map(arg => {
               const eqIndex = arg.indexOf('=');
-              if (eqIndex === -1) return arg;
+              const target = eqIndex === -1 ? arg : arg.slice(eqIndex + 1);
+              const fullTarget = target.match(/^\.$|^\.?\.?\//) ? new URL(target, pathToFileURL(process.cwd()) + '/').href : target;
+              if (eqIndex === -1)
+                return fullTarget;
               return {
                 name: arg.slice(0, eqIndex),
-                target: arg.slice(eqIndex + 1)
+                target: fullTarget
               };
             }), opts);
           }
@@ -614,13 +617,19 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'no-entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports'],
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports'],
           strFlags: ['import-map', 'dir', 'out', 'banner', 'log'],
           aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', p: 'production', s: 'system', e: 'system' }
         });
 
         if (opts.production && !opts.system && !opts.esm)
           opts.system = true;
+
+        if (opts.production)
+          opts.minify = true;
+
+        if (opts.out)
+          opts.entryHash = true;
 
         const dir = opts.dir ? ((<string>opts.dir).endsWith('/') ? (<string>opts.dir).slice(0, -1) : <string>opts.dir) : 'dist';
 
@@ -652,14 +661,14 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           input: inputObj,
           onwarn: () => {},
           preserveEntrySignatures: 'allow-extension',
-          plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, format: <string>opts.format, inlineMaps: <boolean>opts.inlineMaps, sourceMap: opts.sourceMap })]
+          plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, format: <string>opts.format, inlineMaps: <boolean>opts.inlineMaps, sourceMap: opts.sourceMap, minify: <boolean>opts.minify })]
         };
 
         const outputOptions = {
-          entryFileNames: opts.noEntryHash ? '[name].js' : '[name]-[hash].js',
+          entryFileNames: opts.entryHash ? '[name]-[hash].js' : '[name].js',
           chunkFileNames: 'chunk-[hash].js',
           dir,
-          compact: true,
+          compact: opts.minify,
           format: opts.system ? 'system' : 'esm',
           inlineDynamicImports: opts.inlineDynamicImports,
           sourcemap: opts.sourceMap,
@@ -676,13 +685,33 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         if (opts.watch) {
           const spinner = startSpinnerLog(opts.log);
-          spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+          if (spinner) spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
 
           rollupOptions.watch = { skipWrite: true };
           const watcher = await rollup.watch(rollupOptions);
           let firstRun = true;
-          (<any>watcher).on('event', async ({ code, result }) => {
-            if (firstRun) {
+          (<any>watcher).on('event', async ({ code, result, error }) => {
+            if (code === 'ERROR') {
+              firstRun = false;
+              spinner.stop();
+              if (error.frame) {
+                console.error(error.id);
+                console.error(error.frame);
+              }
+              delete error.frame;
+              delete error.loc;
+              delete error.pos;
+              delete error.raisedAt;
+              delete error.code;
+              delete error.pluginCode;
+              delete error.plugin;
+              delete error.hook;
+              delete error.id;
+              delete error.watchFiles;
+              console.error(error);
+              process.exit(1);
+            }
+            else if (firstRun) {
               firstRun = false;
             }
             else if (code === 'BUNDLE_START') {
@@ -845,7 +874,7 @@ function relModule (url: URL, relBase: URL, parse = true) {
     return relPath;
   }
   else {
-    const parsed = parse && parseCdnPkg(url);
+    const parsed = parse && parseCdnPkg(url.href);
     if (parsed)
       return pkgToStr(parsed) + parsed.path;
     else
@@ -1078,7 +1107,7 @@ async function locate (pkg: string, system: boolean, conditions?: string[] | und
   const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, conditions), { system });
   const { target, subpath } = parseInstallTarget(pkg);
   const resolved = await installer.resolveLatestTarget(target);
-  const exports = await installer.resolveExports(resolved, await installer.getPackageConfig(resolved), false);
+  const exports = await installer.resolveExports(pkgToUrl(resolved, esmCdnUrl), false);
   if (subpath === './') {
     return pkgToUrl(resolved, system ? systemCdnUrl : esmCdnUrl) + '/';
   }
@@ -1088,7 +1117,7 @@ async function locate (pkg: string, system: boolean, conditions?: string[] | und
       throw `No exports match for ${subpath} in ${pkgToStr(resolved)}`;
     if (exports[exportsMatch] === null)
       throw `No resolution for ${subpath} with the ${(conditions || ['browser', 'development']).join(', ')} conditions for ${pkgToStr(resolved)}`;
-    return pkgToUrl(resolved, system ? systemCdnUrl : esmCdnUrl) + exports[exportsMatch].slice(1);
+    return pkgToUrl(resolved, system ? systemCdnUrl : esmCdnUrl) + exports[exportsMatch].slice(2);
   }
 }
 
@@ -1201,6 +1230,6 @@ function output (str: string, opts: any) {
     clipboardy.writeSync(str);
   }
   else {
-    process.stdout.write(str);
+    process.stdout.write(str + '\n');
   }
 }

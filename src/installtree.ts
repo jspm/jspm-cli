@@ -13,6 +13,7 @@ export interface ExactPackage {
   version: string;
 }
 export interface ExactPackagePath extends ExactPackage {
+  system: boolean;
   path: string;
 }
 
@@ -98,8 +99,8 @@ export class PackageTarget {
 
 interface ResolutionMapImports {
   [pkgName: string]: {
-    pkg: ExactPackage;
-    exports: Record<string, string>;
+    pkgUrl: string,
+    exports: Record<string, string>
   }
 }
 
@@ -112,7 +113,7 @@ export interface ResolutionMap {
 
 function createEsmAnalysis (imports: any, source: string, url: string) {
   if (!imports.length && registerRegEx.test(source))
-    throw `Source ${url} is a SystemJS module not an ES Module.`;
+    return createSystemAnalysis(source, imports, url);
   const deps: string[] = [];
   const dynamicDeps: string[] = [];
   for (const impt of imports) {
@@ -196,6 +197,7 @@ export async function exists (resolvedUrl: string): Promise<boolean> {
     case 304:
       return true;
     case 404:
+    case 406:
       return false;
     default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
   }
@@ -253,7 +255,42 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
   }
 }
 
-export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: InstallOptions): [ResolutionMap, ImportMap] {
+export async function checkPjson (url: URL): Promise<URL | false> {
+  const res = await fetch(new URL('package.json', url).href);
+  switch (res.status) {
+    case 304:
+    case 200:
+      if (!res.headers)
+        return res.url ? new URL(res.url) : url;
+      const contentType = res.headers.get('content-type');
+      if (contentType?.match(/^application\/json(;|$)/))
+        return res.url ? new URL(res.url) : url;
+    case 404:
+    case 406:
+      return false;
+    default: throw new Error(`Invalid status code ${res.status} looking up ${url.href} - ${res.statusText}`);
+  }
+}
+
+export async function getPackageBase (url: URL) {
+  const cdnPkg = parseCdnPkg(url.href);
+  if (cdnPkg)
+    return pkgToUrl(cdnPkg, cdnPkg.system ? systemCdnUrl : esmCdnUrl);
+
+  if (url.protocol === 'node:')
+    return url.href;
+  
+  do {
+    let responseUrl;
+    if (responseUrl = await checkPjson(url))
+      return new URL('.', responseUrl).href;
+    if (url.pathname === '/')
+      return url.href;
+  } while (url = new URL('../', url));
+  throw new Error('Internal Error.');
+}
+
+export async function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: InstallOptions): Promise<[ResolutionMap, ImportMap]> {
   const map: ImportMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
@@ -265,51 +302,37 @@ export function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: In
     scopes: Object.create(null)
   };
 
-  function processMap (inMap: Record<string, string | null>, scope?: ExactPackage | boolean) {
-    const scopeUrl = scope === true ? esmCdnUrl + '/' : scope ? pkgToUrl(scope, esmCdnUrl) + '/' : undefined;
+  async function processMap (inMap: Record<string, string | null>, scopeUrl?: string) {
     for (const [impt, target] of Object.entries(inMap)) {
       const parsed = parsePkg(impt);
       if (parsed && target !== null) {
         const { pkgName, subpath } = parsed;
+
         const targetUrl = new URL(target, baseUrl);
-        const pkg = parseCdnPkg(targetUrl);
-        if (pkg) {
-          const pkgPath = pkg.path;
-          delete (<any>pkg).path;
-          let resolutions = (scopeUrl ? (installs.scopes[scopeUrl] = installs.scopes[scopeUrl] || Object.create(null)) : installs.imports)[pkgName];
-          if (!resolutions || pkgEq(resolutions.pkg, pkg) || opts.clean) {
-            resolutions = resolutions || ((scopeUrl ? installs.scopes[scopeUrl] : installs.imports)[pkgName] = {
-              pkg,
-              exports: Object.create(null)
-            });
-            resolutions.exports[subpath] = '.' + pkgPath;
-            continue;
-          }
+        const pkgUrl = await getPackageBase(targetUrl);
+        const pkgPath = targetUrl.href.length > pkgUrl.length ? targetUrl.href.slice(pkgUrl.length - 1) : '';
+
+        let resolutions = (scopeUrl ? (installs.scopes[scopeUrl] = installs.scopes[scopeUrl] || Object.create(null)) : installs.imports)[pkgName];
+        if (!resolutions || resolutions.pkgUrl === pkgUrl) {
+          resolutions = resolutions || ((scopeUrl ? installs.scopes[scopeUrl] : installs.imports)[pkgName] = {
+            pkgUrl,
+            exports: Object.create(null)
+          });
+          resolutions.exports[subpath] = '.' + pkgPath;
+          continue;
         }
       }
       (scopeUrl ? (map.scopes[scopeUrl] = map.scopes[scopeUrl] || Object.create(null)) : map.imports)[impt] = target;
     }
   }
 
-  processMap(inMap.imports);
+  await processMap(inMap.imports);
 
   for (const scope of Object.keys(inMap.scopes)) {
     const scopeUrl = new URL(scope, baseUrl);
-    if (scopeUrl.href.startsWith(systemCdnUrl) || scopeUrl.href.startsWith(esmCdnUrl)) {
-      if (scopeUrl.href === esmCdnUrl || scopeUrl.href === systemCdnUrl) {
-        processMap(inMap.scopes[scope], true);
-        continue;
-      }
-      const parsed = parseCdnPkg(scopeUrl);
-      if (parsed && parsed.path === '/') {
-        processMap(inMap.scopes[scope], parsed);
-        continue;
-      }
-      if (opts.clean) continue;
-    }
-    const scopeEntry = map.scopes[scope] = map.scopes[scope] || Object.create(null);
-    Object.assign(scopeEntry, inMap.scopes[scope]);
+    await processMap(inMap.scopes[scope], scopeUrl.href);
   }
+
   return [installs, map];
 }
 
@@ -321,38 +344,79 @@ export function unsanitizeUrl (url) {
   return url.replace(encodedHashRegEx, '#').replace(encodedPercentRegEx, '%');
 }
 
-export function resolutionsToImportMap (installs: ResolutionMap, cdnUrl: string, filter: Set<string> | null): ImportMap {
+export function resolutionsToImportMap (installs: ResolutionMap, filter: Set<string> | null, system: boolean): ImportMap {
   const outMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
     depcache: Object.create(null),
     integrity: Object.create(null)
   };
-  for (const [impt, { pkg, exports }] of Object.entries(installs.imports)) {
+  for (let [impt, { pkgUrl, exports }] of Object.entries(installs.imports)) {
     for (const [subpath, target] of Object.entries(exports)) {
       const specifier = impt + subpath.slice(1);
       if (filter && !filter.has(specifier))
         continue;
-      outMap.imports[specifier] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
+      if (system && pkgUrl.startsWith(esmCdnUrl))
+        pkgUrl = systemCdnUrl + pkgUrl.slice(esmCdnUrl.length);
+      else if (!system && pkgUrl.startsWith(systemCdnUrl))
+        pkgUrl = esmCdnUrl + pkgUrl.slice(systemCdnUrl.length);
+      outMap.imports[specifier] = pkgUrl + target.slice(2);
     }
   }
-  for (const [scope, scopeEntry] of Object.entries(installs.scopes)) {
-    if (!scope.startsWith(esmCdnUrl))
-      throw new Error('Internal error.');
+  for (let [scopeKey, scopeEntry] of Object.entries(installs.scopes)) {
     const outScope = Object.create(null);
-    const scopeKey = cdnUrl + scope.slice(esmCdnUrl.length);
-    for (const [impt, { pkg, exports }] of Object.entries(scopeEntry)) {
+    for (let [impt, { pkgUrl, exports }] of Object.entries(scopeEntry)) {
       for (const [subpath, target] of Object.entries(exports)) {
         const specifier = impt + subpath.slice(1);
-        if (filter && !filter.has(scopeKey.slice(cdnUrl.length) + '|' + specifier))
+        if (filter && !filter.has(scopeKey + '|' + specifier))
           continue;
-        outScope[specifier] = pkgToUrl(pkg, cdnUrl) + target.slice(1);
+        if (system && pkgUrl.startsWith(esmCdnUrl))
+          pkgUrl = systemCdnUrl + pkgUrl.slice(esmCdnUrl.length);
+        else if (!system && pkgUrl.startsWith(systemCdnUrl))
+          pkgUrl = esmCdnUrl + pkgUrl.slice(systemCdnUrl.length);
+        if (target === null)
+          outScope[specifier] = null;
+        else
+          outScope[specifier] = pkgUrl + target.slice(2);
       }
     }
-    if (Object.keys(outScope).length)
+    if (Object.keys(outScope).length) {
+      if (system && scopeKey.startsWith(esmCdnUrl))
+        scopeKey = systemCdnUrl + scopeKey.slice(esmCdnUrl.length);
+      else if (!system && scopeKey.startsWith(systemCdnUrl))
+        scopeKey = esmCdnUrl + scopeKey.slice(systemCdnUrl.length);
       outMap.scopes[scopeKey] = outScope;
+    }
   }
   return outMap;
+}
+
+export function derivePackageName (pkgUrl: URL, targetUrl: URL): string {
+  let pathname = pkgUrl.pathname;
+  if (pathname === '/') {
+    const parts = targetUrl.href.split('/');
+    if (parts[parts.length - 1] === '')
+      parts.pop();
+    const name = <string>parts.pop();
+    const extIndex = name.lastIndexOf('.');
+    return extIndex === -1 ? name : name.slice(0, extIndex);
+  }
+  const parts = pathname.split('/');
+  if (parts[parts.length - 1] === '')
+    parts.pop();
+  let name: string;
+  if (parts[parts.length - 2] && parts[parts.length - 2].startsWith('@'))
+    name = parts.slice(parts.length - 2, parts.length).join('/');
+  else if (parts.length)
+    name = <string>parts.pop();
+  else
+    throw new Error('Internal error');
+  if (name.indexOf(':') > 0)
+    name = name.slice(name.indexOf(':') + 1);
+  if (name.indexOf('@') > 0)
+    return name.slice(0, name.indexOf('@'));
+  else
+    return name;
 }
 
 export function parsePkg (specifier: string): { pkgName: string, subpath: string } | undefined {
@@ -365,6 +429,13 @@ export function parsePkg (specifier: string): { pkgName: string, subpath: string
   if (sepIndex === -1)
     return { pkgName: specifier, subpath: '.' };
   return { pkgName: specifier.slice(0, sepIndex), subpath: '.' + specifier.slice(sepIndex) };
+}
+export function nicePkgStr (pkgUrl: string) {
+  if (pkgUrl.startsWith(esmCdnUrl))
+    return decodeURIComponent(pkgUrl.slice(esmCdnUrl.length));
+  if (pkgUrl.startsWith(systemCdnUrl))
+    return decodeURIComponent(pkgUrl.slice(systemCdnUrl.length));
+  return pkgUrl;
 }
 export function pkgToStr (pkg: ExactPackage) {
   return `${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
@@ -381,20 +452,20 @@ export function matchesTarget (pkg: ExactPackage, target: PackageTarget) {
   return pkg.registry === target.registry && pkg.name === target.name && target.ranges.some(range => range.has(pkg.version, true));
 }
 export function pkgToUrl (pkg: ExactPackage, cdnUrl: string) {
-  return cdnUrl + pkgToStr(pkg);
+  return cdnUrl + pkgToStr(pkg) + '/';
 }
 const exactPkgRegEx = /^([a-z]+):((?:@[^/\\%@]+\/)?[^./\\%@][^/\\%@]*)@([^\/]+)(\/.*)?$/;
-export function parseCdnPkg (url: URL): ExactPackagePath | undefined {
-  const href = url.href;
-  let registry, name, version, path;
-  if (href.startsWith(esmCdnUrl)) {
-    [, registry, name, version, path] = href.slice(esmCdnUrl.length).match(exactPkgRegEx) || [];
+export function parseCdnPkg (url: string): ExactPackagePath | undefined {
+  let registry, name, version, path, system = false;
+  if (url.startsWith(esmCdnUrl)) {
+    [, registry, name, version, path] = url.slice(esmCdnUrl.length).match(exactPkgRegEx) || [];
   }
-  if (href.startsWith(systemCdnUrl)) {
-    [, registry, name, version, path] = href.slice(systemCdnUrl.length).match(exactPkgRegEx) || [];
+  if (url.startsWith(systemCdnUrl)) {
+    system = true;
+    [, registry, name, version, path] = url.slice(systemCdnUrl.length).match(exactPkgRegEx) || [];
   }
   if (registry)
-    return { registry, name, version, path };
+    return { registry, name, version, path, system };
 }
 
 const scopeCache = new WeakMap<Record<string, Record<string, string | null>>, [string, string][]>();
@@ -413,7 +484,7 @@ export function getScopeMatches (parentUrl: URL, scopes: Record<string, Record<s
   });
 }
 
-export function getMapMatch (specifier: string, map: Record<string, string | null>): string | undefined {
+export function getMapMatch<T = any> (specifier: string, map: Record<string, T>): string | undefined {
   if (specifier in map) return specifier;
   let curMatch;
   for (const match of Object.keys(map)) {

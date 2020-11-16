@@ -108,12 +108,11 @@ export class TraceMap {
   }
 
   baseUrlRelative (url: URL) {
-    const origin = url.origin;
     const href = url.href;
     const baseUrlHref = this._baseUrl.href;
     if (href.startsWith(baseUrlHref))
       return './' + href.slice(baseUrlHref.length);
-    if (origin !== this._baseUrl.origin || !href.startsWith(origin) || !baseUrlHref.startsWith(origin))
+    if (url.protocol !== this._baseUrl.protocol || url.host !== this._baseUrl.host || url.port !== this._baseUrl.port || url.username !== this._baseUrl.username || url.password !== this._baseUrl.password)
       return url.href;
     const baseUrlPath = this._baseUrl.pathname;
     const urlPath = url.pathname;
@@ -123,7 +122,7 @@ export class TraceMap {
       if (baseUrlPath[i] !== urlPath[i]) break;
       if (urlPath[i] === '/') sharedBaseIndex = i;
     }
-    return '../'.repeat(baseUrlPath.slice(sharedBaseIndex + 1).split('/').length) + urlPath.slice(sharedBaseIndex + 1) + url.search + url.hash;
+    return '../'.repeat(baseUrlPath.slice(sharedBaseIndex + 1).split('/').length - 1) + urlPath.slice(sharedBaseIndex + 1) + url.search + url.hash;
   }
 
   get baseUrl () {
@@ -166,11 +165,16 @@ export class TraceMap {
         this._map.imports[impt] = this.baseUrlRelative(new URL(target, oldBaseUrl));
     }
     for (const scope of Object.keys(this._map.scopes)) {
+      const newScope = this.baseUrlRelative(new URL(scope, oldBaseUrl));
       const scopeImports = this._map.scopes[scope];
+      if (scope !== newScope) {
+        delete this._map.scopes[scope];
+        this._map.scopes[newScope] = scopeImports;
+      }
       for (const name of Object.keys(scopeImports)) {
         const target = scopeImports[name];
         if (target !== null)
-          this._map.imports[name] = this.baseUrlRelative(new URL(target, oldBaseUrl));
+          scopeImports[name] = this.baseUrlRelative(new URL(target, oldBaseUrl));
       }
     }
     const newDepcache = Object.create(null);
@@ -325,8 +329,8 @@ export class TraceMap {
   // exception is package-like, which we should probably not allow for this top-level version
   async traceInstall (modules?: string | string[] | InstallOptions, opts: InstallOptions = {}): Promise<boolean> {
     if (typeof modules === 'string') modules = [modules];
-    if (!Array.isArray(modules)) {
-      opts = { lock: true, ...modules || {} };
+    if (!Array.isArray(modules) || modules.length === 0) {
+      opts = { lock: true, ...opts || modules || {} };
       modules = Object.keys(this._map.imports);
     }
     if (opts.clean !== false)
@@ -336,6 +340,7 @@ export class TraceMap {
     try {
       const installer = new Installer(this, opts);
       await Promise.all(modules.map(module => installer.traceInstall(module, this._baseUrl, false)));
+      await installer.initPromise;
       installer.complete();
       installed = installer.changed;
     }
@@ -352,14 +357,6 @@ export class TraceMap {
     try {
       const installer = new Installer(this, opts);
       await Promise.all(packages.map(pkg => {
-        if (typeof pkg === 'string' && !isPlain(pkg)) {
-          const name = <string>pkg.split('/').pop();
-          const extIndex = name.lastIndexOf('.');
-          pkg = {
-            name: extIndex === -1 ? name : name.slice(0, extIndex),
-            target: pkg
-          };
-        }
         if (typeof pkg === 'string')
           return installer.add(pkg);
         else

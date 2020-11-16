@@ -5,14 +5,18 @@
   "version": "3.0.0-beta",
   "scripts": {
     "build-browser": "tsc -p . && cp src/*.js lib/",
-    "build-node": "ncc build -t -m src/node.js -e sver -s -e es-module-lexer",
+    "build-node": "ncc build -t src/node.js -e sver -s -e es-module-lexer",
     "build-node-production": "ncc build -t -m src/node.js -e sver -e es-module-lexer",
-    "watch-build-node": "ncc build -t -m src/node.js -s -e sver -e es-module-lexer -w",
+    "watch-build-node": "ncc build -t src/node.js -s -e sver -e es-module-lexer -w",
     "watch-build-node-production": "ncc build -t -m src/node.js -e sver -e es-module-lexer -w",
     "build": "npm run build-node && npm run build-browser",
     "test": "node test/test.js",
     "unit": "node src/script-lexer.js",
     "generate-maps": "node test/generate-maps.mjs"
+  },
+  "exports": {
+    "publish": "./dist/index.js",
+    "default": "./src/index.ts"
   },
   "bin": {
     "jspm": "dist/index.js"
@@ -28,6 +32,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.10.4",
     "@babel/plugin-proposal-numeric-separator": "^7.10.4",
     "@babel/plugin-syntax-class-properties": "^7.10.4",
+    "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@babel/plugin-transform-typescript": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
     "@vercel/ncc": "^0.24.1",
