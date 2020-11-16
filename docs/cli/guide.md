@@ -129,7 +129,7 @@ app.html
 Now we run the same single `jspm link` command to get the updated import map:
 
 ```
-jspm link app.js -o app.html
+jspm link ./app.js -o app.html
 ```
 
 In this way, `jspm link` can be thought of as an _"install + link"_ operation.
