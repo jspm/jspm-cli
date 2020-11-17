@@ -16,16 +16,7 @@ declare module '@babel/plugin-syntax-class-properties';
 declare module '@babel/plugin-proposal-numeric-separator';
 declare module '@babel/plugin-proposal-export-default-from';
 declare module '@babel/plugin-proposal-export-namespace-from';
+declare module '@babel/plugin-transform-react-jsx';
 declare module 'babel-plugin-transform-cjs-dew';
 declare module '@babel/plugin-proposal-decorators'
 declare module 'terser';
-declare module 'crypto';
-declare module 'os';
-declare module 'url';
-declare namespace process {
-  const cwd: () => string;
-  const versions: Record<string, string>;
-  const platform: string;
-  const env: Record<string, string>;
-}
-declare function require (specifier: string): any;

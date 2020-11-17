@@ -2,8 +2,7 @@ import sver from 'sver';
 import convertRange from 'sver/convert-range';
 const { SemverRange } = sver;
 import { ImportMap } from './tracemap.js';
-import { InstallOptions } from './installer.js';
-import lexer from 'es-module-lexer';
+import { parse } from 'es-module-lexer';
 import { fetch } from './fetch.js';
 import { computeIntegrity, importedFrom } from './utils.js';
 
@@ -214,7 +213,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
   }
   let source = await res.text();
   try {
-    const [imports] = await lexer.parse(source);
+    const [imports] = await parse(source);
     return system ? createSystemAnalysis(source, imports, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
   }
   catch (e) {
@@ -232,7 +231,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
     }
     source = await res.text();
     try {
-      const [imports] = await lexer.parse(source);
+      const [imports] = await parse(source);
       return system ? createSystemAnalysis(source, imports, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
     }
     catch (e) {
@@ -290,7 +289,7 @@ export async function getPackageBase (url: URL) {
   throw new Error('Internal Error.');
 }
 
-export async function importMapToResolutions (inMap: ImportMap, baseUrl: URL, opts: InstallOptions): Promise<[ResolutionMap, ImportMap]> {
+export async function importMapToResolutions (inMap: ImportMap, baseUrl: URL): Promise<[ResolutionMap, ImportMap]> {
   const map: ImportMap = {
     imports: Object.create(null),
     scopes: Object.create(null),
@@ -445,9 +444,6 @@ export function pkgToLookupUrl (pkg: ExactPackage, edge = false) {
 }
 export const esmCdnUrl = 'https://ga.jspm.io/';
 export const systemCdnUrl = 'https://ga.system.jspm.io/';
-function pkgEq (pkgA: ExactPackage, pkgB: ExactPackage) {
-  return pkgA.registry === pkgB.registry && pkgA.name === pkgB.name && pkgA.version === pkgB.version;
-}
 export function matchesTarget (pkg: ExactPackage, target: PackageTarget) {
   return pkg.registry === target.registry && pkg.name === target.name && target.ranges.some(range => range.has(pkg.version, true));
 }

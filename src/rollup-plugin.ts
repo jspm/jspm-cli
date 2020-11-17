@@ -1,7 +1,7 @@
 import { pathToFileURL, fileURLToPath } from 'url';
 import { TraceMap } from './tracemap';
 import { fetch } from './fetch';
-import lexer from 'es-module-lexer';
+import { parse } from 'es-module-lexer';
 import { systemCdnUrl, esmCdnUrl } from './installtree';
 import * as terser from 'terser';
 import { DecoratedError, isPlain, isURL } from './utils';
@@ -55,7 +55,7 @@ export default ({
       if (externals === true && isPlain(specifier)) {
         return { id: specifier, external: true };
       }
-      const parentUrl = parent ? (parent[0] !== '/' && isURL(parent) && !parent.match(/^\w:/) ? new URL(parent) : pathToFileURL(parent)) : baseUrl;
+      const parentUrl: URL = parent ? (parent[0] !== '/' && isURL(parent) && !parent.match(/^\w:/) ? new URL(parent) : pathToFileURL(parent)) : baseUrl as URL;
       let resolved;
       try {
         resolved = this.traceMap.resolve(specifier, parentUrl);
@@ -110,7 +110,7 @@ export default ({
       }
       let source = await res.text();
       try {
-        await lexer.parse(source);
+        await parse(source);
         return source;
       }
       catch (e) {

@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "version": "3.0.0-beta",
   "scripts": {
-    "build-browser": "tsc -p . && cp src/*.js lib/",
+    "build-api": "tsc -p . && cp src/*.js lib/ && rollup --plugin @rollup/plugin-commonjs lib/api.js -d dist",
     "build-node": "ncc build -t src/node.js -e sver -s -e es-module-lexer",
     "build-node-production": "ncc build -t -m src/node.js -e sver -e es-module-lexer",
     "watch-build-node": "ncc build -t src/node.js -s -e sver -e es-module-lexer -w",
@@ -35,6 +35,8 @@
     "@babel/plugin-transform-react-jsx": "^7.12.5",
     "@babel/plugin-transform-typescript": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "@vercel/ncc": "^0.24.1",
     "assert-diff": "^3.0.1",
     "chalk": "^4.1.0",

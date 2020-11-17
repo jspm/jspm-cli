@@ -20,6 +20,8 @@ Bug fixes, improving test coverage and code quality or suggesting your own addit
 
 ## Building
 
+### CLI Build
+
 ```
 npm run build-node
 ```
@@ -42,11 +44,21 @@ npm run watch-build-node
 
 this is useful during development for faster rebuilds.
 
+### API Build
+
 ```
-npm run build-browser
+npm run build-api
 ```
 
-creates a `lib` folder with a version of jspm that can execute in the browser (when itself in turn installed with jspm).
+creates a `dist/api.js` file that can be imported to get the programattic API, with dependencies externalized.
+
+This can then be installed with the jspm CLI for the browser via:
+
+```js
+jspm install jspm=./dist/api.js
+```
+
+(will give warnings as it's not got proper dependency declarations yet)
 
 ## Tests
 

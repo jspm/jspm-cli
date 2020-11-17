@@ -75,7 +75,7 @@ export class Installer {
 
     this.conditions = map.conditions;
     this.initPromise = (async () => {
-      [this.installs, this.map] = await importMapToResolutions(this.traceMap.map, this.mapBaseUrl, opts);
+      [this.installs, this.map] = await importMapToResolutions(this.traceMap.map, this.mapBaseUrl);
     })();
   }
 

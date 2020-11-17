@@ -73,6 +73,7 @@ async function forked (path, args = [], cwd, returnStream) {
       pool.pop();
     }
   }));
+  process.stdout.write('\n');
 })()
 .catch(err => {
   console.error(err);
