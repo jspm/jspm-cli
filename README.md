@@ -60,6 +60,32 @@ jspm install jspm=./dist/api.js
 
 (will give warnings as it's not got proper dependency declarations yet)
 
+#### API Example
+
+Here's an install API example:
+
+```js
+import { utils, TraceMap } from 'jspm';
+
+const source = `
+<!doctype html>
+<script type="importmap">
+{}
+</script>
+`;
+
+const scripts = utils.readHtmlScripts(source);
+const mapStr = source.slice(scripts.map[0], scripts.map[1]);
+const mapJson = JSON.parse(mapStr);
+
+const traceMap = new TraceMap(utils.baseUrl, mapJson);
+await traceMap.install(name);
+
+const newMapStr = '\n' + traceMap.toString();
+source = source.slice(0, scripts.map[0]) + newMapStr + source.slice(scripts.map[1]);
+console.log(source);
+```
+
 ## Tests
 
 ```
