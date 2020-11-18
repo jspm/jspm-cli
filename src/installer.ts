@@ -1,5 +1,6 @@
 import sver from 'sver';
 const { Semver, SemverRange } = sver;
+import type { TraceOptions } from './tracemap.ts';
 import { TraceMap, ImportMap } from './tracemap.js';
 import { isPlain, baseUrl, importedFrom, isURL } from './utils.js';
 import { fetch } from './fetch.js';
@@ -9,7 +10,7 @@ import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, R
 export type Semver = any;
 export type SemverRange = any;
 
-export interface InstallOptions {
+export interface InstallOptions extends TraceOptions {
   // whether existing resolutions should be locked
   lock?: boolean;
   // force use latest versions for everything
@@ -26,8 +27,6 @@ export interface InstallOptions {
   // force override a new install
   // when clean: true is set, applies clean to unknowns too
   force?: boolean;
-  // whether to construct depcache metadata for the install tree
-  depcache?: boolean;
   // whether to flatten scopes after the install
   flatten?: boolean;
   // whether to include all the exports
@@ -40,7 +39,7 @@ export interface InstallOptions {
 export class Installer {
   traceMap: TraceMap;
 
-  mapBaseUrl: URL;
+  mapBaseUrl: URL = baseUrl;
   pageBaseUrl: URL = baseUrl;
   conditions: string[];
   installs: ResolutionMap;
@@ -598,7 +597,7 @@ export class Installer {
     const { deps, dynamicDeps, /*integrity*/ } = await analyze(resolvedUrl, parentUrl, resolvedUrl.startsWith(esmCdnUrl) ? false : this.opts.system);
     // TODO: install integrity
     // this.map.integrity[resolvedUrl] = integrity;
-    if (dynamicDeps.length) {
+    if (dynamicDeps.length && !this.opts.static) {
       for (const dep of dynamicDeps) {
         if (deps.indexOf(dep) === -1)
           deps.push(dep);

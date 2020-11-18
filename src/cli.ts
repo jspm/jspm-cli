@@ -120,7 +120,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'trace':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log'],
+          boolFlags: ['log', 'static'],
           strFlags: ['import-map', 'log'],
           aliases: { m: 'import-map', l: 'log' }
         });
@@ -135,7 +135,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         if (specifiers.length === 0)
           throw `Nothing to trace.`;
 
-        const { map, trace } = await traceMap.trace(specifiers, <boolean>opts.system);
+        const { map, trace } = await traceMap.trace(specifiers, { system: <boolean>opts.system, static: opts.static });
         logTrace(map, trace, mapBase);
       }
       catch (e) {
@@ -299,7 +299,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'link':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'copy', 'integrity', 'crossorigin', 'depcache', 'minify', 'out', 'clear', 'flatten', 'production', 'dynamic', 'system', 'preload', 'esm'],
+          boolFlags: ['log', 'copy', 'integrity', 'crossorigin', 'depcache', 'minify', 'out', 'clear', 'flatten', 'production', 'dynamic', 'system', 'preload', 'esm', 'static'],
           strFlags: ['import-map', 'log', 'relative', 'out'],
           aliases: { m: 'import-map', l: 'log', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system', e: 'esm' }
         });
@@ -341,12 +341,12 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (spinner) spinner.text = `Linking${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
 
           try {
-            if (await traceMap.traceInstall(args, { clean: false, system: <boolean>opts.system })) {
+            if (await traceMap.traceInstall(args, { clean: false, system: <boolean>opts.system, static: <boolean>opts.static })) {
               const mapStr = traceMap.toString();
               await writeMap(inMapFile, mapStr, false);
             }
-            await traceMap.traceInstall(args, { clean: true, system: <boolean>opts.system });
-            var { trace } = await traceMap.trace(args, <boolean>opts.system, <boolean>opts.depcache && <boolean>opts.dynamic);
+            await traceMap.traceInstall(args, { clean: true, system: <boolean>opts.system, static: <boolean>opts.static });
+            var { trace } = await traceMap.trace(args, { system: <boolean>opts.system, depcache: <boolean>opts.depcache && <boolean>opts.dynamic, static: <boolean>opts.static });
             var allSystem = true;
             for (const url of Object.keys(trace)) {
               if (!trace[url].system) {
@@ -539,7 +539,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         // clean works based on tracking which paths were used, removing unused
         // only applies to arguments install (jspm install --clean) and not any other
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node'],
+          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static'],
           strFlags: ['import-map', 'out', 'log', 'conditions'],
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy' }
         });
@@ -617,7 +617,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports'],
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports', 'static'],
           strFlags: ['import-map', 'dir', 'out', 'banner', 'log'],
           aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', p: 'production', s: 'system', e: 'system' }
         });
@@ -733,7 +733,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
                   ...opts.production ? ['--production'] : [],
                   ...opts.out === true ? ['-o'] : opts.out ? ['-o', <string>opts.out] : [],
                   ...opts.system ? ['--system'] : [],
-                  ...opts.esm ? ['--esm'] : []
+                  ...opts.esm ? ['--esm'] : [],
+                  ...opts.static ? ['--static'] : []
                 ]);
               }
 

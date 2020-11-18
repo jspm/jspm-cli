@@ -18,6 +18,12 @@ import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultSt
 import { InstallOptions, Installer } from './installer.js';
 import { getScopeMatches, getMapMatch, analyze } from './installtree.js';
 
+export interface TraceOptions {
+  depcache?: boolean;
+  system?: boolean;
+  static?: boolean;
+}
+
 export interface ImportMap {
   imports: Record<string, string | null>;
   scopes: {
@@ -256,7 +262,7 @@ export class TraceMap {
     this._map.integrity = alphabetize(this._map.integrity);
   }
 
-  async trace (specifiers: string[], system = false, doDepcache = false): Promise<{ map: Record<string, URL | null>, trace: Trace }> {
+  async trace (specifiers: string[], { static: isStatic = false, depcache: doDepcache = false, system = false } = {} as TraceOptions): Promise<{ map: Record<string, URL | null>, trace: Trace }> {
     let postOrder = 0;
     let dynamicTracing = false;
     const dynamics: Set<{ dep: string, parentUrl: URL }> = new Set();
@@ -300,7 +306,7 @@ export class TraceMap {
       for (const dep of dynamicDeps) {
         if (dynamicTracing)
           await doTrace(dep, resolved, curTrace, curEntry.dynamicDeps, true);
-        else
+        else if (!isStatic)
           dynamics.add({ dep, parentUrl: resolved });
       }
       curEntry.order = postOrder++;
@@ -309,8 +315,9 @@ export class TraceMap {
     const map = Object.create(null);
     const staticTrace = Object.create(null);
     // trace twice -> once for the static graph, then again to determine the dynamic graph
-    for (const specifier of specifiers)
+    for (const specifier of specifiers) {
       await doTrace(specifier, this._baseUrl, staticTrace, map, false);
+    }
 
     dynamicTracing = true;
     for (const { dep, parentUrl } of dynamics) {
@@ -339,7 +346,18 @@ export class TraceMap {
     let installed = false;
     try {
       const installer = new Installer(this, opts);
-      await Promise.all(modules.map(module => installer.traceInstall(module, this._baseUrl, false)));
+      await Promise.all(modules.map(async module => {
+        if (isPlain(module)) {
+          try {
+            const mapResolved = this.resolve(module, this._baseUrl);
+            installer.tracedMappings.add(module);
+            if (mapResolved)
+              return installer.traceInstall(mapResolved.href, this._baseUrl, false);
+          }
+          finally {}
+        }
+        await installer.traceInstall(module, this._baseUrl, false);
+      }));
       await installer.initPromise;
       installer.complete();
       installed = installer.changed;
