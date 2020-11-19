@@ -1,11 +1,13 @@
 import sver from 'sver';
 const { Semver, SemverRange } = sver;
-import type { TraceOptions } from './tracemap.ts';
-import { TraceMap, ImportMap } from './tracemap.js';
-import { isPlain, baseUrl, importedFrom, isURL } from './utils.js';
-import { fetch } from './fetch.js';
-import { log } from './log.js';
-import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, getExportsTarget, pkgToLookupUrl, matchesTarget, nicePkgStr, getPackageBase, exists, derivePackageName } from './installtree.js';
+import { TraceMap, ImportMap, TraceOptions } from './tracemap.ts';
+import { isPlain, baseUrl, importedFrom, isURL } from './utils.ts';
+import { fetch } from './fetch.ts';
+import { log } from './log.ts';
+import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, getExportsTarget, pkgToLookupUrl, matchesTarget, nicePkgStr, getPackageBase, exists, derivePackageName, newPackageTarget, InstallTarget, parsePackageTarget, getMapResolved } from './installtree.ts';
+import { builtinModules } from 'module';
+
+const builtinSet = new Set(builtinModules);
 
 export type Semver = any;
 export type SemverRange = any;
@@ -34,6 +36,8 @@ export interface InstallOptions extends TraceOptions {
   installExports?: boolean;
   // output System modules
   system?: boolean;
+  // stdlib target
+  stdlib: string;
 };
 
 export class Installer {
@@ -42,7 +46,9 @@ export class Installer {
   mapBaseUrl: URL = baseUrl;
   pageBaseUrl: URL = baseUrl;
   conditions: string[];
+  // @ts-ignore
   installs: ResolutionMap;
+  // @ts-ignore
   map: ImportMap;
 
   resolveCache: Record<string, {
@@ -64,6 +70,8 @@ export class Installer {
 
   initPromise: Promise<void>;
 
+  stdlibTarget: InstallTarget = newPackageTarget('@jspm/core@2');
+
   constructor (map: TraceMap, opts: InstallOptions) {
     this.traceMap = map;
     this.mapBaseUrl = this.traceMap.baseUrl;
@@ -72,8 +80,20 @@ export class Installer {
     if (this.opts.clean)
       this.opts.full = true;
 
+    if (opts.stdlib) {
+      if (isURL(opts.stdlib) || opts.stdlib[0] === '.') {
+        this.stdlibTarget = new URL(opts.stdlib, this.pageBaseUrl);
+        if (this.stdlibTarget.href.endsWith('/'))
+          this.stdlibTarget.pathname = this.stdlibTarget.pathname.slice(0, -1);
+      }
+      else {
+        this.stdlibTarget = newPackageTarget(opts.stdlib);
+      }
+    }
+
     this.conditions = map.conditions;
     this.initPromise = (async () => {
+      this.traceMap = map;
       [this.installs, this.map] = await importMapToResolutions(this.traceMap.map, this.mapBaseUrl);
     })();
   }
@@ -127,11 +147,11 @@ export class Installer {
         pkgExports['.'] = './' + pkgSubpath;
         subpaths['.'] = '.';
       }
-      await this.tracePkg(pkgUrl, subpaths, pkgExports, true, false);
+      await this.tracePkg(pkgUrl, subpaths, pkgExports, false);
       return;
     }
     // external package installs
-    const { target, subpath } = parseInstallTarget(installTarget);
+    const { target, subpath } = parsePackageTarget(installTarget);
     const isAlias = pkgName && subpath;
     if (!pkgName) pkgName = target.name;
     const pkg = await this.resolveLatestTarget(target);
@@ -160,7 +180,7 @@ export class Installer {
     for (const subpath of Object.keys(subpaths))
       this.tracedMappings.add(install.pkgName + subpath.slice(1));
     const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
-    await this.tracePkg(pkgUrl, subpaths, pkgExports, true, false);
+    await this.tracePkg(pkgUrl, subpaths, pkgExports, false);
   }
 
   setResolution (install: PackageInstall, pkgUrl: string): Record<string, string> {
@@ -321,46 +341,7 @@ export class Installer {
   }
 
   isNodeCoreLib (specifier: string) {
-    return [
-      'assert',
-      'async_hooks',
-      'buffer',
-      'child_process',
-      'cluster',
-      'console',
-      'constants',
-      'crypto',
-      'dgram',
-      'dns',
-      'domain',
-      'events',
-      'fs',
-      'http',
-      'http2',
-      'https',
-      'inspector',
-      'module',
-      'net',
-      'os',
-      'path',
-      'perf_hooks',
-      'process',
-      'punycode',
-      'querystring',
-      'readline',
-      'repl',
-      'stream',
-      'string_decoder',
-      'sys',
-      'timers',
-      'tls',
-      'tty',
-      'url',
-      'util',
-      'vm',
-      'worker_threads',
-      'zlib'
-    ].indexOf(specifier) !== -1;
+    return builtinSet.has(specifier);
   }
 
   async traceInstall (specifier: string, parentUrl: URL, cjsResolve: boolean) {
@@ -449,38 +430,44 @@ export class Installer {
         }
       }
       this.tracedMappings.add(parentPkgUrl + '|' + specifier);
-      return this.tracePkg(parentPkgUrl, subpaths, pkgExports, true, false);
+      return this.tracePkg(parentPkgUrl, subpaths, pkgExports, false);
     }*/
 
     // exports "own name" resolution
     if (pkgName === pcfg.name && pcfg.exports) {
       const pkgExports = this.setResolution({ pkgName, pkgScope: parentPkgUrl }, parentPkgUrl);
       this.tracedMappings.add(parentPkgUrl + '|' + specifier);
-      return this.tracePkg(parentPkgUrl, { [subpath]: subpath }, pkgExports, false, cjsResolve, parentUrl);
+      return this.tracePkg(parentPkgUrl, { [subpath]: subpath }, pkgExports, cjsResolve, parentUrl);
     }
 
     // package dependencies
     if (pcfg.dependencies?.[pkgName]) {
-      const target = new PackageTarget(pcfg.dependencies[pkgName], pkgName);
+      const target = newPackageTarget(pcfg.dependencies[pkgName], pkgName);
       this.tracedMappings.add(parentPkgUrl + '|' + specifier);
       return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);
     }
     if (pcfg.peerDependencies?.[pkgName]) {
-      const target = new PackageTarget(pcfg.peerDependencies[pkgName], pkgName);
+      const target = newPackageTarget(pcfg.peerDependencies[pkgName], pkgName);
       this.tracedMappings.add(specifier);
       return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);
     }
     if (pcfg.optionalDependencies?.[pkgName]) {
-      const target = new PackageTarget(pcfg.optionalDependencies[pkgName], pkgName);
+      const target = newPackageTarget(pcfg.optionalDependencies[pkgName], pkgName);
+      this.tracedMappings.add(parentPkgUrl + '|' + specifier);
+      return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);
+    }
+    if (pcfg.devDependencies?.[pkgName]) {
+      const target = newPackageTarget(pcfg.devDependencies[pkgName], pkgName);
       this.tracedMappings.add(parentPkgUrl + '|' + specifier);
       return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);
     }
 
     // node.js core
-    if (this.isNodeCoreLib(specifier) && subpath === '.') {
-      const target = new PackageTarget('@jspm/core@2', pkgName);
+    if (this.isNodeCoreLib(specifier)) {
       this.tracedMappings.add(parentPkgUrl + '|' + specifier);
-      return this.installPkg(pkgName, parentPkgUrl, target, { '.': `./nodelibs/${specifier}` }, cjsResolve, parentUrl);
+      return this.installPkg(pkgName, parentPkgUrl, this.stdlibTarget, {
+        ['.' + (specifier.indexOf('/') === -1 ? '' : specifier.slice(specifier.indexOf('/')))]: `./nodelibs/${specifier}`
+      }, cjsResolve, parentUrl);
     }
 
     // local installs / peers
@@ -496,12 +483,17 @@ export class Installer {
 
     // global install fallback
     console.warn(`Package ${specifier} not declared in package.json dependencies - installing from latest${importedFrom(parentUrl)}`);
-    const target = new PackageTarget('*', pkgName);
+    const target = newPackageTarget('*', pkgName);
     this.tracedMappings.add(parentPkgUrl + '|' + specifier);
     return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);
   }
 
-  async installPkg (pkgName: string, pkgScope: string | undefined, target: PackageTarget, subpaths: Record<string, string>, cjsResolve: boolean, parentUrl?: URL): Promise<void> {
+  async installPkg (pkgName: string, pkgScope: string | undefined, target: InstallTarget, subpaths: Record<string, string>, cjsResolve: boolean, parentUrl?: URL): Promise<void> {
+    if (target instanceof URL) {
+      const pkgUrl = target.href + (target.href.endsWith('/') ? '' : '/');
+      const pkgExports = this.setResolution({ pkgName, pkgScope }, pkgUrl);
+      return this.tracePkg(pkgUrl, subpaths, pkgExports, false);
+    }
     let pkgUrl = (!pkgScope ? this.installs.imports[pkgName] : this.installs.scopes[pkgScope]?.[pkgName])?.pkgUrl;
     let pkg: ExactPackage | undefined = pkgUrl ? parseCdnPkg(pkgUrl) : undefined;
     const locked = pkg && (this.opts.lock || matchesTarget(pkg, target));
@@ -521,10 +513,10 @@ export class Installer {
       }
     }
     const pkgExports = this.setResolution({ pkgName, pkgScope }, pkgUrl);
-    return this.tracePkg(pkgUrl, subpaths, pkgExports, false, cjsResolve, parentUrl);
+    return this.tracePkg(pkgUrl, subpaths, pkgExports, cjsResolve, parentUrl);
   }
 
-  async tracePkg (pkgUrl: string, subpaths: Record<string, string>, pkgExports: Record<string, string | null>, exactSubpaths: boolean, cjsResolve: boolean, parentUrl?: URL) {
+  async tracePkg (pkgUrl: string, subpaths: Record<string, string>, pkgExports: Record<string, string | null>, cjsResolve: boolean, parentUrl?: URL) {
     if (!pkgUrl.endsWith('/'))
       throw new Error('Internal Error: Package URL should end in "/"');
     await Promise.all(Object.keys(subpaths).map(async subpath => {
@@ -541,31 +533,24 @@ export class Installer {
       }
 
       if (!exportMatch) {
-        console.log((await this.getPackageConfig(pkgUrl)).exports);
-        console.log(`No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}`);
+        console.warn((await this.getPackageConfig(pkgUrl)).exports);
+        console.warn(`No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}`);
         // Consider a non-encapsulated fallback?
-        pkgExports[subpath] = null;
+        pkgExports[subpath] = subpathTarget;
         return;
         throw new Error(`No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}`);
       }
 
-      const exportTarget = exports[exportMatch];
-
-      if (exportTarget === null)
+      const mapResolved = getMapResolved(exportMatch, exports[exportMatch], subpathTarget);
+      if (!mapResolved)
         return;
+      pkgExports[subpath] = './' + mapResolved;
 
-      const subpathTrailer = subpathTarget.slice(exportMatch.length);
-
-      if (exactSubpaths)
-        pkgExports[subpath] = exportTarget + subpathTrailer;
-      else
-        pkgExports[subpath] = exportTarget;
-
-      let resolvedUrl = pkgUrl + exportTarget.slice(2) + subpathTrailer;
+      let resolvedUrl = pkgUrl + mapResolved;
 
       // with the resolved URL, check if there is an exports !cjs entry
       // and if so, jump into cjsResolve mode
-      if (!cjsResolve && exports[exportTarget + subpathTrailer + '!cjs'])
+      if (!cjsResolve && exports['./' + mapResolved + '!cjs'])
         cjsResolve = true;
 
       return this.trace(resolvedUrl, cjsResolve, parentUrl);
@@ -583,14 +568,14 @@ export class Installer {
         if (expt.endsWith('!cjs')) continue;
         if (!expt.startsWith(pkgSubpath.length === 0 ? '.' : './' + pkgSubpath)) continue;
         if (expt.endsWith('/')) {
-          console.log(`TODO: trace directory listing / trace package dependency deoptimizations, importing ${resolvedUrl}${importedFrom(parentUrl)}`);
+          console.warn(`TODO: trace directory listing / trace package dependency deoptimizations, importing ${resolvedUrl}${importedFrom(parentUrl)}`);
           return;
         }
         else {
           subpaths[expt] = expt;
         }
       }
-      await this.tracePkg(pkgUrl, subpaths, exports, true, cjsResolve, parentUrl);
+      await this.tracePkg(pkgUrl, subpaths, exports, cjsResolve, parentUrl);
       return;
     }
     const tracedDeps: string[] = this.tracedUrls[resolvedUrl] = [];
@@ -617,7 +602,7 @@ export class Installer {
     if (ranges.length === 1 && ranges[0].isExact && !ranges[0].version.tag)
       return { registry, name, version: ranges[0].version.toString() };
 
-    const cache = this.resolveCache[target.registryName] = this.resolveCache[target.registryName] || {
+    const cache = this.resolveCache[target.registry + ':' + target.name] = this.resolveCache[target.registry + ':' + target.name] || {
       latest: null,
       majors: Object.create(null),
       minors: Object.create(null),

@@ -16,7 +16,7 @@
   },
   "exports": {
     "publish": "./dist/index.js",
-    "default": "./src/index.ts"
+    "default": "./src/deno.ts"
   },
   "bin": {
     "jspm": "dist/index.js"

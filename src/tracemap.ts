@@ -14,9 +14,9 @@
  *   limitations under the License.
  */
 
-import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, decorateError } from './utils.js';
-import { InstallOptions, Installer } from './installer.js';
-import { getScopeMatches, getMapMatch, analyze } from './installtree.js';
+import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, decorateError } from './utils.ts';
+import { InstallOptions, Installer } from './installer.ts';
+import { getScopeMatches, getMapMatch, analyze } from './installtree.ts';
 
 export interface TraceOptions {
   depcache?: boolean;

@@ -1,10 +1,10 @@
 import { pathToFileURL, fileURLToPath } from 'url';
-import { TraceMap } from './tracemap';
-import { fetch } from './fetch';
+import { TraceMap } from './tracemap.ts';
+import { fetch } from './fetch.ts';
 import { parse } from 'es-module-lexer';
-import { systemCdnUrl, esmCdnUrl } from './installtree';
+import { systemCdnUrl, esmCdnUrl } from './installtree.ts';
 import * as terser from 'terser';
-import { DecoratedError, isPlain, isURL } from './utils';
+import { DecoratedError, isPlain, isURL } from './utils.ts';
 import chalk from 'chalk';
 import * as babel from '@babel/core';
 import babelPluginTransformTypeScript from '@babel/plugin-transform-typescript';

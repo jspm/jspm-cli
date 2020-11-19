@@ -13,23 +13,23 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-import { TraceMap, ImportMap } from './tracemap.js';
+import { TraceMap, ImportMap } from './tracemap.ts';
 import chalk from 'chalk';
 import * as fs from 'fs';
 import { pathToFileURL, fileURLToPath } from 'url';
 import * as rollup from 'rollup';
-import jspmRollup from './rollup-plugin.js';
+import jspmRollup from './rollup-plugin.ts';
 import ora from 'ora';
-import { logStream } from './log.js';
-import { clearCache } from './fetch.js';
+import { logStream } from './log.ts';
+import { clearCache } from './fetch.ts';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
-import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.js';
+import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.ts';
 import * as path from 'path';
-import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.js';
-import { Installer } from './installer.js';
+import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.ts';
+import { Installer } from './installer.ts';
 import clipboardy from 'clipboardy';
-import { version } from './version';
+import { version } from './version.js';
 
 function usage (cmd?: string) {
   switch (cmd) {
@@ -310,7 +310,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const inMapFile = getInMapFile(opts);
         if (inMapFile && inMapFile.endsWith('.importmap') && !opts.out)
           opts.out = true;
-        const outMapFile = opts.out !== true ? getOutMapFile(inMapFile, opts) : undefined;
+        const outMapFile = getOutMapFile(inMapFile, opts);
         const inMap = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
         const mapBase = new URL('.', pathToFileURL(inMapFile));
         const traceMap = new TraceMap(mapBase, inMap.map);
@@ -531,7 +531,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case undefined:
     case 'i':
     case 'install':
+      var install = true;
     case 'add':
+      // @ts-ignore
+      if (install === undefined)
+        install = false;
       try {
         // TODO: Flags
         // lock | latest | clean | force | installExports
@@ -539,10 +543,15 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         // clean works based on tracking which paths were used, removing unused
         // only applies to arguments install (jspm install --clean) and not any other
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static'],
-          strFlags: ['import-map', 'out', 'log', 'conditions'],
+          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static', 'out'],
+          strFlags: ['import-map', 'out', 'log', 'conditions', 'stdlib'],
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy' }
         });
+
+        if (install) {
+          if (args.some(arg => isPlain(arg)))
+            install = false;
+        }
 
         const conditions = [];
         if (opts.dev && opts.production)
@@ -568,10 +577,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         let changed = false;
         try {
-          if (args.length === 0) {
+          if (args.length === 0 || install) {
             // TODO: changed handling from install
             // can skip map saving when no change
-            opts.clean = true;
+            opts.clean = args.length === 0;
             changed = await traceMap.traceInstall(args.length ? args : inMap.imports, opts);
           }
           else {
@@ -599,8 +608,13 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             console.log(chalk.bold('(Import map copied to clipboard)'));
             clipboardy.writeSync(mapStr);
           }
-          await writeMap(outMapFile, mapStr, <boolean>opts.system);
-          console.log(`${chalk.bold.green('OK')}   Successfully installed.`);
+          if (outMapFile) {
+            await writeMap(outMapFile, mapStr, <boolean>opts.system);
+            console.log(`${chalk.bold.green('OK')}   Successfully installed.`);
+          }
+          else {
+            process.stdout.write(mapStr);
+          }
         }
         else {
           console.log(`${chalk.bold.green('OK')}   Already installed.`);
@@ -685,7 +699,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
         if (opts.watch) {
           const spinner = startSpinnerLog(opts.log);
-          if (spinner) spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+          if (spinner) spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 17) : ''}...`;
 
           rollupOptions.watch = { skipWrite: true };
           const watcher = await rollup.watch(rollupOptions);
@@ -717,7 +731,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             else if (code === 'BUNDLE_START') {
               if (spinner) {
                 spinner.start();
-                spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+                spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 17) : ''}...`;
               }
             }
             else if (code === 'BUNDLE_END') {
@@ -747,7 +761,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         }
 
         const spinner = startSpinnerLog(opts.log);
-        if (spinner) spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+        if (spinner) spinner.text = `Building${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 17) : ''}...`;
 
         try {
           const build = await rollup.rollup(rollupOptions);
@@ -890,8 +904,10 @@ function getInMapFile (opts: Record<string, string | boolean>): string {
   return inMapFile;
 }
 
-function getOutMapFile (inMapFile: string, opts: Record<string, string | boolean>): string {
-  let outMapFile = <string>opts.out || inMapFile;
+function getOutMapFile (inMapFile: string, opts: Record<string, string | boolean>): string | undefined {
+  if (opts.out === true)
+    return;
+  let outMapFile = opts.out || inMapFile;
   if (outMapFile.endsWith('/') || outMapFile.endsWith('\\'))
     outMapFile += 'jspm.importmap';
   return outMapFile;

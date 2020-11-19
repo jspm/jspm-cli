@@ -1,5 +1,5 @@
-import { ImportMap } from "./tracemap";
-import { fetch } from './fetch.js';
+import { ImportMap } from './tracemap.ts';
+import { fetch } from './fetch.ts';
 import * as crypto from 'crypto';
 import * as os from 'os';
 import { parse } from './script-lexer.js';

@@ -1,10 +1,10 @@
 import sver from 'sver';
 import convertRange from 'sver/convert-range';
 const { SemverRange } = sver;
-import { ImportMap } from './tracemap.js';
+import { ImportMap } from './tracemap.ts';
 import { parse } from 'es-module-lexer';
-import { fetch } from './fetch.js';
-import { computeIntegrity, importedFrom } from './utils.js';
+import { fetch } from './fetch.ts';
+import { computeIntegrity, importedFrom } from './utils.ts';
 
 export interface ExactPackage {
   registry: string;
@@ -27,6 +27,7 @@ export interface PackageConfig {
   dependencies?: Record<string, string>;
   peerDependencies?: Record<string, string>;
   optionalDependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
 }
 
 export interface PackageInstall {
@@ -40,7 +41,7 @@ export interface PackageInstallRange {
   install: PackageInstall;
 }
 
-export function parseInstallTarget (target: string): { target: PackageTarget, subpath: string } {
+export function parsePackageTarget (target: string): { target: PackageTarget, subpath: string } {
   const registryIndex = target.indexOf(':');
   const scoped = target[registryIndex + 1] === '@';
   let sepIndex = target.indexOf('/', registryIndex + 1);
@@ -50,51 +51,56 @@ export function parseInstallTarget (target: string): { target: PackageTarget, su
     sepIndex = target.indexOf('/', sepIndex + 1);
   }
   return {
-    target: new PackageTarget(target.slice(0, sepIndex === -1 ? target.length : sepIndex)),
+    target: newPackageTarget(target.slice(0, sepIndex === -1 ? target.length : sepIndex)),
     subpath: sepIndex === -1 ? '.' : '.' + target.slice(sepIndex)
   };
 }
 
-export class PackageTarget {
+export type InstallTarget = PackageTarget | URL;
+
+export interface PackageTarget {
   registry: string;
   name: string;
   ranges: any[];
+}
 
-  get registryName () {
-    return `${this.registry}:${this.name}`;
+export function newPackageTarget (target: string, depName?: string): PackageTarget {
+  let registry: string, name: string, ranges: any[];
+
+  const registryIndex = target.indexOf(':');
+  registry = registryIndex < 1 ? 'npm' : target.substr(0, registryIndex);
+
+  if (registry === 'file')
+    throw new Error('TODO: file: dependency installs, installing ' + target);
+
+  const versionIndex = target.lastIndexOf('@');
+  if (versionIndex > registryIndex + 1) {
+    name = target.slice(registryIndex + 1, versionIndex);
+    const version = target.slice(versionIndex + 1);
+    ranges = (depName || SemverRange.isValid(version)) ? [new SemverRange(version)] : version.split('||').map(v => convertRange(v));
+  }
+  else if (registryIndex === -1 && depName) {
+    name = depName;
+    ranges = SemverRange.isValid(target) ? [new SemverRange(target)] : target.split('||').map(v => convertRange(v));
+  }
+  else {
+    name = target.slice(registryIndex + 1);
+    ranges = [new SemverRange('*')];
   }
 
-  constructor (target: string, depName?: string) {
-    const registryIndex = target.indexOf(':');
-    this.registry = registryIndex < 1 ? 'npm' : target.substr(0, registryIndex);
+  if (registryIndex === -1 && name.indexOf('/') !== -1 && name[0] !== '@')
+    registry = 'github';
 
-    const versionIndex = target.lastIndexOf('@');
-    if (versionIndex > registryIndex + 1) {
-      this.name = target.slice(registryIndex + 1, versionIndex);
-      const version = target.slice(versionIndex + 1);
-      this.ranges = (depName || SemverRange.isValid(version)) ? [new SemverRange(version)] : version.split('||').map(v => convertRange(v));
-    }
-    else if (registryIndex === -1 && depName) {
-      this.name = depName;
-      this.ranges = SemverRange.isValid(target) ? [new SemverRange(target)] : target.split('||').map(v => convertRange(v));
-    }
-    else {
-      this.name = target.slice(registryIndex + 1);
-      this.ranges = [new SemverRange('*')];
-    }
-  
-    if (registryIndex === -1 && this.name.indexOf('/') !== -1 && this.name[0] !== '@')
-      this.registry = 'github';
-  
-    const targetNameLen = this.name.split('/').length;
-    if (targetNameLen > 2 || targetNameLen === 1 && this.name[0] === '@')
-      throw new TypeError(`Invalid package target ${target}`);
-  }
+  const targetNameLen = name.split('/').length;
+  if (targetNameLen > 2 || targetNameLen === 1 && name[0] === '@')
+    throw new TypeError(`Invalid package target ${target}`);
 
-  toString () {
-    return `${this.registryName}@${this.ranges.map(range => range.toString()).join(' || ')}`;
-  }
-};
+  return { registry, name, ranges };
+}
+
+// export function pkgTargetToString(pkgTarget: PackageTarget) {
+//   return `${pkgTarget.registry}@${pkgTarget.ranges.map(range => range.toString()).join(' || ')}`;
+// }
 
 interface ResolutionMapImports {
   [pkgName: string]: {
@@ -484,11 +490,22 @@ export function getMapMatch<T = any> (specifier: string, map: Record<string, T>)
   if (specifier in map) return specifier;
   let curMatch;
   for (const match of Object.keys(map)) {
-    if (!match.endsWith('/')) continue;
-    if (specifier.startsWith(match)) {
+    const wildcard = match.endsWith('*');
+    if (!match.endsWith('/') && !wildcard) continue;
+    if (specifier.startsWith(wildcard ? match.slice(0, -1) : match)) {
       if (!curMatch || match.length > curMatch.length)
         curMatch = match;
     }
   }
   return curMatch;
+}
+
+export function getMapResolved (exportMatch: string, exportTarget: string | null, subpathTarget: string): string | null {
+  if (exportTarget === null)
+    return null;
+  const wildcard = exportMatch.endsWith('*');
+  const subpathTrailer = subpathTarget.slice(wildcard ? exportMatch.length - 1 : exportMatch.length);
+  if (wildcard)
+    return exportTarget.slice(2).replace(/\*/g, subpathTrailer);
+  return exportTarget.slice(2) + subpathTrailer;
 }
