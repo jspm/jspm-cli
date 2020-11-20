@@ -19,7 +19,7 @@ import * as fs from 'fs';
 import { pathToFileURL, fileURLToPath } from 'url';
 import * as rollup from 'rollup';
 import jspmRollup from './rollup-plugin.ts';
-import ora from 'ora';
+import ora from './spinner.js';
 import { logStream } from './log.ts';
 import { clearCache } from './fetch.ts';
 import mkdirp from 'mkdirp';
@@ -30,6 +30,7 @@ import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parsePackageTarget, get
 import { Installer } from './installer.ts';
 import clipboardy from './clipboardy.js';
 import { version } from './version.js';
+import process from 'process';
 
 function usage (cmd?: string) {
   switch (cmd) {

@@ -9,7 +9,7 @@ let queue: Log[] = [];
 
 export const logStream = async function* () {
   while (true) {
-    while (queue.length) yield <Log>queue.shift();
+    while (queue.length) yield queue.shift();
     await queuePromise;
   }
 };

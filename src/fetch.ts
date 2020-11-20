@@ -34,47 +34,40 @@ else {
   throw new Error('No fetch implementation found for this environment, please post an issue.');
 }
 
-(async () => {
-  try {
-    await fetch(import.meta.url);
-  }
-  catch {
-    const __fetch = _fetch;
-    _fetch = async function (url, ...args) {
-      const urlString = url.toString();
-      if (urlString.startsWith('file:') || urlString.startsWith('data:') || urlString.startsWith('node:')) {
-        try {
-          let source;
-          if (urlString.startsWith('file:')) {
-            source = await readFile(fileURLToPath(urlString));
-          }
-          else if (urlString.startsWith('node:')) {
-            source = '';
-          }
-          else {
-            source = decodeURIComponent(urlString.slice(urlString.indexOf(',')));
-          }
-          return {
-            status: 200,
-            async text () {
-              return source.toString();
-            },
-            async json () {
-              return JSON.parse(source.toString());
-            }
-          };
-        }
-        catch (e) {
-          if (e.code === 'EISDIR' || e.code === 'ENOTDIR')
-            return { status: 404, statusText: e.toString() };
-          if (e.code === 'ENOENT')
-            return { status: 404, statusText: e.toString() };
-          return { status: 500, statusText: e.toString() };
-        }
+const __fetch = _fetch;
+_fetch = async function (url, ...args) {
+  const urlString = url.toString();
+  if (urlString.startsWith('file:') || urlString.startsWith('data:') || urlString.startsWith('node:')) {
+    try {
+      let source;
+      if (urlString.startsWith('file:')) {
+        source = await readFile(fileURLToPath(urlString));
       }
-      return __fetch(url, ...args);
-    } as typeof fetch;
+      else if (urlString.startsWith('node:')) {
+        source = '';
+      }
+      else {
+        source = decodeURIComponent(urlString.slice(urlString.indexOf(',')));
+      }
+      return {
+        status: 200,
+        async text () {
+          return source.toString();
+        },
+        async json () {
+          return JSON.parse(source.toString());
+        }
+      };
+    }
+    catch (e) {
+      if (e.code === 'EISDIR' || e.code === 'ENOTDIR')
+        return { status: 404, statusText: e.toString() };
+      if (e.code === 'ENOENT')
+        return { status: 404, statusText: e.toString() };
+      return { status: 500, statusText: e.toString() };
+    }
   }
-})();
+  return __fetch(url, ...args);
+} as typeof fetch;
 
 export { _fetch as fetch, clearCache };
