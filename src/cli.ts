@@ -966,7 +966,7 @@ async function writeMap (outMapFile: string, mapString: string, system: boolean,
       throw `No <script type="${system ? 'systemjs-importmap' : 'importmap'}"> found in ${outMapFile}`;
     let diff = 0;
     // remove top casts only above the map
-    const space = detectSpace(outSource, mapOuterStart);
+    const space = detectSpace(outSource, mapOuterStart) || '\n';
     for (const script of srcScripts) {
       if (script.start > mapOuterEnd)
         continue;
