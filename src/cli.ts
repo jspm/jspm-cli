@@ -563,7 +563,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           conditions.push('development');
         if (opts.deno) {
           conditions.push('deno');
-          conditions.push('browser');
+          // browser conditions break on eg readable-stream, tty etc.
+          // conditions.push('browser');
         }
         else if (opts.node)
           conditions.push('node');

@@ -466,5 +466,5 @@ export function resolve (specifier: string, parentUrl: URL, map: ImportMap, base
     if (target === null) return null;
     return new URL(target + specifier.slice(mapMatch.length), baseUrl);
   }
-  throw JspmError(new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`), 'MODULE_NOT_FOUND');
+  throw new JspmError(new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`), 'MODULE_NOT_FOUND');
 }
