@@ -26,9 +26,9 @@ import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
 import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.ts';
 import * as path from 'path';
-import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parseInstallTarget, getMapMatch, pkgToUrl } from './installtree.ts';
+import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parsePackageTarget, getMapMatch, pkgToUrl } from './installtree.ts';
 import { Installer } from './installer.ts';
-import clipboardy from 'clipboardy';
+import clipboardy from './clipboardy.js';
 import { version } from './version.js';
 
 function usage (cmd?: string) {
@@ -113,7 +113,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'cc':
     case 'cache-clean':
       clearCache();
-      console.log(`${chalk.bold.green('OK')}   Cache cleared.`);
+      console.log(`${chalk.bold.green('ok')}   Cache cleared.`);
       break;
     
     case 't':
@@ -140,7 +140,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
@@ -160,7 +160,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           throw 'Only one module must be passed to list';
 
         const installer = new Installer(new TraceMap(pathToFileURL(process.cwd())), opts);
-        const { target, subpath } = parseInstallTarget(args[0]);
+        const { target, subpath } = parsePackageTarget(args[0]);
         const resolved = await installer.resolveLatestTarget(target);
         const pcfg = await installer.getPackageConfig(pkgToUrl(resolved, esmCdnUrl));
         const matches: string[] = [];
@@ -211,7 +211,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
@@ -286,7 +286,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
@@ -338,7 +338,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         traceMap.clearDepcache();
         if (!opts.clear) {
           const spinner = startSpinnerLog(opts.log);
-          if (spinner) spinner.text = `Linking${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 12) : ''}...`;
+          if (spinner) spinner.text = `Linking${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 16) : ''}...`;
 
           try {
             if (await traceMap.traceInstall(args, { clean: false, system: <boolean>opts.system, static: <boolean>opts.static })) {
@@ -426,9 +426,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             writePreloads(outMapFile, outputPreloads, opts.minify ? true : false);
           }
           if (opts.clear)
-            console.log(`${chalk.bold.green('OK')}   Links cleared.`);
+            console.log(`${chalk.bold.green('ok')}   Links cleared.`);
           else
-            console.log(`${chalk.bold.green('OK')}   Linked${args.length ? ' ' + args.map(name => chalk.bold(name)).join(', ') : ''} into ${outMapFile} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
+            console.log(`${chalk.bold.green('ok')}   Linked${args.length ? ' ' + args.map(name => chalk.bold(name)).join(', ') : ''} into ${outMapFile} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
         }
         else {
           output((mapStr === '{}' ? '' : `<script type="${opts.system ? 'systemjs-importmap' : 'importmap'}">\n` + mapStr + '</script>\n') + preloads + '\n', opts);
@@ -436,7 +436,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
@@ -474,17 +474,17 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
 
     case 'up':
     case 'update':
-      throw `${chalk.bold.red('ERR')}  TODO: jspm update`;
+      throw `${chalk.bold.red('err')}  TODO: jspm update`;
 
     case 'upgrade':
-      throw `${chalk.bold.red('ERR')}  TODO: jspm upgrade`;
+      throw `${chalk.bold.red('err')}  TODO: jspm upgrade`;
 
     case 'r':
     case 'rm':
@@ -506,7 +506,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
 
       for (const arg of args) {
         if (!traceMap.remove(arg))
-          throw `${chalk.bold.red('ERR')}  Cannot remove ${chalk.bold(arg)} as it doesn't exist in "imports".`;
+          throw `${chalk.bold.red('err')}  Cannot remove ${chalk.bold(arg)} as it doesn't exist in "imports".`;
       }
 
       await traceMap.traceInstall(opts);
@@ -514,7 +514,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       const imports = traceMap.map.imports;
       for (const arg of args) {
         if (imports[arg])
-          throw `${chalk.bold.red('ERR')}  Cannot remove ${chalk.bold(arg)} as it is in use by an existing package.`;
+          throw `${chalk.bold.red('err')}  Cannot remove ${chalk.bold(arg)} as it is in use by an existing package.`;
       }
 
       const mapStr = traceMap.toString(<boolean>opts.minify);
@@ -524,7 +524,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
 
       await writeMap(outMapFile, mapStr, <boolean>opts.system);
-      console.log(`${chalk.bold.green('OK')}   Removed ${args.map(arg => chalk.bold(arg)).join(', ')}.`);
+      console.log(`${chalk.bold.green('ok')}   Removed ${args.map(arg => chalk.bold(arg)).join(', ')}.`);
       break;
     }
   
@@ -560,8 +560,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           conditions.push('production');
         else
           conditions.push('development');
-        if (opts.deno)
+        if (opts.deno) {
           conditions.push('deno');
+          conditions.push('browser');
+        }
         else if (opts.node)
           conditions.push('node');
         else
@@ -573,7 +575,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const traceMap = new TraceMap(new URL('.', pathToFileURL(inMapFile)).href, inMap.map, conditions);
 
         const spinner = startSpinnerLog(opts.log);
-        if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 14) : ''}...`;
+        if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 19) : ''}...`;
 
         let changed = false;
         try {
@@ -610,19 +612,19 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           }
           if (outMapFile) {
             await writeMap(outMapFile, mapStr, <boolean>opts.system);
-            console.log(`${chalk.bold.green('OK')}   Successfully installed.`);
+            console.log(`${chalk.bold.green('ok')}   Successfully installed.`);
           }
           else {
             process.stdout.write(mapStr);
           }
         }
         else {
-          console.log(`${chalk.bold.green('OK')}   Already installed.`);
+          console.log(`${chalk.bold.green('ok')}   Already installed.`);
         }
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
@@ -705,7 +707,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           const watcher = await rollup.watch(rollupOptions);
           let firstRun = true;
           (<any>watcher).on('event', async ({ code, result, error }) => {
-            if (code === 'ERROR') {
+            if (code === 'errOR') {
               firstRun = false;
               spinner.stop();
               if (error.frame) {
@@ -737,7 +739,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             else if (code === 'BUNDLE_END') {
               const { output } = await result.write(outputOptions);
               spinner.stop();
-              console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
+              console.log(`${chalk.bold.green('ok')}   Built into ${chalk.bold(dir + '/')}`);
 
               if (opts.out) {
                 const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
@@ -774,7 +776,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           const { output } = await build.write(outputOptions);
 
           spinner.stop();
-          console.log(`${chalk.bold.green('OK')}   Built into ${chalk.bold(dir + '/')}`);
+          console.log(`${chalk.bold.green('ok')}   Built into ${chalk.bold(dir + '/')}`);
 
           if (opts.out) {
             const outArgs = Object.keys(inputObj).map(input => `${distMapRelative}/${output.find(chunk => chunk.name === input).fileName}`);
@@ -795,7 +797,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       catch (e) {
         if (typeof e === 'string')
-          throw `${chalk.bold.red('ERR')}  ${e}`;
+          throw `${chalk.bold.red('err')}  ${e}`;
         throw e;
       }
       break;
@@ -1102,19 +1104,47 @@ function startSpinnerLog (log: boolean | string) {
         interval: isCygwin() ? 7 : 100,
         frames: (<any>[".   ", ".   ", "..  ", "..  ", "... ", "... ", " ...", " ...", "  ..", "  ..", "   .", "   .", "    ", "    ", "    ", "    "].map(x => isCygwin() ? [x, x, x, x, x, x, x, x, x, x] : x)).flat()
       }
-    });  
+    });
+    (async () => {
+      for await (const log of logStream()) {
+        if (log.type === 'info') {
+          const spinning = spinner.isSpinning;
+          if (spinning)
+            spinner.stop();
+          console.error(`${chalk.cyan('info')} ${log.message}`);
+          if (spinning)
+            spinner.start();
+        }
+        else if (log.type === 'warn') {
+          const spinning = spinner.isSpinning;
+          if (spinning)
+            spinner.stop();
+          console.error(`${chalk.yellow('warn')} ${log.message}`);
+          if (spinning)
+            spinner.start();
+        }
+      }
+    })().catch(e => {
+      throw `${chalk.bold.red('err')}  ${e.message}`;
+    });
     spinner.start();
   }
   else {
     (async () => {
       const debugTypes = typeof log === 'string' ? log.split(',') : [];
       for await (const log of logStream()) {
-        if (debugTypes.length === 0 || debugTypes.indexOf(log.type) !== -1) {
-          console.log(`${chalk.gray(log.type)}: ${log.message}`);
+        if (log.type === 'info') {
+          console.error(`${chalk.cyan('info')} ${log.message}`);
+        }
+        else if (log.type === 'warn') {
+          console.error(`${chalk.yellow('warn')} ${log.message}`);
+        }
+        else if (debugTypes.length === 0 || debugTypes.indexOf(log.type) !== -1) {
+          console.error(`${chalk.gray(log.type)}: ${log.message}`);
         }
       }
     })().catch(e => {
-      throw `${chalk.bold.red('ERR')}  ${e.message}`;
+      throw `${chalk.bold.red('err')}  ${e.message}`;
     });
   }
   return spinner;
@@ -1122,7 +1152,7 @@ function startSpinnerLog (log: boolean | string) {
 
 async function locate (pkg: string, system: boolean, conditions?: string[] | undefined): Promise<string> {
   const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, conditions), { system });
-  const { target, subpath } = parseInstallTarget(pkg);
+  const { target, subpath } = parsePackageTarget(pkg);
   const resolved = await installer.resolveLatestTarget(target);
   const exports = await installer.resolveExports(pkgToUrl(resolved, esmCdnUrl), false);
   if (subpath === './') {

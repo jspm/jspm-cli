@@ -32,14 +32,13 @@ else if (typeof document !== 'undefined') {
     baseUrl = new URL('../', new URL(location.href));
 }
 
-export interface DecoratedError extends Error {
-  code: string;
-}
-
-export function decorateError (err: Error, code: string): DecoratedError {
-  const decorated = <DecoratedError>err;
-  decorated.code = code;
-  return decorated;
+export class JspmError extends Error {
+  jspmError = true;
+  code: string | undefined;
+  constructor (msg: string, code?: string) {
+    super(msg);
+    this.code = code;
+  }
 }
 
 export function deepClone (obj) {

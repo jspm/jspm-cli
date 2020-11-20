@@ -1,10 +1,11 @@
 import sver from 'sver';
+import chalk from 'chalk';
 const { Semver, SemverRange } = sver;
 import { TraceMap, ImportMap, TraceOptions } from './tracemap.ts';
-import { isPlain, baseUrl, importedFrom, isURL } from './utils.ts';
+import { isPlain, baseUrl, importedFrom, isURL, JspmError } from './utils.ts';
 import { fetch } from './fetch.ts';
 import { log } from './log.ts';
-import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, parseInstallTarget, analyze, getExportsTarget, pkgToLookupUrl, matchesTarget, nicePkgStr, getPackageBase, exists, derivePackageName, newPackageTarget, InstallTarget, parsePackageTarget, getMapResolved } from './installtree.ts';
+import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, analyze, getExportsTarget, pkgToLookupUrl, matchesTarget, nicePkgStr, getPackageBase, exists, derivePackageName, newPackageTarget, InstallTarget, parsePackageTarget, getMapResolved } from './installtree.ts';
 import { builtinModules } from 'module';
 
 const builtinSet = new Set(builtinModules);
@@ -282,18 +283,20 @@ export class Installer {
       throw new Error('Internal Error: Package URL must end in "/"');
     let cached = this.pcfgs[pkgUrl];
     if (cached) return cached;
-    await (this.pcfgPromises[pkgUrl] = this.pcfgPromises[pkgUrl] || (async () => {
-      const res = await fetch(`${pkgUrl}package.json`);
-      switch (res.status) {
-        case 200: case 304: break;
-        case 404: return this.pcfgs[pkgUrl] = Object.create(null);
-        default: throw new Error(`Invalid status code ${res.status} reading package config for ${pkgUrl}. ${res.statusText}`);
-      }
-      if (res.headers && !res.headers.get('Content-Type')?.match(/^application\/json(;|$)/))
-        this.pcfgs[pkgUrl] = Object.create(null);
-      else
-        this.pcfgs[pkgUrl] = await res.json();
-    })());
+    if (!this.pcfgPromises[pkgUrl])
+      this.pcfgPromises[pkgUrl] = (async () => {
+        const res = await fetch(`${pkgUrl}package.json`);
+        switch (res.status) {
+          case 200: case 304: break;
+          case 404: return this.pcfgs[pkgUrl] = Object.create(null);
+          default: throw new JspmError(`Invalid status code ${res.status} reading package config for ${pkgUrl}. ${res.statusText}`);
+        }
+        if (res.headers && !res.headers.get('Content-Type')?.match(/^application\/json(;|$)/))
+          this.pcfgs[pkgUrl] = Object.create(null);
+        else
+          this.pcfgs[pkgUrl] = await res.json();
+      })();
+    await this.pcfgPromises[pkgUrl];
     return this.pcfgs[pkgUrl];
   }
 
@@ -349,11 +352,13 @@ export class Installer {
     log('trace', `${specifier} ${parentUrl}`);
     if (!isPlain(specifier)) {
       const resolvedUrl = new URL(specifier, parentUrl);
+      if (resolvedUrl.protocol !== 'file:' && resolvedUrl.protocol !== 'https:' && resolvedUrl.protocol !== 'http:' && resolvedUrl.protocol !== 'node:' && resolvedUrl.protocol !== 'data:')
+        throw new JspmError(`Found unexpected protocol ${resolvedUrl.protocol}${importedFrom(parentUrl)}`);
       return this.trace(resolvedUrl.href, cjsResolve, parentUrl);
     }
 
     const parsed = parsePkg(specifier);
-    if (!parsed) throw new Error(`Invalid package name ${specifier}`);
+    if (!parsed) throw new JspmError(`Invalid package name ${specifier}`);
     const { pkgName, subpath } = parsed;
 
     const parentPkgUrl = await getPackageBase(parentUrl);
@@ -482,7 +487,7 @@ export class Installer {
     }
 
     // global install fallback
-    console.warn(`Package ${specifier} not declared in package.json dependencies - installing from latest${importedFrom(parentUrl)}`);
+    log('warn', `Package ${specifier} not declared in package.json dependencies ${importedFrom(parentUrl)} - installing from latest.`);
     const target = newPackageTarget('*', pkgName);
     this.tracedMappings.add(parentPkgUrl + '|' + specifier);
     return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);
@@ -533,12 +538,11 @@ export class Installer {
       }
 
       if (!exportMatch) {
-        console.warn((await this.getPackageConfig(pkgUrl)).exports);
-        console.warn(`No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}`);
+        log('warn', `No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}:\n${JSON.stringify((await this.getPackageConfig(pkgUrl)).exports, null, 2)}`);
         // Consider a non-encapsulated fallback?
         pkgExports[subpath] = subpathTarget;
         return;
-        throw new Error(`No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}`);
+        throw new JspmError(`No package exports defined for ${subpathTarget} in ${nicePkgStr(pkgUrl)}${importedFrom(parentUrl)}`);
       }
 
       const mapResolved = getMapResolved(exportMatch, exports[exportMatch], subpathTarget);
@@ -568,7 +572,7 @@ export class Installer {
         if (expt.endsWith('!cjs')) continue;
         if (!expt.startsWith(pkgSubpath.length === 0 ? '.' : './' + pkgSubpath)) continue;
         if (expt.endsWith('/')) {
-          console.warn(`TODO: trace directory listing / trace package dependency deoptimizations, importing ${resolvedUrl}${importedFrom(parentUrl)}`);
+          log('warn', `TODO: trace directory listing / trace package dependency deoptimizations, importing ${resolvedUrl}${importedFrom(parentUrl)}`);
           return;
         }
         else {
@@ -634,7 +638,7 @@ export class Installer {
           return lookup;
       }
     }
-    throw new Error(`Unable to resolve package ${registry}:${name} to "${ranges.join(' || ')}"${importedFrom(parentUrl)}`);
+    throw new JspmError(`Unable to resolve package ${registry}:${name} to "${ranges.join(' || ')}"${importedFrom(parentUrl)}`);
   }
   
   async lookupRange (registry: string, name: string, range: string, parentUrl?: URL): Promise<ExactPackage | null> {
@@ -642,7 +646,7 @@ export class Installer {
     switch (res.status) {
       case 304: case 200: return { registry, name, version: (await res.text()).trim() };
       case 404: return null;
-      default: throw new Error(`Invalid status code ${res.status} looking up "${registry}:${name}" - ${res.statusText}${importedFrom(parentUrl)}`);
+      default: throw new JspmError(`Invalid status code ${res.status} looking up "${registry}:${name}" - ${res.statusText}${importedFrom(parentUrl)}`);
     }
   }
 }

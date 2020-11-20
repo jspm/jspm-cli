@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, decorateError } from './utils.ts';
+import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, JspmError } from './utils.ts';
 import { InstallOptions, Installer } from './installer.ts';
 import { getScopeMatches, getMapMatch, analyze } from './installtree.ts';
 
@@ -466,5 +466,5 @@ export function resolve (specifier: string, parentUrl: URL, map: ImportMap, base
     if (target === null) return null;
     return new URL(target + specifier.slice(mapMatch.length), baseUrl);
   }
-  throw decorateError(new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`), 'MODULE_NOT_FOUND');
+  throw JspmError(new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`), 'MODULE_NOT_FOUND');
 }

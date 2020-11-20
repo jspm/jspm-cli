@@ -4,7 +4,7 @@ const { SemverRange } = sver;
 import { ImportMap } from './tracemap.ts';
 import { parse } from 'es-module-lexer';
 import { fetch } from './fetch.ts';
-import { computeIntegrity, importedFrom } from './utils.ts';
+import { computeIntegrity, importedFrom, JspmError } from './utils.ts';
 
 export interface ExactPackage {
   registry: string;
@@ -47,7 +47,7 @@ export function parsePackageTarget (target: string): { target: PackageTarget, su
   let sepIndex = target.indexOf('/', registryIndex + 1);
   if (scoped) {
     if (sepIndex === -1)
-      throw new Error(`Invalid scoped package name ${target}`);
+      throw new JspmError(`Invalid scoped package name ${target}`);
     sepIndex = target.indexOf('/', sepIndex + 1);
   }
   return {
@@ -93,7 +93,7 @@ export function newPackageTarget (target: string, depName?: string): PackageTarg
 
   const targetNameLen = name.split('/').length;
   if (targetNameLen > 2 || targetNameLen === 1 && name[0] === '@')
-    throw new TypeError(`Invalid package target ${target}`);
+    throw new JspmError(`Invalid package target ${target}`);
 
   return { registry, name, ranges };
 }
@@ -204,7 +204,7 @@ export async function exists (resolvedUrl: string): Promise<boolean> {
     case 404:
     case 406:
       return false;
-    default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
+    default: throw new JspmError(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
   }
 }
 
@@ -214,8 +214,8 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
     case 200:
     case 304:
       break;
-    case 404: throw new Error(`Module not found: ${resolvedUrl}${importedFrom(parentUrl)}`);
-    default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
+    case 404: throw new JspmError(`Module not found: ${resolvedUrl}${importedFrom(parentUrl)}`);
+    default: throw new JspmError(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
   }
   let source = await res.text();
   try {
@@ -232,8 +232,8 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
       case 200:
       case 304:
         break;
-      case 404: throw new Error(`Module not found: ${resolvedUrl}${importedFrom(parentUrl)}`);
-      default: throw new Error(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
+      case 404: throw new JspmError(`Module not found: ${resolvedUrl}${importedFrom(parentUrl)}`);
+      default: throw new JspmError(`Invalid status code ${res.status} loading ${resolvedUrl}. ${res.statusText}`);
     }
     source = await res.text();
     try {
@@ -253,7 +253,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
         console.log('  ' + ' '.repeat(col - 1) + '^');
         if (lines.length > 1)
           console.log('  ' + lines[line]);
-        throw new Error(`Error parsing ${resolvedUrl}:${pos}`);
+        throw new JspmError(`Error parsing ${resolvedUrl}:${pos}`);
       }
       throw e;
     }
@@ -273,7 +273,7 @@ export async function checkPjson (url: URL): Promise<URL | false> {
     case 404:
     case 406:
       return false;
-    default: throw new Error(`Invalid status code ${res.status} looking up ${url.href} - ${res.statusText}`);
+    default: throw new JspmError(`Invalid status code ${res.status} looking up ${url.href} - ${res.statusText}`);
   }
 }
 
