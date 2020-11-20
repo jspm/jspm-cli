@@ -18,6 +18,16 @@ Simply using the project and sharing feedback is a huge help.
 
 Bug fixes, improving test coverage and code quality or suggesting your own additions all welcome.
 
+## Deno Support
+
+Experimental support is provided for Deno import map generation, with the install command:
+
+```
+jspm install [pkgname] --deno --stdlib ./core/dist
+```
+
+The `--stdlib` flag points to the relative path to `~/Projects/jspm/core/dist`, which is a git submodule which must be cloned to the deno branch for the stdlib support.
+
 ## Building
 
 ### CLI Build
