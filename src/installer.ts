@@ -491,7 +491,7 @@ export class Installer {
     }
 
     // global install fallback
-    log('warn', `Package ${specifier} not declared in package.json dependencies ${importedFrom(parentUrl)} - installing from latest.`);
+    log('info', `Package ${specifier} not declared in package.json dependencies${importedFrom(parentUrl)}.`);
     const target = newPackageTarget('*', pkgName);
     this.tracedMappings.add(parentPkgUrl + '|' + specifier);
     return this.installPkg(pkgName, parentPkgUrl, target, { [subpath]: subpath }, cjsResolve, parentUrl);

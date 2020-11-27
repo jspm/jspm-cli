@@ -416,8 +416,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           opts.system = true;
 
         const inMapFile = getInMapFile(opts);
-        if (inMapFile && inMapFile.endsWith('.importmap') && !opts.out)
-          opts.out = true;
         const outMapFile = getOutMapFile(inMapFile, opts);
         const inMap = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
         const mapBase = new URL('.', pathToFileURL(inMapFile));
@@ -536,9 +534,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (opts.clear)
             console.log(`${chalk.bold.green('ok')}   Links cleared.`);
           else
-            console.log(`${chalk.bold.green('ok')}   Linked${args.length ? ' ' + args.map(name => chalk.bold(name)).join(', ') : ''} into ${outMapFile} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
+            console.log(`${chalk.bold.green('ok')}   Linked${args.length ? ' ' + args.map(name => chalk.bold(name)).join(', ') : ''}${outMapFile !== inMapFile ? ` into ${outMapFile}` : ''} ${(staticSize || dynamicSize) ? `(${chalk.cyan.bold(`${Math.round(staticSize / 1024 * 10) / 10}KiB`)}${dynamicSize ? ' static, ' + chalk.cyan(`${Math.round(dynamicSize / 1024 * 10) / 10}KiB`) + ' dynamic' : ''}).` : ''}`);
         }
-        else {
+        else if (opts.out) {
           output((mapStr === '{}' ? '' : `<script type="${opts.system ? 'systemjs-importmap' : 'importmap'}">\n` + mapStr + '</script>\n') + preloads + '\n', opts);
         }
       }
@@ -636,11 +634,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
   
     case undefined:
     case 'install':
-      var install = true;
     case 'add':
-      // @ts-ignore
-      if (install === undefined)
-        install = false;
       try {
         // TODO: Flags
         // lock | latest | clean | force | installExports
@@ -653,11 +647,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           arrFlags: ['reset'],
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy', r: 'reset', z: 'offline' }
         });
-
-        if (install) {
-          if (args.some(arg => isPlain(arg)))
-            install = false;
-        }
 
         const conditions = [];
         if (opts.dev && opts.production)
@@ -694,9 +683,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
               traceMap.pkgReset(pkgUrl, pkgCfg);
           }
           if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 19) : ''}...`;
-          if (args.length === 0 || install) {
-            // TODO: changed handling from install
-            // can skip map saving when no change
+          if (args.length === 0) {
             opts.clean = args.length === 0;
             changed = await traceMap.traceInstall(args.length ? args : inMap.imports, opts) || opts.clean;
           }
