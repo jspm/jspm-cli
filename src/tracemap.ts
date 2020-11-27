@@ -20,6 +20,7 @@ import { getScopeMatches, getMapMatch, analyze, PackageConfig, pkgToUrl, esmCdnU
 
 export interface TraceOptions {
   depcache?: boolean;
+  offline?: boolean;
   system?: boolean;
   static?: boolean;
 }
@@ -166,14 +167,19 @@ export class TraceMap {
   }
 
   copy (minify: boolean) {
+    // @ts-ignore
     if (typeof document === 'undefined')
       throw new Error('Node.js clipboard support pending.');
     const text = this.toString(minify);
+    // @ts-ignore
     const el = document.createElement('textarea');
     el.value = text;
+    // @ts-ignore
     document.body.appendChild(el);
     el.select();
+    // @ts-ignore
     document.execCommand('copy');
+    // @ts-ignore
     document.body.removeChild(el);
     return this;
   }
@@ -312,10 +318,11 @@ export class TraceMap {
     this._map.integrity = alphabetize(this._map.integrity);
   }
 
-  async trace (specifiers: string[], { static: isStatic = false, depcache: doDepcache = false, system = false } = {} as TraceOptions): Promise<{ map: Record<string, URL | null>, trace: Trace }> {
+  async trace (specifiers: string[], { static: isStatic = false, depcache: doDepcache = false, system = false, offline = false } = {} as TraceOptions): Promise<{ map: Record<string, URL | null>, trace: Trace }> {
     let postOrder = 0;
     let dynamicTracing = false;
     const dynamics: Set<{ dep: string, parentUrl: URL }> = new Set();
+    const fetchOpts = offline ? { cache: 'only-if-cached' } : {};
     const doTrace = async (specifier: string, parentUrl: URL, curTrace: Trace, curMap: Record<string, URL | null>, isEntry: boolean): Promise<void> => {
       const resolved = this.resolve(specifier, parentUrl);
       curMap[specifier] = resolved;
@@ -345,7 +352,7 @@ export class TraceMap {
         integrity: '',
         system: false,
       };
-      const { deps, dynamicDeps, size, integrity, system: isSystem } = await analyze(href, parentUrl, system);
+      const { deps, dynamicDeps, size, integrity, system: isSystem } = await analyze(href, fetchOpts, parentUrl, system);
       curEntry.integrity = integrity;
       curEntry.size = size;
       curEntry.system = isSystem;
@@ -540,5 +547,5 @@ export function resolve (specifier: string, parentUrl: URL, map: ImportMap, base
     if (target === null) return null;
     return new URL(target + specifier.slice(mapMatch.length), baseUrl);
   }
-  throw new JspmError(new Error(`Unable to resolve "${specifier}" from ${parentUrl.href}`), 'MODULE_NOT_FOUND');
+  throw new JspmError(`Unable to resolve "${specifier}" from ${parentUrl.href}`, 'MODULE_NOT_FOUND');
 }

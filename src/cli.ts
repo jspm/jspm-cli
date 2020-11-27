@@ -642,7 +642,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         // clean works based on tracking which paths were used, removing unused
         // only applies to arguments install (jspm install --clean) and not any other
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static', 'out', 'offline'],
+          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static', 'out', 'offline', 'save', 'save-dev', 'save-peer', 'save-optional'],
           strFlags: ['import-map', 'out', 'log', 'conditions', 'stdlib'],
           arrFlags: ['reset'],
           aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy', r: 'reset', z: 'offline' }
@@ -684,6 +684,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           }
           if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 19) : ''}...`;
           if (args.length === 0) {
+            if (opts.save || opts.saveDev || opts.savePeer || opts.saveOptional)
+              throw `--save flags only supported for explicit package installs.`;
             opts.clean = args.length === 0;
             changed = await traceMap.traceInstall(args.length ? args : inMap.imports, opts) || opts.clean;
           }

@@ -2,11 +2,13 @@ import sver from 'sver';
 import chalk from 'chalk';
 const { Semver, SemverRange } = sver;
 import { TraceMap, ImportMap, TraceOptions } from './tracemap.ts';
-import { isPlain, baseUrl, importedFrom, isURL, JspmError } from './utils.ts';
+import { isPlain, baseUrl, importedFrom, isURL, JspmError, jsonParseStyled, jsonStringifyStyled } from './utils.ts';
 import { fetch } from './fetch.ts';
 import { log } from './log.ts';
 import { ExactPackage, PackageConfig, PackageInstall, PackageTarget, pkgToUrl, ResolutionMap, resolutionsToImportMap, importMapToResolutions, pkgToStr, parsePkg, esmCdnUrl, parseCdnPkg, getMapMatch, getScopeMatches, PackageInstallRange, analyze, getExportsTarget, pkgToLookupUrl, matchesTarget, nicePkgStr, getPackageBase, exists, derivePackageName, newPackageTarget, InstallTarget, parsePackageTarget, getMapResolved } from './installtree.ts';
 import { builtinModules } from 'module';
+import { readFileSync, writeFileSync } from 'fs';
+import { fileURLToPath } from 'url';
 
 const builtinSet = new Set(builtinModules);
 
@@ -41,6 +43,11 @@ export interface InstallOptions extends TraceOptions {
   stdlib?: string;
   // offline
   offline?: boolean;
+  // save flags
+  save?: boolean;
+  saveDev?: boolean;
+  savePeer?: boolean;
+  saveOptional?: boolean;
 };
 
 export class Installer {
@@ -129,7 +136,7 @@ export class Installer {
     // custom URL installs
     if (isURL(installTarget)) {
       let targetUrl = new URL(installTarget, this.pageBaseUrl);
-      if (!installTarget.endsWith('/') && await exists(targetUrl.href + '/package.json'))
+      if (!installTarget.endsWith('/') && await exists(targetUrl.href + '/package.json', this.fetchOpts))
         targetUrl = new URL(installTarget + '/');
       const pkgUrl = await getPackageBase(targetUrl);
       const pkgExports = this.setResolution({
@@ -153,39 +160,59 @@ export class Installer {
         subpaths['.'] = '.';
       }
       await this.tracePkg(pkgUrl, subpaths, pkgExports, false);
-      return;
+      if (this.opts.save || this.opts.saveDev || this.opts.savePeer || this.opts.saveOptional)
+        throw new JspmError(`Unable to save URL-based dependencies. Try configuring a custom registry for this host instead (tracking at https://github.com/jspm/jspm/issues/103).`);
     }
     // external package installs
-    const { target, subpath } = parsePackageTarget(installTarget);
-    const isAlias = pkgName && subpath;
-    if (!pkgName) pkgName = target.name;
-    const pkg = await this.resolveLatestTarget(target);
-    log('install', `${pkgName} ${pkgToStr(pkg)}`);
-    const install = { pkgName };
-    const pkgExports = this.setResolution(install, pkgToUrl(pkg, esmCdnUrl));
-    let subpaths;
-    if (this.opts.installExports) {
-      const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
-      const availableSubpaths = Object.fromEntries(Object.keys(await this.resolveExports(pkgUrl)).filter(key => !key.endsWith('!cjs')).map(key => [key, key]));
-      subpaths = availableSubpaths;
-    }
-    else if (subpath === '.') {
-      const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
-      const availableSubpaths = Object.fromEntries(Object.keys(await this.resolveExports(pkgUrl)).filter(key => !key.endsWith('!cjs')).map(key => [key, key]));
-      if (!availableSubpaths[subpath])
+    else {
+      const { target, subpath } = parsePackageTarget(installTarget);
+      const isAlias = pkgName && subpath;
+      if (!pkgName) pkgName = target.name;
+      const pkg = await this.resolveLatestTarget(target);
+      log('install', `${pkgName} ${pkgToStr(pkg)}`);
+      const install = { pkgName };
+      const pkgExports = this.setResolution(install, pkgToUrl(pkg, esmCdnUrl));
+      let subpaths;
+      if (this.opts.installExports) {
+        const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
+        const availableSubpaths = Object.fromEntries(Object.keys(await this.resolveExports(pkgUrl)).filter(key => !key.endsWith('!cjs')).map(key => [key, key]));
         subpaths = availableSubpaths;
-    }
-    else if (subpath === './') {
+      }
+      else if (subpath === '.') {
+        const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
+        const availableSubpaths = Object.fromEntries(Object.keys(await this.resolveExports(pkgUrl)).filter(key => !key.endsWith('!cjs')).map(key => [key, key]));
+        if (!availableSubpaths[subpath])
+          subpaths = availableSubpaths;
+      }
+      else if (subpath === './') {
+        const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
+        const availableSubpaths = Object.fromEntries(Object.keys(await this.resolveExports(pkgUrl)).filter(key => !key.endsWith('!cjs')).map(key => [key, key]));
+        if (!availableSubpaths[subpath])
+          subpaths = availableSubpaths;
+      }
+      subpaths = subpaths || { [isAlias ? '.' : subpath]: subpath };
+      for (const subpath of Object.keys(subpaths))
+        this.tracedMappings.add(install.pkgName + subpath.slice(1));
       const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
-      const availableSubpaths = Object.fromEntries(Object.keys(await this.resolveExports(pkgUrl)).filter(key => !key.endsWith('!cjs')).map(key => [key, key]));
-      if (!availableSubpaths[subpath])
-        subpaths = availableSubpaths;
+      await this.tracePkg(pkgUrl, subpaths, pkgExports, false);
+
+      if (this.opts.save || this.opts.saveDev || this.opts.savePeer || this.opts.saveOptional) {
+        const localPkgUrl = await getPackageBase(this.mapBaseUrl);
+        const pjsonPath = fileURLToPath(new URL('package.json', localPkgUrl));
+        const { json: pjson, style } = jsonParseStyled(readFileSync(pjsonPath).toString(), pjsonPath);
+        const targetVersion = target.ranges.map(range => range.isWildcard ? '^' + pkg.version : range.isExact ? range.toString() : '^' + range.toString()).join(' || ');
+        const targetStr = (target.name === pkgName ? targetVersion : target.name + '@' + targetVersion)
+        if (this.opts.save)
+          (pjson.dependencies = pjson.dependencies || {})[pkgName] = targetStr;
+        else if (this.opts.saveDev)
+          (pjson.devDependencies = pjson.devDependencies || {})[pkgName] = targetStr;
+        else if (this.opts.savePeer)
+          (pjson.peerDependencies = pjson.peerDependencies || {})[pkgName] = targetStr;
+        else if (this.opts.saveOptional)
+          (pjson.optionalDependencies = pjson.optionalDependencies || {})[pkgName] = targetStr;
+        writeFileSync(pjsonPath, jsonStringifyStyled(pjson, style));
+      }
     }
-    subpaths = subpaths || { [isAlias ? '.' : subpath]: subpath };
-    for (const subpath of Object.keys(subpaths))
-      this.tracedMappings.add(install.pkgName + subpath.slice(1));
-    const pkgUrl = pkgToUrl(pkg, esmCdnUrl);
-    await this.tracePkg(pkgUrl, subpaths, pkgExports, false);
   }
 
   setResolution (install: PackageInstall, pkgUrl: string): Record<string, string> {
@@ -587,7 +614,7 @@ export class Installer {
       return;
     }
     const tracedDeps: string[] = this.tracedUrls[resolvedUrl] = [];
-    const { deps, dynamicDeps, /*integrity*/ } = await analyze(resolvedUrl, parentUrl, resolvedUrl.startsWith(esmCdnUrl) ? false : this.opts.system);
+    const { deps, dynamicDeps, /*integrity*/ } = await analyze(resolvedUrl, this.fetchOpts, parentUrl, resolvedUrl.startsWith(esmCdnUrl) ? false : this.opts.system);
     // TODO: install integrity
     // this.map.integrity[resolvedUrl] = integrity;
     if (dynamicDeps.length && !this.opts.static) {
