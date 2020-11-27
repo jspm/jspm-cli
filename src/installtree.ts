@@ -198,8 +198,8 @@ export function getExportsTarget(target, env): string | null {
   return null;
 }
 
-export async function exists (resolvedUrl: string): Promise<boolean> {
-  const res = await fetch(resolvedUrl);
+export async function exists (resolvedUrl: string, fetchOpts: any): Promise<boolean> {
+  const res = await fetch(resolvedUrl, fetchOpts);
   switch (res.status) {
     case 200:
     case 304:
@@ -211,8 +211,8 @@ export async function exists (resolvedUrl: string): Promise<boolean> {
   }
 }
 
-export async function analyze (resolvedUrl: string, parentUrl?: URL, system = false): Promise<{ deps: string[], dynamicDeps: string[], size: number, integrity: string, system: boolean }> {
-  const res = await fetch(resolvedUrl);
+export async function analyze (resolvedUrl: string, fetchOpts: any, parentUrl?: URL, system = false): Promise<{ deps: string[], dynamicDeps: string[], size: number, integrity: string, system: boolean }> {
+  const res = await fetch(resolvedUrl, fetchOpts);
   switch (res.status) {
     case 200:
     case 304:
@@ -230,7 +230,7 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
       throw e;
     // fetch is _unstable_!!!
     // so we retry the fetch first
-    const res = await fetch(resolvedUrl);
+    const res = await fetch(resolvedUrl, fetchOpts);
     switch (res.status) {
       case 200:
       case 304:
@@ -263,8 +263,8 @@ export async function analyze (resolvedUrl: string, parentUrl?: URL, system = fa
   }
 }
 
-export async function checkPjson (url: URL): Promise<URL | false> {
-  const res = await fetch(new URL('package.json', url).href);
+export async function checkPjson (url: URL, fetchOpts: any): Promise<URL | false> {
+  const res = await fetch(new URL('package.json', url).href, fetchOpts);
   switch (res.status) {
     case 304:
     case 200:

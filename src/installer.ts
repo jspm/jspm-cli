@@ -38,7 +38,9 @@ export interface InstallOptions extends TraceOptions {
   // output System modules
   system?: boolean;
   // stdlib target
-  stdlib: string;
+  stdlib?: string;
+  // offline
+  offline?: boolean;
 };
 
 export class Installer {
@@ -70,12 +72,14 @@ export class Installer {
   changed = false;
 
   initPromise: Promise<void>;
+  fetchOpts: any;
 
   stdlibTarget: InstallTarget = newPackageTarget('@jspm/core@2');
 
   constructor (map: TraceMap, opts: InstallOptions) {
     this.traceMap = map;
     this.mapBaseUrl = this.traceMap.baseUrl;
+    this.fetchOpts = opts.offline ? { cache: 'only-if-cached' } : {};
     this.opts = opts;
 
     if (this.opts.clean)
@@ -285,7 +289,7 @@ export class Installer {
     if (cached) return cached;
     if (!this.pcfgPromises[pkgUrl])
       this.pcfgPromises[pkgUrl] = (async () => {
-        const res = await fetch(`${pkgUrl}package.json`);
+        const res = await fetch(`${pkgUrl}package.json`, this.fetchOpts);
         switch (res.status) {
           case 200: case 304: break;
           case 404: return this.pcfgs[pkgUrl] = Object.create(null);
@@ -650,7 +654,7 @@ export class Installer {
   }
   
   async lookupRange (registry: string, name: string, range: string, parentUrl?: URL): Promise<ExactPackage | null> {
-    const res = await fetch(pkgToLookupUrl({ registry, name, version: range }));
+    const res = await fetch(pkgToLookupUrl({ registry, name, version: range }), this.fetchOpts);
     switch (res.status) {
       case 304: case 200: return { registry, name, version: (await res.text()).trim() };
       case 404: return null;

@@ -148,9 +148,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'list':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log'],
+          boolFlags: ['log', 'offline'],
           strFlags: ['log', 'format'],
-          aliases: { l: 'log', f: 'format' }
+          aliases: { l: 'log', f: 'format', z: 'offline' }
         });
         
         if (!args.length)
@@ -218,10 +218,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'locate':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['log', 'system', 'copy', 'no-crossorigin', 'no-integrity'],
+          boolFlags: ['log', 'system', 'copy', 'no-crossorigin', 'no-integrity', 'offline'],
           strFlags: ['log', 'format', 'out'],
           arrFlags: ['conditions'],
-          aliases: { l: 'log', f: 'format', c: 'copy', u: 'conditions', o: 'out' }
+          aliases: { l: 'log', f: 'format', c: 'copy', u: 'conditions', o: 'out', z: 'offline' }
         });
         
         if (!args.length)
@@ -241,7 +241,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           }
         }
 
-        const url = await locate(args[0], Boolean(opts.system), <string[] | undefined>opts.conditions);
+        const url = await locate(args[0], opts);
 
         let statementToImport: string
         const format = opts.format || (opts.system ? 'script' : 'module')
@@ -252,16 +252,16 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             break;
           case 'system':
           case 'script':
-            statementToImport = `<script src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}></script>`;
+            statementToImport = `<script src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url, opts.offline)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}></script>`;
             break;
           case '@import':
             statementToImport = `@import url('${url}')`
             break;
           case 'style':
-            statementToImport = `<link rel="stylesheet" href="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}/>`
+            statementToImport = `<link rel="stylesheet" href="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url, opts.offline)}"`}${opts.noCrossorigin ? '' : ' crossorigin="anonymous"'}/>`
             break;
           case 'module':
-            statementToImport = `<script type="module" src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'}></script>`  
+            statementToImport = `<script type="module" src="${url}"${opts.noIntegrity ? '' : ` integrity="${await getIntegrity(url, opts.offline)}"`}${opts.noCrossorigin ? '': ' crossorigin="anonymous"'}></script>`  
             break;
           default:
             throw `Unknown format ${opts.format}`;
@@ -295,9 +295,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'checkout':
     case 'co':
       const { args, opts } = readFlags(rawArgs, {
-        boolFlags: ['beautify', 'minify', 'out', 'flatten', 'system', 'esm', 'copy'],
+        boolFlags: ['beautify', 'minify', 'out', 'flatten', 'system', 'esm', 'copy', 'offline'],
         strFlags: ['import-map', 'log', 'dir', 'out', 'relative'],
-        aliases: { m: 'import-map', l: 'log', d: 'dir', b: 'beautify', o: 'out', M: 'minify', F: 'flatten', p: 'production', s: 'system', e: 'esm', c: 'copy', r: 'reset' }
+        aliases: { m: 'import-map', l: 'log', d: 'dir', b: 'beautify', o: 'out', M: 'minify', F: 'flatten', p: 'production', s: 'system', e: 'esm', c: 'copy', r: 'reset', z: 'offline' }
       });
 
       const inMapFile = getInMapFile(opts);
@@ -342,7 +342,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             const url = pkgUrl + file;
             await dlPool.queue();
             try {
-              const res = await fetch(url);
+              const res = await fetch(url, opts.offline ? { cache: 'only-if-cached' } : {});
               switch (res.status) {
                 case 304:
                 case 200:
@@ -449,11 +449,11 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           if (spinner) spinner.text = `Linking${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 16) : ''}...`;
 
           try {
-            if (await traceMap.traceInstall(args, { clean: false, system: <boolean>opts.system, static: <boolean>opts.static })) {
+            if (await traceMap.traceInstall(args, { clean: false, system: <boolean>opts.system, static: <boolean>opts.static, offline: <boolean>opts.offline })) {
               const mapStr = traceMap.toString();
               await writeMap(inMapFile, mapStr, false);
             }
-            await traceMap.traceInstall(args, { clean: true, system: <boolean>opts.system, static: <boolean>opts.static });
+            await traceMap.traceInstall(args, { clean: true, system: <boolean>opts.system, static: <boolean>opts.static, offline: <boolean>opts.offline });
             var { trace } = await traceMap.trace(args, { system: <boolean>opts.system, depcache: <boolean>opts.depcache && <boolean>opts.dynamic, static: <boolean>opts.static });
             var allSystem = true;
             for (const url of Object.keys(trace)) {
@@ -648,10 +648,10 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         // clean works based on tracking which paths were used, removing unused
         // only applies to arguments install (jspm install --clean) and not any other
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static', 'out'],
+          boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static', 'out', 'offline'],
           strFlags: ['import-map', 'out', 'log', 'conditions', 'stdlib'],
           arrFlags: ['reset'],
-          aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy', r: 'reset' }
+          aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy', r: 'reset', z: 'offline' }
         });
 
         if (install) {
@@ -747,9 +747,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
-          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports', 'static'],
+          boolFlags: ['clear-dir', 'source-map', 'watch', 'minify', 'out', 'log', 'flatten', 'depcache', 'inline-maps', 'package', 'entry-hash', 'inline', 'production', 'system', 'esm', 'inline-dynamic-imports', 'static', 'offline'],
           strFlags: ['import-map', 'dir', 'out', 'banner', 'log'],
-          aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', p: 'production', s: 'system', e: 'system' }
+          aliases: { m: 'import-map', c: 'clear-dir', S: 'source-map', w: 'watch', M: 'minify', o: 'out', l: 'log', d: 'dir', b: 'banner', i: 'inline', p: 'production', s: 'system', e: 'system', z: 'offline' }
         });
 
         if (opts.production && !opts.system && !opts.esm)
@@ -791,7 +791,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           input: inputObj,
           onwarn: () => {},
           preserveEntrySignatures: 'allow-extension',
-          plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, format: <string>opts.format, inlineMaps: <boolean>opts.inlineMaps, sourceMap: opts.sourceMap, minify: <boolean>opts.minify })]
+          plugins: [jspmRollup({ map: JSON.parse(map.map), baseUrl, externals, format: <string>opts.format, inlineMaps: <boolean>opts.inlineMaps, sourceMap: opts.sourceMap, minify: <boolean>opts.minify, offline: <boolean>opts.offline })]
         };
 
         const outputOptions = {
@@ -1264,8 +1264,8 @@ function startSpinnerLog (log: boolean | string) {
   return spinner;
 }
 
-async function locate (pkg: string, system: boolean, conditions?: string[] | undefined): Promise<string> {
-  const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, conditions), { system });
+async function locate (pkg: string, { system = false, conditions = undefined, offline = false }: { system: boolean, conditions?: string[] | undefined, offline: boolean }): Promise<string> {
+  const installer = new Installer(new TraceMap(pathToFileURL(process.cwd()), undefined, conditions), { system, offline });
   const { target, subpath } = parsePackageTarget(pkg);
   const resolved = await installer.resolveLatestTarget(target);
   const exports = await installer.resolveExports(pkgToUrl(resolved, esmCdnUrl), false);

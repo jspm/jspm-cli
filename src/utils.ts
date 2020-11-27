@@ -296,8 +296,8 @@ export function computeIntegrity (source: string) {
   return 'sha384-' + hash.digest('base64');
 }
 
-export async function getIntegrity (url: string) {
-  const res = await fetch(url);
+export async function getIntegrity (url: string, offline: boolean) {
+  const res = await fetch(url, offline ? { cache: 'only-if-cached' } : {});
   switch (res.status) {
     case 200: case 304: break;
     case 404: throw new Error(`URL ${url} not found.`);

@@ -19,12 +19,13 @@ const stage3Syntax = ['asyncGenerators', 'classProperties', 'classPrivatePropert
 export default ({
   map,
   baseUrl = pathToFileURL(process.cwd() + '/').href,
+  fetchOpts,
   format,
   externals,
   inlineMaps,
   minify,
   sourceMap
-}: { map: any, minify: boolean, format?: string, baseUrl: URL | string, externals?: boolean | string[], inlineMaps?: boolean, sourceMap?: boolean }) => {
+}: { map: any, minify: boolean, format?: string, baseUrl: URL | string, externals?: boolean | string[], inlineMaps?: boolean, sourceMap?: boolean, fetchOpts: any }) => {
   if (typeof baseUrl === 'string')
     baseUrl = new URL(baseUrl);
 
@@ -102,7 +103,7 @@ export default ({
           url = pathToFileURL(url).href;
         }
       }
-      const res = await fetch(url);
+      const res = await fetch(url, fetchOpts);
       switch (res.status) {
         case 200: break;
         case 404: throw new Error(`Module not found: ${url}`);
@@ -116,7 +117,7 @@ export default ({
       catch (e) {
         // fetch is _unstable_!!!
         // so we retry the fetch first
-        const res = await fetch(url);
+        const res = await fetch(url, fetchOpts);
         switch (res.status) {
           case 200: break;
           case 404: throw new Error(`Module not found: ${url}`);
