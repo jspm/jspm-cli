@@ -16,7 +16,7 @@
 
 import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, JspmError } from './utils.ts';
 import { InstallOptions, Installer } from './installer.ts';
-import { getScopeMatches, getMapMatch, analyze } from './installtree.ts';
+import { getScopeMatches, getMapMatch, analyze, PackageConfig, pkgToUrl, esmCdnUrl } from './installtree.ts';
 
 export interface TraceOptions {
   depcache?: boolean;
@@ -88,6 +88,32 @@ export class TraceMap {
     this._map.integrity = map.integrity || Object.create(null);
     this._map.depcache = map.depcache || Object.create(null);
     return this;
+  }
+
+  pkgReset (pkgUrl: string, pkgCfg: PackageConfig): void {
+    for (const impt of Object.keys(this._map.imports)) {
+      const target = this._map.imports[impt];
+      if (target !== null && new URL(target, this._baseUrl).href.startsWith(pkgUrl)) {
+        if (!pkgCfg.name)
+          throw new JspmError(`Unable to determine package name of ${pkgUrl} from package.json configuration to reset.`);
+        if (!pkgCfg.version)
+          throw new JspmError(`Unable to determine package version of ${pkgUrl} from package.json configuration to reset.`);
+        this._map.imports[impt] = pkgToUrl({ registry: pkgCfg.registry || 'npm', name: pkgCfg.name, version: pkgCfg.version }, esmCdnUrl);
+      }
+    }
+    for (const scope of Object.keys(this._map.scopes)) {
+      const scopeImports = this._map.scopes[scope];
+      const scopeUrl = new URL(scope, this._baseUrl).href;
+      if (scopeUrl.startsWith(pkgUrl))
+        delete this._map.scopes[scope];
+      for (const name of Object.keys(scopeImports)) {
+        if (scopeImports[name] === null)
+          continue;
+        const targetUrl = new URL(scopeImports[name] as string, this._baseUrl);
+        if (targetUrl.href.startsWith(pkgUrl))
+          delete scopeImports[name];
+      }
+    }
   }
 
   remove (pkg: string): boolean {
@@ -237,6 +263,30 @@ export class TraceMap {
     for (const dep of Object.keys(this._map.depcache)) {
       if (this._map.depcache[dep].length === 0)
         delete this._map.depcache[dep];
+    }
+    return this;
+  }
+
+  replace (pkgUrl: string, newPkgUrl: URL) {
+    const newRelPkgUrl = this.baseUrlRelative(newPkgUrl);
+    for (const impt of Object.keys(this._map.imports)) {
+      const target = this._map.imports[impt];
+      if (target !== null && target.startsWith(pkgUrl))
+        this._map.imports[impt] = newRelPkgUrl + target.slice(pkgUrl.length);
+    }
+    for (const scope of Object.keys(this._map.scopes)) {
+      const scopeImports = this._map.scopes[scope];
+      const scopeUrl = new URL(scope, this._baseUrl).href;
+      if (scopeUrl.startsWith(pkgUrl)) {
+        const newScope = newRelPkgUrl + scopeUrl.slice(pkgUrl.length);
+        delete this._map.scopes[scope];
+        this._map.scopes[newScope] = scopeImports;
+      }
+      for (const name of Object.keys(scopeImports)) {
+        const target = scopeImports[name];
+        if (target !== null && target.startsWith(pkgUrl))
+          scopeImports[name] = newRelPkgUrl + target.slice(pkgUrl.length);
+      }
     }
     return this;
   }
@@ -442,6 +492,30 @@ export class TraceMap {
   async installToConditions (conditions: string[]) {
     this.conditions = conditions;
     await this.traceInstall({ clean: true });
+  }
+
+  // package selector
+  // supports package selection variants
+  async pkgSelect (names: string | string[], _parent?: string): Promise<{ pkgUrl: string, pkgCfg: PackageConfig }[]> {
+    if (typeof names === 'string')
+      names = [names];
+    const installer = new Installer(this, {});
+    await installer.initPromise;
+    return await Promise.all(names.map(async name => {
+      if (installer.installs.imports[name]) {
+        const pkgUrl = installer.installs.imports[name].pkgUrl;
+        const pkgCfg = await installer.getPackageConfig(pkgUrl);
+        return { pkgUrl, pkgCfg };
+      }
+      for (const scope of Object.keys(installer.installs.scopes)) {
+        if (installer.installs.scopes[scope][name]) {
+          const pkgUrl = installer.installs.scopes[scope][name].pkgUrl;
+          const pkgCfg = await installer.getPackageConfig(pkgUrl);
+          return { pkgUrl, pkgCfg };
+        }
+      }
+      throw new JspmError(`Package ${name} not found in import map.`);
+    }));
   }
 
   resolve (specifier: string, parentUrl: URL): URL | null {

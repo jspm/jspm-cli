@@ -19,8 +19,11 @@ export interface ExactPackagePath extends ExactPackage {
 type ExportsTarget = string | null | { [condition: string]: ExportsTarget } | ExportsTarget[];
 
 export interface PackageConfig {
+  registry?: string;
   name?: string;
+  version?: string;
   main?: string;
+  files?: string[];
   browser?: string | Record<string, string>;
   exports?: ExportsTarget | Record<string, ExportsTarget>;
   type?: string;
@@ -446,7 +449,7 @@ export function pkgToStr (pkg: ExactPackage) {
   return `${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : ''}`;
 }
 export function pkgToLookupUrl (pkg: ExactPackage, edge = false) {
-  return `https://ga.jspm.io/${pkg.registry}:${pkg.name}${pkg.version ? '@' + pkg.version : edge ? '@' : ''}`;
+  return `https://ga.jspm.io/${pkg.registry}:${pkg.name}${pkg.version != undefined ? '@' + pkg.version : edge ? '@' : ''}`;
 }
 export const esmCdnUrl = 'https://ga.jspm.io/';
 export const systemCdnUrl = 'https://ga.system.jspm.io/';

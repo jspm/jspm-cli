@@ -616,26 +616,34 @@ export class Installer {
     for (const range of ranges.reverse()) {
       if (range.isWildcard) {
         const lookup = await (cache.latest || (cache.latest = this.lookupRange(registry, name, '', parentUrl)));
-        if (lookup)
+        if (lookup) {
+          log('resolve', `${target.registry}:${target.name}@${target.ranges.map(range => range.toString()).join('|')} -> WILDCARD ${lookup.version}${parentUrl ? ' [' + parentUrl.href + ']' : ''}`);
           return lookup;
+        }
       }
       else if (range.isExact && range.version.tag) {
         const tag = range.version.tag;
         const lookup = await (cache.tags[tag] || (cache.tags[tag] = this.lookupRange(registry, name, tag, parentUrl)));
-        if (lookup)
+        if (lookup) {
+          log('resolve', `${target.registry}:${target.name}@${target.ranges.map(range => range.toString()).join('|')} -> TAG ${tag}${parentUrl ? ' [' + parentUrl.href + ']' : ''}`);
           return lookup;
+        }
       }
       else if (range.isMajor) {
         const major = range.version.major;
         const lookup = await (cache.majors[major] || (cache.majors[major] = this.lookupRange(registry, name, major, parentUrl)));
-        if (lookup)
+        if (lookup) {
+          log('resolve', `${target.registry}:${target.name}@${target.ranges.map(range => range.toString()).join('|')} -> MAJOR ${lookup.version}${parentUrl ? ' [' + parentUrl.href + ']' : ''}`);
           return lookup;
+        }
       }
       else if (range.isStable) {
         const minor = `${range.version.major}.${range.version.minor}`;
         const lookup = await (cache.minors[minor] || (cache.minors[minor] = this.lookupRange(registry, name, minor, parentUrl)));
-        if (lookup)
+        if (lookup) {
+          log('resolve', `${target.registry}:${target.name}@${target.ranges.map(range => range.toString()).join('|')} -> MINOR ${lookup.version}${parentUrl ? ' [' + parentUrl.href + ']' : ''}`);
           return lookup;
+        }
       }
     }
     throw new JspmError(`Unable to resolve package ${registry}:${name} to "${ranges.join(' || ')}"${importedFrom(parentUrl)}`);

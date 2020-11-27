@@ -21,7 +21,7 @@ import * as rollup from 'rollup';
 import jspmRollup from './rollup-plugin.ts';
 import ora from './spinner.js';
 import { logStream } from './log.ts';
-import { clearCache } from './fetch.ts';
+import { clearCache, fetch } from './fetch.ts';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
 import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.ts';
@@ -102,7 +102,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
   else if (cmd === '-h' || cmd === '--help')
     cmd = 'help';
   switch (cmd) {
-    case 'v':
     case 'version':
       console.log(`jspm/${version}`);
       break;
@@ -117,7 +116,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       console.log(`${chalk.bold.green('ok')}   Cache cleared.`);
       break;
     
-    case 't':
     case 'trace':
       try {
         const { args, opts } = readFlags(rawArgs, {
@@ -217,7 +215,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
 
-    case 'l':
     case 'locate':
       try {
         const { args, opts } = readFlags(rawArgs, {
@@ -292,11 +289,121 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
 
-    case 'i':
     case 'init':
       throw new Error('TODO: jspm init');
 
-    case 'l':
+    case 'checkout':
+    case 'co':
+      const { args, opts } = readFlags(rawArgs, {
+        boolFlags: ['beautify', 'minify', 'out', 'flatten', 'system', 'esm', 'copy'],
+        strFlags: ['import-map', 'log', 'dir', 'out', 'relative'],
+        aliases: { m: 'import-map', l: 'log', d: 'dir', b: 'beautify', o: 'out', M: 'minify', F: 'flatten', p: 'production', s: 'system', e: 'esm', c: 'copy', r: 'reset' }
+      });
+
+      const inMapFile = getInMapFile(opts);
+      const inMap = getMapDetectTypeIntoOpts(inMapFile, Object.assign({}, opts));
+      const mapBase = new URL('.', pathToFileURL(inMapFile));
+      const traceMap = new TraceMap(mapBase, inMap.map);
+
+      const outMapFile = getOutMapFile(inMapFile, opts);
+      // const outBase = outMapFile ? new URL('.', pathToFileURL(outMapFile)) : mapBase;
+
+      let pkgs;
+
+      if (!args.length)
+        throw `${chalk.bold.red('err')} A package name is needed to checkout.`;
+
+      class Pool {
+        POOL_SIZE = 10;
+        opCnt = 0;
+        cbs: (() => void)[] = [];
+        constructor (POOL_SIZE) {
+          this.POOL_SIZE = POOL_SIZE;
+        }
+        async queue () {
+          if (++this.opCnt > this.POOL_SIZE)
+            await new Promise(resolve => this.cbs.push(resolve));
+        }
+        pop () {
+          this.opCnt--;
+          const cb = this.cbs.pop();
+          if (cb) cb();
+        }
+      }
+      const dlPool = new Pool(20);
+
+      const spinner = startSpinnerLog(opts.log);
+      if (spinner) spinner.text = `Checking out ${args.join(', ').slice(0, process.stdout.columns - 21)}...`;
+      try {
+        pkgs = await traceMap.pkgSelect(args);
+        const pkgFiles: Record<string, string | ArrayBuffer>[] = await Promise.all(pkgs.map(async ({ pkgUrl, pkgCfg }) => {
+          const pkgContents: Record<string, string | ArrayBuffer> = Object.create(null);
+          await Promise.all((pkgCfg.files || []).map(async file => {
+            const url = pkgUrl + file;
+            await dlPool.queue();
+            try {
+              const res = await fetch(url);
+              switch (res.status) {
+                case 304:
+                case 200:
+                  const contentType = res.headers && res.headers.get('content-type');
+                  let contents: string | ArrayBuffer = await res.arrayBuffer();
+                  if (opts.beautify) {
+                    if (contentType === 'application/javascript') {
+                      // contents = jsBeautify(contents);
+                    }
+                    else if (contentType === 'application/json') {
+                      contents = JSON.stringify(JSON.parse(contents.toString()), null, 2);
+                    }
+                  }
+                  return pkgContents[file] = contents;
+                default: throw `${chalk.bold.red('err')}  Invalid status code ${res.status} looking up ${url} - ${res.statusText}`;
+              }
+            }
+            finally {
+              dlPool.pop();
+            }
+          }));
+          return pkgContents;
+        }));
+
+        const dir = opts.dir || 'checkouts';
+        for (let i = 0; i < pkgFiles.length; i++) {
+          const files = pkgFiles[i];
+          const { pkgUrl, pkgCfg } = pkgs[i];
+          const name = pkgCfg.name;
+
+          if (fs.existsSync(dir + '/' + name))
+            throw `${chalk.bold.red('err')}  Checkout directory ${chalk.bold(dir + '/' + name)} already exists.`;
+
+          for (const file of Object.keys(files)) {
+            const filePath = dir + '/' + name + '/' + file;
+            mkdirp.sync(path.dirname(filePath));
+            fs.writeFileSync(filePath, Buffer.from(files[file]));
+          }
+
+          traceMap.replace(pkgUrl, pathToFileURL(dir + '/' + name + '/'));
+        }
+
+        const mapStr = traceMap.toString(<boolean>opts.minify);
+        if (opts.copy) {
+          console.log(chalk.bold('(Import map copied to clipboard)'));
+          clipboardy.writeSync(mapStr);
+        }
+        if (outMapFile) {
+          await writeMap(outMapFile, mapStr, <boolean>opts.system);
+        }
+        else {
+          process.stdout.write(mapStr);
+        }
+      }
+      finally {
+        if (spinner) spinner.stop();
+      }
+
+      console.log(`${chalk.bold.green('ok')}   Checked out ${chalk.bold(pkgs.map(({pkgCfg}) => pkgCfg.name + '@' + pkgCfg.version))}`)
+      break;
+
     case 'link':
       try {
         const { args, opts } = readFlags(rawArgs, {
@@ -442,7 +549,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
 
-    case 'r':
     case 'resolve':
       try {
         const { args, opts } = readFlags(rawArgs, {
@@ -487,8 +593,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     case 'upgrade':
       throw `${chalk.bold.red('err')}  TODO: jspm upgrade`;
 
-    case 'r':
-    case 'rm':
+    case 'rem':
     case 'uninstall':
     case 'remove': {
       const { args, opts } = readFlags(rawArgs, {
@@ -530,7 +635,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
     }
   
     case undefined:
-    case 'i':
     case 'install':
       var install = true;
     case 'add':
@@ -546,7 +650,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const { args, opts } = readFlags(rawArgs, {
           boolFlags: ['flatten', 'system', 'esm', 'minify', 'log', 'copy', 'deno', 'dev', 'production', 'node', 'static', 'out'],
           strFlags: ['import-map', 'out', 'log', 'conditions', 'stdlib'],
-          aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy' }
+          arrFlags: ['reset'],
+          aliases: { m: 'import-map', o: 'out', l: 'log', f: 'flatten', M: 'minify', s: 'system', e: 'esm', c: 'copy', r: 'reset' }
         });
 
         if (install) {
@@ -562,9 +667,9 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         else
           conditions.push('development');
         if (opts.deno) {
+          // This is "Deno Node.js emulation"
           conditions.push('deno');
-          // browser conditions break on eg readable-stream, tty etc.
-          // conditions.push('browser');
+          conditions.push('node');
         }
         else if (opts.node)
           conditions.push('node');
@@ -577,15 +682,23 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
         const traceMap = new TraceMap(new URL('.', pathToFileURL(inMapFile)).href, inMap.map, conditions);
 
         const spinner = startSpinnerLog(opts.log);
-        if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 19) : ''}...`;
+        
 
         let changed = false;
         try {
+          if (opts.reset) {
+            opts.clean = true;
+            const pkgs = await traceMap.pkgSelect(opts.reset);
+            if (spinner) spinner.text = `Resetting ${opts.reset.join(', ').slice(0, process.stdout.columns - 19)}...`;
+            for (const { pkgUrl, pkgCfg } of pkgs)
+              traceMap.pkgReset(pkgUrl, pkgCfg);
+          }
+          if (spinner) spinner.text = `Installing${args.length ? ' ' + args.join(', ').slice(0, process.stdout.columns - 19) : ''}...`;
           if (args.length === 0 || install) {
             // TODO: changed handling from install
             // can skip map saving when no change
             opts.clean = args.length === 0;
-            changed = await traceMap.traceInstall(args.length ? args : inMap.imports, opts);
+            changed = await traceMap.traceInstall(args.length ? args : inMap.imports, opts) || opts.clean;
           }
           else {
             changed = await traceMap.add(args.map(arg => {
@@ -631,7 +744,6 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
       }
       break;
   
-    case 'b':
     case 'build':
       try {
         const { args, opts } = readFlags(rawArgs, {
