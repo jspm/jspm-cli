@@ -9,7 +9,7 @@
     "build-node-production": "ncc build -t -m src/node.js -e sver -e es-module-lexer",
     "watch-build-node": "ncc build -t src/node.js -s -e sver -e es-module-lexer -w",
     "watch-build-node-production": "ncc build -t -m src/node.js -e sver -e es-module-lexer -w",
-    "build": "npm run build-node && npm run build-browser",
+    "build": "npm run build-node && npm run build-api",
     "test": "node test/test.js",
     "unit": "node src/script-lexer.js",
     "generate-maps": "node test/generate-maps.mjs"
