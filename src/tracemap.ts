@@ -14,9 +14,9 @@
  *   limitations under the License.
  */
 
-import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, JspmError } from './utils.ts';
-import { InstallOptions, Installer } from './installer.ts';
-import { getScopeMatches, getMapMatch, analyze, PackageConfig, pkgToUrl, esmCdnUrl } from './installtree.ts';
+import { baseUrl as envBaseUrl, deepClone, alphabetize, isPlain, sort, defaultStyle, jsonParseStyled, jsonStringifyStyled, JspmError } from './utils';
+import { InstallOptions, Installer } from './installer';
+import { getScopeMatches, getMapMatch, analyze, PackageConfig, pkgToUrl, esmCdnUrl } from './installtree';
 
 export interface TraceOptions {
   depcache?: boolean;

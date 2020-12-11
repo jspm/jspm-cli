@@ -1,10 +1,10 @@
 import sver from 'sver';
 import convertRange from 'sver/convert-range';
 const { SemverRange } = sver;
-import { ImportMap } from './tracemap.ts';
+import { ImportMap } from './tracemap';
 import { parse } from 'es-module-lexer';
-import { fetch } from './fetch.ts';
-import { computeIntegrity, importedFrom, JspmError } from './utils.ts';
+import { fetch } from './fetch';
+import { computeIntegrity, importedFrom, JspmError } from './utils';
 
 export interface ExactPackage {
   registry: string;

@@ -13,21 +13,21 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-import { TraceMap, ImportMap } from './tracemap.ts';
+import { TraceMap, ImportMap } from './tracemap';
 import chalk from 'chalk';
 import * as fs from 'fs';
 import { pathToFileURL, fileURLToPath } from 'url';
 import * as rollup from 'rollup';
-import jspmRollup from './rollup-plugin.ts';
+import jspmRollup from './rollup-plugin';
 import ora from './spinner.js';
-import { logStream } from './log.ts';
-import { clearCache, fetch } from './fetch.ts';
+import { logStream } from './log';
+import { clearCache, fetch } from './fetch';
 import mkdirp from 'mkdirp';
 import rimraf from 'rimraf';
-import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils.ts';
+import { readHtmlScripts, isPlain, isURL, jsonParseStyled, getIntegrity, SrcScript, SrcScriptParse, injectInHTML, detectSpace } from './utils';
 import * as path from 'path';
-import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parsePackageTarget, getMapMatch, pkgToUrl } from './installtree.ts';
-import { Installer } from './installer.ts';
+import { esmCdnUrl, systemCdnUrl, parseCdnPkg, pkgToStr, parsePackageTarget, getMapMatch, pkgToUrl } from './installtree';
+import { Installer } from './installer';
 import clipboardy from './clipboardy.js';
 import { version } from './version.js';
 import process from 'process';
