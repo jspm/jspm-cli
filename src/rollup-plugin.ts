@@ -105,7 +105,7 @@ export default ({
       }
       const res = await fetch(url, fetchOpts);
       switch (res.status) {
-        case 200: break;
+        case 200: case 304: break;
         case 404: throw new Error(`Module not found: ${url}`);
         default: throw new Error(`Invalid status code ${res.status} loading ${url}. ${res.statusText}`);
       }
