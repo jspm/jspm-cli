@@ -5,6 +5,16 @@ import { ImportMap } from './tracemap';
 import { parse } from 'es-module-lexer';
 import { fetch } from './fetch';
 import { computeIntegrity, importedFrom, JspmError } from './utils';
+import * as ts from "typescript";
+
+function parseTs (source: string) {
+  return ts.transpileModule(source, {
+    compilerOptions: {
+      jsx: 'react',
+      module: ts.ModuleKind.ESNext
+    }
+  }).outputText;
+}
 
 export interface ExactPackage {
   registry: string;
@@ -222,6 +232,8 @@ export async function analyze (resolvedUrl: string, fetchOpts: any, parentUrl?: 
   }
   let source = await res.text();
   try {
+    if (resolvedUrl.endsWith('.tsx') ||resolvedUrl.endsWith('.ts') || resolvedUrl.endsWith('.jsx'))
+      source = parseTs(source);
     const [imports] = await parse(source);
     return system ? createSystemAnalysis(source, imports, resolvedUrl) : createEsmAnalysis(imports, source, resolvedUrl);
   }

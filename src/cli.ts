@@ -412,7 +412,7 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
           aliases: { m: 'import-map', l: 'log', c: 'copy', o: 'out', M: 'minify', d: 'depcache', F: 'flatten', p: 'production', s: 'system', e: 'esm' }
         });
 
-        if (!opts.system && !opts.esm && (opts.production || args.some(arg => !isPlain(arg) && arg.endsWith('.ts'))))
+        if (!opts.system && !opts.esm && (opts.production || args.some(arg => !isPlain(arg) && (arg.endsWith('.ts') || arg.endsWith('.tsx') || arg.endsWith('.jsx')))))
           opts.system = true;
 
         const inMapFile = getInMapFile(opts);
@@ -500,9 +500,8 @@ export async function cli (cmd: string | undefined, rawArgs: string[]) {
             return rel.startsWith('./') ? rel.slice(2) : rel;
           });
         }
-
         const outputPreloads: SrcScript[] = await Promise.all(sortedStatic.map(async dep => ({
-          type: opts.system ? (dep.endsWith('.ts') || dep.endsWith('.json') || dep.endsWith('.css') || dep.endsWith('.wasm') ? 'systemjs-module' : '') : 'module',
+          type: opts.system ? (dep.endsWith('.ts') || dep.endsWith('.tsx') || dep.endsWith('.jsx') || dep.endsWith('.json') || dep.endsWith('.css') || dep.endsWith('.wasm') ? 'systemjs-module' : '') : 'module',
           src: dep,
           integrity: !opts.integrity ? undefined : await getIntegrity(dep.startsWith('https://') ? dep : new URL(dep, outBase)),
           crossorigin: opts.crossorigin ? dep.startsWith(systemCdnUrl) || dep.startsWith(esmCdnUrl) : false,
