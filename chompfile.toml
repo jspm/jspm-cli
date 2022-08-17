@@ -1,0 +1,19 @@
+version = 0.1
+default-task = 'build'
+extensions = ['chomp@0.1:jspm']
+
+[[task]]
+name = 'build'
+deps = ['dist/jspm.exe']
+
+[[task]]
+target = 'src/appmap.json'
+dep = 'src/jspm.ts'
+template = 'jspm'
+[task.template-options]
+env = ['deno', 'node']
+
+[[task]]
+target = 'dist/jspm.exe'
+deps = ['src/jspm.ts', 'package.json', 'src/appmap.json']
+run = 'deno compile -o dist/jspm.exe --unstable -A --importmap src/appmap.json --no-check src/jspm.ts'
