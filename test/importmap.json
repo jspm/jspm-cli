@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "lodash": "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js",
+    "react": "https://ga.jspm.io/npm:react@18.2.0/dev.index.js"
+  }
+}
