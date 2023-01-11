@@ -1,15 +1,21 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { getEnv, getInputMap, getResolutions, writeMap } from './utils'
+import { getEnv, getInputMap, getResolutions, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function extract(packages: string[], flags: Flags) {
+  const inputMap = await getInputMap(flags)
+  const env = getEnv(flags, true, inputMap)
+  startLoading(
+    `Extracting ${packages.join(', ')}`,
+  )
   const generator = new Generator({
-    inputMap: await getInputMap(flags),
-    env: getEnv(flags),
+    env,
+    inputMap,
     resolutions: getResolutions(flags),
   })
-  console.error(`Extracting ${packages.join(', ')}...`)
+
   const { map } = await generator.extractMap(packages)
+  stopLoading()
   await writeMap(map, flags, true)
   return map
 }

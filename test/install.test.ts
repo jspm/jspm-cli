@@ -1,3 +1,4 @@
+import fs from 'fs/promises'
 import assert from 'assert'
 import install from '../src/install'
 
@@ -34,4 +35,39 @@ import install from '../src/install'
     stdout: true,
   })
   assert.ok(!map.imports.react.endsWith('/dev.index.js'))
+}
+
+{
+  await fs.copyFile('test/importmap.json', 'test/importmap.modified.json')
+  /* basic install with env */
+  await install(['react@17.0.1', 'react-dom@17.0.1'], {
+    env: 'production,deno',
+    map: 'test/importmap.modified.json',
+  })
+  const map = JSON.parse(
+    await fs.readFile('test/importmap.modified.json', 'utf-8'),
+  )
+  assert.strictEqual(
+    map.imports.react,
+    'https://ga.jspm.io/npm:react@17.0.1/index.js',
+  )
+  assert.deepEqual(
+    map.env, ['browser', 'module', 'production', 'deno',
+      'import'],
+  )
+}
+
+{
+  /* basic install with loading env */
+  await install(['react@17.0.1', 'react-dom@17.0.1'], {
+    map: 'test/importmap.modified.json',
+  })
+  const map = JSON.parse(
+    await fs.readFile('test/importmap.modified.json', 'utf-8'),
+  )
+  assert.deepEqual(
+    map.env, ['browser', 'module', 'production', 'deno',
+      'import'],
+  )
+  await fs.rm('test/importmap.modified.json')
 }

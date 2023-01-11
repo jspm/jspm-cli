@@ -9,6 +9,7 @@
     "outDir": "lib",
     "declaration": true,
     "removeComments": false,
+    "resolveJsonModule": true,
     "skipLibCheck": true
   },
   "include": [

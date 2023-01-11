@@ -1,14 +1,17 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { getEnv, getInputMap, writeMap } from './utils'
+import { getEnv, getInputMap, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function uninstall(packages: string[], flags: Flags) {
+  const inputMap = await getInputMap(flags)
+  const env = getEnv(flags, true, inputMap)
+  startLoading(`Uninstalling ${packages.join(', ')}`)
   const generator = new Generator({
-    inputMap: await getInputMap(flags),
-    env: getEnv(flags),
+    env,
+    inputMap,
   })
-  console.error(`Uninstalling ${packages.join(', ')}...`)
   await generator.uninstall(packages)
+  stopLoading()
   await writeMap(generator.getMap(), flags)
   return generator.getMap()
 }

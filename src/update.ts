@@ -1,17 +1,20 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { getEnv, getInputMap, getResolutions, writeMap } from './utils'
+import { getEnv, getInputMap, getResolutions, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function update(packages: string[], flags: Flags) {
+  const inputMap = await getInputMap(flags)
+  const env = getEnv(flags, true, inputMap)
+  startLoading(
+    `Updating${packages.length ? ` ${packages.join(', ')}` : ''}`,
+  )
   const generator = new Generator({
-    inputMap: await getInputMap(flags),
-    env: getEnv(flags),
+    env,
+    inputMap,
     resolutions: getResolutions(flags),
   })
-  console.error(
-    `Updating${packages.length ? ` ${packages.join(', ')}` : ''}...`,
-  )
   await generator.update(packages)
+  stopLoading()
   await writeMap(generator.getMap(), flags)
   return generator.getMap()
 }

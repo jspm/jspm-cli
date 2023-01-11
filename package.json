@@ -1,12 +1,14 @@
 {
   "name": "jspm",
   "type": "module",
+  "version": "3.0.0",
   "description": "Universal ES Module Package Manager for import-maps",
   "bin": {
     "jspm": "./jspm.js"
   },
   "dependencies": {
-    "@jspm/generator": "^1.0.0-beta.38"
+    "@jspm/generator": "^1.0.0-beta.38",
+    "ora": "^6.1.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",

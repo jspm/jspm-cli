@@ -1,20 +1,23 @@
 import fs from 'fs/promises'
-import type { Flags, IImportMap } from './types'
+import ora from 'ora'
+import type { Flags, IImportMap, IImportMapFile } from './types'
 
 export class JspmError extends Error {
   jspmError = true
 }
 
 export async function writeMap(
-  map: IImportMap,
+  map: IImportMap | IImportMapFile,
   flags: Flags,
   defaultStdout = false,
+  silent = false,
 ) {
-  const output = JSON.stringify(map, null, 2)
-  if (!flags.output && (defaultStdout || flags.stdout)) {
-    console.log(output)
+  if (!flags.output && (defaultStdout || flags.stdout) && !silent) {
+    const noEnvOutput = { ...map, env: undefined }
+    console.log(JSON.stringify(noEnvOutput, null, 2))
   }
   else {
+    const output = JSON.stringify(map, null, 2)
     const outfile = flags.output || flags.map || 'importmap.json'
     if (!outfile.endsWith('.json') && !outfile.endsWith('.importmap')) {
       throw new JspmError(
@@ -22,16 +25,13 @@ export async function writeMap(
       )
     }
     await fs.writeFile(outfile, output)
-    console.error(
-      `%cOK: %cUpdated %c${outfile}`,
-      'color: green',
-      'color: black',
-      'font-weight: bold',
+    !silent && console.error(
+      `OK: Updated ${outfile}`,
     )
   }
 }
 
-export async function getInputMap(flags: Flags) {
+export async function getInputMap(flags: Flags): Promise<IImportMap | IImportMapFile> {
   let inMap = '{}'
   try {
     inMap = await fs.readFile(flags.map || 'importmap.json', 'utf-8')
@@ -44,35 +44,57 @@ export async function getInputMap(flags: Flags) {
   return JSON.parse(inMap)
 }
 
-export function getEnv(flags: Flags) {
-  const env = ['development', 'browser', 'module']
+export async function inputMapExists(flags: Flags) {
+  try {
+    await fs.access(flags.map)
+    return true
+  }
+  catch (e) {
+    return false
+  }
+}
+
+export function getEnv(flags: Flags, log: boolean, inputMap: IImportMapFile) {
+  let env = inputMap.env || ['development', 'browser', 'module']
   const envFlags = (flags.env || '').split(',').map(e => e.trim()).filter(Boolean)
   for (const name of envFlags) {
     switch (name) {
-      case 'no-module':
-      case 'no-node':
-      case 'no-browser':
-        env.splice(env.indexOf(name.slice(3)), 1)
+      case 'production':
+        env.splice(env.indexOf('development'), 1)
+        env.push('production')
         break
       case 'browser':
         env.splice(env.indexOf('node'), 1)
         env.push('browser')
         break
-      case 'production':
-        env.splice(env.indexOf('development'), 1)
-        env.push('production')
-        break
       case 'node':
+        env.splice(env.indexOf('browser'), 1)
+        env.push(name)
         break
       case 'development':
       case 'module':
         break
       default:
-        env.push(name)
+        if (name.startsWith('no-'))
+          env.splice(env.indexOf(name.slice(3)), 1)
+        else
+          env.push(name)
         break
     }
   }
+  env = [...new Set(env)]
+
+  if (log)
+    console.error(`Environments: ${JSON.stringify(env)}`)
+
   return env
+}
+
+export function attachEnv(map: any, env: string[] = []) {
+  map.env = env
+}
+export function detachEnv(map: any) {
+  return { ...map, env: undefined }
 }
 
 export function getResolutions(flags: Flags): Record<string, string> {
@@ -89,4 +111,13 @@ export function getResolutions(flags: Flags): Record<string, string> {
       return resolution.split('=')
     }),
   )
+}
+
+const loading = ora({ spinner: 'dots' })
+
+export function startLoading(text: string) {
+  loading.start(text)
+}
+export function stopLoading() {
+  loading.stop()
 }

@@ -1,6 +1,6 @@
 import { Generator } from '@jspm/generator'
-import type { Flags } from './types'
-import { getEnv, getInputMap, getResolutions, writeMap } from './utils'
+import type { Flags, IImportMapFile } from './types'
+import { attachEnv, getEnv, getInputMap, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function install(packages: string[], flags: Flags) {
   const resolvedPackages = packages.map((p) => {
@@ -10,19 +10,31 @@ export default async function install(packages: string[], flags: Flags) {
     return { alias, target }
   })
 
+  if (resolvedPackages.length === 0 && !(await inputMapExists(flags))) {
+    console.warn('Warning: No packages provided to install, creating an empty importmap')
+    writeMap({}, flags, false, true)
+  }
+  const inputMap = await getInputMap(flags)
+  const env = getEnv(flags, true, inputMap)
+
   const generator = new Generator({
-    inputMap: await getInputMap(flags),
-    env: getEnv(flags),
+    env,
+    inputMap,
     resolutions: getResolutions(flags),
   })
 
-  console.error(
+  startLoading(
     `Installing ${resolvedPackages.map(p => p.alias || p.target).join(', ')}`,
   )
 
   if (packages.length)
     await generator.install(packages)
   else await generator.reinstall()
-  await writeMap(generator.getMap(), flags)
-  return generator.getMap()
+  stopLoading()
+
+  const map = generator.getMap() as IImportMapFile
+  attachEnv(map, env)
+
+  await writeMap(map, flags)
+  return map
 }

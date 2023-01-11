@@ -5,26 +5,52 @@ import {
   getEnv,
   getInputMap,
   getResolutions,
+  startLoading,
+  stopLoading,
 } from './utils'
+
+const defaultHtmlTemplate = `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JSPM example</title>
+  </head>
+  <body>
+  </body>
+</html>`
+
+const htmlExists = async (htmlFile: string) => {
+  try {
+    await fs.access(htmlFile)
+    return true
+  }
+  catch (e) {
+    return false
+  }
+}
 
 export default async function inject(
   htmlFile: string,
   packages: string[],
   flags: Flags,
 ) {
-  const generator = new Generator({
-    inputMap: await getInputMap(flags),
-    env: getEnv(flags),
-    resolutions: getResolutions(flags),
-  })
-
-  const trace = packages.length === 0
-  console.error(
+  const inputMap = await getInputMap(flags)
+  const env = getEnv(flags, true, inputMap)
+  if (!(await htmlExists(htmlFile))) {
+    console.warn(`Warning: HTML file ${htmlFile} does not exist, creating one`)
+    await fs.writeFile(htmlFile, defaultHtmlTemplate, 'utf-8')
+  }
+  startLoading(
     `Injecting ${
       packages.length ? `${packages.join(', ')} ` : ''
     }into ${htmlFile}...`,
   )
-
+  const generator = new Generator({
+    env,
+    inputMap,
+    resolutions: getResolutions(flags),
+  })
+  const trace = packages.length === 0
   const html = await fs.readFile(htmlFile, 'utf-8')
 
   const output = await generator.htmlInject(html, {
@@ -38,10 +64,11 @@ export default async function inject(
     whitespace: !flags.compact,
   })
 
+  stopLoading()
   if (flags.stdout)
     console.log(output)
   else
-    await fs.writeFile(htmlFile, output, 'utf-8')
+    await fs.writeFile(flags.output ?? htmlFile, output, 'utf-8')
 
   return output
 }
