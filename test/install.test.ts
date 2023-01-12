@@ -69,5 +69,10 @@ import install from '../src/install'
     map.env, ['browser', 'module', 'production', 'deno',
       'import'],
   )
+
+  const keys = Object.keys(map)
+  // `env` appears at the top
+  assert.equal(keys[0], 'env')
+
   await fs.rm('test/importmap.modified.json')
 }

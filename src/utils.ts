@@ -7,11 +7,16 @@ export class JspmError extends Error {
 }
 
 export async function writeMap(
-  map: IImportMap | IImportMapFile,
+  map: IImportMapFile,
   flags: Flags,
   defaultStdout = false,
   silent = false,
 ) {
+  const env = map.env
+  delete map.env
+  // `env` appears at the top
+  map = { env, ...map } as IImportMapFile
+
   if (!flags.output && (defaultStdout || flags.stdout) && !silent) {
     const noEnvOutput = { ...map, env: undefined }
     console.log(JSON.stringify(noEnvOutput, null, 2))
