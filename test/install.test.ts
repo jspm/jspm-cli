@@ -52,8 +52,7 @@ import install from '../src/install'
     'https://ga.jspm.io/npm:react@17.0.1/index.js',
   )
   assert.deepEqual(
-    map.env, ['browser', 'module', 'production', 'deno',
-      'import'],
+    map.env, ['browser', 'module', 'production', 'deno'],
   )
 }
 
@@ -66,8 +65,7 @@ import install from '../src/install'
     await fs.readFile('test/importmap.modified.json', 'utf-8'),
   )
   assert.deepEqual(
-    map.env, ['browser', 'module', 'production', 'deno',
-      'import'],
+    map.env, ['browser', 'module', 'production', 'deno'],
   )
 
   const keys = Object.keys(map)

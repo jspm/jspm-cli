@@ -90,13 +90,17 @@ export function getEnv(flags: Flags, log: boolean, inputMap: IImportMapFile) {
   env = [...new Set(env)]
 
   if (log)
-    console.error(`Environments: ${JSON.stringify(env)}`)
+    console.error(`Environments: ${JSON.stringify(removeImportFlag(env))}`)
 
   return env
 }
 
+function removeImportFlag(env: string[]) {
+  return env.filter(e => e !== 'import')
+}
+
 export function attachEnv(map: any, env: string[] = []) {
-  map.env = env
+  map.env = removeImportFlag(env)
 }
 export function detachEnv(map: any) {
   return { ...map, env: undefined }
