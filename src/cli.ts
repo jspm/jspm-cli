@@ -55,6 +55,15 @@ cli
   .command('')
   .action(cli.outputHelp)
 
+function noArgs() {
+  if (cli.args.length === 0) {
+    cli.outputHelp()
+    process.exit(1)
+  }
+}
+
+['uninstall', 'trace-install', 'inject', 'extract'].forEach(command => cli.on(`command:${command}`, noArgs))
+
 cli.on('command:*', () => {
   console.error('Invalid command: %s', cli.args.join(' '))
   cli.outputHelp()
