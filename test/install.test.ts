@@ -5,6 +5,7 @@ import install from '../src/install'
 {
   /* basic install */
   const map = await install(['react@17.0.1', 'react-dom@17.0.1'], {
+    env: 'development',
     stdout: true,
     map: 'test/importmap.json',
   })
@@ -17,10 +18,46 @@ import install from '../src/install'
 {
   /* env */
   const map = await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'production',
-    map: 'test/importmap.json',
+    env: 'production,browser',
     stdout: true,
+    map: 'test/importmap.json',
   })
+  assert.strictEqual(
+    map.imports.react,
+    'https://ga.jspm.io/npm:react@17.0.1/index.js',
+  )
+}
+
+{
+  /* env with adding deno should negate browser */
+  await install(['react@17.0.1', 'react-dom@17.0.1'], {
+    env: 'deno',
+    map: 'test/importmap.json',
+  })
+
+  let map = JSON.parse(
+    await fs.readFile('test/importmap.json', 'utf-8'),
+  )
+  assert.deepEqual(
+    map.env, ['deno', 'module', 'production'],
+  )
+  assert.strictEqual(
+    map.imports.react,
+    'https://ga.jspm.io/npm:react@17.0.1/index.js',
+  )
+
+  /* env with adding browser should negate browser */
+  await install(['react@17.0.1', 'react-dom@17.0.1'], {
+    env: 'deno,browser',
+    map: 'test/importmap.json',
+  })
+
+  map = JSON.parse(
+    await fs.readFile('test/importmap.json', 'utf-8'),
+  )
+  assert.deepEqual(
+    map.env, ['browser', 'deno', 'module', 'production'],
+  )
   assert.strictEqual(
     map.imports.react,
     'https://ga.jspm.io/npm:react@17.0.1/index.js',
@@ -65,7 +102,7 @@ import install from '../src/install'
     'https://ga.jspm.io/npm:react@17.0.1/index.js',
   )
   assert.deepEqual(
-    map.env, ['browser', 'module', 'production', 'deno'],
+    map.env, ['deno', 'module', 'production'],
   )
 }
 
@@ -78,7 +115,7 @@ import install from '../src/install'
     await fs.readFile('test/importmap.modified.json', 'utf-8'),
   )
   assert.deepEqual(
-    map.env, ['browser', 'module', 'production', 'deno'],
+    map.env, ['deno', 'module', 'production'],
   )
 
   const keys = Object.keys(map)
