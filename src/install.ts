@@ -10,10 +10,12 @@ export default async function install(packages: string[], flags: Flags) {
     return { alias, target }
   })
 
-  if (resolvedPackages.length === 0 && !(await inputMapExists(flags))) {
-    console.warn('Warning: No packages provided to install, creating an empty importmap')
+  if (!(await inputMapExists(flags))) {
+    if (resolvedPackages.length === 0)
+      console.warn('Warning: No packages provided to install, creating an empty importmap')
     writeMap({}, flags, false, true)
   }
+
   const inputMap = await getInputMap(flags)
   const env = getEnv(flags, true, inputMap)
 
