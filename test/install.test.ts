@@ -28,6 +28,19 @@ import install from '../src/install'
 }
 
 {
+  /* alias */
+  const map = await install(['custom=react@17.0.1'], {
+    env: 'production',
+    map: 'test/importmap.json',
+    stdout: true,
+  })
+  assert.strictEqual(
+    map.imports.custom,
+    'https://ga.jspm.io/npm:react@17.0.1/index.js',
+  )
+}
+
+{
   /* reinstall */
   const map = await install([], {
     env: 'no-deno,production',

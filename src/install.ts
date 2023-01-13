@@ -27,8 +27,8 @@ export default async function install(packages: string[], flags: Flags) {
     `Installing ${resolvedPackages.map(p => p.alias || p.target).join(', ')}`,
   )
 
-  if (packages.length)
-    await generator.install(packages)
+  if (resolvedPackages.length)
+    await generator.install(resolvedPackages)
   else await generator.reinstall()
   stopLoading()
 
