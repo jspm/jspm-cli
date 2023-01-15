@@ -1,6 +1,10 @@
+import path from 'path'
+import { pathToFileURL } from 'url'
 import fs from 'fs/promises'
 import ora from 'ora'
 import type { Flags, IImportMap, IImportMapFile } from './types'
+
+export const cwdUrl = pathToFileURL(`${process.cwd()}/`)
 
 export class JspmError extends Error {
   jspmError = true
@@ -59,46 +63,51 @@ export async function inputMapExists(flags: Flags) {
   }
 }
 
+export function getInputMapUrl(flags: Flags) {
+  const absoluteMapPath = path.resolve(flags.map || 'importmap.json')
+  return pathToFileURL(absoluteMapPath)
+}
+
 const excludeDefinitions = {
-  'production': ['development'],
-  'development': ['production'],
-  'node': ['browser', 'deno'],
-  'deno': ['node', 'browser'],
-  'browser': ['node', 'deno'],
-};
+  production: ['development'],
+  development: ['production'],
+  node: ['browser', 'deno'],
+  deno: ['node', 'browser'],
+  browser: ['node', 'deno'],
+}
 function removeEnvs(env: string[], removeEnvs: string[]) {
   for (const removeEnv of removeEnvs) {
     if (env.includes(removeEnv))
-      env.splice(env.indexOf(removeEnv), 1);
+      env.splice(env.indexOf(removeEnv), 1)
   }
-  return env.sort();
+  return env.sort()
 }
 function addEnvs(env: string[], newEnvs: string[]) {
-  let excludeEnvs = [];
+  let excludeEnvs = []
   for (const newEnv of newEnvs) {
-    if (env.indexOf(newEnv) === -1)
-      env.push(newEnv);
-    let excludes = excludeDefinitions[newEnv];
+    if (!env.includes(newEnv))
+      env.push(newEnv)
+    const excludes = excludeDefinitions[newEnv]
     if (excludes)
-      excludeEnvs = excludeEnvs.concat(excludes);
+      excludeEnvs = excludeEnvs.concat(excludes)
   }
   for (const exclude of excludeEnvs) {
     if (env.includes(exclude) && !newEnvs.includes(exclude))
-      env.splice(env.indexOf(exclude), 1);
+      env.splice(env.indexOf(exclude), 1)
   }
-  return env.sort();
+  return env.sort()
 }
 
 export function getEnv(flags: Flags, log: boolean, inputMap: IImportMapFile) {
-  const envFlags = Array.isArray(flags.env) ? flags.env : (flags.env || '').split(',').map(e => e.trim()).filter(Boolean);
-  let env = inputMap.env || ['development', 'browser', 'module'];
-  env = removeEnvs(env, envFlags.filter(env => env.startsWith('no-')));
-  env = addEnvs(env, envFlags.filter(env => !env.startsWith('no-')));
+  const envFlags = Array.isArray(flags.env) ? flags.env : (flags.env || '').split(',').map(e => e.trim()).filter(Boolean)
+  let env = inputMap.env || ['development', 'browser', 'module']
+  env = removeEnvs(env, envFlags.filter(env => env.startsWith('no-')))
+  env = addEnvs(env, envFlags.filter(env => !env.startsWith('no-')))
 
   if (log)
     console.error(`Environments: ${JSON.stringify(removeImportFlag(env))}`)
 
-  return env;
+  return env
 }
 
 function removeImportFlag(env: string[]) {

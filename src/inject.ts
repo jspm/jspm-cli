@@ -2,8 +2,10 @@ import fs from 'fs/promises'
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
 import {
+  cwdUrl,
   getEnv,
   getInputMap,
+  getInputMapUrl,
   getResolutions,
   startLoading,
   stopLoading,
@@ -48,6 +50,8 @@ export default async function inject(
   const generator = new Generator({
     env,
     inputMap,
+    baseUrl: cwdUrl,
+    mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
   const trace = packages.length === 0

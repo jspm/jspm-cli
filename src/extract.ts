@@ -1,6 +1,6 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { getEnv, getInputMap, getResolutions, startLoading, stopLoading, writeMap } from './utils'
+import { cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function extract(packages: string[], flags: Flags) {
   const inputMap = await getInputMap(flags)
@@ -11,6 +11,8 @@ export default async function extract(packages: string[], flags: Flags) {
   const generator = new Generator({
     env,
     inputMap,
+    baseUrl: cwdUrl,
+    mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
 

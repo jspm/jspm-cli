@@ -1,6 +1,6 @@
 import { Generator } from '@jspm/generator'
 import type { Flags, IImportMapFile } from './types'
-import { attachEnv, getEnv, getInputMap, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
+import { attachEnv, cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function install(packages: string[], flags: Flags) {
   const resolvedPackages = packages.map((p) => {
@@ -22,6 +22,8 @@ export default async function install(packages: string[], flags: Flags) {
   const generator = new Generator({
     env,
     inputMap,
+    baseUrl: cwdUrl,
+    mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
 

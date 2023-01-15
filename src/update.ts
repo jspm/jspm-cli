@@ -1,6 +1,6 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { getEnv, getInputMap, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
+import { cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function update(packages: string[], flags: Flags) {
   if (!(await inputMapExists(flags))) {
@@ -15,6 +15,8 @@ export default async function update(packages: string[], flags: Flags) {
   const generator = new Generator({
     env,
     inputMap,
+    baseUrl: cwdUrl,
+    mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
   await generator.update(packages)
