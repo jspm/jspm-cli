@@ -1,12 +1,8 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
+import { cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function update(packages: string[], flags: Flags) {
-  if (!(await inputMapExists(flags))) {
-    console.error('Error: No importmap found, please run `jspm install` first')
-    process.exit(1)
-  }
   const inputMap = await getInputMap(flags)
   const env = getEnv(flags, true, inputMap)
   startLoading(

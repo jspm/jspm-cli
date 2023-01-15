@@ -1,6 +1,6 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { JspmError, cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
+import { JspmError, cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function link(packages: string[], flags: Flags) {
   const resolvedModules = packages.map((p) => {
@@ -9,10 +9,6 @@ export default async function link(packages: string[], flags: Flags) {
     const [alias, target] = p.split('=')
     return { alias, target }
   })
-  if (!(await inputMapExists(flags))) {
-    console.error('No input map found, creating one.')
-    writeMap({}, flags, false, true)
-  }
 
   const inputMap = await getInputMap(flags)
   const env = getEnv(flags, true, inputMap)

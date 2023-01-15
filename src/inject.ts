@@ -7,7 +7,6 @@ import {
   getInputMap,
   getInputMapUrl,
   getResolutions,
-  inputMapExists,
   startLoading,
   stopLoading,
 } from './utils'
@@ -39,10 +38,7 @@ export default async function inject(
 ): Promise<string> {
   const inputMap = await getInputMap(flags)
   const env = getEnv(flags, true, inputMap)
-  if (!(await inputMapExists(flags))) {
-    console.error('No input map found, nothing to inject.')
-    return ''
-  }
+
   if (!(await htmlExists(htmlFile))) {
     console.warn(`Warning: HTML file ${htmlFile} does not exist, creating one`)
     await fs.writeFile(htmlFile, defaultHtmlTemplate, 'utf-8')

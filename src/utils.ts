@@ -46,21 +46,9 @@ export async function getInputMap(flags: Flags): Promise<IImportMap | IImportMap
     inMap = await fs.readFile(flags.map || 'importmap.json', 'utf-8')
   }
   catch (e) {
-    if (flags.map)
-      throw e
     return {}
   }
   return JSON.parse(inMap)
-}
-
-export async function inputMapExists(flags: Flags) {
-  try {
-    await fs.access(flags.map)
-    return true
-  }
-  catch (e) {
-    return false
-  }
 }
 
 export function getInputMapUrl(flags: Flags) {
@@ -104,18 +92,15 @@ export function getEnv(flags: Flags, log: boolean, inputMap: IImportMapFile) {
   env = removeEnvs(env, envFlags.filter(env => env.startsWith('no-')))
   env = addEnvs(env, envFlags.filter(env => !env.startsWith('no-')))
 
-  if (log)
-    console.error(`Environments: ${JSON.stringify(removeImportFlag(env))}`)
-
-  return env
+  return removeNonStaticEnvKeys(env)
 }
 
-function removeImportFlag(env: string[]) {
-  return env.filter(e => e !== 'import')
+function removeNonStaticEnvKeys(env: string[]) {
+  return env.filter(e => e !== 'import' && e !== 'require' && e !== 'default')
 }
 
 export function attachEnv(map: any, env: string[] = []) {
-  map.env = removeImportFlag(env)
+  map.env = removeNonStaticEnvKeys(env)
 }
 export function detachEnv(map: any) {
   return { ...map, env: undefined }
