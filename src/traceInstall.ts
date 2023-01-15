@@ -1,6 +1,6 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { JspmError, getEnv, getInputMap, getResolutions, startLoading, stopLoading, writeMap } from './utils'
+import { JspmError, getEnv, getInputMap, getResolutions, startLoading, stopLoading, writeMap, cwdUrl, getInputMapUrl } from './utils'
 
 export default async function traceInstall(packages: string[], flags: Flags) {
   const resolvedPackages = packages.map((p) => {
@@ -23,6 +23,8 @@ export default async function traceInstall(packages: string[], flags: Flags) {
   const generator = new Generator({
     env,
     inputMap,
+    baseUrl: cwdUrl,
+    mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
   if (!resolvedPackages.length)
