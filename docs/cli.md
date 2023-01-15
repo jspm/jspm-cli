@@ -6,7 +6,7 @@ Features like tracing a module and installing the dependencies, updating the mod
 
 * Installing and Uninstalling npm dependencies
 * Updating dependencies
-* Trace Installing modules
+* Linking (Trace installing) modules
 * Injecting Import-maps
 * Extracting packages from the Import-maps 
 
@@ -46,13 +46,13 @@ Remove packages from the import map.
 ```sh
 jspm uninstall react react-dom
 ```
-### `trace-install`
-> `jspm trace-install [...modules]`
+### `link`
+> `jspm link [...modules]`
 
 Trace a module, installing all dependencies necessary into the map to support its execution including static and dynamic module imports.
 
 ```sh
-jspm trace-install ./index.js
+jspm link ./index.js
 ```
 ### `inject`
 > `jspm inject <htmlFile> [...packages]`

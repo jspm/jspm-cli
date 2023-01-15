@@ -3,7 +3,7 @@ import { version } from '../package.json'
 import extract from './extract'
 import inject from './inject'
 import install from './install'
-import traceInstall from './traceInstall'
+import link from './link'
 import uninstall from './uninstall'
 import update from './update'
 
@@ -37,9 +37,9 @@ cli
   .action(uninstall)
 
 cli
-  .command('trace-install [...modules]', 'trace install modules')
+  .command('link [...modules]', 'trace install modules')
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
-  .action(traceInstall)
+  .action(link)
 
 cli
   .command('inject <htmlFile> [...packages]', 'inject the import map into the provided HTML source')
@@ -62,7 +62,7 @@ function noArgs() {
   }
 }
 
-['uninstall', 'trace-install', 'inject', 'extract'].forEach(command => cli.on(`command:${command}`, noArgs))
+['uninstall', 'link', 'inject', 'extract'].forEach(command => cli.on(`command:${command}`, noArgs))
 
 cli.on('command:*', () => {
   console.error('Invalid command: %s', cli.args.join(' '))

@@ -38,7 +38,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Setup Chomp
+        uses: guybedford/chomp-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno }}
       - run: deno test --allow-env --allow-net --allow-read test/deno_test.ts
+      - run: chomp deno:test

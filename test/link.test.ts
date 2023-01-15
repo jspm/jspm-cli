@@ -1,10 +1,10 @@
 import assert from 'assert'
 
-import traceInstall from '../src/traceInstall'
+import link from '../src/link'
 
 {
-  /* basic traceInstall */
-  const map = await traceInstall(['./test/fixtures/a.js'], {
+  /* basic link */
+  const map = await link(['./test/fixtures/a.js'], {
     stdout: true,
     map: 'test/importmap.json',
   })

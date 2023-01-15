@@ -23,6 +23,16 @@ deps = ['src/*.ts', 'test/*.ts']
 run = 'tsc --noEmit'
 
 [[task]]
+name = 'link:test'
+dep = 'build'
+run = 'node jspm.js link ./test/fixtures/test.js --env=deno,node'
+
+[[task]]
+name = 'deno:test'
+dep = 'link:test'
+run = 'deno --unstable run --importmap importmap.json -A ./test/fixtures/test.js'
+
+[[task]]
 name = 'test'
 dep = 'test:'
 

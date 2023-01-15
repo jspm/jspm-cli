@@ -1,8 +1,11 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { cwdUrl, getEnv, getInputMap, getInputMapUrl, startLoading, stopLoading, writeMap } from './utils'
+import { cwdUrl, getEnv, getInputMap, getInputMapUrl, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
 
 export default async function uninstall(packages: string[], flags: Flags) {
+  if (!(await inputMapExists(flags)))
+    console.error('No input map found, nothing to uninstall.')
+
   const inputMap = await getInputMap(flags)
   const env = getEnv(flags, true, inputMap)
   startLoading(`Uninstalling ${packages.join(', ')}`)

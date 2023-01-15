@@ -1,20 +1,25 @@
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
-import { JspmError, getEnv, getInputMap, getResolutions, startLoading, stopLoading, writeMap, cwdUrl, getInputMapUrl } from './utils'
+import { JspmError, cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, inputMapExists, startLoading, stopLoading, writeMap } from './utils'
 
-export default async function traceInstall(packages: string[], flags: Flags) {
-  const resolvedPackages = packages.map((p) => {
+export default async function link(packages: string[], flags: Flags) {
+  const resolvedModules = packages.map((p) => {
     if (!p.includes('='))
       return { target: p }
     const [alias, target] = p.split('=')
     return { alias, target }
   })
+  if (!(await inputMapExists(flags))) {
+    console.error('No input map found, creating one.')
+    writeMap({}, flags, false, true)
+  }
+
   const inputMap = await getInputMap(flags)
   const env = getEnv(flags, true, inputMap)
   startLoading(
-    `Tracing${
-      resolvedPackages.length
-        ? ` ${resolvedPackages
+    `Linking${
+      resolvedModules.length
+        ? ` ${resolvedModules
             .map(p => p.alias || p.target)
             .join(', ')}`
         : ''
@@ -27,9 +32,9 @@ export default async function traceInstall(packages: string[], flags: Flags) {
     mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
-  if (!resolvedPackages.length)
+  if (!resolvedModules.length)
     throw new JspmError('Trace install requires at least one module to trace.')
-  await generator.traceInstall(resolvedPackages.map(p => p.target))
+  await generator.traceInstall(resolvedModules.map(p => p.target))
   stopLoading()
   await writeMap(generator.getMap(), flags)
   return generator.getMap()
