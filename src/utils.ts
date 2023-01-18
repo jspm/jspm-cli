@@ -10,6 +10,23 @@ export class JspmError extends Error {
   jspmError = true
 }
 
+export function wrapCommandAndRemoveStack(fn: Function) {
+  return async (...args: any[]) => {
+    try {
+      await fn(...args)
+    }
+    catch (e) {
+      stopLoading()
+      process.exitCode = 1
+      if (e instanceof JspmError || e?.jspmError) {
+        console.error(`ERR: ${e.message}`)
+        return
+      }
+      throw e
+    }
+  }
+}
+
 export async function writeMap(
   map: IImportMapFile,
   flags: Flags,

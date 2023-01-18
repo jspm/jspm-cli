@@ -6,6 +6,7 @@ import install from './install'
 import link from './link'
 import uninstall from './uninstall'
 import update from './update'
+import { wrapCommandAndRemoveStack } from './utils'
 
 const cli = cac('jspm')
 
@@ -25,32 +26,32 @@ cli
 cli
   .command('install [...packages]', 'install packages')
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
-  .action(install)
+  .action(wrapCommandAndRemoveStack(install))
 
 cli
   .command('update [...packages]', 'update packages')
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
-  .action(update)
+  .action(wrapCommandAndRemoveStack(update))
 
 cli
   .command('uninstall [...packages]', 'remove packages')
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
-  .action(uninstall)
+  .action(wrapCommandAndRemoveStack(uninstall))
 
 cli
   .command('link [...modules]', 'trace install modules')
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
-  .action(link)
+  .action(wrapCommandAndRemoveStack(link))
 
 cli
   .command('inject <htmlFile> [...packages]', 'inject the import map into the provided HTML source')
   .option('-o, --output <outputFile>', '.html file for the output html with the import-map')
-  .action(inject)
+  .action(wrapCommandAndRemoveStack(inject))
 
 cli
   .command('extract [...packages]', 'extract packages from the import map')
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
-  .action(extract)
+  .action(wrapCommandAndRemoveStack(extract))
 
 cli
   .command('')
