@@ -124,3 +124,16 @@ import install from '../src/install'
 
   await fs.rm('test/importmap.modified.json')
 }
+
+{
+  /* provider */
+  const map = await install(['react@17.0.1', 'react-dom@17.0.1'], {
+    env: 'production,browser',
+    provider: 'jsdelivr',
+    map: 'test/importmap.json',
+    stdout: true,
+  })
+  assert.deepEqual(
+    map.imports.react, 'https://cdn.jsdelivr.net/npm/react@17.0.1/index.js',
+  )
+}

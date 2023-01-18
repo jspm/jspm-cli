@@ -5,6 +5,7 @@ export interface Flags {
   env?: string
   map?: string
   output?: string
+  provider?: string
   force?: boolean
   stdout?: boolean
   preload?: boolean
@@ -14,4 +15,4 @@ export interface Flags {
 
 export type IImportMap = ReturnType<Generator['getMap']>
 
-export type IImportMapFile = IImportMap & { env?: string[] }
+export type IImportMapFile = IImportMap & { env?: string[]; provider?: string }

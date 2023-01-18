@@ -89,6 +89,8 @@ Then with running `jspm extract react`, it would generate this import-map instea
 - `-m, --map <map>`: an authoritative initial import map
 - `-o, --output <outputFile>`: .json or .importmap file for the output
 import-map. For the `inject` command this is the .html file for the output html with the import-map
+- `-p, --provider <provider>`: the default provider to use for a new install,
+	defaults to `jspm`. The provider can be `jspm` | `jspm.system` | `nodemodules` | `skypack` | `jsdelivr` | `unpkg`
 - `--force`: force install even if the import map is up to date (default: false)
 - `--stdout`: output the import map to stdout (default: false)
 - `--preload`: preload the import map into the browser (default: false)

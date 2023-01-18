@@ -7,7 +7,7 @@
     "jspm": "./jspm.js"
   },
   "dependencies": {
-    "@jspm/generator": "^1.0.1",
+    "@jspm/generator": "^1.0.2",
     "ora": "^6.1.2"
   },
   "devDependencies": {

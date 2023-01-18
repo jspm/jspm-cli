@@ -22,7 +22,7 @@ export async function writeMap(
   map = { env, ...map } as IImportMapFile
 
   if (!flags.output && (defaultStdout || flags.stdout) && !silent) {
-    const noEnvOutput = { ...map, env: undefined }
+    const noEnvOutput = { ...map, env: undefined, provider: undefined }
     console.log(JSON.stringify(noEnvOutput, null, 2))
   }
   else {
@@ -95,6 +95,10 @@ export function getEnv(flags: Flags, log: boolean, inputMap: IImportMapFile) {
   return removeNonStaticEnvKeys(env)
 }
 
+export function getProvider(flags: Flags) {
+  return flags.provider || 'jspm'
+}
+
 function removeNonStaticEnvKeys(env: string[]) {
   return env.filter(e => e !== 'import' && e !== 'require' && e !== 'default')
 }
@@ -102,6 +106,7 @@ function removeNonStaticEnvKeys(env: string[]) {
 export function attachEnv(map: any, env: string[] = []) {
   map.env = removeNonStaticEnvKeys(env)
 }
+
 export function detachEnv(map: any) {
   return { ...map, env: undefined }
 }
