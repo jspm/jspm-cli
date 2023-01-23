@@ -52,7 +52,7 @@ export async function writeMap(
       )
     }
     await fs.writeFile(outfile, output)
-    !silent && console.error(
+    !silent && console.warn(
       `${c.green('Ok:')} Updated ${outfile}`,
     )
   }

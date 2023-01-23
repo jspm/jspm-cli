@@ -1,6 +1,7 @@
 import c from 'picocolors'
 import cac from 'cac'
 import { version } from '../package.json'
+import clearCache from './clearCache'
 import extract from './extract'
 import inject from './inject'
 import install from './install'
@@ -55,6 +56,21 @@ cli
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
   .action(wrapCommandAndRemoveStack(extract))
 
+cli
+  .command('clear-cache', 'Clear the local package cache')
+  .action(wrapCommandAndRemoveStack(clearCache))
+
+cli
+  .command('')
+  .action(() => {
+    if (cli.args.length)
+      console.error(`${c.red('Error:')} Invalid command ${c.bold(cli.args.join(' '))}\n`)
+    else
+      console.error(`${c.red('Error:')} No command provided\n`)
+    cli.outputHelp()
+    process.exit(1)
+  })
+
 function noArgs() {
   if (cli.args.length === 0) {
     cli.outputHelp()
@@ -64,10 +80,11 @@ function noArgs() {
 
 ['uninstall', 'link', 'inject', 'extract'].forEach(command => cli.on(`command:${command}`, noArgs))
 
-cli.on('command:*', () => {
-  console.error(`${c.red('Error:')} Invalid command ${c.bold(cli.args.join(' '))}\n`)
-  cli.outputHelp()
-  process.exit(1)
-})
+// short commands
+switch (process.argv[2]) {
+  case 'cc':
+    process.argv[2] = 'clear-cache'
+    break
+}
 
 cli.parse()

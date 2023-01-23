@@ -83,6 +83,13 @@ Then with running `jspm extract react`, it would generate this import-map instea
   }
 }
 ```
+
+### `clear-cache`
+> `jspm clear-cache`
+
+Clear the global fetch cache, usable for situation where newer builds are
+needed.
+
 ## Options
 - `-r, --resolution <resolutions>`: custom dependency resolution overrides for all installs
 - `-e, --env <environments>`: the conditional environment resolutions to apply

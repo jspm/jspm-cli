@@ -76,7 +76,7 @@ export default async function inject(
   else
     await fs.writeFile(flags.output ?? htmlFile, output, 'utf-8')
 
-  console.error(
+  console.warn(
     `${c.green('Ok:')} Injected ${flags.output ?? htmlFile}`,
   )
 
