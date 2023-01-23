@@ -1,6 +1,7 @@
 import path from 'path'
 import { pathToFileURL } from 'url'
 import fs from 'fs/promises'
+import c from 'picocolors'
 import ora from 'ora'
 import type { Flags, IImportMap, IImportMapFile } from './types'
 
@@ -19,7 +20,7 @@ export function wrapCommandAndRemoveStack(fn: Function) {
       stopLoading()
       process.exitCode = 1
       if (e instanceof JspmError || e?.jspmError) {
-        console.error(`ERR: ${e.message}`)
+        console.error(`${c.red('Err:')} ${e.message}`)
         return
       }
       throw e
@@ -52,7 +53,7 @@ export async function writeMap(
     }
     await fs.writeFile(outfile, output)
     !silent && console.error(
-      `OK: Updated ${outfile}`,
+      `${c.green('Ok:')} Updated ${outfile}`,
     )
   }
 }

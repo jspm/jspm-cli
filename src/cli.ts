@@ -1,3 +1,4 @@
+import c from 'picocolors'
 import cac from 'cac'
 import { version } from '../package.json'
 import extract from './extract'
@@ -8,9 +9,10 @@ import uninstall from './uninstall'
 import update from './update'
 import { wrapCommandAndRemoveStack } from './utils'
 
-const cli = cac('jspm')
+const cli = cac(c.yellow('jspm'))
 
 cli
+  .usage('[command] [options]')
   .version(version)
   .option('-r, --resolution <resolutions>', 'custom dependency resolution overrides for all installs')
   .option('-e, --env <environments>', 'the conditional environment resolutions to apply')
@@ -53,10 +55,6 @@ cli
   .option('-o, --output <outputFile>', '.json or .importmap file for the output import-map')
   .action(wrapCommandAndRemoveStack(extract))
 
-cli
-  .command('')
-  .action(cli.outputHelp)
-
 function noArgs() {
   if (cli.args.length === 0) {
     cli.outputHelp()
@@ -67,7 +65,7 @@ function noArgs() {
 ['uninstall', 'link', 'inject', 'extract'].forEach(command => cli.on(`command:${command}`, noArgs))
 
 cli.on('command:*', () => {
-  console.error('Invalid command: %s', cli.args.join(' '))
+  console.error(`${c.red('Error:')} Invalid command ${c.bold(cli.args.join(' '))}\n`)
   cli.outputHelp()
   process.exit(1)
 })

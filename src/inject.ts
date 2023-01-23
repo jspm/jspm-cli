@@ -1,4 +1,5 @@
 import fs from 'fs/promises'
+import c from 'picocolors'
 import { Generator } from '@jspm/generator'
 import type { Flags } from './types'
 import {
@@ -40,7 +41,7 @@ export default async function inject(
   const env = getEnv(flags, true, inputMap)
 
   if (!(await htmlExists(htmlFile))) {
-    console.warn(`Warning: HTML file ${htmlFile} does not exist, creating one`)
+    console.warn(`${c.cyan('Note:')} HTML file ${htmlFile} does not exist, creating one`)
     await fs.writeFile(htmlFile, defaultHtmlTemplate, 'utf-8')
   }
   startLoading(
@@ -74,6 +75,10 @@ export default async function inject(
     console.log(output)
   else
     await fs.writeFile(flags.output ?? htmlFile, output, 'utf-8')
+
+  console.error(
+    `${c.green('Ok:')} Injected ${flags.output ?? htmlFile}`,
+  )
 
   return output
 }
