@@ -20,7 +20,7 @@ export function wrapCommandAndRemoveStack(fn: Function) {
       stopLoading()
       process.exitCode = 1
       if (e instanceof JspmError || e?.jspmError) {
-        console.error(`${c.red('Err:')} ${e.message}`)
+        console.error(`${c.red('Err:')} ${e.message}\n`)
         return
       }
       throw e
@@ -48,12 +48,12 @@ export async function writeMap(
     const outfile = flags.output || flags.map || 'importmap.json'
     if (!outfile.endsWith('.json') && !outfile.endsWith('.importmap')) {
       throw new JspmError(
-        'Extract will only write to ".json" or ".importmap" files. Use "jspm inject" for HTML injection.',
+        `Extract will only write to ${c.bold('".json"')} or ${c.bold('".importmap"')} files. Use ${c.bold('jspm inject')} for HTML injection.`,
       )
     }
     await fs.writeFile(outfile, output)
     !silent && console.warn(
-      `${c.green('Ok:')} Updated ${outfile}`,
+      `${c.green('Ok:')} Updated ${c.cyan(outfile)}`,
     )
   }
 }
@@ -137,7 +137,7 @@ export function getResolutions(flags: Flags): Record<string, string> {
     resolutions.map((resolution) => {
       if (!resolution.includes('=')) {
         throw new JspmError(
-          'Resolutions must be mappings from aliases to targets, for example of the form "--resolution pkg=x.y.z"',
+          `Resolutions must be mappings from aliases to targets, for example of the form ${c.bold('--resolution pkg=x.y.z')}`,
         )
       }
       return resolution.split('=')

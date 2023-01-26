@@ -13,6 +13,10 @@ export interface Flags {
   compact?: boolean
 }
 
+export type InjectFlags = Flags & {
+  packages: string[]
+}
+
 export type IImportMap = ReturnType<Generator['getMap']>
 
 export type IImportMapFile = IImportMap & { env?: string[]; provider?: string }

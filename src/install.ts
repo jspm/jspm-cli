@@ -1,4 +1,5 @@
 import { Generator } from '@jspm/generator'
+import c from 'picocolors'
 import type { Flags, IImportMapFile } from './types'
 import { attachEnv, cwdUrl, getEnv, getInputMap, getInputMapUrl, getProvider, getResolutions, startLoading, stopLoading, writeMap } from './utils'
 
@@ -24,7 +25,7 @@ export default async function install(packages: string[], flags: Flags) {
   })
 
   startLoading(
-    `Installing ${resolvedPackages.map(p => p.alias || p.target).join(', ')} (${env.join(', ')})`,
+    `Installing ${c.bold(resolvedPackages.map(p => p.alias || p.target).join(', '))} (${env.join(', ')})`,
   )
 
   if (resolvedPackages.length)

@@ -4,9 +4,10 @@ import inject from '../src/inject'
 
 {
   /* basic inject */
-  const map = await inject('test/fixtures/index.html', ['react'], {
+  const map = await inject('test/fixtures/index.html', {
     stdout: true,
     map: 'test/importmap.json',
+    packages: ['react'],
   })
   assert.ok(
     map.includes('"react":'),
@@ -15,9 +16,10 @@ import inject from '../src/inject'
 
 {
   /* output html file */
-  await inject('test/fixtures/index.html', ['react'], {
+  await inject('test/fixtures/index.html', {
     map: 'test/importmap.json',
     output: 'test/fixtures/index.injected.html',
+    packages: ['react'],
   })
   const html = await fs.readFile('test/fixtures/index.injected.html', 'utf-8')
   assert.ok(
@@ -32,8 +34,9 @@ import inject from '../src/inject'
   }
   catch {}
 
-  await inject('test/fixtures/index.404.html', ['react'], {
+  await inject('test/fixtures/index.404.html', {
     map: 'test/importmap.json',
+    packages: ['react'],
   })
   const html = await fs.readFile('test/fixtures/index.404.html', 'utf-8')
   assert.ok(
