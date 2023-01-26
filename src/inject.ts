@@ -56,7 +56,7 @@ export default async function inject(
   const generator = new Generator({
     env,
     inputMap,
-    baseUrl: cwdUrl,
+    baseUrl: new URL('.', new URL(htmlFile, `${pathToFileURL(process.cwd())}/`)),
     mapUrl: getInputMapUrl(flags),
     resolutions: getResolutions(flags),
   })
