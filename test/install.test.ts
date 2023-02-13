@@ -1,139 +1,150 @@
-import fs from 'fs/promises'
-import assert from 'assert'
-import install from '../src/install'
+import assert from "assert";
+import { type Scenario, runScenarios } from "./scenarios";
 
-{
-  /* basic install */
-  const map = await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'development',
-    stdout: true,
-    map: 'test/importmap.json',
-  })
-  assert.strictEqual(
-    map.imports.react,
-    'https://ga.jspm.io/npm:react@17.0.1/dev.index.js',
-  )
-}
+const scenarios: Scenario[] = [
+  // Basic install:
+  {
+    commands: ["jspm install react@17.0.1 react-dom@17.0.1"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
 
-{
-  /* env */
-  const map = await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'production,browser',
-    stdout: true,
-    map: 'test/importmap.json',
-  })
-  assert.strictEqual(
-    map.imports.react,
-    'https://ga.jspm.io/npm:react@17.0.1/index.js',
-  )
-}
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
+      );
+    },
+  },
 
-{
-  /* env with adding deno should negate browser */
-  await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'deno',
-    map: 'test/importmap.json',
-  })
+  // Install, but with a production environment:
+  {
+    commands: ["jspm install react@17.0.1 react-dom@17.0.1 -e production"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
 
-  let map = JSON.parse(
-    await fs.readFile('test/importmap.json', 'utf-8'),
-  )
-  assert.deepEqual(
-    map.env, ['deno', 'module', 'production'],
-  )
-  assert.strictEqual(
-    map.imports.react,
-    'https://ga.jspm.io/npm:react@17.0.1/index.js',
-  )
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/index.js"
+      );
+    },
+  },
 
-  /* env with adding browser should negate browser */
-  await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'deno,browser',
-    map: 'test/importmap.json',
-  })
+  // Install, but with deno environment:
+  {
+    commands: ["jspm install react@17.0.1 react-dom@17.0.1 -e deno"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
 
-  map = JSON.parse(
-    await fs.readFile('test/importmap.json', 'utf-8'),
-  )
-  assert.deepEqual(
-    map.env, ['browser', 'deno', 'module', 'production'],
-  )
-  assert.strictEqual(
-    map.imports.react,
-    'https://ga.jspm.io/npm:react@17.0.1/index.js',
-  )
-}
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
+      );
 
-{
-  /* alias */
-  const map = await install(['custom=react@17.0.1'], {
-    env: 'production',
-    map: 'test/importmap.json',
-    stdout: true,
-  })
-  assert.strictEqual(
-    map.imports.custom,
-    'https://ga.jspm.io/npm:react@17.0.1/index.js',
-  )
-}
+      // "deno" should replace "browser" env:
+      assert.deepEqual(map.env, ["deno", "development", "module"]);
+    },
+  },
 
-{
-  /* reinstall */
-  const map = await install([], {
-    env: 'no-deno,production',
-    map: 'test/importmap.json',
-    stdout: true,
-  })
-  assert.ok(!map.imports.react.endsWith('/dev.index.js'))
-}
+  // Install, but with both deno _and_ browser environments:
+  {
+    commands: ["jspm install react@17.0.1 react-dom@17.0.1 -e deno,browser"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
 
-{
-  await fs.copyFile('test/importmap.json', 'test/importmap.modified.json')
-  /* basic install with env */
-  await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'production,deno',
-    map: 'test/importmap.modified.json',
-  })
-  const map = JSON.parse(
-    await fs.readFile('test/importmap.modified.json', 'utf-8'),
-  )
-  assert.strictEqual(
-    map.imports.react,
-    'https://ga.jspm.io/npm:react@17.0.1/index.js',
-  )
-  assert.deepEqual(
-    map.env, ['deno', 'module', 'production'],
-  )
-}
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
+      );
 
-{
-  /* basic install with loading env */
-  await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    map: 'test/importmap.modified.json',
-  })
-  const map = JSON.parse(
-    await fs.readFile('test/importmap.modified.json', 'utf-8'),
-  )
-  assert.deepEqual(
-    map.env, ['deno', 'module', 'production'],
-  )
+      // Both "deno" and "browser" envs should be present:
+      assert.deepEqual(map.env, ["browser", "deno", "development", "module"]);
+    },
+  },
 
-  const keys = Object.keys(map)
-  // `env` appears at the top
-  assert.equal(keys[0], 'env')
+  // Install, but using a alias for the package:
+  {
+    commands: ["jspm install -e production custom=react@17.0.1"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
 
-  await fs.rm('test/importmap.modified.json')
-}
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.custom,
+        "https://ga.jspm.io/npm:react@17.0.1/index.js"
+      );
+    },
+  },
 
-{
-  /* provider */
-  const map = await install(['react@17.0.1', 'react-dom@17.0.1'], {
-    env: 'production,browser',
-    provider: 'jsdelivr',
-    map: 'test/importmap.json',
-    stdout: true,
-  })
-  assert.deepEqual(
-    map.imports.react, 'https://cdn.jsdelivr.net/npm/react@17.0.1/index.js',
-  )
-}
+  // Reinstall, changing from development to production:
+  {
+    commands: [
+      "jspm install -e development react@17.0.1",
+      "jspm install -e production",
+    ],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
+
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/index.js"
+      );
+    },
+  },
+
+  // Installing should respect the existing import map's "env" field:
+  {
+    commands: ["jspm install -e deno,production react@17.0.1", "jspm install"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
+
+      const map = JSON.parse(files["importmap.json"]);
+      assert.deepEqual(map.env, ["deno", "module", "production"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/index.js"
+      );
+    },
+  },
+
+  // You should be able to swap providers using the -p flag:
+  {
+    commands: ["jspm install -p jsdelivr -e production,browser react@17.0.1"],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 2);
+
+      const map = JSON.parse(files["importmap.json"]);
+      assert.strictEqual(
+        map.imports.react,
+        "https://cdn.jsdelivr.net/npm/react@17.0.1/index.js"
+      );
+    },
+  },
+
+  // By giving "jspm install" a different output map, you should be able to
+  // extract traces for a particular module, rather than tracing the entire
+  // import map:
+  {
+    commands: [
+      "jspm install -e production,browser react@17.0.1 lodash@4.17.21",
+      "jspm install -o output.importmap.json lodash", // extract lodash
+    ],
+    validationFn: async (files: Map<string, string>) => {
+      assert.equal(Object.keys(files).length, 3);
+      assert(files["importmap.json"]);
+      assert(files["output.importmap.json"]);
+
+      const map = JSON.parse(files["output.importmap.json"]);
+      assert(!map.imports.react);
+      assert.strictEqual(
+        map.imports.lodash,
+        "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js"
+      );
+    },
+  },
+];
+
+await runScenarios(scenarios);

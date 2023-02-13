@@ -1,8 +1,12 @@
 {
-  "extends": "@antfu",
+  "extends": [
+    "@antfu",
+    "prettier"
+  ],
   "ignorePatterns": ["**/*importmap*"],
   "rules": {
     "no-console": "off",
-    "no-cond-assign": "off"
+    "no-cond-assign": "off",
+    "antfu/if-newline": off
   }
 }

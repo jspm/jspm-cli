@@ -1,3 +1,3 @@
-Deno.test('import from import map', async () => {
-  await import('@jspm/generator')
-})
+Deno.test("import from import map", async () => {
+  await import("@jspm/generator");
+});

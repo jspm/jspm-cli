@@ -1,7 +1,7 @@
 version = 0.1
 default-task = 'build'
 
-extensions = ['chomp@0.1:npm']
+extensions = ['chomp@0.1:npm', 'chomp@0.1:prettier']
 
 [[task]]
 name = 'build'
@@ -16,6 +16,14 @@ run = 'eslint .'
 [[task]]
 name = 'lint:fix'
 run = 'eslint . --fix'
+
+[[task]]
+name = 'prettier'
+template = 'prettier'
+deps = ['src/*.ts', 'test/*.ts']
+[task.template-options]
+files = 'src/*.ts test/*.ts'
+loglevel = 'warn'
 
 [[task]]
 name = 'typecheck'

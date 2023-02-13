@@ -6,6 +6,10 @@
   "bin": {
     "jspm": "./jspm.js"
   },
+  "files": [
+    "dist",
+    "jspm.js"
+  ],
   "dependencies": {
     "@jspm/generator": "^1.0.2",
     "ora": "^6.1.2",
@@ -16,12 +20,10 @@
     "cac": "^6.7.14",
     "esbuild": "^0.16.10",
     "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.4",
     "tinyspy": "^1.0.2",
     "tsx": "^3.12.1",
     "typescript": "^4.9.4"
-  },
-  "files": [
-    "dist",
-    "jspm.js"
-  ]
+  }
 }

@@ -1,37 +1,80 @@
-import { Generator } from '@jspm/generator'
-import type { Flags } from './types'
-import { JspmError, cwdUrl, getEnv, getInputMap, getInputMapUrl, getResolutions, startLoading, stopLoading, writeMap } from './utils'
+import { Generator } from "@jspm/generator";
+import c from "picocolors";
+import type { Flags } from "./types";
+import {
+  attachEnv,
+  cwdUrl,
+  getEnv,
+  getInput,
+  getInputPath,
+  getInputUrl,
+  getOutputPath,
+  getProvider,
+  getResolutions,
+  startLoading,
+  stopLoading,
+  writeOutput,
+} from "./utils";
 
-export default async function link(packages: string[], flags: Flags) {
+export default async function link(
+  packages: string[],
+  flags: Flags,
+  silent = false
+) {
   const resolvedModules = packages.map((p) => {
-    if (!p.includes('='))
-      return { target: p }
-    const [alias, target] = p.split('=')
-    return { alias, target }
-  })
+    if (!p.includes("=")) return { target: p };
+    const [alias, target] = p.split("=");
+    return { alias, target };
+  });
 
-  const inputMap = await getInputMap(flags)
-  const env = getEnv(flags, true, inputMap)
-  startLoading(
-    `Linking${
-      resolvedModules.length
-        ? ` ${resolvedModules
-            .map(p => p.alias || p.target)
-            .join(', ')}`
-        : ''
-    }`,
-  )
+  const inputMapPath = getInputPath(flags);
+  const outputMapPath = getOutputPath(flags);
+  const provider = getProvider(flags);
+  const env = await getEnv(flags);
+
   const generator = new Generator({
-    env,
-    inputMap,
-    baseUrl: cwdUrl,
-    mapUrl: getInputMapUrl(flags),
+    env: [...env],
+    defaultProvider: provider,
+    baseUrl: cwdUrl(),
+    mapUrl: getInputUrl(flags),
     resolutions: getResolutions(flags),
-  })
-  if (!resolvedModules.length)
-    throw new JspmError('Trace install requires at least one module to trace.')
-  await generator.traceInstall(resolvedModules.map(p => p.target))
-  stopLoading()
-  await writeMap(generator.getMap(), flags)
-  return generator.getMap()
+  });
+
+  if (packages.length === 0) {
+    startLoading(`Linking input.`);
+  } else {
+    startLoading(
+      `Linking ${c.bold(
+        resolvedModules.map((p) => p.alias || p.target).join(", ")
+      )}. (${env.join(", ")})`
+    );
+  }
+
+  // The input map is either from a JSON file or extracted from an HTML file.
+  // In the latter case we want to trace any inline modules from the HTML file
+  // as well, since they may have imports that are not in the import map yet:
+  let inputPins: string[] = [];
+  const input = await getInput(flags);
+  if (typeof input !== "undefined") {
+    inputPins = await generator.addMappings(input);
+  }
+
+  // Trace everything in the input file, along with the provided packages:
+  await generator.traceInstall(
+    inputPins.concat(resolvedModules.map((p) => p.target))
+  );
+
+  // If the user has provided modules and the output path is different to the
+  // input path, then we behave as an extraction from the input map. In all
+  // other cases we behave as an update:
+  let outputMap = generator.getMap();
+  if (inputMapPath !== outputMapPath && packages.length !== 0)
+    ({ map: outputMap } = await generator.extractMap(packages));
+
+  // Attach explicit environment keys and inject result into output file:
+  stopLoading();
+  attachEnv(outputMap, env);
+  await writeOutput(outputMap, flags, silent);
+
+  return generator.getMap();
 }
