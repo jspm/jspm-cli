@@ -6,7 +6,6 @@ export interface Flags {
   map?: string;
   output?: string;
   provider?: string;
-  force?: boolean;
   stdout?: boolean;
   preload?: boolean;
   integrity?: boolean;

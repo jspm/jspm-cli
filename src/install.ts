@@ -16,12 +16,16 @@ import {
   stopLoading,
   writeOutput,
 } from "./utils";
+import * as log from "./logger";
 
 export default async function install(
   packages: string[],
   flags: Flags,
   silent = false
 ) {
+  log.info(`Installing packages: ${packages.join(", ")}`);
+  log.info(`Flags: ${JSON.stringify(flags)}`);
+
   const resolvedPackages = packages.map((p) => {
     if (!p.includes("=")) return { target: p };
     const [alias, target] = p.split("=");
@@ -47,6 +51,8 @@ export default async function install(
   const input = await getInput(flags);
   if (typeof input !== "undefined") generator.addMappings(input);
 
+  log.info(`Input map parsed: ${JSON.stringify(input, null, 2)}`);
+
   // Install provided packages, or reinstall existing if none provided:
   if (resolvedPackages.length) {
     startLoading(
@@ -56,21 +62,24 @@ export default async function install(
     );
     await generator.install(resolvedPackages);
   } else {
-    // TODO: Do we want to do version bumps by default here?
     startLoading(`Reinstalling all top-level imports.`);
     await generator.reinstall();
   }
+
+  log.info("Extracting map from generator.");
 
   // If the input and output maps are the same, we behave in an additive way
   // and trace all top-level pins to the output file. Otherwise, we behave as
   // an extraction and only trace the provided packages to the output file.
   let outputMap = generator.getMap();
-  if (inputMapPath !== outputMapPath) {
+  if (inputMapPath !== outputMapPath && resolvedPackages.length) {
     const pins = resolvedPackages.map((p) =>
       parsePackageSpec(p.alias || p.target)
     );
     ({ map: outputMap } = await generator.extractMap(pins));
   }
+
+  log.info(`Map extraction complete: ${JSON.stringify(outputMap, null, 2)}`);
 
   // Attach explicit environment keys and write the output:
   stopLoading();

@@ -15,13 +15,17 @@ import {
   stopLoading,
   writeOutput,
 } from "./utils";
+import * as logger from "./logger";
 
 export default async function link(
-  packages: string[],
+  modules: string[],
   flags: Flags,
   silent = false
 ) {
-  const resolvedModules = packages.map((p) => {
+  logger.info(`Linking modules: ${modules.join(", ")}`);
+  logger.info(`Flags: ${JSON.stringify(flags)}`);
+
+  const resolvedModules = modules.map((p) => {
     if (!p.includes("=")) return { target: p };
     const [alias, target] = p.split("=");
     return { alias, target };
@@ -40,7 +44,7 @@ export default async function link(
     resolutions: getResolutions(flags),
   });
 
-  if (packages.length === 0) {
+  if (modules.length === 0) {
     startLoading(`Linking input.`);
   } else {
     startLoading(
@@ -68,8 +72,8 @@ export default async function link(
   // input path, then we behave as an extraction from the input map. In all
   // other cases we behave as an update:
   let outputMap = generator.getMap();
-  if (inputMapPath !== outputMapPath && packages.length !== 0)
-    ({ map: outputMap } = await generator.extractMap(packages));
+  if (inputMapPath !== outputMapPath && modules.length !== 0)
+    ({ map: outputMap } = await generator.extractMap(modules));
 
   // Attach explicit environment keys and inject result into output file:
   stopLoading();

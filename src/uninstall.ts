@@ -10,12 +10,16 @@ import {
   stopLoading,
   writeOutput,
 } from "./utils";
+import * as logger from "./logger";
 
 export default async function uninstall(
   packages: string[],
   flags: Flags,
   silent = false
 ) {
+  logger.info(`Uninstalling packages: ${packages.join(", ")}`);
+  logger.info(`Flags: ${JSON.stringify(flags)}`);
+
   const env = await getEnv(flags);
   startLoading(
     `Uninstalling ${c.bold(packages.join(", "))}. (${env.join(", ")})`

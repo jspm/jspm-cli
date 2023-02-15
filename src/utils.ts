@@ -32,7 +32,7 @@ export function cwdUrl() {
 /**
  * Intercepts internal errors in CLI commands:
  */
-export function wrapCommandAndRemoveStack(fn: Function) {
+export function wrapCommand(fn: Function) {
   return async (...args: any[]) => {
     try {
       await fn(...args);
@@ -94,6 +94,8 @@ export async function writeOutput(
       );
     }
 
+    // TODO: reuse generator instance here, this can be very slow as it does
+    // a full retrace of the input map, which we've already done anyway!
     const generator = new Generator({ inputMap: map });
     const outputHtml = await generator.htmlInject(html, {
       htmlUrl: new URL(mapFile, cwdUrl()),
@@ -110,7 +112,11 @@ export async function writeOutput(
   }
 
   // Otherwise we output the import map in standard JSON format:
-  await fs.writeFile(mapFile, JSON.stringify(map, null, 2));
+  await fs.writeFile(
+    mapFile,
+    flags.compact ? JSON.stringify(map) : JSON.stringify(map, null, 2)
+  );
+
   !silent && console.warn(`${c.green("Ok:")} Updated ${c.cyan(mapFileRel)}`);
 }
 

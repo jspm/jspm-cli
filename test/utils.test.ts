@@ -1,7 +1,7 @@
 import assert from "assert";
 import { spyOn } from "tinyspy";
 import install from "../src/install";
-import { parsePackageSpec, wrapCommandAndRemoveStack } from "../src/utils";
+import { parsePackageSpec, wrapCommand } from "../src/utils";
 
 {
   let errorStr = "";
@@ -9,7 +9,7 @@ import { parsePackageSpec, wrapCommandAndRemoveStack } from "../src/utils";
     errorStr = err;
   });
   /* basic install 404 with wrapCommandAndRemoveStack should not throw with stack mesage */
-  await wrapCommandAndRemoveStack(install)(["package-does-not-exist"], {
+  await wrapCommand(install)(["package-does-not-exist"], {
     env: "development",
     stdout: true,
     map: "test/importmap.json",

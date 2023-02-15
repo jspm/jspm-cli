@@ -6,115 +6,99 @@ import install from "./install";
 import link from "./link";
 import uninstall from "./uninstall";
 import update from "./update";
-import { wrapCommandAndRemoveStack } from "./utils";
+import { wrapCommand } from "./utils";
 
 export const cli = cac(c.yellow("jspm"));
 
-cli
-  .usage("[command] [options]")
-  .version(version)
-  .option(
-    "-m, --map <file>",
-    "file to use as authoritative initial import map",
-    { default: "importmap.json" }
-  )
-  .option(
-    "-e, --env <environments>",
-    "the conditional environment resolutions to apply"
-  )
-  .option(
-    "-p, --provider <provider>",
-    "the default provider to use for a new install, defaults to `jspm`",
-    { default: "jspm" }
-  )
-  .option(
-    "-r, --resolution <resolutions>",
-    "custom dependency resolution overrides for all installs"
-  )
-  .option("--force", "force install even if the import map is up to date", {
-    default: false,
-  })
-  .option("--stdout", "output the import map to stdout", { default: false })
-  .option("--compact", "output a compact import map", { default: false })
-  .help();
+type opt = [string, string, any];
+const mapOpt: opt = [
+  "-m, --map <file>",
+  "File containing initial import map",
+  { default: "importmap.json" },
+];
+const envOpt: opt = [
+  "-e, --env <environments>",
+  "Comma-separated environment condition overrides",
+  {},
+];
+const resolutionOpt: opt = [
+  "-r, --resolution <resolutions>",
+  "Comma-separated dependency resolution overrides",
+  {},
+];
+const providerOpt: opt = [
+  "-p, --provider <provider>",
+  "Default module provider",
+  { default: "jspm" },
+];
+const stdoutOpt: opt = [
+  "--stdout",
+  "Output the import map to stdout",
+  { default: false },
+];
+const compactOpt: opt = [
+  "--compact",
+  "Output a compact import map",
+  { default: false },
+];
+const outputOpt: opt = [
+  "-o, --output <file>",
+  "File to inject the final import map into",
+  {},
+];
+
+cli.usage("[command] [options]").version(version).help();
+
+cli.command("").action(cli.outputHelp);
 
 cli
   .command("install [...packages]", "install packages")
-  .option("-o, --output <file>", "file to inject the final import map into")
-  .action(wrapCommandAndRemoveStack(install));
-  
+  .alias("i")
+  .option(...mapOpt)
+  .option(...outputOpt)
+  .option(...envOpt)
+  .option(...resolutionOpt)
+  .option(...providerOpt)
+  .option(...stdoutOpt)
+  .option(...compactOpt)
+  .action(wrapCommand(install));
 
 cli
   .command("uninstall [...packages]", "remove packages")
-  .option("-o, --output <file>", "file to inject the final import map into")
-  .action(wrapCommandAndRemoveStack(uninstall));
+  .option(...mapOpt)
+  .option(...outputOpt)
+  .option(...envOpt)
+  .option(...resolutionOpt)
+  .option(...providerOpt)
+  .option(...stdoutOpt)
+  .option(...compactOpt)
+  .action(wrapCommand(uninstall));
 
 cli
-  .command("link [...modules]", "trace install modules")
+  .command("link [...modules]", "link modules")
   .alias("trace")
-  .option("-o, --output <file>", "file to inject the final import map into")
-  .action(wrapCommandAndRemoveStack(link));
+  .option(...mapOpt)
+  .option(...outputOpt)
+  .option(...envOpt)
+  .option(...resolutionOpt)
+  .option(...providerOpt)
+  .option(...stdoutOpt)
+  .option(...compactOpt)
+  .action(wrapCommand(link));
 
 cli
   .command("update [...packages]", "update packages")
   .alias("upgrade")
-  .option("-o, --output <file>", "file to inject the final import map into")
-  .action(wrapCommandAndRemoveStack(update));
+  .option(...mapOpt)
+  .option(...outputOpt)
+  .option(...envOpt)
+  .option(...resolutionOpt)
+  .option(...providerOpt)
+  .option(...stdoutOpt)
+  .option(...compactOpt)
+  .action(wrapCommand(update));
 
 cli
   .command("clear-cache", "clear the local package cache")
-  .action(wrapCommandAndRemoveStack(clearCache));
-
-// Help the user if they don't provide a command to run:
-cli.command("").action(() => {
-  if (cli.args.length)
-    console.error(
-      `${c.red("Error:")} Invalid command ${c.bold(cli.args.join(" "))}\n`
-    );
-  else console.error(`${c.red("Error:")} No command provided\n`);
-  cli.outputHelp();
-  process.exit(1);
-});
-
-// Handler that ensures some commands always receive input:
-{
-  function noArgs() {
-    if (cli.args.length === 0) {
-      cli.outputHelp();
-      process.exit(1);
-    }
-  }
-
-  ["uninstall"].forEach((command) => cli.on(`command:${command}`, noArgs));
-}
-
-// Hacks and small tweaks to the input arguments. Should be run before
-// calling cli.parse().
-export function patchArgs(argv: string[]) {
-  switch (argv[2]) {
-    case "cc":
-      argv[2] = "clear-cache";
-      break;
-    case "inject": {
-      let pIndex = argv.indexOf("-p", 2);
-      if (pIndex === -1) pIndex = argv.indexOf("--packages", 2);
-      if (pIndex !== -1) {
-        const pArgs = argv.splice(pIndex);
-        for (let i = 0; i < pArgs.length; i++) {
-          if (pArgs[i] === "-p" || pArgs[i] === "--packages") continue;
-          if (pArgs[i].startsWith("-")) {
-            console.error(
-              `${c.red("Err:")} --packages flag must be the last flag\n`
-            );
-            process.exit(1);
-          }
-          if (pArgs[i - 1] !== "-p" && pArgs[i - 1] !== "--packages") {
-            pArgs.splice(i, 0, "-p");
-            i++;
-          }
-        }
-        argv.splice(pIndex, pArgs.length, ...pArgs);
-      }
-    }
-  }
-}
+  .alias("cc")
+  .action(wrapCommand(clearCache));

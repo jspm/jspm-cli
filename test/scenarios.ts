@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import os from "os";
-import { cli, patchArgs } from "../src/cli";
+import { cli } from "../src/cli";
 
 const defaultPackageJson = {
   name: "test",
@@ -32,7 +32,6 @@ export async function runScenario(scenario: Scenario) {
   try {
     for (const cmd of scenario.commands) {
       const args = ["node", ...cmd.split(" ")];
-      patchArgs(args);
       cli.parse(args, { run: false });
       await cli.runMatchedCommand();
     }

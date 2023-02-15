@@ -11,12 +11,16 @@ import {
   stopLoading,
   writeOutput,
 } from "./utils";
+import * as logger from "./logger";
 
 export default async function update(
   packages: string[],
   flags: Flags,
   silent = false
 ) {
+  logger.info(`Updating packages: ${packages.join(", ")}`);
+  logger.info(`Flags: ${JSON.stringify(flags)}`);
+
   const env = await getEnv(flags);
   startLoading(
     `Updating ${c.bold(
