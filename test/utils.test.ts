@@ -12,7 +12,7 @@ import { parsePackageSpec, wrapCommand } from "../src/utils";
   await wrapCommand(install)(["package-does-not-exist"], {
     env: "development",
     stdout: true,
-    map: "test/importmap.json",
+    map: "test/fixtures/importmap.json",
   });
   assert.ok(process.exitCode === 1);
   assert.ok(

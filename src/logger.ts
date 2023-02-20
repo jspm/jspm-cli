@@ -1,5 +1,4 @@
 import fs from "fs/promises";
-import { statSync } from "fs";
 import os from "os";
 import c from "picocolors";
 
@@ -14,22 +13,21 @@ export type LogStream = () => AsyncGenerator<
 export const logEnabled = !!process.env.JSPM_CLI_LOG;
 
 // Actual debug logger implementation:
-let log: Log, logStream: LogStream;
+let _log: Log, _logStream: LogStream;
 if (logEnabled) {
-  ({ log, logStream } = createLogger());
+  ({ log: _log, logStream: _logStream } = createLogger());
 
   try {
-    // First check if process.env.JSPM_CLI_LOG is a file:
     let logPath;
-    try {
-      const stats = statSync(process.env.JSPM_CLI_LOG);
-      if (stats.isFile()) {
-        logPath = process.env.JSPM_CLI_LOG;
-      }
-    } catch {
+    if (
+      process.env.JSPM_CLI_LOG === "1" ||
+      process.env.JSPM_CLI_LOG?.toLowerCase() === "true"
+    ) {
       logPath = `${os.tmpdir()}/jspm-${new Date()
         .toISOString()
         .slice(0, 19)}.log`;
+    } else {
+      logPath = process.env.JSPM_CLI_LOG;
     }
 
     const logWriter = async (msg: string) =>
@@ -43,10 +41,10 @@ if (logEnabled) {
       console.log(c.red(`Creating debug logger at ${logPath}`));
       await logWriter(""); // touch
 
-      for await (const { type, message } of logStream()) {
-        const spaces = " ".repeat(6 - type.length);
+      for await (const { type, message } of _logStream()) {
         const time = new Date().toISOString().slice(11, 23);
-        await logWriter(`${time} (${type}):${spaces}${message}\n`);
+        const prefix = c.bold(`${time} ${type}:`);
+        await logWriter(`${prefix} ${message}\n`);
       }
     })();
   } catch (e) {
@@ -54,12 +52,12 @@ if (logEnabled) {
   }
 }
 
-export function info(msg: string) {
-  log && log("INFO", msg);
+export function log(type: string, message: string) {
+  _log && _log(type, message);
 }
 
-export function error(msg: string) {
-  log && log("ERROR", msg);
+export function withType(type: string) {
+  return (message: string) => log(type, message);
 }
 
 // Actual logger implementation, ripped from the generator:

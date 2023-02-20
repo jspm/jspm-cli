@@ -1,48 +1,48 @@
-import { Generator } from "@jspm/generator";
 import c from "picocolors";
 import type { Flags } from "./types";
 import {
-  cwdUrl,
   getEnv,
+  getGenerator,
   getInput,
-  getInputUrl,
-  getResolutions,
-  startLoading,
-  stopLoading,
+  startSpinner,
+  stopSpinner,
   writeOutput,
 } from "./utils";
-import * as logger from "./logger";
+import { withType } from "./logger";
 
 export default async function update(
   packages: string[],
   flags: Flags,
-  silent = false
 ) {
-  logger.info(`Updating packages: ${packages.join(", ")}`);
-  logger.info(`Flags: ${JSON.stringify(flags)}`);
+  const log = withType("update/update");
+
+  log(`Updating packages: ${packages.join(", ")}`);
+  log(`Flags: ${JSON.stringify(flags)}`);
 
   const env = await getEnv(flags);
-  startLoading(
-    `Updating ${c.bold(
-      packages.length ? packages.join(", ") : "everything"
-    )}. (${env.join(", ")})`
-  );
-
-  const generator = new Generator({
-    env,
-    baseUrl: cwdUrl(),
-    mapUrl: getInputUrl(flags),
-    resolutions: getResolutions(flags),
-  });
+  const generator = await getGenerator(flags);
 
   // Read in any import maps or inline modules in the input:
+  let inputPins: string[] = [];
   const input = await getInput(flags);
-  if (typeof input !== "undefined") generator.addMappings(input);
+  if (typeof input !== "undefined") {
+    inputPins = await generator.addMappings(input);
+  }
 
-  // Update the provided packages:
-  await generator.update(packages);
-  await writeOutput(generator.getMap(), flags, silent);
-  stopLoading();
+  log(`Input map parsed: ${input}`);
 
-  return generator.getMap();
+  if (packages.length === 0 && inputPins.length === 0) {
+    !flags.silent && console.warn(`${c.red("Warning:")} Nothing to update. Please provide a list of packages or a non-empty input file.`);
+    return;
+  } else {
+    !flags.silent && startSpinner(
+      `Updating ${c.bold(
+        packages.length ? packages.join(", ") : "everything"
+      )}. (${env.join(", ")})`
+    );
+    await generator.update(packages.length ? packages : inputPins);
+    stopSpinner();
+  }
+
+  return await writeOutput(generator, null, env, flags, flags.silent);
 }

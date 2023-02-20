@@ -5,6 +5,7 @@ import c from "picocolors";
 import ora from "ora";
 import { Generator } from "@jspm/generator";
 import type { Flags, IImportMapFile } from "./types";
+import { withType } from "./logger";
 
 // Default import map to use if none is provided:
 const defaultInputPath = "./importmap.json";
@@ -20,6 +21,10 @@ const defaultHtmlTemplate = `<!DOCTYPE html>
   <body>
   </body>
 </html>`;
+
+// Providers that can be used to resolve dependencies:
+const availableProviders = ["jspm", "jspm.system", "nodemodules", "skypack", "jsdelivr", "unpkg"];
+
 
 export class JspmError extends Error {
   jspmError = true;
@@ -37,7 +42,7 @@ export function wrapCommand(fn: Function) {
     try {
       await fn(...args);
     } catch (e) {
-      stopLoading();
+      stopSpinner();
       process.exitCode = 1;
       if (e instanceof JspmError || e?.jspmError) {
         console.error(`${c.red("Error:")} ${e.message}\n`);
@@ -48,68 +53,110 @@ export function wrapCommand(fn: Function) {
   };
 }
 
-// TODO: loading spinner for output writing
 export async function writeOutput(
-  map: IImportMapFile,
+  generator: Generator,
+  pins: string[] | null,
+  env: string[],
   flags: Flags,
   silent = false
 ) {
-  // Ensure the 'env' key is always written first:
-  const env = map.env;
-  delete map.env;
+  if (flags.stdout)
+    return writeStdoutOutput(generator, pins, env, silent);
+
+  const mapFile = getOutputPath(flags);
+  if (mapFile.endsWith(".html"))
+    return writeHtmlOutput(mapFile, generator, pins, env, flags, silent)
+  return writeJsonOutput(mapFile, generator, pins, env, flags, silent)
+}
+
+async function writeStdoutOutput(
+  generator: Generator,
+  pins: string[] | null,
+  env: string[],
+  silent = false
+) {
+  let map: IImportMapFile = pins?.length
+    ? (await generator.extractMap(pins))?.map
+    : generator.getMap();
   map = { env, ...map };
 
-  // If the stdout flag is set, we always write to stdout:
-  if (flags.stdout) {
-    !silent && console.log(JSON.stringify(map, null, 2));
-    return;
-  }
+  !silent && console.log(JSON.stringify(map, null, 2));
+  return map;
+}
 
+async function writeHtmlOutput(
+  mapFile: string,
+  generator: Generator,
+  pins: string[] | null,
+  env: string[],
+  flags: Flags,
+  silent = false
+) {
   // Don't write an output file without permission:
-  const mapFile = getOutputPath(flags);
-  const mapFileRel = path.relative(process.cwd(), mapFile);
   if (!(await canWrite(mapFile)))
     throw new JspmError(
       `JSPM does not have permission to write to ${mapFile}.`
     );
 
-  // If the output file is HTML, we need to run the generator HTML injection:
-  if (mapFile.endsWith(".html")) {
-    if (!(await exists(mapFile))) {
-      !silent &&
-        console.warn(
-          `${c.cyan(
-            "Note:"
-          )} HTML file ${mapFileRel} does not exist, creating one.`
-        );
-      await fs.writeFile(mapFile, defaultHtmlTemplate, "utf-8");
-    }
-
-    let html: string;
-    try {
-      html = await fs.readFile(mapFile, "utf-8");
-    } catch (e) {
-      throw new JspmError(
-        `Failed to read HTML file ${c.cyan(mapFile)} for injection.`
+  const mapFileRel = path.relative(process.cwd(), mapFile);
+  if (!(await exists(mapFile))) {
+    !silent &&
+      console.warn(
+        `${c.cyan(
+          "Note:"
+        )} HTML file ${mapFileRel} does not exist, creating one.`
       );
-    }
-
-    // TODO: reuse generator instance here, this can be very slow as it does
-    // a full retrace of the input map, which we've already done anyway!
-    const generator = new Generator({ inputMap: map });
-    const outputHtml = await generator.htmlInject(html, {
-      htmlUrl: new URL(mapFile, cwdUrl()),
-      comment: false,
-      preload: flags.preload,
-      integrity: flags.integrity,
-      whitespace: !flags.compact,
-    });
-
-    await fs.writeFile(mapFile, outputHtml);
-    !silent && console.warn(`${c.green("Ok:")} Updated ${c.cyan(mapFileRel)}`);
-
-    return;
+    await fs.writeFile(mapFile, defaultHtmlTemplate, "utf-8");
   }
+
+  let html: string;
+  try {
+    html = await fs.readFile(mapFile, "utf-8");
+  } catch (e) {
+    throw new JspmError(
+      `Failed to read HTML file ${c.cyan(mapFile)} for injection.`
+    );
+  }
+
+  // TODO: Inject env into the import map somehow.
+  const outputHtml = await generator.htmlInject(html, {
+    pins: pins ?? true,
+    htmlUrl: generator.mapUrl, // URL of the output map
+    preload: flags.preload,
+    integrity: flags.integrity,
+    whitespace: !flags.compact,
+    comment: false,
+  });
+
+  await fs.writeFile(mapFile, outputHtml);
+  !silent && console.warn(`${c.green("Ok:")} Updated ${c.cyan(mapFileRel)}`);
+}
+
+async function writeJsonOutput(
+  mapFile: string,
+  generator: Generator,
+  pins: string[] | null,
+  env: string[],
+  flags: Flags,
+  silent = false
+) {
+  const log = withType("utils/writeJsonOutput");
+
+  let map: IImportMapFile;
+  if (pins?.length) {
+    log(`Extracting map for top-level pins: ${pins?.join(", ")}`);
+    map = (await generator.extractMap(pins))?.map;
+  } else {
+    log(`Extracting full map`);
+    map = generator.getMap();
+  }
+  map = { env, ...map };
+
+  // Don't write an output file without permission:
+  if (!(await canWrite(mapFile)))
+    throw new JspmError(
+      `JSPM does not have permission to write to ${mapFile}.`
+    );
 
   // Otherwise we output the import map in standard JSON format:
   await fs.writeFile(
@@ -117,7 +164,22 @@ export async function writeOutput(
     flags.compact ? JSON.stringify(map) : JSON.stringify(map, null, 2)
   );
 
+  const mapFileRel = path.relative(process.cwd(), mapFile);
   !silent && console.warn(`${c.green("Ok:")} Updated ${c.cyan(mapFileRel)}`);
+  return map;
+}
+
+export async function getGenerator(
+  flags: Flags,
+  setEnv = true
+): Promise<Generator> {
+  return new Generator({
+    env: setEnv ? await getEnv(flags) : undefined,
+    defaultProvider: getProvider(flags),
+    baseUrl: getInputDirUrl(flags),
+    mapUrl: getOutputUrl(flags),
+    resolutions: getResolutions(flags),
+  });
 }
 
 export async function getInput(flags: Flags): Promise<string | undefined> {
@@ -131,7 +193,7 @@ export async function getInput(flags: Flags): Promise<string | undefined> {
   return fs.readFile(mapFile, "utf-8");
 }
 
-export async function getInputMap(flags: Flags): Promise<IImportMapFile> {
+async function getInputMap(flags: Flags): Promise<IImportMapFile> {
   const mapPath = getInputPath(flags);
   const file = await getInput(flags);
   if (!file) return {};
@@ -139,17 +201,9 @@ export async function getInputMap(flags: Flags): Promise<IImportMapFile> {
   // For HTML files, we can extract the input map from the generator's tracer
   // once it's finished processing the file:
   if (mapPath.endsWith(".html")) {
-    const generator = new Generator({
-      baseUrl: cwdUrl(),
-      mapUrl: getInputUrl(flags),
-      resolutions: getResolutions(flags),
-      defaultProvider: getProvider(flags),
-    });
-
-    // TODO: this abuses the jspm/generator internals, we should export an API
-    //       for working with html files and use that instead
+    const generator = await getGenerator(flags, false);
     await generator.addMappings(file);
-    return generator.traceMap.inputMap;
+    return generator.getMap();
   }
 
   // In all other cases it should be a JSON file:
@@ -160,8 +214,8 @@ export function getInputPath(flags: Flags): string {
   return path.resolve(process.cwd(), flags.map || defaultInputPath);
 }
 
-export function getInputUrl(flags: Flags): URL {
-  return pathToFileURL(getInputPath(flags));
+function getInputDirUrl(flags: Flags): URL {
+  return pathToFileURL(path.dirname(getInputPath(flags)));
 }
 
 export function getOutputPath(flags: Flags): string | undefined {
@@ -169,6 +223,10 @@ export function getOutputPath(flags: Flags): string | undefined {
     process.cwd(),
     flags.output || flags.map || defaultInputPath
   );
+}
+
+function getOutputUrl(flags: Flags): URL {
+  return pathToFileURL(getOutputPath(flags));
 }
 
 const excludeDefinitions = {
@@ -219,7 +277,10 @@ export async function getEnv(flags: Flags) {
   return removeNonStaticEnvKeys(env);
 }
 
-export function getProvider(flags: Flags) {
+function getProvider(flags: Flags) {
+  if (flags.provider && !availableProviders.includes(flags.provider))
+    throw new JspmError(
+      `Invalid provider "${flags.provider}". Available providers are: "${availableProviders.join('", "')}".`);
   return flags.provider || "jspm";
 }
 
@@ -229,15 +290,8 @@ function removeNonStaticEnvKeys(env: string[]) {
   );
 }
 
-export function attachEnv(map: any, env: string[] = []) {
-  map.env = removeNonStaticEnvKeys(env);
-}
 
-export function detachEnv(map: any) {
-  return { ...map, env: undefined };
-}
-
-export function getResolutions(flags: Flags): Record<string, string> {
+function getResolutions(flags: Flags): Record<string, string> {
   if (!flags.resolution) return;
   const resolutions = flags.resolution.split(",").map((r) => r.trim());
   return Object.fromEntries(
@@ -254,16 +308,16 @@ export function getResolutions(flags: Flags): Record<string, string> {
   );
 }
 
-const loading = ora({ spinner: "dots" });
+const spinner = ora({ spinner: "dots" });
 
-export function startLoading(text: string) {
-  loading.start(text);
+export function startSpinner(text: string) {
+  spinner.start(text);
 }
-export function stopLoading() {
-  loading.stop();
+export function stopSpinner() {
+  spinner.stop();
 }
 
-export async function exists(file: string) {
+async function exists(file: string) {
   try {
     await fs.access(file);
     return true;
@@ -272,7 +326,7 @@ export async function exists(file: string) {
   }
 }
 
-export async function canRead(file: string) {
+async function canRead(file: string) {
   try {
     await fs.access(file, (fs.constants || fs).R_OK);
     return true;
@@ -281,7 +335,7 @@ export async function canRead(file: string) {
   }
 }
 
-export async function canWrite(file: string) {
+async function canWrite(file: string) {
   try {
     if (!(await exists(file))) return true;
     await fs.access(file, (fs.constants || fs).W_OK);
