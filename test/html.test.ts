@@ -1,5 +1,5 @@
 import assert from "assert";
-import { type Scenario, runScenarios, mapFile } from "./scenarios";
+import { type Scenario, mapFile, runScenarios } from "./scenarios";
 
 const importMap = await mapFile("test/fixtures/importmap.json");
 
@@ -51,7 +51,8 @@ const scenarios: Scenario[] = [
       // The index.html should contain the react version from the import map,
       // and integrities for the 17.0.1 version:
       // NOTE: this will break if we change the CDN build!
-      const reactIntegrity = "sha384-y5ozcpbgsrkQFNWIQTtiGWstK6sGqPJu5Ptnvn8lAqJXDNI7ZdE9fMsYVgrq3PRG";
+      const reactIntegrity =
+        "sha384-y5ozcpbgsrkQFNWIQTtiGWstK6sGqPJu5Ptnvn8lAqJXDNI7ZdE9fMsYVgrq3PRG";
       assert(files["index.html"].includes("npm:react@17.0.1"));
       assert(!files["index.html"].includes("npm:lodash@4.17.21"));
       assert(!files["index.html"].includes("npm:react-dom@17.0.1"));
@@ -62,4 +63,3 @@ const scenarios: Scenario[] = [
 ];
 
 runScenarios(scenarios);
-

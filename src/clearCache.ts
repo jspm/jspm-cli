@@ -1,6 +1,6 @@
 import c from "picocolors";
 import { clearCache as _clearCache } from "@jspm/generator";
-import { Flags } from "./types";
+import type { Flags } from "./types";
 
 export default async function clearCache(flags: Flags) {
   _clearCache();

@@ -13,10 +13,7 @@ import {
 } from "./utils";
 import { withType } from "./logger";
 
-export default async function install(
-  packages: string[],
-  flags: Flags,
-) {
+export default async function install(packages: string[], flags: Flags) {
   const log = withType("install/install");
 
   log(`Installing packages: ${packages.join(", ")}`);
@@ -40,11 +37,12 @@ export default async function install(
 
   // Install provided packages, or reinstall existing if none provided:
   if (resolvedPackages.length) {
-    !flags.silent && startSpinner(
-      `Installing ${c.bold(
-        resolvedPackages.map((p) => p.alias || p.target).join(", ")
-      )}. (${env.join(", ")})`
-    );
+    !flags.silent &&
+      startSpinner(
+        `Installing ${c.bold(
+          resolvedPackages.map((p) => p.alias || p.target).join(", ")
+        )}. (${env.join(", ")})`
+      );
     await generator.install(resolvedPackages);
     stopSpinner();
   } else if (pins.length) {
@@ -52,7 +50,12 @@ export default async function install(
     await generator.reinstall();
     stopSpinner();
   } else {
-    !flags.silent && console.warn(`${c.red("Warning:")} Nothing to install, outputting an empty import map. Either provide a list of package to install, or a non-empty input file.`);
+    !flags.silent &&
+      console.warn(
+        `${c.red(
+          "Warning:"
+        )} Nothing to install, outputting an empty import map. Either provide a list of package to install, or a non-empty input file.`
+      );
   }
 
   // If the input and output maps are the same, we behave in an additive way

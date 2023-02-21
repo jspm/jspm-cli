@@ -4,7 +4,10 @@ import { type Scenario, runScenarios } from "./scenarios";
 
 const importMap = new Map(
   Object.entries({
-    "importmap.json": await fs.readFile("test/fixtures/importmap.json", "utf-8"),
+    "importmap.json": await fs.readFile(
+      "test/fixtures/importmap.json",
+      "utf-8"
+    ),
   })
 );
 

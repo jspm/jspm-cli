@@ -10,10 +10,7 @@ import {
 } from "./utils";
 import { withType } from "./logger";
 
-export default async function update(
-  packages: string[],
-  flags: Flags,
-) {
+export default async function update(packages: string[], flags: Flags) {
   const log = withType("update/update");
 
   log(`Updating packages: ${packages.join(", ")}`);
@@ -32,14 +29,20 @@ export default async function update(
   log(`Input map parsed: ${input}`);
 
   if (packages.length === 0 && inputPins.length === 0) {
-    !flags.silent && console.warn(`${c.red("Warning:")} Nothing to update. Please provide a list of packages or a non-empty input file.`);
+    !flags.silent &&
+      console.warn(
+        `${c.red(
+          "Warning:"
+        )} Nothing to update. Please provide a list of packages or a non-empty input file.`
+      );
     return;
   } else {
-    !flags.silent && startSpinner(
-      `Updating ${c.bold(
-        packages.length ? packages.join(", ") : "everything"
-      )}. (${env.join(", ")})`
-    );
+    !flags.silent &&
+      startSpinner(
+        `Updating ${c.bold(
+          packages.length ? packages.join(", ") : "everything"
+        )}. (${env.join(", ")})`
+      );
     await generator.update(packages.length ? packages : inputPins);
     stopSpinner();
   }

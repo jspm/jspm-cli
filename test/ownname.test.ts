@@ -1,5 +1,5 @@
 import assert from "assert";
-import { type Scenario, runScenarios, mapDirectory } from "./scenarios";
+import { type Scenario, mapDirectory, runScenarios } from "./scenarios";
 
 const filesOwnName = await mapDirectory("test/fixtures/scenario_ownname");
 
@@ -13,7 +13,9 @@ const scenarios: Scenario[] = [
       // transitive dependency of "./app.js", even though it violates the lock:
       // TODO: is this the behaviour we want?
       const map = JSON.parse(files["importmap.json"]);
-      assert(map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@0.10.5"));
+      assert(
+        map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@0.10.5")
+      );
     },
   },
   {
@@ -25,7 +27,9 @@ const scenarios: Scenario[] = [
       // even though the package.json has a version constraint of ^1. This is
       // because we treat the input map as a lockfile:
       const map = JSON.parse(files["outputmap.json"]);
-      assert(map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@0.10.5"));
+      assert(
+        map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@0.10.5")
+      );
     },
   },
   {
@@ -38,7 +42,11 @@ const scenarios: Scenario[] = [
 
       // TODO: once we fully implement re-entrant primary scope in the generator
       // we should be able to check map.imports rather:
-      assert(map?.scopes?.["./"]?.["es-module-lexer"]?.includes("es-module-lexer@0.10.5"));
+      assert(
+        map?.scopes?.["./"]?.["es-module-lexer"]?.includes(
+          "es-module-lexer@0.10.5"
+        )
+      );
     },
   },
 ];

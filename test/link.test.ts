@@ -1,6 +1,5 @@
-import fs from "fs/promises";
 import assert from "assert";
-import { type Scenario, mapDirectory, mapFile, runScenarios } from "./scenarios";
+import { type Scenario, mapFile, runScenarios } from "./scenarios";
 
 const scripts = await mapFile(["test/fixtures/a.js", "test/fixtures/b.js"]);
 const importMap = await mapFile("test/fixtures/importmap.json");

@@ -13,10 +13,7 @@ import {
 } from "./utils";
 import { withType } from "./logger";
 
-export default async function link(
-  modules: string[],
-  flags: Flags,
-) {
+export default async function link(modules: string[], flags: Flags) {
   const log = withType("link/link");
 
   log(`Linking modules: ${modules.join(", ")}`);
@@ -73,17 +70,23 @@ export default async function link(
     if (modules.length === 0) {
       !flags.silent && startSpinner(`Linking input.`);
     } else {
-      !flags.silent && startSpinner(
-        `Linking ${c.bold(
-          resolvedModules.map((p) => p.alias || p.target).join(", ")
-        )}. (${env.join(", ")})`
-      );
+      !flags.silent &&
+        startSpinner(
+          `Linking ${c.bold(
+            resolvedModules.map((p) => p.alias || p.target).join(", ")
+          )}. (${env.join(", ")})`
+        );
     }
 
     await generator.traceInstall(allPins.concat(pins));
     stopSpinner();
   } else {
-    !flags.silent && console.warn(`${c.red("Warning:")} Nothing to link, outputting an empty import map. Either provide a list of modules to link, or a non-empty input file.`);
+    !flags.silent &&
+      console.warn(
+        `${c.red(
+          "Warning:"
+        )} Nothing to link, outputting an empty import map. Either provide a list of modules to link, or a non-empty input file.`
+      );
   }
 
   // If the user has provided modules and the output path is different to the

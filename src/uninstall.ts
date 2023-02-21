@@ -10,17 +10,19 @@ import {
 } from "./utils";
 import { withType } from "./logger";
 
-export default async function uninstall(
-  packages: string[],
-  flags: Flags,
-) {
+export default async function uninstall(packages: string[], flags: Flags) {
   const log = withType("install/install");
 
   log(`Uninstalling packages: ${packages.join(", ")}`);
   log(`Flags: ${JSON.stringify(flags)}`);
 
   if (packages.length === 0) {
-    !flags.silent && console.warn(`${c.red("Warning:")} Nothing to uninstall. Please provide a list of packages.`);
+    !flags.silent &&
+      console.warn(
+        `${c.red(
+          "Warning:"
+        )} Nothing to uninstall. Please provide a list of packages.`
+      );
     return;
   }
 
@@ -31,9 +33,10 @@ export default async function uninstall(
 
   log(`Input map parsed: ${input}`);
 
-  !flags.silent && startSpinner(
-    `Uninstalling ${c.bold(packages.join(", "))}. (${env.join(", ")})`
-  );
+  !flags.silent &&
+    startSpinner(
+      `Uninstalling ${c.bold(packages.join(", "))}. (${env.join(", ")})`
+    );
 
   // Uninstall the provided packages.
   await generator.uninstall(packages);
