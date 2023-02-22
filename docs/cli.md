@@ -1,4 +1,7 @@
-# JSPM CLI
+<div align="center">
+  <img style="display: inline-block; width: 100px; height: 100pz" src="./logo.png"/>
+  <h1 style="display: inline-block">JSPM CLI</h1>
+</div>
 > A minimal package manager for import-maps compliant environemnts like deno and browser.
 
 With JSPM CLI, it's possible to load any npm module into your import maps via the command line. 
