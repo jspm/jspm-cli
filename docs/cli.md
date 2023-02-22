@@ -2,23 +2,27 @@
   <img style="display: inline-block; width: 100px; height: 100pz" src="./logo.png"/>
   <h1 style="display: inline-block">JSPM CLI</h1>
 </div>
-> A minimal package manager for import-maps compliant environemnts like deno and browser.
 
-With JSPM CLI, it's possible to load any npm module into your import maps via the command line. 
-Features like tracing a module and installing the dependencies, updating the modules or even injecting a specific import-map into the HTML file.
+`jspm` is a minimal package manager for environments that support [import maps](https://github.com/WICG/import-maps), like the browser and Deno. Using `jspm`, it's possible to install, upgrade and link Javascript modules into your import maps via the command line, with features like:
 
-* Installing and Uninstalling npm dependencies
-* Updating dependencies
-* Linking (Trace installing) modules
-* Injecting Import-maps
-* Extracting packages from the Import-maps 
+* Versioned, locked dependency management against your local `package.json`.
+* Tracing and installing of the full dependency tree of your application.
+* Complete NPM-like module resolution that supports conditional environments and package entry points.
+* Support for a wide range of CDNs, such as [JSPM](https://jspm.org), [Skypack](https://skypack.dev), [unpkg](https://unpkg.com), [jsDelivr](https://www.jsdelivr.com), and more.
+* Import map extraction/injection into HTML files, with module preloading and integrity attributes.
+
+`jspm` is built with [`@jspm/generator`](https://github.com/jspm/generator), which provides the core functionality of the package manager.
 
 
-## Install
+## Installation
+
+Run the following in your terminal to install `jspm` globally:
 ```
-npm i -g jspm
+npm install --global jspm
 ```
-## Commands
+
+
+## Supported Commands
 
 ### `install`
 > `jspm install [...packages]`
