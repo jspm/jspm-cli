@@ -54,4 +54,3 @@ const scenarios: Scenario[] = [
 ];
 
 runScenarios(scenarios);
-

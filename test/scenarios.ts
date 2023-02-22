@@ -55,7 +55,7 @@ export async function mapDirectory(dir: string): Promise<Files> {
       for (const [subFile, subData] of subFiles) {
         files.set(path.join(file, subFile), subData);
       }
-    };
+    }
   }
   return files;
 }

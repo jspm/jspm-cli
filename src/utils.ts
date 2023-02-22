@@ -23,7 +23,7 @@ const defaultHtmlTemplate = `<!DOCTYPE html>
 </html>`;
 
 // Providers that can be used to resolve dependencies:
-const availableProviders = [
+export const availableProviders = [
   "jspm",
   "jspm.system",
   "nodemodules",
@@ -156,6 +156,7 @@ async function writeJsonOutput(
     map = generator.getMap();
   }
   map = { env, ...map };
+  log(`${JSON.stringify(map, null, 2)}`);
 
   // Don't write an output file without permission:
   if (!(await canWrite(mapFile)))
@@ -182,7 +183,9 @@ export async function getGenerator(
   const mapUrl = getOutputMapUrl(flags);
   const rootUrl = getRootUrl(flags);
   const baseUrl = new URL(path.dirname(mapUrl.href));
-  log(`Creating generator with mapUrl ${mapUrl}, baseUrl ${baseUrl}, rootUrl ${rootUrl}`);
+  log(
+    `Creating generator with mapUrl ${mapUrl}, baseUrl ${baseUrl}, rootUrl ${rootUrl}`
+  );
 
   return new Generator({
     mapUrl,

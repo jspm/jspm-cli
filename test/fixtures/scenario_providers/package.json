@@ -1,0 +1,7 @@
+{
+  "name": "providers",
+  "type": "module",
+  "dependencies": {
+    "lit": "^2.6.1"
+  }
+}
