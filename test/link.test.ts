@@ -13,7 +13,7 @@ const scenarios: Scenario[] = [
     files: scripts,
     commands: ["jspm link ./a.js"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports["react-dom"]); // transitive dependency
     },
   },
@@ -23,7 +23,7 @@ const scenarios: Scenario[] = [
     files: new Map([...scripts, ...importMap]),
     commands: ["jspm link ./a.js"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports["react-dom"]); // transitive dependency
       assert.strictEqual(
         map.imports["react-dom"],
@@ -37,7 +37,7 @@ const scenarios: Scenario[] = [
     files: new Map([...scripts, ...importMap]),
     commands: ["jspm link ./a.js -o index.html"],
     validationFn: async (files: Map<string, string>) => {
-      const html = files["index.html"];
+      const html = files.get("index.html");
       assert(html && html.includes("react-dom@17.0.1"));
     },
   },
@@ -47,7 +47,7 @@ const scenarios: Scenario[] = [
     files: new Map([...scripts, ...importMap, ...htmlFile]),
     commands: ["jspm link ./a.js -o index.html"],
     validationFn: async (files: Map<string, string>) => {
-      const html = files["index.html"];
+      const html = files.get("index.html");
       assert(html && html.includes("react-dom@17.0.1"));
       assert(html && html.includes("<title>Test</title>"));
     },
@@ -61,7 +61,7 @@ const scenarios: Scenario[] = [
     validationFn: async (files: Map<string, string>) => {
       // No version information because "-m index.html" sets the input/output
       // source files to "index.html", so "importmap.json" is ignored:
-      const html = files["inlinemodules.html"];
+      const html = files.get("inlinemodules.html");
       assert(html && html.includes("react-dom")); // from ./a.js
     },
   },
@@ -72,7 +72,7 @@ const scenarios: Scenario[] = [
     files: new Map([...scripts, ...importMap, ...inlineModules]),
     commands: ["jspm link -o inlinemodules.html"],
     validationFn: async (files: Map<string, string>) => {
-      const html = files["inlinemodules.html"];
+      const html = files.get("inlinemodules.html");
       assert(html && html.includes("react-dom@17.0.1")); // from ./a.js
     },
   },
@@ -83,7 +83,7 @@ const scenarios: Scenario[] = [
     files: null,
     commands: ["jspm link index.js"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports["index.js"]);
     },
   },
@@ -94,7 +94,7 @@ const scenarios: Scenario[] = [
     files: indexScript,
     commands: ["jspm link index.js"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(!map.imports["index.js"]);
       assert(map.imports.react); // transitive dependency
     },
@@ -106,7 +106,7 @@ const scenarios: Scenario[] = [
     files: indexScript,
     commands: ["jspm link %index.js"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports["index.js"]);
       assert(!map.imports.react);
     },

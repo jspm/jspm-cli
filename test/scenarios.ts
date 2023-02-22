@@ -36,13 +36,7 @@ export async function runScenario(scenario: Scenario) {
       await cli.runMatchedCommand();
     }
 
-    const files = new Map<string, string>();
-    for (const file of await fs.readdir(dir)) {
-      if ((await fs.stat(file)).isFile())
-        files[file] = await fs.readFile(file, "utf-8");
-    }
-
-    await scenario.validationFn(files);
+    await scenario.validationFn(await mapDirectory(dir));
   } finally {
     await deleteTmpPkg(dir);
     process.chdir(cwd);
@@ -53,8 +47,15 @@ export async function mapDirectory(dir: string): Promise<Files> {
   const files = new Map<string, string>();
   for (const file of await fs.readdir(dir)) {
     const filePath = path.join(dir, file);
-    const data = await fs.readFile(filePath, "utf-8");
-    files.set(file, data);
+    if ((await fs.stat(filePath)).isFile()) {
+      const data = await fs.readFile(filePath, "utf-8");
+      files.set(file, data);
+    } else {
+      const subFiles = await mapDirectory(filePath);
+      for (const [subFile, subData] of subFiles) {
+        files.set(path.join(file, subFile), subData);
+      }
+    };
   }
   return files;
 }
@@ -79,6 +80,8 @@ async function createTmpPkg(scenario: Scenario): Promise<string> {
 
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), "jspm-"));
   for (const [file, content] of scenario.files || []) {
+    const dirPath = path.join(dir, path.dirname(file));
+    await fs.mkdir(dirPath, { recursive: true });
     await fs.writeFile(path.join(dir, file), content);
   }
 

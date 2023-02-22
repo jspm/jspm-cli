@@ -23,7 +23,7 @@ const scenarios: Scenario[] = [
     files: importMap,
     commands: ["jspm update react"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports.react);
       assert.notStrictEqual(
         map.imports.react,
@@ -37,7 +37,7 @@ const scenarios: Scenario[] = [
     files: importMap,
     commands: ["jspm update"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports.react);
       assert.notStrictEqual(
         map.imports.react,
@@ -51,7 +51,7 @@ const scenarios: Scenario[] = [
     files: new Map([...importMap, ...packageJson]),
     commands: ["jspm update react -e development"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert(map.imports.react);
       assert.strictEqual(
         map.imports.react,

@@ -6,9 +6,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install react@17.0.1 react-dom@17.0.1"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
@@ -20,9 +20,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install react@17.0.1 react-dom@17.0.1 -e production"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://ga.jspm.io/npm:react@17.0.1/index.js"
@@ -34,9 +34,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install react@17.0.1 react-dom@17.0.1 -e deno"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
@@ -51,9 +51,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install react@17.0.1 react-dom@17.0.1 -e deno,browser"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
@@ -68,9 +68,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install -e production custom=react@17.0.1"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.custom,
         "https://ga.jspm.io/npm:react@17.0.1/index.js"
@@ -85,9 +85,9 @@ const scenarios: Scenario[] = [
       "jspm install -e production",
     ],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://ga.jspm.io/npm:react@17.0.1/index.js"
@@ -99,9 +99,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install -e deno,production react@17.0.1", "jspm install"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.deepEqual(map.env, ["deno", "module", "production"]);
       assert.strictEqual(
         map.imports.react,
@@ -114,9 +114,9 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install -p jsdelivr -e production,browser react@17.0.1"],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 2);
+      assert.equal(files.size, 2);
 
-      const map = JSON.parse(files["importmap.json"]);
+      const map = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://cdn.jsdelivr.net/npm/react@17.0.1/index.js"
@@ -133,11 +133,11 @@ const scenarios: Scenario[] = [
       "jspm install -o output.importmap.json lodash", // extract lodash
     ],
     validationFn: async (files: Map<string, string>) => {
-      assert.equal(Object.keys(files).length, 3);
-      assert(files["importmap.json"]);
-      assert(files["output.importmap.json"]);
+      assert.equal(files.size, 3);
+      assert(files.get("importmap.json"));
+      assert(files.get("output.importmap.json"));
 
-      const map = JSON.parse(files["output.importmap.json"]);
+      const map = JSON.parse(files.get("output.importmap.json"));
       assert(!map.imports.react);
       assert.strictEqual(
         map.imports.lodash,

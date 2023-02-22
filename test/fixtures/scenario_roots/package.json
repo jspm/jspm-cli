@@ -1,0 +1,8 @@
+{
+  "name": "roots",
+  "type": "module",
+  "exports": "./a/b/index.js",
+  "dependencies": {
+    "lit": "^2.6.1"
+  }
+}

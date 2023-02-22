@@ -13,6 +13,7 @@ import { parsePackageSpec, wrapCommand } from "../src/utils";
     env: "development",
     stdout: true,
     map: "test/fixtures/importmap.json",
+    silent: true,
   });
   assert.ok(process.exitCode === 1);
   assert.ok(

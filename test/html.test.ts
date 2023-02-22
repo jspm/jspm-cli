@@ -11,11 +11,11 @@ const scenarios: Scenario[] = [
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the react version from the import map,
       // but none of the other pins, and no preloads or integrity attributes:
-      assert(files["index.html"].includes("npm:react@17.0.1"));
-      assert(!files["index.html"].includes("npm:lodash@4.17.21"));
-      assert(!files["index.html"].includes("npm:react-dom@17.0.1"));
-      assert(!files["index.html"].includes("preload"));
-      assert(!files["index.html"].includes("integrity"));
+      assert(files.get("index.html").includes("npm:react@17.0.1"));
+      assert(!files.get("index.html").includes("npm:lodash@4.17.21"));
+      assert(!files.get("index.html").includes("npm:react-dom@17.0.1"));
+      assert(!files.get("index.html").includes("preload"));
+      assert(!files.get("index.html").includes("integrity"));
     },
   },
   {
@@ -24,11 +24,11 @@ const scenarios: Scenario[] = [
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the import version of everything, but
       // no preloads or integrity attributes:
-      assert(files["index.html"].includes("npm:react@17.0.1"));
-      assert(files["index.html"].includes("npm:lodash@4.17.21"));
-      assert(files["index.html"].includes("npm:react-dom@17.0.1"));
-      assert(!files["index.html"].includes("preload"));
-      assert(!files["index.html"].includes("integrity"));
+      assert(files.get("index.html").includes("npm:react@17.0.1"));
+      assert(files.get("index.html").includes("npm:lodash@4.17.21"));
+      assert(files.get("index.html").includes("npm:react-dom@17.0.1"));
+      assert(!files.get("index.html").includes("preload"));
+      assert(!files.get("index.html").includes("integrity"));
     },
   },
   {
@@ -37,11 +37,11 @@ const scenarios: Scenario[] = [
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the react version from the import map,
       // and integrities for it, but nothing else:
-      assert(files["index.html"].includes("npm:react@17.0.1"));
-      assert(!files["index.html"].includes("npm:lodash@4.17.21"));
-      assert(!files["index.html"].includes("npm:react-dom@17.0.1"));
-      assert(files["index.html"].includes("preload"));
-      assert(!files["index.html"].includes("integrity"));
+      assert(files.get("index.html").includes("npm:react@17.0.1"));
+      assert(!files.get("index.html").includes("npm:lodash@4.17.21"));
+      assert(!files.get("index.html").includes("npm:react-dom@17.0.1"));
+      assert(files.get("index.html").includes("preload"));
+      assert(!files.get("index.html").includes("integrity"));
     },
   },
   {
@@ -53,11 +53,11 @@ const scenarios: Scenario[] = [
       // NOTE: this will break if we change the CDN build!
       const reactIntegrity =
         "sha384-y5ozcpbgsrkQFNWIQTtiGWstK6sGqPJu5Ptnvn8lAqJXDNI7ZdE9fMsYVgrq3PRG";
-      assert(files["index.html"].includes("npm:react@17.0.1"));
-      assert(!files["index.html"].includes("npm:lodash@4.17.21"));
-      assert(!files["index.html"].includes("npm:react-dom@17.0.1"));
-      assert(files["index.html"].includes("preload"));
-      assert(files["index.html"].includes(reactIntegrity));
+      assert(files.get("index.html").includes("npm:react@17.0.1"));
+      assert(!files.get("index.html").includes("npm:lodash@4.17.21"));
+      assert(!files.get("index.html").includes("npm:react-dom@17.0.1"));
+      assert(files.get("index.html").includes("preload"));
+      assert(files.get("index.html").includes(reactIntegrity));
     },
   },
 ];

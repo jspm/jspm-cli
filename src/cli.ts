@@ -56,6 +56,16 @@ const integrityOpt: opt = [
   "Add module preloads with integrity attributes to HTML output",
   { default: false },
 ];
+const cacheOpt: opt = [
+  "--cache <mode>",
+  "Cache mode for fetches (online, offline, no-cache)",
+  { default: "online" },
+];
+const rootOpt: opt = [
+  "--root <url>",
+  "URL to treat as server root, i.e. rebase import maps against",
+  {},
+];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 
 cli
@@ -74,6 +84,8 @@ cli
   .option(...envOpt)
   .option(...resolutionOpt)
   .option(...providerOpt)
+  .option(...cacheOpt)
+  .option(...rootOpt)
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
@@ -88,6 +100,8 @@ cli
   .option(...envOpt)
   .option(...resolutionOpt)
   .option(...providerOpt)
+  .option(...cacheOpt)
+  .option(...rootOpt)
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
@@ -101,6 +115,8 @@ cli
   .option(...envOpt)
   .option(...resolutionOpt)
   .option(...providerOpt)
+  .option(...cacheOpt)
+  .option(...rootOpt)
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
@@ -115,6 +131,8 @@ cli
   .option(...envOpt)
   .option(...resolutionOpt)
   .option(...providerOpt)
+  .option(...cacheOpt)
+  .option(...rootOpt)
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
