@@ -11,8 +11,6 @@
 * Support for a wide range of CDNs, such as [JSPM](https://jspm.org), [Skypack](https://skypack.dev), [unpkg](https://unpkg.com), [jsDelivr](https://www.jsdelivr.com), and more.
 * Import map extraction/injection into HTML files, with module preloading and integrity attributes.
 
-`jspm` is built with [`@jspm/generator`](https://github.com/jspm/generator), which provides the core functionality of the package manager.
-
 
 ## Installation
 
