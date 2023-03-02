@@ -3,97 +3,89 @@
   <h1 style="display: inline-block">JSPM CLI</h1>
 </div>
 
-`jspm` is a minimal package manager for environments that support [import maps](https://github.com/WICG/import-maps), like the browser and Deno. Using `jspm`, it's possible to install, upgrade and link Javascript modules into your import maps via the command line, with features like:
+JSPM is a package manager for [import maps](https://github.com/WICG/import-maps). Using JSPM, it's possible to install, upgrade and link JavaScript modules into import maps via the command line, with features like:
 
-* Versioned, locked dependency management against your local `package.json`.
-* Tracing and installing of the full dependency tree of your application.
+* Resolution against `node_modules` for local development workflows.
+* Versioned, locked dependency management against the local `package.json`.
+* Tracing and installing the full dependency tree of an application.
 * Complete NPM-like module resolution that supports conditional environments and package entry points.
-* Support for a wide range of CDNs, such as [JSPM](https://jspm.org), [Skypack](https://skypack.dev), [unpkg](https://unpkg.com), [jsDelivr](https://www.jsdelivr.com), and more.
+* Support for a wide range of CDNs, such as [jspm.io](https://jspm.org), [Skypack](https://skypack.dev), [UNPKG](https://unpkg.com), [jsDelivr](https://www.jsdelivr.com), and more.
 * Import map extraction/injection into HTML files, with module preloading and integrity attributes.
 
 
 ## Installation
 
-Run the following in your terminal to install `jspm` globally:
+The following command installs JSPM globally:
 ```
-npm install --global jspm
+npm install -g @jspm/jspm
 ```
 
 
-## Supported Commands
+## Commands
 
-### `install`
-> `jspm install [...packages]`
+For a full list of commands and supported options, run `jspm help`. For help with a specific command, use the `-h` or `--help` flag.
 
-Install a package target into the import map, including all its dependency.
-```sh
-jspm install react react-dom
-```
-It's also possible to specify dependency aliases in this command.
-```sh
-jspm install rd=react-dom
-```
-This command fully supports semantic versioning like `react-dom@18.2.0` or `react-dom@latest`.
 
-### `update`
-> `jspm update [...packages]`
+### `jspm link [...modules]`
 
-Update packages in the import map.
-
-```sh
-jspm update react-dom
-```
-### `uninstall`
-> `jspm uninstall [...packages]`
-
-Remove packages from the import map.
-
-```sh
-jspm uninstall react react-dom
-```
-### `link`
-> `jspm link [...modules]`
-
-Trace a module, installing all dependencies necessary into the map to support its execution including static and dynamic module imports.
+Traces and installs all dependencies necessary to execute the given modules into the import map, including both static and dynamic module imports. This is the easiest way to generate an import map for a module:
 
 ```sh
 jspm link ./index.js
 ```
-### `inject`
-> `jspm inject <htmlFile> [...packages]`
 
-Inject the import map into the provided HTML source.
+To relink everything in the input map, you can call `link` without any arguments. This can be used to link the inline modules in a HTML file, for instance:
 
 ```sh
-jspm inject index.html react
+jspm link -m index.html
 ```
 
-### `extract`
-> `jspm extract [...packages]`
 
-Extract specific packages from the import map to remove unnecessary imported packages. Consider this import-map file.
-```json
-{
-  "imports": {
-    "lodash": "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js",
-    "react": "https://ga.jspm.io/npm:react@18.2.0/dev.index.js"
-  }
-}
-```
-Then with running `jspm extract react`, it would generate this import-map instead:
-```json
-{
-  "imports": {
-    "react": "https://ga.jspm.io/npm:react@18.2.0/dev.index.js"
-  }
-}
+### `jspm install [...packages]`
+
+Installs packages into the import map. By default, `jspm` will install the latest versions of the specified packages that are compatible with the constraints in the local `package.json`:
+
+```sh
+jspm install react react-dom
 ```
 
-### `clear-cache`
-> `jspm clear-cache`
+To install a particular version of a package, use an `@`. `jspm` supports full semantic versioning:
 
-Clear the global fetch cache, usable for situation where newer builds are
-needed.
+```sh
+jspm install react@18.2.0 react-dom@latest
+```
+
+Packages can be installed under an alias with the `=` symbol:
+
+```sh
+jspm install alias=react-dom
+```
+
+
+### `jspm update [...packages]`
+
+Updates packages in the import map to the latest versions that are compatible with the constraints in the local `package.json` file:
+
+```sh
+jspm update react-dom
+```
+
+To update every dependency in the import map, run `jspm update` without any arguments.
+
+
+### `jspm uninstall [...packages]`
+
+Uninstalls packages from the import map.
+
+```sh
+jspm uninstall lit lodash
+```
+
+
+### `jspm clear-cache`
+
+Clears the global module fetch cache, for situations where the contents of dependencies have changed.
+
 
 ## Options
 - `-r, --resolution <resolutions>`: custom dependency resolution overrides for all installs
@@ -109,7 +101,31 @@ import-map. For the `inject` command this is the .html file for the output html 
 - `--integrity`: generate integrity hashes for all dependencies (default: false)
 - `--compact`: output a compact import map (default: false)
 
-## Enviroment
+### Input/Output Maps
+
+The input and output maps can be changed with the following options:
+- `-m, --map <path>`: path to the initial import map
+- `-o, --output <path>`: path to the output map
+
+If the input and output targets are the same, `jspm` operates in __incremental__ mode, meaning that operations will modify the existing import map:
+
+```sh
+jspm install lit -m map.json -o map.json
+```
+
+If the input and output paths are different, `jspm` operates in __extraction__ mode, meaning that only the parts of the map that changed will be written to the output target. This can be used to extract the dependencies of a single module from an import map that contains an entire project's dependency tree, for instance:
+
+```sh
+jspm link ./lib/util.js -m project-map.json -o util-map.json
+```
+
+`jspm` supports HTML files as both input and output targets, in which case import maps are automatically parsed to/from `<script type="importmap">` tags:
+
+```sh
+jspm install react -o index.html
+```
+
+### Environment
 
 The default environemnt config for the cli is `--env development,browser,module`
 which is configurable using the `--env` option. The default config for `browser`
@@ -123,3 +139,21 @@ jspm install --env node,no-module
 
 The CLI tries to remember the `--env` configuration in the import-map file for future uses, so one time
 specifying this option is enough for the next commands.
+
+### Providers
+
+### Other
+
+- `-r, --resolution <resolutions>`: custom dependency resolution overrides for all installs
+- `-e, --env <environments>`: the conditional environment resolutions to apply
+- `-m, --map <map>`: an authoritative initial import map
+- `-o, --output <outputFile>`: .json or .importmap file for the output
+import-map. For the `inject` command this is the .html file for the output html with the import-map
+- `-p, --provider <provider>`: the default provider to use for a new install,
+	defaults to JSPM. The provider can be JSPM | `jspm.system` | `nodemodules` | `skypack` | `jsdelivr` | `unpkg`
+- `--force`: force install even if the import map is up to date (default: false)
+- `--stdout`: output the import map to stdout (default: false)
+- `--preload`: preload the import map into the browser (default: false)
+- `--integrity`: generate integrity hashes for all dependencies (default: false)
+- `--compact`: output a compact import map (default: false)
+
