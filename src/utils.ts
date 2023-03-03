@@ -24,7 +24,7 @@ const defaultHtmlTemplate = `<!DOCTYPE html>
 
 // Providers that can be used to resolve dependencies:
 export const availableProviders = [
-  "jspm",
+  "jspm.io",
   "jspm.system",
   "nodemodules",
   "skypack",
@@ -127,6 +127,7 @@ async function writeHtmlOutput(
   const outputHtml = await generator.htmlInject(html, {
     pins: pins ?? true,
     htmlUrl: generator.mapUrl, // URL of the output map
+    rootUrl: generator.rootUrl,
     preload: flags.preload,
     integrity: flags.integrity,
     whitespace: !flags.compact,
@@ -195,6 +196,9 @@ export async function getGenerator(
     defaultProvider: getProvider(flags),
     resolutions: getResolutions(flags),
     cache: getCacheMode(flags),
+    freeze: flags.freeze,
+    latest: flags.latest,
+    commonJS: true, // TODO: only for --local flag
   });
 }
 
@@ -301,7 +305,7 @@ function getProvider(flags: Flags) {
         flags.provider
       }". Available providers are: "${availableProviders.join('", "')}".`
     );
-  return flags.provider || "jspm";
+  return flags.provider || "jspm.io";
 }
 
 function removeNonStaticEnvKeys(env: string[]) {

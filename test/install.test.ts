@@ -145,6 +145,18 @@ const scenarios: Scenario[] = [
       );
     },
   },
+
+  // Installing should always bump the version if possible.
+  {
+    commands: ["jspm install react@17.0.1", "jspm install react"],
+    validationFn: async (files: Map<string, string>) => {
+      const map = JSON.parse(files.get("importmap.json"));
+      assert.notStrictEqual(
+        map.imports.react,
+        "https://cdn.jsdelivr.net/npm/react@17.0.1/index.js"
+      );
+    },
+  },
 ];
 
 await runScenarios(scenarios);

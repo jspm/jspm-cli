@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "module": "esnext",
-    "target": "es2019",
+    "target": "esnext",
     "sourceMap": true,
     "outDir": "lib",
     "declaration": true,

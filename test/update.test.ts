@@ -1,21 +1,8 @@
-import fs from "fs/promises";
 import assert from "assert";
-import { type Scenario, runScenarios } from "./scenarios";
+import { type Scenario, mapFile, runScenarios } from "./scenarios";
 
-const importMap = new Map(
-  Object.entries({
-    "importmap.json": await fs.readFile(
-      "test/fixtures/importmap.json",
-      "utf-8"
-    ),
-  })
-);
-
-const packageJson = new Map(
-  Object.entries({
-    "package.json": await fs.readFile("test/fixtures/package.json", "utf-8"),
-  })
-);
+const importMap = await mapFile("test/fixtures/importmap.json");
+const packageJson = await mapFile("test/fixtures/package.json");
 
 const scenarios: Scenario[] = [
   // Basic upgrade to latest react version:

@@ -29,7 +29,7 @@ const resolutionOpt: opt = [
 const providerOpt: opt = [
   "-p, --provider <provider>",
   "Default module provider",
-  { default: "jspm" },
+  { default: "jspm.io" },
 ];
 const stdoutOpt: opt = [
   "--stdout",
@@ -66,6 +66,16 @@ const rootOpt: opt = [
   "URL to treat as server root, i.e. rebase import maps against",
   {},
 ];
+const freezeOpt: opt = [
+  "--freeze",
+  "Freeze input map dependencies, i.e. do not modify them",
+  { default: false },
+];
+const latestOpt: opt = [
+  "--latest",
+  "Use the latest version for all touched dependencies",
+  { default: false },
+];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 
 cli
@@ -89,6 +99,8 @@ cli
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
+  .option(...freezeOpt)
+  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(link));
 
@@ -105,6 +117,8 @@ cli
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
+  .option(...freezeOpt)
+  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(install));
 
@@ -120,6 +134,8 @@ cli
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
+  .option(...freezeOpt)
+  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(uninstall));
 
@@ -136,6 +152,8 @@ cli
   .option(...integrityOpt)
   .option(...preloadOpt)
   .option(...compactOpt)
+  .option(...freezeOpt)
+  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(update));
 
