@@ -43,7 +43,7 @@ export default async function update(packages: string[], flags: Flags) {
           packages.length ? packages.join(", ") : "everything"
         )}. (${env.join(", ")})`
       );
-    await generator.update(packages.length ? packages : inputPins);
+    await generator.update(packages.length ? packages : undefined);
     stopSpinner();
   }
 
