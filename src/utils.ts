@@ -25,7 +25,7 @@ const defaultHtmlTemplate = `<!DOCTYPE html>
 // Providers that can be used to resolve dependencies:
 export const availableProviders = [
   "jspm.io",
-  "jspm.system",
+  "jspm.io#system",
   "nodemodules",
   "skypack",
   "jsdelivr",

@@ -11,17 +11,17 @@
     "jspm.js"
   ],
   "dependencies": {
-    "@jspm/generator": "^1.0.4",
+    "@jspm/generator": "^1.1.0",
     "ora": "^6.1.2",
     "picocolors": "^1.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.2",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.6",
     "cac": "^6.7.14",
     "esbuild": "^0.16.17",
-    "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
     "prettier": "^2.8.4",
     "tinyspy": "^1.1.1",
     "tsx": "^3.12.3",
