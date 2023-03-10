@@ -1,4 +1,5 @@
 import assert from "assert";
+import type { IImportMap } from "../src/types";
 import { type Scenario, runScenarios } from "./scenarios";
 
 const scenarios: Scenario[] = [
@@ -8,7 +9,7 @@ const scenarios: Scenario[] = [
     validationFn: async (files: Map<string, string>) => {
       assert.equal(files.size, 2);
 
-      const map = JSON.parse(files.get("importmap.json"));
+      const map: IImportMap = JSON.parse(files.get("importmap.json"));
       assert.strictEqual(
         map.imports.react,
         "https://ga.jspm.io/npm:react@17.0.1/dev.index.js"
@@ -147,7 +148,7 @@ const scenarios: Scenario[] = [
   {
     commands: ["jspm install react@17.0.1", "jspm install react"],
     validationFn: async (files: Map<string, string>) => {
-      const map = JSON.parse(files.get("importmap.json"));
+      const map: IImportMap = JSON.parse(files.get("importmap.json"));
       assert.notStrictEqual(
         map.imports.react,
         "https://cdn.jsdelivr.net/npm/react@17.0.1/index.js"

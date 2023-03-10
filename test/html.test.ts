@@ -3,7 +3,6 @@ import { type Scenario, mapFile, runScenarios } from "./scenarios";
 
 const importMap = await mapFile("test/fixtures/importmap.json");
 
-// TODO: test formatting, preload and integrity
 const scenarios: Scenario[] = [
   {
     files: importMap,

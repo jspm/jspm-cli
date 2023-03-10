@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "@jspm/generator": "^1.1.0",
+    "es-module-lexer": "^1.2.0",
     "ora": "^6.1.2",
     "picocolors": "^1.0.0"
   },
