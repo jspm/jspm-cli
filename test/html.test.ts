@@ -48,14 +48,13 @@ const scenarios: Scenario[] = [
     files: importMap,
     commands: ["jspm install react -o index.html --integrity"],
     validationFn: async (files: Map<string, string>) => {
-      // The index.html should contain the react version from the import map,
-      // and integrities for the 17.0.1 version:
+      // The index.html should contain all the pins, and integrities for them:
       // NOTE: this will break if we change the CDN build!
       const reactIntegrity =
         "sha384-y5ozcpbgsrkQFNWIQTtiGWstK6sGqPJu5Ptnvn8lAqJXDNI7ZdE9fMsYVgrq3PRG";
       assert(files.get("index.html").includes("npm:react@17.0.1"));
-      assert(!files.get("index.html").includes("npm:lodash@4.17.21"));
-      assert(!files.get("index.html").includes("npm:react-dom@17.0.1"));
+      assert(files.get("index.html").includes("npm:lodash@4.17.21"));
+      assert(files.get("index.html").includes("npm:react-dom@17.0.1"));
       assert(files.get("index.html").includes("preload"));
       assert(files.get("index.html").includes(reactIntegrity));
     },

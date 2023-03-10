@@ -4,9 +4,6 @@ import {
   getEnv,
   getGenerator,
   getInput,
-  getInputPath,
-  getOutputPath,
-  parsePackageSpec,
   startSpinner,
   stopSpinner,
   writeOutput,
@@ -47,7 +44,7 @@ export default async function install(packages: string[], flags: Flags) {
     stopSpinner();
   } else if (pins.length) {
     !flags.silent && startSpinner(`Reinstalling all top-level imports.`);
-    await generator.reinstall();
+    await generator.install();
     stopSpinner();
   } else {
     !flags.silent &&
@@ -58,18 +55,6 @@ export default async function install(packages: string[], flags: Flags) {
       );
   }
 
-  // If the input and output maps are the same, we behave in an additive way
-  // and trace all top-level pins to the output file. Otherwise, we behave as
-  // an extraction and only trace the provided packages to the output file.
-  const inputMapPath = getInputPath(flags);
-  const outputMapPath = getOutputPath(flags);
-  if (inputMapPath !== outputMapPath && resolvedPackages.length) {
-    const pins = resolvedPackages.map((p) =>
-      parsePackageSpec(p.alias || p.target)
-    );
-
-    return await writeOutput(generator, pins, env, flags, flags.silent);
-  } else {
-    return await writeOutput(generator, null, env, flags, flags.silent);
-  }
+  // Installs always behave additively, and write all top-level pins:
+  return await writeOutput(generator, null, env, flags, flags.silent);
 }

@@ -88,10 +88,8 @@ const scenarios: Scenario[] = [
       assert.equal(files.size, 2);
 
       const map = JSON.parse(files.get("importmap.json"));
-      assert.strictEqual(
-        map.imports.react,
-        "https://ga.jspm.io/npm:react@17.0.1/index.js"
-      );
+      assert(map.imports.react);
+      assert(!map.imports.react.includes("dev"));
     },
   },
 
@@ -103,10 +101,7 @@ const scenarios: Scenario[] = [
 
       const map = JSON.parse(files.get("importmap.json"));
       assert.deepEqual(map.env, ["deno", "module", "production"]);
-      assert.strictEqual(
-        map.imports.react,
-        "https://ga.jspm.io/npm:react@17.0.1/index.js"
-      );
+      assert(map.imports.react);
     },
   },
 
@@ -124,9 +119,8 @@ const scenarios: Scenario[] = [
     },
   },
 
-  // By giving "jspm install" a different output map, you should be able to
-  // extract traces for a particular module, rather than tracing the entire
-  // import map:
+  // Even if you give "jspm install" a different output map, it should still
+  // behave additively and write all top-level pins to the output:
   {
     commands: [
       "jspm install -e production,browser react@17.0.1 lodash@4.17.21",
@@ -138,7 +132,10 @@ const scenarios: Scenario[] = [
       assert(files.get("output.importmap.json"));
 
       const map = JSON.parse(files.get("output.importmap.json"));
-      assert(!map.imports.react);
+      assert.strictEqual(
+        map.imports.react,
+        "https://ga.jspm.io/npm:react@17.0.1/index.js"
+      );
       assert.strictEqual(
         map.imports.lodash,
         "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js"

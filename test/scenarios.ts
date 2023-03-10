@@ -37,6 +37,8 @@ export async function runScenario(scenario: Scenario) {
     }
 
     await scenario.validationFn(await mapDirectory(dir));
+  } catch (err) {
+    throw new Error(`Scenario "${scenario.commands}" failed: ${err.message}`);
   } finally {
     await deleteTmpPkg(dir);
     process.chdir(cwd);
