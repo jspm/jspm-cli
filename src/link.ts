@@ -1,11 +1,10 @@
-import * as fs from "fs/promises";
+import * as fs from "node:fs/promises";
 import { pathToFileURL } from "url";
-import * as lexer from "es-module-lexer";
+import babel from "@babel/core";
 import c from "picocolors";
 import { type Generator } from "@jspm/generator";
 import type { Flags } from "./types";
 import {
-  JspmError,
   getEnv,
   getGenerator,
   getInput,
@@ -112,10 +111,9 @@ async function resolveModule(
           : `./${res.target}`;
 
       log(`Resolving target '${res.target}' as '${targetPath}'`);
-      const originalSpec = res.target;
       res.target = targetPath;
 
-      return handleLocalFile(originalSpec, res, inlinePins, generator);
+      return handleLocalFile(res, inlinePins, generator);
     } catch (e) {
       // No file found, so we leave the target as-is.
     }
@@ -125,35 +123,32 @@ async function resolveModule(
 }
 
 async function handleLocalFile(
-  originalSpec: string,
   resolvedModule: { alias?: string; target: string },
   inlinePins: string[],
   generator: Generator
 ) {
-  await lexer.init;
   const source = await fs.readFile(resolvedModule.target, { encoding: "utf8" });
 
   try {
-    lexer.parse(source);
+    babel.parse(source);
     return resolvedModule; // this is a javascript module, it parsed correctly
-  } catch {
+  } catch (e) {
     /* fallback to parsing it as html */
   }
 
+  const targetUrl = pathToFileURL(resolvedModule.target);
+  let pins;
   try {
-    const targetUrl = pathToFileURL(resolvedModule.target);
-    const pins = await generator.linkHtml(source, targetUrl);
-    if (!pins || pins.length === 0) {
-      throw new Error("No inline modules found.");
-    }
-
-    inlinePins = inlinePins.concat(pins);
-    return;
+    pins = await generator.linkHtml(source, targetUrl);
   } catch (e) {
-    throw new JspmError(
-      `Could not parse local file "${resolvedModule.target}" as either HTML or a JavaScript module. If you intended "${originalSpec}" to be treated as a package specifier, prefix it as "%${originalSpec}" instead.`
-    );
+    if (e?.jspmError) {
+      e.message += `, linking HTML file "${resolvedModule.target}"`;
+    }
+    throw e;
+  }
+  if (!pins || pins.length === 0) {
+    throw new Error("No inline HTML modules found to link.");
   }
 
-  return resolvedModule;
+  inlinePins = inlinePins.concat(pins);
 }
