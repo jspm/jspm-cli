@@ -1,6 +1,4 @@
 {
-  "out": "docs",
   "entryPoints": ["src/cli.ts"],
-  "plugin": ["typedoc-plugin-versions"],
   "readme": "./docs/cli.md"
 }
