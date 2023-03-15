@@ -71,11 +71,6 @@ const freezeOpt: opt = [
   "Freeze input map dependencies, i.e. do not modify them",
   { default: false },
 ];
-const latestOpt: opt = [
-  "--latest",
-  "Use the latest version for all touched dependencies",
-  { default: false },
-];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 
 cli
@@ -100,7 +95,6 @@ cli
   .option(...preloadOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
-  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(link));
 
@@ -118,7 +112,6 @@ cli
   .option(...preloadOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
-  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(install));
 
@@ -135,7 +128,6 @@ cli
   .option(...preloadOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
-  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(uninstall));
 
@@ -153,7 +145,6 @@ cli
   .option(...preloadOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
-  .option(...latestOpt)
   .option(...stdoutOpt)
   .action(wrapCommand(update));
 

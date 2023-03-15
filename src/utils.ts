@@ -3,7 +3,7 @@ import { pathToFileURL } from "url";
 import fs from "fs/promises";
 import c from "picocolors";
 import ora from "ora";
-import { Generator } from "@jspm/generator";
+import { Generator, getDefaultProviders } from "@jspm/generator";
 import type { Flags, IImportMapJspm } from "./types";
 import { withType } from "./logger";
 
@@ -23,14 +23,7 @@ const defaultHtmlTemplate = `<!DOCTYPE html>
 </html>`;
 
 // Providers that can be used to resolve dependencies:
-export const availableProviders = [
-  "jspm.io",
-  "jspm.io#system",
-  "nodemodules",
-  "skypack",
-  "jsdelivr",
-  "unpkg",
-];
+export const availableProviders = getDefaultProviders();
 
 export class JspmError extends Error {
   jspmError = true;
@@ -197,7 +190,6 @@ export async function getGenerator(
     resolutions: getResolutions(flags),
     cache: getCacheMode(flags),
     freeze: flags.freeze,
-    latest: flags.latest,
     commonJS: true, // TODO: only for --local flag
   });
 }

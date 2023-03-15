@@ -12,7 +12,6 @@ export interface Flags {
   integrity?: boolean;
   compact?: boolean;
   freeze?: boolean;
-  latest?: boolean;
   silent?: boolean;
   cache?: string;
 }
