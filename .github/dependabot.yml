@@ -1,8 +1,8 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: 'daily'
+      interval: daily
     allow:
-      - dependency-name: "@jspm/generator"
+      - dependency-name: '@jspm/generator'
