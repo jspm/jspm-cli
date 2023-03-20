@@ -1,5 +1,5 @@
 <div align="center">
-  <img style="display: inline-block; width: 100px; height: 100pz" src="./logo.png"/>
+  <img style="display: inline-block; width: 100px; height: 100pz" src="/jspm.png"/>
   <h1 style="display: inline-block">JSPM CLI</h1>
 </div>
 
