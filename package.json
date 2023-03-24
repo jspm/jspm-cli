@@ -11,7 +11,7 @@
     "jspm.js"
   ],
   "dependencies": {
-    "@jspm/generator": "^1.1.1",
+    "@jspm/generator": "^1.1.3",
     "ora": "^6.1.2",
     "picocolors": "^1.0.0"
   },
