@@ -1,6 +1,5 @@
 import * as fs from "node:fs/promises";
 import { pathToFileURL } from "url";
-import babel from "@babel/core";
 import c from "picocolors";
 import { type Generator } from "@jspm/generator";
 import type { Flags } from "./types";
@@ -128,6 +127,7 @@ async function handleLocalFile(
   generator: Generator
 ) {
   const source = await fs.readFile(resolvedModule.target, { encoding: "utf8" });
+  const { default: babel } = await import("@babel/core");
 
   try {
     babel.parse(source);
