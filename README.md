@@ -2,7 +2,7 @@
   <img style="display: inline-block; width: 100px; vertical-align: middle; margin-top: -1em;" src="https://jspm.org/jspm.png"/>
   <h1 style="display: inline-block">JSPM CLI</h1>
 <p><strong>JSPM CLI is the package management of the JSPM project, supporting import map package management.</strong></p>
-<a href="https://jspm.org/docs/getting-started">Getting Started</a> | <a href="https://jspm.org/docs/jspm">Documentation</a> | <a href="https://jspm.org/faq">FAQ</a>
+<a href="https://jspm.org/getting-started">Getting Started</a> | <a href="https://jspm.org/docs/jspm">Documentation</a> | <a href="https://jspm.org/faq">FAQ</a>
 <br />
 <hr style="width:50%"/>
 </div>
