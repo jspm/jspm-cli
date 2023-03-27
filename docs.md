@@ -16,13 +16,13 @@ The following command installs JSPM globally:
 npm install -g @jspm/jspm
 ```
 
+# Commands
 
-## Commands
+## Link
 
 For a full list of commands and supported options, run `jspm help`. For help with a specific command, use the `-h` or `--help` flag.
 
-
-### `jspm link [...modules]`
+`jspm link [...modules]`
 
 Traces and installs all dependencies necessary to execute the given modules into the import map, including both static and dynamic module imports. This is the easiest way to generate an import map for a module:
 
@@ -36,8 +36,9 @@ To relink everything in the input map, you can call `link` without any arguments
 jspm link -m index.html
 ```
 
+## Install
 
-### `jspm install [...packages]`
+`jspm install [...packages]`
 
 Installs packages into the import map. By default, `jspm` will install the latest versions of the specified packages that are compatible with the constraints in the local `package.json`:
 
@@ -58,7 +59,9 @@ jspm install alias=react-dom
 ```
 
 
-### `jspm update [...packages]`
+## Update
+
+`jspm update [...packages]`
 
 Updates packages in the import map to the latest versions that are compatible with the constraints in the local `package.json` file:
 
@@ -69,7 +72,9 @@ jspm update react-dom
 To update every dependency in the import map, run `jspm update` without any arguments.
 
 
-### `jspm uninstall [...packages]`
+## Uninstall
+
+`jspm uninstall [...packages]`
 
 Uninstalls packages from the import map.
 
@@ -78,12 +83,17 @@ jspm uninstall lit lodash
 ```
 
 
-### `jspm clear-cache`
+## Clear Cache
+
+`jspm clear-cache`
 
 Clears the global module fetch cache, for situations where the contents of dependencies have changed.
 
 
-## Options
+# Options
+
+## Global Options
+
 - `-r, --resolution <resolutions>`: custom dependency resolution overrides for all installs
 - `-e, --env <environments>`: the conditional environment resolutions to apply
 - `-m, --map <map>`: an authoritative initial import map
@@ -97,7 +107,7 @@ import-map. For the `inject` command this is the .html file for the output html 
 - `--integrity`: generate integrity hashes for all dependencies (default: false)
 - `--compact`: output a compact import map (default: false)
 
-### Input/Output Maps
+## Input/Output Maps
 
 The input and output maps can be changed with the following options:
 - `-m, --map <path>`: path to the initial import map
@@ -121,7 +131,7 @@ jspm link ./lib/util.js -m project-map.json -o util-map.json
 jspm install react -o index.html
 ```
 
-### Environment
+## Environment
 
 The default environemnt config for the cli is `--env development,browser,module`
 which is configurable using the `--env` option. The default config for `browser`
@@ -136,9 +146,9 @@ jspm install --env node,no-module
 The CLI tries to remember the `--env` configuration in the import-map file for future uses, so one time
 specifying this option is enough for the next commands.
 
-### Providers
+## Providers
 
-### Other
+## Other
 
 - `-r, --resolution <resolutions>`: custom dependency resolution overrides for all installs
 - `-e, --env <environments>`: the conditional environment resolutions to apply
