@@ -1,7 +1,3 @@
-<div align="center">
-  <img style="display: inline-block; width: 100px; height: 100pz" src="/jspm.png"/>
-  <h1 style="display: inline-block">JSPM CLI</h1>
-</div>
 
 JSPM is a package manager for [import maps](https://github.com/WICG/import-maps). Using JSPM, it's possible to install, upgrade and link JavaScript modules into import maps via the command line, with features like:
 

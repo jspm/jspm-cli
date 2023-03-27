@@ -1,4 +1,4 @@
 {
   "entryPoints": ["src/cli.ts"],
-  "readme": "./docs/cli.md"
+  "readme": "./docs.md"
 }
