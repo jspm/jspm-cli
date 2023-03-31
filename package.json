@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "@jspm/generator": "^1.1.3",
+    "cac": "^6.7.14",
     "ora": "^6.1.2",
     "picocolors": "^1.0.0"
   },
@@ -20,7 +21,6 @@
     "@antfu/eslint-config": "^0.34.2",
     "@babel/core": "^7.21.0",
     "@types/node": "^18.14.6",
-    "cac": "^6.7.14",
     "esbuild": "^0.16.17",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",

@@ -16,6 +16,10 @@ for (const provider of availableProviders) {
     spec = "@jspm/core/nodelibs/fs"; // node provider is only for polyfills
     name = "@jspm/core/nodelibs/fs";
   }
+  if (provider === "nodemodules") {
+    spec = "lit"; // must be installed in the fixture
+    name = "lit";
+  }
 
   scenarios.push({
     files,

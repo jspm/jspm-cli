@@ -3,7 +3,7 @@ import { pathToFileURL } from "url";
 import fs from "fs/promises";
 import c from "picocolors";
 import ora from "ora";
-import { Generator, getDefaultProviders } from "@jspm/generator";
+import { Generator } from "@jspm/generator";
 import type { Flags, IImportMapJspm } from "./types";
 import { withType } from "./logger";
 
@@ -23,7 +23,16 @@ const defaultHtmlTemplate = `<!DOCTYPE html>
 </html>`;
 
 // Providers that can be used to resolve dependencies:
-export const availableProviders = getDefaultProviders();
+export const availableProviders = [
+  "jspm.io",
+  "nodemodules",
+  "deno",
+  "jsdelivr",
+  "skypack",
+  "unpkg",
+  "esm.sh",
+  "jspm.io#system",
+];
 
 export class JspmError extends Error {
   jspmError = true;
@@ -280,7 +289,7 @@ export async function getEnv(flags: Flags) {
   let env = inputMap.env || ["development", "browser", "module"];
   env = removeEnvs(
     env,
-    envFlags.filter((env) => env.startsWith("no-"))
+    envFlags.filter((env) => env.startsWith("no-")).map((env) => env.slice(3))
   );
   env = addEnvs(
     env,
@@ -316,9 +325,9 @@ function getResolutions(flags: Flags): Record<string, string> {
     resolutions.map((resolution) => {
       if (!resolution.includes("=")) {
         throw new JspmError(
-          `Resolutions must be mappings from aliases to targets, for example of the form ${c.bold(
-            "--resolution pkg=x.y.z"
-          )}`
+          `Resolutions must be mappings from package names to package versions or specifiers, such as ${c.bold(
+            "--resolution pkg=1.2.3"
+          )} or ${c.bold("--resolution pkg=npm:other@1.2.3")}`
         );
       }
       return resolution.split("=");

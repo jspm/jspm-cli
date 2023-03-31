@@ -20,6 +20,10 @@ export interface Scenario {
 
 export async function runScenarios(scenarios: Scenario[]) {
   for (const scenario of scenarios) {
+    if (process.env.JSPM_TEST_LOG) {
+      console.log(`running scenario "${scenario.commands[0]}"`);
+    }
+
     await runScenario(scenario);
   }
 }
@@ -38,7 +42,9 @@ export async function runScenario(scenario: Scenario) {
 
     await scenario.validationFn(await mapDirectory(dir));
   } catch (err) {
-    throw new Error(`Scenario "${scenario.commands}" failed: ${err.message}`);
+    throw new Error(`Scenario "${scenario.commands}" failed.`, {
+      cause: err,
+    });
   } finally {
     await deleteTmpPkg(dir);
     process.chdir(cwd);
