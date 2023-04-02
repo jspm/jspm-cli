@@ -9,4 +9,10 @@ docs = docs.replace(/  ((-[a-zA-Z], )?--[a-zA-Z-_]+)/mg, '* `$1`');
 docs = docs.replace(/\$ (jspm[^\n]+)\n/g, '\n```\n$1```');
 docs = docs.replace(/\<([a-zA-Z0-9]+)\>/g, '_&lt;$1&gt;_');
 
-writeFileSync('docs.md', docs);
+const intro = readFileSync('docs/intro.md', 'utf8');
+const config = readFileSync('docs/config.md', 'utf8');
+
+writeFileSync('docs.md', 
+  `${intro}
+  ${docs}
+  ${config}`);

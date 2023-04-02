@@ -1,4 +1,4 @@
-﻿The JSPM CLI is the main command-line import map package management tool for JSPM.
+The JSPM CLI is the main command-line import map package management tool for JSPM.
 
 For import map generation API usage or in other environments, see the low-level [Generator API](/docs/generator/stable/) which is the internal import map package management and generation API which this CLI project wraps.
 
@@ -14,7 +14,7 @@ npm install -g jspm
 
 For a full list of commands and supported options, run `jspm --help`. For help with a specific command, add the `-h` or `--help` flag to the command invocation.
 
-## link
+  ﻿## link
 
 ### Usage
   
@@ -179,7 +179,8 @@ Clears the global module fetch cache, for situations where the contents of a dep
 ### Options
 * `--silent`    Silence all output (default: false)
 * `-h, --help`  Display this message 
-# Configuration
+
+  # Configuration
 
 ## Environments
 
@@ -191,12 +192,15 @@ The environments used to generate a particular import map are recorded in the re
 
 ### Examples
 
-* `diff <(jspm i axios --stdout) <(jspm i axios -e no-browser --stdout)` _&lt;br&gt;_
+* `diff <(jspm i axios --stdout) <(jspm i axios -e no-browser --stdout)` <br>
 Compares the import maps for `axios` in a browser environment (the default), and a non-browser environment:
 
 ```
 [...]
-<       "#lib/adapters/http.js": "https://ga.jspm.io/npm:@<       "#lib/platform/node/classes/FormData.js": "https://ga.jspm.io/npm:@<       "#lib/platform/node/index.js": "https://ga.jspm.io/npm:@---
+<       "#lib/adapters/http.js": "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/@empty.js",
+<       "#lib/platform/node/classes/FormData.js": "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/@empty.js",
+<       "#lib/platform/node/index.js": "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/@empty.js"
+---
 >       "#lib/": "https://ga.jspm.io/npm:axios@1.3.4/lib/",
 [...]
 ```
@@ -222,7 +226,7 @@ The `nodemodules` provider resolves packages against the local `node_modules` fo
 
 ### Examples
 
-* `jspm install -p nodemodules lit` _&lt;br&gt;_
+* `jspm install -p nodemodules lit` <br>
 Installs `lit` into the import map using the `nodemodules` provider, which maps packges against the local `node_modules` directory. Note that this will fail unless `lit` and its dependencies have already been installed locally with `npm`. The resulting import map looks like this:
 
 ```json
@@ -255,7 +259,7 @@ When a resolution is set, _all_ dependencies on that package will take the given
 
 ### Examples
 
-* `jspm install react@latest -r react=npm:preact@10.13.2` _&lt;br&gt;_
+* `jspm install react@latest -r react=npm:preact@10.13.2` <br>
 Installs `npm:preact@10.13.2` into the import map under the name `react`. Note that this will happen even though we have specified a particular version for `react`. The resulting import map looks like this:
 
 ```json
@@ -277,4 +281,3 @@ Installs `npm:preact@10.13.2` into the import map under the name `react`. Note t
 Using an import map in the browser can lead to a lengthy cycle of fetching a module, analysing its static imports against the import map, fetching _those_ modules, analysing _their_ static imports against the import map, and so forth. If you know that all of the mappings are going to be fetched at some point in a page's execution, you can use [preload tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload) to instruct the browser to fetch all of the resources up-front. Preload tags can be automatically injected into any HTML outputs using the `--preload` flag.
 
 [Integrity attributes](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) instruct the browser to verify fetched resources against a hash, to make sure that they haven't been tampered with in-transit. This protects your page against man-in-the-middle attacks, and can be automatically injected into any HTML outputs using the `--integrity` flag.
-
