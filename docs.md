@@ -5,7 +5,7 @@ JSPM is a package manager for [import maps](https://github.com/WICG/import-maps)
 * Tracing and installing the full dependency tree of an application.
 * Complete NPM-like module resolution that supports conditional environments and package entry points.
 * Support for a wide range of CDNs, such as [jspm.io](https://jspm.org), [Skypack](https://skypack.dev), [UNPKG](https://unpkg.com), [jsDelivr](https://www.jsdelivr.com), [esm.sh](https://esm.sh) and more.
-* Import map extraction/injection into HTML files, with [module preload](#Preload-Tags-and-Integrity-Attributes)ing and integrity attributes.
+* Import map extraction/injection into HTML files, with [module preload](#preload-Tags-and-Integrity-Attributes)ing and integrity attributes.
 
 
 ## Installation
@@ -50,7 +50,7 @@ Links the dependencies of the local `index.js` file if it exists, or the NPM pac
 Links the dependencies of the NPM package `app.js`.
 
 * `jspm link --map index.html --integrity --preload` <br>
-Extracts the inline import map from `index.html`, relinks all of its mappings, and injects the resulting map back into `index.html` with [preload tags](#Preload-Tags-and-Integrity-Attributes) and [integrity attributes](#Preload-Tags-and-Integrity-Attributes).
+Extracts the inline import map from `index.html`, relinks all of its mappings, and injects the resulting map back into `index.html` with [preload tags](#preload-Tags-and-Integrity-Attributes) and [integrity attributes](#preload-Tags-and-Integrity-Attributes).
 
 ### Flags
 
@@ -73,10 +73,10 @@ Resolution overrides to apply in the resulting map - see the [resolutions](#reso
 Cache mode to use for resource fetches. Can be `online` to use cached resources when they are fresh, `offline` to use cached resources even if they are not fresh, and `no-cache` to disable caching entirely. Defaults to `online`.
 
 * `--preload` <br>
-Inject [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Inject [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--integrity` <br>
-Add [integrity attributes](#Preload-Tags-and-Integrity-Attributes) when injecting [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Add [integrity attributes](#preload-Tags-and-Integrity-Attributes) when injecting [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--freeze` <br>
 Treat the initial import map as _frozen_, i.e. no existing version resolutions in the map will be changed during the link. Defaults to `false`.
@@ -104,7 +104,7 @@ Installs the latest compatible version of `npm:lit` into `importmap.json`.
 Installs `npm:react` with the specified version `18.2.0` into `importmap.json`.
 
 * `jspm install -p deno denoland:oak` <br>
-Installs the latest compatible version of `oak` from the `denoland` registry into `importmap.json`. Note that this requires the use of the `deno` [provider](#Providers).
+Installs the latest compatible version of `oak` from the `denoland` registry into `importmap.json`. Note that this requires the use of the `deno` [provider](#providers).
 
 * `jspm install alias=react` <br>
 Installs the latest compatible version of `npm:react` into `importmap.json` under the alias `alias`.
@@ -133,10 +133,10 @@ Resolution overrides to apply in the resulting map - see the [resolutions](#reso
 Cache mode to use for resource fetches. Can be `online` to use cached resources when they are fresh, `offline` to use cached resources even if they are not fresh, and `no-cache` to disable caching entirely. Defaults to `online`.
 
 * `--preload` <br>
-Inject [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Inject [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--integrity` <br>
-Add [integrity attributes](#Preload-Tags-and-Integrity-Attributes) when injecting [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Add [integrity attributes](#preload-Tags-and-Integrity-Attributes) when injecting [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--freeze` <br>
 Treat the initial import map as _frozen_, i.e. no existing version resolutions in the map will be changed during the link. Defaults to `false`.
@@ -179,10 +179,10 @@ Resolution overrides to apply in the resulting map - see the [resolutions](#reso
 Cache mode to use for resource fetches. Can be `online` to use cached resources when they are fresh, `offline` to use cached resources even if they are not fresh, and `no-cache` to disable caching entirely. Defaults to `online`.
 
 * `--preload` <br>
-Inject [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Inject [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--integrity` <br>
-Add [integrity attributes](#Preload-Tags-and-Integrity-Attributes) when injecting [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Add [integrity attributes](#preload-Tags-and-Integrity-Attributes) when injecting [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--freeze` <br>
 Treat the initial import map as _frozen_, i.e. no existing version resolutions in the map will be changed during the link. Defaults to `false`.
@@ -222,10 +222,10 @@ Resolution overrides to apply in the resulting map - see the [resolutions](#reso
 Cache mode to use for resource fetches. Can be `online` to use cached resources when they are fresh, `offline` to use cached resources even if they are not fresh, and `no-cache` to disable caching entirely. Defaults to `online`.
 
 * `--preload` <br>
-Inject [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Inject [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--integrity` <br>
-Add [integrity attributes](#Preload-Tags-and-Integrity-Attributes) when injecting [module preload](#Preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
+Add [integrity attributes](#preload-Tags-and-Integrity-Attributes) when injecting [module preload](#preload-Tags-and-Integrity-Attributes) tags into HTML output. Defaults to `false`.
 
 * `--freeze` <br>
 Treat the initial import map as _frozen_, i.e. no existing version resolutions in the map will be changed during the link. Defaults to `false`.
