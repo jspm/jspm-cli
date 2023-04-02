@@ -32,8 +32,8 @@ If no modules are given, all "imports" in the initial map are relinked.
 
 ### Options
 * `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
-* `-o, --output` _&lt;file&gt;_             File to inject the final import map into 
-* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides (default: --map / importmap.json) 
+* `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
+* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides 
 * `-r, --resolution` _&lt;resolutions&gt;_  Comma-separated dependency resolution overrides 
 * `-p, --provider` _&lt;provider&gt;_       Default module provider (default: jspm.io)
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
@@ -71,8 +71,8 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 
 ### Options
 * `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
-* `-o, --output` _&lt;file&gt;_             File to inject the final import map into 
-* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides (default: --map / importmap.json) 
+* `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
+* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides 
 * `-r, --resolution` _&lt;resolutions&gt;_  Comma-separated dependency resolution overrides 
 * `-p, --provider` _&lt;provider&gt;_       Default module provider (default: jspm.io)
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
@@ -116,8 +116,8 @@ Uninstalls packages from an import map. The given packages must be valid package
 
 ### Options
 * `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
-* `-o, --output` _&lt;file&gt;_             File to inject the final import map into 
-* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides (default: --map / importmap.json) 
+* `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
+* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides 
 * `-r, --resolution` _&lt;resolutions&gt;_  Comma-separated dependency resolution overrides 
 * `-p, --provider` _&lt;provider&gt;_       Default module provider (default: jspm.io)
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
@@ -147,8 +147,8 @@ Updates packages in an import map to the latest versions that are compatible wit
 
 ### Options
 * `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
-* `-o, --output` _&lt;file&gt;_             File to inject the final import map into 
-* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides (default: --map / importmap.json) 
+* `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
+* `-e, --env` _&lt;environments&gt;_        Comma-separated environment condition overrides 
 * `-r, --resolution` _&lt;resolutions&gt;_  Comma-separated dependency resolution overrides 
 * `-p, --provider` _&lt;provider&gt;_       Default module provider (default: jspm.io)
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)

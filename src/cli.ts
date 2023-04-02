@@ -34,7 +34,7 @@ const mapOpt: opt = [
 ];
 const envOpt: opt = [
   "-e, --env <environments>",
-  "Comma-separated environment condition overrides (default: --map / importmap.json)",
+  "Comma-separated environment condition overrides",
   {},
 ];
 const resolutionOpt: opt = [
@@ -59,7 +59,7 @@ const compactOpt: opt = [
 ];
 const outputOpt: opt = [
   "-o, --output <file>",
-  "File to inject the final import map into",
+  "File to inject the final import map into (default: --map / importmap.json)",
   {},
 ];
 const preloadOpt: opt = [
