@@ -126,8 +126,8 @@ cli
 Traces and installs all dependencies necessary to execute the given modules into an import map, including both static and dynamic module imports. The given modules can be:
   1. Paths to local JavaScript modules, such as "./src/my-module.mjs".
   2. Paths to local HTML files, such as "index.html", in which case all module scripts in the file are linked.
-  3. Valid package specifiers, such as "react" or "chalk@5.2.0", in which case the package's main export is linked.
-  4. Valid package specifiers with subpaths, such as "sver@1.1.1/convert-range", in which case the subpath is resolved against the package's exports and the resulting module is linked.
+  3. Valid package specifiers, such as \`react\` or \`chalk@5.2.0\`, in which case the package's main export is linked.
+  4. Valid package specifiers with subpaths, such as \`sver@1.1.1/convert-range\`, in which case the subpath is resolved against the package's exports and the resulting module is linked.
 
 In some cases there may be ambiguity. For instance, you may want to link the NPM package "app.js", but your working directory contains a local file called "app.js" as well. In these cases local files are preferred by default, and external packages must be prefixed with the "%" character (i.e. "%app.js").
 
@@ -168,7 +168,13 @@ cli
   .usage(
     `link [flags] [...packages]
 
-Installs packages into an import map, along with all of the dependencies that are necessary to import them. By default, the latest versions of the packages that are compatible with the local "package.json" are installed, unless an explicit version is specified. The given packages must be valid package specifiers, such as "npm:react@18.0.0" or "denoland:oak". If a package specifier with no registry is given, such as "lit", the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such as "myname=npm:lit@2.1.0". An optional subpath can be provided, such as "npm:lit@2.2.0/decorators.js", in which case only the dependencies for that subpath are installed.
+Installs packages into an import map, along with all of the dependencies that are necessary to import them.` +
+`By default, the latest versions of the packages that are compatible with the local "package.json" are ` +
+`installed, unless an explicit version is specified. The given packages must be valid package specifiers, ` +
+`such as \`npm:react@18.0.0\` or \`denoland:oak\`. If a package specifier with no registry is given, such as ` +
+`\`lit\`, the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such ` +
+`as \`myname=npm:lit@2.1.0\`. An optional subpath can be provided, such as \`npm:lit@2.2.0/decorators.js\`, in ` +
+`which case only the dependencies for that subpath are installed.
 
 If no packages are provided, all "imports" in the initial map are reinstalled.`
   )
@@ -197,7 +203,7 @@ Uninstall "lit" and "lodash" from importmap.json.
   .usage(
     `uninstall [flags] [...packages]
 
-Uninstalls packages from an import map. The given packages must be valid package specifiers, such as "npm:react@18.0.0", "denoland:oak" or "lit", and must be present in the initial import map.`
+Uninstalls packages from an import map. The given packages must be valid package specifiers, such as \`npm:react@18.0.0\`, \`denoland:oak\` or \`lit\`, and must be present in the initial import map.`
   )
   .action(wrapCommand(uninstall));
 
@@ -224,7 +230,7 @@ Update the react-dom package.
   .usage(
     `update [flags] [...packages]
 
-Updates packages in an import map to the latest versions that are compatible with the local "package.json". The given packages must be valid package specifiers, such as "npm:react@18.0.0", "denoland:oak" or "lit", and must be present in the initial import map.`
+Updates packages in an import map to the latest versions that are compatible with the local \`package.json\`. The given packages must be valid package specifiers, such as \`npm:react@18.0.0\`, \`denoland:oak\` or \`lit\`, and must be present in the initial import map.`
   )
   .action(wrapCommand(update));
 

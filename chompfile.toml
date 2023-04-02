@@ -5,6 +5,9 @@ extensions = ['chomp@0.1:npm', 'chomp@0.1:prettier']
 
 [[task]]
 name = 'build'
+deps = ['dist/cli.js', 'docs.md']
+
+[[task]]
 target = 'dist/cli.js'
 deps = ['src/**/*.ts', 'npm:install']
 run = 'esbuild src/cli.ts --bundle --platform=node --external:@jspm/generator --external:ora --external:picocolors --external:@babel/core --format=esm --outfile=$TARGET'
@@ -12,10 +15,10 @@ run = 'esbuild src/cli.ts --bundle --platform=node --external:@jspm/generator --
 [[task]]
 name = 'docs'
 target = 'docs.md'
-deps = ['src/**/*.ts', 'docs/intro.md', 'docs/config.md', 'build']
+deps = ['src/**/*.ts', 'docs/intro.md', 'docs/config.md', 'dist/cli.js']
 run = '''
   node docs/generate.js > docs.md
-  node docs/sanitize.js
+  node docs/finalize.js
 '''
 
 [[task]]
