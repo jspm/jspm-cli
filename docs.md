@@ -35,6 +35,23 @@ In some cases there may be ambiguity. For instance, you may want to link the NPM
 
 If no modules are given, all `imports` in the initial map are _relinked_.
 
+### Examples
+
+* `jspm link` <br>
+Relinks all of the mappings in `importmap.json`.
+
+* `jspm link ./src/cli.js` <br>
+Links the given module and all of its dependencies.
+
+* `jspm link index.js` <br>
+Links the dependencies of the local `index.js` file if it exists, or the NPM package `index.js` if it doesn't.
+
+* `jspm link %app.js` <br>
+Links the dependencies of the NPM package `app.js`.
+
+* `jspm link --map index.html --integrity --preload` <br>
+Extracts the inline import map from `index.html`, relinks all of its mappings, and injects the resulting map back into `index.html` with [preload tags](#Preload-Tags-and-Integrity-Attributes) and [integrity attributes](#Preload-Tags-and-Integrity-Attributes).
+
 ### Flags
 
 * `-m, --map <file>` <br>
@@ -67,24 +84,6 @@ Treat the initial import map as _frozen_, i.e. no existing version resolutions i
 * `--stdout` <br>
 Output the resulting map to `stdout` instead of the output file. Defaults to `false`.
 
-### Examples
-
-* `jspm link` <br>
-Relinks all of the mappings in `importmap.json`.
-
-* `jspm link ./src/cli.js` <br>
-Links the given module and all of its dependencies.
-
-* `jspm link index.js` <br>
-Links the dependencies of the local `index.js` file if it exists, or the NPM package `index.js` if it doesn't.
-
-* `jspm link %app.js` <br>
-Links the dependencies of the NPM package `app.js`.
-
-* `jspm link --map index.html --integrity --preload` <br>
-Extracts the inline import map from `index.html`, relinks all of its mappings, and injects the resulting map back into `index.html` with [preload tags](#Preload-Tags-and-Integrity-Attributes) and [integrity attributes](#Preload-Tags-and-Integrity-Attributes).
-
-
 ## jspm install
 
 `$ jspm install [flags] [...packages]`
@@ -92,6 +91,26 @@ Extracts the inline import map from `index.html`, relinks all of its mappings, a
 Installs packages into an import map, along with all of the dependencies that are necessary to import them. By default, the latest versions of the packages that are compatible with the local `package.json` are installed, unless an explicit version is specified. The given packages must be valid package specifiers, such as `npm:react@18.0.0` or `denoland:oak`. If a package specifier with no registry is given, such as `lit`, the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such as `myname=npm:lit@2.1.0`. An optional subpath can be provided, such as `npm:lit@2.2.0/decorators.js`, in which case only the dependencies for that subpath are installed.
 
 If no packages are provided, all `imports` in the initial map are _reinstalled_.
+
+### Examples
+
+* `jspm install` <br>
+Reinstalls all of the `imports` in `importmap.json`.
+
+* `jspm install lit` <br>
+Installs the latest compatible version of `npm:lit` into `importmap.json`.
+
+* `jspm install npm:react@18.2.0` <br>
+Installs `npm:react` with the specified version `18.2.0` into `importmap.json`.
+
+* `jspm install -p deno denoland:oak` <br>
+Installs the latest compatible version of `oak` from the `denoland` registry into `importmap.json`. Note that this requires the use of the `deno` [provider](#Providers).
+
+* `jspm install alias=react` <br>
+Installs the latest compatible version of `npm:react` into `importmap.json` under the alias `alias`.
+
+* `jspm install npm:lit@2.2.0/decorators.js` <br>
+Installs the exports subpath `./decorators.js` of `npm:lit@2.2.0` into `importmap.json`.
 
 ### Flags
 
@@ -125,32 +144,19 @@ Treat the initial import map as _frozen_, i.e. no existing version resolutions i
 * `--stdout` <br>
 Output the resulting map to `stdout` instead of the output file. Defaults to `false`.
 
-### Examples
-
-* `jspm install` <br>
-Reinstalls all of the `imports` in `importmap.json`.
-
-* `jspm install lit` <br>
-Installs the latest compatible version of `npm:lit` into `importmap.json`.
-
-* `jspm install npm:react@18.2.0` <br>
-Installs `npm:react` with the specified version `18.2.0` into `importmap.json`.
-
-* `jspm install -p deno denoland:oak` <br>
-Installs the latest compatible version of `oak` from the `denoland` registry into `importmap.json`. Note that this requires the use of the `deno` [provider](#Providers).
-
-* `jspm install alias=react` <br>
-Installs the latest compatible version of `npm:react` into `importmap.json` under the alias `alias`.
-
-* `jspm install npm:lit@2.2.0/decorators.js` <br>
-Installs the exports subpath `./decorators.js` of `npm:lit@2.2.0` into `importmap.json`.
-
-
 ## jspm update
 
 `$ jspm update [flags] [...packages]`
 
 Updates packages in an import map to the latest versions that are compatible with the local `package.json`. The given packages must be valid package specifiers, such as `npm:react@18.0.0`, `denoland:oak` or `lit`, and must be present in the initial import map.
+
+### Examples
+
+* `jspm update` <br>
+Updates all dependencies in `importmap.json` to their latest compatible versions.
+
+* `jspm update react-dom` <br>
+Updates `react-dom` and its dependencies to their latest compatible versions.
 
 ### Flags
 
@@ -184,20 +190,16 @@ Treat the initial import map as _frozen_, i.e. no existing version resolutions i
 * `--stdout` <br>
 Output the resulting map to `stdout` instead of the output file. Defaults to `false`.
 
-### Examples
-
-* `jspm update` <br>
-Updates all dependencies in `importmap.json` to their latest compatible versions.
-
-* `jspm update react-dom` <br>
-Updates `react-dom` and its dependencies to their latest compatible versions.
-
-
 ## jspm uninstall
 
 `$ jspm uninstall [flags] [...packages]`
 
 Uninstalls packages from an import map. The given packages must be valid package specifiers, such as `npm:react@18.0.0`, `denoland:oak` or `lit`, and must be present in the initial import map.
+
+### Examples
+
+* `jspm uninstall lit lodash` <br>
+Removes `lit` and `lodash` from `importmap.json`, along with any dependencies unique to them.
 
 ### Flags
 
@@ -231,18 +233,11 @@ Treat the initial import map as _frozen_, i.e. no existing version resolutions i
 * `--stdout` <br>
 Output the resulting map to `stdout` instead of the output file. Defaults to `false`.
 
-### Examples
-
-* `jspm uninstall lit lodash` <br>
-Removes `lit` and `lodash` from `importmap.json`, along with any dependencies unique to them.
-
-
 ## jspm clear-cache
 
 `$ jspm clear-cache`
 
 Clears the global module fetch cache, for situations where the contents of a dependency may have changed without a version bump. This can happen during local development, for instance.
-
 
 # Configuration
 
