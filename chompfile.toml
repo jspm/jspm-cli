@@ -6,8 +6,17 @@ extensions = ['chomp@0.1:npm', 'chomp@0.1:prettier']
 [[task]]
 name = 'build'
 target = 'dist/cli.js'
-deps = ['src/*.ts', 'npm:install']
+deps = ['src/**/*.ts', 'npm:install']
 run = 'esbuild src/cli.ts --bundle --platform=node --external:@jspm/generator --external:ora --external:picocolors --external:@babel/core --format=esm --outfile=$TARGET'
+
+[[task]]
+name = 'docs'
+target = 'docs.md'
+deps = ['src/**/*.ts', 'docs/intro.md', 'docs/config.md', 'build']
+run = '''
+  node docs/generate.js > docs.md
+  node docs/sanitize.js
+'''
 
 [[task]]
 name = 'lint'
@@ -20,14 +29,14 @@ run = 'eslint . --fix'
 [[task]]
 name = 'prettier'
 template = 'prettier'
-deps = ['src/*.ts', 'test/*.ts']
+deps = ['src/**/*.ts', 'test/*.ts']
 [task.template-options]
-files = 'src/*.ts test/*.ts'
+files = 'src/**/*.ts test/*.ts'
 loglevel = 'warn'
 
 [[task]]
 name = 'typecheck'
-deps = ['src/*.ts', 'test/*.ts']
+deps = ['src/**/*.ts', 'test/*.ts']
 run = 'tsc --noEmit'
 
 [[task]]

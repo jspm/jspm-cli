@@ -34,7 +34,7 @@ const mapOpt: opt = [
 ];
 const envOpt: opt = [
   "-e, --env <environments>",
-  "Comma-separated environment condition overrides",
+  "Comma-separated environment condition overrides (default: --map / importmap.json)",
   {},
 ];
 const resolutionOpt: opt = [
@@ -111,17 +111,23 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `${name} link chalk@5.2.0`)
-  .example((name) => `${name} link ./src/cli.js`)
-  .example((name) => `${name} link --map index.html --integrity --preload`)
+  .example((name) => `Link a remote package in importmap.json
+  $ ${name} link chalk@5.2.0
+`)
+  .example((name) => `Link a local module
+  $ ${name} link ./src/cli.js
+`)
+  .example((name) => `Link an HTML file and update its import map including preload and integrity tags
+  $ ${name} link --map index.html --integrity --preload
+`)
   .usage(
     `link [flags] [...modules]
 
 Traces and installs all dependencies necessary to execute the given modules into an import map, including both static and dynamic module imports. The given modules can be:
-1. Paths to local JavaScript modules, such as "./src/my-module.mjs".
-4. Paths to local HTML files, such as "index.html", in which case all module scripts in the file are linked.
-2. Valid package specifiers, such as "react" or "chalk@5.2.0", in which case the package's main export is linked.
-3. Valid package specifiers with subpaths, such as "sver@1.1.1/convert-range", in which case the subpath is resolved against the package's exports and the resulting module is linked.
+  1. Paths to local JavaScript modules, such as "./src/my-module.mjs".
+  2. Paths to local HTML files, such as "index.html", in which case all module scripts in the file are linked.
+  3. Valid package specifiers, such as "react" or "chalk@5.2.0", in which case the package's main export is linked.
+  4. Valid package specifiers with subpaths, such as "sver@1.1.1/convert-range", in which case the subpath is resolved against the package's exports and the resulting module is linked.
 
 In some cases there may be ambiguity. For instance, you may want to link the NPM package "app.js", but your working directory contains a local file called "app.js" as well. In these cases local files are preferred by default, and external packages must be prefixed with the "%" character (i.e. "%app.js").
 
@@ -144,11 +150,21 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `${name} install lit`)
-  .example((name) => `${name} install npm:lit@2.2.0/decorators.js`)
-  .example((name) => `${name} install npm:react@18.2.0`)
-  .example((name) => `${name} install -p deno denoload:oak`)
-  .example((name) => `${name} install alias=react`)
+  .example((name) => `Install a package
+  $ ${name} install lit
+`)
+  .example((name) => `Install a versioned package and subpath
+  $ ${name} install npm:lit@2.2.0/decorators.js
+`)
+  .example((name) => `Install a versioned package
+  $ ${name} install npm:react@18.2.0
+`)
+  .example((name) => `Install a Denoland package and use the Deno provider
+  $ ${name} install -p deno denoload:oak
+`)
+  .example((name) => `Install "alias" as an alias of the resolution react
+  $ ${name} install alias=react
+`)
   .usage(
     `link [flags] [...packages]
 
@@ -173,7 +189,11 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `${name} uninstall lit lodash`)
+  .example((name) => `
+$ ${name} uninstall lit lodash
+
+Uninstall "lit" and "lodash" from importmap.json.
+`)
   .usage(
     `uninstall [flags] [...packages]
 
@@ -196,7 +216,11 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `${name} update react-dom`)
+  .example((name) => `
+$ ${name} update react-dom
+
+Update the react-dom package.
+`)
   .usage(
     `update [flags] [...packages]
 
