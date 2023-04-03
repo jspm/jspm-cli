@@ -7,6 +7,9 @@
   "rules": {
     "no-console": "off",
     "no-cond-assign": "off",
-    "antfu/if-newline": off
+    "antfu/if-newline": "off",
+    "no-control-regex": "off",
+    "unicorn/escape-case": "off",
+    "no-regex-spaces": "off"
   }
 }

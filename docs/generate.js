@@ -1,5 +1,4 @@
 import { cli } from '../dist/cli.js';
-import { readFileSync } from 'node:fs';
 
 const commands = ['link', 'install', 'uninstall', 'update', 'clear-cache'];
 
