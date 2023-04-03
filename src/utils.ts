@@ -167,6 +167,14 @@ async function writeJsonOutput(
       `JSPM does not have permission to write to ${mapFile}.`
     );
 
+  // If the JSON file already exists, extend it in case of other custom properties
+  // (this way we can install into deno.json without destroying configurations)
+  try {
+    const existing = JSON.parse(await fs.readFile(mapFile, 'utf8'));
+    map = Object.assign({}, existing, map);
+  }
+  catch {}
+
   // Otherwise we output the import map in standard JSON format:
   await fs.writeFile(
     mapFile,
