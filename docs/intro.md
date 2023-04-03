@@ -1,6 +1,6 @@
 The JSPM CLI is the main command-line import map package management tool for JSPM.
 
-For a beginners introduction to the JSPM CLI and import map package management, try the [getting started guide](/getting-started).
+> For a complete guide and introduction to the JSPM CLI and import map package management, see the [getting started guide](/getting-started).
 
 For import map generation API usage or in other environments, see the low-level [Generator API](/docs/generator/stable/) which is the internal import map package management and generation API which this CLI project wraps. The [Generator API documentation](/docs/generator/stable/) also provides a more thorough details of the operations.
 
