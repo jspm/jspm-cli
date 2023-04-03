@@ -150,5 +150,5 @@ async function handleLocalFile(
     throw new Error("No inline HTML modules found to link.");
   }
 
-  inlinePins = inlinePins.concat(pins);
+  inlinePins.push(...pins);
 }

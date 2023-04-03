@@ -1,0 +1,19 @@
+{
+  "env": [
+    "browser",
+    "deno",
+    "module",
+    "production"
+  ],
+  "imports": {
+    "lit": "https://unpkg.com/lit@2.7.0/index.js"
+  },
+  "scopes": {
+    "https://unpkg.com/": {
+      "@lit/reactive-element": "https://unpkg.com/@lit/reactive-element@1.6.1/reactive-element.js",
+      "lit-element/lit-element.js": "https://unpkg.com/lit-element@3.3.0/lit-element.js",
+      "lit-html": "https://unpkg.com/lit-html@2.7.0/lit-html.js",
+      "lit-html/is-server.js": "https://unpkg.com/lit-html@2.7.0/is-server.js"
+    }
+  }
+}

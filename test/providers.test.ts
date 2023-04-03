@@ -1,10 +1,27 @@
 import assert from "assert";
 import { availableProviders } from "../src/utils";
-import { type Scenario, mapDirectory, runScenarios } from "./scenarios";
+import {
+  type Scenario,
+  mapDirectory,
+  mapFile,
+  runScenarios,
+} from "./scenarios";
 
+// Scenario that checks the provider is auto-detected from the initial map:
+const scenarios: Scenario[] = [
+  {
+    files: await mapFile("test/fixtures/unpkg.importmap.json"),
+    commands: [`jspm link -m unpkg.importmap.json -o importmap.json`],
+    validationFn: async (files) => {
+      const map = files.get("importmap.json");
+      assert(!!map);
+      assert(!map.includes("jspm.io"));
+    },
+  },
+];
+
+// Scenarios that check we can use each available provider:
 const files = await mapDirectory("test/fixtures/scenario_providers");
-
-const scenarios: Scenario[] = [];
 for (const provider of availableProviders) {
   let spec = "lit";
   let name = "lit";

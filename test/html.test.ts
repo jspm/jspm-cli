@@ -5,6 +5,19 @@ const importMap = await mapFile("test/fixtures/importmap.json");
 
 const scenarios: Scenario[] = [
   {
+    files: await mapFile([
+      "test/fixtures/inlinemodules.html",
+      "test/fixtures/a.js",
+      "test/fixtures/b.js",
+    ]),
+    commands: ["jspm link inlinemodules.html -o inlinemodules.html"],
+    validationFn: async (files) => {
+      // The inline import of 'react-dom' should be linked:
+      const html = files.get("inlinemodules.html");
+      assert(html.includes("react-dom"));
+    },
+  },
+  {
     files: importMap,
     commands: ["jspm link react -o index.html"],
     validationFn: async (files: Map<string, string>) => {

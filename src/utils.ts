@@ -1,11 +1,11 @@
+import fs from "fs/promises";
 import path from "path";
 import { pathToFileURL } from "url";
-import fs from "fs/promises";
-import c from "picocolors";
+import { Generator, analyzeHtml } from "@jspm/generator";
 import ora from "ora";
-import { Generator } from "@jspm/generator";
-import type { Flags, IImportMapJspm } from "./types";
+import c from "picocolors";
 import { withType } from "./logger";
+import type { Flags, IImportMapJspm } from "./types";
 
 // Default import map to use if none is provided:
 const defaultInputPath = "./importmap.json";
@@ -68,7 +68,7 @@ export async function writeOutput(
   flags: Flags,
   silent = false
 ) {
-  if (flags.stdout) return writeStdoutOutput(generator, pins, env, silent);
+  if (flags.stdout) return writeStdoutOutput(generator, pins, silent);
 
   const mapFile = getOutputPath(flags);
   if (mapFile.endsWith(".html"))
@@ -79,13 +79,12 @@ export async function writeOutput(
 async function writeStdoutOutput(
   generator: Generator,
   pins: string[] | null,
-  env: string[],
   silent = false
 ) {
   let map: IImportMapJspm = pins?.length
     ? (await generator.extractMap(pins))?.map
     : generator.getMap();
-  map = { env, ...map };
+  map = { ...map };
 
   !silent && console.log(JSON.stringify(map, null, 2));
   return map;
@@ -170,10 +169,9 @@ async function writeJsonOutput(
   // If the JSON file already exists, extend it in case of other custom properties
   // (this way we can install into deno.json without destroying configurations)
   try {
-    const existing = JSON.parse(await fs.readFile(mapFile, 'utf8'));
+    const existing = JSON.parse(await fs.readFile(mapFile, "utf8"));
     map = Object.assign({}, existing, map);
-  }
-  catch {}
+  } catch {}
 
   // Otherwise we output the import map in standard JSON format:
   await fs.writeFile(
@@ -198,10 +196,30 @@ export async function getGenerator(
     `Creating generator with mapUrl ${mapUrl}, baseUrl ${baseUrl}, rootUrl ${rootUrl}`
   );
 
+  let inputMap;
+  const input = await getInput(flags);
+  if (input) {
+    try {
+      inputMap = JSON.parse(input) as IImportMapJspm;
+    } catch {
+      try {
+        const analysis = analyzeHtml(input, mapUrl);
+        inputMap = analysis.map;
+      } catch {
+        throw new JspmError(
+          `Input map "${getInputPath(
+            flags
+          )}" is neither a valid JSON or a HTML file containing an inline import map.`
+        );
+      }
+    }
+  }
+
   return new Generator({
     mapUrl,
     baseUrl,
     rootUrl,
+    inputMap,
     env: setEnv ? await getEnv(flags) : undefined,
     defaultProvider: getProvider(flags),
     resolutions: getResolutions(flags),
@@ -314,7 +332,7 @@ function getProvider(flags: Flags) {
         flags.provider
       }". Available providers are: "${availableProviders.join('", "')}".`
     );
-  return flags.provider || "jspm.io";
+  return flags.provider;
 }
 
 function removeNonStaticEnvKeys(env: string[]) {

@@ -22,7 +22,7 @@ import install from "./install";
 import link from "./link";
 import uninstall from "./uninstall";
 import update from "./update";
-import { wrapCommand } from "./utils";
+import { JspmError, wrapCommand } from "./utils";
 
 export const cli = cac(c.yellow("jspm"));
 
@@ -45,7 +45,7 @@ const resolutionOpt: opt = [
 const providerOpt: opt = [
   "-p, --provider <provider>",
   "Default module provider",
-  { default: "jspm.io" },
+  {},
 ];
 const stdoutOpt: opt = [
   "--stdout",
@@ -92,9 +92,21 @@ const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 cli
   .option(...silentOpt)
   .version(version)
-  .help();
+  .help(defaultHelpCb);
 
-cli.command("").usage("[command] [options]").action(cli.outputHelp);
+// Fallback command:
+cli
+  .command("[...args]")
+  .allowUnknownOptions()
+  .usage("[command] [options]")
+  .action(
+    wrapCommand((args) => {
+      if (!args.length) return cli.outputHelp();
+      throw new JspmError(
+        `Unknown command: ${args[0]}\nRun "jspm" without any arguments to see the help file.`
+      );
+    })
+  );
 
 cli
   .command("link [...modules]", "link modules")
@@ -111,15 +123,23 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `Link a remote package in importmap.json
+  .example(
+    (name) => `Link a remote package in importmap.json
   $ ${name} link chalk@5.2.0
-`)
-  .example((name) => `Link a local module
+`
+  )
+  .example(
+    (name) => `Link a local module
   $ ${name} link ./src/cli.js
-`)
-  .example((name) => `Link an HTML file and update its import map including preload and integrity tags
+`
+  )
+  .example(
+    (
+      name
+    ) => `Link an HTML file and update its import map including preload and integrity tags
   $ ${name} link --map index.html --integrity --preload
-`)
+`
+  )
   .usage(
     `link [flags] [...modules]
 
@@ -150,31 +170,41 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `Install a package
+  .example(
+    (name) => `Install a package
   $ ${name} install lit
-`)
-  .example((name) => `Install a versioned package and subpath
+`
+  )
+  .example(
+    (name) => `Install a versioned package and subpath
   $ ${name} install npm:lit@2.2.0/decorators.js
-`)
-  .example((name) => `Install a versioned package
+`
+  )
+  .example(
+    (name) => `Install a versioned package
   $ ${name} install npm:react@18.2.0
-`)
-  .example((name) => `Install a Denoland package and use the Deno provider
+`
+  )
+  .example(
+    (name) => `Install a Denoland package and use the Deno provider
   $ ${name} install -p deno denoload:oak
-`)
-  .example((name) => `Install "alias" as an alias of the resolution react
+`
+  )
+  .example(
+    (name) => `Install "alias" as an alias of the resolution react
   $ ${name} install alias=react
-`)
+`
+  )
   .usage(
     `link [flags] [...packages]
 
 Installs packages into an import map, along with all of the dependencies that are necessary to import them.` +
-`By default, the latest versions of the packages that are compatible with the local "package.json" are ` +
-`installed, unless an explicit version is specified. The given packages must be valid package specifiers, ` +
-`such as \`npm:react@18.0.0\` or \`denoland:oak\`. If a package specifier with no registry is given, such as ` +
-`\`lit\`, the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such ` +
-`as \`myname=npm:lit@2.1.0\`. An optional subpath can be provided, such as \`npm:lit@2.2.0/decorators.js\`, in ` +
-`which case only the dependencies for that subpath are installed.
+      `By default, the latest versions of the packages that are compatible with the local "package.json" are ` +
+      `installed, unless an explicit version is specified. The given packages must be valid package specifiers, ` +
+      `such as \`npm:react@18.0.0\` or \`denoland:oak\`. If a package specifier with no registry is given, such as ` +
+      `\`lit\`, the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such ` +
+      `as \`myname=npm:lit@2.1.0\`. An optional subpath can be provided, such as \`npm:lit@2.2.0/decorators.js\`, in ` +
+      `which case only the dependencies for that subpath are installed.
 
 If no packages are provided, all "imports" in the initial map are reinstalled.`
   )
@@ -195,11 +225,13 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `
+  .example(
+    (name) => `
 $ ${name} uninstall lit lodash
 
 Uninstall "lit" and "lodash" from importmap.json.
-`)
+`
+  )
   .usage(
     `uninstall [flags] [...packages]
 
@@ -222,11 +254,13 @@ cli
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
-  .example((name) => `
+  .example(
+    (name) => `
 $ ${name} update react-dom
 
 Update the react-dom package.
-`)
+`
+  )
   .usage(
     `update [flags] [...packages]
 
@@ -243,3 +277,27 @@ Clears the global module fetch cache, for situations where the contents of a dep
   )
   .alias("cc")
   .action(wrapCommand(clearCache));
+
+// Taken from 'cac', as they don't export it:
+interface HelpSection {
+  title?: string;
+  body: string;
+}
+
+// Wraps the CAC default help callback for more control over the output:
+function defaultHelpCb(helpSections: HelpSection[]) {
+  for (const section of Object.values(helpSections)) {
+    if (section.title === "Commands") {
+      // The first command entry is the fallback command, which we _don't_
+      // want to display on the help screen, as it's for throwing on invalid
+      // commands:
+      section.body = section.body.split("\n").slice(1).join("\n");
+    }
+  }
+
+  for (const section of Object.values(helpSections)) {
+    if (section.title) section.title = c.bold(section.title);
+  }
+
+  return helpSections;
+}
