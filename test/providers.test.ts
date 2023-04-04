@@ -7,8 +7,19 @@ import {
   runScenarios,
 } from "./scenarios";
 
-// Scenario that checks the provider is auto-detected from the initial map:
 const scenarios: Scenario[] = [
+  // Scenario that checks we can swap providers with a reinstall:
+  {
+    files: await mapDirectory("test/fixtures/scenario_provider_swap"),
+    commands: [`jspm install --provider nodemodules`],
+    validationFn: async (files) => {
+      const map = files.get("importmap.json");
+      assert(!!map);
+      assert(!map.includes("jspm.io"));
+    },
+  },
+
+  // Scenario that checks the provider is auto-detected from the initial map:
   {
     files: await mapFile("test/fixtures/unpkg.importmap.json"),
     commands: [`jspm link -m unpkg.importmap.json -o importmap.json`],
