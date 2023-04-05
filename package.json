@@ -2,7 +2,7 @@
   "name": "jspm",
   "type": "module",
   "version": "3.0.0",
-  "description": "Universal ES Module Package Manager for import-maps",
+  "description": "Import Map Package Manager",
   "license": "Apache-2.0",
   "bin": {
     "jspm": "./jspm.js"
