@@ -196,30 +196,11 @@ export async function getGenerator(
     `Creating generator with mapUrl ${mapUrl}, baseUrl ${baseUrl}, rootUrl ${rootUrl}`
   );
 
-  let inputMap;
-  const input = await getInput(flags);
-  if (input) {
-    try {
-      inputMap = JSON.parse(input) as IImportMapJspm;
-    } catch {
-      try {
-        const analysis = analyzeHtml(input, mapUrl);
-        inputMap = analysis.map;
-      } catch {
-        throw new JspmError(
-          `Input map "${getInputPath(
-            flags
-          )}" is neither a valid JSON or a HTML file containing an inline import map.`
-        );
-      }
-    }
-  }
-
   return new Generator({
     mapUrl,
     baseUrl,
     rootUrl,
-    inputMap,
+    inputMap: await getInputMap(flags),
     env: setEnv ? await getEnv(flags) : undefined,
     defaultProvider: getProvider(flags),
     resolutions: getResolutions(flags),
@@ -241,20 +222,28 @@ export async function getInput(flags: Flags): Promise<string | undefined> {
 }
 
 async function getInputMap(flags: Flags): Promise<IImportMapJspm> {
-  const mapPath = getInputPath(flags);
-  const file = await getInput(flags);
-  if (!file) return {};
+  let inputMap;
 
-  // For HTML files, we can extract the input map from the generator's tracer
-  // once it's finished processing the file:
-  if (mapPath.endsWith(".html")) {
-    const generator = await getGenerator(flags, false);
-    await generator.addMappings(file);
-    return generator.getMap();
+  const input = await getInput(flags);
+  const mapUrl = getOutputMapUrl(flags);
+  if (input) {
+    try {
+      inputMap = JSON.parse(input) as IImportMapJspm;
+    } catch {
+      try {
+        const analysis = analyzeHtml(input, mapUrl);
+        inputMap = analysis.map;
+      } catch {
+        throw new JspmError(
+          `Input map "${getInputPath(
+            flags
+          )}" is neither a valid JSON or a HTML file containing an inline import map.`
+        );
+      }
+    }
   }
 
-  // In all other cases it should be a JSON file:
-  return JSON.parse(file);
+  return (inputMap || {}) as IImportMapJspm;
 }
 
 export function getInputPath(flags: Flags): string {
@@ -427,4 +416,21 @@ async function canWrite(file: string) {
 export function parsePackageSpec(pkgTarget: string): string {
   if (pkgTarget.startsWith("@")) return `@${pkgTarget.slice(1).split("@")[0]}`;
   return pkgTarget.split("@")[0];
+}
+
+/**
+ * Returns true if the given specifier is a relative URL or a URL.
+ */
+export function isUrlLikeNotPackage(spec: string): boolean {
+  if (spec.endsWith('/'))
+    return false;
+  if (spec.startsWith("./") || spec.startsWith("../") || spec.startsWith("/"))
+    return true;
+  try {
+    // eslint-disable-next-line no-new
+    new URL(spec);
+    return spec[spec.indexOf(':') + 1] === '/';
+  } catch {
+    return false;
+  }
 }

@@ -1,14 +1,16 @@
 import c from "picocolors";
+import { withType } from "./logger";
 import type { Flags } from "./types";
 import {
-  getEnv,
-  getGenerator,
-  getInput,
-  startSpinner,
-  stopSpinner,
-  writeOutput,
+    JspmError,
+    getEnv,
+    getGenerator,
+    getInput,
+    isUrlLikeNotPackage,
+    startSpinner,
+    stopSpinner,
+    writeOutput
 } from "./utils";
-import { withType } from "./logger";
 
 export default async function install(packages: string[], flags: Flags) {
   const log = withType("install/install");
@@ -16,11 +18,20 @@ export default async function install(packages: string[], flags: Flags) {
   log(`Installing packages: ${packages.join(", ")}`);
   log(`Flags: ${JSON.stringify(flags)}`);
 
-  const resolvedPackages = packages.map((p) => {
+  const isInstallable = (p) => !isUrlLikeNotPackage(p.target);
+  const parsedPackages = packages.map((p) => {
     if (!p.includes("=")) return { target: p };
     const [alias, target] = p.split("=");
     return { alias, target };
   });
+
+
+  // Packages that can be installed by the generator:
+  const resolvedPackages = parsedPackages.filter(isInstallable);
+  
+  // Packages that can be installed directly as URLs, see the issue:
+  // https://github.com/jspm/generator/issues/291
+  const urlLikePackages = parsedPackages.filter((p) => !isInstallable(p));
 
   const env = await getEnv(flags);
   const input = await getInput(flags);
@@ -28,6 +39,16 @@ export default async function install(packages: string[], flags: Flags) {
   let pins = [];
   if (input) {
     pins = await generator.addMappings(input);
+  }
+  if (urlLikePackages?.length) {
+    const imports = {};
+    for (const { alias, target } of urlLikePackages) {
+      if (!alias) throw new JspmError(`URL-like target "${target}" must be given an alias to install under, such as "name=${target}".`);
+
+      imports[alias] = target;
+    }
+
+    pins.push(...(await generator.addMappings(JSON.stringify({ imports }))));
   }
 
   log(`Input map parsed: ${input}`);
