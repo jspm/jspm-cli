@@ -40,8 +40,6 @@ The following providers are supported:
 * `esm.sh`
 * `unpkg`
 * `jsdelivr`
-* `skypack`
-* `deno`
 
 Most of these providers will resolve against their corresponding CDNs. For instance, `esm.sh` uses the [esm.sh](https://esm.sh) CDN, `unpkg` uses the [UNPKG](https://unpkg.com) CDN, and so on.
 
