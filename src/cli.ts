@@ -196,9 +196,9 @@ cli
 `
   )
   .usage(
-    `link [flags] [...packages]
+    `install [flags] [...packages]
 
-Installs packages into an import map, along with all of the dependencies that are necessary to import them.` +
+Installs packages into an import map, along with all of the dependencies that are necessary to import them. ` +
       `By default, the latest versions of the packages that are compatible with the local "package.json" are ` +
       `installed, unless an explicit version is specified. The given packages must be valid package specifiers, ` +
       `such as \`npm:react@18.0.0\` or \`denoland:oak\`. If a package specifier with no registry is given, such as ` +
