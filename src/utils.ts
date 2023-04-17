@@ -129,7 +129,7 @@ async function writeHtmlOutput(
     pins: pins ?? true,
     htmlUrl: generator.mapUrl, // URL of the output map
     rootUrl: generator.rootUrl,
-    preload: flags.preload,
+    preload: getPreloadMode(flags),
     integrity: flags.integrity,
     whitespace: !flags.compact,
     comment: false,
@@ -361,13 +361,34 @@ function getCacheMode(flags: Flags): "offline" | boolean {
         "online"
       )}   Use a locally cached module if available and fresh.\n\t${c.bold(
         "offline"
-      )}  Use a locally cached module if available, even if stale.\n\t${c.bold(
+      )}   Use a locally cached module if available, even if stale.\n\t${c.bold(
         "no-cache"
-      )} Never use the local cache.`
+      )}   Never use the local cache.`
     );
 
   if (flags.cache === "offline") return "offline";
   if (flags.cache === "online") return true;
+  return false;
+}
+
+const validPreloadModes = ["static", "dynamic", "no-preloads"];
+function getPreloadMode(flags: Flags): boolean | string {
+  if (!flags.preload) return "static";
+  if (!validPreloadModes.includes(flags.preload))
+    throw new JspmError(
+      `Invalid preload mode "${
+        flags.preload
+      }". Available modes are: "${validPreloadModes.join('", "')}".\n\t${c.bold(
+        "static"
+      )}  Inject preload tags for static dependencies.\n\t${c.bold(
+        "dynamic"
+      )}  Inject preload tags for static and dynamic dependencies.\n\t${c.bold(
+        "no-preloads"
+      )}  Don't inject any preload tags.`
+    );
+
+  if (flags.preload === "static") return "static";
+  if (flags.preload === "dynamic") return "all";
   return false;
 }
 
@@ -422,14 +443,13 @@ export function parsePackageSpec(pkgTarget: string): string {
  * Returns true if the given specifier is a relative URL or a URL.
  */
 export function isUrlLikeNotPackage(spec: string): boolean {
-  if (spec.endsWith('/'))
-    return false;
+  if (spec.endsWith("/")) return false;
   if (spec.startsWith("./") || spec.startsWith("../") || spec.startsWith("/"))
     return true;
   try {
     // eslint-disable-next-line no-new
     new URL(spec);
-    return spec[spec.indexOf(':') + 1] === '/';
+    return spec[spec.indexOf(":") + 1] === "/";
   } catch {
     return false;
   }

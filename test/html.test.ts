@@ -19,7 +19,7 @@ const scenarios: Scenario[] = [
   },
   {
     files: importMap,
-    commands: ["jspm link react -o index.html"],
+    commands: ["jspm link react -o index.html --preload no-preloads"],
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the react version from the import map,
       // but none of the other pins, and no preloads or integrity attributes:
@@ -32,7 +32,7 @@ const scenarios: Scenario[] = [
   },
   {
     files: importMap,
-    commands: ["jspm link -o index.html"],
+    commands: ["jspm link -o index.html --preload no-preloads"],
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the import version of everything, but
       // no preloads or integrity attributes:
@@ -45,7 +45,7 @@ const scenarios: Scenario[] = [
   },
   {
     files: importMap,
-    commands: ["jspm link react -o index.html --preload"],
+    commands: ["jspm link react -o index.html --preload static"],
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the react version from the import map,
       // and integrities for it, but nothing else:

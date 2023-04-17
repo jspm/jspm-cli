@@ -2,14 +2,14 @@ import c from "picocolors";
 import { withType } from "./logger";
 import type { Flags } from "./types";
 import {
-    JspmError,
-    getEnv,
-    getGenerator,
-    getInput,
-    isUrlLikeNotPackage,
-    startSpinner,
-    stopSpinner,
-    writeOutput
+  JspmError,
+  getEnv,
+  getGenerator,
+  getInput,
+  isUrlLikeNotPackage,
+  startSpinner,
+  stopSpinner,
+  writeOutput,
 } from "./utils";
 
 export default async function install(packages: string[], flags: Flags) {
@@ -25,10 +25,9 @@ export default async function install(packages: string[], flags: Flags) {
     return { alias, target };
   });
 
-
   // Packages that can be installed by the generator:
   const resolvedPackages = parsedPackages.filter(isInstallable);
-  
+
   // Packages that can be installed directly as URLs, see the issue:
   // https://github.com/jspm/generator/issues/291
   const urlLikePackages = parsedPackages.filter((p) => !isInstallable(p));
@@ -43,7 +42,10 @@ export default async function install(packages: string[], flags: Flags) {
   if (urlLikePackages?.length) {
     const imports = {};
     for (const { alias, target } of urlLikePackages) {
-      if (!alias) throw new JspmError(`URL-like target "${target}" must be given an alias to install under, such as "name=${target}".`);
+      if (!alias)
+        throw new JspmError(
+          `URL-like target "${target}" must be given an alias to install under, such as "name=${target}".`
+        );
 
       imports[alias] = target;
     }
