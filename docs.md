@@ -66,7 +66,7 @@ jspm link ./src/cli.js
 Link an HTML file and update its import map including preload and integrity tags
   
 ```
-jspm link --map index.html --integrity --preload static
+jspm link --map index.html --integrity --preload dynamic
 ```
 ## install
 

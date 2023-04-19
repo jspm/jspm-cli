@@ -137,7 +137,7 @@ cli
     (
       name
     ) => `Link an HTML file and update its import map including preload and integrity tags
-  $ ${name} link --map index.html --integrity --preload static
+  $ ${name} link --map index.html --integrity --preload dynamic
 `
   )
   .usage(

@@ -372,7 +372,7 @@ function getCacheMode(flags: Flags): "offline" | boolean {
 }
 
 const validPreloadModes = ["static", "dynamic"];
-function getPreloadMode(flags: Flags): boolean | string {
+function getPreloadMode(flags: Flags): boolean | 'static' | 'all' {
   if (flags.preload === null || flags.preload === undefined) return false;
   if (typeof flags.preload === "boolean") {
     return flags.preload;
@@ -382,11 +382,11 @@ function getPreloadMode(flags: Flags): boolean | string {
     throw new JspmError(
       `Invalid preload mode "${
         flags.preload
-      }". Available modes are: "${validPreloadModes.join('", "')}".\n\t${c.bold(
+      }". Available modes are: "${validPreloadModes.join('", "')}" (default).\n\t${c.bold(
         "static"
       )}  Inject preload tags for static dependencies.\n\t${c.bold(
         "dynamic"
-      )}  Inject preload tags for static and dynamic dependencies.`
+      )} Inject preload tags for static and dynamic dependencies.`
     );
 
   if (flags.preload === "static") return "static";
