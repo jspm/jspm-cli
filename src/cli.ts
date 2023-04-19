@@ -63,9 +63,9 @@ const outputOpt: opt = [
   {},
 ];
 const preloadOpt: opt = [
-  "--preload <mode>",
-  "Add module preloads to HTML output (static, dynamic, no-preloads)",
-  { default: "static" },
+  "--preload [mode]",
+  "Add module preloads to HTML output (default: static, dynamic)",
+  {},
 ];
 const integrityOpt: opt = [
   "--integrity",

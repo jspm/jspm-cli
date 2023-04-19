@@ -371,9 +371,13 @@ function getCacheMode(flags: Flags): "offline" | boolean {
   return false;
 }
 
-const validPreloadModes = ["static", "dynamic", "no-preloads"];
+const validPreloadModes = ["static", "dynamic"];
 function getPreloadMode(flags: Flags): boolean | string {
-  if (!flags.preload) return "static";
+  if (flags.preload === null || flags.preload === undefined) return false;
+  if (typeof flags.preload === "boolean") {
+    return flags.preload;
+  }
+
   if (!validPreloadModes.includes(flags.preload))
     throw new JspmError(
       `Invalid preload mode "${
@@ -382,14 +386,12 @@ function getPreloadMode(flags: Flags): boolean | string {
         "static"
       )}  Inject preload tags for static dependencies.\n\t${c.bold(
         "dynamic"
-      )}  Inject preload tags for static and dynamic dependencies.\n\t${c.bold(
-        "no-preloads"
-      )}  Don't inject any preload tags.`
+      )}  Inject preload tags for static and dynamic dependencies.`
     );
 
   if (flags.preload === "static") return "static";
   if (flags.preload === "dynamic") return "all";
-  return false;
+  return false; // should never get here
 }
 
 const spinner = ora({ spinner: "dots" });

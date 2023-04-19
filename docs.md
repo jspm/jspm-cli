@@ -44,7 +44,7 @@ If no modules are given, all "imports" in the initial map are relinked.
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
-* `--preload` _&lt;mode&gt;_                Add module preloads to HTML output (static, dynamic, no-preloads) (default: static)
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
@@ -87,7 +87,7 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
-* `--preload` _&lt;mode&gt;_                Add module preloads to HTML output (static, dynamic, no-preloads) (default: static)
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
@@ -138,7 +138,7 @@ Uninstalls packages from an import map. The given packages must be valid package
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
-* `--preload` _&lt;mode&gt;_                Add module preloads to HTML output (static, dynamic, no-preloads) (default: static)
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
@@ -171,7 +171,7 @@ Updates packages in an import map to the latest versions that are compatible wit
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
-* `--preload` _&lt;mode&gt;_                Add module preloads to HTML output (static, dynamic, no-preloads) (default: static)
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)

@@ -8,7 +8,7 @@ export interface Flags {
   root?: string;
   provider?: string;
   stdout?: boolean;
-  preload?: string;
+  preload?: boolean | string;
   integrity?: boolean;
   compact?: boolean;
   freeze?: boolean;
