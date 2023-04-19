@@ -73,7 +73,7 @@ jspm link --map index.html --integrity --preload dynamic
 ### Usage
   
 ```
-jspm link [flags] [...packages]
+jspm install [flags] [...packages]
 ```
 Installs packages into an import map, along with all of the dependencies that are necessary to import them.By default, the latest versions of the packages that are compatible with the local "package.json" are installed, unless an explicit version is specified. The given packages must be valid package specifiers, such as `npm:react@18.0.0` or `denoland:oak`. If a package specifier with no registry is given, such as `lit`, the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such as `myname=npm:lit@2.1.0`. An optional subpath can be provided, such as `npm:lit@2.2.0/decorators.js`, in which case only the dependencies for that subpath are installed.
 

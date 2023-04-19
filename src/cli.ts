@@ -196,7 +196,7 @@ cli
 `
   )
   .usage(
-    `link [flags] [...packages]
+    `install [flags] [...packages]
 
 Installs packages into an import map, along with all of the dependencies that are necessary to import them.` +
       `By default, the latest versions of the packages that are compatible with the local "package.json" are ` +
