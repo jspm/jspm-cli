@@ -63,9 +63,9 @@ const outputOpt: opt = [
   {},
 ];
 const preloadOpt: opt = [
-  "--preload",
-  "Add module preloads to HTML output",
-  { default: false },
+  "--preload [mode]",
+  "Add module preloads to HTML output (default: static, dynamic)",
+  {},
 ];
 const integrityOpt: opt = [
   "--integrity",
@@ -118,8 +118,8 @@ cli
   .option(...providerOpt)
   .option(...cacheOpt)
   .option(...rootOpt)
-  .option(...integrityOpt)
   .option(...preloadOpt)
+  .option(...integrityOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
@@ -137,7 +137,7 @@ cli
     (
       name
     ) => `Link an HTML file and update its import map including preload and integrity tags
-  $ ${name} link --map index.html --integrity --preload
+  $ ${name} link --map index.html --integrity --preload static
 `
   )
   .usage(
@@ -165,8 +165,8 @@ cli
   .option(...providerOpt)
   .option(...cacheOpt)
   .option(...rootOpt)
-  .option(...integrityOpt)
   .option(...preloadOpt)
+  .option(...integrityOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
@@ -220,8 +220,8 @@ cli
   .option(...providerOpt)
   .option(...cacheOpt)
   .option(...rootOpt)
-  .option(...integrityOpt)
   .option(...preloadOpt)
+  .option(...integrityOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)
@@ -249,8 +249,8 @@ cli
   .option(...providerOpt)
   .option(...cacheOpt)
   .option(...rootOpt)
-  .option(...integrityOpt)
   .option(...preloadOpt)
+  .option(...integrityOpt)
   .option(...compactOpt)
   .option(...freezeOpt)
   .option(...stdoutOpt)

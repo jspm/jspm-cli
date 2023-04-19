@@ -24,7 +24,8 @@ By default, JSPM operates on `importmap.json` which is automatically created if 
 ### Usage
   
 ```
-jspm link [flags] [...modules]```
+jspm link [flags] [...modules]
+```
 Traces and installs all dependencies necessary to execute the given modules into an import map, including both static and dynamic module imports. The given modules can be:
   1. Paths to local JavaScript modules, such as "./src/my-module.mjs".
   2. Paths to local HTML files, such as "index.html", in which case all module scripts in the file are linked.
@@ -43,8 +44,8 @@ If no modules are given, all "imports" in the initial map are relinked.
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
-* `--preload`                       Add module preloads to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
@@ -55,21 +56,25 @@ If no modules are given, all "imports" in the initial map are relinked.
 Link a remote package in importmap.json
   
 ```
-jspm link chalk@5.2.0```
+jspm link chalk@5.2.0
+```
 Link a local module
   
 ```
-jspm link ./src/cli.js```
+jspm link ./src/cli.js
+```
 Link an HTML file and update its import map including preload and integrity tags
   
 ```
-jspm link --map index.html --integrity --preload```
+jspm link --map index.html --integrity --preload static
+```
 ## install
 
 ### Usage
   
 ```
-jspm link [flags] [...packages]```
+jspm link [flags] [...packages]
+```
 Installs packages into an import map, along with all of the dependencies that are necessary to import them.By default, the latest versions of the packages that are compatible with the local "package.json" are installed, unless an explicit version is specified. The given packages must be valid package specifiers, such as `npm:react@18.0.0` or `denoland:oak`. If a package specifier with no registry is given, such as `lit`, the registry is assumed to be NPM. Packages can be installed under an alias by using specifiers such as `myname=npm:lit@2.1.0`. An optional subpath can be provided, such as `npm:lit@2.2.0/decorators.js`, in which case only the dependencies for that subpath are installed.
 
 If no packages are provided, all "imports" in the initial map are reinstalled.
@@ -82,8 +87,8 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
-* `--preload`                       Add module preloads to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
@@ -94,29 +99,35 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 Install a package
   
 ```
-jspm install lit```
+jspm install lit
+```
 Install a versioned package and subpath
   
 ```
-jspm install npm:lit@2.2.0/decorators.js```
+jspm install npm:lit@2.2.0/decorators.js
+```
 Install a versioned package
   
 ```
-jspm install npm:react@18.2.0```
+jspm install npm:react@18.2.0
+```
 Install a Denoland package and use the Deno provider
   
 ```
-jspm install -p deno denoload:oak```
+jspm install -p deno denoload:oak
+```
 Install "alias" as an alias of the resolution react
   
 ```
-jspm install alias=react```
+jspm install alias=react
+```
 ## uninstall
 
 ### Usage
   
 ```
-jspm uninstall [flags] [...packages]```
+jspm uninstall [flags] [...packages]
+```
 Uninstalls packages from an import map. The given packages must be valid package specifiers, such as `npm:react@18.0.0`, `denoland:oak` or `lit`, and must be present in the initial import map.
 
 ### Options
@@ -127,8 +138,8 @@ Uninstalls packages from an import map. The given packages must be valid package
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
-* `--preload`                       Add module preloads to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
@@ -139,7 +150,8 @@ Uninstalls packages from an import map. The given packages must be valid package
 
 
 ```
-jspm uninstall lit lodash```
+jspm uninstall lit lodash
+```
 Uninstall "lit" and "lodash" from importmap.json.
 
 ## update
@@ -147,7 +159,8 @@ Uninstall "lit" and "lodash" from importmap.json.
 ### Usage
   
 ```
-jspm update [flags] [...packages]```
+jspm update [flags] [...packages]
+```
 Updates packages in an import map to the latest versions that are compatible with the local `package.json`. The given packages must be valid package specifiers, such as `npm:react@18.0.0`, `denoland:oak` or `lit`, and must be present in the initial import map.
 
 ### Options
@@ -158,8 +171,8 @@ Updates packages in an import map to the latest versions that are compatible wit
 * `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
+* `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
-* `--preload`                       Add module preloads to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
 * `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
@@ -170,7 +183,8 @@ Updates packages in an import map to the latest versions that are compatible wit
 
 
 ```
-jspm update react-dom```
+jspm update react-dom
+```
 Update the react-dom package.
 
 ## clear-cache
@@ -178,7 +192,8 @@ Update the react-dom package.
 ### Usage
   
 ```
-jspm clear-cache```
+jspm clear-cache
+```
 Clears the global module fetch cache, for situations where the contents of a dependency may have changed without a version bump. This can happen during local development, for instance.
 
 ### Options

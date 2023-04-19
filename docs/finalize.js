@@ -11,8 +11,9 @@ docs = docs.replace(/\x1b\[[0-9;]*m/g, '');
 docs = docs.replace(/jspm\/[^\n]+\n/g, '');
 docs = docs.replace(/^([a-zA-Z-_]+):$/mg, '### $1');
 docs = docs.replace(/  ((-[a-zA-Z], )?--[a-zA-Z-_]+)/mg, '* `$1`');
-docs = docs.replace(/\$ (jspm[^\n]+)\n/g, '\n```\n$1```');
-docs = docs.replace(/\<([a-zA-Z0-9]+)\>/g, '_&lt;$1&gt;_');
+docs = docs.replace(/\$ (jspm[^\n]+)\n/g, '\n```\n$1\n```');
+docs = docs.replace(/\<([a-zA-Z0-9]+)\>/g, '_&lt;$1&gt;_'); // <opts>
+docs = docs.replace(/\[mode\]/g, '_[mode]_'); // --preload [mode]
 
 const intro = readFileSync('docs/intro.md', 'utf8');
 const config = readFileSync('docs/config.md', 'utf8');

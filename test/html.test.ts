@@ -45,7 +45,7 @@ const scenarios: Scenario[] = [
   },
   {
     files: importMap,
-    commands: ["jspm link react -o index.html --preload"],
+    commands: ["jspm link react -o index.html --preload static"],
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain the react version from the import map,
       // and integrities for it, but nothing else:
@@ -58,7 +58,7 @@ const scenarios: Scenario[] = [
   },
   {
     files: importMap,
-    commands: ["jspm install react -o index.html --integrity"],
+    commands: ["jspm install react -o index.html --preload --integrity"],
     validationFn: async (files: Map<string, string>) => {
       // The index.html should contain all the pins, and integrities for them:
       // NOTE: this will break if we change the CDN build!

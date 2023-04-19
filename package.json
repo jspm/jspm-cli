@@ -12,7 +12,7 @@
     "jspm.js"
   ],
   "dependencies": {
-    "@jspm/generator": "^1.1.6",
+    "@jspm/generator": "^1.1.7",
     "cac": "^6.7.14",
     "ora": "^6.3.0",
     "picocolors": "^1.0.0"
@@ -22,7 +22,7 @@
     "@babel/core": "^7.21.4",
     "@types/node": "^18.15.11",
     "esbuild": "^0.16.17",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.7",
     "tinyspy": "^1.1.1",
