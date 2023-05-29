@@ -46,8 +46,8 @@ export async function runScenario(scenario: Scenario) {
       cause: err,
     });
   } finally {
-    await deleteTmpPkg(dir);
     process.chdir(cwd);
+    await deleteTmpPkg(dir);
   }
 }
 
@@ -61,7 +61,7 @@ export async function mapDirectory(dir: string): Promise<Files> {
     } else {
       const subFiles = await mapDirectory(filePath);
       for (const [subFile, subData] of subFiles) {
-        files.set(path.join(file, subFile), subData);
+        files.set(path.join(file, subFile).replace(/\\/g, '/'), subData);
       }
     }
   }
@@ -99,7 +99,16 @@ async function createTmpPkg(scenario: Scenario): Promise<string> {
 async function deleteTmpPkg(dir: string) {
   if (dir.startsWith(os.tmpdir())) {
     // ensure it's a tmp dir
-    return fs.rm(dir, { recursive: true });
+    while (true) {
+      try {
+        await fs.rm(dir, { recursive: true });
+        return;
+      }
+      catch (err) {
+        if (err.code === 'EBUSY')
+          await new Promise(resolve => setTimeout(resolve, 10));
+      }
+    }
   } else {
     throw new Error(`Cannot delete ${dir} as it is not a temporary directory.`);
   }
