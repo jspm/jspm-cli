@@ -60,3 +60,4 @@ dep = 'test:'
 name = 'test:##'
 dep = 'test/##.test.ts'
 run = 'tsx $DEP'
+serial = true
