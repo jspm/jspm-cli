@@ -22,7 +22,7 @@ import install from "./install";
 import link from "./link";
 import uninstall from "./uninstall";
 import update from "./update";
-import { JspmError, wrapCommand } from "./utils";
+import { JspmError, availableProviders , wrapCommand } from "./utils";
 
 export const cli = cac(c.yellow("jspm"));
 
@@ -44,7 +44,7 @@ const resolutionOpt: opt = [
 ];
 const providerOpt: opt = [
   "-p, --provider <provider>",
-  "Default module provider",
+  `Default module provider. Available providers: ${availableProviders.join(", ")}`,
   {},
 ];
 const stdoutOpt: opt = [

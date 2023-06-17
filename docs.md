@@ -41,7 +41,7 @@ If no modules are given, all "imports" in the initial map are relinked.
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
-* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
+* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider. Available providers: jspm.io, nodemodules, deno, jsdelivr, skypack, unpkg, esm.sh, jspm.io#system 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
@@ -84,7 +84,7 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
-* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
+* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider. Available providers: jspm.io, nodemodules, deno, jsdelivr, skypack, unpkg, esm.sh, jspm.io#system 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
@@ -135,7 +135,7 @@ Uninstalls packages from an import map. The given packages must be valid package
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
-* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
+* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider. Available providers: jspm.io, nodemodules, deno, jsdelivr, skypack, unpkg, esm.sh, jspm.io#system 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
@@ -168,7 +168,7 @@ Updates packages in an import map to the latest versions that are compatible wit
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
-* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider 
+* `-p, --provider` &lt;[providers](#providers)&gt;       Default module provider. Available providers: jspm.io, nodemodules, deno, jsdelivr, skypack, unpkg, esm.sh, jspm.io#system 
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
