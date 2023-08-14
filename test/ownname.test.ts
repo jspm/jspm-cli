@@ -13,7 +13,7 @@ const scenarios: Scenario[] = [
       // transitive dependency of "./app.js".
       const map = JSON.parse(files.get("importmap.json"));
       assert(
-        map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@1.2.1")
+        map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@1.3.0")
       );
     },
   },
