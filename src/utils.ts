@@ -1,6 +1,6 @@
-import fs from "fs/promises";
-import path from "path";
-import { pathToFileURL } from "url";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { Generator, analyzeHtml } from "@jspm/generator";
 import ora from "ora";
 import c from "picocolors";
@@ -205,7 +205,7 @@ export async function getGenerator(
     defaultProvider: getProvider(flags),
     resolutions: getResolutions(flags),
     cache: getCacheMode(flags),
-    freeze: flags.freeze,
+    freeze: flags?.freeze || false,
     commonJS: true, // TODO: only for --local flag
   });
 }
@@ -247,13 +247,13 @@ async function getInputMap(flags: Flags): Promise<IImportMapJspm> {
 }
 
 export function getInputPath(flags: Flags): string {
-  return path.resolve(process.cwd(), flags.map || defaultInputPath);
+  return path.resolve(process.cwd(), flags?.map || defaultInputPath);
 }
 
 export function getOutputPath(flags: Flags): string | undefined {
   return path.resolve(
     process.cwd(),
-    flags.output || flags.map || defaultInputPath
+    flags?.output || flags?.map || defaultInputPath
   );
 }
 
@@ -262,7 +262,7 @@ function getOutputMapUrl(flags: Flags): URL {
 }
 
 function getRootUrl(flags: Flags): URL {
-  if (!flags.root) return undefined;
+  if (!flags?.root) return undefined;
   return pathToFileURL(path.resolve(process.cwd(), flags.root));
 }
 
@@ -295,9 +295,9 @@ function addEnvs(env: string[], newEnvs: string[]) {
 
 export async function getEnv(flags: Flags) {
   const inputMap = await getInputMap(flags);
-  const envFlags = Array.isArray(flags.env)
-    ? flags.env
-    : (flags.env || "")
+  const envFlags = Array.isArray(flags?.env)
+    ? flags?.env
+    : (flags?.env || "")
         .split(",")
         .map((e) => e.trim())
         .filter(Boolean);
@@ -314,14 +314,18 @@ export async function getEnv(flags: Flags) {
   return removeNonStaticEnvKeys(env);
 }
 
-function getProvider(flags: Flags) {
-  if (flags.provider && !availableProviders.includes(flags.provider))
+function getProvider(flags: Flags): (typeof availableProviders)[number] {
+  if (!flags?.provider) {
+    return "jspm.io";
+  }
+
+  if (flags?.provider && !availableProviders.includes(flags.provider))
     throw new JspmError(
       `Invalid provider "${
         flags.provider
       }". Available providers are: "${availableProviders.join('", "')}".`
     );
-  return flags.provider;
+  return flags?.provider;
 }
 
 function removeNonStaticEnvKeys(env: string[]) {
@@ -331,7 +335,7 @@ function removeNonStaticEnvKeys(env: string[]) {
 }
 
 function getResolutions(flags: Flags): Record<string, string> {
-  if (!flags.resolution) return;
+  if (!flags?.resolution) return;
   const resolutions = Array.isArray(flags.resolution)
     ? flags.resolution
     : flags.resolution.split(",").map((r) => r.trim());
@@ -352,7 +356,7 @@ function getResolutions(flags: Flags): Record<string, string> {
 
 const validCacheModes = ["online", "offline", "no-cache"];
 function getCacheMode(flags: Flags): "offline" | boolean {
-  if (!flags.cache) return true;
+  if (!flags?.cache) return true;
   if (!validCacheModes.includes(flags.cache))
     throw new JspmError(
       `Invalid cache mode "${
@@ -372,7 +376,7 @@ function getCacheMode(flags: Flags): "offline" | boolean {
 }
 
 const validPreloadModes = ["static", "dynamic"];
-function getPreloadMode(flags: Flags): boolean | 'static' | 'all' {
+function getPreloadMode(flags: Flags): boolean | "static" | "all" {
   if (flags.preload === null || flags.preload === undefined) return false;
   if (typeof flags.preload === "boolean") {
     return flags.preload;
@@ -382,7 +386,9 @@ function getPreloadMode(flags: Flags): boolean | 'static' | 'all' {
     throw new JspmError(
       `Invalid preload mode "${
         flags.preload
-      }". Available modes are: "${validPreloadModes.join('", "')}" (default).\n\t${c.bold(
+      }". Available modes are: "${validPreloadModes.join(
+        '", "'
+      )}" (default).\n\t${c.bold(
         "static"
       )}  Inject preload tags for static dependencies.\n\t${c.bold(
         "dynamic"
@@ -403,7 +409,7 @@ export function stopSpinner() {
   spinner.stop();
 }
 
-async function exists(file: string) {
+export async function exists(file: string) {
   try {
     await fs.access(file);
     return true;

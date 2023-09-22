@@ -22,7 +22,8 @@ import install from "./install";
 import link from "./link";
 import uninstall from "./uninstall";
 import update from "./update";
-import { JspmError, availableProviders , wrapCommand } from "./utils";
+import { JspmError, availableProviders, wrapCommand } from "./utils";
+import build from "./build/index";
 
 export const cli = cac(c.yellow("jspm"));
 
@@ -44,7 +45,9 @@ const resolutionOpt: opt = [
 ];
 const providerOpt: opt = [
   "-p, --provider <provider>",
-  `Default module provider. Available providers: ${availableProviders.join(", ")}`,
+  `Default module provider. Available providers: ${availableProviders.join(
+    ", "
+  )}`,
   {},
 ];
 const stdoutOpt: opt = [
@@ -88,6 +91,16 @@ const freezeOpt: opt = [
   { default: false },
 ];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
+const buildOpt: opt = [
+  "--entry <file>",
+  "File to provide entry for building project",
+  {},
+];
+const buildConfigOpt: opt = [
+  "--build-config <file>",
+  "Path to a rollup config file",
+  {},
+];
 
 cli
   .option(...silentOpt)
@@ -277,6 +290,12 @@ Clears the global module fetch cache, for situations where the contents of a dep
   )
   .alias("cc")
   .action(wrapCommand(clearCache));
+
+cli
+  .command("build", "Build the module using importmap")
+  .option(...buildOpt)
+  .option(...buildConfigOpt)
+  .action(wrapCommand(build));
 
 // Taken from 'cac', as they don't export it:
 interface HelpSection {

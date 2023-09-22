@@ -1,6 +1,6 @@
 import type { Generator } from "@jspm/generator";
 
-export interface Flags {
+export interface Flags extends BuildFlags {
   resolution?: string | string[];
   env?: string | string[];
   map?: string;
@@ -14,6 +14,12 @@ export interface Flags {
   freeze?: boolean;
   silent?: boolean;
   cache?: string;
+}
+
+export interface BuildFlags {
+  entry?: string;
+  outdir?: string;
+  buildConfig?: string;
 }
 
 export type IImportMap = ReturnType<Generator["getMap"]>;
