@@ -205,7 +205,7 @@ export async function getGenerator(
     defaultProvider: getProvider(flags),
     resolutions: getResolutions(flags),
     cache: getCacheMode(flags),
-    freeze: flags?.freeze || false,
+    freeze: flags.freeze,
     commonJS: true, // TODO: only for --local flag
   });
 }
@@ -253,7 +253,7 @@ export function getInputPath(flags: Flags): string {
 export function getOutputPath(flags: Flags): string | undefined {
   return path.resolve(
     process.cwd(),
-    flags?.output || flags?.map || defaultInputPath
+    flags.output || flags.map || defaultInputPath
   );
 }
 
@@ -273,6 +273,7 @@ const excludeDefinitions = {
   deno: ["node", "browser"],
   browser: ["node", "deno"],
 };
+
 function removeEnvs(env: string[], removeEnvs: string[]) {
   for (const removeEnv of removeEnvs) {
     if (env.includes(removeEnv)) env.splice(env.indexOf(removeEnv), 1);
@@ -296,8 +297,8 @@ function addEnvs(env: string[], newEnvs: string[]) {
 export async function getEnv(flags: Flags) {
   const inputMap = await getInputMap(flags);
   const envFlags = Array.isArray(flags?.env)
-    ? flags?.env
-    : (flags?.env || "")
+    ? flags.env
+    : (flags.env || "")
         .split(",")
         .map((e) => e.trim())
         .filter(Boolean);
@@ -315,17 +316,13 @@ export async function getEnv(flags: Flags) {
 }
 
 function getProvider(flags: Flags): (typeof availableProviders)[number] {
-  if (!flags?.provider) {
-    return "jspm.io";
-  }
-
-  if (flags?.provider && !availableProviders.includes(flags.provider))
+  if (flags.provider && !availableProviders.includes(flags.provider))
     throw new JspmError(
       `Invalid provider "${
         flags.provider
       }". Available providers are: "${availableProviders.join('", "')}".`
     );
-  return flags?.provider;
+  return flags.provider;
 }
 
 function removeNonStaticEnvKeys(env: string[]) {
@@ -335,7 +332,7 @@ function removeNonStaticEnvKeys(env: string[]) {
 }
 
 function getResolutions(flags: Flags): Record<string, string> {
-  if (!flags?.resolution) return;
+  if (!flags.resolution) return;
   const resolutions = Array.isArray(flags.resolution)
     ? flags.resolution
     : flags.resolution.split(",").map((r) => r.trim());
@@ -356,7 +353,7 @@ function getResolutions(flags: Flags): Record<string, string> {
 
 const validCacheModes = ["online", "offline", "no-cache"];
 function getCacheMode(flags: Flags): "offline" | boolean {
-  if (!flags?.cache) return true;
+  if (!flags.cache) return true;
   if (!validCacheModes.includes(flags.cache))
     throw new JspmError(
       `Invalid cache mode "${
