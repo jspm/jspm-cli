@@ -1,9 +1,10 @@
 import { Plugin } from "rollup";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
+import { fetch } from "@jspm/generator";
 import { Flags } from "../types";
 import { getGenerator, JspmError } from "../utils";
-import { pathToFileURL } from "node:url";
 
 export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
   /*
