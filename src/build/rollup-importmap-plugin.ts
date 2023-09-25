@@ -3,19 +3,19 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { Flags } from "../types";
 import { getGenerator, JspmError } from "../utils";
+import { pathToFileURL } from "node:url";
 
 export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
+  /*
+    Install without a freeze might bump the versions.
+    We would like to maintian 1:1 on what users defined in importmap.
+  */
   const generator = await getGenerator({ ...flags, freeze: true });
   await generator.install();
 
   return {
     name: "rollup-importmap-plugin",
     resolveId: async (id: string, importer: string) => {
-      if (importer?.startsWith("http") && id?.startsWith(".")) {
-        const proxyPath = new URL(id, importer).toString();
-        return { id: proxyPath, external: false };
-      }
-
       try {
         const resolved = generator.importMap.resolve(id, importer);
         return { id: resolved };
@@ -26,7 +26,6 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
     load: async (id: string) => {
       try {
         const url = new URL(id);
-
         if (url.protocol === "file:") {
           /*
             This is a hack and need to be replaced with a proper solution.
@@ -36,7 +35,7 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
               ? `${url.pathname}.js`
               : url.pathname;
 
-          return await fs.readFile(filePath, "utf-8");
+          return await fs.readFile(pathToFileURL(filePath), "utf-8");
         }
 
         if (url.protocol === "https:") {
@@ -44,7 +43,9 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
           return await response.text();
         }
       } catch (err) {
-        throw new JspmError(`\n Failed to resolve ${id}: ${err.message} \n`);
+        throw new JspmError(
+          `\n Unsupported protocol ${id} \n ${err.message} \n`
+        );
       }
     },
   };
