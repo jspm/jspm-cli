@@ -15,7 +15,7 @@
 * Support for a wide range of CDNs, such as `jspm.io`, `jsDeliver`, `esm.sh` and `unpkg`.
 * Import map extraction/injection into HTML files, with module preloading and integrity attributes.
 
-See the [documentation](https://jspm.org/docs/jspm-cli) and [getting started](https://jspm.org/docs/getting-started) guide on jspm.org.
+See the [documentation](https://jspm.org/docs/jspm-cli) and [getting started](https://jspm.org/getting-started) guide on jspm.org.
 
 ## Contributing
 
