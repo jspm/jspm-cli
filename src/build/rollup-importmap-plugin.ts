@@ -6,6 +6,14 @@ import { fetch } from "@jspm/generator";
 import { Flags } from "../types";
 import { getGenerator, JspmError } from "../utils";
 
+const isValidUrl = (url: string) => {
+  try {
+    return Boolean(new URL(url));
+  } catch (e) {
+    return false;
+  }
+};
+
 export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
   /*
     Install without a freeze might bump the versions.
@@ -17,6 +25,13 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
   return {
     name: "rollup-importmap-plugin",
     resolveId: async (id: string, importer: string) => {
+      if (isValidUrl(id)) {
+        const url = new URL(id);
+        if (url.protocol === "deno:" || url.protocol === "node:") {
+          return { id, external: true };
+        }
+      }
+
       try {
         const resolved = generator.importMap.resolve(id, importer);
         return { id: resolved };
@@ -28,9 +43,6 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
       try {
         const url = new URL(id);
         if (url.protocol === "file:") {
-          /*
-            This is a hack and need to be replaced with a proper solution.
-          */
           const filePath =
             path.extname(url.pathname) === ""
               ? `${url.pathname}.js`

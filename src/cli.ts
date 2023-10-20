@@ -91,14 +91,14 @@ const freezeOpt: opt = [
   { default: false },
 ];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
-const buildOpt: opt = [
-  "--entry <file>",
-  "File to provide entry for building project",
-  {},
-];
 const buildConfigOpt: opt = [
   "--build-config <file>",
   "Path to a rollup config file",
+  {},
+];
+const buildOutputOpt: opt = [
+  "--build-output <file>",
+  "Path to the rollup output file",
   {},
 ];
 
@@ -292,9 +292,9 @@ Clears the global module fetch cache, for situations where the contents of a dep
   .action(wrapCommand(clearCache));
 
 cli
-  .command("build", "Build the module using importmap")
-  .option(...buildOpt)
+  .command("build [entry]", "Build the module using importmap")
   .option(...buildConfigOpt)
+  .option(...buildOutputOpt)
   .action(wrapCommand(build));
 
 // Taken from 'cac', as they don't export it:

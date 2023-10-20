@@ -236,12 +236,12 @@ Providers are used to resolve package _canonical names_ (such as `npm:react@18.2
 
 The following providers are supported:
 
-* `jspm.io`
-* `jspm.io#system`
-* `nodemodules`
-* `esm.sh`
-* `unpkg`
-* `jsdelivr`
+- `jspm.io`
+- `jspm.io#system`
+- `nodemodules`
+- `esm.sh`
+- `unpkg`
+- `jsdelivr`
 
 Most of these providers will resolve against their corresponding CDNs. For instance, `esm.sh` uses the [esm.sh](https://esm.sh) CDN, `unpkg` uses the [UNPKG](https://unpkg.com) CDN, and so on.
 
@@ -259,11 +259,7 @@ Installs `lit` into the import map using the `nodemodules` provider, which maps 
 
 ```json
 {
-  "env": [
-    "browser",
-    "development",
-    "module"
-  ],
+  "env": ["browser", "development", "module"],
   "imports": {
     "lit": "./node_modules/lit/index.js"
   },
@@ -277,7 +273,6 @@ Installs `lit` into the import map using the `nodemodules` provider, which maps 
   }
 }
 ```
-
 
 ## Resolutions
 
@@ -295,17 +290,30 @@ Installs `npm:preact@10.13.2` into the import map under the name `react`. Note t
 
 ```json
 {
-  "env": [
-    "browser",
-    "development",
-    "module"
-  ],
+  "env": ["browser", "development", "module"],
   "imports": {
     "react": "https://ga.jspm.io/npm:preact@10.13.2/dist/preact.module.js"
   }
 }
 ```
 
+### Build
+
+The build command can be used to build a project from the import map, which will include all dependencies by resolving them from CDN against the import map.
+
+The command operates in two modes,
+
+```sh
+jspm build ./app.js --build-output lib.js
+```
+
+Uses default rollup configuration and builds the project with the importmap.
+
+If you would like to use a custom rollup configuration, you can use the `--build-config` flag.
+
+```sh
+jspm build --build-config rollup.config.mjs
+```
 
 ## Preload Tags and Integrity Attributes
 

@@ -7,27 +7,35 @@ import { JspmError, exists } from "../utils";
 import type { Flags } from "../types";
 import { RollupImportmapPlugin } from "./rollup-importmap-plugin";
 
-export default async function build(flags: Flags) {
-  if (!flags.entry && !flags.buildConfig) {
+export default async function build(entry: string, options: Flags) {
+  if (!entry && !options.buildConfig) {
     throw new JspmError(`Please provide entry for the build`);
   }
 
   let buildConfig: RollupOptions;
   let outputOptions: RollupOptions["output"];
 
-  if (flags.entry) {
-    const entryPath = path.join(process.cwd(), flags.entry);
+  if (entry) {
+    if (!options.buildOutput) {
+      throw new JspmError(`Build output is required when entry is provided`);
+    }
+
+    const entryPath = path.join(process.cwd(), entry);
     if ((await exists(entryPath)) === false) {
       throw new JspmError(`Entry file does not exist: ${entryPath}`);
     }
     buildConfig = {
       input: entryPath,
-      plugins: [RollupImportmapPlugin(flags)],
+      plugins: [RollupImportmapPlugin(options)],
+    };
+
+    outputOptions = {
+      file: path.join(process.cwd(), options.buildOutput),
     };
   }
 
-  if (flags.buildConfig) {
-    const buildConfigPath = path.join(process.cwd(), flags.buildConfig);
+  if (options.buildConfig) {
+    const buildConfigPath = path.join(process.cwd(), options.buildConfig);
     if ((await exists(buildConfigPath)) === false) {
       throw new JspmError(
         `Build config file does not exist: ${buildConfigPath}`
@@ -45,7 +53,10 @@ export default async function build(flags: Flags) {
 
     buildConfig = {
       ...rollupConfig,
-      plugins: [...(rollupConfig?.plugins || []), RollupImportmapPlugin(flags)],
+      plugins: [
+        ...(rollupConfig?.plugins || []),
+        RollupImportmapPlugin(options),
+      ],
     };
   }
 

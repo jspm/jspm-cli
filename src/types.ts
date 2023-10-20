@@ -20,6 +20,7 @@ export interface BuildFlags {
   entry?: string;
   outdir?: string;
   buildConfig?: string;
+  buildOutput?: string;
 }
 
 export type IImportMap = ReturnType<Generator["getMap"]>;
