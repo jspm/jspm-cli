@@ -1,6 +1,5 @@
 import path from "node:path";
 import process from "node:process";
-import fs from "node:fs/promises";
 import { type RollupOptions, rollup } from "rollup";
 
 import { JspmError, exists } from "../utils";
@@ -8,7 +7,7 @@ import type { Flags } from "../types";
 import { RollupImportmapPlugin } from "./rollup-importmap-plugin";
 
 export default async function build(entry: string, options: Flags) {
-  if (!entry && !options.buildConfig) {
+  if (!entry && !options.config) {
     throw new JspmError(`Please provide entry for the build`);
   }
 
@@ -16,7 +15,7 @@ export default async function build(entry: string, options: Flags) {
   let outputOptions: RollupOptions["output"];
 
   if (entry) {
-    if (!options.buildOutput) {
+    if (!options.output) {
       throw new JspmError(`Build output is required when entry is provided`);
     }
 
@@ -30,12 +29,12 @@ export default async function build(entry: string, options: Flags) {
     };
 
     outputOptions = {
-      file: path.join(process.cwd(), options.buildOutput),
+      dir: path.join(process.cwd(), options.output),
     };
   }
 
-  if (options.buildConfig) {
-    const buildConfigPath = path.join(process.cwd(), options.buildConfig);
+  if (options.config) {
+    const buildConfigPath = path.join(process.cwd(), options.config);
     if ((await exists(buildConfigPath)) === false) {
       throw new JspmError(
         `Build config file does not exist: ${buildConfigPath}`
@@ -61,11 +60,5 @@ export default async function build(entry: string, options: Flags) {
   }
 
   const builder = await rollup(buildConfig);
-  const result = await builder.generate({ format: "esm", ...outputOptions });
-
-  for (const file of result.output) {
-    const outputPath = path.join(process.cwd(), file.fileName);
-    const content = file.type === "asset" ? file.source : file.code;
-    await fs.writeFile(outputPath, content, "utf-8");
-  }
+  await builder.write({ format: "esm", ...outputOptions });
 }

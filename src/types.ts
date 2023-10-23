@@ -19,7 +19,7 @@ export interface Flags extends BuildFlags {
 export interface BuildFlags {
   entry?: string;
   outdir?: string;
-  buildConfig?: string;
+  config: string;
   buildOutput?: string;
 }
 

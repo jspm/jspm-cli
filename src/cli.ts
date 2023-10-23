@@ -92,13 +92,13 @@ const freezeOpt: opt = [
 ];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 const buildConfigOpt: opt = [
-  "--build-config <file>",
+  "--config <file>",
   "Path to a rollup config file",
   {},
 ];
 const buildOutputOpt: opt = [
-  "--build-output <file>",
-  "Path to the rollup output file",
+  "--output <dir>",
+  "Path to the rollup output directory",
   {},
 ];
 
