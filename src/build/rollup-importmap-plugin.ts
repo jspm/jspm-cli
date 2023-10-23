@@ -36,6 +36,9 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
         const resolved = generator.importMap.resolve(id, importer);
         return { id: resolved };
       } catch (err) {
+        console.warn(
+          `Failed to resolve ${id} from ${importer}, makring as external`
+        );
         return { id, external: true };
       }
     },
