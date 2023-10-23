@@ -102,7 +102,7 @@ The build command can be used to build a project from the import map, which will
 The command operates in two modes,
 
 ```sh
-jspm build ./app.js --build-output lib.js
+jspm build ./app.js --output dir
 ```
 
 Uses default rollup configuration and builds the project with the importmap.
@@ -110,7 +110,7 @@ Uses default rollup configuration and builds the project with the importmap.
 If you would like to use a custom rollup configuration, you can use the `--build-config` flag.
 
 ```sh
-jspm build --build-config rollup.config.mjs
+jspm build --config rollup.config.mjs
 ```
 
 ## Preload Tags and Integrity Attributes

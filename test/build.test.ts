@@ -6,7 +6,7 @@ const filesOwnName = await mapDirectory("test/fixtures/scenario_build_app");
 const scenarios: Scenario[] = [
   {
     files: filesOwnName,
-    commands: ["jspm build --build-config rollup-config.mjs"],
+    commands: ["jspm build --config rollup-config.mjs"],
     validationFn: async (files) => {
       const build = files.get("build.js");
       assert(!!build);
