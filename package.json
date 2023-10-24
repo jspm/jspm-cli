@@ -15,7 +15,8 @@
     "@jspm/generator": "^1.1.10",
     "cac": "^6.7.14",
     "ora": "^6.3.0",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "rollup": "^3.29.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.2",

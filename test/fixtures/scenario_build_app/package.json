@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "rollup-plugin-banner": "^0.2.1"
+  }
+}

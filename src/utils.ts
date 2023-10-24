@@ -1,6 +1,6 @@
-import fs from "fs/promises";
-import path from "path";
-import { pathToFileURL } from "url";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { Generator, analyzeHtml } from "@jspm/generator";
 import ora from "ora";
 import c from "picocolors";
@@ -247,7 +247,7 @@ async function getInputMap(flags: Flags): Promise<IImportMapJspm> {
 }
 
 export function getInputPath(flags: Flags): string {
-  return path.resolve(process.cwd(), flags.map || defaultInputPath);
+  return path.resolve(process.cwd(), flags?.map || defaultInputPath);
 }
 
 export function getOutputPath(flags: Flags): string | undefined {
@@ -262,7 +262,7 @@ function getOutputMapUrl(flags: Flags): URL {
 }
 
 function getRootUrl(flags: Flags): URL {
-  if (!flags.root) return undefined;
+  if (!flags?.root) return undefined;
   return pathToFileURL(path.resolve(process.cwd(), flags.root));
 }
 
@@ -273,6 +273,7 @@ const excludeDefinitions = {
   deno: ["node", "browser"],
   browser: ["node", "deno"],
 };
+
 function removeEnvs(env: string[], removeEnvs: string[]) {
   for (const removeEnv of removeEnvs) {
     if (env.includes(removeEnv)) env.splice(env.indexOf(removeEnv), 1);
@@ -295,7 +296,7 @@ function addEnvs(env: string[], newEnvs: string[]) {
 
 export async function getEnv(flags: Flags) {
   const inputMap = await getInputMap(flags);
-  const envFlags = Array.isArray(flags.env)
+  const envFlags = Array.isArray(flags?.env)
     ? flags.env
     : (flags.env || "")
         .split(",")
@@ -314,7 +315,7 @@ export async function getEnv(flags: Flags) {
   return removeNonStaticEnvKeys(env);
 }
 
-function getProvider(flags: Flags) {
+function getProvider(flags: Flags): (typeof availableProviders)[number] {
   if (flags.provider && !availableProviders.includes(flags.provider))
     throw new JspmError(
       `Invalid provider "${
@@ -372,7 +373,7 @@ function getCacheMode(flags: Flags): "offline" | boolean {
 }
 
 const validPreloadModes = ["static", "dynamic"];
-function getPreloadMode(flags: Flags): boolean | 'static' | 'all' {
+function getPreloadMode(flags: Flags): boolean | "static" | "all" {
   if (flags.preload === null || flags.preload === undefined) return false;
   if (typeof flags.preload === "boolean") {
     return flags.preload;
@@ -382,7 +383,9 @@ function getPreloadMode(flags: Flags): boolean | 'static' | 'all' {
     throw new JspmError(
       `Invalid preload mode "${
         flags.preload
-      }". Available modes are: "${validPreloadModes.join('", "')}" (default).\n\t${c.bold(
+      }". Available modes are: "${validPreloadModes.join(
+        '", "'
+      )}" (default).\n\t${c.bold(
         "static"
       )}  Inject preload tags for static dependencies.\n\t${c.bold(
         "dynamic"
@@ -403,7 +406,7 @@ export function stopSpinner() {
   spinner.stop();
 }
 
-async function exists(file: string) {
+export async function exists(file: string) {
   try {
     await fs.access(file);
     return true;
