@@ -28,6 +28,27 @@ jobs:
       - run: npm install
       - run: chomp lint
       - run: chomp test
+  windows-test:
+    name: Node.js Windows Tests
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node: [14.x, 16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Setup Chomp
+        uses: guybedford/chomp-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm install
+      - run: chomp lint
+      - run: chomp test
   deno-test:
     name: Deno Tests
     runs-on: ubuntu-latest
