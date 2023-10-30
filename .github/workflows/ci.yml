@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Node.js Windows Tests
+    name: Node.js Tests
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
