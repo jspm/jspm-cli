@@ -30,11 +30,7 @@ export const availableProviders = [
   "jsdelivr",
   "skypack",
   "unpkg",
-  /*
-    Disabling esm.sh provider for now. There is a bug for installing lit.
-    https://github.com/jspm/generator/issues/335
-  */
-  // "esm.sh",
+  "esm.sh",
   "jspm.io#system",
 ];
 

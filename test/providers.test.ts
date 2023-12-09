@@ -34,6 +34,14 @@ const scenarios: Scenario[] = [
 // Scenarios that check we can use each available provider:
 const files = await mapDirectory("test/fixtures/scenario_providers");
 for (const provider of availableProviders) {
+  if (provider === "esm.sh") {
+    /*
+      Disabling esm.sh provider for now. There is a bug for installing lit.
+      https://github.com/jspm/generator/issues/335
+    */
+    continue;
+  }
+
   let spec = "lit";
   let name = "lit";
   if (provider.includes("deno")) {
