@@ -9,11 +9,11 @@ const scenarios: Scenario[] = [
     commands: ["jspm install app"],
     validationFn: async (files: Map<string, string>) => {
       // Installing the own-name package "app" should result in the version of
-      // es-module-lexer in the import map being upgraded to 1.3.1, since it's a
+      // es-module-lexer in the import map being upgraded to 1.4.1, since it's a
       // transitive dependency of "./app.js".
       const map = JSON.parse(files.get("importmap.json"));
       assert(
-        map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@1.3.1")
+        map?.imports?.["es-module-lexer"]?.includes("es-module-lexer@1.4.1")
       );
     },
   },
