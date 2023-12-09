@@ -293,6 +293,7 @@ Clears the global module fetch cache, for situations where the contents of a dep
 
 cli
   .command("build [entry]", "Build the module using importmap")
+  .option(...resolutionOpt)
   .option(...mapOpt)
   .option(...buildConfigOpt)
   .option(...buildOutputOpt)
