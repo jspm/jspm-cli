@@ -20,7 +20,7 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
     We would like to maintian 1:1 on what users defined in importmap.
   */
   const generator = await getGenerator({ ...flags, freeze: true });
-  await generator.install();
+  await generator.reinstall();
 
   return {
     name: "rollup-importmap-plugin",
