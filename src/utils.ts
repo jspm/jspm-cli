@@ -205,7 +205,6 @@ export async function getGenerator(
     defaultProvider: getProvider(flags),
     resolutions: getResolutions(flags),
     cache: getCacheMode(flags),
-    freeze: flags.freeze,
     commonJS: true, // TODO: only for --local flag
   });
 }

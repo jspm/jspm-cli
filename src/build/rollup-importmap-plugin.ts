@@ -16,10 +16,11 @@ const isValidUrl = (url: string) => {
 
 export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
   /*
-    Install without a freeze might bump the versions.
-    We would like to maintian 1:1 on what users defined in importmap.
+    We need to load the importmap from local into the generator.
+    And then run a re-install. So, the generator uses the importmap
+    to resolve any dependencies.
   */
-  const generator = await getGenerator({ ...flags, freeze: true });
+  const generator = await getGenerator({ ...flags });
   await generator.reinstall();
 
   return {
