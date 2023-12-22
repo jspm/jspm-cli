@@ -85,11 +85,6 @@ const rootOpt: opt = [
   "URL to treat as server root, i.e. rebase import maps against",
   {},
 ];
-const freezeOpt: opt = [
-  "--freeze",
-  "Freeze input map dependencies, i.e. do not modify them",
-  { default: false },
-];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 const buildConfigOpt: opt = [
   "--config <file>",
@@ -134,7 +129,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `Link a remote package in importmap.json
@@ -181,7 +175,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `Install a package
@@ -236,7 +229,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `
@@ -265,7 +257,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `

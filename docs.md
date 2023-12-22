@@ -47,7 +47,6 @@ If no modules are given, all "imports" in the initial map are relinked.
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
@@ -90,7 +89,6 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
@@ -141,7 +139,6 @@ Uninstalls packages from an import map. The given packages must be valid package
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
@@ -174,7 +171,6 @@ Updates packages in an import map to the latest versions that are compatible wit
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
 * `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
