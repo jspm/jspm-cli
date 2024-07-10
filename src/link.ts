@@ -127,7 +127,7 @@ async function handleLocalFile(
   generator: Generator
 ) {
   const source = await fs.readFile(resolvedModule.target, { encoding: "utf8" });
-  const { default: babel } = await import("@babel/core");
+  const babel = await import("@babel/core");
 
   try {
     babel.parse(source);

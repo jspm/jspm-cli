@@ -45,8 +45,10 @@ for (const provider of availableProviders) {
   let spec = "lit";
   let name = "lit";
   if (provider.includes("deno")) {
-    spec = "denoland:oak/body.ts"; // deno doesn't support npm packages
-    name = "oak/body.ts";
+    // spec = "denoland:oak/body.ts"; // deno doesn't support npm packages
+    // name = "oak/body.ts";
+    spec = "denoland:zod";
+    name = "zod";
   }
   if (provider === "node") {
     spec = "@jspm/core/nodelibs/fs"; // node provider is only for polyfills

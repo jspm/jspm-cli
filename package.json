@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.2",
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^7.24.7",
     "@types/node": "^18.15.11",
     "esbuild": "^0.16.17",
     "eslint": "^8.38.0",

@@ -61,7 +61,7 @@ export async function mapDirectory(dir: string): Promise<Files> {
     } else {
       const subFiles = await mapDirectory(filePath);
       for (const [subFile, subData] of subFiles) {
-        files.set(path.join(file, subFile).replace(/\\/g, '/'), subData);
+        files.set(path.join(file, subFile).replace(/\\/g, "/"), subData);
       }
     }
   }
@@ -103,10 +103,9 @@ async function deleteTmpPkg(dir: string) {
       try {
         await fs.rm(dir, { recursive: true });
         return;
-      }
-      catch (err) {
-        if (err.code === 'EBUSY')
-          await new Promise(resolve => setTimeout(resolve, 10));
+      } catch (err) {
+        if (err.code === "EBUSY")
+          await new Promise((resolve) => setTimeout(resolve, 10));
       }
     }
   } else {
