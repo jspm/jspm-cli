@@ -72,7 +72,7 @@ const preloadOpt: opt = [
 ];
 const integrityOpt: opt = [
   "--integrity",
-  "Add module preloads with integrity attributes to HTML output",
+  "Add module integrity attributes to the import map",
   { default: false },
 ];
 const cacheOpt: opt = [
