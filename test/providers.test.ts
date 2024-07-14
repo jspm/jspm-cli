@@ -34,11 +34,23 @@ const scenarios: Scenario[] = [
 // Scenarios that check we can use each available provider:
 const files = await mapDirectory("test/fixtures/scenario_providers");
 for (const provider of availableProviders) {
+  if (provider === "esm.sh") {
+    /*
+      Disabling esm.sh provider for now. There is a bug for installing lit.
+      https://github.com/jspm/generator/issues/335
+    */
+    continue;
+  }
+
   let spec = "lit";
   let name = "lit";
   if (provider.includes("deno")) {
-    spec = "denoland:oak/body.ts"; // deno doesn't support npm packages
-    name = "oak/body.ts";
+    // oak is using jsr. We need to add support for jsr registry and imort protocol
+    // https://github.com/jspm/generator/issues/366
+    // spec = "denoland:oak/body.ts"; // deno doesn't support npm packages
+    // name = "oak/body.ts";
+    spec = "denoland:zod";
+    name = "zod";
   }
   if (provider === "node") {
     spec = "@jspm/core/nodelibs/fs"; // node provider is only for polyfills

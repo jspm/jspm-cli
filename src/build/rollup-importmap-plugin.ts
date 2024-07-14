@@ -16,11 +16,12 @@ const isValidUrl = (url: string) => {
 
 export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
   /*
-    Install without a freeze might bump the versions.
-    We would like to maintian 1:1 on what users defined in importmap.
+    We need to load the importmap from local into the generator.
+    And then run a re-install. So, the generator uses the importmap
+    to resolve any dependencies.
   */
-  const generator = await getGenerator({ ...flags, freeze: true });
-  await generator.install();
+  const generator = await getGenerator({ ...flags });
+  await generator.reinstall();
 
   return {
     name: "rollup-importmap-plugin",
@@ -43,25 +44,22 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
       }
     },
     load: async (id: string) => {
+      let url: URL;
       try {
-        const url = new URL(id);
-        if (url.protocol === "file:") {
-          const filePath =
-            path.extname(url.pathname) === ""
-              ? `${url.pathname}.js`
-              : url.pathname;
+        url = new URL(id);
+      } catch (e) {
+        throw new JspmError(`Unsupported URL ${id} \n ${e.message}`);
+      }
 
-          return await fs.readFile(pathToFileURL(filePath), "utf-8");
-        }
-
-        if (url.protocol === "https:") {
+      switch (url.protocol) {
+        case 'file:':
+          return await fs.readFile(new URL(id), "utf-8");
+        case 'https:': {
           const response = await fetch(id);
           return await response.text();
         }
-      } catch (err) {
-        throw new JspmError(
-          `\n Unsupported protocol ${id} \n ${err.message} \n`
-        );
+        default:
+          throw new JspmError(`Unsupported protocol ${url.protocol}`);
       }
     },
   };

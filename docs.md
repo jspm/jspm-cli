@@ -45,9 +45,8 @@ If no modules are given, all "imports" in the initial map are relinked.
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
-* `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
+* `--integrity`                     Add module integrity attributes to the import map (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
@@ -88,9 +87,8 @@ If no packages are provided, all "imports" in the initial map are reinstalled.
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
-* `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
+* `--integrity`                     Add module integrity attributes to the import map (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
@@ -139,9 +137,8 @@ Uninstalls packages from an import map. The given packages must be valid package
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
-* `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
+* `--integrity`                     Add module integrity attributes to the import map (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 
@@ -172,9 +169,8 @@ Updates packages in an import map to the latest versions that are compatible wit
 * `--cache` _&lt;mode&gt;_                  Cache mode for fetches (online, offline, no-cache) (default: online)
 * `--root` _&lt;url&gt;_                    URL to treat as server root, i.e. rebase import maps against 
 * `--preload` _[mode]_                Add module preloads to HTML output (default: static, dynamic) 
-* `--integrity`                     Add module preloads with integrity attributes to HTML output (default: false)
+* `--integrity`                     Add module integrity attributes to the import map (default: false)
 * `--compact`                       Output a compact import map (default: false)
-* `--freeze`                        Freeze input map dependencies, i.e. do not modify them (default: false)
 * `--stdout`                        Output the import map to stdout (default: false)
 * `--silent`                        Silence all output (default: false)
 * `-h, --help`                      Display this message 

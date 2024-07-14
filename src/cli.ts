@@ -72,7 +72,7 @@ const preloadOpt: opt = [
 ];
 const integrityOpt: opt = [
   "--integrity",
-  "Add module preloads with integrity attributes to HTML output",
+  "Add module integrity attributes to the import map",
   { default: false },
 ];
 const cacheOpt: opt = [
@@ -84,11 +84,6 @@ const rootOpt: opt = [
   "--root <url>",
   "URL to treat as server root, i.e. rebase import maps against",
   {},
-];
-const freezeOpt: opt = [
-  "--freeze",
-  "Freeze input map dependencies, i.e. do not modify them",
-  { default: false },
 ];
 const silentOpt: opt = ["--silent", "Silence all output", { default: false }];
 const buildConfigOpt: opt = [
@@ -134,7 +129,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `Link a remote package in importmap.json
@@ -181,7 +175,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `Install a package
@@ -236,7 +229,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `
@@ -265,7 +257,6 @@ cli
   .option(...preloadOpt)
   .option(...integrityOpt)
   .option(...compactOpt)
-  .option(...freezeOpt)
   .option(...stdoutOpt)
   .example(
     (name) => `
@@ -293,6 +284,8 @@ Clears the global module fetch cache, for situations where the contents of a dep
 
 cli
   .command("build [entry]", "Build the module using importmap")
+  .option(...resolutionOpt)
+  .option(...mapOpt)
   .option(...buildConfigOpt)
   .option(...buildOutputOpt)
   .action(wrapCommand(build));

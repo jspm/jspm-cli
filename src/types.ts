@@ -11,7 +11,6 @@ export interface Flags extends BuildFlags {
   preload?: boolean | string;
   integrity?: boolean;
   compact?: boolean;
-  freeze?: boolean;
   silent?: boolean;
   cache?: string;
 }

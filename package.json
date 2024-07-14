@@ -1,7 +1,7 @@
 {
   "name": "jspm",
   "type": "module",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Import Map Package Manager",
   "license": "Apache-2.0",
   "bin": {
@@ -12,7 +12,7 @@
     "jspm.js"
   ],
   "dependencies": {
-    "@jspm/generator": "^1.1.10",
+    "@jspm/generator": "^2.1.2",
     "cac": "^6.7.14",
     "ora": "^6.3.0",
     "picocolors": "^1.0.0",
@@ -20,14 +20,14 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.2",
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^7.24.7",
     "@types/node": "^18.15.11",
     "esbuild": "^0.16.17",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.7",
     "tinyspy": "^1.1.1",
-    "tsx": "^3.12.6",
+    "tsx": "^4.16.2",
     "typescript": "^4.9.5"
   }
 }

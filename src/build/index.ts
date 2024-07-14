@@ -1,5 +1,6 @@
 import path from "node:path";
 import process from "node:process";
+import { pathToFileURL } from "node:url";
 import { type RollupOptions, rollup } from "rollup";
 
 import { JspmError, exists } from "../utils";
@@ -40,7 +41,7 @@ export default async function build(entry: string, options: Flags) {
         `Build config file does not exist: ${buildConfigPath}`
       );
     }
-    const rollupConfig = await import(buildConfigPath)
+    const rollupConfig = await import(pathToFileURL(buildConfigPath).href)
       .then((mod) => mod.default)
       .catch((err) => {
         throw new JspmError(`Failed to load build config: ${err}`);
