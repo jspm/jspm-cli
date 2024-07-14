@@ -44,25 +44,22 @@ export const RollupImportmapPlugin = async (flags: Flags): Promise<Plugin> => {
       }
     },
     load: async (id: string) => {
+      let url: URL;
       try {
-        const url = new URL(id);
-        if (url.protocol === "file:") {
-          const filePath =
-            path.extname(url.pathname) === ""
-              ? `${url.pathname}.js`
-              : url.pathname;
+        url = new URL(id);
+      } catch (e) {
+        throw new JspmError(`Unsupported URL ${id} \n ${e.message}`);
+      }
 
-          return await fs.readFile(pathToFileURL(filePath), "utf-8");
-        }
-
-        if (url.protocol === "https:") {
+      switch (url.protocol) {
+        case 'file:':
+          return await fs.readFile(new URL(id), "utf-8");
+        case 'https:': {
           const response = await fetch(id);
           return await response.text();
         }
-      } catch (err) {
-        throw new JspmError(
-          `\n Unsupported protocol ${id} \n ${err.message} \n`
-        );
+        default:
+          throw new JspmError(`Unsupported protocol ${url.protocol}`);
       }
     },
   };

@@ -5,6 +5,7 @@ import { type RollupOptions, rollup } from "rollup";
 import { JspmError, exists } from "../utils";
 import type { Flags } from "../types";
 import { RollupImportmapPlugin } from "./rollup-importmap-plugin";
+import { pathToFileURL } from "node:url";
 
 export default async function build(entry: string, options: Flags) {
   if (!entry && !options.config) {
@@ -40,7 +41,7 @@ export default async function build(entry: string, options: Flags) {
         `Build config file does not exist: ${buildConfigPath}`
       );
     }
-    const rollupConfig = await import(buildConfigPath)
+    const rollupConfig = await import(pathToFileURL(buildConfigPath).href)
       .then((mod) => mod.default)
       .catch((err) => {
         throw new JspmError(`Failed to load build config: ${err}`);
