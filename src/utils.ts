@@ -170,6 +170,9 @@ async function writeJsonOutput(
   // (this way we can install into deno.json without destroying configurations)
   try {
     const existing = JSON.parse(await fs.readFile(mapFile, "utf8"));
+    delete existing.imports;
+    delete existing.scopes;
+    delete existing.integrity;
     map = Object.assign({}, existing, map);
   } catch {}
 
