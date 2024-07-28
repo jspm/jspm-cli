@@ -31,7 +31,7 @@ type opt = [string, string, any];
 const mapOpt: opt = [
   "-m, --map <file>",
   "File containing initial import map",
-  { default: "importmap.json" },
+  {},
 ];
 const envOpt: opt = [
   "-e, --env <environments>",

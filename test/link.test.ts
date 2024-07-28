@@ -139,6 +139,18 @@ const scenarios: Scenario[] = [
       assert(!map.imports?.["react-dom"]);
     },
   },
+
+  // Support the HTML as being the import map when there is no importmap.json:
+  {
+    files: new Map([...htmlFile, ['app.js', 'import "react"']]),
+    commands: ["jspm link index.html -o index.html --integrity"],
+    validationFn: async (files: Map<string, string>) => {
+      const source = files.get('index.html');
+      assert(source.includes('"integrity"'));
+      assert(source.includes('"./app.js": "sha384-f+bWmpnsmFol2CAkqy/ALGgZsi/mIaBIIhbvFLVuQzt0LNz96zLSDcz1fnF2K22q"'));
+      assert(source.includes('"https://ga.jspm.io/npm:react@18.2.0/dev.index.js": "sha384-eSJrEMXot96AKVLYz8C1nY3CpLMuBMHIAiYhs7vfM09SQo+5X+1w6t3Ldpnw+VWU"'))
+    },
+  },
 ];
 
 await runScenarios(scenarios);

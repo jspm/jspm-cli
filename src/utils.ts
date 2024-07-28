@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { accessSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { Generator, analyzeHtml } from "@jspm/generator";
@@ -8,7 +9,20 @@ import { withType } from "./logger";
 import type { Flags, IImportMapJspm } from "./types";
 
 // Default import map to use if none is provided:
-const defaultInputPath = "./importmap.json";
+const defaultMapPath = "importmap.json";
+
+export function isJsExtension(ext) {
+  return (
+    ext === ".js" ||
+    ext === ".mjs" ||
+    ext === ".cjs" ||
+    ext === ".ts" ||
+    ext === ".mts" ||
+    ext === ".cts" ||
+    ext === ".jsx" ||
+    ext === ".tsx"
+  );
+}
 
 // Default HTML for import map injection:
 const defaultHtmlTemplate = `<!DOCTYPE html>
@@ -105,7 +119,7 @@ async function writeHtmlOutput(
     );
 
   const mapFileRel = path.relative(process.cwd(), mapFile);
-  if (!(await exists(mapFile))) {
+  if (!exists(mapFile)) {
     !silent &&
       console.warn(
         `${c.cyan(
@@ -213,11 +227,14 @@ export async function getGenerator(
   });
 }
 
-export async function getInput(flags: Flags): Promise<string | undefined> {
-  const mapFile = getInputPath(flags);
-  if (!(await exists(mapFile))) return undefined;
-  if (!(await canRead(mapFile))) {
-    if (mapFile === defaultInputPath) return undefined;
+export async function getInput(
+  flags: Flags,
+  fallbackDefaultMap = defaultMapPath
+): Promise<string | undefined> {
+  const mapFile = getInputPath(flags, fallbackDefaultMap);
+  if (!exists(mapFile)) return undefined;
+  if (!canRead(mapFile)) {
+    if (mapFile === defaultMapPath) return undefined;
     else
       throw new JspmError(`JSPM does not have permission to read ${mapFile}.`);
   }
@@ -249,14 +266,20 @@ async function getInputMap(flags: Flags): Promise<IImportMapJspm> {
   return (inputMap || {}) as IImportMapJspm;
 }
 
-export function getInputPath(flags: Flags): string {
-  return path.resolve(process.cwd(), flags?.map || defaultInputPath);
+export function getInputPath(
+  flags: Flags,
+  fallbackDefaultMap = defaultMapPath
+): string {
+  return path.resolve(
+    process.cwd(),
+    flags?.map || (exists(defaultMapPath) ? defaultMapPath : fallbackDefaultMap)
+  );
 }
 
 export function getOutputPath(flags: Flags): string | undefined {
   return path.resolve(
     process.cwd(),
-    flags.output || flags.map || defaultInputPath
+    flags.output || flags.map || defaultMapPath
   );
 }
 
@@ -409,28 +432,28 @@ export function stopSpinner() {
   spinner.stop();
 }
 
-export async function exists(file: string) {
+export function exists(file: string) {
   try {
-    await fs.access(file);
+    accessSync(file);
     return true;
   } catch (e) {
     return false;
   }
 }
 
-async function canRead(file: string) {
+function canRead(file: string) {
   try {
-    await fs.access(file, (fs.constants || fs).R_OK);
+    accessSync(file, (fs.constants || fs).R_OK);
     return true;
   } catch (e) {
     return false;
   }
 }
 
-async function canWrite(file: string) {
+function canWrite(file: string) {
   try {
-    if (!(await exists(file))) return true;
-    await fs.access(file, (fs.constants || fs).W_OK);
+    if (!exists(file)) return true;
+    accessSync(file, (fs.constants || fs).W_OK);
     return true;
   } catch (e) {
     return false;
