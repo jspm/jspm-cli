@@ -1,4 +1,5 @@
 import * as fs from "node:fs/promises";
+import { extname } from "node:path";
 import { pathToFileURL } from "url";
 import c from "picocolors";
 import { type Generator } from "@jspm/generator";
@@ -15,7 +16,6 @@ import {
   writeOutput,
 } from "./utils";
 import { withType } from "./logger";
-import { extname } from "node:path";
 
 export default async function link(modules: string[], flags: Flags) {
   const log = withType("link/link");
