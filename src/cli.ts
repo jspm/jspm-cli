@@ -30,8 +30,8 @@ export const cli = cac(c.yellow("jspm"));
 type opt = [string, string, any];
 const mapOpt: opt = [
   "-m, --map <file>",
-  "File containing initial import map",
-  { default: "importmap.json" },
+  "File containing initial import map (defaults to importmap.json, or the input HTML if linking)",
+  {},
 ];
 const envOpt: opt = [
   "-e, --env <environments>",
@@ -144,7 +144,7 @@ cli
     (
       name
     ) => `Link an HTML file and update its import map including preload and integrity tags
-  $ ${name} link --map index.html --integrity --preload dynamic
+  $ ${name} link --map index.html --integrity --preload
 `
   )
   .usage(

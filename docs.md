@@ -37,7 +37,7 @@ In some cases there may be ambiguity. For instance, you may want to link the NPM
 If no modules are given, all "imports" in the initial map are relinked.
 
 ### Options
-* `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
+* `-m, --map` _&lt;file&gt;_                File containing initial import map (defaults to importmap.json, or the input HTML if linking) 
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
@@ -65,7 +65,7 @@ jspm link ./src/cli.js
 Link an HTML file and update its import map including preload and integrity tags
   
 ```
-jspm link --map index.html --integrity --preload dynamic
+jspm link --map index.html --integrity --preload
 ```
 ## install
 
@@ -79,7 +79,7 @@ Installs packages into an import map, along with all of the dependencies that ar
 If no packages are provided, all "imports" in the initial map are reinstalled.
 
 ### Options
-* `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
+* `-m, --map` _&lt;file&gt;_                File containing initial import map (defaults to importmap.json, or the input HTML if linking) 
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
@@ -129,7 +129,7 @@ jspm uninstall [flags] [...packages]
 Uninstalls packages from an import map. The given packages must be valid package specifiers, such as `npm:react@18.0.0`, `denoland:oak` or `lit`, and must be present in the initial import map.
 
 ### Options
-* `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
+* `-m, --map` _&lt;file&gt;_                File containing initial import map (defaults to importmap.json, or the input HTML if linking) 
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 
@@ -161,7 +161,7 @@ jspm update [flags] [...packages]
 Updates packages in an import map to the latest versions that are compatible with the local `package.json`. The given packages must be valid package specifiers, such as `npm:react@18.0.0`, `denoland:oak` or `lit`, and must be present in the initial import map.
 
 ### Options
-* `-m, --map` _&lt;file&gt;_                File containing initial import map (default: importmap.json)
+* `-m, --map` _&lt;file&gt;_                File containing initial import map (defaults to importmap.json, or the input HTML if linking) 
 * `-o, --output` _&lt;file&gt;_             File to inject the final import map into (default: --map / importmap.json) 
 * `-e, --env` &lt;[environments](#environments)&gt;        Comma-separated environment condition overrides 
 * `-r, --resolution` &lt;[resolutions](#resolutions)&gt;  Comma-separated dependency resolution overrides 

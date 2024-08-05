@@ -1,4 +1,5 @@
 import * as fs from "node:fs/promises";
+import { extname } from "node:path";
 import { pathToFileURL } from "url";
 import c from "picocolors";
 import { type Generator } from "@jspm/generator";
@@ -9,6 +10,7 @@ import {
   getInput,
   getInputPath,
   getOutputPath,
+  isJsExtension,
   startSpinner,
   stopSpinner,
   writeOutput,
@@ -21,8 +23,10 @@ export default async function link(modules: string[], flags: Flags) {
   log(`Linking modules: ${modules.join(", ")}`);
   log(`Flags: ${JSON.stringify(flags)}`);
 
+  const fallbackMap = !modules[0] || isJsExtension(extname(modules[0])) ? undefined : modules[0];
+
   const env = await getEnv(flags);
-  const inputMapPath = getInputPath(flags);
+  const inputMapPath = getInputPath(flags, fallbackMap);
   const outputMapPath = getOutputPath(flags);
   const generator = await getGenerator(flags);
 
@@ -36,7 +40,7 @@ export default async function link(modules: string[], flags: Flags) {
   // The input map is either from a JSON file or extracted from an HTML file.
   // In the latter case we want to trace any inline modules from the HTML file
   // as well, since they may have imports that are not in the import map yet:
-  const input = await getInput(flags);
+  const input = await getInput(flags, fallbackMap);
   const pins = inlinePins.concat(resolvedModules.map((p) => p.target));
   let allPins = pins;
   if (input) {
