@@ -658,11 +658,15 @@ export interface ModuleAnalysis {
   cjsLazyDeps: string[] | null;
 }
 
+type InstallSubpath = '.' | `./${string}`;
+
+const rootInstallSubpath: InstallSubpath = '.';
+
 export interface Install {
   target: string | InstallTarget;
   alias?: string;
-  subpath?: '.' | `./${string}`;
-  subpaths?: ('.' | `./${string}`)[] | true;
+  subpath?: InstallSubpath;
+  subpaths?: InstallSubpath[] | true;
 }
 
 /**
@@ -1290,6 +1294,7 @@ export class Generator {
       mode ??= 'default';
 
       if (Object.keys(this.traceMap.installer!.installs.primary).length) {
+        const pins = this.traceMap.pins || Object.keys(this.traceMap.inputMap.imports);
         return this._install(
           Object.entries(this.traceMap.installer!.installs.primary).map(([alias, target]) => {
             const pkgTarget = this.traceMap.installer!.constraints.primary[alias];
@@ -1305,10 +1310,12 @@ export class Generator {
                 newTarget = `${pkgTarget.registry}:${pkgTarget.name}`;
               }
             }
+            const subpaths = getInstallReplaySubpaths(alias, pins);
 
             return {
               alias,
-              target: newTarget
+              target: newTarget,
+              subpaths
             } as Install;
           }),
           mode
@@ -2323,6 +2330,27 @@ async function installToTarget(
     alias: install.alias || alias,
     subpath: install.subpath || subpath
   };
+}
+
+function getInstallReplaySubpaths(alias: string, pins: string[]): InstallSubpath[] {
+  const subpaths = pins
+    .filter(pin => {
+      const isExactPin = pin === alias;
+      const isSubpathPin = pin.startsWith(alias) && pin[alias.length] === '/';
+      return isExactPin || isSubpathPin;
+    })
+    .map(pin => {
+      const pinSubpath = pin.slice(alias.length);
+      return toInstallSubpath(pinSubpath);
+    });
+
+  if (subpaths.length) return subpaths;
+  return [rootInstallSubpath];
+}
+
+function toInstallSubpath(pinSubpath: string): InstallSubpath {
+  if (!pinSubpath) return rootInstallSubpath;
+  return `.${pinSubpath}` as InstallSubpath;
 }
 
 function detectDefaultProvider(
