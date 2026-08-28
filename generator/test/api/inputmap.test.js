@@ -1,9 +1,26 @@
 import { Generator } from '@jspm/generator';
 import assert from 'assert';
 
-// Skypack CDN does not support CORS, so skip in browser
+// These CDN URLs do not all support browser test CORS.
 const isBrowser = typeof process === 'undefined' || !process.versions?.node;
 if (!isBrowser) {
+const bootstrapIconsUrl =
+  'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
+
+const bootstrapIconsGenerator = new Generator({
+  inputMap: {
+    imports: {
+      'bootstrap-icons/font/bootstrap-icons.min.css': bootstrapIconsUrl
+    }
+  },
+  cache: false
+});
+
+await bootstrapIconsGenerator.install();
+assert.strictEqual(
+  bootstrapIconsGenerator.getMap().imports['bootstrap-icons/font/bootstrap-icons.min.css'],
+  bootstrapIconsUrl
+);
 
 const generator = new Generator({
   mapUrl: import.meta.url,
@@ -31,5 +48,4 @@ assert.deepEqual(json, {
     }
   }
 });
-
 }
