@@ -43,7 +43,7 @@ export async function createEsmAnalysis(
       // dynamic import -> deoptimize trace all dependencies (and all their exports)
       const specifier = dynamicImportSpecifier(impt);
       if (specifier) dynamicDeps.push(specifier);
-    } else if (impt.type !== 'import-meta' && !impt.typeOnly) {
+    } else if (impt.specifier && !impt.typeOnly) {
       if (!deps.includes(impt.specifier)) deps.push(impt.specifier);
     }
   }

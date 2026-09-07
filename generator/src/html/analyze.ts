@@ -63,7 +63,7 @@ function collectImports(imports: ReadonlyArray<Import>, analysis: HtmlAnalysis) 
     if (impt.type === 'dynamic') {
       const specifier = dynamicImportSpecifier(impt);
       if (specifier) analysis.dynamicImports.add(specifier);
-    } else if (impt.type !== 'import-meta' && !impt.typeOnly) {
+    } else if (impt.specifier && !impt.typeOnly) {
       analysis.staticImports.add(impt.specifier);
     }
   }
