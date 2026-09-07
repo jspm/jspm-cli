@@ -1,5 +1,6 @@
 import { getIntegrity } from '../common/integrity.js';
-import { Analysis } from './analysis.js';
+import { Analysis, dynamicImportSpecifier } from './analysis.js';
+import type { Import } from 'es-module-lexer';
 
 // See: https://nodejs.org/docs/latest/api/modules.html#the-module-scope
 const cjsGlobals: string[] = ['__dirname', '__filename', 'exports', 'module', 'require'];
@@ -11,7 +12,7 @@ export function setBabel(_babel: any) {
 }
 
 export async function createCjsAnalysis(
-  imports: any,
+  imports: ReadonlyArray<Import>,
   source: string,
   url: string
 ): Promise<Analysis> {
@@ -96,7 +97,7 @@ export async function createCjsAnalysis(
 
   return {
     deps: [...requires],
-    dynamicDeps: imports.filter((impt: any) => impt.n).map((impt: any) => impt.n),
+    dynamicDeps: imports.map(dynamicImportSpecifier).filter(s => s !== undefined),
     cjsLazyDeps: [...lazy],
     size: source.length,
     format: 'commonjs',
@@ -105,7 +106,12 @@ export async function createCjsAnalysis(
   };
 }
 
-function buildDynamicString(node: any, fileName: any, isEsm = false, lastIsWildcard = false): string {
+function buildDynamicString(
+  node: any,
+  fileName: any,
+  isEsm = false,
+  lastIsWildcard = false
+): string {
   if (node.type === 'StringLiteral') {
     return node.value;
   }

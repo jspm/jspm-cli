@@ -4,6 +4,8 @@ import { baseUrl, isPlain } from '../common/url.js';
 import { isWs, ParsedAttribute, ParsedTag, parseHtml } from './lexer.js';
 // @ts-ignore
 import { parse } from 'es-module-lexer/js';
+import type { Import } from 'es-module-lexer';
+import { dynamicImportSpecifier } from '../trace/analysis.js';
 
 export interface HtmlAttr {
   quote: '"' | "'" | '';
@@ -54,6 +56,17 @@ function toHtmlAttrs(source: string, attributes: ParsedAttribute[]): Record<stri
   return Object.fromEntries(
     attributes.map(attr => readAttr(source, attr)).map(attr => [attr.name, attr])
   );
+}
+
+function collectImports(imports: ReadonlyArray<Import>, analysis: HtmlAnalysis) {
+  for (const impt of imports) {
+    if (impt.type === 'dynamic') {
+      const specifier = dynamicImportSpecifier(impt);
+      if (specifier) analysis.dynamicImports.add(specifier);
+    } else if (impt.type !== 'import-meta' && !impt.typeOnly) {
+      analysis.staticImports.add(impt.specifier);
+    }
+  }
 }
 
 export function analyzeHtml(source: string, url: URL = baseUrl): HtmlAnalysis {
@@ -127,10 +140,7 @@ export function analyzeHtml(source: string, url: URL = baseUrl): HtmlAnalysis {
             }
           } else {
             const [imports, , facade] = parse(source.slice(tag.innerStart, tag.innerEnd)) || [];
-            for (const { n, d } of imports) {
-              if (!n) continue;
-              (d === -1 ? analysis.staticImports : analysis.dynamicImports).add(n);
-            }
+            collectImports(imports, analysis);
             if (!facade) {
               analysis.inlineModules.push({
                 start: tag.start,
@@ -157,10 +167,7 @@ export function analyzeHtml(source: string, url: URL = baseUrl): HtmlAnalysis {
             }
           } else {
             const [imports] = parse(source.slice(tag.innerStart, tag.innerEnd)) || [];
-            for (const { n, d } of imports) {
-              if (!n) continue;
-              (d === -1 ? analysis.staticImports : analysis.dynamicImports).add(n);
-            }
+            collectImports(imports, analysis);
           }
         }
 
