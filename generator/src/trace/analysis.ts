@@ -1,5 +1,6 @@
 import { JspmError } from '../common/err.js';
 import { getIntegrity } from '../common/integrity.js';
+import type { Import } from 'es-module-lexer';
 
 export type Analysis =
   | AnalysisData
@@ -22,8 +23,14 @@ export interface AnalysisData {
 export { createTsAnalysis } from './ts.js';
 export { createCjsAnalysis } from './cjs.js';
 
+// Template literal dynamic imports are reported as globs, which cannot be traced
+export function dynamicImportSpecifier(impt: Import): string | undefined {
+  if (impt.type !== 'dynamic' || !impt.specifier || impt.specifier.includes('*')) return undefined;
+  return impt.specifier;
+}
+
 export async function createEsmAnalysis(
-  imports: any[],
+  imports: ReadonlyArray<Import>,
   source: string,
   url: string
 ): Promise<Analysis> {
@@ -32,24 +39,12 @@ export async function createEsmAnalysis(
   const deps: string[] = [];
   const dynamicDeps: string[] = [];
   for (const impt of imports) {
-    if (impt.d === -1) {
-      if (!deps.includes(impt.n)) deps.push(impt.n);
-      continue;
-    }
-    // dynamic import -> deoptimize trace all dependencies (and all their exports)
-    if (impt.d >= 0) {
-      if (impt.n) {
-        try {
-          dynamicDeps.push(impt.n);
-        } catch (e) {
-          console.warn(
-            `TODO: Dynamic import custom expression tracing in ${url} for:\n\n${source.slice(
-              impt.ss,
-              impt.se
-            )}\n`
-          );
-        }
-      }
+    if (impt.type === 'dynamic') {
+      // dynamic import -> deoptimize trace all dependencies (and all their exports)
+      const specifier = dynamicImportSpecifier(impt);
+      if (specifier) dynamicDeps.push(specifier);
+    } else if (impt.specifier && !impt.typeOnly) {
+      if (!deps.includes(impt.specifier)) deps.push(impt.specifier);
     }
   }
   const size = source.length;
@@ -74,7 +69,7 @@ function systemMatch(code: string) {
 
 export async function createSystemAnalysis(
   source: string,
-  imports: string[],
+  imports: ReadonlyArray<Import>,
   url: string
 ): Promise<Analysis> {
   const [, rawDeps, contextId] = systemMatch(source) || [];

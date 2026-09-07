@@ -5,9 +5,10 @@ export async function getMaybeWrapperUrl(moduleUrl: any, fetchOpts: any) {
   await init;
   const source = await (await fetch(moduleUrl, fetchOpts)).text();
   const [imports, , facade] = parse(source);
-  if (facade && imports.length) {
+  const specifier = imports[0]?.specifier;
+  if (facade && specifier) {
     try {
-      return new URL(imports[0].n!, moduleUrl).href;
+      return new URL(specifier, moduleUrl).href;
     } catch {}
   }
   return moduleUrl;

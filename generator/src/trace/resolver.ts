@@ -23,9 +23,8 @@ import { isNode } from '../common/env.js';
 let realpath: any, pathToFileURL: any;
 
 export function setPathFns(_realpath: any, _pathToFileURL: any) {
-  (realpath = _realpath), (pathToFileURL = _pathToFileURL);
+  ((realpath = _realpath), (pathToFileURL = _pathToFileURL));
 }
-
 
 function isResponseImmutable(headers: any): boolean {
   if (!headers?.get) return false;
@@ -1063,8 +1062,12 @@ async function getAnalysis(resolver: Resolver, resolvedUrl: string): Promise<Ana
       } catch {}
     }
 
-    const [imports, exports] = parse(sourceText) as any as [any[], string[]];
-    if (imports.every(impt => impt.d > 0) && !exports.length && resolvedUrl.startsWith('file:')) {
+    const [imports, exports] = parse(sourceText);
+    if (
+      imports.every(impt => impt.type === 'dynamic') &&
+      !exports.length &&
+      resolvedUrl.startsWith('file:')
+    ) {
       // Support CommonJS package boundary checks for non-ESM on file: protocol only
       if (parentIsRequire) {
         if (
